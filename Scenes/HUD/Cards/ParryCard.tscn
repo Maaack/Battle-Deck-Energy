@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/CardSettings/ParryCardSetting.tres" type="Resource" id=1]
+[ext_resource path="res://Scenes/HUD/Cards/Base/CardFront.tscn" type="PackedScene" id=2]
+
+[node name="ParryCard" instance=ExtResource( 2 )]
+card_settings = ExtResource( 1 )
+
+[node name="TitleLabel" parent="Control/TitlePanel" index="0"]
+text = "Parry"
+
+[node name="DescriptionLabel" parent="Control/DescriptionPanel/MarginContainer" index="0"]
+text = "Defend yourself from an opponent for 5 damage."
+
+[node name="BDECostLabel" parent="Control/BDEPanel" index="0"]
+text = "1"

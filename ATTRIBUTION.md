@@ -6,6 +6,28 @@ Source: [Github](https://github.com/Maaack/Battle-Deck-Energy)
 License: [MIT License](./LICENSE.md)
 
 ## Art Assets
+### Fonts
+#### Card Titles
+Author: [Typographer Mediengestaltung](https://www.1001fonts.com/users/steffmann/)  
+Source: [1001Fonts](https://www.1001fonts.com/morris-roman-font.html)  
+License: [1001Fonts Free For Commercial Use License](https://www.1001fonts.com/licenses/ffc.html)
+
+#### UI Text
+Author: [Markazi Text Authors](https://www.1001fonts.com/users/markazi-text-authors/)  
+Source: [1001Fonts](https://www.1001fonts.com/markazi-text-font.html)  
+License: [SIL Open Font License (OFL)](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+
+### Icons
+#### Decks
+Author: [Wishforge.Games](http://wishforge.games/)  
+Source: [itch.io](https://wishforge.itch.io/3000-free-icons)  
+License: [Standard License](./Assets/Sourced/Icons/LineHeroUnlimited/License.txt)
+
+#### Banner Art
+Author: [Font Awesome](https://fontawesome.com/)  
+Source: [fontawesome.com](https://fontawesome.com/)  
+License: [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)  
+
 ### Programmer Art
 Author: [Maaack](https://github.com/Maaack)  
 Source: [Github](https://github.com/Maaack/Battle-Deck-Energy)  
@@ -17,11 +39,6 @@ Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
 Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org/contact)  
 Source: [godotengine.org](https://godotengine.org/)  
 License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.txt) 
-
-#### Blender
-Author: [The Blender Foundation](https://www.blender.org/foundation/)  
-Source: [blender.org](https://www.blender.org/download/)  
-License: [GNU General Public License](https://www.blender.org/about/license/)
 
 #### Git
 Author: [Linus Torvalds](https://github.com/torvalds)  
