@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "DeckSettings",
 "language": "GDScript",
-"path": "res://Resources/DecksSettings/DeckSettings.gd"
+"path": "res://Resources/DeckSettings/DeckSettings.gd"
 } ]
 _global_script_class_icons={
 "CardSettings": "",
