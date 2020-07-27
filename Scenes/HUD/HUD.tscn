@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/HUD/Decks/DrawPile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HUD/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/HUD/Decks/ExhaustPile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HUD/Decks/DiscardPile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD/Hand/Hand.tscn" type="PackedScene" id=9]
 
 [node name="HUD" type="Control"]
@@ -71,3 +72,9 @@ margin_left = -0.493469
 margin_top = 0.409729
 margin_right = -24.4935
 margin_bottom = -183.59
+
+[node name="EndTurnButton" parent="." instance=ExtResource( 5 )]
+margin_left = -145.353
+margin_top = -76.6968
+margin_right = -17.3529
+margin_bottom = -26.6968
