@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/HUD/Decks/DrawPile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HUD/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/HUD/Decks/ExhaustPile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HUD/Decks/DiscardPile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/HUD/HealthMeter/HealthMeter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HUD/Hand/Hand.tscn" type="PackedScene" id=9]
 
 [node name="HUD" type="Control"]
@@ -13,7 +14,7 @@ anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 576.437, 440.296, 352.186 ],
+"_edit_horizontal_guides_": [ 576.437, 440.296, 352.186, 24.2419 ],
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 23.6014, 935.507, 87.8138, 995.97 ]
 }
@@ -58,6 +59,12 @@ margin_left = -156.59
 margin_top = -75.1985
 margin_right = -28.5902
 margin_bottom = -25.1985
+
+[node name="HealthMeter" parent="." instance=ExtResource( 6 )]
+margin_left = 23.6014
+margin_top = 24.2419
+margin_right = 423.601
+margin_bottom = 56.2419
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

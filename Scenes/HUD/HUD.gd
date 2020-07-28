@@ -5,6 +5,7 @@ onready var draw_pile = $DrawPile
 onready var discard_pile = $DiscardPile
 onready var hand = $CenterBottom/Hand
 onready var timer = $Timer
+onready var health_meter = $HealthMeter
 
 var starter_deck = preload("res://Resources/DeckSettings/StartingDeck.tres")
 
