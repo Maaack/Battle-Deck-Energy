@@ -4,6 +4,11 @@
 [ext_resource path="res://Scenes/HUD/Decks/Base/Deck.tscn" type="PackedScene" id=2]
 
 [node name="DrawPile" instance=ExtResource( 2 )]
+anchor_top = 1.0
+anchor_right = 0.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 0.0
 
 [node name="Panel" parent="TextureRect" index="0"]
 custom_styles/panel = ExtResource( 1 )

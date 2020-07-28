@@ -35,46 +35,27 @@ __meta__ = {
 
 [node name="Hand" parent="CenterBottom" instance=ExtResource( 9 )]
 
-[node name="BottomLeft" type="Control" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -160.0
-margin_right = 88.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DrawPile" parent="BottomLeft" instance=ExtResource( 1 )]
+[node name="DrawPile" parent="." instance=ExtResource( 1 )]
 margin_left = 23.6014
-margin_top = 0.296143
-margin_right = -0.398636
+margin_top = -159.704
+margin_right = 87.6014
 margin_bottom = -95.7039
 
-[node name="BottomRight" type="Control" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="DiscardPile" parent="." instance=ExtResource( 4 )]
 margin_left = -88.0
-margin_top = -248.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_top = -159.704
+margin_right = -24.0
+margin_bottom = -95.7038
 
-[node name="DiscardPile" parent="BottomRight" instance=ExtResource( 4 )]
-margin_left = -0.493408
-margin_top = 88.2961
-margin_right = -24.4934
-margin_bottom = -95.7039
-
-[node name="ExhaustPile" parent="BottomRight" instance=ExtResource( 3 )]
-margin_left = -0.493469
-margin_top = 0.409729
-margin_right = -24.4935
-margin_bottom = -183.59
+[node name="ExhaustPile" parent="." instance=ExtResource( 3 )]
+margin_left = -87.9999
+margin_top = -247.814
+margin_right = -23.9999
+margin_bottom = -183.814
 
 [node name="EndTurnButton" parent="." instance=ExtResource( 5 )]
 margin_left = -156.59
 margin_top = -75.1985
 margin_right = -28.5902
 margin_bottom = -25.1985
+[connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]

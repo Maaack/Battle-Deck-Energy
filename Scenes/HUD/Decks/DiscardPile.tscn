@@ -4,6 +4,12 @@
 [ext_resource path="res://Scenes/HUD/Decks/Base/Deck.tscn" type="PackedScene" id=2]
 
 [node name="DiscardPile" instance=ExtResource( 2 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="TextureRect" parent="." index="0"]
 flip_h = true

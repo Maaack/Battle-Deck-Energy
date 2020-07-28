@@ -4,7 +4,7 @@ extends Control
 
 onready var count_label = $TextureRect/Panel/CountLabel
 
-var deck_settings : DeckSettings setget set_deck_settings
+var deck_settings : DeckSettings = DeckSettings.new() setget set_deck_settings
 
 
 func set_deck_settings(value:DeckSettings):
@@ -35,3 +35,11 @@ func draw_hand(count:int = 1):
 	hand = deck_settings.draw_hand(count)
 	_update_deck_count()
 	return hand
+
+func add_cards(cards:Array):
+	for card in cards:
+		add_card(card)
+
+func add_card(card:PackedScene):
+	deck_settings.cards.append(card)
+	_update_deck_count()

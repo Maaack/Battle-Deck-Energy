@@ -44,5 +44,5 @@ func _update_glow():
 		animation_node.stop()
 
 func _on_Button_pressed():
-	emit_signal("pressed", self)
+	emit_signal("pressed")
 	button_node.disabled = true
