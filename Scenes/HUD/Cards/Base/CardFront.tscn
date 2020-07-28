@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Themes/HUD.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/HUD/Cards/Base/CardFront.gd" type="Script" id=6]
 [ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=7]
+[ext_resource path="res://Scenes/HUD/Cards/Base/GlowAnimation.tres" type="Animation" id=8]
+[ext_resource path="res://Scenes/HUD/Glows/GoldGlowStyleBox.tres" type="StyleBox" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.411765, 0.729412, 1 )
@@ -33,6 +35,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -128.0
+margin_right = 88.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Control/CenterContainer"]
+margin_left = 88.0
+margin_top = 128.0
+margin_right = 88.0
+margin_bottom = 128.0
+
+[node name="GlowNode" type="Node2D" parent="Control/CenterContainer/Control"]
+visible = false
+modulate = Color( 1, 1, 1, 0.4 )
+scale = Vector2( 1.06, 1.06 )
+
+[node name="GlowPanel" type="Panel" parent="Control/CenterContainer/Control/GlowNode"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -88.0
+margin_top = -128.0
+margin_right = 88.0
+margin_bottom = 128.0
+custom_styles/panel = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/CenterContainer/Control/GlowNode"]
+anims/Glow = ExtResource( 8 )
+
 [node name="CardFront" type="Panel" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitlePanel" type="Panel" parent="Control"]
+[node name="TitlePanel" type="Panel" parent="Control/CardFront"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -80.0
@@ -49,12 +90,13 @@ margin_top = 9.0
 margin_right = 80.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 160, 0 )
+mouse_filter = 2
 custom_styles/panel = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="Label" parent="Control/TitlePanel"]
+[node name="TitleLabel" type="Label" parent="Control/CardFront/TitlePanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 3 )
@@ -65,7 +107,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DescriptionPanel" type="Panel" parent="Control"]
+[node name="DescriptionPanel" type="Panel" parent="Control/CardFront"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -75,14 +117,16 @@ margin_top = -128.0
 margin_right = 80.0
 margin_bottom = -10.0
 rect_min_size = Vector2( 160, 0 )
+mouse_filter = 2
 custom_styles/panel = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/DescriptionPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/CardFront/DescriptionPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 custom_constants/margin_right = 2
 custom_constants/margin_top = 2
 custom_constants/margin_left = 2
@@ -91,7 +135,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DescriptionLabel" type="Label" parent="Control/DescriptionPanel/MarginContainer"]
+[node name="DescriptionLabel" type="Label" parent="Control/CardFront/DescriptionPanel/MarginContainer"]
 margin_left = 2.0
 margin_top = 27.0
 margin_right = 158.0
@@ -110,6 +154,7 @@ margin_left = -15.0
 margin_top = -15.0
 margin_right = 25.0
 margin_bottom = 25.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -125,3 +170,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="gui_input" from="Control/CardFront" to="." method="_on_CardFront_gui_input"]
+[connection signal="mouse_entered" from="Control/CardFront" to="." method="_on_CardFront_mouse_entered"]
+[connection signal="mouse_exited" from="Control/CardFront" to="." method="_on_CardFront_mouse_exited"]

@@ -1,15 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnGlow.tres" type="Animation" id=2]
+[ext_resource path="res://Scenes/HUD/Glows/GoldGlowStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scenes/HUD/Cards/Base/GlowAnimation.tres" type="Animation" id=2]
 [ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnButton.gd" type="Script" id=3]
 [ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnTheme.tres" type="Theme" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 0.941176, 0.258824, 0.666667 )
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
 
 [node name="EndTurnButton" type="Control"]
 anchor_left = 1.0
@@ -48,8 +42,6 @@ __meta__ = {
 
 [node name="GlowNode" type="Node2D" parent="CenterContainer/Control"]
 visible = false
-modulate = Color( 1, 1, 1, 0.42736 )
-scale = Vector2( 1.05726, 1.14316 )
 
 [node name="GlowPanel" type="Panel" parent="CenterContainer/Control/GlowNode"]
 anchor_left = 0.5
@@ -60,7 +52,7 @@ margin_left = -64.0
 margin_top = -25.0
 margin_right = 64.0
 margin_bottom = 25.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
