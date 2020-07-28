@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=5 format=2]
+
+[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnHoverStyleBox.tres" type="StyleBox" id=2]
+[ext_resource path="res://Themes/Fonts/morris_roman_24pt.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnPressedStyleBox.tres" type="StyleBox" id=4]
+
+
+[resource]
+default_font = ExtResource( 3 )
+Button/colors/font_color = Color( 0.992157, 0.992157, 0.992157, 1 )
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 0.901961, 0.901961, 0.901961, 0.443137 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 4 )
+Button/styles/focus = null
+Button/styles/hover = ExtResource( 2 )
+Button/styles/normal = ExtResource( 1 )
+Button/styles/pressed = ExtResource( 4 )

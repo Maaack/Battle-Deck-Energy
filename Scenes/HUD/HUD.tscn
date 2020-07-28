@@ -10,12 +10,12 @@
 [node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 576.437, 440.296, 352.186 ],
 "_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 23.6014, 935.507, 87.8138 ]
+"_edit_vertical_guides_": [ 23.6014, 935.507, 87.8138, 995.97 ]
 }
 
 [node name="CenterBottom" type="MarginContainer" parent="."]
@@ -74,7 +74,7 @@ margin_right = -24.4935
 margin_bottom = -183.59
 
 [node name="EndTurnButton" parent="." instance=ExtResource( 5 )]
-margin_left = -145.353
-margin_top = -76.6968
-margin_right = -17.3529
-margin_bottom = -26.6968
+margin_left = -156.59
+margin_top = -75.1985
+margin_right = -28.5902
+margin_bottom = -25.1985

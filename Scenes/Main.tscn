@@ -32,7 +32,7 @@ physics_object_picking = true
 [node name="HUDContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
+mouse_filter = 1
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
