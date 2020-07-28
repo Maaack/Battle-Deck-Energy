@@ -58,4 +58,8 @@ margin_left = -156.59
 margin_top = -75.1985
 margin_right = -28.5902
 margin_bottom = -25.1985
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
