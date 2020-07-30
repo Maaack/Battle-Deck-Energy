@@ -2,8 +2,13 @@
 
 [ext_resource path="res://Scenes/HUD/Hand/CardContainer/CardContainer.gd" type="Script" id=1]
 
-[node name="CardContainer" type="CenterContainer"]
-margin_right = 80.0
+[node name="CardContainer" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_right = 40.0
 rect_min_size = Vector2( 80, 0 )
 size_flags_horizontal = 3
 script = ExtResource( 1 )
@@ -12,8 +17,10 @@ __meta__ = {
 }
 
 [node name="CenteredControl" type="Control" parent="."]
-margin_left = 40.0
-margin_right = 40.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Tween" type="Tween" parent="."]
-[connection signal="resized" from="." to="." method="_on_CardContainer_resized"]
+[connection signal="item_rect_changed" from="." to="." method="_on_CardContainer_item_rect_changed"]

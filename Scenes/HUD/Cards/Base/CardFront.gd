@@ -2,8 +2,11 @@ tool
 extends Node2D
 
 
+class_name Card
+
 signal glow_on
 signal glow_off
+signal discard
 
 onready var glow_node = $Control/CenterContainer/Control/GlowNode
 onready var animation_node = $Control/CenterContainer/Control/GlowNode/AnimationPlayer
@@ -55,4 +58,7 @@ func _on_CardFront_mouse_exited():
 	_update_glow()
 
 func _on_CardFront_gui_input(event):
-	pass # Replace with function body.
+	if event is InputEventMouseButton and not event.pressed:
+		match event.button_index:
+			BUTTON_LEFT:
+				emit_signal("discard")

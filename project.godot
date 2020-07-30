@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Scenes/HUD/Cards/Base/CardFront.gd"
+}, {
 "base": "Resource",
 "class": "CardSettings",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Resources/DeckSettings/DeckSettings.gd"
 } ]
 _global_script_class_icons={
+"Card": "",
 "CardSettings": "",
 "DeckSettings": ""
 }
