@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/HUD/Hand/Hand.gd" type="Script" id=1]
 
-[node name="Hand" type="HBoxContainer"]
+[node name="Hand" type="CenterContainer"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -15,3 +15,10 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 132.0
+margin_top = 128.0
+margin_right = 732.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 600, 0 )

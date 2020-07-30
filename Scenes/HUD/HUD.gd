@@ -3,7 +3,7 @@ extends Control
 
 onready var draw_pile = $DrawPile
 onready var discard_pile = $DiscardPile
-onready var hand = $CenterBottom/Hand
+onready var hand = $Hand
 onready var draw_hand_timer = $DrawHandTimer
 onready var draw_card_timer = $DrawCardTimer
 onready var reshuffle_card_timer = $ReshuffleCardTimer
