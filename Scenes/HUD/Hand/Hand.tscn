@@ -3,9 +3,13 @@
 [ext_resource path="res://Scenes/HUD/Hand/Hand.gd" type="Script" id=1]
 
 [node name="Hand" type="HBoxContainer"]
-margin_left = 80.0
-margin_right = 944.0
-margin_bottom = 256.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -432.0
+margin_top = -256.0
+margin_right = 432.0
 size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {

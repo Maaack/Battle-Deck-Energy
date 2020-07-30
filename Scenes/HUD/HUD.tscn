@@ -35,6 +35,14 @@ __meta__ = {
 }
 
 [node name="Hand" parent="CenterBottom" instance=ExtResource( 9 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 0.0
+margin_right = 944.0
+margin_bottom = 256.0
 
 [node name="DrawPile" parent="." instance=ExtResource( 1 )]
 margin_left = 23.6014
@@ -66,7 +74,21 @@ margin_top = 24.2419
 margin_right = 423.601
 margin_bottom = 56.2419
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DrawHandTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DrawCardTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ReshuffleCardTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+[connection signal="drew_card" from="DrawPile" to="." method="_on_DrawPile_drew_card"]
+[connection signal="empty" from="DrawPile" to="." method="_on_DrawPile_empty"]
+[connection signal="drew_card" from="DiscardPile" to="." method="_on_DiscardPile_drew_card"]
+[connection signal="empty" from="DiscardPile" to="." method="_on_DiscardPile_empty"]
 [connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="DrawHandTimer" to="." method="_on_DrawHandTimer_timeout"]
+[connection signal="timeout" from="DrawCardTimer" to="." method="_on_DrawCardTimer_timeout"]
+[connection signal="timeout" from="ReshuffleCardTimer" to="." method="_on_ReshuffleCardTimer_timeout"]

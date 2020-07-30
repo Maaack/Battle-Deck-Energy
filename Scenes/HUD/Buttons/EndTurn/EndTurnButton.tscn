@@ -71,6 +71,7 @@ margin_right = 64.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 128, 50 )
 focus_mode = 0
+disabled = true
 text = "End Turn"
 __meta__ = {
 "_edit_use_anchors_": false
