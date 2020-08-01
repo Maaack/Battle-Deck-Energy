@@ -64,8 +64,9 @@ wait_time = 0.2
 one_shot = true
 
 [node name="ReshuffleCardTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
+[connection signal="discarding_card" from="Hand" to="." method="_on_Hand_discarding_card"]
 [connection signal="drew_card" from="DrawPile" to="." method="_on_DrawPile_drew_card"]
 [connection signal="empty" from="DrawPile" to="." method="_on_DrawPile_empty"]
 [connection signal="drew_card" from="DiscardPile" to="." method="_on_DiscardPile_drew_card"]

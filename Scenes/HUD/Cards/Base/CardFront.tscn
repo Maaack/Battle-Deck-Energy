@@ -170,6 +170,9 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CardTween" type="Tween" parent="."]
 [connection signal="gui_input" from="Control/CardFront" to="." method="_on_CardFront_gui_input"]
 [connection signal="mouse_entered" from="Control/CardFront" to="." method="_on_CardFront_mouse_entered"]
 [connection signal="mouse_exited" from="Control/CardFront" to="." method="_on_CardFront_mouse_exited"]
+[connection signal="tween_completed" from="CardTween" to="." method="_on_CardTween_tween_completed"]

@@ -7,20 +7,28 @@ class_name Card
 signal glow_on
 signal glow_off
 signal discard
+signal position_reached
 
 onready var glow_node = $Control/CenterContainer/Control/GlowNode
 onready var animation_node = $Control/CenterContainer/Control/GlowNode/AnimationPlayer
+onready var tween_node = $CardTween
 
 export(Resource) var card_settings setget set_card_settings
 
 var hovering : bool = false
 var pressed : bool = false
 var glowing : bool = false
+var discarding : bool = false
+var exhausting : bool = false
+var packed_scene : PackedScene setget set_packed_scene
 
 
 func set_card_settings(value:CardSettings):
 	card_settings = value
 	_update_card_front()
+
+func set_packed_scene(value:PackedScene):
+	packed_scene = value
 
 func _ready():
 	_update_card_front()
@@ -61,4 +69,21 @@ func _on_CardFront_gui_input(event):
 	if event is InputEventMouseButton and not event.pressed:
 		match event.button_index:
 			BUTTON_LEFT:
-				emit_signal("discard")
+				discard()
+
+func discard():
+	discarding = true
+	emit_signal("discard", self)
+
+func _get_tween_time():
+	return 0.5
+
+func tween_to_position(new_position:Vector2):
+	if is_instance_valid(tween_node):
+		if tween_node.is_active():
+			tween_node.stop_all()
+		tween_node.interpolate_property(self, "position", position, new_position, _get_tween_time())
+		tween_node.start()
+
+func _on_CardTween_tween_completed(object, key):
+	emit_signal("position_reached", self)

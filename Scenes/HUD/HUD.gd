@@ -37,18 +37,20 @@ func _reshuffling_cards_completed():
 	_shuffle_and_draw()
 
 func _on_EndTurnButton_pressed():
-	var discarded_cards : Array = hand.discard_hand()
-	discard_pile.add_cards(discarded_cards)
-	if draw_pile.size() > 0:
-		draw_hand_timer.start()
-	else:
-		draw_cards(5)
+	hand.discard_hand()
+	draw_hand_timer.start()
 
 func _on_DrawHandTimer_timeout():
-	draw_cards(5)
+	draw_cards(3)
 
-func _on_DrawPile_drew_card(card:PackedScene):
-	hand.add_card(card)
+func _on_DrawPile_drew_card(card_scene:PackedScene):
+	var card_instance : Card = card_scene.instance()
+	if not is_instance_valid(card_instance):
+		return
+	card_instance.packed_scene = card_scene
+	card_instance.position = draw_pile.rect_position
+	add_child(card_instance)
+	hand.add_card(card_instance)
 	_drawing_cards -= 1
 	if _drawing_cards > 0:
 		draw_card_timer.start()
@@ -83,3 +85,12 @@ func _on_DrawCardTimer_timeout():
 
 func _on_ReshuffleCardTimer_timeout():
 	discard_pile.draw_card()
+
+func _on_Card_position_reached(moving_card:Card):
+	if moving_card.discarding:
+		discard_pile.add_card(moving_card.packed_scene)
+		moving_card.queue_free()
+
+func _on_Hand_discarding_card(discarding_card:Card):
+	discarding_card.connect("position_reached", self, "_on_Card_position_reached")
+	discarding_card.tween_to_position(discard_pile.rect_position)

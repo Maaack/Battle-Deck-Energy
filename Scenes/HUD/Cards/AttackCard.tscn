@@ -6,10 +6,10 @@
 [node name="AttackCard" instance=ExtResource( 1 )]
 card_settings = ExtResource( 2 )
 
-[node name="TitleLabel" parent="Control/TitlePanel" index="0"]
+[node name="TitleLabel" parent="Control/CardFront/TitlePanel" index="0"]
 text = "Attack"
 
-[node name="DescriptionLabel" parent="Control/DescriptionPanel/MarginContainer" index="0"]
+[node name="DescriptionLabel" parent="Control/CardFront/DescriptionPanel/MarginContainer" index="0"]
 margin_top = 38.0
 margin_bottom = 79.0
 text = "Attack the enemy for 3 damage."
