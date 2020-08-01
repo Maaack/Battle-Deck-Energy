@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/HUD/Decks/DrawPile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HUD/HUD.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD/HealthMeter/HealthMeter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HUD/HandManager/HandManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/HUD/BattleDeckEnergy/BattleDeckEnergy.tscn" type="PackedScene" id=8]
 
 [node name="HUD" type="Control"]
 anchor_top = 1.0
@@ -57,6 +58,12 @@ margin_left = -156.59
 margin_top = -75.1985
 margin_right = -28.5902
 margin_bottom = -25.1985
+
+[node name="BattleDeckEnergy" parent="." instance=ExtResource( 8 )]
+margin_left = 23.6014
+margin_top = -247.814
+margin_right = 63.6014
+margin_bottom = -207.814
 
 [node name="HealthMeter" parent="." instance=ExtResource( 6 )]
 visible = false

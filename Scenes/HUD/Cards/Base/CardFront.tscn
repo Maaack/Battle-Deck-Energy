@@ -56,8 +56,6 @@ margin_bottom = 128.0
 
 [node name="GlowNode" type="Node2D" parent="Control/CenterContainer/Control"]
 visible = false
-modulate = Color( 1, 1, 1, 0.4 )
-scale = Vector2( 1.06, 1.06 )
 
 [node name="GlowPanel" type="Panel" parent="Control/CenterContainer/Control/GlowNode"]
 anchor_right = 1.0
