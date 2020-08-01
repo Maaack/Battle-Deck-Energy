@@ -29,7 +29,8 @@ func discard_hand():
 		if card is Card:
 			card.discard()
 
-func _fan_cards():
+func get_card_positions():
+	var positions : Array = []
 	var card_max_ratio : float = float(cards.size()) / float(max_hand_size)
 	var width_diff : float = (ending_width - starting_width) * card_max_ratio
 	var current_width : float = starting_width + width_diff
@@ -39,7 +40,13 @@ func _fan_cards():
 	for card in cards:
 		iter += 1
 		if card is Card:
-			var x_position : float = horizontal_center + (iter * divided_space)
-			var x_offset : Vector2 = Vector2(x_position, 0) + global_position
-			card.tween_to_position(x_offset)
+			var card_position_x : float = horizontal_center + (iter * divided_space)
+			var card_position : Vector2 = Vector2(card_position_x, 0)
+			positions.append(card_position)
+	return positions
 	
+func _fan_cards():
+	var positions : Array = get_card_positions()
+	for card in cards:
+		if card is Card:
+			card.tween_to_position(positions.pop_front())

@@ -9,8 +9,10 @@
 [ext_resource path="res://Scenes/HUD/HandManager/HandManager.tscn" type="PackedScene" id=7]
 
 [node name="HUD" type="Control"]
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -600.0
 mouse_filter = 1
 script = ExtResource( 2 )
 __meta__ = {
@@ -19,18 +21,18 @@ __meta__ = {
 "_edit_vertical_guides_": [ 23.6014, 935.507, 87.8138, 995.97 ]
 }
 
-[node name="HandContainer" type="CenterContainer" parent="."]
-margin_left = 512.0
-margin_top = 476.0
-margin_right = 512.0
-margin_bottom = 476.0
+[node name="Hand" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_top = -125.0
+margin_bottom = -125.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="HandContainer"]
-
-[node name="HandManager" parent="HandContainer/Control" instance=ExtResource( 7 )]
+[node name="HandManager" parent="Hand" instance=ExtResource( 7 )]
 
 [node name="DrawPile" parent="." instance=ExtResource( 1 )]
 margin_left = 23.6014
@@ -57,6 +59,7 @@ margin_right = -28.5902
 margin_bottom = -25.1985
 
 [node name="HealthMeter" parent="." instance=ExtResource( 6 )]
+visible = false
 margin_left = 23.6014
 margin_top = 24.2419
 margin_right = 423.601
@@ -72,7 +75,11 @@ one_shot = true
 [node name="ReshuffleCardTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
-[connection signal="discarding_card" from="HandContainer/Control/HandManager" to="." method="_on_HandManager_discarding_card"]
+
+[node name="ResizeTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+[connection signal="discarding_card" from="Hand/HandManager" to="." method="_on_HandManager_discarding_card"]
 [connection signal="drew_card" from="DrawPile" to="." method="_on_DrawPile_drew_card"]
 [connection signal="empty" from="DrawPile" to="." method="_on_DrawPile_empty"]
 [connection signal="drew_card" from="DiscardPile" to="." method="_on_DiscardPile_drew_card"]
@@ -81,3 +88,4 @@ one_shot = true
 [connection signal="timeout" from="DrawHandTimer" to="." method="_on_DrawHandTimer_timeout"]
 [connection signal="timeout" from="DrawCardTimer" to="." method="_on_DrawCardTimer_timeout"]
 [connection signal="timeout" from="ReshuffleCardTimer" to="." method="_on_ReshuffleCardTimer_timeout"]
+[connection signal="timeout" from="ResizeTimer" to="." method="_on_FanCardTimer_timeout"]

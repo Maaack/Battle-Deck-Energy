@@ -3,10 +3,12 @@ extends Control
 
 onready var draw_pile = $DrawPile
 onready var discard_pile = $DiscardPile
-onready var hand_manager = $HandContainer/Control/HandManager
+onready var hand_manager = $Hand/HandManager
+onready var hand = $Hand
 onready var draw_hand_timer = $DrawHandTimer
 onready var draw_card_timer = $DrawCardTimer
 onready var reshuffle_card_timer = $ReshuffleCardTimer
+onready var resize_timer = $ResizeTimer
 onready var health_meter = $HealthMeter
 onready var end_turn_button = $EndTurnButton/Button
 
@@ -41,15 +43,15 @@ func _on_EndTurnButton_pressed():
 	draw_hand_timer.start()
 
 func _on_DrawHandTimer_timeout():
-	draw_cards(3)
+	draw_cards(5)
 
 func _on_DrawPile_drew_card(card_scene:PackedScene):
 	var card_instance : Card = card_scene.instance()
 	if not is_instance_valid(card_instance):
 		return
 	card_instance.packed_scene = card_scene
-	card_instance.position = draw_pile.rect_position
-	add_child(card_instance)
+	card_instance.position = draw_pile.rect_position - hand.rect_position
+	hand.add_child(card_instance)
 	hand_manager.add_card(card_instance)
 	_drawing_cards -= 1
 	if _drawing_cards > 0:
@@ -93,4 +95,4 @@ func _on_Card_position_reached(moving_card:Card):
 
 func _on_HandManager_discarding_card(discarding_card:Card):
 	discarding_card.connect("position_reached", self, "_on_Card_position_reached")
-	discarding_card.tween_to_position(discard_pile.rect_position)
+	discarding_card.tween_to_position(discard_pile.rect_position - hand.rect_position)
