@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/HUD/Decks/DiscardPile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD/HealthMeter/HealthMeter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/HUD/Hand/Hand.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/HUD/HandManager/HandManager.tscn" type="PackedScene" id=7]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -19,12 +19,18 @@ __meta__ = {
 "_edit_vertical_guides_": [ 23.6014, 935.507, 87.8138, 995.97 ]
 }
 
-[node name="Hand" parent="." instance=ExtResource( 9 )]
-anchor_left = 0.0
-anchor_right = 1.0
-margin_left = 0.0
-margin_top = -248.0
-margin_right = 0.0
+[node name="HandContainer" type="CenterContainer" parent="."]
+margin_left = 512.0
+margin_top = 476.0
+margin_right = 512.0
+margin_bottom = 476.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HandContainer"]
+
+[node name="HandManager" parent="HandContainer/Control" instance=ExtResource( 7 )]
 
 [node name="DrawPile" parent="." instance=ExtResource( 1 )]
 margin_left = 23.6014
@@ -66,7 +72,7 @@ one_shot = true
 [node name="ReshuffleCardTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
-[connection signal="discarding_card" from="Hand" to="." method="_on_Hand_discarding_card"]
+[connection signal="discarding_card" from="HandContainer/Control/HandManager" to="." method="_on_HandManager_discarding_card"]
 [connection signal="drew_card" from="DrawPile" to="." method="_on_DrawPile_drew_card"]
 [connection signal="empty" from="DrawPile" to="." method="_on_DrawPile_empty"]
 [connection signal="drew_card" from="DiscardPile" to="." method="_on_DiscardPile_drew_card"]
