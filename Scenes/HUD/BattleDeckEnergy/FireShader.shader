@@ -10,8 +10,6 @@ uniform float soft_edge = 0.08;
 
 uniform vec2 center = vec2(0.5, 0.8);
 
-uniform int OCTAVES = 6;
-
 float rand(vec2 coord){
 	return fract(sin(dot(coord, vec2(12.9898, 78.233)))* 43758.5453123);
 }
@@ -31,11 +29,11 @@ float noise(vec2 coord){
 	return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
 }
 
-float fbm(vec2 coord){
+float fbm(vec2 coord, int octaves){
 	float value = 0.0;
 	float scale = 0.5;
 
-	for(int i = 0; i < OCTAVES; i++){
+	for(int i = 0; i < octaves; i++){
 		value += noise(coord) * scale;
 		coord *= 2.0;
 		scale *= 0.5;
@@ -65,21 +63,27 @@ float egg_shape(vec2 coord, float radius){
 	return clamp(value, 0.0, 1.0);
 }
 
+float fire_shape(vec2 coord, float radius){
+	float fire_s = egg_shape(coord, radius);
+	fire_s += egg_shape(coord, radius/2.) / 10.;
+	fire_s += egg_shape(coord, radius/4.) / 20.;
+	return fire_s;
+}
+
 void fragment() {
 	vec2 coord = UV * 8.0;
 	vec2 fbmcoord = coord / 6.0;
 
-	float egg_s = egg_shape(UV, 0.4);
-	egg_s += egg_shape(UV, 0.2) / 2.0;
+	float fire_s = fire_shape(UV, 0.4);
 
-	float noise1 = noise(coord + vec2(TIME * 0.25, TIME * 4.0));
-	float noise2 = noise(coord + vec2(TIME * 0.5, TIME * 7.0));
+	float noise1 = noise(coord*0.80 + vec2(TIME * 0.25, TIME * 4.0));
+	float noise2 = noise(coord*0.25 + vec2(TIME * 0.5, TIME * 7.0));
 	float combined_noise = (noise1 + noise2) / 2.0;
 
-	float fbm_noise = fbm(fbmcoord + vec2(0.0, TIME * 3.0));
+	float fbm_noise = fbm(fbmcoord + vec2(0.0, TIME * 3.0), 6);
 	fbm_noise = overlay(fbm_noise, UV.y);
 
-	float everything_combined = combined_noise * fbm_noise * egg_s;
+	float everything_combined = combined_noise * fbm_noise * fire_s;
 
 	if (everything_combined < outer_threshold){
 		COLOR = transparent;
@@ -92,4 +96,6 @@ void fragment() {
 	} else {
 		COLOR = inner_color;
 	}
+	
+	//COLOR = vec4(vec3(1.0), combined_noise);
 }

@@ -10,6 +10,7 @@ onready var draw_card_timer = $DrawCardTimer
 onready var reshuffle_card_timer = $ReshuffleCardTimer
 onready var resize_timer = $ResizeTimer
 onready var health_meter = $HealthMeter
+onready var energy_meter = $BattleDeckEnergy
 onready var end_turn_button = $EndTurnButton/Button
 
 var starter_deck : Resource = preload("res://Resources/DeckSettings/StartingDeck.tres")
@@ -29,6 +30,8 @@ func draw_cards(count:int = 1):
 
 func _drawing_cards_completed():
 	end_turn_button.disabled = false
+	energy_meter.reset_energy()
+
 
 func reshuffle_discard_pile():
 	_reshuffling_cards = discard_pile.size()
@@ -94,5 +97,6 @@ func _on_Card_position_reached(moving_card:Card):
 		moving_card.queue_free()
 
 func _on_HandManager_discarding_card(discarding_card:Card):
+	energy_meter.spend(1)
 	discarding_card.connect("position_reached", self, "_on_Card_position_reached")
 	discarding_card.tween_to_position(discard_pile.rect_position - hand.rect_position)
