@@ -63,39 +63,42 @@ float egg_shape(vec2 coord, float radius){
 	return clamp(value, 0.0, 1.0);
 }
 
-float fire_shape(vec2 coord, float radius){
+float get_fire_shape(vec2 coord, float radius){
 	float fire_s = egg_shape(coord, radius);
 	fire_s += egg_shape(coord, radius/2.) / 10.;
 	fire_s += egg_shape(coord, radius/4.) / 20.;
 	return fire_s;
 }
 
+float get_moving_coarse_noise(vec2 coord, float time){
+	float noise1 = noise(coord * 6.4 + vec2(time * 0.25, time * 4.0));
+	float noise2 = noise(coord * 2. + vec2(time * 0.5, time * 7.0));
+	return (noise1 + noise2) / 2.0;
+}
+
+float get_moving_fbm_noise(vec2 coord, float time){
+	vec2 fbm_coord = coord * 1.6 + vec2(0.0, time * 3.0);
+	float fbm_noise = fbm(fbm_coord, 6);
+	return overlay(fbm_noise, coord.y);
+	
+}
+
 void fragment() {
-	vec2 coord = UV * 8.0;
-	vec2 fbmcoord = coord / 6.0;
 
-	float fire_s = fire_shape(UV, 0.4);
+	float fire_shape = get_fire_shape(UV, 0.4);
+	float coarse_noise = get_moving_coarse_noise(UV, TIME);
+	float fbm_noise = get_moving_fbm_noise(UV, TIME);
+	float combined = coarse_noise * fbm_noise * fire_shape;
 
-	float noise1 = noise(coord*0.80 + vec2(TIME * 0.25, TIME * 4.0));
-	float noise2 = noise(coord*0.25 + vec2(TIME * 0.5, TIME * 7.0));
-	float combined_noise = (noise1 + noise2) / 2.0;
-
-	float fbm_noise = fbm(fbmcoord + vec2(0.0, TIME * 3.0), 6);
-	fbm_noise = overlay(fbm_noise, UV.y);
-
-	float everything_combined = combined_noise * fbm_noise * fire_s;
-
-	if (everything_combined < outer_threshold){
+	if (combined < outer_threshold){
 		COLOR = transparent;
-	} else if (everything_combined < outer_threshold + soft_edge){
-		COLOR = mix(transparent, outer_color, (everything_combined - outer_threshold) / soft_edge);
-	} else if (everything_combined < inner_threshold){
+	} else if (combined < outer_threshold + soft_edge){
+		COLOR = mix(transparent, outer_color, (combined - outer_threshold) / soft_edge);
+	} else if (combined < inner_threshold){
 		COLOR = outer_color;
-	} else if (everything_combined < inner_threshold + soft_edge){
-		COLOR = mix(outer_color, inner_color, (everything_combined - inner_threshold) / soft_edge);
+	} else if (combined < inner_threshold + soft_edge){
+		COLOR = mix(outer_color, inner_color, (combined - inner_threshold) / soft_edge);
 	} else {
 		COLOR = inner_color;
 	}
-	
-	//COLOR = vec4(vec3(1.0), combined_noise);
 }
