@@ -17,6 +17,12 @@ Author: [Markazi Text Authors](https://www.1001fonts.com/users/markazi-text-auth
 Source: [1001Fonts](https://www.1001fonts.com/markazi-text-font.html)  
 License: [SIL Open Font License (OFL)](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
 
+### Images
+#### Mountain Background Pack
+Author: [ansimuz](http://ansimuz.com/site/)  
+Source: [OpenGameArt.Org](https://opengameart.org/content/mountain-at-dusk-background)  
+License: [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+
 ### Icons
 #### Decks
 Author: [Wishforge.Games](http://wishforge.games/)  
