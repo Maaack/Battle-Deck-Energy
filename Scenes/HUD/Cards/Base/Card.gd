@@ -22,6 +22,7 @@ var glowing : bool = false
 var discarding : bool = false
 var exhausting : bool = false
 var packed_scene : PackedScene setget set_packed_scene
+var _moving_to_position = null
 
 
 func set_init_card_settings(value:CardSettings):
@@ -85,11 +86,14 @@ func discard():
 func _get_tween_time():
 	return 0.5
 
-func tween_to_position(new_position:Vector2):
+func tween_to_position(new_position:Vector2, tween_time:float = _get_tween_time()):
+	if _moving_to_position == new_position:
+		return
+	_moving_to_position = new_position
 	if is_instance_valid(tween_node):
 		if tween_node.is_active():
 			tween_node.stop_all()
-		tween_node.interpolate_property(self, "position", position, new_position, _get_tween_time())
+		tween_node.interpolate_property(self, "position", position, new_position, tween_time)
 		tween_node.start()
 
 func _on_CardTween_tween_completed(object, key):
