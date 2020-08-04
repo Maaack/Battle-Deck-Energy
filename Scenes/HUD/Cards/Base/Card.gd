@@ -13,8 +13,9 @@ onready var glow_node = $Control/CenterContainer/Control/GlowNode
 onready var animation_node = $Control/CenterContainer/Control/GlowNode/AnimationPlayer
 onready var tween_node = $CardTween
 
-export(Resource) var card_settings setget set_card_settings
+export(Resource) var init_card_settings setget set_init_card_settings
 
+var card_settings : CardSettings
 var hovering : bool = false
 var pressed : bool = false
 var glowing : bool = false
@@ -23,12 +24,18 @@ var exhausting : bool = false
 var packed_scene : PackedScene setget set_packed_scene
 
 
-func set_card_settings(value:CardSettings):
-	card_settings = value
+func set_init_card_settings(value:CardSettings):
+	init_card_settings = value
+	if init_card_settings is CardSettings:
+		card_settings = init_card_settings
 	_update_card_front()
 
 func set_packed_scene(value:PackedScene):
 	packed_scene = value
+
+func get_energy_cost():
+	if card_settings is CardSettings:
+		return card_settings.energy_cost
 
 func _ready():
 	_update_card_front()
@@ -40,8 +47,8 @@ func _update_card_front():
 		$Control/CardFront/TitlePanel/TitleLabel.text = card_settings.title
 	if card_settings.description != "":
 		$Control/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel.text = card_settings.description
-	if card_settings.bde_cost >= 0:
-		$Control/BDEPanel/BDECostLabel.text = str(card_settings.bde_cost)
+	if card_settings.energy_cost >= 0:
+		$Control/BDEPanel/BDECostLabel.text = str(card_settings.energy_cost)
 
 func _update_glow():
 	if hovering and not pressed:

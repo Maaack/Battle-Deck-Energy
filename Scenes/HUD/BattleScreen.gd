@@ -13,13 +13,18 @@ onready var health_meter = $HealthMeter
 onready var energy_meter = $BattleDeckEnergy
 onready var end_turn_button = $EndTurnButton/Button
 
-var starter_deck : Resource = preload("res://Resources/DeckSettings/StartingDeck.tres")
 var _drawing_cards : int = 0
 var _reshuffling_cards : int = 0
+var player : Character
+var hand_size : int = 0
 
-func _ready():
+func start(player_ref:Character):
+	player = player_ref
 	randomize()
-	draw_pile.set_deck_settings(starter_deck)
+	energy_meter.max_energy = player.max_energy
+	energy_meter.reset_energy()
+	hand_size = player.hand_size
+	draw_pile.set_deck(player.deck)
 	draw_pile.shuffle()
 	draw_hand_timer.start()
 
@@ -46,7 +51,7 @@ func _on_EndTurnButton_pressed():
 	draw_hand_timer.start()
 
 func _on_DrawHandTimer_timeout():
-	draw_cards(5)
+	draw_cards(hand_size)
 
 func _on_DrawPile_drew_card(card_scene:PackedScene):
 	var card_instance : Card = card_scene.instance()

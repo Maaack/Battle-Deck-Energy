@@ -8,7 +8,7 @@ signal empty
 onready var count_label = $TextureRect/Panel/CountLabel
 
 var deck_settings : DeckSettings = DeckSettings.new() setget set_deck_settings
-var deck : Array = []
+var deck : Array = [] setget set_deck
 
 func set_deck_settings(value:DeckSettings):
 	deck_settings = value
@@ -16,6 +16,11 @@ func set_deck_settings(value:DeckSettings):
 		return
 	deck = value.cards.duplicate()
 	_update_deck_count()
+
+func set_deck(value:Array):
+	if value is Array:
+		deck = value
+		_update_deck_count()
 
 func size():
 	return deck.size()

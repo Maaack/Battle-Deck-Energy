@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-montain-far.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/HUD/BattleScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-mountains.png" type="Texture" id=5]
@@ -90,4 +90,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HUD" parent="HUDContainer" instance=ExtResource( 2 )]
+[node name="BattleScreen" parent="HUDContainer" instance=ExtResource( 2 )]
