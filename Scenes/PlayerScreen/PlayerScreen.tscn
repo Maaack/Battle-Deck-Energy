@@ -5,10 +5,11 @@
 
 [node name="PlayerScreen" type="Control"]
 anchor_right = 1.0
-margin_bottom = 600.0
+mouse_filter = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 24.0 ],
+"_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 24.0 ]
 }
 
