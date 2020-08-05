@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/HUD/Cards/Base/Card.gd" type="Script" id=1]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=2]
@@ -8,7 +8,10 @@
 [ext_resource path="res://Themes/Fonts/markazi_text_20pt.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scenes/HUD/Cards/Base/GlowAnimation.tres" type="Animation" id=8]
-[ext_resource path="res://Scenes/HUD/Glows/GoldGlowStyleBox.tres" type="StyleBox" id=9]
+[ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowStyleBox.tres" type="StyleBox" id=9]
+[ext_resource path="res://Scenes/HUD/Cards/Base/GlowNode.gd" type="Script" id=10]
+[ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowStyleBox.tres" type="StyleBox" id=11]
+[ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowStyleBox.tres" type="StyleBox" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.411765, 0.729412, 1 )
@@ -56,6 +59,12 @@ margin_bottom = 128.0
 
 [node name="GlowNode" type="Node2D" parent="Control/CenterContainer/Control"]
 visible = false
+modulate = Color( 1, 1, 1, 0.548189 )
+scale = Vector2( 1.04518, 1.04518 )
+script = ExtResource( 10 )
+glow_on_style = ExtResource( 11 )
+glow_not_style = ExtResource( 9 )
+glow_special_style = ExtResource( 12 )
 
 [node name="GlowPanel" type="Panel" parent="Control/CenterContainer/Control/GlowNode"]
 anchor_right = 1.0
@@ -64,7 +73,7 @@ margin_left = -88.0
 margin_top = -128.0
 margin_right = 88.0
 margin_bottom = 128.0
-custom_styles/panel = ExtResource( 9 )
+custom_styles/panel = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

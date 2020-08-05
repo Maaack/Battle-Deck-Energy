@@ -56,14 +56,12 @@ func _update_glow():
 		if not glowing:
 			glowing = true
 			emit_signal("glow_on", self)
-		glow_node.show()
-		animation_node.play("Glow")
+		glow_node.glow_on()
 	else:
 		if glowing:
 			glowing = false
 			emit_signal("glow_off", self)
-		glow_node.hide()
-		animation_node.stop()
+		glow_node.glow_off()
 
 func _on_CardFront_mouse_entered():
 	hovering = true
