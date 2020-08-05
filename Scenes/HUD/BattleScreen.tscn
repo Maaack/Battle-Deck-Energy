@@ -74,8 +74,8 @@ one_shot = true
 wait_time = 0.05
 one_shot = true
 
-[node name="ResizeTimer" type="Timer" parent="."]
-wait_time = 0.4
+[node name="EnemyTurnTimer" type="Timer" parent="."]
+wait_time = 0.6
 one_shot = true
 [connection signal="discarding_card" from="Hand/HandManager" to="." method="_on_HandManager_discarding_card"]
 [connection signal="drew_card" from="DrawPile" to="." method="_on_DrawPile_drew_card"]
@@ -86,4 +86,4 @@ one_shot = true
 [connection signal="timeout" from="DrawHandTimer" to="." method="_on_DrawHandTimer_timeout"]
 [connection signal="timeout" from="DrawCardTimer" to="." method="_on_DrawCardTimer_timeout"]
 [connection signal="timeout" from="ReshuffleCardTimer" to="." method="_on_ReshuffleCardTimer_timeout"]
-[connection signal="timeout" from="ResizeTimer" to="." method="_on_FanCardTimer_timeout"]
+[connection signal="timeout" from="EnemyTurnTimer" to="." method="_on_EnemyTurnTimer_timeout"]

@@ -8,24 +8,40 @@ onready var hand = $Hand
 onready var draw_hand_timer = $DrawHandTimer
 onready var draw_card_timer = $DrawCardTimer
 onready var reshuffle_card_timer = $ReshuffleCardTimer
-onready var resize_timer = $ResizeTimer
+onready var enemy_turn_timer = $EnemyTurnTimer
 onready var health_meter = $HealthMeter
 onready var energy_meter = $BattleDeckEnergy
 onready var end_turn_button = $EndTurnButton/Button
 
 var _drawing_cards : int = 0
 var _reshuffling_cards : int = 0
-var player : Character
 var hand_size : int = 0
+var player : Character setget set_player
+var opponents : Array = [] setget set_opponents
 
-func start(player_ref:Character):
-	player = player_ref
+func set_player(value:Character):
+	if value is Character:
+		player = value
+
+func set_opponents(value:Array):
+	if value is Array:
+		opponents = value
+
+func start():
+	if not is_instance_valid(player):
+		print("Error: No player.")
+		return
+	if opponents.size() < 1:
+		print("Error: No opponents.")
+		return
 	randomize()
-	energy_meter.max_energy = player.max_energy
-	energy_meter.reset_energy()
 	hand_size = player.hand_size
-	draw_pile.set_deck(player.deck)
+	energy_meter.max_energy = player.max_energy
+	draw_pile.deck = player.deck
 	draw_pile.shuffle()
+	for opponent in opponents:
+		if opponent is AIOpponent:
+			opponent.start()
 	draw_hand_timer.start()
 
 func draw_cards(count:int = 1):
@@ -36,7 +52,6 @@ func draw_cards(count:int = 1):
 func _drawing_cards_completed():
 	end_turn_button.disabled = false
 	energy_meter.reset_energy()
-
 
 func reshuffle_discard_pile():
 	_reshuffling_cards = discard_pile.size()
@@ -49,6 +64,10 @@ func _reshuffling_cards_completed():
 func _on_EndTurnButton_pressed():
 	hand_manager.discard_hand()
 	draw_hand_timer.start()
+	for opponent in opponents:
+		if opponent is AIOpponent:
+			opponent.end_turn()
+	enemy_turn_timer.start()
 
 func _on_DrawHandTimer_timeout():
 	draw_cards(hand_size)
@@ -105,3 +124,8 @@ func _on_HandManager_discarding_card(discarding_card:Card):
 	energy_meter.spend(1)
 	discarding_card.connect("position_reached", self, "_on_Card_position_reached")
 	discarding_card.tween_to_position(discard_pile.rect_position - hand.rect_position)
+
+func _on_EnemyTurnTimer_timeout():
+	for opponent in opponents:
+		if opponent is AIOpponent:
+			opponent.start_turn()

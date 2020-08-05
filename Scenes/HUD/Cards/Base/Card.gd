@@ -25,6 +25,12 @@ var packed_scene : PackedScene setget set_packed_scene
 var _moving_to_position = null
 
 
+func _to_string():
+	if card_settings is CardSettings:
+		return "%s" % card_settings.title
+	else:
+		return ._to_string()
+
 func set_init_card_settings(value:CardSettings):
 	init_card_settings = value
 	if init_card_settings is CardSettings:

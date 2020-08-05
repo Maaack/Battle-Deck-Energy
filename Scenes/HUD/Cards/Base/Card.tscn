@@ -59,8 +59,6 @@ margin_bottom = 128.0
 
 [node name="GlowNode" type="Node2D" parent="Control/CenterContainer/Control"]
 visible = false
-modulate = Color( 1, 1, 1, 0.548189 )
-scale = Vector2( 1.04518, 1.04518 )
 script = ExtResource( 10 )
 glow_on_style = ExtResource( 11 )
 glow_not_style = ExtResource( 9 )
