@@ -4,10 +4,10 @@ extends Node2D
 
 class_name Card
 
-signal glow_on
-signal glow_off
-signal discard
 signal position_reached
+signal mouse_entered
+signal mouse_exited
+signal mouse_clicked
 
 onready var glow_node = $Control/CenterContainer/Control/GlowNode
 onready var animation_node = $Control/CenterContainer/Control/GlowNode/AnimationPlayer
@@ -16,11 +16,6 @@ onready var tween_node = $CardTween
 export(Resource) var init_card_settings setget set_init_card_settings
 
 var card_settings : CardSettings
-var hovering : bool = false
-var pressed : bool = false
-var glowing : bool = false
-var discarding : bool = false
-var exhausting : bool = false
 var packed_scene : PackedScene setget set_packed_scene
 var _moving_to_position = null
 
@@ -57,35 +52,26 @@ func _update_card_front():
 	if card_settings.energy_cost >= 0:
 		$Control/BDEPanel/BDECostLabel.text = str(card_settings.energy_cost)
 
-func _update_glow():
-	if hovering and not pressed:
-		if not glowing:
-			glowing = true
-			emit_signal("glow_on", self)
+func glow_on():
 		glow_node.glow_on()
-	else:
-		if glowing:
-			glowing = false
-			emit_signal("glow_off", self)
+
+func glow_not():
+		glow_node.glow_not()
+
+func glow_off():
 		glow_node.glow_off()
 
 func _on_CardFront_mouse_entered():
-	hovering = true
-	_update_glow()
+	emit_signal("mouse_entered")
 
 func _on_CardFront_mouse_exited():
-	hovering = false
-	_update_glow()
+	emit_signal("mouse_exited")
 
 func _on_CardFront_gui_input(event):
 	if event is InputEventMouseButton and not event.pressed:
 		match event.button_index:
 			BUTTON_LEFT:
-				discard()
-
-func discard():
-	discarding = true
-	emit_signal("discard", self)
+				emit_signal("mouse_clicked")
 
 func _get_tween_time():
 	return 0.5

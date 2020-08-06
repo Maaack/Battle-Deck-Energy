@@ -13,10 +13,15 @@ export(float, 0, 1024) var fan_cards_from_center : float = 60
 export(float, 0.0, 2.0) var fan_speed : float = 0.2
 
 var cards : Array
+var hovering = null
+var discarding_cards = []
+var energy_available : int = 0
 
 func add_card(card:Card):
 	cards.append(card)
-	card.connect("discard", self, "_on_Card_discard")
+	card.connect("mouse_entered", self, "_on_Card_mouse_entered", [card])
+	card.connect("mouse_exited", self, "_on_Card_mouse_exited", [card])
+	card.connect("mouse_clicked", self, "_on_Card_mouse_clicked", [card])
 	_fan_cards()
 
 func _on_Card_discard(discarding_card:Card):
@@ -26,10 +31,9 @@ func _on_Card_discard(discarding_card:Card):
 	emit_signal("discarding_card", discarding_card)
 
 func discard_hand():
-	var cards_to_discard : Array = cards.duplicate()
-	for card in cards_to_discard:
-		if card is Card:
-			card.discard()
+	while(cards.size() > 0):
+		var card : Card = cards.pop_front()
+		discard_card(card)
 
 func get_card_positions():
 	var positions : Array = []
@@ -93,3 +97,32 @@ func _fan_positions_from_index(positions:Array, card_index:int):
 		new_positions.append(card_position)
 		index += 1
 	return new_positions
+
+func _on_Card_mouse_entered(card:Card):
+	hovering = card
+	if card.get_energy_cost() <= energy_available:
+		card.glow_on()
+	else:
+		card.glow_not()
+
+func _on_Card_mouse_exited(card:Card):
+	hovering = null
+	card.glow_off()
+
+func _on_Card_mouse_clicked(card:Card):
+	if card.get_energy_cost() <= energy_available:
+		var index : int = cards.find(card)
+		discard_card(card)
+		cards.remove(index)
+		_fan_cards()
+
+func discard_card(card:Card):
+	discarding_cards.append(card)
+	emit_signal("discarding_card", card)
+
+func discarding_card_complete(card:Card):
+	var index : int = discarding_cards.find(card)
+	discarding_cards.remove(index)
+
+func is_discarding_card(card:Card):
+	return card in discarding_cards

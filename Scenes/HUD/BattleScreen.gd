@@ -54,6 +54,8 @@ func draw_cards(count:int = 1):
 func _drawing_cards_completed():
 	end_turn_button.disabled = false
 	energy_meter.reset_energy()
+	hand_manager.energy_available = energy_meter.energy
+
 
 func reshuffle_discard_pile():
 	_reshuffling_cards = discard_pile.size()
@@ -72,7 +74,6 @@ func _on_EndTurnButton_pressed():
 			if card.card_settings.title == 'Attack':
 				hit_player(3)
 			opponent.end_turn()
-			
 	enemy_turn_timer.start()
 
 func _on_DrawHandTimer_timeout():
@@ -122,12 +123,13 @@ func _on_ReshuffleCardTimer_timeout():
 	discard_pile.draw_card()
 
 func _on_Card_position_reached(moving_card:Card):
-	if moving_card.discarding:
+	if hand_manager.is_discarding_card(moving_card):
 		discard_pile.add_card(moving_card.packed_scene)
 		moving_card.queue_free()
 
 func _on_HandManager_discarding_card(discarding_card:Card):
 	energy_meter.spend(1)
+	hand_manager.energy_available = energy_meter.energy
 	discarding_card.connect("position_reached", self, "_on_Card_position_reached")
 	discarding_card.tween_to_position(discard_pile.rect_position - hand.rect_position)
 
