@@ -14,10 +14,11 @@ onready var enemy_turn_timer = $EnemyTurnTimer
 onready var health_meter = $HealthMeter
 onready var energy_meter = $BattleDeckEnergy
 onready var end_turn_button = $EndTurnButton/Button
+onready var round_counter = $RoundCounter
 
 var _drawing_cards : int = 0
 var _reshuffling_cards : int = 0
-var hand_size : int = 0
+
 var player : Character setget set_player
 var opponents : Array = [] setget set_opponents
 
@@ -37,7 +38,6 @@ func start():
 		print("Error: No opponents.")
 		return
 	randomize()
-	hand_size = player.hand_size
 	energy_meter.max_energy = player.max_energy
 	draw_pile.deck = player.deck
 	draw_pile.shuffle()
@@ -77,7 +77,11 @@ func _on_EndTurnButton_pressed():
 	enemy_turn_timer.start()
 
 func _on_DrawHandTimer_timeout():
-	draw_cards(hand_size)
+	round_counter.advance_round()
+	draw_cards(get_hand_size())
+
+func get_hand_size():
+	return player.hand_size
 
 func _on_DrawPile_drew_card(card_scene:PackedScene):
 	var card_instance : Card = card_scene.instance()

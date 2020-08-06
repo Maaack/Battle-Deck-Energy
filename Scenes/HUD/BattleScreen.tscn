@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/HUD/Decks/DrawPile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HUD/BattleScreen.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/HUD/Decks/ExhaustPile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HUD/Decks/DiscardPile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/HUD/RoundCounter/RoundCounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HUD/HandManager/HandManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/HUD/BattleDeckEnergy/BattleDeckEnergy.tscn" type="PackedScene" id=8]
 
@@ -15,7 +16,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 576.437, 439.991, 352.01, 24.2419 ],
+"_edit_horizontal_guides_": [ 576.437, 440.138, 351.984, 24.2419, 263.698 ],
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 23.75, 935.507, 87.8138, 995.97 ]
 }
@@ -40,16 +41,16 @@ margin_right = 87.75
 margin_bottom = -96.0092
 
 [node name="DiscardPile" parent="." instance=ExtResource( 4 )]
-margin_left = -88.0
-margin_top = -159.704
-margin_right = -24.0
-margin_bottom = -95.7038
+margin_left = -88.493
+margin_top = -160.009
+margin_right = -24.493
+margin_bottom = -96.0088
 
 [node name="ExhaustPile" parent="." instance=ExtResource( 3 )]
-margin_left = -87.9999
-margin_top = -247.814
-margin_right = -23.9999
-margin_bottom = -183.814
+margin_left = -88.493
+margin_top = -248.016
+margin_right = -24.493
+margin_bottom = -184.016
 
 [node name="EndTurnButton" parent="." instance=ExtResource( 5 )]
 margin_left = -156.59
@@ -62,6 +63,12 @@ margin_left = 24.0
 margin_top = -247.814
 margin_right = 88.0
 margin_bottom = -183.814
+
+[node name="RoundCounter" parent="." instance=ExtResource( 6 )]
+margin_left = -87.9999
+margin_top = -336.0
+margin_right = -23.9999
+margin_bottom = -287.675
 
 [node name="DrawHandTimer" type="Timer" parent="."]
 one_shot = true
