@@ -17,4 +17,6 @@ func _ready():
 	opponent.character = enemy
 	battle_screen.opponents = [opponent]
 	battle_screen.start()
-	
+
+func _on_BattleScreen_player_updated():
+	player_screen.update_meter()

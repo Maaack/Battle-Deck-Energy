@@ -48,9 +48,9 @@ func discard_hand():
 func pick_card():
 	var random_index: int = randi() % hand.size()
 	print("Opponent plays %s " % str(hand[random_index]))
+	return hand[random_index]
 
 func end_turn():
-	pick_card()
 	discard_hand()
 
 func start_turn():

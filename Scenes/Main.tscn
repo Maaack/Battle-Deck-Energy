@@ -77,3 +77,4 @@ __meta__ = {
 [node name="BattleScreen" parent="HUDContainer" instance=ExtResource( 2 )]
 
 [node name="PlayerScreen" parent="HUDContainer" instance=ExtResource( 7 )]
+[connection signal="player_updated" from="HUDContainer/BattleScreen" to="." method="_on_BattleScreen_player_updated"]

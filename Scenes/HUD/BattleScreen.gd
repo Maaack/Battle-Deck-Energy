@@ -1,6 +1,8 @@
 extends Control
 
 
+signal player_updated
+
 onready var draw_pile = $DrawPile
 onready var discard_pile = $DiscardPile
 onready var hand_manager = $Hand/HandManager
@@ -66,7 +68,11 @@ func _on_EndTurnButton_pressed():
 	draw_hand_timer.start()
 	for opponent in opponents:
 		if opponent is AIOpponent:
+			var card : Card = opponent.pick_card()
+			if card.card_settings.title == 'Attack':
+				hit_player(3)
 			opponent.end_turn()
+			
 	enemy_turn_timer.start()
 
 func _on_DrawHandTimer_timeout():
@@ -129,3 +135,7 @@ func _on_EnemyTurnTimer_timeout():
 	for opponent in opponents:
 		if opponent is AIOpponent:
 			opponent.start_turn()
+
+func hit_player(damage:int):
+	player.health -= damage
+	emit_signal("player_updated")
