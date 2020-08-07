@@ -3,9 +3,8 @@
 [ext_resource path="res://Scenes/HUD/Cards/Base/Card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/CardSettings/AttackCardSetting.tres" type="Resource" id=2]
 
-
 [node name="AttackCard" instance=ExtResource( 1 )]
-card_settings = ExtResource( 2 )
+init_card_settings = ExtResource( 2 )
 
 [node name="TitleLabel" parent="Control/CardFront/TitlePanel" index="0"]
 text = "Attack"
@@ -14,6 +13,9 @@ text = "Attack"
 margin_top = 38.0
 margin_bottom = 79.0
 text = "Attack the enemy for 3 damage."
+
+[node name="Label" parent="Control/CardFront/Control" index="1"]
+text = "3"
 
 [node name="BDECostLabel" parent="Control/BDEPanel" index="0"]
 text = "1"

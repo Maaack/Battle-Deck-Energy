@@ -94,7 +94,7 @@ func _on_DrawPile_drew_card(card_scene:PackedScene):
 		draw_card_timer.start()
 	else:
 		_drawing_cards_completed()
-	
+
 func _on_DrawPile_empty():
 	if discard_pile.size() > 0:
 		reshuffle_discard_pile()

@@ -29,7 +29,7 @@ func _to_string():
 func set_init_card_settings(value:CardSettings):
 	init_card_settings = value
 	if init_card_settings is CardSettings:
-		card_settings = init_card_settings
+		card_settings = init_card_settings.duplicate()
 	_update_card_front()
 
 func set_packed_scene(value:PackedScene):
@@ -51,6 +51,14 @@ func _update_card_front():
 		$Control/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel.text = card_settings.description
 	if card_settings.energy_cost >= 0:
 		$Control/BDEPanel/BDECostLabel.text = str(card_settings.energy_cost)
+	if card_settings.battle_effects.size() > 0:
+		var battle_effect : BattleEffect = card_settings.battle_effects.pop_front()
+		if battle_effect.effect_icon != null:
+			$Control/CardFront/Control/TextureRect.texture = battle_effect.effect_icon
+		if battle_effect.effect_quantity != 0:
+			$Control/CardFront/Control/Label.text = str(battle_effect.effect_quantity)
+		if battle_effect.effect_color != Color():
+			$Control/CardFront/Control/Label.add_color_override("font_color", battle_effect.effect_color)
 
 func glow_on():
 		glow_node.glow_on()

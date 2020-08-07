@@ -24,10 +24,16 @@ Source: [OpenGameArt.Org](https://opengameart.org/content/mountain-at-dusk-backg
 License: [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### Icons
-#### Decks
+#### Decks and Refresh Loop
 Author: [Wishforge.Games](http://wishforge.games/)  
 Source: [itch.io](https://wishforge.itch.io/3000-free-icons)  
 License: [Standard License](./Assets/Sourced/Icons/LineHeroUnlimited/License.txt)
+
+#### Battle Effects
+Author: [Lorc, Delapouite, and contributors](https://game-icons.net/about.html#authors)  
+Source: [itch.io](https://thewristbandit.itch.io/boxes-be-gone)  
+Original Source: [Game-icons.net](https://game-icons.net/)  
+License: [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/)  
 
 #### Banner Art
 Author: [Font Awesome](https://fontawesome.com/)  
