@@ -3,30 +3,24 @@ extends Resource
 
 class_name AIOpponent
 
-var character : Character setget set_character
+var character : Character
 var draw_pile : Array = []
 var hand : Array = []
 var discard_pile : Array = []
-var energy : int = 0
-var health : int = 0
-
-func set_character(value:Character):
-	if value is Character:
-		character = value
-		discard_pile = character.deck
 
 func start():
 	if not is_instance_valid(character):
 		print("Error: No character.")
 		return
-	health = character.max_health
 	randomize()
+	character.start()
+	discard_pile = character.deck
 
 func get_hand_size():
 	return character.hand_size
 
 func draw_cards(count:int = get_hand_size()):
-	for i in range(count):
+	for _i in range(count):
 		if draw_pile.size() < 1:
 			reshuffle_discard_pile()
 		var card_scene : PackedScene = draw_pile.pop_front()
@@ -34,7 +28,6 @@ func draw_cards(count:int = get_hand_size()):
 		if card_instance is Card:
 			card_instance.packed_scene = card_scene
 			hand.append(card_instance)
-	energy = character.max_energy
 
 func reshuffle_discard_pile():
 	while(discard_pile.size() > 0):
@@ -57,5 +50,5 @@ func end_turn():
 
 func draw_hand():
 	draw_cards()
-	energy = character.max_energy
+	character.energy = character.max_energy
 	print("Opponent hand %s " % str(hand))

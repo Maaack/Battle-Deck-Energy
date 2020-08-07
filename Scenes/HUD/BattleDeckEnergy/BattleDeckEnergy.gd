@@ -20,14 +20,3 @@ func _update_meter():
 	if energy >= 0 and max_energy >= 0:
 		energy_label.text = LABEL_STR % [energy, max_energy]
 
-func reset_energy():
-	set_energy(max_energy)
-
-func spend(count:int = 1):
-	energy -= count
-	energy = max(0, energy)
-	_update_meter()
-
-func gain(count:int = 1):
-	energy += count
-	_update_meter()

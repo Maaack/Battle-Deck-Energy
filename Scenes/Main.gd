@@ -8,14 +8,15 @@ var player : Character = preload("res://Resources/Characters/PlayerSettings/NewP
 var enemy : Character = preload("res://Resources/Characters/Opponents/BasicEnemy.tres")
 
 func _ready():
-	player.start()
-	enemy.start()
+	var enemy1 : Character = enemy.duplicate()
+	var enemy2 : Character = enemy.duplicate()
+	var opponent1 : AIOpponent = AIOpponent.new()
+	var opponent2 : AIOpponent = AIOpponent.new()
+	opponent1.character = enemy1
+	opponent2.character = enemy2
 	player_screen.player = player
-	player_screen.update_meter()
 	battle_screen.player = player
-	var opponent : AIOpponent = AIOpponent.new()
-	opponent.character = enemy
-	battle_screen.opponents = [opponent]
+	battle_screen.opponents = [opponent1, opponent2]
 	battle_screen.start()
 
 func _on_BattleScreen_player_updated():

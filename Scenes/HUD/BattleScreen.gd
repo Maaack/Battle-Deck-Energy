@@ -12,27 +12,18 @@ onready var player_phase_timer = $PlayerPhaseTimer
 onready var resolution_phase_timer = $ResolutionPhaseTimer
 onready var draw_card_timer = $DrawCardTimer
 onready var reshuffle_card_timer = $ReshuffleCardTimer
-onready var health_meter = $HealthMeter
 onready var energy_meter = $BattleDeckEnergy
 onready var end_turn_button = $EndTurnButton/Button
 onready var round_counter = $RoundCounter
 
 enum BattleRoundPhase {STARTING_PHASE, ENEMY_PHASE, PLAYER_PHASE, RESOLUTION_PHASE, INIT_PHASE = -1}
-var _current_battle_phase = BattleRoundPhase.INIT_PHASE
+var _current_battle_phase : int = BattleRoundPhase.INIT_PHASE
 var _drawing_cards : int = 0
 var _reshuffling_cards : int = 0
 
-var player : Character setget set_player
-var opponents : Array = [] setget set_opponents
+var player : Character
+var opponents : Array = []
 var opponents_picked_cards : Array = []
-
-func set_player(value:Character):
-	if value is Character:
-		player = value
-
-func set_opponents(value:Array):
-	if value is Array:
-		opponents = value
 
 func start():
 	if not is_instance_valid(player):
@@ -42,17 +33,16 @@ func start():
 		print("Error: No opponents.")
 		return
 	randomize()
+	player.start()
+	opponents_start()
 	energy_meter.max_energy = player.max_energy
 	draw_pile.deck = player.deck
 	draw_pile.shuffle()
-	for opponent in opponents:
-		if opponent is AIOpponent:
-			opponent.start()
 	advance_battle_phase()
 
 func hit_player(damage:int):
 	player.health -= damage
-	emit_signal("player_updated")
+	on_player_updated()
 
 func draw_cards(count:int = 1):
 	_drawing_cards = count
@@ -61,8 +51,16 @@ func draw_cards(count:int = 1):
 
 func _drawing_cards_completed():
 	end_turn_button.disabled = false
-	energy_meter.reset_energy()
-	hand_manager.energy_available = energy_meter.energy
+	reset_player_energy()
+
+func on_player_updated():
+	energy_meter.energy = player.energy
+	hand_manager.energy_available = player.energy
+	emit_signal("player_updated")
+
+func reset_player_energy():
+	player.energy = player.max_energy
+	on_player_updated()
 
 func reshuffle_discard_pile():
 	_reshuffling_cards = discard_pile.size()
@@ -132,10 +130,15 @@ func _on_Card_position_reached(moving_card:Card):
 		moving_card.queue_free()
 
 func _on_HandManager_discarding_card(discarding_card:Card):
-	energy_meter.spend(1)
-	hand_manager.energy_available = energy_meter.energy
+	player.energy -= discarding_card.get_energy_cost()
+	on_player_updated()
 	discarding_card.connect("position_reached", self, "_on_Card_position_reached")
 	discarding_card.tween_to_position(discard_pile.rect_position - hand.rect_position)
+
+func opponents_start():
+	for opponent in opponents:
+		if opponent is AIOpponent:
+			opponent.start()
 
 func opponents_draw_hands():
 	for opponent in opponents:
