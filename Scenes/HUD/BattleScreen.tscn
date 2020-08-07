@@ -70,7 +70,15 @@ margin_top = -336.0
 margin_right = -23.9999
 margin_bottom = -287.675
 
-[node name="DrawHandTimer" type="Timer" parent="."]
+[node name="EnemyPhaseTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="PlayerPhaseTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ResolutionPhaseTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [node name="DrawCardTimer" type="Timer" parent="."]
@@ -80,17 +88,14 @@ one_shot = true
 [node name="ReshuffleCardTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
-
-[node name="EnemyTurnTimer" type="Timer" parent="."]
-wait_time = 0.6
-one_shot = true
 [connection signal="discarding_card" from="Hand/HandManager" to="." method="_on_HandManager_discarding_card"]
 [connection signal="drew_card" from="DrawPile" to="." method="_on_DrawPile_drew_card"]
 [connection signal="empty" from="DrawPile" to="." method="_on_DrawPile_empty"]
 [connection signal="drew_card" from="DiscardPile" to="." method="_on_DiscardPile_drew_card"]
 [connection signal="empty" from="DiscardPile" to="." method="_on_DiscardPile_empty"]
 [connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
-[connection signal="timeout" from="DrawHandTimer" to="." method="_on_DrawHandTimer_timeout"]
+[connection signal="timeout" from="EnemyPhaseTimer" to="." method="_on_EnemyPhaseTimer_timeout"]
+[connection signal="timeout" from="PlayerPhaseTimer" to="." method="_on_PlayerPhaseTimer_timeout"]
+[connection signal="timeout" from="ResolutionPhaseTimer" to="." method="_on_ResolutionPhaseTimer_timeout"]
 [connection signal="timeout" from="DrawCardTimer" to="." method="_on_DrawCardTimer_timeout"]
 [connection signal="timeout" from="ReshuffleCardTimer" to="." method="_on_ReshuffleCardTimer_timeout"]
-[connection signal="timeout" from="EnemyTurnTimer" to="." method="_on_EnemyTurnTimer_timeout"]

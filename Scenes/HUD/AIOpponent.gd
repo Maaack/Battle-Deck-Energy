@@ -21,9 +21,11 @@ func start():
 		return
 	health = character.max_health
 	randomize()
-	start_turn()
 
-func draw_cards(count:int = 1):
+func get_hand_size():
+	return character.hand_size
+
+func draw_cards(count:int = get_hand_size()):
 	for i in range(count):
 		if draw_pile.size() < 1:
 			reshuffle_discard_pile()
@@ -53,7 +55,7 @@ func pick_card():
 func end_turn():
 	discard_hand()
 
-func start_turn():
-	draw_cards(character.hand_size)
+func draw_hand():
+	draw_cards()
 	energy = character.max_energy
 	print("Opponent hand %s " % str(hand))
