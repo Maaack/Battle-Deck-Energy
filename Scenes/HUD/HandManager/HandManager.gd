@@ -1,9 +1,7 @@
 extends Node2D
 
 
-signal discarding_card
-
-onready var cards_container = $CardsContainer
+signal discarding_card(card)
 
 export(float, 0, 4096) var starting_width : float = 512
 export(float, 0, 4096) var ending_width : float = 1024
@@ -14,7 +12,7 @@ export(float, 0.0, 2.0) var fan_speed : float = 0.2
 
 var cards : Array
 var hovering = null
-var discarding_cards = []
+var discarding_cards : Array = []
 var energy_available : int = 0
 
 func add_card(card:Card):
