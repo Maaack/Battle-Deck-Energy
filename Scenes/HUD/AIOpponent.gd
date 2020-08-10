@@ -52,3 +52,18 @@ func draw_hand():
 	draw_cards()
 	character.energy = character.max_energy
 	print("Opponent hand %s " % str(hand))
+
+func get_health():
+	return character.health
+
+func get_max_health():
+	return character.max_health
+
+func get_energy():
+	return character.energy
+
+func get_max_energy():
+	return character.max_energy
+
+func get_deck_size():
+	return character.deck_size()

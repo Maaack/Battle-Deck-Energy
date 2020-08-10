@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/HUD/Decks/DrawPile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HUD/BattleScreen.gd" type="Script" id=2]
@@ -8,18 +8,21 @@
 [ext_resource path="res://Scenes/HUD/RoundCounter/RoundCounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HUD/HandManager/HandManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/HUD/BattleDeckEnergy/BattleDeckEnergy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/HUD/BattleBoard/BattleBoard.tscn" type="PackedScene" id=9]
 
 [node name="BattleScreen" type="Control"]
-anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 576.437, 440.138, 351.984, 24.2419, 263.698 ],
+"_edit_horizontal_guides_": [ 576.437, 440.138, 351.984, 24.2419, 263.698, 55.973 ],
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 23.75, 935.507, 87.8138, 995.97 ]
 }
+
+[node name="BattleBoard" parent="." instance=ExtResource( 9 )]
+margin_top = 56.0
 
 [node name="Hand" type="Control" parent="."]
 anchor_left = 0.5

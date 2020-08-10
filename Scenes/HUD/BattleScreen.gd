@@ -15,6 +15,7 @@ onready var reshuffle_card_timer = $ReshuffleCardTimer
 onready var energy_meter = $BattleDeckEnergy
 onready var end_turn_button = $EndTurnButton/Button
 onready var round_counter = $RoundCounter
+onready var battle_board = $BattleBoard
 
 enum BattleRoundPhase {STARTING_PHASE, ENEMY_PHASE, PLAYER_PHASE, RESOLUTION_PHASE, INIT_PHASE = -1}
 var _current_battle_phase : int = BattleRoundPhase.INIT_PHASE
@@ -35,10 +36,16 @@ func start():
 	randomize()
 	player.start()
 	opponents_start()
+	start_battle_boards()
 	energy_meter.max_energy = player.max_energy
 	draw_pile.deck = player.deck
 	draw_pile.shuffle()
 	advance_battle_phase()
+
+func start_battle_boards():
+	for opponent in opponents:
+		if opponent is AIOpponent:
+			battle_board.add_opponent_board(opponent)
 
 func hit_player(damage:int):
 	player.health -= damage
@@ -180,6 +187,7 @@ func advance_battle_phase():
 		BattleRoundPhase.STARTING_PHASE:
 			print("Starting Phase")
 			round_counter.advance_round()
+			battle_board.start_round()
 			advance_battle_phase()
 		BattleRoundPhase.ENEMY_PHASE:
 			print("Enemy Phase")
@@ -190,3 +198,4 @@ func advance_battle_phase():
 		BattleRoundPhase.RESOLUTION_PHASE:
 			print("Resolution Phase")
 			resolution_phase_timer.start()
+			battle_board.end_round()
