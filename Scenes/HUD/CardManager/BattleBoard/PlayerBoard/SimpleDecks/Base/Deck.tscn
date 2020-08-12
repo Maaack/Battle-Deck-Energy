@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/HUD.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Sourced/Icons/LineHeroUnlimited/Medium/cards_game_solitaire_poker_blackjack_casino.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/HUD/CardManager/BattleBoard/PlayerBoard/SimpleDecks/Base/Deck.gd" type="Script" id=3]
+
+[node name="Deck" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1216.0
+margin_bottom = -656.0
+rect_min_size = Vector2( 64, 64 )
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -27.0
+margin_bottom = 27.0
+
+[node name="CountLabel" type="Label" parent="TextureRect/Panel"]
+margin_top = -2.0
+margin_right = 27.0
+margin_bottom = 28.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
