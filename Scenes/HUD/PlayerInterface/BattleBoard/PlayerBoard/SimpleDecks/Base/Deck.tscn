@@ -2,7 +2,9 @@
 
 [ext_resource path="res://Themes/HUD.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Sourced/Icons/LineHeroUnlimited/Medium/cards_game_solitaire_poker_blackjack_casino.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/HUD/CardManager/BattleBoard/PlayerBoard/SimpleDecks/Base/Deck.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/HUD/PlayerInterface/BattleBoard/PlayerBoard/SimpleDecks/Base/Deck.gd" type="Script" id=3]
+
+
 
 [node name="Deck" type="Control"]
 anchor_right = 1.0

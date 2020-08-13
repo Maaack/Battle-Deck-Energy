@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Scenes/HUD/AIOpponent.gd"
 }, {
 "base": "Resource",
+"class": "AnimationData",
+"language": "GDScript",
+"path": "res://Resources/Animations/AnimationData.gd"
+}, {
+"base": "Resource",
 "class": "BattleEffect",
 "language": "GDScript",
 "path": "res://Resources/BattleEffects/BattleEffect.gd"
@@ -22,7 +27,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Card",
 "language": "GDScript",
-"path": "res://Scenes/HUD/Cards/Base/Card.gd"
+"path": "res://Scenes/HUD/Cards/Base/TweenCard.gd"
+}, {
+"base": "Node2D",
+"class": "Card2",
+"language": "GDScript",
+"path": "res://Scenes/HUD/PlayerInterface/CardManager/Card/Card2.gd"
+}, {
+"base": "Resource",
+"class": "CardData",
+"language": "GDScript",
+"path": "res://Resources/Cards/CardData.gd"
 }, {
 "base": "Resource",
 "class": "CardSettings",
@@ -33,13 +48,34 @@ _global_script_classes=[ {
 "class": "Character",
 "language": "GDScript",
 "path": "res://Resources/Characters/Character.gd"
+}, {
+"base": "Resource",
+"class": "DeckData",
+"language": "GDScript",
+"path": "res://Resources/Decks/DeckData.gd"
+}, {
+"base": "Resource",
+"class": "HandData",
+"language": "GDScript",
+"path": "res://Resources/Hand/HandData.gd"
+}, {
+"base": "Resource",
+"class": "PRSData",
+"language": "GDScript",
+"path": "res://Resources/PRS/PRSData.gd"
 } ]
 _global_script_class_icons={
 "AIOpponent": "",
+"AnimationData": "",
 "BattleEffect": "",
 "Card": "",
+"Card2": "",
+"CardData": "",
 "CardSettings": "",
-"Character": ""
+"Character": "",
+"DeckData": "",
+"HandData": "",
+"PRSData": ""
 }
 
 [application]

@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/HUD/Cards/Base/Card.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/HUD/Cards/Base/TweenCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/CardSettings/AttackCardSetting.tres" type="Resource" id=2]
+
 
 [node name="AttackCard" instance=ExtResource( 1 )]
 init_card_settings = ExtResource( 2 )
