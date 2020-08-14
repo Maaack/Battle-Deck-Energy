@@ -52,13 +52,11 @@ func move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween
 
 func focus_on_card(card_data):
 	focused_card = card_data
-	print("focus_on_card")
 	emit_signal("focused_on_card", card_data)
 
 func focus_off_card(card_data):
 	if focused_card == card_data:
 		focused_card = null
-	print("focus_off")
 	emit_signal("focused_off_card", card_data)
 
 func _on_Card_mouse_entered(card_data:CardData):

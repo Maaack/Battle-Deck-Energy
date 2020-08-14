@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Card2",
 "language": "GDScript",
-"path": "res://Scenes/HUD/PlayerInterface/CardManager/Card/Card2.gd"
+"path": "res://Scenes/PlayerInterface/CardManager/Card/Card2.gd"
 }, {
 "base": "Resource",
 "class": "CardData",

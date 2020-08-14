@@ -7,13 +7,14 @@
 [ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowStyleBox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Themes/Fonts/morris_roman_24pt.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Themes/Fonts/morris_roman_48_outline_3.tres" type="DynamicFont" id=7]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/Card/Card2.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/Card2.gd" type="Script" id=8]
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowStyleBox.tres" type="StyleBox" id=10]
 [ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowStyleBox.tres" type="StyleBox" id=11]
 [ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0341.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/Card/GlowAnimation.tres" type="Animation" id=13]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/Card/GlowNode.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowAnimation.tres" type="Animation" id=13]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowNode.gd" type="Script" id=14]
+
 
 
 [sub_resource type="StyleBoxFlat" id=1]

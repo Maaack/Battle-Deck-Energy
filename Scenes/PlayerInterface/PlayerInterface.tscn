@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/AnimationQueue/AnimationQueue.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/CardManager.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/PlayerInterface.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/HandManager/HandManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/AnimationQueue/AnimationQueue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/CardManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" type="PackedScene" id=5]
 
 [node name="PlayerInterface" type="Control"]
 anchor_right = 1.0
@@ -79,6 +79,8 @@ mouse_filter = 1
 hand_center_distance = 2048.0
 
 [node name="CardManager" parent="HandContainer/Control" instance=ExtResource( 3 )]
+default_tween_time = null
+default_wait_time = null
 
 [node name="AnimationQueue" parent="." instance=ExtResource( 1 )]
 [connection signal="ending_turn" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_ending_turn"]

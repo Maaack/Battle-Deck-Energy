@@ -102,10 +102,8 @@ func _on_Body_gui_input(event):
 		match event.button_index:
 			BUTTON_LEFT:
 				if event.pressed:
-					print("mouse_clicked")
 					emit_signal("mouse_clicked")
 				if not event.pressed:
-					print("mouse_released")
 					emit_signal("mouse_released")
 
 func _on_Tween_tween_all_completed():
