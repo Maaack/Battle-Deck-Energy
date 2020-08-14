@@ -12,7 +12,6 @@ onready var energy_meter = $BattleDeckEnergy
 
 func _ready():
 	reset_end_turn()
-	set_draw_pile_size(6)
 
 func set_draw_pile_size(value:int):
 	draw_pile.count = value

@@ -4,17 +4,20 @@ extends Node2D
 
 class_name Card2
 
-signal mouse_entered
-signal mouse_exited
+signal mouse_entered(card_data)
+signal mouse_exited(card_data)
 signal mouse_clicked
 signal mouse_released
+signal tween_completed
 
 onready var body_node = $Body
-onready var glow_node = $Body/CenterContainer/Control/GlowNode
+onready var glow_node = $GlowContainer/Control/GlowNode
+onready var tween_node = $Tween
 
 export(Resource) var starting_card_data setget set_starting_card_data
 
-var card_data : CardData
+var card_data : CardData setget set_card_data
+var _last_animation_type : int = 0
 
 func _to_string():
 	if card_data is CardData:
@@ -49,6 +52,30 @@ func set_starting_card_data(value:CardData):
 	starting_card_data = value
 	_reset_card_data()
 
+func tween_to(new_prs:PRSData, tween_time:float = 0.0, animation_type:int = -1):
+	if card_data.prs.is_equal(new_prs):
+		return
+	if is_instance_valid(tween_node):
+		if tween_node.is_active():
+			if _last_animation_type != animation_type:
+				tween_time += tween_node.get_runtime()
+			else:
+				tween_time = tween_node.get_runtime()
+			tween_node.remove_all()
+		tween_node.interpolate_property(self, "position", position, new_prs.position, tween_time)
+		tween_node.interpolate_property(self, "rotation", rotation, new_prs.rotation, tween_time)
+		tween_node.interpolate_property(self, "scale", scale, new_prs.scale, tween_time)
+		tween_node.start()
+	card_data.prs = new_prs
+	_last_animation_type = animation_type
+
+func set_card_data(value:CardData):
+	card_data = value
+	if is_instance_valid(card_data):
+		position = card_data.prs.position
+		rotation = card_data.prs.rotation
+		scale = card_data.prs.scale
+
 func _ready():
 	_reset_card_data()
 
@@ -65,10 +92,10 @@ func _on_CardTween_tween_completed(object, key):
 	emit_signal("position_reached", self)
 
 func _on_Body_mouse_entered():
-	emit_signal("mouse_entered")
+	emit_signal("mouse_entered", card_data)
 
 func _on_Body_mouse_exited():
-	emit_signal("mouse_exited")
+	emit_signal("mouse_exited", card_data)
 	
 func _on_Body_gui_input(event):
 	if event is InputEventMouseButton:
@@ -81,3 +108,5 @@ func _on_Body_gui_input(event):
 					print("mouse_released")
 					emit_signal("mouse_released")
 
+func _on_Tween_tween_all_completed():
+	emit_signal("tween_completed")

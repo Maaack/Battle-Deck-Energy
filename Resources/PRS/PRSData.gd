@@ -13,3 +13,9 @@ func duplicate(deep:bool = false):
 	duplicate.rotation = rotation
 	duplicate.scale = scale
 	return duplicate
+
+func _to_string():
+	return "%s, %.2f, %s" % [position, rotation, scale]
+
+func is_equal(value):
+	return position == value.position and rotation == value.rotation and scale == value.scale

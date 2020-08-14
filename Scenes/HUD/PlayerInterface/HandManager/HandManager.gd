@@ -1,81 +1,99 @@
 extends Node2D
 
 
-signal discarding_card(card)
-signal selecting_card(card)
-signal releasing_card(card)
+signal hand_updated
+signal card_updated(card)
+
+const NO_INDEX = -1
 
 export(float, 0, 4096) var starting_width : float = 512
 export(float, 0, 4096) var ending_width : float = 1024
+export(float, 0, 4096) var hand_center_distance : float = 1024
 export(int, 0, 32) var max_hand_size : int = 8
 export(float, 0, 1024) var ignore_mouse_range : float = 200
 export(float, 0, 1024) var fan_cards_from_center : float = 60
 export(float, 0.0, 2.0) var fan_speed : float = 0.2
 
-var cards : Array
+var cards : Dictionary = {}
+var spread_from_index : int = NO_INDEX
 
-func add_card(card:Card):
-	cards.append(card)
-	fan_cards()
+func add_card(card_key):
+	cards[card_key] = PRSData.new()
+	_update_hand()
 
-func discard_hand():
-	cards.clear()
+func discard_hand(card_key):
+	if card_key in cards:
+		cards.erase(card_key)
+		_update_hand()
 
-func discard_card(card:Card):
-	var index : int = cards.find(card)
-	if index > -1:
-		cards.remove(index)
-
-func get_card_positions():
-	var positions : Array = []
+func get_prs_array():
+	var prs_array : Array = []
 	var card_max_ratio : float = float(cards.size()) / float(max_hand_size)
 	var width_diff : float = (ending_width - starting_width) * card_max_ratio
 	var current_width : float = starting_width + width_diff
 	var divided_space : float = current_width / (cards.size() + 1)
-	var horizontal_center = -(current_width / 2)
+	var left_side = -(current_width / 2)
 	var iter : int = 0
 	for card in cards:
 		iter += 1
-		if card is Card:
-			var card_position_x : float = horizontal_center + (iter * divided_space)
-			var card_position : Vector2 = Vector2(card_position_x, 0)
-			positions.append(card_position)
-	return positions
+		var new_prs : PRSData = PRSData.new()
+		var card_position_x : float = left_side + (iter * divided_space)
+		var card_position_y : float = hand_center_distance - hand_center_distance * sqrt(1 - pow(card_position_x/hand_center_distance, 2))
+		new_prs.position = Vector2(card_position_x, card_position_y)
+		new_prs.rotation = sin(card_position_x/hand_center_distance)
+		prs_array.append(new_prs)
+	return prs_array
 
-func get_nearest_card(input_position:Vector2):
-	var nearest_card : Card
-	var shortest_distance : float = ignore_mouse_range
-	for card in cards:
-		if card is Card:
-			var diff : Vector2 = card.position - input_position
-			var distance : float = diff.length()
-			if distance < shortest_distance:
-				shortest_distance = distance
-				nearest_card = card
-	return nearest_card
-
-func fan_cards():
-	var positions : Array = get_card_positions()
-	for card in cards:
-		if card is Card:
-			card.tween_to_position(positions.pop_front())
-
-func fan_cards_away_from_card(focused_card:Card):
-	var positions : Array = get_card_positions()
-	var card_index : int = cards.find(focused_card)
-	positions = _fan_positions_from_index(positions, card_index)
-	for card in cards:
-		if card is Card:
-			card.tween_to_position(positions.pop_front(), fan_speed)
-
-func _fan_positions_from_index(positions:Array, card_index:int):
-	var new_positions : Array
+func spread_positions_from_index(prs_array:Array, card_index:int):
 	var index : int = 0
-	for card_position in positions:
-		if index != card_index:
-			var hand_distance = abs(index - card_index)
-			var fan_distance = fan_cards_from_center / hand_distance
-			card_position += Vector2(fan_distance * sign(index - card_index), 0)
-		new_positions.append(card_position)
+	for prs in prs_array:
+		if prs is PRSData:
+			if index != card_index:
+				var hand_distance = abs(index - card_index)
+				var fan_distance = fan_cards_from_center / hand_distance
+				prs.position += Vector2(fan_distance * sign(index - card_index), 0)
 		index += 1
-	return new_positions
+	return prs_array
+
+func get_prs_array_spread():
+	var prs_array : Array = get_prs_array()
+	if spread_from_index >= 0:
+		prs_array = spread_positions_from_index(prs_array, spread_from_index)
+	return prs_array
+
+func _update_hand():
+	var prs_array = get_prs_array_spread()
+	var prs_index = 0
+	for card_key in cards:
+		cards[card_key] = prs_array[prs_index]
+		emit_signal("card_updated", card_key, cards[card_key])
+		prs_index += 1
+	emit_signal("hand_updated")
+
+func get_nearest_index(input_position:Vector2):
+	var nearest_index : int = -1
+	var shortest_distance : float = ignore_mouse_range
+	var index : int = 0
+	for card_key in cards:
+		var prs : PRSData = cards[card_key]
+		var diff : Vector2 = prs.position - input_position
+		var distance : float = diff.length()
+		if distance < shortest_distance:
+			shortest_distance = distance
+			nearest_index = index
+		index += 1
+	return nearest_index
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		var relative_position : Vector2 = event.get_position() - get_global_transform().get_origin()
+		var nearest_index : int = get_nearest_index(relative_position)
+		var diff_flag : bool
+		if nearest_index >= 0:
+			diff_flag = spread_from_index != nearest_index
+			spread_from_index = nearest_index
+		else:
+			diff_flag = spread_from_index != NO_INDEX
+			spread_from_index = NO_INDEX
+		if diff_flag:
+			_update_hand()

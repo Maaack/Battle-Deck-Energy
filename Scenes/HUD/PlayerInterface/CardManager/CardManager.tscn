@@ -1,14 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/CardManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/Card/Card2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/HUD/PlayerInterface/CardManager/AnimationQueue/AnimationQueue.tscn" type="PackedScene" id=3]
+
 
 [node name="CardManager" type="Node2D"]
 script = ExtResource( 1 )
 base_card_scene = ExtResource( 2 )
-
-[node name="Container" type="Node2D" parent="."]
-
-[node name="AnimationQueue" parent="." instance=ExtResource( 3 )]
-default_tween_time = 1.0
