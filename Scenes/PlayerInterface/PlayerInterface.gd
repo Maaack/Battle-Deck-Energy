@@ -14,6 +14,7 @@ onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/Pla
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 
 var player_cards : Array = [] setget set_player_cards
+var discarding_cards_count : int = 0
 
 func set_player_cards(value:Array):
 	player_cards = value
@@ -78,8 +79,8 @@ func _on_AnimationQueue_animation_started(animation_data):
 				hand_manager.add_card(card_data)
 			AnimationType.DISCARDING:
 				var card_instance : Card2 = card_manager.get_card_instance(card_data)
-				card_instance.connect("tween_completed", card_manager, "remove_card", [card_data])
-				card_instance.connect("tween_completed", player_board, "discard_card")
+				discarding_cards_count += 1
+				card_instance.connect("tween_completed", self, "_on_discard_card_complete", [card_data])
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
 			_:
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
@@ -90,3 +91,20 @@ func _on_PlayerBoard_ending_turn():
 
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
+
+func _on_discard_card_complete(card_data:CardData):
+	hand_manager.queue_card(card_data)
+	card_manager.remove_card(card_data)
+	player_board.discard_card()
+	discarding_cards_count -= 1
+	if discarding_cards_count != 0:
+		return
+	hand_manager.discard_queue()
+	var cards : Array = []
+	var card_resource = preload("res://Resources/Cards/DefendCard.tres").duplicate()
+	cards.append(card_resource.duplicate())
+	cards.append(card_resource.duplicate())
+	cards.append(card_resource.duplicate())
+	cards.append(card_resource.duplicate())
+	cards.append(card_resource.duplicate())
+	draw_cards(cards)

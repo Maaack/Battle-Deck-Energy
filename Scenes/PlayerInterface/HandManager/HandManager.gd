@@ -16,15 +16,24 @@ export(float, 0.0, 2.0) var fan_speed : float = 0.2
 
 var cards : Dictionary = {}
 var spread_from_index : int = NO_INDEX
+var queue: Array = []
 
 func add_card(card_key):
 	cards[card_key] = PRSData.new()
 	_update_hand()
 
-func discard_hand(card_key):
+func discard_card(card_key):
 	if card_key in cards:
 		cards.erase(card_key)
 		_update_hand()
+
+func queue_card(card_key):
+	queue.append(card_key)
+
+func discard_queue():
+	for card_key in queue:
+		discard_card(card_key)
+	queue.empty()
 
 func get_prs_array():
 	var prs_array : Array = []
