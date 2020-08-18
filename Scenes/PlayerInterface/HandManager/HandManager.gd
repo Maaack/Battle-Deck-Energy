@@ -17,6 +17,7 @@ export(Vector2) var offset_nearest_card : Vector2 = Vector2(0.0, -80)
 export(Vector2) var scale_nearest_card : Vector2 = Vector2(1.25, 1.25)
 
 var cards : Dictionary = {}
+var spread_from_mouse_flag : bool = false
 var spread_from_index : int = NO_INDEX
 var queue: Array = []
 
@@ -72,7 +73,7 @@ func spread_positions_from_index(prs_array:Array, card_index:int):
 
 func get_prs_array_spread():
 	var prs_array : Array = get_prs_array()
-	if spread_from_index >= 0:
+	if spread_from_mouse_flag and spread_from_index >= 0:
 		prs_array = spread_positions_from_index(prs_array, spread_from_index)
 	return prs_array
 
@@ -110,5 +111,5 @@ func _input(event):
 		else:
 			diff_flag = spread_from_index != NO_INDEX
 			spread_from_index = NO_INDEX
-		if diff_flag:
+		if spread_from_mouse_flag and diff_flag:
 			_update_hand()

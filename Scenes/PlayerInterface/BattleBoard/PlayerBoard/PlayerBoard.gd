@@ -10,9 +10,6 @@ onready var end_turn_button = $EndTurnButton
 onready var round_counter = $RoundCounter
 onready var energy_meter = $BattleDeckEnergy
 
-func _ready():
-	reset_end_turn()
-
 func set_draw_pile_size(value:int):
 	draw_pile.count = value
 

@@ -8,9 +8,6 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/SimpleDecks/DrawPile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/SimpleDecks/ExhaustPile.tscn" type="PackedScene" id=7]
 
-
-
-
 [node name="PlayerBoard" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0

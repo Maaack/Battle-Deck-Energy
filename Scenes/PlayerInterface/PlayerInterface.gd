@@ -3,6 +3,7 @@ extends Control
 
 signal ending_turn
 signal animation_queue_empty
+signal drawing_completed
 signal discard_completed
 
 enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING}
@@ -14,7 +15,8 @@ onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/
 onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 
-var discarding_cards_count : int = 0
+var _drawing_cards_count : int = 0
+var _discarding_cards_count : int = 0
 
 func set_draw_pile_count(count:int):
 		player_board.set_draw_pile_size(count)
@@ -40,11 +42,8 @@ func discard_card(card_data:CardData):
 	new_prs.scale = Vector2(0.1, 0.1)
 	animation_queue.animate_move(card_data, new_prs, 0.4, 0.2, AnimationType.DISCARDING)
 
-func discard_cards(cards:Array):
-	var cards_shuffled : Array = cards.duplicate()
-	cards_shuffled.shuffle()
-	for card in cards_shuffled:
-		discard_card(card)
+func reset_end_turn():
+	player_board.reset_end_turn()
 
 func _ready():
 	animation_queue.delay_timer()
@@ -65,31 +64,48 @@ func _on_AnimationQueue_animation_started(animation_data):
 			AnimationType.DRAWING:
 				player_board.draw_card()
 				card_manager.add_card(card_data)
+				var card_instance : Card2 = card_manager.get_card_instance(card_data)
+				card_instance.connect("tween_completed", self, "_on_draw_card_completed", [card_data])
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time, AnimationType.DRAWING)
 				hand_manager.add_card(card_data)
+				_drawing_cards_count += 1
 			AnimationType.DISCARDING:
 				var card_instance : Card2 = card_manager.get_card_instance(card_data)
-				discarding_cards_count += 1
-				card_instance.connect("tween_completed", self, "_on_discard_card_complete", [card_data])
+				card_instance.connect("tween_completed", self, "_on_discard_card_completed", [card_data])
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
+				_discarding_cards_count += 1
 			_:
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
 
 func _on_PlayerBoard_ending_turn():
 	emit_signal("ending_turn")
+	hand_manager.spread_from_mouse_flag = false
 
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
 
-func _on_discard_card_complete(card_data:CardData):
+func _on_discard_card_completed(card_data:CardData):
 	hand_manager.queue_card(card_data)
 	card_manager.remove_card(card_data)
 	player_board.discard_card()
-	discarding_cards_count -= 1
-	if discarding_cards_count == 0:
-		if discarding_cards_count < 0:
-			discarding_cards_count = 0
+	_discarding_cards_count -= 1
+	if _discarding_cards_count == 0:
+		if _discarding_cards_count < 0:
+			_discarding_cards_count = 0
 			return
 		hand_manager.discard_queue()
 		emit_signal("discard_completed")
-		
+
+func _on_draw_card_completed(card_data:CardData):
+	var card_instance : Card2 = card_manager.get_card_instance(card_data)
+	card_instance.disconnect("tween_completed", self, "_on_draw_card_completed")
+	_drawing_cards_count -= 1
+	if _drawing_cards_count == 0:
+		if _drawing_cards_count < 0:
+			_drawing_cards_count = 0
+			return
+		emit_signal("drawing_completed")
+
+func start_turn():
+	hand_manager.spread_from_mouse_flag = true
+	reset_end_turn()
