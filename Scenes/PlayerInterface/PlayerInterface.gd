@@ -3,6 +3,7 @@ extends Control
 
 signal ending_turn
 signal animation_queue_empty
+signal discard_completed
 
 enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING}
 
@@ -19,6 +20,7 @@ func set_draw_pile_count(count:int):
 		player_board.set_draw_pile_size(count)
 
 func draw_card(card_data:CardData):
+	card_data = card_data
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var hand_offset : Vector2 = hand_manager.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	card_data.prs.position = draw_pile_offset
@@ -75,7 +77,6 @@ func _on_AnimationQueue_animation_started(animation_data):
 
 func _on_PlayerBoard_ending_turn():
 	emit_signal("ending_turn")
-	discard_cards(hand_manager.cards.keys())
 
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
@@ -85,6 +86,10 @@ func _on_discard_card_complete(card_data:CardData):
 	card_manager.remove_card(card_data)
 	player_board.discard_card()
 	discarding_cards_count -= 1
-	if discarding_cards_count != 0:
-		return
-	hand_manager.discard_queue()
+	if discarding_cards_count == 0:
+		if discarding_cards_count < 0:
+			discarding_cards_count = 0
+			return
+		hand_manager.discard_queue()
+		emit_signal("discard_completed")
+		

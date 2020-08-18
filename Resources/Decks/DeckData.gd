@@ -16,4 +16,13 @@ func draw_card():
 
 func add_card(card:CardData):
 	if not is_instance_valid(card):
-		cards.append(card)
+		return
+	cards.append(card)
+
+func clear():
+	cards.clear()
+
+func draw_all():
+	var discarded : Array = cards.duplicate()
+	clear()
+	return discarded

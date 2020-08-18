@@ -2,24 +2,30 @@ extends Control
 
 
 onready var player_interface = $PlayerInterface
+onready var player_battle_manager = $CharacterBattleManager
 
-var player : Character = preload("res://Resources/Characters/PlayerSettings/NewPlayerSettings.tres")
+var player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayer.tres")
 var enemy : Character = preload("res://Resources/Characters/Opponents/BasicEnemy.tres")
 
 func _ready():
-	var enemy1 : Character = enemy.duplicate()
-	var enemy2 : Character = enemy.duplicate()
-	var opponent1 : AIOpponent = AIOpponent.new()
-	var opponent2 : AIOpponent = AIOpponent.new()
-	opponent1.character = enemy1
-	opponent2.character = enemy2
-	player.start()
-	player_interface.set_draw_pile_count(player.deck_size())
-	var cards = []
-	var attack_card = load("res://Resources/Cards/AttackCard.tres")
-	cards.append(attack_card.duplicate())
-	cards.append(attack_card.duplicate())
-	cards.append(attack_card.duplicate())
-	cards.append(attack_card.duplicate())
-	cards.append(attack_card.duplicate())
-	player_interface.draw_cards(cards)
+	player_interface.set_draw_pile_count(player_data.deck_size())
+	player_battle_manager.character_data = player_data
+	start_turn()
+
+func start_turn():
+	if player_interface.is_connected("discard_completed", self, "start_turn"):
+		player_interface.disconnect("discard_completed", self, "start_turn")
+	player_battle_manager.draw_hand()
+	
+
+func _on_CharacterBattleManager_drew_card(card):
+	player_interface.draw_card(card)
+
+
+func _on_PlayerInterface_ending_turn():
+	player_interface.connect("discard_completed",  self, "start_turn")
+	player_battle_manager.discard_hand()
+	
+
+func _on_CharacterBattleManager_discarded_card(card):
+	player_interface.discard_card(card)
