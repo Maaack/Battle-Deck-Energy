@@ -13,6 +13,9 @@ var hovering : bool = false
 var pressed : bool = false
 var glowing : bool = false
 
+func reset():
+	button_node.disabled = false
+
 func _on_Button_mouse_entered():
 	hovering = true
 	_update_glow()

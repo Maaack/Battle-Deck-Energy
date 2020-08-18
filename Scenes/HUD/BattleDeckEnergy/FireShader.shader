@@ -84,10 +84,10 @@ float get_moving_fbm_noise(vec2 coord, float time){
 }
 
 void fragment() {
-
+	float mod_time = mod(TIME, 3600.0);
 	float fire_shape = get_fire_shape(UV, 0.4);
-	float coarse_noise = get_moving_coarse_noise(UV, TIME);
-	float fbm_noise = get_moving_fbm_noise(UV, TIME);
+	float coarse_noise = get_moving_coarse_noise(UV, mod_time);
+	float fbm_noise = get_moving_fbm_noise(UV, mod_time);
 	float combined = coarse_noise * fbm_noise * fire_shape;
 
 	if (combined < outer_threshold){
