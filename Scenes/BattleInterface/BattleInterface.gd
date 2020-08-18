@@ -32,3 +32,6 @@ func _on_PlayerInterface_ending_turn():
 
 func _on_CharacterBattleManager_discarded_card(card):
 	player_interface.discard_card(card)
+
+func _on_CharacterBattleManager_reshuffled_card(card):
+	player_interface.reshuffle_card(card)

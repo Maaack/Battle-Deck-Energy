@@ -35,7 +35,7 @@ func _update_card_front():
 	if card_data.energy_cost >= 0:
 		$Body/BDEPanel/BDECostLabel.text = str(card_data.energy_cost)
 	if card_data.battle_effects.size() > 0:
-		var battle_effect : BattleEffect = card_data.battle_effects.pop_front()
+		var battle_effect : BattleEffect = card_data.battle_effects[0]
 		if battle_effect.effect_icon != null:
 			$Body/CardFront/Control/TextureRect.texture = battle_effect.effect_icon
 		if battle_effect.effect_quantity != 0:

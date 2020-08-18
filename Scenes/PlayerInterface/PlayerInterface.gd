@@ -6,7 +6,7 @@ signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
 
-enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING}
+enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING}
 
 onready var card_manager : Node2D = $HandContainer/Control/CardManager
 onready var animation_queue : Node = $AnimationQueue
@@ -42,6 +42,13 @@ func discard_card(card_data:CardData):
 	new_prs.scale = Vector2(0.1, 0.1)
 	animation_queue.animate_move(card_data, new_prs, 0.4, 0.2, AnimationType.DISCARDING)
 
+func reshuffle_card(card_data:CardData):
+	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
+	var new_prs : PRSData = PRSData.new()
+	new_prs.position = draw_pile_offset
+	new_prs.scale = Vector2(0.1, 0.1)
+	animation_queue.animate_move(card_data, new_prs, 0.2, 0.1, AnimationType.RESHUFFLING)
+
 func reset_end_turn():
 	player_board.reset_end_turn()
 
@@ -63,8 +70,7 @@ func _on_AnimationQueue_animation_started(animation_data):
 		match(animation_data.animation_type):
 			AnimationType.DRAWING:
 				player_board.draw_card()
-				card_manager.add_card(card_data)
-				var card_instance : Card2 = card_manager.get_card_instance(card_data)
+				var card_instance = card_manager.add_card(card_data)
 				card_instance.connect("tween_completed", self, "_on_draw_card_completed", [card_data])
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time, AnimationType.DRAWING)
 				hand_manager.add_card(card_data)
@@ -74,6 +80,8 @@ func _on_AnimationQueue_animation_started(animation_data):
 				card_instance.connect("tween_completed", self, "_on_discard_card_completed", [card_data])
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
 				_discarding_cards_count += 1
+			AnimationType.RESHUFFLING:
+				player_board.reshuffle_card()
 			_:
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
 

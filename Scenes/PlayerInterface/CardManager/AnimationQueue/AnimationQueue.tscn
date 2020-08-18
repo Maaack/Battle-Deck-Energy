@@ -2,9 +2,6 @@
 
 [ext_resource path="res://Scenes/PlayerInterface/CardManager/AnimationQueue/AnimationQueue.gd" type="Script" id=1]
 
-
-
-
 [node name="AnimationQueue" type="Node"]
 script = ExtResource( 1 )
 

@@ -75,6 +75,8 @@ func exhaust_card(card:CardData):
 	emit_signal("exhausted_card", card)
 
 func draw_card():
+	if draw_pile.size() < 1:
+		reshuffle_discard_pile()
 	var card: CardData = draw_pile.draw_card()
 	if not is_instance_valid(card):
 		return

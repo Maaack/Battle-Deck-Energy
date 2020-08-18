@@ -15,8 +15,6 @@
 [ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowAnimation.tres" type="Animation" id=13]
 [ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowNode.gd" type="Script" id=14]
 
-
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.411765, 0.729412, 1 )
 corner_radius_top_left = 16
