@@ -50,6 +50,11 @@ _global_script_classes=[ {
 "path": "res://Resources/Characters/Character.gd"
 }, {
 "base": "Resource",
+"class": "CharacterData",
+"language": "GDScript",
+"path": "res://Resources/Characters/CharacterData.gd"
+}, {
+"base": "Resource",
 "class": "DeckData",
 "language": "GDScript",
 "path": "res://Resources/Decks/DeckData.gd"
@@ -73,6 +78,7 @@ _global_script_class_icons={
 "CardData": "",
 "CardSettings": "",
 "Character": "",
+"CharacterData": "",
 "DeckData": "",
 "HandData": "",
 "PRSData": ""
