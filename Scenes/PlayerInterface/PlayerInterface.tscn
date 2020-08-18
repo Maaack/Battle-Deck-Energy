@@ -79,8 +79,6 @@ mouse_filter = 1
 hand_center_distance = 2048.0
 
 [node name="CardManager" parent="HandContainer/Control" instance=ExtResource( 3 )]
-default_tween_time = null
-default_wait_time = null
 
 [node name="AnimationQueue" parent="." instance=ExtResource( 1 )]
 [connection signal="ending_turn" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_ending_turn"]

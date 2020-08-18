@@ -13,13 +13,10 @@ onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/
 onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 
-var player_cards : Array = [] setget set_player_cards
 var discarding_cards_count : int = 0
 
-func set_player_cards(value:Array):
-	player_cards = value
-	if player_cards is Array:
-		player_board.set_draw_pile_size(player_cards.size())
+func set_draw_pile_count(count:int):
+		player_board.set_draw_pile_size(count)
 
 func draw_card(card_data:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
@@ -48,16 +45,7 @@ func discard_cards(cards:Array):
 		discard_card(card)
 
 func _ready():
-	var cards : Array = []
-	var card_resource = preload("res://Resources/Cards/AttackCard.tres").duplicate()
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	player_board.set_draw_pile_size(10)
 	animation_queue.delay_timer()
-	draw_cards(cards)
 
 func update_player_board():
 	pass
@@ -100,11 +88,3 @@ func _on_discard_card_complete(card_data:CardData):
 	if discarding_cards_count != 0:
 		return
 	hand_manager.discard_queue()
-	var cards : Array = []
-	var card_resource = preload("res://Resources/Cards/DefendCard.tres").duplicate()
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	cards.append(card_resource.duplicate())
-	draw_cards(cards)

@@ -13,6 +13,8 @@ export(int, 0, 32) var max_hand_size : int = 8
 export(float, 0, 1024) var ignore_mouse_range : float = 200
 export(float, 0, 1024) var fan_cards_from_center : float = 60
 export(float, 0.0, 2.0) var fan_speed : float = 0.2
+export(Vector2) var offset_nearest_card : Vector2 = Vector2(0.0, -80)
+export(Vector2) var scale_nearest_card : Vector2 = Vector2(1.25, 1.25)
 
 var cards : Dictionary = {}
 var spread_from_index : int = NO_INDEX
@@ -61,6 +63,10 @@ func spread_positions_from_index(prs_array:Array, card_index:int):
 				var hand_distance = abs(index - card_index)
 				var fan_distance = fan_cards_from_center / hand_distance
 				prs.position += Vector2(fan_distance * sign(index - card_index), 0)
+			else:
+				prs.position += offset_nearest_card
+				prs.scale = scale_nearest_card
+				prs.rotation = 0.0
 		index += 1
 	return prs_array
 
