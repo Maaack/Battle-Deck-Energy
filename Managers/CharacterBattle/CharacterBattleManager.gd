@@ -1,7 +1,7 @@
 extends Node
 
 
-## class_name CharacterBattleManager
+class_name CharacterBattleManager
 
 signal drew_card(card)
 signal discarded_card(card)
@@ -20,7 +20,7 @@ var _reshuffling_cards : int = 0
 func _reset_draw_pile():
 	for card in character_data.deck:
 		draw_pile.add_card(card.duplicate())
-	shuffle()
+	draw_pile.shuffle()
 
 func _reset_discard_pile():
 	discard_pile.clear()
@@ -37,9 +37,6 @@ func reset():
 func set_character_data(value:CharacterData):
 	character_data = value
 	reset()
-
-func shuffle():
-	draw_pile.shuffle()
 
 func reshuffle_discard_pile():
 	var discarded : Array = discard_pile.draw_all()
@@ -63,6 +60,7 @@ func discard_card_from_hand(card:CardData):
 
 func reshuffle_card(card:CardData):
 	draw_pile.add_card(card)
+	draw_pile.shuffle()
 	emit_signal("reshuffled_card", card)
 
 func discard_card(card:CardData):
