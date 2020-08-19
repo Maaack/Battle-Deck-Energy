@@ -6,9 +6,9 @@ class_name Card2
 
 signal mouse_entered(card_data)
 signal mouse_exited(card_data)
-signal mouse_clicked
-signal mouse_released
-signal tween_completed
+signal mouse_clicked(card_data)
+signal mouse_released(card_data)
+signal tween_completed(card_data)
 
 onready var body_node = $Body
 onready var glow_node = $GlowContainer/Control/GlowNode
@@ -88,9 +88,6 @@ func glow_not():
 func glow_off():
 		glow_node.glow_off()
 
-func _on_CardTween_tween_completed(object, key):
-	emit_signal("position_reached", self)
-
 func _on_Body_mouse_entered():
 	emit_signal("mouse_entered", card_data)
 
@@ -102,9 +99,9 @@ func _on_Body_gui_input(event):
 		match event.button_index:
 			BUTTON_LEFT:
 				if event.pressed:
-					emit_signal("mouse_clicked")
+					emit_signal("mouse_clicked", card_data)
 				if not event.pressed:
-					emit_signal("mouse_released")
+					emit_signal("mouse_released", card_data)
 
 func _on_Tween_tween_all_completed():
-	emit_signal("tween_completed")
+	emit_signal("tween_completed", card_data)

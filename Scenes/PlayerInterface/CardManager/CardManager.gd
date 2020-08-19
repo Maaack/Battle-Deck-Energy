@@ -3,6 +3,8 @@ extends Node
 
 signal focused_on_card(card_data)
 signal focused_off_card(card_data)
+signal dragging_card(card_data)
+signal dropping_card(card_data)
 
 export(PackedScene) var base_card_scene : PackedScene
 export(float, 0.0, 16.0) var default_tween_time : float = 0.5
@@ -11,6 +13,7 @@ export(float, 0.0, 16.0) var default_wait_time : float = 0.25
 var card_map : Dictionary = {}
 var card_instance_map : Dictionary = {}
 var focused_card = null
+var dragged_card = null
 
 func add_card(card_data:CardData):
 	if card_data in card_map:
@@ -23,6 +26,8 @@ func add_card(card_data:CardData):
 		add_child(card_instance)
 		card_instance.connect("mouse_entered", self, "_on_Card_mouse_entered")
 		card_instance.connect("mouse_exited", self, "_on_Card_mouse_exited")
+		card_instance.connect("mouse_clicked", self, "_on_Card_mouse_clicked")
+		card_instance.connect("mouse_released", self, "_on_Card_mouse_released")
 	return card_instance
 
 func remove_card(card_data:CardData):
@@ -52,19 +57,34 @@ func move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween
 
 func focus_on_card(card_data):
 	focused_card = card_data
+	var card : Card2 = get_card_instance(card_data)
+	card.glow_on()
+	if card_data in card_map:
+		var card_instance : Node2D = card_map[card_data]
+		card_instance.z_index += 100
 	emit_signal("focused_on_card", card_data)
 
 func focus_off_card(card_data):
+	var card : Card2 = get_card_instance(card_data)
+	card.glow_off()
 	if focused_card == card_data:
 		focused_card = null
+		if card_data in card_map:
+			var card_instance : Node2D = card_map[card_data]
+			card_instance.z_index -= 100
 	emit_signal("focused_off_card", card_data)
 
 func _on_Card_mouse_entered(card_data:CardData):
-	var card : Card2 = get_card_instance(card_data)
-	card.glow_on()
 	focus_on_card(card_data)
 
 func _on_Card_mouse_exited(card_data:CardData):
-	var card : Card2 = get_card_instance(card_data)
-	card.glow_off()
 	focus_off_card(card_data)
+
+func _on_Card_mouse_clicked(card_data:CardData):
+	dragged_card = card_data
+	emit_signal("dragging_card", card_data)
+
+func _on_Card_mouse_released(card_data:CardData):
+	if dragged_card == card_data:
+		dragged_card = null
+	emit_signal("dropping_card", card_data)

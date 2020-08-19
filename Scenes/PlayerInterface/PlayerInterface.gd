@@ -6,7 +6,7 @@ signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
 
-enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING}
+enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING}
 
 onready var card_manager : Node2D = $HandContainer/Control/CardManager
 onready var animation_queue : Node = $AnimationQueue
@@ -66,13 +66,13 @@ func _on_AnimationQueue_animation_started(animation_data):
 			AnimationType.DRAWING:
 				player_board.draw_card()
 				var card_instance = card_manager.add_card(card_data)
-				card_instance.connect("tween_completed", self, "_on_draw_card_completed", [card_data])
+				card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time, AnimationType.DRAWING)
 				hand_manager.add_card(card_data)
 				_drawing_cards_count += 1
 			AnimationType.DISCARDING:
 				var card_instance : Card2 = card_manager.get_card_instance(card_data)
-				card_instance.connect("tween_completed", self, "_on_discard_card_completed", [card_data])
+				card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
 				_discarding_cards_count += 1
 			AnimationType.RESHUFFLING:
@@ -116,3 +116,19 @@ func start_turn():
 
 func add_opponent_actions(opponent_data:CharacterData):
 	actions_board.add_opponent_actions(opponent_data)
+
+func _on_PlayerInterface_gui_input(event):
+	if event is InputEventMouseMotion:
+		if card_manager.dragged_card != null:
+			var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
+			var prs_data = PRSData.new()
+			prs_data.position = event.position + card_manager_offset
+			prs_data.scale = Vector2(1.25, 1.25)
+			card_manager.move_card(card_manager.dragged_card, prs_data, 0.1, AnimationType.DRAGGING)
+
+func _on_CardManager_dragging_card(card_data):
+	hand_manager.spread_from_mouse_flag = false
+
+func _on_CardManager_dropping_card(card_data):
+	hand_manager.spread_from_mouse_flag = true
+	hand_manager.update_hand()

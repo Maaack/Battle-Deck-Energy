@@ -75,7 +75,10 @@ hand_center_distance = 2048.0
 [node name="CardManager" parent="HandContainer/Control" instance=ExtResource( 3 )]
 
 [node name="AnimationQueue" parent="." instance=ExtResource( 1 )]
+[connection signal="gui_input" from="." to="." method="_on_PlayerInterface_gui_input"]
 [connection signal="ending_turn" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_ending_turn"]
 [connection signal="card_updated" from="HandContainer/Control/HandManager" to="." method="_on_HandManager_card_updated"]
+[connection signal="dragging_card" from="HandContainer/Control/CardManager" to="." method="_on_CardManager_dragging_card"]
+[connection signal="dropping_card" from="HandContainer/Control/CardManager" to="." method="_on_CardManager_dropping_card"]
 [connection signal="animation_started" from="AnimationQueue" to="." method="_on_AnimationQueue_animation_started"]
 [connection signal="queue_empty" from="AnimationQueue" to="." method="_on_AnimationQueue_queue_empty"]

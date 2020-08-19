@@ -23,12 +23,12 @@ var queue: Array = []
 
 func add_card(card_key):
 	cards[card_key] = PRSData.new()
-	_update_hand()
+	update_hand()
 
 func discard_card(card_key):
 	if card_key in cards:
 		cards.erase(card_key)
-		_update_hand()
+		update_hand()
 
 func queue_card(card_key):
 	queue.append(card_key)
@@ -77,10 +77,11 @@ func get_prs_array_spread():
 		prs_array = spread_positions_from_index(prs_array, spread_from_index)
 	return prs_array
 
-func _update_hand():
+func update_hand():
 	var prs_array = get_prs_array_spread()
 	var prs_index = 0
 	for card_key in cards:
+		var new_prs_data : PRSData = prs_array[prs_index]
 		cards[card_key] = prs_array[prs_index]
 		emit_signal("card_updated", card_key, cards[card_key])
 		prs_index += 1
@@ -112,4 +113,4 @@ func _input(event):
 			diff_flag = spread_from_index != NO_INDEX
 			spread_from_index = NO_INDEX
 		if spread_from_mouse_flag and diff_flag:
-			_update_hand()
+			update_hand()
