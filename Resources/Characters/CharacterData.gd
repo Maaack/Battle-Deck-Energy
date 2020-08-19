@@ -16,7 +16,7 @@ var energy : int = 0
 var hand_size : int = 0
 
 func _to_string():
-	return str(deck)
+	return "H: %d / %d" % [health, max_health]
 
 func reset_health():
 	if starting_max_health > 0:
@@ -41,11 +41,11 @@ func set_starting_deck(value:Array):
 	reset_deck()
 
 func set_starting_max_health(value:int):
-	max_health = value
+	starting_max_health = value
 	reset_health()
 
 func set_starting_max_energy(value:int):
-	max_energy = value
+	starting_max_energy = value
 	reset_energy()
 
 func set_starting_hand_size(value:int):
@@ -54,6 +54,8 @@ func set_starting_hand_size(value:int):
 
 func reset():
 	reset_deck()
+	reset_health()
+	reset_energy()
 	reset_hand_size()
 
 func deck_size():
