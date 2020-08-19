@@ -44,3 +44,6 @@ func _on_EndTurnButton_pressed():
 
 func reset_end_turn():
 	end_turn_button.reset()
+
+func advance_round_count():
+	round_counter.advance_round()

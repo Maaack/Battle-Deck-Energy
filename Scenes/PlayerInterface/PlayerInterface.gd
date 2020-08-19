@@ -12,6 +12,7 @@ onready var card_manager : Node2D = $HandContainer/Control/CardManager
 onready var animation_queue : Node = $AnimationQueue
 onready var hand_manager : Node2D = $HandContainer/Control/HandManager
 onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
+onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
 onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 
@@ -54,12 +55,6 @@ func reset_end_turn():
 
 func _ready():
 	animation_queue.delay_timer()
-
-func update_player_board():
-	pass
-
-func update_opponents_board():
-	pass
 
 func _on_HandManager_card_updated(card_data:CardData, prs:PRSData):
 	card_manager.move_card(card_data, prs, 0.1, AnimationType.SHIFTING)
@@ -116,4 +111,8 @@ func _on_draw_card_completed(card_data:CardData):
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
+	player_board.advance_round_count()
 	reset_end_turn()
+
+func add_opponent_actions(opponent_data:CharacterData):
+	actions_board.add_opponent_actions(opponent_data)

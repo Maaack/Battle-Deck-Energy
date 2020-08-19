@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 
-onready var opening_scene = preload("res://Scenes/HUD/BattleBoard/CardSlot/Opening/Opening.tscn")
+onready var opening_scene = preload("res://Managers/Openings/Opening.tscn")
 
 func add_opening():
 	var opening_instance = opening_scene.instance()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/PlayerInterface/CardManager/AnimationQueue/AnimationQueue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/CardManager/CardManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" type="PackedScene" id=6]
 
 [node name="PlayerInterface" type="Control"]
 anchor_right = 1.0
@@ -42,14 +43,7 @@ margin_top = 32.0
 margin_right = 1248.0
 margin_bottom = 688.0
 
-[node name="OpponentsBoard" type="Control" parent="BattleBoard/MarginContainer/VBoxContainer"]
-margin_right = 1216.0
-margin_bottom = 326.0
-mouse_filter = 2
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ActionsBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 
 [node name="PlayerBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0

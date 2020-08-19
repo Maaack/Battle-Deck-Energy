@@ -4,12 +4,19 @@ extends Control
 onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 
-var player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayer.tres")
-var enemy : Character = preload("res://Resources/Characters/Opponents/BasicEnemy.tres")
+var player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
+var enemy_data : CharacterData = preload("res://Resources/Characters/Opponents/EasyOpponentData.tres")
+var battle_manager_scene : PackedScene = preload("res://Managers/CharacterBattle/CharacterBattleManager.tscn")
 
 func _ready():
 	player_interface.set_draw_pile_count(player_data.deck_size())
 	player_battle_manager.character_data = player_data
+	var enemy1 : CharacterData = enemy_data.duplicate()
+	var enemy2 : CharacterData = enemy_data.duplicate()
+	var enemy3 : CharacterData = enemy_data.duplicate()
+	player_interface.add_opponent_actions(enemy1)
+	player_interface.add_opponent_actions(enemy2)
+	player_interface.add_opponent_actions(enemy3)
 	start_turn()
 
 func start_turn():

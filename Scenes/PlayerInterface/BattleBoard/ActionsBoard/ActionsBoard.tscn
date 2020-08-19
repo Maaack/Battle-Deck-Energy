@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.gd" type="Script" id=1]
+
+[node name="ActionsBoard" type="HBoxContainer"]
+margin_right = 1216.0
+margin_bottom = 326.0
+mouse_filter = 2
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
