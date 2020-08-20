@@ -5,24 +5,25 @@ onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
 
-var player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
-var enemy_data : CharacterData = preload("res://Resources/Characters/Opponents/EasyOpponentData.tres")
-var battle_manager_scene : PackedScene = preload("res://Managers/CharacterBattle/CharacterBattleManager.tscn")
+var player_data : CharacterData setget set_player_data
+var opponents : Array = [] setget set_opponents
 
-func _ready():
-	player_interface.set_draw_pile_count(player_data.deck_size())
-	player_battle_manager.character_data = player_data
-	var enemy1 : CharacterData = enemy_data.duplicate()
-	var enemy2 : CharacterData = enemy_data.duplicate()
-	var enemy3 : CharacterData = enemy_data.duplicate()
-	ai_opponents_manager.add_opponent(enemy1)
-	ai_opponents_manager.add_opponent(enemy2)
-	ai_opponents_manager.add_opponent(enemy3)
-	player_interface.add_opponent_actions(enemy1)
-	player_interface.add_opponent_actions(enemy2)
-	player_interface.add_opponent_actions(enemy3)
+func set_player_data(value:CharacterData):
+	player_data = value
+	if is_instance_valid(player_data):
+		player_interface.player_data = player_data
+		player_battle_manager.character_data = player_data
+
+func new_opponent(opponent_data:CharacterData):
+	opponent_data = opponent_data.duplicate()
+	ai_opponents_manager.add_opponent(opponent_data)
+	player_interface.add_opponent_actions(opponent_data)
+
+func set_opponents(values:Array):
+	for value in values:
+		if value is CharacterData:
+			new_opponent(value)
 	player_interface.add_openings()
-	start_turn()
 
 func start_turn():
 	if player_interface.is_connected("discard_completed", self, "start_turn"):

@@ -47,3 +47,9 @@ func reset_end_turn():
 
 func advance_round_count():
 	round_counter.advance_round()
+
+func spend_energy(amount:int = 1):
+	energy_meter.energy -= amount
+
+func gain_energy(amount:int = 1):
+	energy_meter.energy += amount
