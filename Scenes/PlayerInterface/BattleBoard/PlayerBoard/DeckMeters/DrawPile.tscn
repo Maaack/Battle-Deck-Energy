@@ -1,12 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Themes/StyleBoxes/DrawPileStyleBox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/SimpleDecks/Base/Deck.tscn" type="PackedScene" id=2]
-
-
-
-
-
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.tscn" type="PackedScene" id=2]
 
 [node name="DrawPile" instance=ExtResource( 2 )]
 anchor_top = 1.0

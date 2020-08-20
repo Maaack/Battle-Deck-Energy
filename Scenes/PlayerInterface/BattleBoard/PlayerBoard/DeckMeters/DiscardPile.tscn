@@ -1,14 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Themes/StyleBoxes/ExhaustPileStyleBox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/SimpleDecks/Base/Deck.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Themes/StyleBoxes/DiscardPileStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.tscn" type="PackedScene" id=2]
 
-
-
-
-
-
-[node name="ExhaustPile" instance=ExtResource( 2 )]
+[node name="DiscardPile" instance=ExtResource( 2 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -64.0
