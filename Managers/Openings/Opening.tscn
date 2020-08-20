@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Managers/Openings/Opening.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/HUD/BattleBoard/CardSlot/CardSlot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/CardSlot/CardSlot.tscn" type="PackedScene" id=2]
 
 [node name="Opening" type="CenterContainer"]
 margin_right = 88.0

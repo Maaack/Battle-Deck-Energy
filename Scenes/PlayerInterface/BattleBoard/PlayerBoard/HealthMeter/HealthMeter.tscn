@@ -4,7 +4,8 @@
 [ext_resource path="res://Assets/Sourced/Icons/GlyphsterUnlimited/1x/medical_healthcare_heart.png" type="Texture" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Meters/HealthMeterStyleBox.tres" type="StyleBox" id=3]
 [ext_resource path="res://Themes/Fonts/morris_roman_24_outline_1.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Scenes/HUD/HealthMeter/HealthMeter.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.gd" type="Script" id=5]
+
 
 [node name="HealthMeter" type="Control"]
 margin_right = 400.0

@@ -4,11 +4,17 @@
 [ext_resource path="res://Scenes/HUD/BattleScreen.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/HUD/Decks/ExhaustPile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HUD/Decks/DiscardPile.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/HUD/Buttons/EndTurn/EndTurnButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/EndTurnButton/EndTurnButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD/RoundCounter/RoundCounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HUD/HandManager/HandManager.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/HUD/BattleDeckEnergy/BattleDeckEnergy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/HUD/BattleBoard/BattleBoard.tscn" type="PackedScene" id=9]
+
+
+
+
+
+
 
 [node name="BattleScreen" type="Control"]
 anchor_right = 1.0
