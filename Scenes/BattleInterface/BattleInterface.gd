@@ -26,6 +26,9 @@ func set_opponents(values:Array):
 			new_opponent(value)
 	player_interface.add_openings()
 
+func start_battle():
+	battle_phase_manager.advance()
+
 func _take_enemy_turn():
 	ai_opponents_manager.opponents_take_turn()
 	battle_phase_manager.advance()
@@ -46,6 +49,7 @@ func _end_player_turn():
 func start_round():
 	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
 		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
+	player_interface.start_round()
 	battle_phase_manager.advance()
 
 func _resolve_actions():

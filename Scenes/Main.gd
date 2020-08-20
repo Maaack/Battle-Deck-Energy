@@ -9,4 +9,4 @@ var enemy_data : CharacterData = preload("res://Resources/Characters/Opponents/E
 func _ready():
 	battle_interface.player_data = player_data
 	battle_interface.opponents = [enemy_data,enemy_data]
-	battle_interface.start_round()
+	battle_interface.start_battle()

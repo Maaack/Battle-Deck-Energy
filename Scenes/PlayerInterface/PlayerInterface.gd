@@ -118,8 +118,10 @@ func _on_draw_card_completed(card_data:CardData):
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
-	player_board.advance_round_count()
 	reset_end_turn()
+	
+func start_round():
+	player_board.advance_round_count()
 
 func add_openings():
 	actions_board.add_openings()
