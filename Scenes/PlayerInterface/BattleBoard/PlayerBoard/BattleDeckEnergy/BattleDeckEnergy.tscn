@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/ShaderMaterial.tres" type="Material" id=2]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sourced/Icons/LineHeroUnlimited/Medium/security_and_protection_shield.png" type="Texture" id=4]
+[ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_38.tres" type="DynamicFont" id=5]
+
+[node name="BattleDeckEnergy" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+margin_right = 64.0
+rect_min_size = Vector2( 64, 64 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -50.0
+margin_right = 150.0
+rect_min_size = Vector2( 150, 50 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+material = ExtResource( 2 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -6.0
+margin_top = -96.0
+margin_right = 58.0
+margin_bottom = -32.0
+rect_scale = Vector2( 1.2, 1.5 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -92.0
+margin_top = -2.0
+margin_right = -15.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 0.411765, 0.729412, 1 )
+text = "# / #"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
