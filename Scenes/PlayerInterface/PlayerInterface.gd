@@ -143,7 +143,15 @@ func _on_PlayerInterface_gui_input(event):
 
 func _on_CardManager_dragging_card(card_data):
 	hand_manager.spread_from_mouse_flag = false
+	for battle_opening in get_player_battle_openings():
+		battle_opening.glow_on()
+	
 
 func _on_CardManager_dropping_card(card_data):
+	for battle_opening in get_player_battle_openings():
+		battle_opening.glow_off()
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
+
+func get_player_battle_openings():
+	return actions_board.get_player_battle_openings()

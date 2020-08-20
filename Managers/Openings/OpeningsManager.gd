@@ -12,9 +12,9 @@ func sub_opening():
 	if is_instance_valid(last_node):
 		remove_child(last_node)
 
-func get_opening_positions():
-	var openings : Array = []
+func get_battle_openings():
+	var battle_openings : Array = []
 	for child in get_children():
-		if child.has_method("get_opening_global_position"):
-			openings.append(child.get_opening_global_position())
-	return openings
+		if child is BattleOpening:
+			battle_openings.append(child)
+	return battle_openings

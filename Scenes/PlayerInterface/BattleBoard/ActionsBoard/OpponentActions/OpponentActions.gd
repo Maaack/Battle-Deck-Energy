@@ -38,11 +38,11 @@ func add_opponent_opening():
 func sub_opponent_opening():
 	opponent_opening_manager.sub_opening()
 
-func get_player_opening_positions():
-	return player_opening_manager.get_opening_positions()
+func get_player_battle_openings():
+	return player_opening_manager.get_battle_openings()
 
-func get_opponent_opening_positions():
-	return opponent_opening_manager.get_opening_positions()
+func get_opponent_battle_openings():
+	return opponent_opening_manager.get_battle_openings()
 
 func start_round():
 	add_player_opening()

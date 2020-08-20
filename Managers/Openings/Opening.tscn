@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Managers/Openings/Opening.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/CardSlot/CardSlot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" type="StyleBox" id=3]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowAnimation.tres" type="Animation" id=4]
 
 [node name="Opening" type="CenterContainer"]
-margin_right = 88.0
-margin_bottom = 128.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -64.0
+margin_right = 44.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 88, 128 )
 size_flags_horizontal = 3
 script = ExtResource( 1 )
@@ -22,3 +30,24 @@ margin_left = 44.0
 margin_top = 64.0
 margin_right = 44.0
 margin_bottom = 64.0
+
+[node name="GlowNode" type="Node2D" parent="CardSlot"]
+visible = false
+
+[node name="Panel" type="Panel" parent="CardSlot/GlowNode"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -64.0
+margin_right = 44.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 88, 128 )
+custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardSlot/GlowNode"]
+anims/GlowAnimation = ExtResource( 4 )

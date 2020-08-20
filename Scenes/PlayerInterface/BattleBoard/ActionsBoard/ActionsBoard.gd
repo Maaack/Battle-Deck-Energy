@@ -31,3 +31,10 @@ func remove_openings():
 			child.sub_player_opening()
 		if child.has_method("sub_opponent_opening"):
 			child.sub_opponent_opening()
+
+func get_player_battle_openings():
+	var battle_openings : Array = []
+	for child in get_children():
+		if child.has_method("get_player_battle_openings"):
+			battle_openings += child.get_player_battle_openings()
+	return battle_openings
