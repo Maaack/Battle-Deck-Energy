@@ -38,7 +38,7 @@ func _update_glow():
 			glowing = true
 			emit_signal("glow_on", self)
 		glow_node.show()
-		animation_node.play("Glow")
+		animation_node.play("GlowAnimation")
 	else:
 		if glowing:
 			glowing = false
