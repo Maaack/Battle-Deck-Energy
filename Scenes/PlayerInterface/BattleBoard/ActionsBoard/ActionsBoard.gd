@@ -17,3 +17,17 @@ func add_opponent_actions(opponent_data:CharacterData):
 func get_opponent_actions_instance(opponent:CharacterData):
 	if opponent in opponents_map:
 		return opponents_map[opponent]
+
+func add_openings():
+	for child in get_children():
+		if child.has_method("add_player_opening"):
+			child.add_player_opening()
+		if child.has_method("add_opponent_opening"):
+			child.add_opponent_opening()
+
+func remove_openings():
+	for child in get_children():
+		if child.has_method("sub_player_opening"):
+			child.sub_player_opening()
+		if child.has_method("sub_opponent_opening"):
+			child.sub_opponent_opening()

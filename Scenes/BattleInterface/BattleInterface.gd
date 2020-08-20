@@ -21,6 +21,7 @@ func _ready():
 	player_interface.add_opponent_actions(enemy1)
 	player_interface.add_opponent_actions(enemy2)
 	player_interface.add_opponent_actions(enemy3)
+	player_interface.add_openings()
 	start_turn()
 
 func start_turn():
@@ -29,6 +30,10 @@ func start_turn():
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
 	ai_opponents_manager.opponents_take_turn()
 	player_battle_manager.draw_hand()
+
+func end_turn():
+	player_interface.connect("discard_completed",  self, "start_turn")
+	player_battle_manager.discard_hand()
 
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
@@ -39,8 +44,7 @@ func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
 
 func _on_PlayerInterface_ending_turn():
-	player_interface.connect("discard_completed",  self, "start_turn")
-	player_battle_manager.discard_hand()
+	end_turn()
 
 func _on_CharacterBattleManager_discarded_card(card):
 	player_interface.discard_card(card)

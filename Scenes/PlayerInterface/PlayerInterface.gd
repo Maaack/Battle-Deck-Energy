@@ -114,6 +114,12 @@ func start_turn():
 	player_board.advance_round_count()
 	reset_end_turn()
 
+func add_openings():
+	actions_board.add_openings()
+
+func remove_openings():
+	actions_board.remove_openings()
+
 func add_opponent_actions(opponent_data:CharacterData):
 	actions_board.add_opponent_actions(opponent_data)
 

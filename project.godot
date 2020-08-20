@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/BattleEffects/BattleEffect.gd"
 }, {
+"base": "CenterContainer",
+"class": "BattleOpening",
+"language": "GDScript",
+"path": "res://Managers/Openings/Opening.gd"
+}, {
 "base": "Node2D",
 "class": "Card",
 "language": "GDScript",
@@ -78,6 +83,7 @@ _global_script_class_icons={
 "AIOpponent": "",
 "AnimationData": "",
 "BattleEffect": "",
+"BattleOpening": "",
 "Card": "",
 "Card2": "",
 "CardData": "",

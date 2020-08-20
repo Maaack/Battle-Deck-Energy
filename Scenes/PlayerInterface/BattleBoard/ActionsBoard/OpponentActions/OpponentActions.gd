@@ -1,8 +1,8 @@
 extends Control
 
 
-onready var opponent_opening_manager = $MarginContainer/VBoxContainer/OpeningsContainer/Opponents
-onready var player_opening_manager = $MarginContainer/VBoxContainer/OpeningsContainer/Players
+onready var opponent_opening_manager = $MarginContainer/VBoxContainer/MarginContainer/OpeningsContainer/Opponents
+onready var player_opening_manager = $MarginContainer/VBoxContainer/MarginContainer/OpeningsContainer/Players
 onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat/HealthLabel
 onready var energy_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat/EnergyLabel
 onready var deck_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/DeckStat/DeckLabel
