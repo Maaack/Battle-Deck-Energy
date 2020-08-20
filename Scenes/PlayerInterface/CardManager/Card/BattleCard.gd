@@ -2,7 +2,7 @@ tool
 extends Node2D
 
 
-class_name Card2
+class_name BattleCard
 
 signal mouse_entered(card_data)
 signal mouse_exited(card_data)

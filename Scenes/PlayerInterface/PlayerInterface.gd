@@ -78,7 +78,7 @@ func _on_AnimationQueue_animation_started(animation_data):
 				hand_manager.add_card(card_data)
 				_drawing_cards_count += 1
 			AnimationType.DISCARDING:
-				var card_instance : Card2 = card_manager.get_card_instance(card_data)
+				var card_instance : BattleCard = card_manager.get_card_instance(card_data)
 				card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 				card_manager.move_card(card_data, animation_data.prs, animation_data.tween_time)
 				_discarding_cards_count += 1
@@ -107,7 +107,7 @@ func _on_discard_card_completed(card_data:CardData):
 		emit_signal("discard_completed")
 
 func _on_draw_card_completed(card_data:CardData):
-	var card_instance : Card2 = card_manager.get_card_instance(card_data)
+	var card_instance : BattleCard = card_manager.get_card_instance(card_data)
 	card_instance.disconnect("tween_completed", self, "_on_draw_card_completed")
 	_drawing_cards_count -= 1
 	if _drawing_cards_count == 0:

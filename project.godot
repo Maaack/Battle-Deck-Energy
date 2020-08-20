@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Animations/AnimationData.gd"
 }, {
+"base": "Node2D",
+"class": "BattleCard",
+"language": "GDScript",
+"path": "res://Scenes/PlayerInterface/CardManager/Card/BattleCard.gd"
+}, {
 "base": "Resource",
 "class": "BattleEffect",
 "language": "GDScript",
@@ -33,11 +38,6 @@ _global_script_classes=[ {
 "class": "BattlePhase",
 "language": "GDScript",
 "path": "res://Scenes/BattleInterface/BattlePhase/BattlePhase.gd"
-}, {
-"base": "Node2D",
-"class": "Card2",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/CardManager/Card/Card2.gd"
 }, {
 "base": "Resource",
 "class": "CardData",
@@ -72,10 +72,10 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AIOpponent": "",
 "AnimationData": "",
+"BattleCard": "",
 "BattleEffect": "",
 "BattleOpening": "",
 "BattlePhase": "",
-"Card2": "",
 "CardData": "",
 "CharacterBattleManager": "",
 "CharacterData": "",
