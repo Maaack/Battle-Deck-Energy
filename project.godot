@@ -10,11 +10,6 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
-"class": "AIOpponent",
-"language": "GDScript",
-"path": "res://Scenes/HUD/AIOpponent.gd"
-}, {
-"base": "Resource",
 "class": "AnimationData",
 "language": "GDScript",
 "path": "res://Resources/Animations/AnimationData.gd"
@@ -70,7 +65,6 @@ _global_script_classes=[ {
 "path": "res://Resources/PRS/PRSData.gd"
 } ]
 _global_script_class_icons={
-"AIOpponent": "",
 "AnimationData": "",
 "BattleCard": "",
 "BattleEffect": "",
