@@ -5,8 +5,9 @@ signal ending_turn
 signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
+signal card_dropped_on_opening(card_data, battle_opening)
 
-enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING}
+enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
 onready var card_manager : Node2D = $HandContainer/Control/CardManager
 onready var animation_queue : Node = $AnimationQueue
@@ -141,17 +142,45 @@ func _on_PlayerInterface_gui_input(event):
 			prs_data.scale = Vector2(1.25, 1.25)
 			card_manager.move_card(card_manager.dragged_card, prs_data, 0.1, AnimationType.DRAGGING)
 
-func _on_CardManager_dragging_card(card_data):
-	hand_manager.spread_from_mouse_flag = false
+func get_player_battle_openings():
+	return actions_board.get_player_battle_openings()
+
+func _openings_glow_on():
 	for battle_opening in get_player_battle_openings():
 		battle_opening.glow_on()
-	
 
-func _on_CardManager_dropping_card(card_data):
+func _openings_glow_off():
 	for battle_opening in get_player_battle_openings():
 		battle_opening.glow_off()
+
+func get_nearest_battle_opening(card_data:CardData):
+	var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
+	var card_prs : Vector2 = card_data.prs.position - card_manager_offset
+	var shortest_distance : float = 120.0 # Ignore drop range
+	var nearest_battle_opening = null
+	for battle_opening in get_player_battle_openings():
+		if battle_opening is BattleOpening:
+			var opening_prs : PRSData = battle_opening.get_prs_data()
+			if opening_prs.position.distance_to(card_prs) < shortest_distance:
+				shortest_distance = opening_prs.position.distance_to(card_prs)
+				nearest_battle_opening = battle_opening
+	return nearest_battle_opening
+
+func _on_CardManager_dragging_card(card_data:CardData):
+	hand_manager.spread_from_mouse_flag = false
+	_openings_glow_on()
+
+func _on_CardManager_dropping_card(card_data:CardData):
+	var nearest_battle_opening = get_nearest_battle_opening(card_data)
+	_openings_glow_off()
+	if nearest_battle_opening is BattleOpening:
+		emit_signal("card_dropped_on_opening", card_data, nearest_battle_opening)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 
-func get_player_battle_openings():
-	return actions_board.get_player_battle_openings()
+func play_card(card_data:CardData, battle_opening:BattleOpening):
+	var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
+	var opening_prs : PRSData = battle_opening.get_prs_data().duplicate()
+	opening_prs.position = opening_prs.position + card_manager_offset
+	hand_manager.discard_card(card_data)
+	card_manager.move_card(card_data, opening_prs, 0.2, AnimationType.PLAYING)

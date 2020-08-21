@@ -43,8 +43,11 @@ func _start_player_turn():
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():
-	player_interface.connect("discard_completed",  battle_phase_manager, "advance")
-	player_battle_manager.discard_hand()
+	if player_battle_manager.hand.size() > 0:
+		player_interface.connect("discard_completed",  battle_phase_manager, "advance")
+		player_battle_manager.discard_hand()
+	else:
+		battle_phase_manager.advance()
 
 func start_round():
 	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
@@ -58,6 +61,9 @@ func _resolve_actions():
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
 
+func _on_PlayerInterface_card_dropped_on_opening(card_data, battle_opening):
+	player_battle_manager.play_card(card_data, battle_opening)
+
 func _on_PlayerInterface_ending_turn():
 	_end_player_turn()
 
@@ -66,6 +72,9 @@ func _on_CharacterBattleManager_discarded_card(card):
 
 func _on_CharacterBattleManager_reshuffled_card(card):
 	player_interface.reshuffle_card(card)
+
+func _on_CharacterBattleManager_played_card(card, battle_opening):
+	player_interface.play_card(card, battle_opening)
 
 func _on_Opening_phase_entered():
 	start_round()
@@ -78,3 +87,4 @@ func _on_Player_phase_entered():
 
 func _on_Resolution_phase_entered():
 	_resolve_actions()
+

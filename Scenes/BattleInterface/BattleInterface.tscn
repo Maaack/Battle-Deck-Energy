@@ -30,9 +30,11 @@ __meta__ = {
 [node name="Player" parent="BattlePhaseManager" instance=ExtResource( 6 )]
 
 [node name="Resolution" parent="BattlePhaseManager" instance=ExtResource( 6 )]
+[connection signal="card_dropped_on_opening" from="PlayerInterface" to="." method="_on_PlayerInterface_card_dropped_on_opening"]
 [connection signal="ending_turn" from="PlayerInterface" to="." method="_on_PlayerInterface_ending_turn"]
 [connection signal="discarded_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_discarded_card"]
 [connection signal="drew_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card"]
+[connection signal="played_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_played_card"]
 [connection signal="reshuffled_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_reshuffled_card"]
 [connection signal="phase_entered" from="BattlePhaseManager/Opening" to="." method="_on_Opening_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Enemy" to="." method="_on_Enemy_phase_entered"]

@@ -7,6 +7,7 @@ signal drew_card(card)
 signal discarded_card(card)
 signal exhausted_card(card)
 signal reshuffled_card(card)
+signal played_card(card, battle_opening)
 
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
@@ -90,4 +91,8 @@ func discard_hand():
 	shuffled_cards.shuffle()
 	for card in shuffled_cards:
 		discard_card(card)
-		
+
+func play_card(card_data:CardData, battle_opening:BattleOpening):
+	var discarded_flag = hand.discard_card(card_data)
+	if discarded_flag:
+		emit_signal("played_card", card_data, battle_opening)
