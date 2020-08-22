@@ -24,7 +24,7 @@ var _discarding_cards_count : int = 0
 func set_player_data(value:CharacterData):
 	player_data = value
 	if is_instance_valid(player_data):
-		player_board.set_player_energy(player_data.max_energy, player_data.energy)
+		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_draw_pile_size(player_data.deck_size())
 
 func set_draw_pile_count(count:int):
@@ -117,6 +117,10 @@ func _on_draw_card_completed(card_data:CardData):
 			return
 		emit_signal("drawing_completed")
 
+func set_energy_meter(energy:int, max_energy:int):
+	player_board.set_player_energy(energy, max_energy)
+	card_manager.energy_limit = energy
+
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
 	reset_end_turn()
@@ -188,3 +192,4 @@ func play_card(card_data:CardData, battle_opening:BattleOpening):
 	opening_prs.position = opening_prs.position + card_manager_offset
 	hand_manager.discard_card(card_data)
 	card_manager.move_card(card_data, opening_prs, 0.2, AnimationType.PLAYING)
+

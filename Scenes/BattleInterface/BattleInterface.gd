@@ -45,6 +45,7 @@ func _take_enemy_turn():
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
+	player_battle_manager.reset_energy()
 	player_interface.start_turn()
 
 func _start_player_turn():
@@ -100,6 +101,9 @@ func _on_CharacterBattleManager_reshuffled_card(card):
 
 func _on_CharacterBattleManager_played_card(card, battle_opening):
 	player_interface.play_card(card, battle_opening)
+
+func _on_CharacterBattleManager_changed_energy(energy, max_energy):
+	player_interface.set_energy_meter(energy, max_energy)
 
 func _on_Opening_phase_entered():
 	start_round()

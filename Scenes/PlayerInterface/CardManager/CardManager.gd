@@ -14,6 +14,7 @@ var card_map : Dictionary = {}
 var card_instance_map : Dictionary = {}
 var focused_card = null
 var dragged_card = null
+var energy_limit = 0
 
 func add_card(card_data:CardData):
 	if card_data in card_map:
@@ -55,16 +56,19 @@ func move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween
 		card.tween_to(new_prs, tween_time)
 	card_data.prs = new_prs
 
-func focus_on_card(card_data):
+func focus_on_card(card_data:CardData):
 	focused_card = card_data
 	var card : BattleCard = get_card_instance(card_data)
-	card.glow_on()
+	if card_data.energy_cost > energy_limit:
+		card.glow_not()
+	else:
+		card.glow_on()
 	if card_data in card_map:
 		var card_instance : Node2D = card_map[card_data]
 		card_instance.z_index += 100
 	emit_signal("focused_on_card", card_data)
 
-func focus_off_card(card_data):
+func focus_off_card(card_data:CardData):
 	var card : BattleCard = get_card_instance(card_data)
 	card.glow_off()
 	if focused_card == card_data:
@@ -81,10 +85,13 @@ func _on_Card_mouse_exited(card_data:CardData):
 	focus_off_card(card_data)
 
 func _on_Card_mouse_clicked(card_data:CardData):
+	if card_data.energy_cost > energy_limit:
+		return
 	dragged_card = card_data
 	emit_signal("dragging_card", card_data)
 
 func _on_Card_mouse_released(card_data:CardData):
-	if dragged_card == card_data:
-		dragged_card = null
+	if dragged_card != card_data:
+		return
+	dragged_card = null
 	emit_signal("dropping_card", card_data)

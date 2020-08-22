@@ -42,7 +42,7 @@ func get_player_opportunities():
 		print("Error: Getting player opportunities with no player set.")
 		return opportunities
 	for opponent_data in opponents_data: 
-		opportunities += get_attack_opportunities(player_data, opponent_data)
+		opportunities += get_attack_opportunities(player_data, opponent_data, 2)
 	return opportunities
 
 func get_opponent_oppotunities(opponent_data:CharacterData):

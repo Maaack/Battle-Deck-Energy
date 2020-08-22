@@ -13,12 +13,9 @@ onready var energy_meter = $BattleDeckEnergy
 func set_draw_pile_size(value:int):
 	draw_pile.count = value
 
-func set_player_energy(max_energy:int, energy:int=-1):
+func set_player_energy(energy:int, max_energy:int):
+	energy_meter.energy = energy
 	energy_meter.max_energy = max_energy
-	if energy > 0:
-		energy_meter.energy = energy
-	else:
-		energy_meter.energy = max_energy
 
 func draw_card():
 	draw_pile.remove_card()

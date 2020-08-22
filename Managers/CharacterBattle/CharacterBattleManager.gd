@@ -8,6 +8,7 @@ signal discarded_card(card)
 signal exhausted_card(card)
 signal reshuffled_card(card)
 signal played_card(card, battle_opening)
+signal changed_energy(energy, max_energy)
 
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
@@ -39,6 +40,18 @@ func set_character_data(value:CharacterData):
 	character_data = value
 	reset()
 
+func spend_energy(amount:int = 1):
+	character_data.energy -= amount
+	emit_signal("changed_energy", character_data.energy, character_data.max_energy)
+
+func gain_energy(amount:int = 1):
+	character_data.energy += amount
+	emit_signal("changed_energy", character_data.energy, character_data.max_energy)
+
+func reset_energy():
+	character_data.energy = character_data.max_energy
+	emit_signal("changed_energy", character_data.energy, character_data.max_energy)
+	
 func reshuffle_discard_pile():
 	var discarded : Array = discard_pile.draw_all()
 	for card in discarded:
@@ -94,6 +107,7 @@ func discard_hand():
 	return shuffled_cards
 
 func play_card(card_data:CardData, battle_opening:BattleOpening):
+	spend_energy(card_data.energy_cost)
 	var discarded_flag = hand.discard_card(card_data)
 	if discarded_flag:
 		emit_signal("played_card", card_data, battle_opening)
