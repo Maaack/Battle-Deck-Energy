@@ -24,3 +24,8 @@ func get_battle_openings():
 			if child.is_open():
 				battle_openings.append(child)
 	return battle_openings
+
+func remove_all_openings():
+	for child in get_children():
+		remove_child(child)
+		child.queue_free()

@@ -91,6 +91,7 @@ func discard_hand():
 	shuffled_cards.shuffle()
 	for card in shuffled_cards:
 		discard_card(card)
+	return shuffled_cards
 
 func play_card(card_data:CardData, battle_opening:BattleOpening):
 	var discarded_flag = hand.discard_card(card_data)

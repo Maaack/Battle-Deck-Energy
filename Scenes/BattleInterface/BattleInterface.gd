@@ -10,6 +10,8 @@ onready var battle_opps_manager = $BattleOpportunitiesManager
 var player_data : CharacterData setget set_player_data
 var opponents : Array = [] setget set_opponents
 
+var _round_opportunities_map : Dictionary = {}
+
 func set_player_data(value:CharacterData):
 	player_data = value
 	if is_instance_valid(player_data):
@@ -51,14 +53,14 @@ func _start_player_turn():
 	var openings : Array = player_interface.add_player_openings(opportunities)
 	for opening in openings:
 		if opening is BattleOpening:
+			_round_opportunities_map[opening.opportunity_data] = opening
 			opening.connect("card_assigned", self, "_on_Opening_card_assigned")
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():
-	if player_battle_manager.hand.size() > 0:
-		player_interface.connect("discard_completed",  battle_phase_manager, "advance")
-		player_battle_manager.discard_hand()
-	else:
+	player_interface.connect("discard_completed",  battle_phase_manager, "advance")
+	var discarded_cards : Array = player_battle_manager.discard_hand()
+	if discarded_cards.size() == 0:
 		battle_phase_manager.advance()
 
 func start_round():
@@ -68,7 +70,18 @@ func start_round():
 	battle_phase_manager.advance()
 
 func _resolve_actions():
-	battle_phase_manager.advance()
+	var discarding_flag = false
+	for opp_data in _round_opportunities_map:
+		if opp_data is OpportunityData and is_instance_valid(opp_data.card_data):
+			if opp_data.source == player_data:
+				if not discarding_flag:
+					discarding_flag = true
+					player_interface.connect("discard_completed",  battle_phase_manager, "advance")
+				player_battle_manager.discard_card(opp_data.card_data)
+	player_interface.remove_all_openings()
+	_round_opportunities_map.clear()
+	if not discarding_flag:
+		battle_phase_manager.advance()
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)

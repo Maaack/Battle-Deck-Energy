@@ -44,12 +44,10 @@ func add_player_openings(opps_data:Array):
 						openings.append(opening)
 	return openings
 
-func remove_openings():
+func remove_all_openings():
 	for child in get_children():
-		if child.has_method("sub_player_opening"):
-			child.sub_player_opening()
-		if child.has_method("sub_opponent_opening"):
-			child.sub_opponent_opening()
+		if child.has_method("remove_all_openings"):
+			child.remove_all_openings()
 
 func get_player_battle_openings():
 	var battle_openings : Array = []

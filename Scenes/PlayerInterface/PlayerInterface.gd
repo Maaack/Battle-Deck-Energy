@@ -130,8 +130,8 @@ func add_player_openings(opps_data:Array):
 func add_opponent_openings(opps_data:Array):
 	return actions_board.add_opponent_openings(opps_data)
 
-func remove_openings():
-	actions_board.remove_openings()
+func remove_all_openings():
+	actions_board.remove_all_openings()
 
 func add_opponent_actions(opponent_data:CharacterData):
 	actions_board.add_opponent_actions(opponent_data)

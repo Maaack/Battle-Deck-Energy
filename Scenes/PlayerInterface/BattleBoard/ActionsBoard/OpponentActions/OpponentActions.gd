@@ -40,14 +40,12 @@ func add_opponent_opening(opp_data:OpportunityData):
 func sub_opponent_opening():
 	opponent_opening_manager.sub_opening()
 
+func remove_all_openings():
+	opponent_opening_manager.remove_all_openings()
+	player_opening_manager.remove_all_openings()
+
 func get_player_battle_openings():
 	return player_opening_manager.get_battle_openings()
 
 func get_opponent_battle_openings():
 	return opponent_opening_manager.get_battle_openings()
-
-func start_round():
-	pass
-
-func end_round():
-	pass
