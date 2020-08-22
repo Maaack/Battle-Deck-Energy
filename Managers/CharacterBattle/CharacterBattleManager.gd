@@ -7,7 +7,7 @@ signal drew_card(card)
 signal discarded_card(card)
 signal exhausted_card(card)
 signal reshuffled_card(card)
-signal played_card(card, battle_opening)
+signal played_card(card, opportunity)
 signal changed_energy(energy, max_energy)
 
 var character_data : CharacterData setget set_character_data
@@ -106,8 +106,9 @@ func discard_hand():
 		discard_card(card)
 	return shuffled_cards
 
-func play_card(card_data:CardData, battle_opening:BattleOpening):
-	spend_energy(card_data.energy_cost)
-	var discarded_flag = hand.discard_card(card_data)
+func play_card(card:CardData, opportunity:OpportunityData):
+	spend_energy(card.energy_cost)
+	var discarded_flag = hand.discard_card(card)
+	opportunity.card_data = card
 	if discarded_flag:
-		emit_signal("played_card", card_data, battle_opening)
+		emit_signal("played_card", card, opportunity)

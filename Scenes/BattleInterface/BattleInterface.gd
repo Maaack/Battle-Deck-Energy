@@ -30,9 +30,6 @@ func set_opponents(values:Array):
 		if value is CharacterData:
 			new_opponent(value)
 
-func _on_Opening_card_assigned(opp_data:OpportunityData, card_data:CardData):
-	opp_data.card_data = card_data
-
 func start_battle():
 	battle_phase_manager.advance()
 
@@ -55,7 +52,6 @@ func _start_player_turn():
 	for opening in openings:
 		if opening is BattleOpening:
 			_round_opportunities_map[opening.opportunity_data] = opening
-			opening.connect("card_assigned", self, "_on_Opening_card_assigned")
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():
@@ -87,8 +83,8 @@ func _resolve_actions():
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
 
-func _on_PlayerInterface_card_dropped_on_opening(card_data, battle_opening):
-	player_battle_manager.play_card(card_data, battle_opening)
+func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
+	player_battle_manager.play_card(card, opportunity)
 
 func _on_PlayerInterface_ending_turn():
 	_end_player_turn()
@@ -99,8 +95,8 @@ func _on_CharacterBattleManager_discarded_card(card):
 func _on_CharacterBattleManager_reshuffled_card(card):
 	player_interface.reshuffle_card(card)
 
-func _on_CharacterBattleManager_played_card(card, battle_opening):
-	player_interface.play_card(card, battle_opening)
+func _on_CharacterBattleManager_played_card(card:CardData, opportunity:OpportunityData):
+	player_interface.play_card(card, opportunity)
 
 func _on_CharacterBattleManager_changed_energy(energy, max_energy):
 	player_interface.set_energy_meter(energy, max_energy)
@@ -116,4 +112,3 @@ func _on_Player_phase_entered():
 
 func _on_Resolution_phase_entered():
 	_resolve_actions()
-

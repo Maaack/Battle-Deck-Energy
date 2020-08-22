@@ -33,7 +33,7 @@ __meta__ = {
 [node name="Resolution" parent="BattlePhaseManager" instance=ExtResource( 6 )]
 
 [node name="BattleOpportunitiesManager" parent="." instance=ExtResource( 7 )]
-[connection signal="card_dropped_on_opening" from="PlayerInterface" to="." method="_on_PlayerInterface_card_dropped_on_opening"]
+[connection signal="card_played_on_opportunity" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
 [connection signal="ending_turn" from="PlayerInterface" to="." method="_on_PlayerInterface_ending_turn"]
 [connection signal="changed_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_changed_energy"]
 [connection signal="discarded_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_discarded_card"]

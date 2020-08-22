@@ -5,7 +5,7 @@ signal ending_turn
 signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
-signal card_dropped_on_opening(card_data, battle_opening)
+signal card_played_on_opportunity(card, opportunity)
 
 enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
@@ -20,6 +20,7 @@ onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/
 var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
+var _opportunities_map : Dictionary = {}
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -128,14 +129,27 @@ func start_turn():
 func start_round():
 	player_board.advance_round_count()
 
+func _map_opportunity_nodes(openings:Array):
+	for opening in openings:
+		if opening is BattleOpening:
+			_opportunities_map[opening.opportunity_data] = opening
+
+func clear_opportunities():
+	_opportunities_map.clear()
+
 func add_player_openings(opps_data:Array):
-	return actions_board.add_player_openings(opps_data)
+	var openings : Array = actions_board.add_player_openings(opps_data)
+	_map_opportunity_nodes(openings)
+	return openings
 
 func add_opponent_openings(opps_data:Array):
-	return actions_board.add_opponent_openings(opps_data)
+	var openings : Array = actions_board.add_opponent_openings(opps_data)
+	_map_opportunity_nodes(openings)
+	return openings
 
 func remove_all_openings():
 	actions_board.remove_all_openings()
+	clear_opportunities()
 
 func add_opponent_actions(opponent_data:CharacterData):
 	actions_board.add_opponent_actions(opponent_data)
@@ -173,23 +187,26 @@ func get_nearest_battle_opening(card_data:CardData):
 				nearest_battle_opening = battle_opening
 	return nearest_battle_opening
 
-func _on_CardManager_dragging_card(card_data:CardData):
+func _on_CardManager_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on()
 
-func _on_CardManager_dropping_card(card_data:CardData):
-	var nearest_battle_opening = get_nearest_battle_opening(card_data)
+func _on_CardManager_dropping_card(card:CardData):
+	var nearest_battle_opening = get_nearest_battle_opening(card)
 	_openings_glow_off()
 	if nearest_battle_opening is BattleOpening:
-		emit_signal("card_dropped_on_opening", card_data, nearest_battle_opening)
-		nearest_battle_opening.assigned_card = card_data
+		emit_signal("card_played_on_opportunity", card, nearest_battle_opening.opportunity_data)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 
-func play_card(card_data:CardData, battle_opening:BattleOpening):
+func play_card(card:CardData, opportunity:OpportunityData):
+	if not opportunity in _opportunities_map:
+		return
+	var battle_opening : BattleOpening = _opportunities_map[opportunity]
+	battle_opening.assigned_card = card
 	var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var opening_prs : PRSData = battle_opening.get_prs_data().duplicate()
 	opening_prs.position = opening_prs.position + card_manager_offset
-	hand_manager.discard_card(card_data)
-	card_manager.move_card(card_data, opening_prs, 0.2, AnimationType.PLAYING)
+	hand_manager.discard_card(card)
+	card_manager.move_card(card, opening_prs, 0.2, AnimationType.PLAYING)
 
