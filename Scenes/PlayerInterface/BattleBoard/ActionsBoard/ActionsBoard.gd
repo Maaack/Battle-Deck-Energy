@@ -18,12 +18,31 @@ func get_opponent_actions_instance(opponent:CharacterData):
 	if opponent in opponents_map:
 		return opponents_map[opponent]
 
-func add_openings():
-	for child in get_children():
-		if child.has_method("add_player_opening"):
-			child.add_player_opening()
-		if child.has_method("add_opponent_opening"):
-			child.add_opponent_opening()
+func add_opponent_openings(opps_data:Array):
+	var openings : Array = []
+	for opportunity_data in opps_data:
+		if opportunity_data is OpportunityData:
+			var source = opportunity_data.source
+			if source in opponents_map:
+				var actions_interface : OpponentActionsInterface = opponents_map[source]
+				if is_instance_valid(actions_interface):
+					var opening : BattleOpening = actions_interface.add_opponent_opening(opportunity_data)
+					if is_instance_valid(opening):
+						openings.append(opening)
+	return openings
+
+func add_player_openings(opps_data:Array):
+	var openings : Array = []
+	for opportunity_data in opps_data:
+		if opportunity_data is OpportunityData:
+			var target = opportunity_data.target
+			if target in opponents_map:
+				var actions_interface : OpponentActionsInterface = opponents_map[target]
+				if is_instance_valid(actions_interface):
+					var opening : BattleOpening = actions_interface.add_player_opening(opportunity_data)
+					if is_instance_valid(opening):
+						openings.append(opening)
+	return openings
 
 func remove_openings():
 	for child in get_children():

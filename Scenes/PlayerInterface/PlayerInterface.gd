@@ -124,8 +124,11 @@ func start_turn():
 func start_round():
 	player_board.advance_round_count()
 
-func add_openings():
-	actions_board.add_openings()
+func add_player_openings(opps_data:Array):
+	return actions_board.add_player_openings(opps_data)
+
+func add_opponent_openings(opps_data:Array):
+	return actions_board.add_opponent_openings(opps_data)
 
 func remove_openings():
 	actions_board.remove_openings()
@@ -175,6 +178,7 @@ func _on_CardManager_dropping_card(card_data:CardData):
 	_openings_glow_off()
 	if nearest_battle_opening is BattleOpening:
 		emit_signal("card_dropped_on_opening", card_data, nearest_battle_opening)
+		nearest_battle_opening.assigned_card = card_data
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 

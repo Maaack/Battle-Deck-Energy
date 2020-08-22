@@ -59,6 +59,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Hand/HandData.gd"
 }, {
+"base": "Control",
+"class": "OpponentActionsInterface",
+"language": "GDScript",
+"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/OpponentActions/OpponentActions.gd"
+}, {
+"base": "Resource",
+"class": "OpportunityData",
+"language": "GDScript",
+"path": "res://Resources/Opportunity/OpportunityData.gd"
+}, {
 "base": "Resource",
 "class": "PRSData",
 "language": "GDScript",
@@ -75,6 +85,8 @@ _global_script_class_icons={
 "CharacterData": "",
 "DeckData": "",
 "HandData": "",
+"OpponentActionsInterface": "",
+"OpportunityData": "",
 "PRSData": ""
 }
 

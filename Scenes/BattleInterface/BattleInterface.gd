@@ -5,6 +5,7 @@ onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
 onready var battle_phase_manager = $BattlePhaseManager
+onready var battle_opps_manager = $BattleOpportunitiesManager
 
 var player_data : CharacterData setget set_player_data
 var opponents : Array = [] setget set_opponents
@@ -14,22 +15,28 @@ func set_player_data(value:CharacterData):
 	if is_instance_valid(player_data):
 		player_interface.player_data = player_data
 		player_battle_manager.character_data = player_data
+		battle_opps_manager.player_data = player_data
 
 func new_opponent(opponent_data:CharacterData):
 	opponent_data = opponent_data.duplicate()
 	ai_opponents_manager.add_opponent(opponent_data)
+	battle_opps_manager.add_opponent(opponent_data)
 	player_interface.add_opponent_actions(opponent_data)
 
 func set_opponents(values:Array):
 	for value in values:
 		if value is CharacterData:
 			new_opponent(value)
-	player_interface.add_openings()
+
+func _on_Opening_card_assigned(opp_data:OpportunityData, card_data:CardData):
+	opp_data.card_data = card_data
 
 func start_battle():
 	battle_phase_manager.advance()
 
 func _take_enemy_turn():
+	var opportunities : Array = battle_opps_manager.get_all_opponent_opportunities()
+	var openings : Array = player_interface.add_opponent_openings(opportunities)
 	ai_opponents_manager.opponents_take_turn()
 	battle_phase_manager.advance()
 
@@ -40,6 +47,11 @@ func _on_hand_drawn():
 
 func _start_player_turn():
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
+	var opportunities : Array = battle_opps_manager.get_player_opportunities()
+	var openings : Array = player_interface.add_player_openings(opportunities)
+	for opening in openings:
+		if opening is BattleOpening:
+			opening.connect("card_assigned", self, "_on_Opening_card_assigned")
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():

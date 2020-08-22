@@ -1,6 +1,8 @@
 extends Control
 
 
+class_name OpponentActionsInterface
+
 onready var opponent_opening_manager = $MarginContainer/VBoxContainer/MarginContainer/OpeningsContainer/Opponents
 onready var player_opening_manager = $MarginContainer/VBoxContainer/MarginContainer/OpeningsContainer/Players
 onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat/HealthLabel
@@ -26,14 +28,14 @@ func _update_opponent_stats():
 	if is_instance_valid(deck_label):
 		deck_label.text = "%d" % [opponent_data.deck_size()]
 
-func add_player_opening():
-	player_opening_manager.add_opening()
+func add_player_opening(opp_data:OpportunityData):
+	return player_opening_manager.add_opening(opp_data)
 
 func sub_player_opening():
 	player_opening_manager.sub_opening()
 
-func add_opponent_opening():
-	opponent_opening_manager.add_opening()
+func add_opponent_opening(opp_data:OpportunityData):
+	return opponent_opening_manager.add_opening(opp_data)
 
 func sub_opponent_opening():
 	opponent_opening_manager.sub_opening()
@@ -45,9 +47,7 @@ func get_opponent_battle_openings():
 	return opponent_opening_manager.get_battle_openings()
 
 func start_round():
-	add_player_opening()
-	add_opponent_opening()
+	pass
 
 func end_round():
-	sub_player_opening()
-	sub_opponent_opening()
+	pass

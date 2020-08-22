@@ -8,14 +8,6 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/DrawPile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/ExhaustPile.tscn" type="PackedScene" id=7]
 
-
-
-
-
-
-
-
-
 [node name="PlayerBoard" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
