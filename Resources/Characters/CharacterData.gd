@@ -16,7 +16,7 @@ var energy : int = 0
 var hand_size : int = 0
 
 func _to_string():
-	return "H: %d / %d" % [health, max_health]
+	return "Character:%d" % get_instance_id()
 
 func reset_health():
 	if starting_max_health > 0:

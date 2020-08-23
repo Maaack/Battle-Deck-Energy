@@ -36,7 +36,7 @@ func start_battle():
 func _take_enemy_turn():
 	var opportunities : Array = battle_opps_manager.get_all_opponent_opportunities()
 	var openings : Array = player_interface.add_opponent_openings(opportunities)
-	ai_opponents_manager.opponents_take_turn()
+	ai_opponents_manager.opponents_take_turn(opportunities)
 	battle_phase_manager.advance()
 
 func _on_hand_drawn():
@@ -112,3 +112,6 @@ func _on_Player_phase_entered():
 
 func _on_Resolution_phase_entered():
 	_resolve_actions()
+
+func _on_AIOpponentsManager_played_card(character, card, opportunity):
+	player_interface.opponent_plays_card(character, card, opportunity)

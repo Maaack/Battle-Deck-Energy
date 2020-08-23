@@ -51,6 +51,11 @@ func get_wait_time():
 	return default_wait_time
 
 func move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time(), anim_type:int = 0):
+	if card_data.prs.is_equal(new_prs):
+		return
+	force_move_card(card_data, new_prs, tween_time)
+
+func force_move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time()):
 	var card: BattleCard = get_card_instance(card_data)
 	if is_instance_valid(card):
 		card.tween_to(new_prs, tween_time)

@@ -53,8 +53,6 @@ func set_starting_card_data(value:CardData):
 	_reset_card_data()
 
 func tween_to(new_prs:PRSData, tween_time:float = 0.0, animation_type:int = -1):
-	if card_data.prs.is_equal(new_prs):
-		return
 	if is_instance_valid(tween_node):
 		if tween_node.is_active():
 			if _last_animation_type != animation_type:

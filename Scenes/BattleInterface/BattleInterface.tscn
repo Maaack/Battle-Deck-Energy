@@ -40,6 +40,7 @@ __meta__ = {
 [connection signal="drew_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card"]
 [connection signal="played_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_played_card"]
 [connection signal="reshuffled_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_reshuffled_card"]
+[connection signal="played_card" from="AIOpponentsManager" to="." method="_on_AIOpponentsManager_played_card"]
 [connection signal="phase_entered" from="BattlePhaseManager/Opening" to="." method="_on_Opening_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Enemy" to="." method="_on_Enemy_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Player" to="." method="_on_Player_phase_entered"]

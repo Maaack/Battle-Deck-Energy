@@ -51,3 +51,4 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CardSlot/GlowNode"]
 anims/GlowAnimation = ExtResource( 4 )
+[connection signal="item_rect_changed" from="CardSlot" to="." method="_on_CardSlot_item_rect_changed"]

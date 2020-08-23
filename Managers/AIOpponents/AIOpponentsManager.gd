@@ -1,6 +1,7 @@
 extends Node
 
 
+signal played_card(character, card, opportunity)
 
 var character_battle_manager_scene = preload("res://Managers/CharacterBattle/CharacterBattleManager.tscn")
 var characters : Dictionary = {}
@@ -12,10 +13,23 @@ func add_opponent(character_data:CharacterData):
 		instance.character_data = character_data
 		characters[character_data] = instance
 
-func opponents_take_turn():
+func _get_opponent_map(opportunities:Array):
+	var opponent_map : Dictionary = {}
+	for opportunity in opportunities:
+		if opportunity is OpportunityData:
+			if opportunity.source in characters:
+				if not opportunity.source in opponent_map:
+					opponent_map[opportunity.source] = []
+				opponent_map[opportunity.source].append(opportunity)
+	return opponent_map
+
+func opponents_take_turn(opportunities:Array):
+	var opponent_map = _get_opponent_map(opportunities)
 	for child in get_children():
 		if child is CharacterBattleManager:
 			child.draw_hand()
 			var random_index: int = randi() % child.hand.size()
-			print("Opponent plays %s from %s" % [str(child.hand.cards[random_index]), child.hand.cards ])
+			var opponent_opportunities : Array = opponent_map[child.character_data]
+			var opportunity : OpportunityData = opponent_opportunities.pop_front()
+			emit_signal("played_card", child.character_data, child.hand.cards[random_index], opportunity)
 			child.discard_hand()
