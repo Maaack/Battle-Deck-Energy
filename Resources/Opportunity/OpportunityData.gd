@@ -11,6 +11,9 @@ var opp_type : int = NO_TYPE
 var card_data = null setget set_card
 var prs = PRSData.new()
 
+func _to_string():
+	return "OpportunityData:%d" % get_instance_id()
+
 func is_open():
 	return not is_instance_valid(card_data)
 

@@ -211,21 +211,19 @@ func _on_CardManager_dropping_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 
-func play_card(card:CardData, opportunity:OpportunityData):
+func play_card(character:CharacterData, card:CardData, opportunity:OpportunityData):
 	if not opportunity in _opportunities_map:
+		print("Warning: %s doesn't exist in opportunities map %s ." % [opportunity, str(_opportunities_map)])
 		return
 	var battle_opening : BattleOpening = _opportunities_map[opportunity]
 	battle_opening.assigned_card = card
 	var opening_prs : PRSData = battle_opening.prs_data.duplicate()
-	hand_manager.discard_card(card)
+	if character == player_data:
+		hand_manager.discard_card(card)
+	else:
+		card.prs = opening_prs
+		card_manager.add_card(card)
 	card_manager.move_card(card, opening_prs, 0.2, AnimationType.PLAYING)
 
-func opponent_plays_card(character:CharacterData, card:CardData, opportunity:OpportunityData):
-	if not opportunity in _opportunities_map:
-		return
-	var battle_opening : BattleOpening = _opportunities_map[opportunity]
-	battle_opening.assigned_card = card
-	card.prs = battle_opening.prs_data.duplicate()
-	var card_instance = card_manager.add_card(card)
-	card_manager.move_card(card, card.prs, 0.2, AnimationType.PLAYING)
-	#animation_queue.animate_move(card, card.prs, 0.4, 0.5, AnimationType.PLAYING)
+func opponent_discards_card(card:CardData):
+	card_manager.remove_card(card)

@@ -31,5 +31,6 @@ func opponents_take_turn(opportunities:Array):
 			var random_index: int = randi() % child.hand.size()
 			var opponent_opportunities : Array = opponent_map[child.character_data]
 			var opportunity : OpportunityData = opponent_opportunities.pop_front()
-			emit_signal("played_card", child.character_data, child.hand.cards[random_index], opportunity)
+			opportunity.card_data = child.hand.cards[random_index]
+			emit_signal("played_card", child.character_data, opportunity.card_data, opportunity)
 			child.discard_hand()

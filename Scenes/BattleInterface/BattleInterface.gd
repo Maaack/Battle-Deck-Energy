@@ -6,6 +6,7 @@ onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
 onready var battle_phase_manager = $BattlePhaseManager
 onready var battle_opps_manager = $BattleOpportunitiesManager
+onready var advance_phase_timer = $AdvancePhaseTimer
 
 var player_data : CharacterData setget set_player_data
 var opponents : Array = [] setget set_opponents
@@ -33,17 +34,31 @@ func set_opponents(values:Array):
 func start_battle():
 	battle_phase_manager.advance()
 
-func _take_enemy_turn():
+func _setup_enemy_board():
 	var opportunities : Array = battle_opps_manager.get_all_opponent_opportunities()
 	var openings : Array = player_interface.add_opponent_openings(opportunities)
-	ai_opponents_manager.opponents_take_turn(opportunities)
-	battle_phase_manager.advance()
+	for opening in openings:
+		if opening is BattleOpening:
+			_round_opportunities_map[opening.opportunity_data] = opening
+	advance_phase_timer.start()
+
+func _take_enemy_turn():
+	var opportunities : Array = battle_opps_manager.get_all_opponent_opportunities()
+	ai_opponents_manager.opponents_take_turn(_round_opportunities_map.keys())
+	advance_phase_timer.start()
 
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
 	player_battle_manager.reset_energy()
 	player_interface.start_turn()
+
+func _setup_player_board():
+	var opportunities : Array = battle_opps_manager.get_player_opportunities()
+	var openings : Array = player_interface.add_player_openings(opportunities)
+	for opening in openings:
+		if opening is BattleOpening:
+			_round_opportunities_map[opening.opportunity_data] = opening
 
 func _start_player_turn():
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
@@ -64,7 +79,7 @@ func start_round():
 	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
 		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
 	player_interface.start_round()
-	battle_phase_manager.advance()
+	advance_phase_timer.start()
 
 func _resolve_actions():
 	var discarding_flag = false
@@ -75,6 +90,8 @@ func _resolve_actions():
 					discarding_flag = true
 					player_interface.connect("discard_completed",  battle_phase_manager, "advance")
 				player_battle_manager.discard_card(opp_data.card_data)
+			else:
+				player_interface.opponent_discards_card(opp_data.card_data)
 	player_interface.remove_all_openings()
 	_round_opportunities_map.clear()
 	if not discarding_flag:
@@ -96,13 +113,16 @@ func _on_CharacterBattleManager_reshuffled_card(card):
 	player_interface.reshuffle_card(card)
 
 func _on_CharacterBattleManager_played_card(card:CardData, opportunity:OpportunityData):
-	player_interface.play_card(card, opportunity)
+	player_interface.play_card(player_data, card, opportunity)
 
 func _on_CharacterBattleManager_changed_energy(energy, max_energy):
 	player_interface.set_energy_meter(energy, max_energy)
 
 func _on_Opening_phase_entered():
 	start_round()
+
+func _on_EnemySetup_phase_entered():
+	_setup_enemy_board()
 
 func _on_Enemy_phase_entered():
 	_take_enemy_turn()
@@ -114,4 +134,7 @@ func _on_Resolution_phase_entered():
 	_resolve_actions()
 
 func _on_AIOpponentsManager_played_card(character, card, opportunity):
-	player_interface.opponent_plays_card(character, card, opportunity)
+	player_interface.play_card(character, card, opportunity)
+
+func _on_AdvancePhaseTimer_timeout():
+	battle_phase_manager.advance()
