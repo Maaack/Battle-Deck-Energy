@@ -26,6 +26,7 @@ func set_player_data(value:CharacterData):
 	player_data = value
 	if is_instance_valid(player_data):
 		player_board.set_player_energy(0, player_data.max_energy)
+		player_board.set_player_health(player_data.health, player_data.max_health)
 		player_board.set_draw_pile_size(player_data.deck_size())
 
 func set_draw_pile_count(count:int):
@@ -128,6 +129,9 @@ func _on_draw_card_completed(card_data:CardData):
 			_drawing_cards_count = 0
 			return
 		emit_signal("drawing_completed")
+
+func set_health_meter(health:int, max_health:int):
+	player_board.set_player_health(health, max_health)
 
 func set_energy_meter(energy:int, max_energy:int):
 	player_board.set_player_energy(energy, max_energy)

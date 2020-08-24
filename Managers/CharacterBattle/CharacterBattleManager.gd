@@ -9,6 +9,7 @@ signal exhausted_card(card)
 signal reshuffled_card(card)
 signal played_card(card, opportunity)
 signal changed_energy(energy, max_energy)
+signal changed_health(health, max_health)
 
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
@@ -40,13 +41,20 @@ func set_character_data(value:CharacterData):
 	character_data = value
 	reset()
 
-func spend_energy(amount:int = 1):
-	character_data.energy -= amount
-	emit_signal("changed_energy", character_data.energy, character_data.max_energy)
+func gain_health(amount: int = 1):
+	character_data.health += 1
+	emit_signal("changed_health", character_data.health, character_data.max_health)
+
+func lose_health(amount: int = 1):
+	gain_health(-amount)
 
 func gain_energy(amount:int = 1):
 	character_data.energy += amount
 	emit_signal("changed_energy", character_data.energy, character_data.max_energy)
+
+func spend_energy(amount:int = 1):
+	gain_energy(-amount)
+
 
 func reset_energy():
 	character_data.energy = character_data.max_energy

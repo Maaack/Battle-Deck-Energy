@@ -9,13 +9,16 @@ onready var exhaust_pile = $ExhaustPile
 onready var end_turn_button = $EndTurnButton
 onready var round_counter = $RoundCounter
 onready var energy_meter = $BattleDeckEnergy
+onready var health_meter = $HealthMeter
 
 func set_draw_pile_size(value:int):
 	draw_pile.count = value
 
+func set_player_health(health:int, max_health:int):
+	health_meter.set_health_values(health, max_health)
+
 func set_player_energy(energy:int, max_energy:int):
-	energy_meter.energy = energy
-	energy_meter.max_energy = max_energy
+	energy_meter.set_energy_values(energy, max_energy)
 
 func draw_card():
 	draw_pile.remove_card()

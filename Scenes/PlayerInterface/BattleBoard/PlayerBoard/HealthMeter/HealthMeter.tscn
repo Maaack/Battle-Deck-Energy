@@ -7,8 +7,10 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.gd" type="Script" id=5]
 
 [node name="HealthMeter" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -32.0
 margin_right = 400.0
-margin_bottom = 25.0
 rect_min_size = Vector2( 400, 32 )
 script = ExtResource( 5 )
 __meta__ = {

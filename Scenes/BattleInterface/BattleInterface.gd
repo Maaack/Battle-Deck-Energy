@@ -115,6 +115,9 @@ func _on_CharacterBattleManager_reshuffled_card(card):
 func _on_CharacterBattleManager_played_card(card:CardData, opportunity:OpportunityData):
 	player_interface.play_card(player_data, card, opportunity)
 
+func _on_CharacterBattleManager_changed_health(health, max_health):
+	player_interface.set_health_meter(health, max_health)
+
 func _on_CharacterBattleManager_changed_energy(energy, max_energy):
 	player_interface.set_energy_meter(energy, max_energy)
 
