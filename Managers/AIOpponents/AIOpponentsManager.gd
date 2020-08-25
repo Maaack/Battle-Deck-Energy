@@ -12,6 +12,7 @@ func add_opponent(character_data:CharacterData):
 		add_child(instance)
 		instance.character_data = character_data
 		characters[character_data] = instance
+		return instance
 
 func _get_opponent_map(opportunities:Array):
 	var opponent_map : Dictionary = {}

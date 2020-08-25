@@ -42,7 +42,7 @@ func set_character_data(value:CharacterData):
 	reset()
 
 func gain_health(amount: int = 1):
-	character_data.health += 1
+	character_data.health += amount
 	emit_signal("changed_health", character_data.health, character_data.max_health)
 
 func lose_health(amount: int = 1):

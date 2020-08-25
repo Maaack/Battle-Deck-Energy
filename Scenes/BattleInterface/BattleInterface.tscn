@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/BattleInterface/BattleInterface.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Managers/BattlePhase/BattlePhaseManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/BattleInterface/BattlePhase/BattlePhase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Managers/BattleOpportunities/BattleOpportunitiesManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Managers/Effects/EffectManager.tscn" type="PackedScene" id=8]
 
 [node name="BattleInterface" type="Control"]
 anchor_right = 1.0
@@ -15,6 +16,10 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AdvancePhaseTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [node name="PlayerInterface" parent="." instance=ExtResource( 1 )]
 
@@ -36,9 +41,8 @@ __meta__ = {
 
 [node name="BattleOpportunitiesManager" parent="." instance=ExtResource( 7 )]
 
-[node name="AdvancePhaseTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
+[node name="EffectManager" parent="." instance=ExtResource( 8 )]
+[connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
 [connection signal="card_played_on_opportunity" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
 [connection signal="ending_turn" from="PlayerInterface" to="." method="_on_PlayerInterface_ending_turn"]
 [connection signal="changed_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_changed_energy"]
@@ -53,4 +57,4 @@ one_shot = true
 [connection signal="phase_entered" from="BattlePhaseManager/Enemy" to="." method="_on_Enemy_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Player" to="." method="_on_Player_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Resolution" to="." method="_on_Resolution_phase_entered"]
-[connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
+[connection signal="damage_character" from="EffectManager" to="." method="_on_EffectManager_damage_character"]

@@ -6,11 +6,13 @@ onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
 onready var battle_phase_manager = $BattlePhaseManager
 onready var battle_opps_manager = $BattleOpportunitiesManager
+onready var effects_manager = $EffectManager
 onready var advance_phase_timer = $AdvancePhaseTimer
 
 var player_data : CharacterData setget set_player_data
 var opponents : Array = [] setget set_opponents
 
+var _character_manager_map : Dictionary = {}
 var _round_opportunities_map : Dictionary = {}
 
 func set_player_data(value:CharacterData):
@@ -19,10 +21,12 @@ func set_player_data(value:CharacterData):
 		player_interface.player_data = player_data
 		player_battle_manager.character_data = player_data
 		battle_opps_manager.player_data = player_data
+		_character_manager_map[player_data] = player_battle_manager
 
 func new_opponent(opponent_data:CharacterData):
 	opponent_data = opponent_data.duplicate()
-	ai_opponents_manager.add_opponent(opponent_data)
+	var battle_manager = ai_opponents_manager.add_opponent(opponent_data)
+	_character_manager_map[opponent_data] = battle_manager
 	battle_opps_manager.add_opponent(opponent_data)
 	player_interface.add_opponent_actions(opponent_data)
 
@@ -61,12 +65,8 @@ func _setup_player_board():
 			_round_opportunities_map[opening.opportunity_data] = opening
 
 func _start_player_turn():
+	_setup_player_board()
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
-	var opportunities : Array = battle_opps_manager.get_player_opportunities()
-	var openings : Array = player_interface.add_player_openings(opportunities)
-	for opening in openings:
-		if opening is BattleOpening:
-			_round_opportunities_map[opening.opportunity_data] = opening
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():
@@ -81,20 +81,28 @@ func start_round():
 	player_interface.start_round()
 	advance_phase_timer.start()
 
-func _resolve_actions():
+func _discard_played_cards():
 	var discarding_flag = false
 	for opp_data in _round_opportunities_map:
 		if opp_data is OpportunityData and is_instance_valid(opp_data.card_data):
 			if opp_data.source == player_data:
-				if not discarding_flag:
-					discarding_flag = true
-					player_interface.connect("discard_completed",  battle_phase_manager, "advance")
+				discarding_flag = true
 				player_battle_manager.discard_card(opp_data.card_data)
 			else:
 				player_interface.opponent_discards_card(opp_data.card_data)
+	return discarding_flag
+
+func _resolve_actions():
+	var target_effects : Dictionary = effects_manager.get_target_effects(_round_opportunities_map.keys())
+	print(target_effects)
+	for target in target_effects:
+		effects_manager.resolve_effects(target, target_effects[target])
+	var discarding_flag = _discard_played_cards()
 	player_interface.remove_all_openings()
 	_round_opportunities_map.clear()
-	if not discarding_flag:
+	if discarding_flag:
+		player_interface.connect("discard_completed",  battle_phase_manager, "advance")
+	else:
 		battle_phase_manager.advance()
 
 func _on_CharacterBattleManager_drew_card(card):
@@ -141,3 +149,9 @@ func _on_AIOpponentsManager_played_card(character, card, opportunity):
 
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
+
+func _on_EffectManager_damage_character(character:CharacterData, damage:int):
+	if not character in _character_manager_map:
+		return
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	battle_manager.lose_health(damage)
