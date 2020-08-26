@@ -130,12 +130,23 @@ func _on_draw_card_completed(card_data:CardData):
 			return
 		emit_signal("drawing_completed")
 
-func set_health_meter(health:int, max_health:int):
-	player_board.set_player_health(health, max_health)
+func gain_health(character:CharacterData, amount:int):
+	if character == player_data:
+		player_board.gain_health(amount)
 
-func set_energy_meter(energy:int, max_energy:int):
-	player_board.set_player_energy(energy, max_energy)
-	card_manager.energy_limit = energy
+func lose_health(character:CharacterData, amount:int):
+	if character == player_data:
+		player_board.lose_health(amount)
+
+func gain_energy(character:CharacterData, amount:int):
+	if character == player_data:
+		player_board.gain_energy(amount)
+		card_manager.energy_limit += amount
+
+func lose_energy(character:CharacterData, amount:int):
+	if character == player_data:
+		player_board.lose_energy(amount)
+		card_manager.energy_limit -= amount
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true

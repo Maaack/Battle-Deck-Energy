@@ -23,10 +23,13 @@ func reset_health():
 		max_health = starting_max_health
 		health = max_health
 
-func reset_energy():
+func _reset_starting_energy():
 	if starting_max_energy > 0:
 		max_energy = starting_max_energy
-		energy = max_energy
+
+func reset_energy():
+	_reset_starting_energy()
+	energy = max_energy
 
 func reset_hand_size():
 	if starting_hand_size > 0 :
@@ -46,7 +49,7 @@ func set_starting_max_health(value:int):
 
 func set_starting_max_energy(value:int):
 	starting_max_energy = value
-	reset_energy()
+	_reset_starting_energy()
 
 func set_starting_hand_size(value:int):
 	starting_hand_size = value

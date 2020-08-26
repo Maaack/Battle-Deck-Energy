@@ -8,8 +8,10 @@ signal discarded_card(card)
 signal exhausted_card(card)
 signal reshuffled_card(card)
 signal played_card(card, opportunity)
-signal changed_energy(energy, max_energy)
-signal changed_health(health, max_health)
+signal gained_health(amount, health)
+signal lost_health(amount, health)
+signal gained_energy(amount, energy)
+signal lost_energy(amount, energy)
 
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
@@ -43,22 +45,23 @@ func set_character_data(value:CharacterData):
 
 func gain_health(amount: int = 1):
 	character_data.health += amount
-	emit_signal("changed_health", character_data.health, character_data.max_health)
+	emit_signal("gained_health", amount, character_data.health)
 
 func lose_health(amount: int = 1):
-	gain_health(-amount)
+	character_data.health -= amount
+	emit_signal("lost_health", amount, character_data.health)
 
 func gain_energy(amount:int = 1):
 	character_data.energy += amount
-	emit_signal("changed_energy", character_data.energy, character_data.max_energy)
+	emit_signal("gained_energy", amount, character_data.energy)
 
-func spend_energy(amount:int = 1):
-	gain_energy(-amount)
-
+func lose_energy(amount:int = 1):
+	character_data.energy -= amount
+	emit_signal("lost_energy", amount, character_data.energy)
 
 func reset_energy():
-	character_data.energy = character_data.max_energy
-	emit_signal("changed_energy", character_data.energy, character_data.max_energy)
+	var recharge_amount : int = character_data.max_energy - character_data.energy
+	gain_energy(recharge_amount)
 	
 func reshuffle_discard_pile():
 	var discarded : Array = discard_pile.draw_all()
@@ -115,7 +118,7 @@ func discard_hand():
 	return shuffled_cards
 
 func play_card(card:CardData, opportunity:OpportunityData):
-	spend_energy(card.energy_cost)
+	lose_energy(card.energy_cost)
 	var discarded_flag = hand.discard_card(card)
 	opportunity.card_data = card
 	if discarded_flag:

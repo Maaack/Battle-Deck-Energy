@@ -123,11 +123,6 @@ func _on_CharacterBattleManager_reshuffled_card(card):
 func _on_CharacterBattleManager_played_card(card:CardData, opportunity:OpportunityData):
 	player_interface.play_card(player_data, card, opportunity)
 
-func _on_CharacterBattleManager_changed_health(health, max_health):
-	player_interface.set_health_meter(health, max_health)
-
-func _on_CharacterBattleManager_changed_energy(energy, max_energy):
-	player_interface.set_energy_meter(energy, max_energy)
 
 func _on_Opening_phase_entered():
 	start_round()
@@ -155,3 +150,15 @@ func _on_EffectManager_damage_character(character:CharacterData, damage:int):
 		return
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	battle_manager.lose_health(damage)
+
+func _on_CharacterBattleManager_gained_energy(amount, energy):
+	player_interface.gain_energy(player_data, amount)
+
+func _on_CharacterBattleManager_gained_health(amount, health):
+	player_interface.gain_health(player_data, amount)
+
+func _on_CharacterBattleManager_lost_energy(amount, energy):
+	player_interface.lose_energy(player_data, amount)
+
+func _on_CharacterBattleManager_lost_health(amount, health):
+	player_interface.lose_health(player_data, amount)

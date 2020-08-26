@@ -20,6 +20,18 @@ func set_player_health(health:int, max_health:int):
 func set_player_energy(energy:int, max_energy:int):
 	energy_meter.set_energy_values(energy, max_energy)
 
+func gain_health(amount:int):
+	health_meter.health += amount
+
+func lose_health(amount:int):
+	health_meter.health -= amount
+
+func gain_energy(amount:int):
+	energy_meter.energy += amount
+
+func lose_energy(amount:int):
+	energy_meter.energy -= amount
+
 func draw_card():
 	draw_pile.remove_card()
 
@@ -47,9 +59,3 @@ func reset_end_turn():
 
 func advance_round_count():
 	round_counter.advance_round()
-
-func spend_energy(amount:int = 1):
-	energy_meter.energy -= amount
-
-func gain_energy(amount:int = 1):
-	energy_meter.energy += amount
