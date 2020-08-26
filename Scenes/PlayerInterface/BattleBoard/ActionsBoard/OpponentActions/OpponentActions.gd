@@ -11,13 +11,6 @@ onready var deck_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Pa
 
 var opponent_data : CharacterData setget set_opponent_data
 
-func set_opponent_data(value:CharacterData):
-	opponent_data = value
-	_update_opponent_stats()
-
-func _ready():
-	_update_opponent_stats()
-
 func _update_opponent_stats():
 	if not is_instance_valid(opponent_data):
 		return
@@ -27,6 +20,16 @@ func _update_opponent_stats():
 		energy_label.text = "%d / %d" % [opponent_data.energy, opponent_data.max_energy]
 	if is_instance_valid(deck_label):
 		deck_label.text = "%d" % [opponent_data.deck_size()]
+
+func set_opponent_data(value:CharacterData):
+	opponent_data = value
+	_update_opponent_stats()
+
+func _ready():
+	_update_opponent_stats()
+
+func update():
+	_update_opponent_stats()
 
 func add_player_opening(opp_data:OpportunityData):
 	return player_opening_manager.add_opening(opp_data)

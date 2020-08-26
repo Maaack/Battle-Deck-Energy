@@ -5,7 +5,7 @@ onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
 onready var battle_phase_manager = $BattlePhaseManager
-onready var battle_opps_manager = $BattleOpportunitiesManager
+onready var battle_opportunities_manager = $BattleOpportunitiesManager
 onready var effects_manager = $EffectManager
 onready var advance_phase_timer = $AdvancePhaseTimer
 
@@ -20,14 +20,18 @@ func set_player_data(value:CharacterData):
 	if is_instance_valid(player_data):
 		player_interface.player_data = player_data
 		player_battle_manager.character_data = player_data
-		battle_opps_manager.player_data = player_data
+		battle_opportunities_manager.player_data = player_data
 		_character_manager_map[player_data] = player_battle_manager
 
 func new_opponent(opponent_data:CharacterData):
 	opponent_data = opponent_data.duplicate()
-	var battle_manager = ai_opponents_manager.add_opponent(opponent_data)
+	var battle_manager : CharacterBattleManager = ai_opponents_manager.add_opponent(opponent_data)
 	_character_manager_map[opponent_data] = battle_manager
-	battle_opps_manager.add_opponent(opponent_data)
+	battle_manager.connect("gained_energy", self, "_on_CharacterBattleManager_gained_energy")
+	battle_manager.connect("gained_health", self, "_on_CharacterBattleManager_gained_health")
+	battle_manager.connect("lost_energy", self, "_on_CharacterBattleManager_lost_energy")
+	battle_manager.connect("lost_health", self, "_on_CharacterBattleManager_lost_health")
+	battle_opportunities_manager.add_opponent(opponent_data)
 	player_interface.add_opponent_actions(opponent_data)
 
 func set_opponents(values:Array):
@@ -39,7 +43,7 @@ func start_battle():
 	battle_phase_manager.advance()
 
 func _setup_enemy_board():
-	var opportunities : Array = battle_opps_manager.get_all_opponent_opportunities()
+	var opportunities : Array = battle_opportunities_manager.get_all_opponent_opportunities()
 	var openings : Array = player_interface.add_opponent_openings(opportunities)
 	for opening in openings:
 		if opening is BattleOpening:
@@ -47,7 +51,7 @@ func _setup_enemy_board():
 	advance_phase_timer.start()
 
 func _take_enemy_turn():
-	var opportunities : Array = battle_opps_manager.get_all_opponent_opportunities()
+	var opportunities : Array = battle_opportunities_manager.get_all_opponent_opportunities()
 	ai_opponents_manager.opponents_take_turn(_round_opportunities_map.keys())
 	advance_phase_timer.start()
 
@@ -58,7 +62,7 @@ func _on_hand_drawn():
 	player_interface.start_turn()
 
 func _setup_player_board():
-	var opportunities : Array = battle_opps_manager.get_player_opportunities()
+	var opportunities : Array = battle_opportunities_manager.get_player_opportunities()
 	var openings : Array = player_interface.add_player_openings(opportunities)
 	for opening in openings:
 		if opening is BattleOpening:
@@ -151,14 +155,14 @@ func _on_EffectManager_damage_character(character:CharacterData, damage:int):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	battle_manager.lose_health(damage)
 
-func _on_CharacterBattleManager_gained_energy(amount, energy):
-	player_interface.gain_energy(player_data, amount)
+func _on_CharacterBattleManager_gained_energy(character:CharacterData, amount:int):
+	player_interface.gain_energy(character, amount)
 
-func _on_CharacterBattleManager_gained_health(amount, health):
-	player_interface.gain_health(player_data, amount)
+func _on_CharacterBattleManager_gained_health(character:CharacterData, amount:int):
+	player_interface.gain_health(character, amount)
 
-func _on_CharacterBattleManager_lost_energy(amount, energy):
-	player_interface.lose_energy(player_data, amount)
+func _on_CharacterBattleManager_lost_energy(character:CharacterData, amount:int):
+	player_interface.lose_energy(character, amount)
 
-func _on_CharacterBattleManager_lost_health(amount, health):
-	player_interface.lose_health(player_data, amount)
+func _on_CharacterBattleManager_lost_health(character:CharacterData, amount:int):
+	player_interface.lose_health(character, amount)

@@ -130,23 +130,36 @@ func _on_draw_card_completed(card_data:CardData):
 			return
 		emit_signal("drawing_completed")
 
+func _update_opponent_meters(character:CharacterData):
+	var opponent_actions = actions_board.get_opponent_actions_instance(character)
+	if opponent_actions is OpponentActionsInterface:
+		opponent_actions.update()
+
 func gain_health(character:CharacterData, amount:int):
 	if character == player_data:
 		player_board.gain_health(amount)
+	else:
+		_update_opponent_meters(character)
 
 func lose_health(character:CharacterData, amount:int):
 	if character == player_data:
 		player_board.lose_health(amount)
+	else:
+		_update_opponent_meters(character)
 
 func gain_energy(character:CharacterData, amount:int):
 	if character == player_data:
 		player_board.gain_energy(amount)
 		card_manager.energy_limit += amount
+	else:
+		_update_opponent_meters(character)
 
 func lose_energy(character:CharacterData, amount:int):
 	if character == player_data:
 		player_board.lose_energy(amount)
 		card_manager.energy_limit -= amount
+	else:
+		_update_opponent_meters(character)
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
