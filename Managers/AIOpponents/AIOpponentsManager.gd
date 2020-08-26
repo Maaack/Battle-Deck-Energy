@@ -28,6 +28,8 @@ func opponents_take_turn(opportunities:Array):
 	var opponent_map = _get_opponent_map(opportunities)
 	for child in get_children():
 		if child is CharacterBattleManager:
+			if not child.is_active():
+				continue
 			child.draw_hand()
 			var random_index: int = randi() % child.hand.size()
 			var opponent_opportunities : Array = opponent_map[child.character_data]

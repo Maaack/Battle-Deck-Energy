@@ -14,6 +14,12 @@ func add_opponent_actions(opponent_data:CharacterData):
 	opponents_map[opponent_data] = instance
 	return instance
 
+func defeat_opponent(opponent:CharacterData):
+	var instance = get_opponent_actions_instance(opponent)
+	instance.remove_all_openings()
+	instance.queue_free()
+	opponents_map.erase(opponent)
+
 func get_opponent_actions_instance(opponent:CharacterData):
 	if opponent in opponents_map:
 		return opponents_map[opponent]

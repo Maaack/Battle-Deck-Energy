@@ -31,6 +31,7 @@ func new_opponent(opponent_data:CharacterData):
 	battle_manager.connect("gained_health", self, "_on_CharacterBattleManager_gained_health")
 	battle_manager.connect("lost_energy", self, "_on_CharacterBattleManager_lost_energy")
 	battle_manager.connect("lost_health", self, "_on_CharacterBattleManager_lost_health")
+	battle_manager.connect("died", self, "_on_CharacterBattleManager_died")
 	battle_opportunities_manager.add_opponent(opponent_data)
 	player_interface.add_opponent_actions(opponent_data)
 
@@ -156,13 +157,16 @@ func _on_EffectManager_damage_character(character:CharacterData, damage:int):
 	battle_manager.lose_health(damage)
 
 func _on_CharacterBattleManager_gained_energy(character:CharacterData, amount:int):
-	player_interface.gain_energy(character, amount)
+	player_interface.character_gains_energy(character, amount)
 
 func _on_CharacterBattleManager_gained_health(character:CharacterData, amount:int):
-	player_interface.gain_health(character, amount)
+	player_interface.character_gains_health(character, amount)
 
 func _on_CharacterBattleManager_lost_energy(character:CharacterData, amount:int):
-	player_interface.lose_energy(character, amount)
+	player_interface.character_loses_energy(character, amount)
 
 func _on_CharacterBattleManager_lost_health(character:CharacterData, amount:int):
-	player_interface.lose_health(character, amount)
+	player_interface.character_loses_health(character, amount)
+
+func _on_CharacterBattleManager_died(character):
+	player_interface.character_dies(character)

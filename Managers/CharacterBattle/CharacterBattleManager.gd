@@ -12,6 +12,7 @@ signal gained_health(character, amount)
 signal lost_health(character, amount)
 signal gained_energy(character, amount)
 signal lost_energy(character, amount)
+signal died(character)
 
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
@@ -43,19 +44,26 @@ func set_character_data(value:CharacterData):
 	character_data = value
 	reset()
 
+func is_active():
+	return character_data.health > 0
+
 func gain_health(amount: int = 1):
 	character_data.health += amount
 	emit_signal("gained_health", character_data, amount)
 
 func lose_health(amount: int = 1):
+	amount = min(character_data.health, amount)
 	character_data.health -= amount
 	emit_signal("lost_health", character_data, amount)
+	if character_data.health == 0:
+		emit_signal("died", character_data)
 
 func gain_energy(amount:int = 1):
 	character_data.energy += amount
 	emit_signal("gained_energy", character_data, amount)
 
 func lose_energy(amount:int = 1):
+	amount = min(character_data.energy, amount)
 	character_data.energy -= amount
 	emit_signal("lost_energy", character_data, amount)
 
