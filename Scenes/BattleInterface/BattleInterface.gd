@@ -33,7 +33,7 @@ func new_opponent(opponent_data:CharacterData):
 	battle_manager.connect("lost_health", self, "_on_CharacterBattleManager_lost_health")
 	battle_manager.connect("died", self, "_on_CharacterBattleManager_died")
 	battle_opportunities_manager.add_opponent(opponent_data)
-	player_interface.add_opponent_actions(opponent_data)
+	player_interface.add_opponent(opponent_data)
 
 func set_opponents(values:Array):
 	for value in values:
@@ -126,6 +126,7 @@ func _on_CharacterBattleManager_reshuffled_card(card):
 	player_interface.reshuffle_card(card)
 
 func _on_CharacterBattleManager_played_card(card:CardData, opportunity:OpportunityData):
+	print("played card %s on %s" % [card, opportunity])
 	player_interface.play_card(player_data, card, opportunity)
 
 

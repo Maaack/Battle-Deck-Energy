@@ -73,6 +73,11 @@ _global_script_classes=[ {
 "class": "PRSData",
 "language": "GDScript",
 "path": "res://Resources/PRS/PRSData.gd"
+}, {
+"base": "Control",
+"class": "PlayerActionsInterface",
+"language": "GDScript",
+"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/PlayerActions/PlayerActions.gd"
 } ]
 _global_script_class_icons={
 "AnimationData": "",
@@ -87,7 +92,8 @@ _global_script_class_icons={
 "HandData": "",
 "OpponentActionsInterface": "",
 "OpportunityData": "",
-"PRSData": ""
+"PRSData": "",
+"PlayerActionsInterface": ""
 }
 
 [application]

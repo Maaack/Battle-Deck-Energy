@@ -9,7 +9,7 @@ onready var card_slot_node = $CardSlot
 onready var glow_node = $CardSlot/GlowNode
 onready var animation_node = $CardSlot/GlowNode/AnimationPlayer
 
-var opportunity_data : OpportunityData
+var opportunity_data : OpportunityData setget set_opportunity_data
 var assigned_card = null
 var prs_data : PRSData
 
@@ -19,6 +19,11 @@ func _ready():
 
 func _to_string():
 	return "BattleOpening:%d" % get_instance_id()
+
+func set_opportunity_data(value:OpportunityData):
+	opportunity_data = value
+	if is_instance_valid(card_slot_node):
+		card_slot_node.allowed_types = opportunity_data.allowed_types
 
 func is_open():
 	return opportunity_data.is_open()

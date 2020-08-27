@@ -28,6 +28,7 @@ func set_player_data(value:CharacterData):
 		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_player_health(player_data.health, player_data.max_health)
 		player_board.set_draw_pile_size(player_data.deck_size())
+		actions_board.add_player_actions(player_data)
 
 func set_draw_pile_count(count:int):
 		player_board.set_draw_pile_size(count)
@@ -184,13 +185,15 @@ func _map_opportunity_nodes(openings:Array):
 func clear_opportunities():
 	_opportunities_map.clear()
 
-func add_player_openings(opps_data:Array):
-	var openings : Array = actions_board.add_player_openings(opps_data)
+func add_player_openings(opportunities:Array):
+	print("add player openings %s " % str(opportunities))
+	var openings : Array = actions_board.add_player_openings(opportunities)
 	_map_opportunity_nodes(openings)
+	print("map player openings %s " % str(openings))
 	return openings
 
-func add_opponent_openings(opps_data:Array):
-	var openings : Array = actions_board.add_opponent_openings(opps_data)
+func add_opponent_openings(opportunities:Array):
+	var openings : Array = actions_board.add_opponent_openings(opportunities)
 	_map_opportunity_nodes(openings)
 	return openings
 
@@ -198,8 +201,8 @@ func remove_all_openings():
 	actions_board.remove_all_openings()
 	clear_opportunities()
 
-func add_opponent_actions(opponent_data:CharacterData):
-	return actions_board.add_opponent_actions(opponent_data)
+func add_opponent(opponent:CharacterData):
+	return actions_board.add_opponent_actions(opponent)
 
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:
@@ -210,22 +213,29 @@ func _on_PlayerInterface_gui_input(event):
 			prs_data.scale = Vector2(1.25, 1.25)
 			card_manager.move_card(card_manager.dragged_card, prs_data, 0.1, AnimationType.DRAGGING)
 
-func get_player_battle_openings():
-	return actions_board.get_player_battle_openings()
+func get_player_card_openings(card:CardData):
+	var filtered_openings : Array = []
+	var openings : Array = actions_board.get_player_battle_openings()
+	for opening in openings:
+		if opening is BattleOpening:
+			if card.type_tag in opening.opportunity_data.allowed_types:
+				filtered_openings.append(opening)
+	return filtered_openings
 
-func _openings_glow_on():
-	for battle_opening in get_player_battle_openings():
+func _openings_glow_on(card:CardData):
+	for battle_opening in get_player_card_openings(card):
 		battle_opening.glow_on()
 
-func _openings_glow_off():
-	for battle_opening in get_player_battle_openings():
+func _openings_glow_off(card:CardData):
+	for battle_opening in get_player_card_openings(card):
+		
 		battle_opening.glow_off()
 
-func get_nearest_battle_opening(card_data:CardData):
-	var card_prs : Vector2 = card_data.prs.position
+func get_nearest_battle_opening(card:CardData):
+	var card_prs : Vector2 = card.prs.position
 	var shortest_distance : float = 120.0 # Ignore drop range
 	var nearest_battle_opening = null
-	for battle_opening in get_player_battle_openings():
+	for battle_opening in get_player_card_openings(card):
 		if battle_opening is BattleOpening:
 			var opening_prs : PRSData = battle_opening.prs_data
 			if opening_prs.position.distance_to(card_prs) < shortest_distance:
@@ -235,11 +245,11 @@ func get_nearest_battle_opening(card_data:CardData):
 
 func _on_CardManager_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
-	_openings_glow_on()
+	_openings_glow_on(card)
 
 func _on_CardManager_dropping_card(card:CardData):
 	var nearest_battle_opening = get_nearest_battle_opening(card)
-	_openings_glow_off()
+	_openings_glow_off(card)
 	if nearest_battle_opening is BattleOpening:
 		emit_signal("card_played_on_opportunity", card, nearest_battle_opening.opportunity_data)
 	hand_manager.spread_from_mouse_flag = true

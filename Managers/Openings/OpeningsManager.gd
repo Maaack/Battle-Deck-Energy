@@ -5,11 +5,11 @@ onready var opening_scene = preload("res://Managers/Openings/Opening.tscn")
 
 var openings_map : Dictionary = {}
 
-func add_opening(opp_data:OpportunityData):
+func add_opening(opportunity:OpportunityData):
 	var opening_instance = opening_scene.instance()
-	openings_map[opp_data] = opening_instance
-	opening_instance.opportunity_data = opp_data
 	add_child(opening_instance)
+	opening_instance.opportunity_data = opportunity
+	openings_map[opportunity] = opening_instance
 	return opening_instance
 
 func sub_opening():

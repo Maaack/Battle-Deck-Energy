@@ -9,20 +9,20 @@ onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/
 onready var energy_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat/EnergyLabel
 onready var deck_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/DeckStat/DeckLabel
 
-var opponent_data : CharacterData setget set_opponent_data
+var character_data : CharacterData setget set_character_data
 
 func _update_opponent_stats():
-	if not is_instance_valid(opponent_data):
+	if not is_instance_valid(character_data):
 		return
 	if is_instance_valid(health_label):
-		health_label.text = "%d / %d" % [opponent_data.health, opponent_data.max_health]
+		health_label.text = "%d / %d" % [character_data.health, character_data.max_health]
 	if is_instance_valid(energy_label):
-		energy_label.text = "%d / %d" % [opponent_data.energy, opponent_data.max_energy]
+		energy_label.text = "%d / %d" % [character_data.energy, character_data.max_energy]
 	if is_instance_valid(deck_label):
-		deck_label.text = "%d" % [opponent_data.deck_size()]
+		deck_label.text = "%d" % [character_data.deck_size()]
 
-func set_opponent_data(value:CharacterData):
-	opponent_data = value
+func set_character_data(value:CharacterData):
+	character_data = value
 	_update_opponent_stats()
 
 func _ready():
