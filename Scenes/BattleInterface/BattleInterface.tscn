@@ -60,4 +60,5 @@ one_shot = true
 [connection signal="phase_entered" from="BattlePhaseManager/Enemy" to="." method="_on_Enemy_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Player" to="." method="_on_Player_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Resolution" to="." method="_on_Resolution_phase_entered"]
+[connection signal="opportunity_added" from="BattleOpportunitiesManager" to="." method="_on_BattleOpportunitiesManager_opportunity_added"]
 [connection signal="damage_character" from="EffectManager" to="." method="_on_EffectManager_damage_character"]

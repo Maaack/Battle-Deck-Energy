@@ -28,7 +28,10 @@ func set_player_data(value:CharacterData):
 		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_player_health(player_data.health, player_data.max_health)
 		player_board.set_draw_pile_size(player_data.deck_size())
-		actions_board.add_player_actions(player_data)
+		actions_board.player_data = player_data
+
+func add_opponent(opponent:CharacterData):
+	return actions_board.add_opponent(opponent)
 
 func set_draw_pile_count(count:int):
 		player_board.set_draw_pile_size(count)
@@ -132,7 +135,7 @@ func _on_draw_card_completed(card_data:CardData):
 		emit_signal("drawing_completed")
 
 func _update_opponent_meters(character:CharacterData):
-	var opponent_actions = actions_board.get_opponent_actions_instance(character)
+	var opponent_actions = actions_board.get_actions_instance(character)
 	if opponent_actions is OpponentActionsInterface:
 		opponent_actions.update()
 
@@ -175,34 +178,33 @@ func start_turn():
 func start_round():
 	player_board.advance_round_count()
 
+func _map_opportunity_node(opening:BattleOpening):
+	if not is_instance_valid(opening):
+		return
+	opening.connect("card_slot_moved", self, "_on_CardSlot_moved", [opening])
+	_opportunities_map[opening.opportunity_data] = opening
+
 func _map_opportunity_nodes(openings:Array):
-	var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	for opening in openings:
 		if opening is BattleOpening:
-			opening.connect("card_slot_moved", self, "_on_CardSlot_moved", [opening])
-			_opportunities_map[opening.opportunity_data] = opening
+			_map_opportunity_node(opening)
 
 func clear_opportunities():
 	_opportunities_map.clear()
 
-func add_player_openings(opportunities:Array):
-	print("add player openings %s " % str(opportunities))
-	var openings : Array = actions_board.add_player_openings(opportunities)
-	_map_opportunity_nodes(openings)
-	print("map player openings %s " % str(openings))
-	return openings
+func add_opening(opportunity:OpportunityData):
+	var opening : BattleOpening = actions_board.add_opening(opportunity)
+	_map_opportunity_node(opening)
+	return opening
 
-func add_opponent_openings(opportunities:Array):
-	var openings : Array = actions_board.add_opponent_openings(opportunities)
+func add_openings(opportunities:Array):
+	var openings : Array = actions_board.add_openings(opportunities)
 	_map_opportunity_nodes(openings)
 	return openings
 
 func remove_all_openings():
 	actions_board.remove_all_openings()
 	clear_opportunities()
-
-func add_opponent(opponent:CharacterData):
-	return actions_board.add_opponent_actions(opponent)
 
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:

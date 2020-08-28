@@ -1,4 +1,4 @@
-extends Control
+extends ActionsInterface
 
 
 class_name OpponentActionsInterface
@@ -8,8 +8,6 @@ onready var player_opening_manager = $MarginContainer/VBoxContainer/MarginContai
 onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat/HealthLabel
 onready var energy_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat/EnergyLabel
 onready var deck_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/DeckStat/DeckLabel
-
-var character_data : CharacterData setget set_character_data
 
 func _update_opponent_stats():
 	if not is_instance_valid(character_data):
@@ -31,17 +29,11 @@ func _ready():
 func update():
 	_update_opponent_stats()
 
-func add_player_opening(opp_data:OpportunityData):
-	return player_opening_manager.add_opening(opp_data)
-
-func sub_player_opening():
-	player_opening_manager.sub_opening()
-
-func add_opponent_opening(opp_data:OpportunityData):
-	return opponent_opening_manager.add_opening(opp_data)
-
-func sub_opponent_opening():
-	opponent_opening_manager.sub_opening()
+func add_opening(opportunity:OpportunityData):
+	if opportunity.source == character_data:
+		return opponent_opening_manager.add_opening(opportunity)
+	elif opportunity.target == character_data:
+		return player_opening_manager.add_opening(opportunity)
 
 func remove_all_openings():
 	opponent_opening_manager.remove_all_openings()

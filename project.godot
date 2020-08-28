@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "ActionsInterface",
+"language": "GDScript",
+"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionInterface/ActionInterface.gd"
+}, {
 "base": "Resource",
 "class": "AnimationData",
 "language": "GDScript",
@@ -59,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Hand/HandData.gd"
 }, {
-"base": "Control",
+"base": "ActionsInterface",
 "class": "OpponentActionsInterface",
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/OpponentActions/OpponentActions.gd"
@@ -74,12 +79,13 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/PRS/PRSData.gd"
 }, {
-"base": "Control",
+"base": "ActionsInterface",
 "class": "PlayerActionsInterface",
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/PlayerActions/PlayerActions.gd"
 } ]
 _global_script_class_icons={
+"ActionsInterface": "",
 "AnimationData": "",
 "BattleCard": "",
 "BattleEffect": "",
