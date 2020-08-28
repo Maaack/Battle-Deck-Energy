@@ -230,7 +230,6 @@ func _openings_glow_on(card:CardData):
 
 func _openings_glow_off(card:CardData):
 	for battle_opening in get_player_card_openings(card):
-		
 		battle_opening.glow_off()
 
 func get_nearest_battle_opening(card:CardData):
