@@ -18,6 +18,9 @@ var hand_size : int = 0
 func _to_string():
 	return "Character:%d" % get_instance_id()
 
+func is_active():
+	return health > 0
+
 func reset_health():
 	if starting_max_health > 0:
 		max_health = starting_max_health

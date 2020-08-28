@@ -1,6 +1,9 @@
 extends Control
 
 
+signal player_won
+signal player_lost
+
 onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
@@ -165,8 +168,21 @@ func _on_CharacterBattleManager_lost_energy(character:CharacterData, amount:int)
 func _on_CharacterBattleManager_lost_health(character:CharacterData, amount:int):
 	player_interface.character_loses_health(character, amount)
 
+func _count_active_opponents():
+	var active_opponents : int = 0
+	for opponent in opponents:
+		if opponent is CharacterData:
+			if opponent.is_active():
+				active_opponents += 1
+	return active_opponents
+
 func _on_CharacterBattleManager_died(character):
 	player_interface.character_dies(character)
+	if character == player_data:
+		emit_signal("player_lost")
+	else:
+		if _count_active_opponents() == 0:
+			emit_signal("player_won")
 
 func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):
 	var opening : BattleOpening = player_interface.add_opening(opportunity)

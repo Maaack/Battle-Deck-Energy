@@ -166,10 +166,7 @@ func character_loses_energy(character:CharacterData, amount:int):
 		_update_opponent_meters(character)
 
 func character_dies(character:CharacterData):
-	if character == player_data:
-		print("You've lost the battle!")
-	else:
-		actions_board.defeat_opponent(character)
+	actions_board.defeat_opponent(character)
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true

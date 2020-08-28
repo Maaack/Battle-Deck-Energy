@@ -44,9 +44,6 @@ func set_character_data(value:CharacterData):
 	character_data = value
 	reset()
 
-func is_active():
-	return character_data.health > 0
-
 func gain_health(amount: int = 1):
 	character_data.health += amount
 	emit_signal("gained_health", character_data, amount)
