@@ -12,3 +12,16 @@ var prs : PRSData = PRSData.new()
 
 func _to_string():
 	return "%s:%d" % [title, get_instance_id()]
+
+func has_effect(effect_type:String):
+	for battle_effect in battle_effects:
+		if battle_effect is BattleEffect:
+			if battle_effect.effect_type == effect_type:
+				return true
+	return false
+
+func get_effect(effect_type:String):
+	for battle_effect in battle_effects:
+		if battle_effect is BattleEffect:
+			if battle_effect.effect_type == effect_type:
+				return battle_effect

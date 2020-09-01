@@ -83,6 +83,11 @@ _global_script_classes=[ {
 "class": "PlayerActionsInterface",
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/PlayerActions/PlayerActions.gd"
+}, {
+"base": "Resource",
+"class": "StatusData",
+"language": "GDScript",
+"path": "res://Resources/Statuses/StatusData.gd"
 } ]
 _global_script_class_icons={
 "ActionsInterface": "",
@@ -99,7 +104,8 @@ _global_script_class_icons={
 "OpponentActionsInterface": "",
 "OpportunityData": "",
 "PRSData": "",
-"PlayerActionsInterface": ""
+"PlayerActionsInterface": "",
+"StatusData": ""
 }
 
 [application]

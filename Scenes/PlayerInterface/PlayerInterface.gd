@@ -16,6 +16,7 @@ onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/
 onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
 onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
+onready var exhaust_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/ExhaustPile
 
 var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
@@ -57,6 +58,13 @@ func discard_card(card_data:CardData):
 	new_prs.scale = Vector2(0.1, 0.1)
 	animation_queue.animate_move(card_data, new_prs, 0.4, 0.2, AnimationType.DISCARDING)
 
+func exhaust_card(card_data:CardData):
+	var exhaust_pile_offset : Vector2 = exhaust_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
+	var new_prs : PRSData = PRSData.new()
+	new_prs.position = exhaust_pile_offset
+	new_prs.scale = Vector2(0.1, 0.1)
+	animation_queue.animate_move(card_data, new_prs, 0.4, 0.2, AnimationType.EXHAUSTING)
+
 func reshuffle_card(card_data:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_prs : PRSData = PRSData.new()
@@ -93,6 +101,12 @@ func _discarding_animation(card:CardData, animation:AnimationData):
 	card_manager.move_card(card, animation.prs, animation.tween_time)
 	_discarding_cards_count += 1
 
+func _exhausting_animation(card:CardData, animation:AnimationData):
+	var card_instance : BattleCard = card_manager.get_card_instance(card)
+	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
+	card_manager.move_card(card, animation.prs, animation.tween_time)
+	_discarding_cards_count += 1
+
 func _on_AnimationQueue_animation_started(animation:AnimationData):
 	var card : CardData = animation.card_data
 	match(animation.animation_type):
@@ -100,6 +114,8 @@ func _on_AnimationQueue_animation_started(animation:AnimationData):
 			_drawing_animation(card, animation)
 		AnimationType.DISCARDING:
 			_discarding_animation(card, animation)
+		AnimationType.EXHAUSTING:
+			_exhausting_animation(card, animation)
 		AnimationType.RESHUFFLING:
 			player_board.reshuffle_card()
 		_:
@@ -112,17 +128,29 @@ func _on_PlayerBoard_ending_turn():
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
 
+func _discard_complete():
+	_discarding_cards_count -= 1
+	if _discarding_cards_count < 0:
+		_discarding_cards_count = 0
+		return false
+	if _discarding_cards_count == 0:
+		hand_manager.discard_queue()
+		emit_signal("discard_completed")
+		return true
+
 func _on_discard_card_completed(card_data:CardData):
 	hand_manager.queue_card(card_data)
 	card_manager.remove_card(card_data)
 	player_board.discard_card()
-	_discarding_cards_count -= 1
-	if _discarding_cards_count == 0:
-		if _discarding_cards_count < 0:
-			_discarding_cards_count = 0
-			return
+	if _discard_complete():
 		hand_manager.discard_queue()
-		emit_signal("discard_completed")
+
+func _on_exhaust_card_completed(card_data:CardData):
+	hand_manager.queue_card(card_data)
+	card_manager.remove_card(card_data)
+	player_board.exhaust_card()
+	if _discard_complete():
+		hand_manager.discard_queue()
 
 func _on_draw_card_completed(card_data:CardData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card_data)

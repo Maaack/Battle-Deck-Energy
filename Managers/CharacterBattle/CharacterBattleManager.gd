@@ -102,14 +102,18 @@ func exhaust_card(card:CardData):
 	exhaust_pile.add_card(card)
 	emit_signal("exhausted_card", card)
 
-func draw_card():
+func draw_card(card = null):
 	if draw_pile.size() < 1:
 		reshuffle_discard_pile()
-	var card: CardData = draw_pile.draw_card()
-	if not is_instance_valid(card):
+	var drawn_card : CardData
+	if is_instance_valid(card):
+		drawn_card = draw_pile.draw_specific_card(card)
+	else:
+		drawn_card = draw_pile.draw_card()
+	if not is_instance_valid(drawn_card):
 		return
-	add_card_to_hand(card)
-	emit_signal("drew_card", card)
+	add_card_to_hand(drawn_card)
+	emit_signal("drew_card", drawn_card)
 
 func draw_hand():
 	for _i in range(character_data.hand_size):

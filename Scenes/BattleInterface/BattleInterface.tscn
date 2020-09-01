@@ -31,6 +31,8 @@ one_shot = true
 
 [node name="Opening" parent="BattlePhaseManager" instance=ExtResource( 6 )]
 
+[node name="RoundStart" parent="BattlePhaseManager" instance=ExtResource( 6 )]
+
 [node name="EnemySetup" parent="BattlePhaseManager" instance=ExtResource( 6 )]
 
 [node name="Enemy" parent="BattlePhaseManager" instance=ExtResource( 6 )]
@@ -48,6 +50,7 @@ one_shot = true
 [connection signal="died" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_died"]
 [connection signal="discarded_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_discarded_card"]
 [connection signal="drew_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card"]
+[connection signal="exhausted_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_exhausted_card"]
 [connection signal="gained_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_energy"]
 [connection signal="gained_health" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_health"]
 [connection signal="lost_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_energy"]
@@ -56,6 +59,7 @@ one_shot = true
 [connection signal="reshuffled_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_reshuffled_card"]
 [connection signal="played_card" from="AIOpponentsManager" to="." method="_on_AIOpponentsManager_played_card"]
 [connection signal="phase_entered" from="BattlePhaseManager/Opening" to="." method="_on_Opening_phase_entered"]
+[connection signal="phase_entered" from="BattlePhaseManager/RoundStart" to="." method="_on_RoundStart_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/EnemySetup" to="." method="_on_EnemySetup_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Enemy" to="." method="_on_Enemy_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Player" to="." method="_on_Player_phase_entered"]

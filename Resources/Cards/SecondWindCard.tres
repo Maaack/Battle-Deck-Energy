@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/BattleEffects/TargetApplyEnergy.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/BattleEffects/InnateEffect.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/BattleEffects/RetainEffect.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/BattleEffects/ExhaustEffect.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "Second Wind"
+description = "Grants 1 Energy and Exhausts.
+Innate.
+Retained."
+energy_cost = 0
+battle_effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+type_tag = "DEFEND"

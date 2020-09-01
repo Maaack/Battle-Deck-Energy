@@ -26,3 +26,10 @@ func draw_all():
 	var discarded : Array = cards.duplicate()
 	clear()
 	return discarded
+
+func draw_specific_card(card:CardData):
+	var card_index : int = cards.find(card)
+	if card_index < 0:
+		return
+	cards.remove(card_index)
+	return card

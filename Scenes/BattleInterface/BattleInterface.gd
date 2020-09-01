@@ -17,6 +17,7 @@ var opponents : Array = [] setget set_opponents
 
 var _character_manager_map : Dictionary = {}
 var _round_opportunities_map : Dictionary = {}
+var _skip_opening_phase = false
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -69,12 +70,31 @@ func _start_player_turn():
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():
-	player_interface.connect("discard_completed",  battle_phase_manager, "advance")
-	var discarded_cards : Array = player_battle_manager.discard_hand()
-	if discarded_cards.size() == 0:
+	var cards_in_hand : Array = player_battle_manager.hand.cards.duplicate()
+	var discarding_cards : Array = effects_manager.exclude_retained_cards(cards_in_hand)
+	if discarding_cards.size() > 0:
+		player_interface.connect("discard_completed", battle_phase_manager, "advance")
+		for discarding_card in discarding_cards:
+			player_battle_manager.discard_card(discarding_card)
+	else:
+		battle_phase_manager.advance()
+
+func setup_battle():
+	if _skip_opening_phase:
+		battle_phase_manager.advance()
+	_skip_opening_phase = true
+	var starting_cards : Array = player_battle_manager.draw_pile.cards.duplicate()
+	var innate_cards : Array = effects_manager.include_innate_cards(starting_cards)
+	if innate_cards.size() > 0:
+		player_interface.connect("drawing_completed", battle_phase_manager, "advance")
+		for innate_card in innate_cards:
+			player_battle_manager.draw_card(innate_card)
+	else:
 		battle_phase_manager.advance()
 
 func start_round():
+	if player_interface.is_connected("drawing_completed", battle_phase_manager, "advance"):
+		player_interface.disconnect("drawing_completed", battle_phase_manager, "advance")
 	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
 		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
 	battle_opportunities_manager.reset()
@@ -87,7 +107,11 @@ func _discard_played_cards():
 		if opp_data is OpportunityData and is_instance_valid(opp_data.card_data):
 			if opp_data.source == player_data:
 				discarding_flag = true
-				player_battle_manager.discard_card(opp_data.card_data)
+				var card_data : CardData = opp_data.card_data
+				if card_data.has_effect(effects_manager.EXHAUST_EFFECT):
+					player_battle_manager.exhaust_card(card_data)
+				else:
+					player_battle_manager.discard_card(card_data)
 			else:
 				player_interface.opponent_discards_card(opp_data.card_data)
 	return discarding_flag
@@ -109,6 +133,10 @@ func _resolve_actions():
 func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
 	if card.type_tag == battle_opportunities_manager.PARRY_TYPE:
 		battle_opportunities_manager.add_attack_opportunity(opportunity.source, opportunity.target)
+	if card.has_effect(effects_manager.TARGET_APPLY_ENERGY_EFFECT):
+		var target_character_manager : CharacterBattleManager = _character_manager_map[opportunity.target]
+		var effect: BattleEffect = card.get_effect(effects_manager.TARGET_APPLY_ENERGY_EFFECT)
+		target_character_manager.gain_energy(effect.effect_quantity)
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
@@ -123,6 +151,9 @@ func _on_PlayerInterface_ending_turn():
 func _on_CharacterBattleManager_discarded_card(card):
 	player_interface.discard_card(card)
 
+func _on_CharacterBattleManager_exhausted_card(card):
+	player_interface.exhaust_card(card)
+
 func _on_CharacterBattleManager_reshuffled_card(card):
 	player_interface.reshuffle_card(card)
 
@@ -130,6 +161,9 @@ func _on_CharacterBattleManager_played_card(card:CardData, opportunity:Opportuni
 	player_interface.play_card(player_data, card, opportunity)
 
 func _on_Opening_phase_entered():
+	setup_battle()
+
+func _on_RoundStart_phase_entered():
 	start_round()
 
 func _on_EnemySetup_phase_entered():

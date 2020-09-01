@@ -6,6 +6,10 @@ signal damage_character(character, damage)
 const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
 const PARRY_EFFECT = 'PARRY'
+const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
+const EXHAUST_EFFECT = 'EXHAUST'
+const RETAIN_EFFECT = 'RETAIN'
+const INNATE_EFFECT = 'INNATE'
 
 func _resolve_damage(effect_map:Dictionary):
 	var attack : int = 0
@@ -47,3 +51,17 @@ func get_target_effects(opportunities:Array):
 					target_effects[final_target][battle_effect.effect_type] = 0
 				target_effects[final_target][battle_effect.effect_type] += battle_effect.effect_quantity
 	return target_effects
+
+func include_innate_cards(cards:Array):
+	var innate_cards : Array = []
+	for card in cards:
+		if card is CardData and card.has_effect(INNATE_EFFECT):
+			innate_cards.append(card)
+	return innate_cards
+
+func exclude_retained_cards(cards:Array):
+	var not_retained_cards : Array = []
+	for card in cards:
+		if card is CardData and not card.has_effect(RETAIN_EFFECT):
+			not_retained_cards.append(card)
+	return not_retained_cards
