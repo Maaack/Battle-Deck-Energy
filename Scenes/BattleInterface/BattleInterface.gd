@@ -131,12 +131,16 @@ func _resolve_actions():
 		battle_phase_manager.advance()
 
 func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
-	if card.type_tag == battle_opportunities_manager.PARRY_TYPE:
+	if card.has_effect(effects_manager.PARRY_EFFECT):
 		battle_opportunities_manager.add_attack_opportunity(opportunity.source, opportunity.target)
 	if card.has_effect(effects_manager.TARGET_APPLY_ENERGY_EFFECT):
 		var target_character_manager : CharacterBattleManager = _character_manager_map[opportunity.target]
 		var effect: BattleEffect = card.get_effect(effects_manager.TARGET_APPLY_ENERGY_EFFECT)
 		target_character_manager.gain_energy(effect.effect_quantity)
+	if card.has_effect(effects_manager.TARGET_APPLY_STATUS):
+		var target_character_manager : CharacterBattleManager = _character_manager_map[opportunity.target]
+		var effect: BattleStatusEffect = card.get_effect(effects_manager.TARGET_APPLY_STATUS)
+		target_character_manager.gain_statuses(effect.statuses)
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)

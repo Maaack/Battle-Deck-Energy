@@ -19,6 +19,7 @@ var draw_pile : DeckData = DeckData.new()
 var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
+var statuses : Array = []
 
 var _drawing_cards : int = 0
 var _reshuffling_cards : int = 0
@@ -68,6 +69,15 @@ func reset_energy():
 	var recharge_amount : int = character_data.max_energy - character_data.energy
 	gain_energy(recharge_amount)
 	
+func gain_status(status:StatusData):
+	statuses.append(status)
+	print("player %s: status: %s" % [character_data,statuses])
+
+func gain_statuses(statuses:Array):
+	for status in statuses:
+		if status is StatusData:
+			gain_status(status)
+
 func reshuffle_discard_pile():
 	var discarded : Array = discard_pile.draw_all()
 	for card in discarded:
