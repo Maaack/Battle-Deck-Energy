@@ -297,3 +297,6 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 
 func opponent_discards_card(card:CardData):
 	card_manager.remove_card(card)
+
+func add_status(character:CharacterData, status:StatusData):
+	actions_board.add_status(character, status)

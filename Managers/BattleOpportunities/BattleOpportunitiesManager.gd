@@ -102,14 +102,15 @@ func reset_player_opportunities():
 	if not is_instance_valid(player_data):
 		print("Error: Getting player opportunities with no player set.")
 		return
+	add_defend_opportunities(player_data, player_data, 2)
 	for opponent in opponents_data: 
 		add_attack_opportunity(player_data, opponent)
-	add_defend_opportunities(player_data, player_data, 2)
 
 func reset_opponent_opportunities(opponent:CharacterData):
 	if not opponent in opponents_data:
 		print("Error: Getting opponent opportunities on unset opponent data.")
 		return
+	add_defend_opportunities(opponent, opponent)
 	add_attack_opportunities(opponent, player_data)
 
 func reset_all_opponent_opportunities():

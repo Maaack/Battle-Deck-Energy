@@ -36,6 +36,7 @@ func new_opponent(opponent_data:CharacterData):
 	battle_manager.connect("lost_energy", self, "_on_CharacterBattleManager_lost_energy")
 	battle_manager.connect("lost_health", self, "_on_CharacterBattleManager_lost_health")
 	battle_manager.connect("died", self, "_on_CharacterBattleManager_died")
+	battle_manager.connect("gained_status", self, "_on_CharacterBattleManager_gained_status")
 	battle_opportunities_manager.add_opponent(opponent_data)
 	player_interface.add_opponent(opponent_data)
 
@@ -120,6 +121,7 @@ func _resolve_actions():
 	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
 		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
 	var target_effects : Dictionary = effects_manager.get_target_effects(_round_opportunities_map.keys())
+	print(target_effects)
 	for target in target_effects:
 		effects_manager.resolve_effects(target, target_effects[target])
 	var discarding_flag = _discard_played_cards()
@@ -133,13 +135,13 @@ func _resolve_actions():
 func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
 	if card.has_effect(effects_manager.PARRY_EFFECT):
 		battle_opportunities_manager.add_attack_opportunity(opportunity.source, opportunity.target)
-	if card.has_effect(effects_manager.TARGET_APPLY_ENERGY_EFFECT):
+	if card.has_effect(effects_manager.TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT):
 		var target_character_manager : CharacterBattleManager = _character_manager_map[opportunity.target]
-		var effect: BattleEffect = card.get_effect(effects_manager.TARGET_APPLY_ENERGY_EFFECT)
+		var effect: BattleEffect = card.get_effect(effects_manager.TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT)
 		target_character_manager.gain_energy(effect.effect_quantity)
-	if card.has_effect(effects_manager.TARGET_APPLY_STATUS):
+	if card.has_effect(effects_manager.TARGET_IMMEDIATE_APPLY_STATUS):
 		var target_character_manager : CharacterBattleManager = _character_manager_map[opportunity.target]
-		var effect: BattleStatusEffect = card.get_effect(effects_manager.TARGET_APPLY_STATUS)
+		var effect: BattleStatusEffect = card.get_effect(effects_manager.TARGET_IMMEDIATE_APPLY_STATUS)
 		target_character_manager.gain_statuses(effect.statuses)
 
 func _on_CharacterBattleManager_drew_card(card):
@@ -226,3 +228,10 @@ func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityDat
 	var opening : BattleOpening = player_interface.add_opening(opportunity)
 	if is_instance_valid(opening):
 		_round_opportunities_map[opening.opportunity_data] = opening
+
+func _on_CharacterBattleManager_gained_status(character, status):
+	player_interface.add_status(character, status)
+
+func _on_EffectManager_modify_character(character, status):
+	var character_manager : CharacterBattleManager = _character_manager_map[character]
+	character_manager.gain_status(status)

@@ -19,3 +19,6 @@ func get_player_battle_openings():
 
 func get_opponent_battle_openings():
 	return []
+
+func add_status(status:StatusData):
+	pass

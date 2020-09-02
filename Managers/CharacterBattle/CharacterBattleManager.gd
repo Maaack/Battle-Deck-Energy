@@ -12,6 +12,7 @@ signal gained_health(character, amount)
 signal lost_health(character, amount)
 signal gained_energy(character, amount)
 signal lost_energy(character, amount)
+signal gained_status(character, status)
 signal died(character)
 
 var character_data : CharacterData setget set_character_data
@@ -71,7 +72,7 @@ func reset_energy():
 	
 func gain_status(status:StatusData):
 	statuses.append(status)
-	print("player %s: status: %s" % [character_data,statuses])
+	emit_signal("gained_status", character_data, status)
 
 func gain_statuses(statuses:Array):
 	for status in statuses:

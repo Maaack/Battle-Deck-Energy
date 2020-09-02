@@ -11,4 +11,4 @@ export(int) var duration : int = 0
 export(String) var type_tag : String = 'TYPE'
 
 func _to_string():
-	return "BattleEffect:%d" % get_instance_id()
+	return "StatusData:%d" % get_instance_id()

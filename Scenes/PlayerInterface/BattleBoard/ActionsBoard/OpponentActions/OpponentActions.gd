@@ -3,11 +3,12 @@ extends ActionsInterface
 
 class_name OpponentActionsInterface
 
-onready var opponent_opening_manager = $MarginContainer/VBoxContainer/MarginContainer/OpeningsContainer/Opponents
-onready var player_opening_manager = $MarginContainer/VBoxContainer/MarginContainer/OpeningsContainer/Players
+onready var opponent_opening_manager = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Opponents
+onready var player_opening_manager = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Players
 onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat/HealthLabel
 onready var energy_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat/EnergyLabel
 onready var deck_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/DeckStat/DeckLabel
+onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
 
 func _update_opponent_stats():
 	if not is_instance_valid(character_data):
@@ -44,3 +45,6 @@ func get_player_battle_openings():
 
 func get_opponent_battle_openings():
 	return opponent_opening_manager.get_battle_openings()
+
+func add_status(status:StatusData):
+	status_icon_manager.add_status(status)

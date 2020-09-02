@@ -53,6 +53,7 @@ one_shot = true
 [connection signal="exhausted_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_exhausted_card"]
 [connection signal="gained_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_energy"]
 [connection signal="gained_health" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_health"]
+[connection signal="gained_status" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_status"]
 [connection signal="lost_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_energy"]
 [connection signal="lost_health" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_health"]
 [connection signal="played_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_played_card"]
@@ -66,3 +67,4 @@ one_shot = true
 [connection signal="phase_entered" from="BattlePhaseManager/Resolution" to="." method="_on_Resolution_phase_entered"]
 [connection signal="opportunity_added" from="BattleOpportunitiesManager" to="." method="_on_BattleOpportunitiesManager_opportunity_added"]
 [connection signal="damage_character" from="EffectManager" to="." method="_on_EffectManager_damage_character"]
+[connection signal="modify_character" from="EffectManager" to="." method="_on_EffectManager_modify_character"]

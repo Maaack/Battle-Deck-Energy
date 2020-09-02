@@ -24,9 +24,9 @@ func add_opponent(opponent:CharacterData):
 	var instance = add_character_actions(opponent, opponent_actions_scene)
 
 func defeat_opponent(opponent:CharacterData):
-	var instance = get_actions_instance(opponent)
-	instance.remove_all_openings()
-	instance.queue_free()
+	var interface : ActionsInterface = get_actions_instance(opponent)
+	interface.remove_all_openings()
+	interface.queue_free()
 	characters_map.erase(opponent)
 
 func get_actions_instance(character:CharacterData):
@@ -67,3 +67,7 @@ func get_player_battle_openings():
 		if child.has_method("get_player_battle_openings"):
 			battle_openings += child.get_player_battle_openings()
 	return battle_openings
+
+func add_status(character:CharacterData, status:StatusData):
+	var interface : ActionsInterface = get_actions_instance(character)
+	interface.add_status(status)

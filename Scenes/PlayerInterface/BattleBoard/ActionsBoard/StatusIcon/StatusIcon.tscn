@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/Fonts/markazi_text_16pt_outline_1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0188.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd" type="Script" id=3]
+
+[node name="StatusIcon" type="Control"]
+margin_right = 28.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 36, 36 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 34.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/CenterContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Sprite" type="Sprite" parent="MarginContainer/CenterContainer/Control"]
+texture = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 34.0
+margin_bottom = 34.0
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -14.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "2"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
