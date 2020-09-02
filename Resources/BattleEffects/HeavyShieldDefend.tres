@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/BattleEffects/BattleEffect.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1001.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+effect_type = "DEFEND"
+effect_icon = ExtResource( 2 )
+effect_quantity = 6
+effect_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
