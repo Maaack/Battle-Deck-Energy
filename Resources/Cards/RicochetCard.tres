@@ -1,12 +1,12 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/BattleEffects/ParryEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/BattleEffects/RicochetEffect.tres" type="Resource" id=2]
 
 [resource]
 script = ExtResource( 1 )
-title = "Parry"
-description = "Defend yourself from an opponent for 5 damage."
+title = "Ricochet"
+description = "Deal 1 damage and gain opportunities on other opponents."
 energy_cost = 1
 battle_effects = [ ExtResource( 2 ) ]
-type_tag = "PARRY"
+type_tag = "ATTACK"

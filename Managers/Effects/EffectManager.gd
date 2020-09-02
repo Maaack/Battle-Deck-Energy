@@ -7,6 +7,7 @@ signal modify_character(character, status)
 const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
 const PARRY_EFFECT = 'PARRY'
+const RICOCHET_EFFECT = 'RICOCHET'
 const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
 const TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT = 'TARGET_IMMEDIATE_APPLY_ENERGY'
 const TARGET_APPLY_STATUS = 'TARGET_APPLY_STATUS'
@@ -21,11 +22,9 @@ func _resolve_damage(character:CharacterData, effects:Array):
 	for effect in effects:
 		if effect is BattleEffect:
 			match(effect.effect_type):
-				ATTACK_EFFECT:
+				ATTACK_EFFECT, RICOCHET_EFFECT:
 					attack += effect.effect_quantity
-				PARRY_EFFECT:
-					defend += effect.effect_quantity
-				DEFEND_EFFECT:
+				DEFEND_EFFECT, PARRY_EFFECT:
 					defend += effect.effect_quantity
 	var total_damage = max(attack - defend, 0)
 	if total_damage > 0:
