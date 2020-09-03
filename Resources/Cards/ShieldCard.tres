@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Shield"
-description = "Absorb %DEFEND Damage and gain %TARGET_APPLY_STATUS Strength."
+description = "Absorb %DEFEND Damage and gain %TARGET_APPLY_STRENGTH Strength."
 energy_cost = 1
 battle_effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type_tag = "DEFEND"

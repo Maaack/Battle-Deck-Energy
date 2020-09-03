@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-effect_type = "TARGET_APPLY_STATUS"
+effect_type = "TARGET_APPLY_STRENGTH"
 effect_icon = ExtResource( 2 )
 effect_quantity = 1
 effect_color = Color( 0, 0, 0, 1 )

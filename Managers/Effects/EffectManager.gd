@@ -8,14 +8,13 @@ const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
 const PARRY_EFFECT = 'PARRY'
 const RICOCHET_EFFECT = 'RICOCHET'
-const VULNERABILITY_EFFECT = 'VULNERABILITY'
-const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
-const TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT = 'TARGET_IMMEDIATE_APPLY_ENERGY'
-const TARGET_APPLY_STATUS = 'TARGET_APPLY_STATUS'
-const TARGET_IMMEDIATE_APPLY_STATUS = 'TARGET_IMMEDIATE_APPLY_STATUS'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
+const VULNERABLE_STATUS = 'VULNERABLE'
+const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
+const TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT = 'TARGET_IMMEDIATE_APPLY_ENERGY'
+const TARGET_IMMEDIATE_APPLY_STATUS = 'TARGET_IMMEDIATE_APPLY_STATUS'
 
 func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:BattleEffect):
 	# Temporary method to deal with not having self-targetted opportunities.
@@ -30,7 +29,7 @@ func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:Batt
 func _get_target_modifier_tag(type_tag:String):
 	match(type_tag):
 		ATTACK_EFFECT:
-			return VULNERABILITY_EFFECT
+			return VULNERABLE_STATUS
 
 func _get_opportunity_source_modifier(opportunity:OpportunityData, effect:BattleEffect, character_modifier_map:Dictionary):
 	if not opportunity.source in character_modifier_map:
@@ -58,15 +57,16 @@ func _resolve_damage(opportunities:Array, character_modifier_map:Dictionary):
 				var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 				var source_modifier = _get_opportunity_source_modifier(opportunity, effect, character_modifier_map)
 				var target_modifier = _get_opportunity_target_modifier(opportunity, effect, character_modifier_map)
+				var final_value = effect.effect_quantity + source_modifier + target_modifier
 				if not final_target in attack_map or not final_target in defend_map:
 					attack_map[final_target] = 0
 					defend_map[final_target] = 0
 				if effect is BattleEffect:
 					match(effect.effect_type):
 						ATTACK_EFFECT:
-							attack_map[final_target] += effect.effect_quantity + source_modifier + target_modifier
+							attack_map[final_target] += final_value
 						DEFEND_EFFECT:
-							defend_map[final_target] += effect.effect_quantity + source_modifier + target_modifier
+							defend_map[final_target] += final_value
 	for target in attack_map:
 		var attack = attack_map[target]
 		var defend = defend_map[target]
