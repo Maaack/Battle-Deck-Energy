@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Second Wind"
-description = "Gain 1 Energy and Exhaust.
+description = "Gain [b]1[/b] Energy and Exhaust.
 Innate.
 Retained."
 energy_cost = 0

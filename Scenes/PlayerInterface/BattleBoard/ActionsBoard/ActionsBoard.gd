@@ -70,4 +70,6 @@ func get_player_battle_openings():
 
 func add_status(character:CharacterData, status:StatusData):
 	var interface : ActionsInterface = get_actions_instance(character)
+	if not is_instance_valid(interface):
+		return
 	interface.add_status(status)

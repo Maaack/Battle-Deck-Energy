@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/BattleInterface/BattleInterface.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/BattleInterface/BattlePhase/BattlePhase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Managers/BattleOpportunities/BattleOpportunitiesManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Managers/Effects/EffectManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Managers/Modifiers/ModifiersManager.tscn" type="PackedScene" id=9]
 
 [node name="BattleInterface" type="Control"]
 anchor_right = 1.0
@@ -44,6 +45,8 @@ one_shot = true
 [node name="BattleOpportunitiesManager" parent="." instance=ExtResource( 7 )]
 
 [node name="EffectManager" parent="." instance=ExtResource( 8 )]
+
+[node name="ModifiersManager" parent="." instance=ExtResource( 9 )]
 [connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
 [connection signal="card_played_on_opportunity" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
 [connection signal="ending_turn" from="PlayerInterface" to="." method="_on_PlayerInterface_ending_turn"]
@@ -68,3 +71,4 @@ one_shot = true
 [connection signal="opportunity_added" from="BattleOpportunitiesManager" to="." method="_on_BattleOpportunitiesManager_opportunity_added"]
 [connection signal="damage_character" from="EffectManager" to="." method="_on_EffectManager_damage_character"]
 [connection signal="modify_character" from="EffectManager" to="." method="_on_EffectManager_modify_character"]
+[connection signal="modify_character" from="ModifiersManager" to="." method="_on_ModifiersManager_modify_character"]

@@ -8,6 +8,7 @@ const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
 const PARRY_EFFECT = 'PARRY'
 const RICOCHET_EFFECT = 'RICOCHET'
+const VULNERABILITY_EFFECT = 'VULNERABILITY'
 const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
 const TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT = 'TARGET_IMMEDIATE_APPLY_ENERGY'
 const TARGET_APPLY_STATUS = 'TARGET_APPLY_STATUS'
@@ -15,31 +16,6 @@ const TARGET_IMMEDIATE_APPLY_STATUS = 'TARGET_IMMEDIATE_APPLY_STATUS'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
-
-func _resolve_damage(character:CharacterData, effects:Array):
-	var attack : int = 0
-	var defend : int = 0
-	for effect in effects:
-		if effect is BattleEffect:
-			match(effect.effect_type):
-				ATTACK_EFFECT, RICOCHET_EFFECT:
-					attack += effect.effect_quantity
-				DEFEND_EFFECT:
-					defend += effect.effect_quantity
-	var total_damage = max(attack - defend, 0)
-	if total_damage > 0:
-		emit_signal("damage_character", character, total_damage)
-	return total_damage
-
-func _resolve_statuses(character:CharacterData, effects:Array):
-	for effect in effects:
-		if effect is BattleStatusEffect:
-			for status in effect.statuses:
-				emit_signal("modify_character", character, status)
-
-func resolve_effects(character:CharacterData, effects:Array):
-	_resolve_damage(character, effects)
-	_resolve_statuses(character, effects)
 
 func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:BattleEffect):
 	# Temporary method to deal with not having self-targetted opportunities.
@@ -51,16 +27,65 @@ func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:Batt
 			return opportunity.source
 	return opportunity.target
 
-func get_target_effects(opportunities:Array):
-	var target_effects : Dictionary = {}
+func _get_target_modifier_tag(type_tag:String):
+	match(type_tag):
+		ATTACK_EFFECT:
+			return VULNERABILITY_EFFECT
+
+func _get_opportunity_source_modifier(opportunity:OpportunityData, effect:BattleEffect, character_modifier_map:Dictionary):
+	if not opportunity.source in character_modifier_map:
+		return 0
+	if not effect.effect_type in character_modifier_map[opportunity.source]:
+		return 0
+	return character_modifier_map[opportunity.source][effect.effect_type]
+
+func _get_opportunity_target_modifier(opportunity:OpportunityData, effect:BattleEffect, character_modifier_map:Dictionary):
+	var effect_type = _get_target_modifier_tag(effect.effect_type)
+	if effect_type == null:
+		return 0
+	if not opportunity.target in character_modifier_map:
+		return 0
+	if not effect_type in character_modifier_map[opportunity.target]:
+		return 0
+	return character_modifier_map[opportunity.target][effect_type]
+
+func _resolve_damage(opportunities:Array, character_modifier_map:Dictionary):
+	var attack_map : Dictionary = {}
+	var defend_map : Dictionary = {}
 	for opportunity in opportunities:
 		if opportunity is OpportunityData and is_instance_valid(opportunity.card_data):
-			for battle_effect in opportunity.card_data.battle_effects:
-				var final_target = _resolve_opportunity_effect_target(opportunity, battle_effect)
-				if not final_target in target_effects:
-					target_effects[final_target] = []
-				target_effects[final_target].append(battle_effect)
-	return target_effects
+			for effect in opportunity.card_data.battle_effects:
+				var final_target = _resolve_opportunity_effect_target(opportunity, effect)
+				var source_modifier = _get_opportunity_source_modifier(opportunity, effect, character_modifier_map)
+				var target_modifier = _get_opportunity_target_modifier(opportunity, effect, character_modifier_map)
+				if not final_target in attack_map or not final_target in defend_map:
+					attack_map[final_target] = 0
+					defend_map[final_target] = 0
+				if effect is BattleEffect:
+					match(effect.effect_type):
+						ATTACK_EFFECT:
+							attack_map[final_target] += effect.effect_quantity + source_modifier + target_modifier
+						DEFEND_EFFECT:
+							defend_map[final_target] += effect.effect_quantity + source_modifier + target_modifier
+	for target in attack_map:
+		var attack = attack_map[target]
+		var defend = defend_map[target]
+		var total_damage = max(attack - defend, 0)
+		if total_damage > 0:
+			emit_signal("damage_character", target, total_damage)
+
+func _resolve_status_changes(opportunities:Array, character_modifier_map:Dictionary):
+	for opportunity in opportunities:
+		if opportunity is OpportunityData and is_instance_valid(opportunity.card_data):
+			for effect in opportunity.card_data.battle_effects:
+				if effect is BattleStatusEffect:
+					var final_target = _resolve_opportunity_effect_target(opportunity, effect)
+					for status in effect.statuses:
+						emit_signal("modify_character", final_target, status)
+				
+func resolve_opportunities(opportunities:Array, character_modifier_map:Dictionary):
+	_resolve_damage(opportunities, character_modifier_map)
+	_resolve_status_changes(opportunities, character_modifier_map)
 
 func include_innate_cards(cards:Array):
 	var innate_cards : Array = []

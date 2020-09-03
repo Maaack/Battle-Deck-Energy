@@ -305,18 +305,10 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 func opponent_discards_card(card:CardData):
 	card_manager.remove_card(card)
 
-func _map_status_to_modifier(status:StatusData):
-	match(status.type_tag):
-		'STRENGTH':
-			return 'ATTACK'
-	return ''
-
 func add_status(character:CharacterData, status:StatusData):
+	actions_board.add_status(character, status)
+
+func set_character_modifier(character:CharacterData, modifier:String, value:int):
 	if not character in _character_modifier_map:
 		_character_modifier_map[character] = {}
-	var modifier : String = _map_status_to_modifier(status)
-	if modifier != '':
-		if not modifier in _character_modifier_map[character]:
-			_character_modifier_map[character][modifier] = 0
-		_character_modifier_map[character][modifier] += status.intensity
-	actions_board.add_status(character, status)
+	_character_modifier_map[character][modifier] = value

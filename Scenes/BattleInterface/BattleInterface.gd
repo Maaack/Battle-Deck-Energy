@@ -4,13 +4,14 @@ extends Control
 signal player_won
 signal player_lost
 
+onready var advance_phase_timer = $AdvancePhaseTimer
 onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
 onready var battle_phase_manager = $BattlePhaseManager
 onready var battle_opportunities_manager = $BattleOpportunitiesManager
 onready var effects_manager = $EffectManager
-onready var advance_phase_timer = $AdvancePhaseTimer
+onready var modifiers_manager = $ModifiersManager
 
 var player_data : CharacterData setget set_player_data
 var opponents : Array = [] setget set_opponents
@@ -121,9 +122,7 @@ func _discard_played_cards():
 func _resolve_actions():
 	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
 		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
-	var target_effects : Dictionary = effects_manager.get_target_effects(_round_opportunities_map.keys())
-	for target in target_effects:
-		effects_manager.resolve_effects(target, target_effects[target])
+	effects_manager.resolve_opportunities(_round_opportunities_map.keys(), modifiers_manager.character_modifier_map)
 	var discarding_flag = _discard_played_cards()
 	player_interface.remove_all_openings()
 	_round_opportunities_map.clear()
@@ -236,6 +235,12 @@ func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityDat
 func _on_CharacterBattleManager_gained_status(character, status):
 	player_interface.add_status(character, status)
 
+func _on_ModifiersManager_modify_character(character, modifier, value):
+	player_interface.set_character_modifier(character, modifier, value)
+
 func _on_EffectManager_modify_character(character, status):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_status(status)
+	modifiers_manager.resolve_status(character, status)
+
+
