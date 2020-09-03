@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/BattleEffects/TargetApplyStrength.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/BattleEffects/HeavyShieldDefend.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/BattleEffects/RoundShieldDefend.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
-title = "Defend"
-description = "Defend from 6 Damage and gain 2 Strength."
+title = "Shield"
+description = "Absorb %DEFEND Damage and gain %TARGET_APPLY_STATUS Strength."
 energy_cost = 1
-battle_effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
+battle_effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type_tag = "DEFEND"

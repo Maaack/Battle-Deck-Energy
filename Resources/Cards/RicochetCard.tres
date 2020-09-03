@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Ricochet"
-description = "Deal 1 damage and add Opportunities on other opponents."
+description = "Deal 1 Damage and add 1 Attack space on all other opponents."
 energy_cost = 1
 battle_effects = [ ExtResource( 2 ) ]
 type_tag = "ATTACK"

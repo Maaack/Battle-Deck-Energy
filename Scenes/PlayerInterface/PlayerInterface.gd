@@ -22,6 +22,7 @@ var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
 var _opportunities_map : Dictionary = {}
+var _character_modifier_map : Dictionary = {}
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -87,9 +88,15 @@ func _on_CardSlot_moved(opening:BattleOpening):
 	if is_instance_valid(opening.assigned_card):
 		card_manager.force_move_card(opening.assigned_card, opening.prs_data, 0.05)
 
+func _new_character_card(character:CharacterData, card:CardData):
+	var card_instance : BattleCard = card_manager.add_card(card)
+	if character in _character_modifier_map:
+		card_instance.effect_modifiers = _character_modifier_map[character]
+	return card_instance
+	
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
-	var card_instance = card_manager.add_card(card)
+	var card_instance = _new_character_card(player_data, card)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	card_manager.move_card(card, animation.prs, animation.tween_time, AnimationType.DRAWING)
 	hand_manager.add_card(card)
@@ -292,11 +299,24 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 		hand_manager.discard_card(card)
 	else:
 		card.prs = opening_prs
-		card_manager.add_card(card)
+		_new_character_card(character, card)
 	card_manager.move_card(card, opening_prs, 0.2, AnimationType.PLAYING)
 
 func opponent_discards_card(card:CardData):
 	card_manager.remove_card(card)
 
+func _map_status_to_modifier(status:StatusData):
+	match(status.type_tag):
+		'STRENGTH':
+			return 'ATTACK'
+	return ''
+
 func add_status(character:CharacterData, status:StatusData):
+	if not character in _character_modifier_map:
+		_character_modifier_map[character] = {}
+	var modifier : String = _map_status_to_modifier(status)
+	if modifier != '':
+		if not modifier in _character_modifier_map[character]:
+			_character_modifier_map[character][modifier] = 0
+		_character_modifier_map[character][modifier] += status.intensity
 	actions_board.add_status(character, status)

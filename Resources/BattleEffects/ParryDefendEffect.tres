@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource( 1 )
-effect_type = "PARRY"
+effect_type = "DEFEND"
 effect_icon = ExtResource( 2 )
-effect_quantity = 1
+effect_quantity = 5
 effect_color = Color( 0.772549, 0.65098, 0.027451, 1 )

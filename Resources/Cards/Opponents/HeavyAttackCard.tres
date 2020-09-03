@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Heavy Attack"
-description = "Attack the enemy for 5 damage."
+description = "Attack the enemy for %ATTACK Damage."
 energy_cost = 1
 battle_effects = [ ExtResource( 2 ) ]
 type_tag = "ATTACK"

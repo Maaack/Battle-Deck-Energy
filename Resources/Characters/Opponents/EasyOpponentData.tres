@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Opponents/HeavyDefendCard.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/HeavyShieldCard.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/Opponents/HeavyAttackCard.tres" type="Resource" id=3]
 
 [resource]

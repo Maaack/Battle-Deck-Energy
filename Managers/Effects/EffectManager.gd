@@ -24,7 +24,7 @@ func _resolve_damage(character:CharacterData, effects:Array):
 			match(effect.effect_type):
 				ATTACK_EFFECT, RICOCHET_EFFECT:
 					attack += effect.effect_quantity
-				DEFEND_EFFECT, PARRY_EFFECT:
+				DEFEND_EFFECT:
 					defend += effect.effect_quantity
 	var total_damage = max(attack - defend, 0)
 	if total_damage > 0:

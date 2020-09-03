@@ -4,6 +4,8 @@ extends Node2D
 
 class_name BattleCard
 
+const CARD_EFFECT_TAG = 'card_effect'
+
 signal mouse_entered(card_data)
 signal mouse_exited(card_data)
 signal mouse_clicked(card_data)
@@ -18,6 +20,7 @@ export(Resource) var starting_card_data setget set_starting_card_data
 
 var card_data : CardData setget set_card_data
 var _last_animation_type : int = 0
+var effect_modifiers : Dictionary = {} setget set_effect_modifiers
 
 func _to_string():
 	if card_data is CardData:
@@ -25,13 +28,53 @@ func _to_string():
 	else:
 		return ._to_string()
 
+func _get_card_attack_value():
+	var attack : int = 0
+	for effect in card_data.battle_effects:
+		if effect is BattleEffect:
+			match(effect.effect_type):
+				'ATTACK', 'RICOCHET':
+					attack += effect.effect_quantity
+	return attack
+
+func _get_effect_base_value(effect_type:String):
+	var value : int = 0
+	for effect in card_data.battle_effects:
+		if effect is BattleEffect and effect.effect_type == effect_type:
+			value += effect.effect_quantity
+	return value
+
+func _get_effect_mod_value(effect_type:String):
+	if effect_type in effect_modifiers:
+		return effect_modifiers[effect_type]
+	return 0
+
+func _get_effect_bbtag_string(effect_type:String):
+	var base_value = _get_effect_base_value(effect_type)
+	var mod_value = _get_effect_mod_value(effect_type)
+	var full_value = base_value + mod_value
+	var bbtag_string = "[%s mod=%d][b]%d[/b][/%s]" % [CARD_EFFECT_TAG, mod_value, full_value, CARD_EFFECT_TAG]
+	return bbtag_string
+
+func _update_card_description():
+	if card_data.description == "":
+		return
+	var description : String = card_data.description
+	var regex = RegEx.new()
+	regex.compile("%(?<tag>[A-Z_]+)")
+	for result in regex.search_all(description):
+		var type_tag : String = result.get_string("tag")
+		var tag_string = _get_effect_bbtag_string(type_tag)
+		description = description.replace('%'+type_tag, tag_string)
+	description = "[center]%s[/center]" % description
+	$Body/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel.bbcode_text = description
+
 func _update_card_front():
 	if not is_instance_valid(card_data):
 		return
 	if card_data.title != "":
 		$Body/CardFront/TitlePanel/TitleLabel.text = card_data.title
-	if card_data.description != "":
-		$Body/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel.text = card_data.description
+	_update_card_description()
 	if card_data.energy_cost >= 0:
 		$Body/BDEPanel/BDECostLabel.text = str(card_data.energy_cost)
 	if card_data.battle_effects.size() > 0:
@@ -42,6 +85,10 @@ func _update_card_front():
 			$Body/CardFront/Control/Label.text = str(battle_effect.effect_quantity)
 		if battle_effect.effect_color != Color():
 			$Body/CardFront/Control/Label.add_color_override("font_color", battle_effect.effect_color)
+
+func set_effect_modifiers(value:Dictionary):
+	effect_modifiers = value
+	_update_card_description()
 
 func _reset_card_data():
 	if starting_card_data is CardData:
