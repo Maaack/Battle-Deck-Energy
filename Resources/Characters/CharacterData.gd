@@ -31,7 +31,6 @@ func _reset_starting_energy():
 		max_energy = starting_max_energy
 
 func reset_energy():
-	_reset_starting_energy()
 	energy = max_energy
 
 func reset_hand_size():
