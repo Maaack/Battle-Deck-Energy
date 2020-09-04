@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/OpponentActions/OpponentActions.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=8]
 [ext_resource path="res://Managers/Openings/OpeningsManager.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Sourced/Icons/GlyphsterUnlimited/1x/videogames_card_deck.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sourced/Icons/GlyphsterUnlimited/1x/medical_healthcare_heart.png" type="Texture" id=11]
 
 [node name="OpponentActions" type="Control"]
@@ -93,8 +92,20 @@ margin_right = 372.0
 margin_bottom = 42.0
 size_flags_horizontal = 3
 
-[node name="HealthStat" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
+[node name="NicknameLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
+margin_top = 2.0
 margin_right = 118.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Opponent"
+align = 1
+valign = 1
+
+[node name="HealthStat" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
+margin_left = 122.0
+margin_right = 240.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
@@ -125,8 +136,8 @@ texture = ExtResource( 11 )
 stretch_mode = 4
 
 [node name="EnergyStat" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
-margin_left = 122.0
-margin_right = 240.0
+margin_left = 244.0
+margin_right = 364.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
@@ -136,7 +147,7 @@ __meta__ = {
 
 [node name="EnergyLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat"]
 margin_top = 2.0
-margin_right = 78.0
+margin_right = 80.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -149,43 +160,11 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat"]
 modulate = Color( 1, 0.411765, 0.729412, 1 )
-margin_left = 86.0
-margin_right = 118.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 8 )
-stretch_mode = 4
-
-[node name="DeckStat" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
-margin_left = 244.0
-margin_right = 364.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DeckLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/DeckStat"]
-margin_top = 2.0
-margin_right = 77.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.156863, 0.156863, 0.156863, 1 )
-text = "#"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/DeckStat"]
-modulate = Color( 0.219608, 0.745098, 0.364706, 1 )
-margin_left = 85.0
+margin_left = 88.0
 margin_right = 120.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 stretch_mode = 4
 
 [node name="StatusesMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]

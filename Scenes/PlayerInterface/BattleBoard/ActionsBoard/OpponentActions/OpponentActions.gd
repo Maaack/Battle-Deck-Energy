@@ -5,20 +5,20 @@ class_name OpponentActionsInterface
 
 onready var opponent_opening_manager = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Opponents
 onready var player_opening_manager = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Players
+onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/NicknameLabel
 onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat/HealthLabel
 onready var energy_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat/EnergyLabel
-onready var deck_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/DeckStat/DeckLabel
 onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
 
 func _update_opponent_stats():
-	if not is_instance_valid(character_data):
+	if not character_data is OpponentCharacterData:
 		return
 	if is_instance_valid(health_label):
 		health_label.text = "%d / %d" % [character_data.health, character_data.max_health]
 	if is_instance_valid(energy_label):
 		energy_label.text = "%d / %d" % [character_data.energy, character_data.max_energy]
-	if is_instance_valid(deck_label):
-		deck_label.text = "%d" % [character_data.deck_size()]
+	if is_instance_valid(nickname_label):
+		nickname_label.text =  character_data.nickname
 
 func set_character_data(value:CharacterData):
 	character_data = value

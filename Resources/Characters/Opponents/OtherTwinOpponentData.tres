@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Cards/Opponents/HeavyShieldCard.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/Opponents/HeavyAttackCard.tres" type="Resource" id=3]
 
@@ -10,3 +10,4 @@ starting_max_health = 9
 starting_max_energy = 1
 starting_hand_size = 3
 starting_deck = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+nickname = "Other Twin"
