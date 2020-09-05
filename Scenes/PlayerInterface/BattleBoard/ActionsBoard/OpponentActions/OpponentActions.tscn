@@ -89,14 +89,14 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 372.0
-margin_bottom = 42.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="NicknameLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
-margin_top = 2.0
 margin_right = 118.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Opponent"
@@ -106,7 +106,7 @@ valign = 1
 [node name="HealthStat" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
 margin_left = 122.0
 margin_right = 240.0
-margin_bottom = 34.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 __meta__ = {
@@ -114,9 +114,9 @@ __meta__ = {
 }
 
 [node name="HealthLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat"]
-margin_top = 2.0
+margin_top = 1.0
 margin_right = 78.0
-margin_bottom = 32.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.156863, 0.156863, 0.156863, 1 )
@@ -130,7 +130,7 @@ __meta__ = {
 modulate = Color( 0.803922, 0.0392157, 0.0392157, 1 )
 margin_left = 86.0
 margin_right = 118.0
-margin_bottom = 34.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 11 )
 stretch_mode = 4
@@ -138,7 +138,7 @@ stretch_mode = 4
 [node name="EnergyStat" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
 margin_left = 244.0
 margin_right = 364.0
-margin_bottom = 34.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 custom_constants/separation = 8
 __meta__ = {
@@ -146,9 +146,9 @@ __meta__ = {
 }
 
 [node name="EnergyLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat"]
-margin_top = 2.0
+margin_top = 1.0
 margin_right = 80.0
-margin_bottom = 32.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.156863, 0.156863, 0.156863, 1 )
@@ -162,7 +162,7 @@ __meta__ = {
 modulate = Color( 1, 0.411765, 0.729412, 1 )
 margin_left = 88.0
 margin_right = 120.0
-margin_bottom = 34.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 8 )
 stretch_mode = 4

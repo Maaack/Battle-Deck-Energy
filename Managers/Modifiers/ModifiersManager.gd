@@ -21,15 +21,13 @@ func _map_status_to_modifier_tag(status:StatusData):
 			return ATTACK
 		FORTITUDE, FRAILTY:
 			return DEFEND
-	return ''
+	return status.type_tag
 
 func _map_status_to_modifier_intensity(status:StatusData):
 	match(status.type_tag):
-		STRENGTH, FORTITUDE:
-			return status.intensity
 		WEAKNESS, FRAILTY:
 			return -(status.intensity)
-	return 0
+	return status.intensity
 
 func resolve_status(character:CharacterData, status:StatusData):
 	if not character in character_modifier_map:

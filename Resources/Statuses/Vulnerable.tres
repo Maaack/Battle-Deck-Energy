@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0108.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+title = "Vulnerable"
+description = "Increases damage taken by attacks by 50%."
+icon = ExtResource( 2 )
+intensity = 1
+duration = 1
+type_tag = "VULNERABLE"
