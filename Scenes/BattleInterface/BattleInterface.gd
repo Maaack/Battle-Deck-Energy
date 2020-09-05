@@ -132,20 +132,7 @@ func _resolve_actions():
 		battle_phase_manager.advance()
 
 func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
-	if card.has_effect(effects_manager.PARRY_EFFECT):
-		battle_opportunities_manager.add_attack_opportunity(opportunity.source, opportunity.target)
-	if card.has_effect(effects_manager.RICOCHET_EFFECT):
-		for opponent in opponents:
-			if opponent != opportunity.target:
-				battle_opportunities_manager.add_attack_opportunity(opportunity.source, opponent)
-	if card.has_effect(effects_manager.TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT):
-		var target_character_manager : CharacterBattleManager = _character_manager_map[opportunity.target]
-		var effect: BattleEffect = card.get_effect(effects_manager.TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT)
-		target_character_manager.gain_energy(effect.effect_quantity)
-	if card.has_effect(effects_manager.TARGET_IMMEDIATE_APPLY_STATUS):
-		var target_character_manager : CharacterBattleManager = _character_manager_map[opportunity.target]
-		var effect: BattleStatusEffect = card.get_effect(effects_manager.TARGET_IMMEDIATE_APPLY_STATUS)
-		target_character_manager.gain_statuses(effect.statuses)
+	effects_manager.resolve_immediate_opportunity(opportunity, opponents)
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
@@ -193,11 +180,27 @@ func _on_AIOpponentsManager_played_card(character, card, opportunity):
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
 
-func _on_EffectManager_damage_character(character:CharacterData, damage:int):
+func _on_EffectManager_apply_damage(character, damage):
 	if not character in _character_manager_map:
 		return
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	battle_manager.lose_health(damage)
+
+func _on_EffectManager_apply_status(character, status):
+	if not character in _character_manager_map:
+		return
+	var character_manager : CharacterBattleManager = _character_manager_map[character]
+	character_manager.gain_status(status)
+	modifiers_manager.resolve_status(character, status)
+
+func _on_EffectManager_apply_energy(character, energy):
+	if not character in _character_manager_map:
+		return
+	var character_manager : CharacterBattleManager = _character_manager_map[character]
+	character_manager.gain_energy(energy)
+
+func _on_EffectManager_add_opportunity(source, target):
+	battle_opportunities_manager.add_attack_opportunity(source, target)
 
 func _on_CharacterBattleManager_gained_energy(character:CharacterData, amount:int):
 	player_interface.character_gains_energy(character, amount)
@@ -237,10 +240,3 @@ func _on_CharacterBattleManager_gained_status(character, status):
 
 func _on_ModifiersManager_modify_character(character, modifier, value):
 	player_interface.set_character_modifier(character, modifier, value)
-
-func _on_EffectManager_modify_character(character, status):
-	var character_manager : CharacterBattleManager = _character_manager_map[character]
-	character_manager.gain_status(status)
-	modifiers_manager.resolve_status(character, status)
-
-

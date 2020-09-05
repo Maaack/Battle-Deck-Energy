@@ -10,10 +10,11 @@ func reset():
 	current_level = starting_level
 
 func advance():
-	current_level = (current_level + 1) % levels.size()
+	current_level += 1
 
 func get_current_level():
-	return levels[current_level]
+	var level_index = current_level % levels.size()
+	return levels[level_index]
 
 func get_level_opponents():
 	var level : LevelData = get_current_level()

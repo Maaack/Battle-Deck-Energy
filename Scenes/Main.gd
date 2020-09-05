@@ -7,8 +7,9 @@ onready var dead_panel = $DeadPanel
 onready var victory_panel = $VictoryPanel
 onready var level_manager = $LevelManager
 
-var player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
+var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
 var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/BattleInterface.tscn")
+var player_data
 
 func start_battle():
 	if not is_instance_valid(battle_interface):
@@ -21,10 +22,12 @@ func start_battle():
 	battle_interface.start_battle()
 
 func _ready():
+	player_data = starting_player_data.duplicate()
 	start_battle()
 
 func _on_DeadPanel_retry_pressed():
 	dead_panel.hide()
+	player_data = starting_player_data.duplicate()
 	start_battle()
 
 func _on_BattleInterface_player_lost():
