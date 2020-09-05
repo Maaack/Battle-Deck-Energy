@@ -16,7 +16,7 @@ const INNATE_EFFECT = 'INNATE'
 const VULNERABLE_STATUS = 'VULNERABLE'
 const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
 
-var effect_calculator = preload("res://Managers/Effects/EffectCaculator.gd").new()
+var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 
 func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:BattleEffect):
 	if effect.is_aimed_at_target():

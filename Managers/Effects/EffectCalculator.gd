@@ -13,12 +13,12 @@ const TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT = 'TARGET_IMMEDIATE_APPLY_ENERGY'
 const TARGET_IMMEDIATE_APPLY_STATUS = 'TARGET_IMMEDIATE_APPLY_STATUS'
 
 
-func _get_target_modifier_tag(type_tag:String):
+static func _get_target_modifier_tag(type_tag:String):
 	match(type_tag):
 		ATTACK_EFFECT:
 			return VULNERABLE_STATUS
 
-func _get_value_modified(value:int, effect_type:String, modifier_value):
+static func _get_value_modified(value:int, effect_type:String, modifier_value):
 	match(effect_type):
 		VULNERABLE_STATUS:
 			return int(value * 1.5)
@@ -26,14 +26,14 @@ func _get_value_modified(value:int, effect_type:String, modifier_value):
 			return (value + modifier_value)
 	return value
 
-func _get_modifier_value(character:CharacterData, effect_type:String, character_modifier_map:Dictionary):
+static func _get_modifier_value(character:CharacterData, effect_type:String, character_modifier_map:Dictionary):
 	if not character in character_modifier_map:
 		return 0
 	if not effect_type in character_modifier_map[character]:
 		return 0
 	return character_modifier_map[character][effect_type]
 
-func get_effect_total(effect:BattleEffect, character_modifier_map:Dictionary, source:CharacterData, target=null):
+static func get_effect_total(effect:BattleEffect, character_modifier_map:Dictionary, source:CharacterData, target=null):
 	var total = effect.effect_quantity
 	var effect_type = effect.effect_type
 	var source_modifier_value = _get_modifier_value(source, effect_type, character_modifier_map)
