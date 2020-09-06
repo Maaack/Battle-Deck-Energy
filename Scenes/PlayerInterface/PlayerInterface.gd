@@ -18,11 +18,14 @@ onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/Pla
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 onready var exhaust_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/ExhaustPile
 
+var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
 var _opportunities_map : Dictionary = {}
 var _character_modifier_map : Dictionary = {}
+var _card_owner_map : Dictionary = {}
+var _nearest_battle_opening = null
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -88,10 +91,19 @@ func _on_CardSlot_moved(opening:BattleOpening):
 	if is_instance_valid(opening.assigned_card):
 		card_manager.force_move_card(opening.assigned_card, opening.prs_data, 0.05)
 
+func _calculate_card_mod(card_instance:BattleCard, source:CharacterData, target = null):
+	var total_values : Dictionary = {}
+	for effect_type in card_instance.base_values:
+		var base_value = card_instance.base_values[effect_type]
+		var total_value = effect_calculator.get_effect_total(base_value, effect_type, _character_modifier_map, source, target)
+		total_values[effect_type] = total_value
+	card_instance.update_card_effects(total_values)
+	return total_values
+
 func _new_character_card(character:CharacterData, card:CardData):
 	var card_instance : BattleCard = card_manager.add_card(card)
-	if character in _character_modifier_map:
-		card_instance.effect_modifiers = _character_modifier_map[character]
+	_card_owner_map[card] = character
+	_calculate_card_mod(card_instance, character)
 	return card_instance
 	
 func _drawing_animation(card:CardData, animation:AnimationData):
@@ -241,11 +253,25 @@ func remove_all_openings():
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:
 		if card_manager.dragged_card != null:
+			var card : CardData = card_manager.dragged_card
 			var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 			var prs_data = PRSData.new()
 			prs_data.position = event.position + card_manager_offset
 			prs_data.scale = Vector2(1.25, 1.25)
-			card_manager.move_card(card_manager.dragged_card, prs_data, 0.1, AnimationType.DRAGGING)
+			card_manager.move_card(card, prs_data, 0.1, AnimationType.DRAGGING)
+			var nearest_battle_opening = get_nearest_battle_opening(card)
+			if nearest_battle_opening == _nearest_battle_opening:
+				return
+			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
+				_nearest_battle_opening.glow_on()
+			_nearest_battle_opening = nearest_battle_opening
+			var card_instance = card_manager.get_card_instance(card)
+			var card_owner = _card_owner_map[card]
+			var target = null
+			if nearest_battle_opening is BattleOpening:
+				nearest_battle_opening.glow_special()
+				target = nearest_battle_opening.get_target()
+			_calculate_card_mod(card_instance, card_owner, target)
 
 func get_player_card_openings(card:CardData):
 	var filtered_openings : Array = []

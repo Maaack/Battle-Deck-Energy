@@ -31,7 +31,7 @@ func _resolve_damage(opportunities:Array, character_modifier_map:Dictionary):
 		if opportunity is OpportunityData and is_instance_valid(opportunity.card_data):
 			for effect in opportunity.card_data.battle_effects:
 				var final_target = _resolve_opportunity_effect_target(opportunity, effect)
-				var final_value = effect_calculator.get_effect_total(effect, character_modifier_map, opportunity.source, opportunity.target)
+				var final_value = effect_calculator.get_effect_total(effect.effect_quantity, effect.effect_type, character_modifier_map, opportunity.source, opportunity.target)
 				if not final_target in attack_map or not final_target in defend_map:
 					attack_map[final_target] = 0
 					defend_map[final_target] = 0

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Managers/Openings/Opening.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/CardSlot/CardSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" type="StyleBox" id=3]
 [ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowAnimation.tres" type="Animation" id=4]
+[ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" type="StyleBox" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowNode.gd" type="Script" id=6]
+[ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" type="StyleBox" id=7]
 
 [node name="Opening" type="CenterContainer"]
 anchor_left = 0.5
@@ -33,8 +36,12 @@ margin_bottom = 64.0
 
 [node name="GlowNode" type="Node2D" parent="CardSlot"]
 visible = false
+script = ExtResource( 6 )
+glow_on_style = ExtResource( 3 )
+glow_not_style = ExtResource( 7 )
+glow_special_style = ExtResource( 5 )
 
-[node name="Panel" type="Panel" parent="CardSlot/GlowNode"]
+[node name="GlowPanel" type="Panel" parent="CardSlot/GlowNode"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -50,5 +57,5 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CardSlot/GlowNode"]
-anims/GlowAnimation = ExtResource( 4 )
+anims/Glow = ExtResource( 4 )
 [connection signal="item_rect_changed" from="CardSlot" to="." method="_on_CardSlot_item_rect_changed"]

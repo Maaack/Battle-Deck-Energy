@@ -25,16 +25,23 @@ func set_opportunity_data(value:OpportunityData):
 	if is_instance_valid(card_slot_node):
 		card_slot_node.allowed_types = opportunity_data.allowed_types
 
+func get_source():
+	return opportunity_data.source
+
+func get_target():
+	return opportunity_data.target
+	
 func is_open():
 	return opportunity_data.is_open()
 
 func glow_on():
-	glow_node.show()
-	animation_node.play("GlowAnimation")
+	glow_node.glow_on()
 
 func glow_off():
-	glow_node.hide()
-	animation_node.stop()
+	glow_node.glow_off()
+
+func glow_special():
+	glow_node.glow_special()
 
 func _on_CardSlot_item_rect_changed():
 	emit_signal("card_slot_moved")

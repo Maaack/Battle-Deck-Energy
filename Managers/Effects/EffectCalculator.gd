@@ -33,9 +33,8 @@ static func _get_modifier_value(character:CharacterData, effect_type:String, cha
 		return 0
 	return character_modifier_map[character][effect_type]
 
-static func get_effect_total(effect:BattleEffect, character_modifier_map:Dictionary, source:CharacterData, target=null):
-	var total = effect.effect_quantity
-	var effect_type = effect.effect_type
+static func get_effect_total(base_value:int, effect_type:String, character_modifier_map:Dictionary, source:CharacterData, target=null):
+	var total = base_value
 	var source_modifier_value = _get_modifier_value(source, effect_type, character_modifier_map)
 	total = _get_value_modified(total, effect_type, source_modifier_value)
 	if target != null:
