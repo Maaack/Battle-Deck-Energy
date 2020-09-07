@@ -22,3 +22,6 @@ func get_opponent_battle_openings():
 
 func add_status(status:StatusData):
 	pass
+
+func remove_status(status:StatusData):
+	pass

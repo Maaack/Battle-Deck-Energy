@@ -102,7 +102,7 @@ func reset_player_opportunities():
 	if not is_instance_valid(player_data):
 		print("Error: Getting player opportunities with no player set.")
 		return
-	add_defend_opportunities(player_data, player_data, 2)
+	add_defend_opportunities(player_data, player_data, 3)
 	for opponent in opponents_data: 
 		add_attack_opportunity(player_data, opponent)
 
@@ -116,3 +116,8 @@ func reset_opponent_opportunities(opponent:CharacterData):
 func reset_all_opponent_opportunities():
 	for opponent in opponents_data: 
 		reset_opponent_opportunities(opponent)
+
+func get_character_opportunities(character:CharacterData):
+	if not character in character_map:
+		return []
+	return character_map[character]

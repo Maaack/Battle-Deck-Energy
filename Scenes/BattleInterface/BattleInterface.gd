@@ -11,7 +11,6 @@ onready var ai_opponents_manager = $AIOpponentsManager
 onready var battle_phase_manager = $BattlePhaseManager
 onready var battle_opportunities_manager = $BattleOpportunitiesManager
 onready var effects_manager = $EffectManager
-onready var modifiers_manager = $ModifiersManager
 
 var player_data : CharacterData setget set_player_data
 var opponents : Array = [] setget set_opponents
@@ -38,6 +37,7 @@ func new_opponent(opponent_data:CharacterData):
 	battle_manager.connect("lost_health", self, "_on_CharacterBattleManager_lost_health")
 	battle_manager.connect("died", self, "_on_CharacterBattleManager_died")
 	battle_manager.connect("gained_status", self, "_on_CharacterBattleManager_gained_status")
+	battle_manager.connect("lost_status", self, "_on_CharacterBattleManager_lost_status")
 	battle_opportunities_manager.add_opponent(opponent_data)
 	player_interface.add_opponent(opponent_data)
 	opponents.append(opponent_data)
@@ -51,7 +51,9 @@ func start_battle():
 	battle_phase_manager.advance()
 
 func _setup_enemy_board():
-	battle_opportunities_manager.reset_all_opponent_opportunities()
+	for opponent in opponents:
+		battle_opportunities_manager.reset_opponent_opportunities(opponent)
+		_update_statuses(opponent)
 	advance_phase_timer.start()
 
 func _take_enemy_turn():
@@ -119,10 +121,24 @@ func _discard_played_cards():
 				player_interface.opponent_discards_card(opp_data.card_data)
 	return discarding_flag
 
-func _resolve_actions():
-	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
-		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
-	effects_manager.resolve_opportunities(_round_opportunities_map.keys(), modifiers_manager.character_modifier_map)
+func _resolve_actions(character:CharacterData):
+	var opportunities : Array = battle_opportunities_manager.get_character_opportunities(character)
+	for opportunity in opportunities:
+		if opportunity.card_data != null:
+			_resolve_immediate_actions(opportunity.card_data, opportunity)
+
+func _update_statuses(character:CharacterData):
+	if not character in _character_manager_map:
+		print("Can't update status %s " % character)
+		return
+	var manager = _character_manager_map[character]
+	if manager is CharacterBattleManager:
+		manager.update_statuses()
+
+func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
+	effects_manager.resolve_opportunity(card, opportunity, _character_manager_map)
+
+func _discard_all_cards():
 	var discarding_flag = _discard_played_cards()
 	player_interface.remove_all_openings()
 	_round_opportunities_map.clear()
@@ -130,9 +146,6 @@ func _resolve_actions():
 		player_interface.connect("discard_completed",  battle_phase_manager, "advance")
 	else:
 		battle_phase_manager.advance()
-
-func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
-	effects_manager.resolve_immediate_opportunity(opportunity, opponents)
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
@@ -171,8 +184,18 @@ func _on_Enemy_phase_entered():
 func _on_Player_phase_entered():
 	_start_player_turn()
 
-func _on_Resolution_phase_entered():
-	_resolve_actions()
+func _on_PlayerEndTurn_phase_entered():
+	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
+		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
+	battle_phase_manager.advance()
+
+func _on_EnemyResolution_phase_entered():
+	for opponent in opponents:
+		_resolve_actions(opponent)
+	battle_phase_manager.advance()
+
+func _on_RoundEnd_phase_entered():
+	_discard_all_cards()
 
 func _on_AIOpponentsManager_played_card(character, card, opportunity):
 	player_interface.play_card(character, card, opportunity)
@@ -191,7 +214,6 @@ func _on_EffectManager_apply_status(character, status):
 		return
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_status(status)
-	modifiers_manager.resolve_status(character, status)
 
 func _on_EffectManager_apply_energy(character, energy):
 	if not character in _character_manager_map:
@@ -238,5 +260,7 @@ func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityDat
 func _on_CharacterBattleManager_gained_status(character, status):
 	player_interface.add_status(character, status)
 
-func _on_ModifiersManager_modify_character(character, modifier, value):
-	player_interface.set_character_modifier(character, modifier, value)
+func _on_CharacterBattleManager_lost_status(character, status):
+	player_interface.remove_status(character, status)
+
+

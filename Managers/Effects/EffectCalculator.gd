@@ -7,40 +7,50 @@ const RICOCHET_EFFECT = 'RICOCHET'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
+const STRENGTH_STATUS = 'STRENGTH'
+const WEAK_STATUS = 'WEAK'
 const VULNERABLE_STATUS = 'VULNERABLE'
 const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
 const TARGET_IMMEDIATE_APPLY_ENERGY_EFFECT = 'TARGET_IMMEDIATE_APPLY_ENERGY'
 const TARGET_IMMEDIATE_APPLY_STATUS = 'TARGET_IMMEDIATE_APPLY_STATUS'
+const MOD_UP_RATIO = 1.500
+const MOD_DOWN_RATIO = 0.6666
 
-
-static func _get_target_modifier_tag(type_tag:String):
-	match(type_tag):
-		ATTACK_EFFECT:
-			return VULNERABLE_STATUS
-
-static func _get_value_modified(value:int, effect_type:String, modifier_value):
+static func _get_source_status_types(effect_type:String):
 	match(effect_type):
-		VULNERABLE_STATUS:
-			return int(value * 1.5)
+		ATTACK_EFFECT:
+			return [STRENGTH_STATUS, WEAK_STATUS]
 		_:
+			return []
+
+static func _get_target_status_types(effect_type:String):
+	match(effect_type):
+		ATTACK_EFFECT:
+			return [VULNERABLE_STATUS]
+		_:
+			return []
+
+static func _get_value_modified(value:int, modifier_type:String, modifier_value):
+	match(modifier_type):
+		VULNERABLE_STATUS:
+			return int(value * MOD_UP_RATIO)
+		STRENGTH_STATUS:
 			return (value + modifier_value)
+		WEAK_STATUS:
+			return int(value * MOD_DOWN_RATIO)
 	return value
 
-static func _get_modifier_value(character:CharacterData, effect_type:String, character_modifier_map:Dictionary):
-	if not character in character_modifier_map:
-		return 0
-	if not effect_type in character_modifier_map[character]:
-		return 0
-	return character_modifier_map[character][effect_type]
-
-static func get_effect_total(base_value:int, effect_type:String, character_modifier_map:Dictionary, source:CharacterData, target=null):
+static func get_effect_total(base_value:int, effect_type:String, source_statuses:Array, target_statuses=null):
 	var total = base_value
-	var source_modifier_value = _get_modifier_value(source, effect_type, character_modifier_map)
-	total = _get_value_modified(total, effect_type, source_modifier_value)
-	if target != null:
-		var target_effect_type = _get_target_modifier_tag(effect_type)
-		if target_effect_type != null:
-			var target_modifier_value = _get_modifier_value(target, target_effect_type, character_modifier_map)
-			if target_modifier_value != 0:
-				total = _get_value_modified(total, target_effect_type, target_modifier_value)
+	var source_status_types = _get_source_status_types(effect_type)
+	for effect_type in source_status_types:
+		for status in source_statuses:
+			if status is StatusData and status.type_tag == effect_type:
+				total = _get_value_modified(total, effect_type, status.intensity)
+	if target_statuses != null:
+		var target_status_types = _get_target_status_types(effect_type)
+		for effect_type in target_status_types:
+			for status in target_statuses:
+				if status is StatusData and status.type_tag == effect_type:
+					total = _get_value_modified(total, effect_type, status.intensity)
 	return total

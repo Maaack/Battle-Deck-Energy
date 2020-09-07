@@ -23,7 +23,7 @@ var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
 var _opportunities_map : Dictionary = {}
-var _character_modifier_map : Dictionary = {}
+var _character_statuses_map : Dictionary = {}
 var _card_owner_map : Dictionary = {}
 var _nearest_battle_opening = null
 
@@ -95,7 +95,13 @@ func _calculate_card_mod(card_instance:BattleCard, source:CharacterData, target 
 	var total_values : Dictionary = {}
 	for effect_type in card_instance.base_values:
 		var base_value = card_instance.base_values[effect_type]
-		var total_value = effect_calculator.get_effect_total(base_value, effect_type, _character_modifier_map, source, target)
+		var source_statuses : Array
+		if source and source in _character_statuses_map:
+			source_statuses = _character_statuses_map[source]
+		var target_statuses : Array
+		if target and target in _character_statuses_map:
+			target_statuses = _character_statuses_map[target]
+		var total_value = effect_calculator.get_effect_total(base_value, effect_type, source_statuses, target_statuses)
 		total_values[effect_type] = total_value
 	card_instance.update_card_effects(total_values)
 	return total_values
@@ -105,7 +111,15 @@ func _new_character_card(character:CharacterData, card:CardData):
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
 	return card_instance
-	
+
+func _recalculate_all_cards():
+	for card in _card_owner_map:
+		var owner : CharacterData = _card_owner_map[card]
+		var card_instance = card_manager.get_card_instance(card)
+		if not is_instance_valid(card_instance):
+			continue
+		_calculate_card_mod(card_instance, owner)
+
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
@@ -332,9 +346,19 @@ func opponent_discards_card(card:CardData):
 	card_manager.remove_card(card)
 
 func add_status(character:CharacterData, status:StatusData):
+	if not character in _character_statuses_map:
+		_character_statuses_map[character] = []
+	if not status in _character_statuses_map[character]:
+		_character_statuses_map[character].append(status)
 	actions_board.add_status(character, status)
+	_recalculate_all_cards()
 
-func set_character_modifier(character:CharacterData, modifier:String, value:int):
-	if not character in _character_modifier_map:
-		_character_modifier_map[character] = {}
-	_character_modifier_map[character][modifier] = value
+func remove_status(character:CharacterData, status:StatusData):
+	if not character in _character_statuses_map:
+		return
+	if not status in _character_statuses_map[character]:
+		return
+	actions_board.remove_status(character, status)
+	_character_statuses_map[character].erase(status)
+	_recalculate_all_cards()
+

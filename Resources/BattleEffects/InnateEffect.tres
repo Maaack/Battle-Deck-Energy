@@ -9,5 +9,5 @@ effect_type = "INNATE"
 effect_icon = ExtResource( 2 )
 effect_quantity = 0
 effect_color = Color( 0.819608, 0.411765, 0.0352941, 1 )
-apply_mode = 0
+apply_mode = 1
 aim_mode = 0

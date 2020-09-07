@@ -11,3 +11,4 @@ icon = ExtResource( 2 )
 intensity = 1
 duration = 1
 type_tag = "VULNERABLE"
+stack_type = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/BattleInterface/BattleInterface.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Scenes/BattleInterface/BattlePhase/BattlePhase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Managers/BattleOpportunities/BattleOpportunitiesManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Managers/Effects/EffectManager.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Managers/Modifiers/ModifiersManager.tscn" type="PackedScene" id=9]
 
 [node name="BattleInterface" type="Control"]
 anchor_right = 1.0
@@ -40,13 +39,15 @@ one_shot = true
 
 [node name="Player" parent="BattlePhaseManager" instance=ExtResource( 6 )]
 
-[node name="Resolution" parent="BattlePhaseManager" instance=ExtResource( 6 )]
+[node name="PlayerEndTurn" parent="BattlePhaseManager" instance=ExtResource( 6 )]
+
+[node name="EnemyResolution" parent="BattlePhaseManager" instance=ExtResource( 6 )]
+
+[node name="RoundEnd" parent="BattlePhaseManager" instance=ExtResource( 6 )]
 
 [node name="BattleOpportunitiesManager" parent="." instance=ExtResource( 7 )]
 
 [node name="EffectManager" parent="." instance=ExtResource( 8 )]
-
-[node name="ModifiersManager" parent="." instance=ExtResource( 9 )]
 [connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
 [connection signal="card_played_on_opportunity" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
 [connection signal="ending_turn" from="PlayerInterface" to="." method="_on_PlayerInterface_ending_turn"]
@@ -59,6 +60,7 @@ one_shot = true
 [connection signal="gained_status" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_status"]
 [connection signal="lost_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_energy"]
 [connection signal="lost_health" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_health"]
+[connection signal="lost_status" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_status"]
 [connection signal="played_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_played_card"]
 [connection signal="reshuffled_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_reshuffled_card"]
 [connection signal="played_card" from="AIOpponentsManager" to="." method="_on_AIOpponentsManager_played_card"]
@@ -67,10 +69,11 @@ one_shot = true
 [connection signal="phase_entered" from="BattlePhaseManager/EnemySetup" to="." method="_on_EnemySetup_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Enemy" to="." method="_on_Enemy_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/Player" to="." method="_on_Player_phase_entered"]
-[connection signal="phase_entered" from="BattlePhaseManager/Resolution" to="." method="_on_Resolution_phase_entered"]
+[connection signal="phase_entered" from="BattlePhaseManager/PlayerEndTurn" to="." method="_on_PlayerEndTurn_phase_entered"]
+[connection signal="phase_entered" from="BattlePhaseManager/EnemyResolution" to="." method="_on_EnemyResolution_phase_entered"]
+[connection signal="phase_entered" from="BattlePhaseManager/RoundEnd" to="." method="_on_RoundEnd_phase_entered"]
 [connection signal="opportunity_added" from="BattleOpportunitiesManager" to="." method="_on_BattleOpportunitiesManager_opportunity_added"]
 [connection signal="add_opportunity" from="EffectManager" to="." method="_on_EffectManager_add_opportunity"]
 [connection signal="apply_damage" from="EffectManager" to="." method="_on_EffectManager_apply_damage"]
 [connection signal="apply_energy" from="EffectManager" to="." method="_on_EffectManager_apply_energy"]
 [connection signal="apply_status" from="EffectManager" to="." method="_on_EffectManager_apply_status"]
-[connection signal="modify_character" from="ModifiersManager" to="." method="_on_ModifiersManager_modify_character"]

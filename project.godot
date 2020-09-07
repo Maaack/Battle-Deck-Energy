@@ -103,6 +103,11 @@ _global_script_classes=[ {
 "class": "StatusData",
 "language": "GDScript",
 "path": "res://Resources/Statuses/StatusData.gd"
+}, {
+"base": "Node",
+"class": "StatusManager",
+"language": "GDScript",
+"path": "res://Managers/Status/StatusManager.gd"
 } ]
 _global_script_class_icons={
 "ActionsInterface": "",
@@ -123,7 +128,8 @@ _global_script_class_icons={
 "OpportunityData": "",
 "PRSData": "",
 "PlayerActionsInterface": "",
-"StatusData": ""
+"StatusData": "",
+"StatusManager": ""
 }
 
 [application]

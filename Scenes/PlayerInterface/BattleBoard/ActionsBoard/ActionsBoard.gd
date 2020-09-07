@@ -73,3 +73,9 @@ func add_status(character:CharacterData, status:StatusData):
 	if not is_instance_valid(interface):
 		return
 	interface.add_status(status)
+
+func remove_status(character:CharacterData, status:StatusData):
+	var interface : ActionsInterface = get_actions_instance(character)
+	if not is_instance_valid(interface):
+		return
+	interface.remove_status(status)

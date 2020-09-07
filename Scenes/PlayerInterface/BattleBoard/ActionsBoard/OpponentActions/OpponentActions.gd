@@ -48,3 +48,6 @@ func get_opponent_battle_openings():
 
 func add_status(status:StatusData):
 	status_icon_manager.add_status(status)
+
+func remove_status(status:StatusData):
+	status_icon_manager.remove_status(status)
