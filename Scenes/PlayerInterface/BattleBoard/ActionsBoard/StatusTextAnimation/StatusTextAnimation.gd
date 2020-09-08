@@ -2,7 +2,7 @@ extends Node2D
 
 
 const EFFECT_BB_CODE : String = "[center][color=#%s]%s[/color][/center]"
-const EFFECT_TEXT : String = "+%d %s"
+const EFFECT_TEXT : String = "%+d %s"
 const TEXT_FADE_ANIMATION : String = "TextFade"
 const RAISE_HEIGHT : float = -150.0
 const RANGE : float = PI/4.0

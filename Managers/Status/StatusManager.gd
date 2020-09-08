@@ -43,8 +43,11 @@ func decrement_durations():
 		if status is StatusData:
 			if status.has_the_d():
 				status.duration -= 1
-				# emit_signal("updated_status", status, -1)
 				if not status.has_the_d():
+					if status.stacks_the_d():
+						emit_signal("updated_status", status, -1)
+					else:
+						emit_signal("updated_status", status, -(status.get_stack_value()))
 					lose_status(status)
 				else:
 					emit_signal("gained_status", status)

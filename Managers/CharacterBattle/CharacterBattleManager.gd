@@ -68,10 +68,9 @@ func take_damage(amount: int = 1):
 	if status != null:
 		var defense_down = min(amount, status.intensity)
 		status.intensity -= defense_down
+		emit_signal("updated_status", character_data, status, -(defense_down))
 		if status.intensity == 0:
-			emit_signal("lost_status", character_data, status)
-		else:
-			emit_signal("gained_status", character_data, status)
+			status_manager.lose_status(status)
 		amount -= defense_down
 	if amount > 0:
 		lose_health(amount)
