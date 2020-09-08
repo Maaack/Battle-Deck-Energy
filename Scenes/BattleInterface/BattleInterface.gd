@@ -191,6 +191,8 @@ func _on_PlayerEndTurn_phase_entered():
 
 func _on_EnemyResolution_phase_entered():
 	for opponent in opponents:
+		if not opponent.is_active():
+			continue
 		_update_statuses(opponent)
 		_resolve_actions(opponent)
 	battle_phase_manager.advance()
