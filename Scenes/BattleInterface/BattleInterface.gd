@@ -53,7 +53,6 @@ func start_battle():
 func _setup_enemy_board():
 	for opponent in opponents:
 		battle_opportunities_manager.reset_opponent_opportunities(opponent)
-		_update_statuses(opponent)
 	advance_phase_timer.start()
 
 func _take_enemy_turn():
@@ -68,6 +67,7 @@ func _on_hand_drawn():
 
 func _setup_player_board():
 	battle_opportunities_manager.reset_player_opportunities()
+	_update_statuses(player_data)
 
 func _start_player_turn():
 	_setup_player_board()
@@ -191,6 +191,7 @@ func _on_PlayerEndTurn_phase_entered():
 
 func _on_EnemyResolution_phase_entered():
 	for opponent in opponents:
+		_update_statuses(opponent)
 		_resolve_actions(opponent)
 	battle_phase_manager.advance()
 
