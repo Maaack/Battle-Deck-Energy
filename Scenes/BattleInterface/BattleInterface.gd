@@ -208,7 +208,7 @@ func _on_EffectManager_apply_damage(character, damage):
 	if not character in _character_manager_map:
 		return
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
-	battle_manager.lose_health(damage)
+	battle_manager.take_damage(damage)
 
 func _on_EffectManager_apply_status(character, status):
 	if not character in _character_manager_map:

@@ -16,6 +16,8 @@ signal gained_status(character, status)
 signal lost_status(character, status)
 signal died(character)
 
+const DEFENSE_STATUS = 'DEFENSE'
+
 onready var status_manager = $StatusManager
 
 var character_data : CharacterData setget set_character_data
@@ -59,6 +61,20 @@ func lose_health(amount: int = 1):
 	emit_signal("lost_health", character_data, amount)
 	if character_data.health == 0:
 		emit_signal("died", character_data)
+
+func take_damage(amount: int = 1):
+	var status : StatusData = status_manager.get_status_by_type(DEFENSE_STATUS)
+	if status != null:
+		print("taking damage to defense %s " % status)
+		var defense_down = min(amount, status.intensity)
+		status.intensity -= defense_down
+		if status.intensity == 0:
+			emit_signal("lost_status", character_data, status)
+		else:
+			emit_signal("gained_status", character_data, status)
+		amount -= defense_down
+	if amount > 0:
+		lose_health(amount)
 
 func gain_energy(amount:int = 1):
 	character_data.energy += amount

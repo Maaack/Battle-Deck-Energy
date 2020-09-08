@@ -7,8 +7,13 @@ signal gained_status(status)
 signal lost_status(status)
 
 var status_type_map : Dictionary = {}
-	
-func get_status_by_type(status:StatusData):
+
+func get_status_by_type(status_type:String):
+	if not status_type in status_type_map:
+		return
+	return status_type_map[status_type]
+
+func get_manager_status(status:StatusData):
 	var status_type : String = status.type_tag
 	var manager_status : StatusData
 	if status_type in status_type_map:
@@ -23,7 +28,7 @@ func get_status_by_type(status:StatusData):
 	return manager_status
 
 func gain_status(status:StatusData):
-	var manager_status = get_status_by_type(status)
+	var manager_status = get_manager_status(status)
 	emit_signal("gained_status", manager_status)
 
 func lose_status(status:StatusData):
