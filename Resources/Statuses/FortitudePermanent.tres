@@ -8,6 +8,7 @@ script = ExtResource( 2 )
 title = "Fortitude"
 description = "Increases damage absorbed by shields."
 icon = ExtResource( 1 )
+color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
 intensity = 1
 duration = 0
 type_tag = "FORTITUDE"

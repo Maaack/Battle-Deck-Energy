@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 title = "Fragile"
 description = "Decreases defense from shields by 33%."
 icon = ExtResource( 2 )
+color = Color( 0.0784314, 0.415686, 0.870588, 1 )
 intensity = 1
 duration = 1
 type_tag = "FRAGILE"

@@ -3,6 +3,7 @@ extends HBoxContainer
 
 onready var player_actions_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/PlayerActions/PlayerActions.tscn")
 onready var opponent_actions_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/OpponentActions/OpponentActions.tscn")
+onready var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/EffectTextAnimation/EffectTextAnimation.tscn")
 
 var player_data : CharacterData setget set_player_data
 var characters_map : Dictionary = {}
@@ -79,3 +80,15 @@ func remove_status(character:CharacterData, status:StatusData):
 	if not is_instance_valid(interface):
 		return
 	interface.remove_status(status)
+
+func update_status(character:CharacterData, status:StatusData, delta: int):
+	var interface : ActionsInterface = get_actions_instance(character)
+	if not is_instance_valid(interface):
+		return
+	var interface_center = Vector2(interface.rect_size.x/2, interface.rect_size.y/2)
+	var interface_offset = interface.rect_position + interface_center
+	var effect_text_instance = effect_text_animation_scene.instance()
+	add_child(effect_text_instance)
+	effect_text_instance.position = interface_offset
+	effect_text_instance.set_status_update(status, delta)
+	interface.add_status(status)

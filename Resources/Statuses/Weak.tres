@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 title = "Weak"
 description = "Decreases damage of attacks by 33%."
 icon = ExtResource( 2 )
+color = Color( 0.529412, 0.054902, 0.772549, 1 )
 intensity = 1
 duration = 1
 type_tag = "WEAK"

@@ -63,6 +63,7 @@ one_shot = true
 [connection signal="lost_status" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_status"]
 [connection signal="played_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_played_card"]
 [connection signal="reshuffled_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_reshuffled_card"]
+[connection signal="updated_status" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_updated_status"]
 [connection signal="played_card" from="AIOpponentsManager" to="." method="_on_AIOpponentsManager_played_card"]
 [connection signal="phase_entered" from="BattlePhaseManager/Opening" to="." method="_on_Opening_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/RoundStart" to="." method="_on_RoundStart_phase_entered"]

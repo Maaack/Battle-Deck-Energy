@@ -14,6 +14,7 @@ signal gained_energy(character, amount)
 signal lost_energy(character, amount)
 signal gained_status(character, status)
 signal lost_status(character, status)
+signal updated_status(character, status, delta)
 signal died(character)
 
 const DEFENSE_STATUS = 'DEFENSE'
@@ -168,3 +169,5 @@ func _on_StatusManager_gained_status(status):
 func _on_StatusManager_lost_status(status):
 	emit_signal("lost_status", character_data, status)
 
+func _on_StatusManager_updated_status(status:StatusData, delta:int):
+	emit_signal("updated_status", character_data, status, delta)

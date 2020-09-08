@@ -5,6 +5,7 @@ class_name StatusManager
 
 signal gained_status(status)
 signal lost_status(status)
+signal updated_status(status, delta)
 
 var status_type_map : Dictionary = {}
 
@@ -15,21 +16,19 @@ func get_status_by_type(status_type:String):
 
 func get_manager_status(status:StatusData):
 	var status_type : String = status.type_tag
-	var manager_status : StatusData
 	if status_type in status_type_map:
-		manager_status = status_type_map[status_type]
-		if manager_status.stacks_the_d():
-			manager_status.duration += status.duration
-		else:
-			manager_status.intensity += status.intensity
-	else:
-		manager_status = status.duplicate()
-		status_type_map[status_type] = manager_status
+		return status_type_map[status_type]
+	var manager_status : StatusData = status.duplicate()
+	manager_status.reset_stack()
+	status_type_map[status_type] = manager_status
+	emit_signal("gained_status", manager_status)
 	return manager_status
 
 func gain_status(status:StatusData):
 	var manager_status = get_manager_status(status)
-	emit_signal("gained_status", manager_status)
+	var stack_delta = status.get_stack_value()
+	manager_status.add_to_stack(stack_delta)
+	emit_signal("updated_status", manager_status, stack_delta)
 
 func lose_status(status:StatusData):
 	var status_type : String = status.type_tag
@@ -44,6 +43,7 @@ func decrement_durations():
 		if status is StatusData:
 			if status.has_the_d():
 				status.duration -= 1
+				# emit_signal("updated_status", status, -1)
 				if not status.has_the_d():
 					lose_status(status)
 				else:

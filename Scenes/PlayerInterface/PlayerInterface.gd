@@ -351,7 +351,6 @@ func add_status(character:CharacterData, status:StatusData):
 	if not status in _character_statuses_map[character]:
 		_character_statuses_map[character].append(status)
 	actions_board.add_status(character, status)
-	_recalculate_all_cards()
 
 func remove_status(character:CharacterData, status:StatusData):
 	if not character in _character_statuses_map:
@@ -360,5 +359,8 @@ func remove_status(character:CharacterData, status:StatusData):
 		return
 	actions_board.remove_status(character, status)
 	_character_statuses_map[character].erase(status)
-	_recalculate_all_cards()
 
+func update_status(character:CharacterData, status:StatusData, delta:int):
+
+	actions_board.update_status(character, status, delta)
+	_recalculate_all_cards()
