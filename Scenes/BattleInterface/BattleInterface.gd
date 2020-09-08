@@ -129,7 +129,6 @@ func _resolve_actions(character:CharacterData):
 
 func _update_statuses(character:CharacterData):
 	if not character in _character_manager_map:
-		print("Can't update status %s " % character)
 		return
 	var manager = _character_manager_map[character]
 	if manager is CharacterBattleManager:

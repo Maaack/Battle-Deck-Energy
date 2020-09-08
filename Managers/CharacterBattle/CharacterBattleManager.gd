@@ -65,7 +65,6 @@ func lose_health(amount: int = 1):
 func take_damage(amount: int = 1):
 	var status : StatusData = status_manager.get_status_by_type(DEFENSE_STATUS)
 	if status != null:
-		print("taking damage to defense %s " % status)
 		var defense_down = min(amount, status.intensity)
 		status.intensity -= defense_down
 		if status.intensity == 0:

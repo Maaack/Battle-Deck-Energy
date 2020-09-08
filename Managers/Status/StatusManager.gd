@@ -43,8 +43,8 @@ func decrement_durations():
 	for status in status_type_map.values():
 		if status is StatusData:
 			if status.has_the_d():
-				print("status %s has the d" % status)
 				status.duration -= 1
 				if not status.has_the_d():
-					print("status %s lost the d" % status)
 					lose_status(status)
+				else:
+					emit_signal("gained_status", status)

@@ -22,7 +22,6 @@ func add_status(status:StatusData):
 		status_icon.integer = status.intensity
 
 func remove_status(status:StatusData):
-	print("removing status %s" % status)
 	if not status in status_map:
 		return
 	var status_instance = status_map[status]
