@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/OpponentActions/OpponentActions.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=8]
-[ext_resource path="res://Managers/Openings/OpeningsManager.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Sourced/Icons/GlyphsterUnlimited/1x/medical_healthcare_heart.png" type="Texture" id=11]
 
 [node name="OpponentActions" type="Control"]
@@ -201,7 +200,6 @@ margin_right = 380.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 0, 128 )
 size_flags_vertical = 3
-script = ExtResource( 9 )
 
 [node name="Players" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer"]
 margin_top = 132.0
@@ -209,4 +207,3 @@ margin_right = 380.0
 margin_bottom = 260.0
 rect_min_size = Vector2( 0, 128 )
 size_flags_vertical = 3
-script = ExtResource( 9 )

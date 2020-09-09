@@ -28,9 +28,6 @@ var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
 var statuses : Array = []
 
-var _drawing_cards : int = 0
-var _reshuffling_cards : int = 0
-
 func _reset_draw_pile():
 	for card in character_data.deck:
 		draw_pile.add_card(card.duplicate())
@@ -93,20 +90,11 @@ func reshuffle_discard_pile():
 	for card in discarded:
 		reshuffle_card(card)
 
-func draw_discarded_card():
-	if _reshuffling_cards > 0:
-		var card: CardData = discard_pile.draw_card()
-		reshuffle_card(card)
-
 func add_card_to_hand(card:CardData):
 	hand.add_card(card)
-	if _drawing_cards > 1:
-		_drawing_cards -= 1
 
 func discard_card_from_hand(card:CardData):
 	hand.discard_card(card)
-	if _drawing_cards > 1:
-		_drawing_cards -= 1
 
 func reshuffle_card(card:CardData):
 	draw_pile.add_card(card)

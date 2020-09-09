@@ -15,6 +15,7 @@ signal tween_completed(card_data)
 onready var body_node = $Body
 onready var glow_node = $GlowContainer/Control/GlowNode
 onready var tween_node = $Tween
+onready var pulse_animation = $PulseAnimation
 
 export(Resource) var starting_card_data setget set_starting_card_data
 
@@ -96,6 +97,8 @@ func set_starting_card_data(value:CardData):
 
 func tween_to(new_prs:PRSData, tween_time:float = 0.0, animation_type:int = -1):
 	if is_instance_valid(tween_node):
+		if pulse_animation.is_playing():
+			yield(pulse_animation, "animation_finished")
 		if tween_node.is_active():
 			if _last_animation_type != animation_type:
 				tween_time += tween_node.get_runtime()
@@ -142,3 +145,8 @@ func _on_Body_gui_input(event):
 
 func _on_Tween_tween_all_completed():
 	emit_signal("tween_completed", card_data)
+
+func play_card():
+	if tween_node.is_active():
+		tween_node.seek(tween_node.get_runtime())
+	pulse_animation.play("CardPulse")

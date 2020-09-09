@@ -107,17 +107,19 @@ func start_round():
 	player_interface.start_round()
 	advance_phase_timer.start()
 
+func _discard_or_exhaust_card(card:CardData):
+	if card.has_effect(effects_manager.EXHAUST_EFFECT):
+		player_battle_manager.exhaust_card(card)
+	else:
+		player_battle_manager.discard_card(card)
+
 func _discard_played_cards():
 	var discarding_flag = false
 	for opp_data in _round_opportunities_map:
 		if opp_data is OpportunityData and is_instance_valid(opp_data.card_data):
 			if opp_data.source == player_data:
 				discarding_flag = true
-				var card_data : CardData = opp_data.card_data
-				if card_data.has_effect(effects_manager.EXHAUST_EFFECT):
-					player_battle_manager.exhaust_card(card_data)
-				else:
-					player_battle_manager.discard_card(card_data)
+				_discard_or_exhaust_card(opp_data.card_data)
 			else:
 				player_interface.opponent_discards_card(opp_data.card_data)
 	return discarding_flag
@@ -137,6 +139,7 @@ func _update_statuses(character:CharacterData):
 
 func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
 	effects_manager.resolve_opportunity(card, opportunity, _character_manager_map)
+	battle_opportunities_manager.remove_opportunity(opportunity)
 
 func _discard_all_cards():
 	var discarding_flag = _discard_played_cards()
@@ -259,6 +262,15 @@ func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityDat
 	var opening : BattleOpening = player_interface.add_opening(opportunity)
 	if is_instance_valid(opening):
 		_round_opportunities_map[opening.opportunity_data] = opening
+
+func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityData):
+	_round_opportunities_map.erase(opportunity)
+	player_interface.remove_opening(opportunity)
+	if opportunity.card_data != null:
+		if opportunity.source == player_data:
+			_discard_or_exhaust_card(opportunity.card_data)
+		else:
+			player_interface.opponent_discards_card(opportunity.card_data)
 
 func _on_CharacterBattleManager_gained_status(character, status):
 	player_interface.add_status(character, status)

@@ -123,21 +123,21 @@ func _recalculate_all_cards():
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
-	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	card_manager.move_card(card, animation.prs, animation.tween_time, AnimationType.DRAWING)
+	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
 
 func _discarding_animation(card:CardData, animation:AnimationData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card)
-	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	card_manager.move_card(card, animation.prs, animation.tween_time)
+	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	_discarding_cards_count += 1
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card)
-	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	card_manager.move_card(card, animation.prs, animation.tween_time)
+	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
 func _on_AnimationQueue_animation_started(animation:AnimationData):
@@ -161,7 +161,7 @@ func _on_PlayerBoard_ending_turn():
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
 
-func _discard_complete():
+func _on_discard_complete():
 	_discarding_cards_count -= 1
 	if _discarding_cards_count < 0:
 		_discarding_cards_count = 0
@@ -175,15 +175,13 @@ func _on_discard_card_completed(card_data:CardData):
 	hand_manager.queue_card(card_data)
 	card_manager.remove_card(card_data)
 	player_board.discard_card()
-	if _discard_complete():
-		hand_manager.discard_queue()
+	_on_discard_complete()
 
 func _on_exhaust_card_completed(card_data:CardData):
 	hand_manager.queue_card(card_data)
 	card_manager.remove_card(card_data)
 	player_board.exhaust_card()
-	if _discard_complete():
-		hand_manager.discard_queue()
+	_on_discard_complete()
 
 func _on_draw_card_completed(card_data:CardData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card_data)
@@ -228,6 +226,10 @@ func character_loses_energy(character:CharacterData, amount:int):
 
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)
+	for card in _card_owner_map:
+		var card_owner : CharacterData = _card_owner_map[card]
+		if card_owner == character:
+			opponent_discards_card(card)
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
@@ -260,6 +262,9 @@ func add_openings(opportunities:Array):
 	_map_opportunity_nodes(openings)
 	return openings
 
+func remove_opening(opportunity:OpportunityData):
+	actions_board.remove_opening(opportunity)
+
 func remove_all_openings():
 	actions_board.remove_all_openings()
 	clear_opportunities()
@@ -272,8 +277,11 @@ func _on_PlayerInterface_gui_input(event):
 			var prs_data = PRSData.new()
 			prs_data.position = event.position + card_manager_offset
 			prs_data.scale = Vector2(1.25, 1.25)
-			card_manager.move_card(card, prs_data, 0.1, AnimationType.DRAGGING)
-			var nearest_battle_opening = get_nearest_battle_opening(card)
+			var nearest_battle_opening = get_nearest_battle_opening(card, prs_data.position)
+			if nearest_battle_opening is BattleOpening:
+				card_manager.move_card(card, nearest_battle_opening.prs_data, 0.1, AnimationType.DRAGGING)
+			else:
+				card_manager.move_card(card, prs_data, 0.1, AnimationType.DRAGGING)
 			if nearest_battle_opening == _nearest_battle_opening:
 				return
 			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
@@ -304,15 +312,16 @@ func _openings_glow_off(card:CardData):
 	for battle_opening in get_player_card_openings(card):
 		battle_opening.glow_off()
 
-func get_nearest_battle_opening(card:CardData):
-	var card_prs : Vector2 = card.prs.position
+func get_nearest_battle_opening(card:CardData, position = null):
+	if position == null:
+		position = card.prs.position
 	var shortest_distance : float = 120.0 # Ignore drop range
 	var nearest_battle_opening = null
 	for battle_opening in get_player_card_openings(card):
 		if battle_opening is BattleOpening:
 			var opening_prs : PRSData = battle_opening.prs_data
-			if opening_prs.position.distance_to(card_prs) < shortest_distance:
-				shortest_distance = opening_prs.position.distance_to(card_prs)
+			if opening_prs.position.distance_to(position) < shortest_distance:
+				shortest_distance = opening_prs.position.distance_to(position)
 				nearest_battle_opening = battle_opening
 	return nearest_battle_opening
 
@@ -337,10 +346,12 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 	var opening_prs : PRSData = battle_opening.prs_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
+		card_manager.move_card(card, opening_prs)
+		var card_instance : BattleCard = card_manager.get_card_instance(card)
+		card_instance.play_card()
 	else:
 		card.prs = opening_prs
 		_new_character_card(character, card)
-	card_manager.move_card(card, opening_prs, 0.2, AnimationType.PLAYING)
 
 func opponent_discards_card(card:CardData):
 	card_manager.remove_card(card)
@@ -361,6 +372,5 @@ func remove_status(character:CharacterData, status:StatusData):
 	_character_statuses_map[character].erase(status)
 
 func update_status(character:CharacterData, status:StatusData, delta:int):
-
 	actions_board.update_status(character, status, delta)
 	_recalculate_all_cards()

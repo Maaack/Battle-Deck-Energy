@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/PlayerActions/PlayerActions.gd" type="Script" id=7]
-[ext_resource path="res://Managers/Openings/OpeningsManager.gd" type="Script" id=9]
 
 [node name="PlayerActions" type="Control"]
 margin_right = 200.0
@@ -138,7 +137,6 @@ margin_right = 279.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 0, 128 )
 size_flags_vertical = 3
-script = ExtResource( 9 )
 
 [node name="Passive" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer"]
 margin_top = 132.0
@@ -146,4 +144,3 @@ margin_right = 279.0
 margin_bottom = 260.0
 rect_min_size = Vector2( 0, 128 )
 size_flags_vertical = 3
-script = ExtResource( 9 )

@@ -3,8 +3,8 @@ extends ActionsInterface
 
 class_name OpponentActionsInterface
 
-onready var opponent_opening_manager = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Opponents
-onready var player_opening_manager = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Players
+onready var opponent_opening_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Opponents
+onready var player_opening_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Players
 onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/NicknameLabel
 onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat/HealthLabel
 onready var energy_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat/EnergyLabel
@@ -31,20 +31,18 @@ func update():
 	_update_opponent_stats()
 
 func add_opening(opportunity:OpportunityData):
+	var container : Node
 	if opportunity.source == character_data:
-		return opponent_opening_manager.add_opening(opportunity)
+		container = opponent_opening_container
 	elif opportunity.target == character_data:
-		return player_opening_manager.add_opening(opportunity)
-
-func remove_all_openings():
-	opponent_opening_manager.remove_all_openings()
-	player_opening_manager.remove_all_openings()
+		container = player_opening_container
+	return _add_opening(opportunity, container)
 
 func get_player_battle_openings():
-	return player_opening_manager.get_battle_openings()
+	return get_non_source_battle_openings()
 
 func get_opponent_battle_openings():
-	return opponent_opening_manager.get_battle_openings()
+	return get_source_battle_openings()
 
 func add_status(status:StatusData):
 	status_icon_manager.add_status(status)

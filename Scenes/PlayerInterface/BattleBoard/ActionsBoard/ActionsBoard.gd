@@ -7,6 +7,7 @@ onready var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/
 
 var player_data : CharacterData setget set_player_data
 var characters_map : Dictionary = {}
+var opportunity_owner_map : Dictionary = {}
 
 func add_character_actions(character:CharacterData, scene:PackedScene):
 	if character in characters_map:
@@ -35,18 +36,27 @@ func get_actions_instance(character:CharacterData):
 		return characters_map[character]
 
 func add_opening_by_character(opportunity:OpportunityData, character:CharacterData):
-	if character in characters_map:
-		var actions_interface = characters_map[character]
-		if actions_interface is ActionsInterface:
-			return actions_interface.add_opening(opportunity)
+	if not character in characters_map:
+		return
+	var actions_interface = characters_map[character]
+	if actions_interface is ActionsInterface:
+		return actions_interface.add_opening(opportunity)
+
+func remove_opening_by_character(opportunity:OpportunityData, character:CharacterData):
+	if not character in characters_map:
+		return
+	var actions_interface = characters_map[character]
+	if actions_interface is ActionsInterface:
+		actions_interface.remove_opening(opportunity)
 
 func add_opening(opportunity:OpportunityData):
-	var opening : BattleOpening
+	var opening_owner : CharacterData
 	if opportunity.source == player_data and opportunity.target != player_data:
-		opening = add_opening_by_character(opportunity, opportunity.target)
+		opening_owner = opportunity.target
 	else:
-		opening = add_opening_by_character(opportunity, opportunity.source)
-	return opening
+		opening_owner = opportunity.source
+	opportunity_owner_map[opportunity] = opening_owner
+	return add_opening_by_character(opportunity, opening_owner)
 
 func add_openings(opportunities:Array):
 	var openings : Array = []
@@ -56,6 +66,12 @@ func add_openings(opportunities:Array):
 			if is_instance_valid(opening):
 				openings.append(opening)
 	return openings
+
+func remove_opening(opportunity:OpportunityData):
+	if not opportunity in opportunity_owner_map:
+		return
+	var opening_owner : CharacterData = opportunity_owner_map[opportunity]
+	remove_opening_by_character(opportunity, opening_owner)
 
 func remove_all_openings():
 	for child in get_children():

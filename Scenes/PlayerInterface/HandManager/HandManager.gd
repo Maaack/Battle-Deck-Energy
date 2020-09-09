@@ -36,7 +36,7 @@ func queue_card(card_key):
 func discard_queue():
 	for card_key in queue:
 		discard_card(card_key)
-	queue.empty()
+	queue.clear()
 
 func get_prs_array():
 	var prs_array : Array = []

@@ -2,6 +2,7 @@ extends Node
 
 
 signal opportunity_added(opportunity)
+signal opportunity_removed(opportunity)
 
 enum OpportunityType{ATTACK, PARRY, DEFEND}
 
@@ -121,3 +122,11 @@ func get_character_opportunities(character:CharacterData):
 	if not character in character_map:
 		return []
 	return character_map[character]
+
+func remove_opportunity(opportunity:OpportunityData):
+	for character in character_map:
+		var opportunities : Array = character_map[character]
+		var remove_index = opportunities.find(opportunity)
+		if remove_index >= 0:
+			opportunities.remove(remove_index)
+			emit_signal("opportunity_removed", opportunity)
