@@ -17,8 +17,10 @@ onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer
 onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 onready var exhaust_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/ExhaustPile
+onready var status_update_container : Control = $StatusUpdatesContainer
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
+var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
 var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
@@ -371,6 +373,17 @@ func remove_status(character:CharacterData, status:StatusData):
 	actions_board.remove_status(character, status)
 	_character_statuses_map[character].erase(status)
 
+func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int):
+	var effect_text_instance = effect_text_animation_scene.instance()
+	status_update_container.add_child(effect_text_instance)
+	effect_text_instance.position = interface_offset
+	effect_text_instance.set_status_update(status, delta)
+
 func update_status(character:CharacterData, status:StatusData, delta:int):
-	actions_board.update_status(character, status, delta)
+	var interface = actions_board.add_status(character, status)
+	if not interface is ActionsInterface:
+		return
+	var interface_center = Vector2(interface.rect_size.x/2, interface.rect_size.y/2)
+	var interface_offset = interface.rect_position + interface_center
+	_show_status_update(interface_offset, status, delta)
 	_recalculate_all_cards()

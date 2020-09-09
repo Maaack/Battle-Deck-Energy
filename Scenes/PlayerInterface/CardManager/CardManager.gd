@@ -15,6 +15,7 @@ var card_instance_map : Dictionary = {}
 var focused_card = null
 var dragged_card = null
 var energy_limit = 0
+var focused_card_parent_index = null
 
 func add_card(card_data:CardData):
 	if card_data in card_map:
@@ -36,6 +37,8 @@ func remove_card(card_data:CardData):
 	if not is_instance_valid(card_instance):
 		return
 	card_instance_map.erase(card_instance)
+	if focused_card_parent_index != null and card_instance.get_position_in_parent() < focused_card_parent_index:
+		focused_card_parent_index -= 1
 	card_instance.queue_free()
 	card_map.erase(card_data)
 
@@ -70,7 +73,8 @@ func focus_on_card(card_data:CardData):
 		card.glow_on()
 	if card_data in card_map:
 		var card_instance : Node2D = card_map[card_data]
-		card_instance.z_index += 100
+		focused_card_parent_index = card_instance.get_position_in_parent()
+		move_child(card_instance, get_child_count())
 	emit_signal("focused_on_card", card_data)
 
 func focus_off_card(card_data:CardData):
@@ -80,7 +84,8 @@ func focus_off_card(card_data:CardData):
 		focused_card = null
 		if card_data in card_map:
 			var card_instance : Node2D = card_map[card_data]
-			card_instance.z_index -= 100
+			move_child(card_instance, focused_card_parent_index)
+			focused_card_parent_index = null
 	emit_signal("focused_off_card", card_data)
 
 func _on_Card_mouse_entered(card_data:CardData):
