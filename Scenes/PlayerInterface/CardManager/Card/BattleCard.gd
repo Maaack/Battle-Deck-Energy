@@ -59,6 +59,8 @@ func _get_effect_bbtag_string(base_value:int, total_value:int):
 
 func _reset_base_values():
 	base_values.clear()
+	if card_data == null:
+		return
 	if card_data.description == "":
 		return
 	var description : String = card_data.description

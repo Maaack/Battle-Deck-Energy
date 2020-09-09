@@ -41,6 +41,7 @@ func _reset_exhaust_pile():
 
 func reset():
 	randomize()
+	character_data.energy = 0
 	_reset_draw_pile()
 	_reset_discard_pile()
 	_reset_exhaust_pile()
