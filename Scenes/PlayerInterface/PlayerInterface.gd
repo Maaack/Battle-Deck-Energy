@@ -21,6 +21,8 @@ onready var status_update_container : Control = $StatusUpdatesContainer
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
+var health_status_base = preload("res://Resources/Statuses/Health.tres")
+var energy_status_base = preload("res://Resources/Statuses/Energy.tres")
 var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
@@ -195,36 +197,55 @@ func _on_draw_card_completed(card_data:CardData):
 			return
 		emit_signal("drawing_completed")
 
-func _update_opponent_meters(character:CharacterData):
-	var opponent_actions = actions_board.get_actions_instance(character)
-	if opponent_actions is OpponentActionsInterface:
-		opponent_actions.update()
+func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int):
+	var effect_text_instance = effect_text_animation_scene.instance()
+	status_update_container.add_child(effect_text_instance)
+	effect_text_instance.position = interface_offset
+	effect_text_instance.set_status_update(status, delta)
 
-func character_gains_health(character:CharacterData, amount:int):
-	if character == player_data:
-		player_board.gain_health(amount)
-	else:
-		_update_opponent_meters(character)
+func _show_status_update_over_interface(interface:ActionsInterface, status:StatusData, delta:int):
+	var interface_center = Vector2(interface.rect_size.x/2, interface.rect_size.y/2)
+	var interface_offset = interface.rect_position + interface_center
+	return _show_status_update(interface_offset, status, delta)
 
-func character_loses_health(character:CharacterData, amount:int):
-	if character == player_data:
-		player_board.lose_health(amount)
-	else:
-		_update_opponent_meters(character)
+func _show_health_update_over_interface(interface:ActionsInterface, delta:int):
+	_show_status_update_over_interface(interface, health_status_base, delta)
 
-func character_gains_energy(character:CharacterData, amount:int):
-	if character == player_data:
-		player_board.gain_energy(amount)
-		card_manager.energy_limit += amount
-	else:
-		_update_opponent_meters(character)
+func _show_energy_update_over_interface(interface:ActionsInterface, delta:int):
+	_show_status_update_over_interface(interface, energy_status_base, delta)
 
-func character_loses_energy(character:CharacterData, amount:int):
+func character_gains_health(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	_show_health_update_over_interface(actions_interface, delta)
 	if character == player_data:
-		player_board.lose_energy(amount)
-		card_manager.energy_limit -= amount
-	else:
-		_update_opponent_meters(character)
+		player_board.gain_health(delta)
+	elif actions_interface is OpponentActionsInterface:
+		actions_interface.update()
+
+func character_loses_health(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	_show_health_update_over_interface(actions_interface, -(delta))
+	if character == player_data:
+		player_board.lose_health(delta)
+	elif actions_interface is OpponentActionsInterface:
+		actions_interface.update()
+
+func character_gains_energy(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	_show_energy_update_over_interface(actions_interface, delta)
+	if character == player_data:
+		player_board.gain_energy(delta)
+		card_manager.energy_limit += delta
+	elif actions_interface is OpponentActionsInterface:
+		actions_interface.update()
+
+func character_loses_energy(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	if character == player_data:
+		player_board.lose_energy(delta)
+		card_manager.energy_limit -= delta
+	elif actions_interface is OpponentActionsInterface:
+		actions_interface.update()
 
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)
@@ -373,17 +394,9 @@ func remove_status(character:CharacterData, status:StatusData):
 	actions_board.remove_status(character, status)
 	_character_statuses_map[character].erase(status)
 
-func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int):
-	var effect_text_instance = effect_text_animation_scene.instance()
-	status_update_container.add_child(effect_text_instance)
-	effect_text_instance.position = interface_offset
-	effect_text_instance.set_status_update(status, delta)
-
 func update_status(character:CharacterData, status:StatusData, delta:int):
 	var interface = actions_board.add_status(character, status)
 	if not interface is ActionsInterface:
 		return
-	var interface_center = Vector2(interface.rect_size.x/2, interface.rect_size.y/2)
-	var interface_offset = interface.rect_position + interface_center
-	_show_status_update(interface_offset, status, delta)
+	_show_status_update_over_interface(interface, status, delta)
 	_recalculate_all_cards()

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sourced/Icons/GlyphsterUnlimited/1x/medical_healthcare_heart.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+title = "Health"
+description = "The life force of the player."
+icon = ExtResource( 2 )
+color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+intensity = 1
+duration = 0
+type_tag = "HEALTH"
+stack_type = 0
