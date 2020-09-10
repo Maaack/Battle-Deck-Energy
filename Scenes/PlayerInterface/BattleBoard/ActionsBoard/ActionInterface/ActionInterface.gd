@@ -67,3 +67,6 @@ func add_status(status:StatusData):
 
 func remove_status(status:StatusData):
 	pass
+
+func defeat_character():
+	remove_all_openings()

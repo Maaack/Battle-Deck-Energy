@@ -26,8 +26,7 @@ func add_opponent(opponent:CharacterData):
 
 func defeat_opponent(opponent:CharacterData):
 	var interface : ActionsInterface = get_actions_instance(opponent)
-	interface.remove_all_openings()
-	interface.queue_free()
+	interface.defeat_character()
 	characters_map.erase(opponent)
 
 func get_actions_instance(character:CharacterData):

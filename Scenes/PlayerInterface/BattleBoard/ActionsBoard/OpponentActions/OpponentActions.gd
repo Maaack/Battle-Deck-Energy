@@ -9,6 +9,7 @@ onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContaine
 onready var health_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthStat/HealthLabel
 onready var energy_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/EnergyStat/EnergyLabel
 onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
+onready var dead_cover = $DeadCover
 
 func _update_opponent_stats():
 	if not character_data is OpponentCharacterData:
@@ -49,3 +50,7 @@ func add_status(status:StatusData):
 
 func remove_status(status:StatusData):
 	status_icon_manager.remove_status(status)
+
+func defeat_character():
+	.defeat_character()
+	dead_cover.show()
