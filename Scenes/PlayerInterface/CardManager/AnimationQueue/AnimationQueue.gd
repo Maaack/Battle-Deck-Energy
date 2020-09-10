@@ -45,8 +45,11 @@ func _start_timer(wait_time:float = get_wait_time()):
 func _animate(animation_data:AnimationData):
 	emit_signal('animation_started', animation_data)
 
+func is_queue_empty():
+	return animation_queue.size() == 0
+
 func _animate_next():
-	if animation_queue.size() == 0:
+	if is_queue_empty():
 		emit_signal("queue_empty")
 		return
 	var next_animation : AnimationData = animation_queue.pop_front()

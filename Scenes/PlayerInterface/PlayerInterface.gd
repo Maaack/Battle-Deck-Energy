@@ -125,7 +125,7 @@ func _recalculate_all_cards():
 	# Opponent cards that are already played
 	for opportunity in _opportunities_map:
 		if opportunity is OpportunityData:
-			if opportunity.card_data == null:
+			if opportunity.card_data == null or opportunity.source == player_data:
 				continue
 			var card_instance = card_manager.get_card_instance(opportunity.card_data)
 			if not is_instance_valid(card_instance):
@@ -175,12 +175,20 @@ func _on_PlayerBoard_ending_turn():
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
 
+func _on_draw_complete():
+	_drawing_cards_count -= 1
+	if _discarding_cards_count < 0:
+		_discarding_cards_count = 0
+		return false
+	if _drawing_cards_count == 0 and animation_queue.is_queue_empty():
+		emit_signal("drawing_completed")
+
 func _on_discard_complete():
 	_discarding_cards_count -= 1
 	if _discarding_cards_count < 0:
 		_discarding_cards_count = 0
 		return false
-	if _discarding_cards_count == 0:
+	if _discarding_cards_count == 0 and animation_queue.is_queue_empty():
 		hand_manager.discard_queue()
 		emit_signal("discard_completed")
 		return true
@@ -200,12 +208,7 @@ func _on_exhaust_card_completed(card_data:CardData):
 func _on_draw_card_completed(card_data:CardData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card_data)
 	card_instance.disconnect("tween_completed", self, "_on_draw_card_completed")
-	_drawing_cards_count -= 1
-	if _drawing_cards_count == 0:
-		if _drawing_cards_count < 0:
-			_drawing_cards_count = 0
-			return
-		emit_signal("drawing_completed")
+	_on_draw_complete()
 
 func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int):
 	var effect_text_instance = effect_text_animation_scene.instance()
