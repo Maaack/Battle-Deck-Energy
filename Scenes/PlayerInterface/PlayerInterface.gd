@@ -117,16 +117,26 @@ func _new_character_card(character:CharacterData, card:CardData):
 	return card_instance
 
 func _recalculate_all_cards():
-	for card in _card_owner_map:
-		var owner : CharacterData = _card_owner_map[card]
+	for card in hand_manager.cards:
 		var card_instance = card_manager.get_card_instance(card)
 		if not is_instance_valid(card_instance):
 			continue
-		_calculate_card_mod(card_instance, owner)
+		_calculate_card_mod(card_instance, player_data)
+	# Opponent cards that are already played
+	for opportunity in _opportunities_map:
+		if opportunity is OpportunityData:
+			if opportunity.card_data == null:
+				continue
+			var card_instance = card_manager.get_card_instance(opportunity.card_data)
+			if not is_instance_valid(card_instance):
+				continue
+			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
+				
 
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
+	card_instance.set_interactable(true)
 	card_manager.move_card(card, animation.prs, animation.tween_time, AnimationType.DRAWING)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	hand_manager.add_card(card)
@@ -374,7 +384,9 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 		card_instance.play_card()
 	else:
 		card.prs = opening_prs
-		_new_character_card(character, card)
+		var card_instance : BattleCard = _new_character_card(character, card)
+		card_instance.signals_on_hover = true
+		_calculate_card_mod(card_instance, character, opportunity.target)
 
 func opponent_discards_card(card:CardData):
 	card_manager.remove_card(card)

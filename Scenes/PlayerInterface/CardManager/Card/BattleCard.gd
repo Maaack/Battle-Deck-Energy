@@ -22,12 +22,18 @@ export(Resource) var starting_card_data setget set_starting_card_data
 var card_data : CardData setget set_card_data
 var _last_animation_type : int = 0
 var base_values : Dictionary = {}
+var signals_on_hover : bool = false
+var signals_on_click : bool = false
 
 func _to_string():
 	if card_data is CardData:
 		return "%s" % card_data.title
 	else:
 		return ._to_string()
+
+func set_interactable(value:bool):
+	signals_on_hover = value
+	signals_on_click = value
 
 func _update_card_front():
 	if not is_instance_valid(card_data):
@@ -131,13 +137,19 @@ func glow_off():
 		glow_node.glow_off()
 
 func _on_Body_mouse_entered():
+	if not signals_on_hover:
+		return
 	emit_signal("mouse_entered", card_data)
 
 func _on_Body_mouse_exited():
+	if not signals_on_hover:
+		return
 	emit_signal("mouse_exited", card_data)
 	
 func _on_Body_gui_input(event):
 	if event is InputEventMouseButton:
+		if not signals_on_click:
+			return
 		match event.button_index:
 			BUTTON_LEFT:
 				if event.pressed:

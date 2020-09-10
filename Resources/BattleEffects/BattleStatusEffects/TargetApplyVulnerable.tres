@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 effect_type = "TARGET_APPLY_VULNERABLE"
 effect_icon = ExtResource( 2 )
-effect_quantity = 1
+effect_quantity = 2
 effect_color = Color( 0, 0, 0, 1 )
 apply_mode = 1
 aim_mode = 0
