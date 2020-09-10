@@ -35,7 +35,6 @@ func set_player_data(value:CharacterData):
 	player_data = value
 	if is_instance_valid(player_data):
 		player_board.set_player_energy(0, player_data.max_energy)
-		player_board.set_player_health(player_data.health, player_data.max_health)
 		player_board.set_draw_pile_size(player_data.deck_size())
 		actions_board.player_data = player_data
 
@@ -230,18 +229,12 @@ func _show_energy_update_over_interface(interface:ActionsInterface, delta:int):
 func character_gains_health(character:CharacterData, delta:int):
 	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
 	_show_health_update_over_interface(actions_interface, delta)
-	if character == player_data:
-		player_board.gain_health(delta)
-	elif actions_interface is OpponentActionsInterface:
-		actions_interface.update()
+	actions_interface.update_health()
 
 func character_loses_health(character:CharacterData, delta:int):
 	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
 	_show_health_update_over_interface(actions_interface, -(delta))
-	if character == player_data:
-		player_board.lose_health(delta)
-	elif actions_interface is OpponentActionsInterface:
-		actions_interface.update()
+	actions_interface.update_health()
 
 func character_gains_energy(character:CharacterData, delta:int):
 	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
@@ -249,16 +242,12 @@ func character_gains_energy(character:CharacterData, delta:int):
 	if character == player_data:
 		player_board.gain_energy(delta)
 		card_manager.energy_limit += delta
-	elif actions_interface is OpponentActionsInterface:
-		actions_interface.update()
 
 func character_loses_energy(character:CharacterData, delta:int):
 	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
 	if character == player_data:
 		player_board.lose_energy(delta)
 		card_manager.energy_limit -= delta
-	elif actions_interface is OpponentActionsInterface:
-		actions_interface.update()
 
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)

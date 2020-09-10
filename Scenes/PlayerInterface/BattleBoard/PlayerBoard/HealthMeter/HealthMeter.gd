@@ -3,8 +3,8 @@ extends Control
 
 const LABEL_STR = "%d / %d"
 
-onready var health_label = $HBoxContainer/HealthLabel
-onready var health_bar = $HBoxContainer/HealthBar
+onready var health_bar = $MarginContainer/HealthBar
+onready var health_label = $MarginContainer/HealthBar/HealthLabel
 
 var health : int = 10 setget set_health
 var max_health : int = 10 setget set_max_health

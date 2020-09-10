@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/DeadCover/DeadCover.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.gd" type="Script" id=3]
+
+[node name="OpponentActionsInterface" instance=ExtResource( 1 )]
+rect_min_size = Vector2( 400, 72 )
+size_flags_horizontal = 3
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" parent="MarginContainer" index="0"]
+margin_right = 398.0
+
+[node name="Panel" parent="MarginContainer/VBoxContainer" index="0"]
+margin_right = 396.0
+
+[node name="Panel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer" index="0"]
+margin_right = 388.0
+
+[node name="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer" index="0"]
+margin_right = 372.0
+
+[node name="NicknameLabel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer" index="0"]
+margin_right = 180.0
+
+[node name="HealthMeter" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer" index="1"]
+margin_left = 184.0
+margin_right = 364.0
+
+[node name="StatusesMargin" parent="MarginContainer/VBoxContainer" index="1"]
+margin_right = 396.0
+
+[node name="StatusIconManager" parent="MarginContainer/VBoxContainer/StatusesMargin" index="0"]
+margin_right = 388.0
+
+[node name="OpeningsMargin" parent="MarginContainer/VBoxContainer" index="2"]
+margin_right = 396.0
+
+[node name="OpeningsContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin" index="0"]
+margin_right = 388.0
+
+[node name="Opponents" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="0"]
+margin_right = 380.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+
+[node name="Players" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="1"]
+margin_top = 132.0
+margin_right = 380.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+
+[node name="DeadCover" parent="." index="1" instance=ExtResource( 2 )]

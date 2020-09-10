@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=4]
-[ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=5]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/PlayerActions/PlayerActions.gd" type="Script" id=7]
+[ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=3]
+[ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.gd" type="Script" id=6]
 
-[node name="PlayerActions" type="Control"]
+[node name="CharacterActionsInterface" type="Control"]
 margin_right = 200.0
 margin_bottom = 72.0
-rect_min_size = Vector2( 300, 72 )
-script = ExtResource( 7 )
+rect_min_size = Vector2( 300, 388 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -18,10 +19,7 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1.52588e-05
-margin_bottom = 256.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_constants/margin_right = 2
 custom_constants/margin_left = 2
 __meta__ = {
@@ -30,15 +28,15 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 2.0
-margin_right = 297.0
-margin_bottom = 368.0
+margin_right = 298.0
+margin_bottom = 388.0
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
-margin_right = 295.0
+margin_right = 296.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 196, 64 )
 mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
+custom_styles/panel = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -62,11 +60,11 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 287.0
+margin_right = 288.0
 margin_bottom = 56.0
 mouse_filter = 2
 size_flags_vertical = 3
-custom_styles/panel = ExtResource( 5 )
+custom_styles/panel = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -85,21 +83,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 271.0
+margin_right = 272.0
 margin_bottom = 40.0
+
+[node name="NicknameLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
+margin_right = 116.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.156863, 0.156863, 0.156863, 1 )
-text = "You"
+text = "Nickname"
 align = 1
+
+[node name="HealthMeter" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer" instance=ExtResource( 5 )]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 0.0
+margin_right = 264.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="StatusesMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 68.0
-margin_right = 295.0
+margin_right = 296.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 0, 24 )
 custom_constants/margin_right = 8
@@ -108,15 +120,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StatusIconManager" parent="MarginContainer/VBoxContainer/StatusesMargin" instance=ExtResource( 2 )]
+[node name="StatusIconManager" parent="MarginContainer/VBoxContainer/StatusesMargin" instance=ExtResource( 4 )]
 margin_left = 8.0
-margin_right = 287.0
+margin_right = 288.0
 margin_bottom = 36.0
 
 [node name="OpeningsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 108.0
-margin_right = 295.0
-margin_bottom = 368.0
+margin_right = 296.0
+margin_bottom = 388.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 8
@@ -127,20 +139,7 @@ __meta__ = {
 
 [node name="OpeningsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin"]
 margin_left = 8.0
-margin_right = 287.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 0, 128 )
+margin_right = 288.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 280, 280 )
 size_flags_horizontal = 3
-
-[node name="Active" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer"]
-margin_right = 279.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 0, 128 )
-size_flags_vertical = 3
-
-[node name="Passive" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer"]
-margin_top = 132.0
-margin_right = 279.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 0, 128 )
-size_flags_vertical = 3
