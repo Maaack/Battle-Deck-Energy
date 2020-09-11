@@ -53,11 +53,11 @@ static func get_effect_total(base_value:int, effect_type:String, source_statuses
 	for status_type in source_status_types:
 		for status in source_statuses:
 			if status is StatusData and status.type_tag == status_type:
-				total = _get_value_modified(total, status_type, status.intensity)
+				total = _get_value_modified(total, status_type, status.get_stack_value())
 	if target_statuses != null:
 		var target_status_types = _get_target_status_types(effect_type)
 		for status_type in target_status_types:
 			for status in target_statuses:
 				if status is StatusData and status.type_tag == status_type:
-					total = _get_value_modified(total, status_type, status.intensity)
+					total = _get_value_modified(total, status_type, status.get_stack_value())
 	return total

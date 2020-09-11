@@ -12,4 +12,4 @@ color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
 intensity = 1
 duration = 1
 type_tag = "DEFENSE_UP"
-stack_type = 0
+stack_type = 1

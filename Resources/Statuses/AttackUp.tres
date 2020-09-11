@@ -12,4 +12,4 @@ color = Color( 0.866667, 0.0509804, 0.129412, 1 )
 intensity = 1
 duration = 1
 type_tag = "ATTACK_UP"
-stack_type = 0
+stack_type = 1
