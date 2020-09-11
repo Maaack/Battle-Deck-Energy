@@ -37,18 +37,18 @@ static func _get_target_status_types(effect_type:String):
 		_:
 			return []
 
-static func _get_value_modified(value:int, modifier_type:String, modifier_value):
+static func _get_value_modified(value:float, modifier_type:String, modifier_value):
 	match(modifier_type):
 		STRENGTH_STATUS, VULNERABLE_STATUS, FORTITUDE_STATUS:
-			return int(value * MOD_UP_RATIO)
+			return value * MOD_UP_RATIO
 		ATTACK_UP_STATUS, DEFENSE_UP_STATUS:
 			return (value + modifier_value)
 		WEAK_STATUS, FRAGILE_STATUS:
-			return int(value * MOD_DOWN_RATIO)
+			return value * MOD_DOWN_RATIO
 	return value
 
 static func get_effect_total(base_value:int, effect_type:String, source_statuses:Array, target_statuses=null):
-	var total = base_value
+	var total = float(base_value)
 	var source_status_types = _get_source_status_types(effect_type)
 	for status_type in source_status_types:
 		for status in source_statuses:
@@ -60,4 +60,4 @@ static func get_effect_total(base_value:int, effect_type:String, source_statuses
 			for status in target_statuses:
 				if status is StatusData and status.type_tag == status_type:
 					total = _get_value_modified(total, status_type, status.get_stack_value())
-	return total
+	return int(total)

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=13 format=2]
 
-[ext_resource path="res://Resources/Cards/StartingSet/BasicSlashCard.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Cards/StartingSet/BasicShieldCard.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/StartingSet/BasicShield.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/StartingSet/BasicSlash.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/OneEnergy/ShieldBashCard.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Cards/ZeroEnergy/SecondWindCard.tres" type="Resource" id=5]
@@ -18,4 +18,4 @@ script = ExtResource( 4 )
 starting_max_health = 20
 starting_max_energy = 3
 starting_hand_size = 5
-starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 3 ) ]
+starting_deck = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 3 ) ]
