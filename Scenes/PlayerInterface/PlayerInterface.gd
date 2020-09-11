@@ -96,8 +96,11 @@ func _on_CardSlot_moved(opening:BattleOpening):
 
 func _calculate_card_mod(card_instance:BattleCard, source:CharacterData, target = null):
 	var total_values : Dictionary = {}
-	for effect_type in card_instance.base_values:
-		var base_value = card_instance.base_values[effect_type]
+	for effect in card_instance.card_data.battle_effects:
+		var base_value = effect.effect_quantity
+		var effect_type = effect.effect_type
+		if not effect_type in total_values:
+			total_values[effect_type] = 0
 		var source_statuses : Array
 		if source and source in _character_statuses_map:
 			source_statuses = _character_statuses_map[source]
@@ -105,7 +108,7 @@ func _calculate_card_mod(card_instance:BattleCard, source:CharacterData, target 
 		if target and target in _character_statuses_map:
 			target_statuses = _character_statuses_map[target]
 		var total_value = effect_calculator.get_effect_total(base_value, effect_type, source_statuses, target_statuses)
-		total_values[effect_type] = total_value
+		total_values[effect_type] += total_value
 	card_instance.update_card_effects(total_values)
 	return total_values
 
