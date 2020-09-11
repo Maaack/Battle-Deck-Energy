@@ -17,13 +17,17 @@ onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer
 onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 onready var exhaust_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/ExhaustPile
+onready var status_update_container : Control = $StatusUpdatesContainer
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
+var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
+var health_status_base = preload("res://Resources/Statuses/Health.tres")
+var energy_status_base = preload("res://Resources/Statuses/Energy.tres")
 var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
 var _opportunities_map : Dictionary = {}
-var _character_modifier_map : Dictionary = {}
+var _character_statuses_map : Dictionary = {}
 var _card_owner_map : Dictionary = {}
 var _nearest_battle_opening = null
 
@@ -31,7 +35,6 @@ func set_player_data(value:CharacterData):
 	player_data = value
 	if is_instance_valid(player_data):
 		player_board.set_player_energy(0, player_data.max_energy)
-		player_board.set_player_health(player_data.health, player_data.max_health)
 		player_board.set_draw_pile_size(player_data.deck_size())
 		actions_board.player_data = player_data
 
@@ -95,7 +98,13 @@ func _calculate_card_mod(card_instance:BattleCard, source:CharacterData, target 
 	var total_values : Dictionary = {}
 	for effect_type in card_instance.base_values:
 		var base_value = card_instance.base_values[effect_type]
-		var total_value = effect_calculator.get_effect_total(base_value, effect_type, _character_modifier_map, source, target)
+		var source_statuses : Array
+		if source and source in _character_statuses_map:
+			source_statuses = _character_statuses_map[source]
+		var target_statuses : Array
+		if target and target in _character_statuses_map:
+			target_statuses = _character_statuses_map[target]
+		var total_value = effect_calculator.get_effect_total(base_value, effect_type, source_statuses, target_statuses)
 		total_values[effect_type] = total_value
 	card_instance.update_card_effects(total_values)
 	return total_values
@@ -105,25 +114,43 @@ func _new_character_card(character:CharacterData, card:CardData):
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
 	return card_instance
-	
+
+func _recalculate_all_cards():
+	for card in hand_manager.cards:
+		var card_instance = card_manager.get_card_instance(card)
+		if not is_instance_valid(card_instance):
+			continue
+		_calculate_card_mod(card_instance, player_data)
+	# Opponent cards that are already played
+	for opportunity in _opportunities_map:
+		if opportunity is OpportunityData:
+			if opportunity.card_data == null or opportunity.source == player_data:
+				continue
+			var card_instance = card_manager.get_card_instance(opportunity.card_data)
+			if not is_instance_valid(card_instance):
+				continue
+			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
+				
+
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
-	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
+	card_instance.set_interactable(true)
 	card_manager.move_card(card, animation.prs, animation.tween_time, AnimationType.DRAWING)
+	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
 
 func _discarding_animation(card:CardData, animation:AnimationData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card)
-	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	card_manager.move_card(card, animation.prs, animation.tween_time)
+	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	_discarding_cards_count += 1
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card)
-	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	card_manager.move_card(card, animation.prs, animation.tween_time)
+	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
 func _on_AnimationQueue_animation_started(animation:AnimationData):
@@ -147,12 +174,20 @@ func _on_PlayerBoard_ending_turn():
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
 
-func _discard_complete():
+func _on_draw_complete():
+	_drawing_cards_count -= 1
+	if _discarding_cards_count < 0:
+		_discarding_cards_count = 0
+		return false
+	if _drawing_cards_count == 0 and animation_queue.is_queue_empty():
+		emit_signal("drawing_completed")
+
+func _on_discard_complete():
 	_discarding_cards_count -= 1
 	if _discarding_cards_count < 0:
 		_discarding_cards_count = 0
 		return false
-	if _discarding_cards_count == 0:
+	if _discarding_cards_count == 0 and animation_queue.is_queue_empty():
 		hand_manager.discard_queue()
 		emit_signal("discard_completed")
 		return true
@@ -161,59 +196,65 @@ func _on_discard_card_completed(card_data:CardData):
 	hand_manager.queue_card(card_data)
 	card_manager.remove_card(card_data)
 	player_board.discard_card()
-	if _discard_complete():
-		hand_manager.discard_queue()
+	_on_discard_complete()
 
 func _on_exhaust_card_completed(card_data:CardData):
 	hand_manager.queue_card(card_data)
 	card_manager.remove_card(card_data)
 	player_board.exhaust_card()
-	if _discard_complete():
-		hand_manager.discard_queue()
+	_on_discard_complete()
 
 func _on_draw_card_completed(card_data:CardData):
 	var card_instance : BattleCard = card_manager.get_card_instance(card_data)
 	card_instance.disconnect("tween_completed", self, "_on_draw_card_completed")
-	_drawing_cards_count -= 1
-	if _drawing_cards_count == 0:
-		if _drawing_cards_count < 0:
-			_drawing_cards_count = 0
-			return
-		emit_signal("drawing_completed")
+	_on_draw_complete()
 
-func _update_opponent_meters(character:CharacterData):
-	var opponent_actions = actions_board.get_actions_instance(character)
-	if opponent_actions is OpponentActionsInterface:
-		opponent_actions.update()
+func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int):
+	var effect_text_instance = effect_text_animation_scene.instance()
+	status_update_container.add_child(effect_text_instance)
+	effect_text_instance.position = interface_offset
+	effect_text_instance.set_status_update(status, delta)
 
-func character_gains_health(character:CharacterData, amount:int):
+func _show_status_update_over_interface(interface:ActionsInterface, status:StatusData, delta:int):
+	var interface_center = Vector2(interface.rect_size.x/2, interface.rect_size.y/2)
+	var interface_offset = interface.rect_position + interface_center
+	return _show_status_update(interface_offset, status, delta)
+
+func _show_health_update_over_interface(interface:ActionsInterface, delta:int):
+	_show_status_update_over_interface(interface, health_status_base, delta)
+
+func _show_energy_update_over_interface(interface:ActionsInterface, delta:int):
+	_show_status_update_over_interface(interface, energy_status_base, delta)
+
+func character_gains_health(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	_show_health_update_over_interface(actions_interface, delta)
+	actions_interface.update_health()
+
+func character_loses_health(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	_show_health_update_over_interface(actions_interface, -(delta))
+	actions_interface.update_health()
+
+func character_gains_energy(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	_show_energy_update_over_interface(actions_interface, delta)
 	if character == player_data:
-		player_board.gain_health(amount)
-	else:
-		_update_opponent_meters(character)
+		player_board.gain_energy(delta)
+		card_manager.energy_limit += delta
 
-func character_loses_health(character:CharacterData, amount:int):
+func character_loses_energy(character:CharacterData, delta:int):
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
 	if character == player_data:
-		player_board.lose_health(amount)
-	else:
-		_update_opponent_meters(character)
-
-func character_gains_energy(character:CharacterData, amount:int):
-	if character == player_data:
-		player_board.gain_energy(amount)
-		card_manager.energy_limit += amount
-	else:
-		_update_opponent_meters(character)
-
-func character_loses_energy(character:CharacterData, amount:int):
-	if character == player_data:
-		player_board.lose_energy(amount)
-		card_manager.energy_limit -= amount
-	else:
-		_update_opponent_meters(character)
+		player_board.lose_energy(delta)
+		card_manager.energy_limit -= delta
 
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)
+	for card in _card_owner_map:
+		var card_owner : CharacterData = _card_owner_map[card]
+		if card_owner == character:
+			opponent_discards_card(card)
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
@@ -246,6 +287,9 @@ func add_openings(opportunities:Array):
 	_map_opportunity_nodes(openings)
 	return openings
 
+func remove_opening(opportunity:OpportunityData):
+	actions_board.remove_opening(opportunity)
+
 func remove_all_openings():
 	actions_board.remove_all_openings()
 	clear_opportunities()
@@ -258,8 +302,11 @@ func _on_PlayerInterface_gui_input(event):
 			var prs_data = PRSData.new()
 			prs_data.position = event.position + card_manager_offset
 			prs_data.scale = Vector2(1.25, 1.25)
-			card_manager.move_card(card, prs_data, 0.1, AnimationType.DRAGGING)
-			var nearest_battle_opening = get_nearest_battle_opening(card)
+			var nearest_battle_opening = get_nearest_battle_opening(card, prs_data.position)
+			if nearest_battle_opening is BattleOpening:
+				card_manager.move_card(card, nearest_battle_opening.prs_data, 0.1, AnimationType.DRAGGING)
+			else:
+				card_manager.move_card(card, prs_data, 0.1, AnimationType.DRAGGING)
 			if nearest_battle_opening == _nearest_battle_opening:
 				return
 			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
@@ -290,15 +337,16 @@ func _openings_glow_off(card:CardData):
 	for battle_opening in get_player_card_openings(card):
 		battle_opening.glow_off()
 
-func get_nearest_battle_opening(card:CardData):
-	var card_prs : Vector2 = card.prs.position
+func get_nearest_battle_opening(card:CardData, position = null):
+	if position == null:
+		position = card.prs.position
 	var shortest_distance : float = 120.0 # Ignore drop range
 	var nearest_battle_opening = null
 	for battle_opening in get_player_card_openings(card):
 		if battle_opening is BattleOpening:
 			var opening_prs : PRSData = battle_opening.prs_data
-			if opening_prs.position.distance_to(card_prs) < shortest_distance:
-				shortest_distance = opening_prs.position.distance_to(card_prs)
+			if opening_prs.position.distance_to(position) < shortest_distance:
+				shortest_distance = opening_prs.position.distance_to(position)
 				nearest_battle_opening = battle_opening
 	return nearest_battle_opening
 
@@ -323,18 +371,36 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 	var opening_prs : PRSData = battle_opening.prs_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
+		card_manager.move_card(card, opening_prs)
+		var card_instance : BattleCard = card_manager.get_card_instance(card)
+		card_instance.play_card()
 	else:
 		card.prs = opening_prs
-		_new_character_card(character, card)
-	card_manager.move_card(card, opening_prs, 0.2, AnimationType.PLAYING)
+		var card_instance : BattleCard = _new_character_card(character, card)
+		card_instance.signals_on_hover = true
+		_calculate_card_mod(card_instance, character, opportunity.target)
 
 func opponent_discards_card(card:CardData):
 	card_manager.remove_card(card)
 
 func add_status(character:CharacterData, status:StatusData):
+	if not character in _character_statuses_map:
+		_character_statuses_map[character] = []
+	if not status in _character_statuses_map[character]:
+		_character_statuses_map[character].append(status)
 	actions_board.add_status(character, status)
 
-func set_character_modifier(character:CharacterData, modifier:String, value:int):
-	if not character in _character_modifier_map:
-		_character_modifier_map[character] = {}
-	_character_modifier_map[character][modifier] = value
+func remove_status(character:CharacterData, status:StatusData):
+	if not character in _character_statuses_map:
+		return
+	if not status in _character_statuses_map[character]:
+		return
+	actions_board.remove_status(character, status)
+	_character_statuses_map[character].erase(status)
+
+func update_status(character:CharacterData, status:StatusData, delta:int):
+	var interface = actions_board.add_status(character, status)
+	if not interface is ActionsInterface:
+		return
+	_show_status_update_over_interface(interface, status, delta)
+	_recalculate_all_cards()

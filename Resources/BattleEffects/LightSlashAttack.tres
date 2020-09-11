@@ -9,5 +9,5 @@ effect_type = "ATTACK"
 effect_icon = ExtResource( 2 )
 effect_quantity = 1
 effect_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
-apply_mode = 0
+apply_mode = 1
 aim_mode = 0

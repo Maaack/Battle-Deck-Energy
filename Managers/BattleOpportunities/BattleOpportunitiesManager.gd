@@ -2,6 +2,7 @@ extends Node
 
 
 signal opportunity_added(opportunity)
+signal opportunity_removed(opportunity)
 
 enum OpportunityType{ATTACK, PARRY, DEFEND}
 
@@ -102,7 +103,7 @@ func reset_player_opportunities():
 	if not is_instance_valid(player_data):
 		print("Error: Getting player opportunities with no player set.")
 		return
-	add_defend_opportunities(player_data, player_data, 2)
+	add_defend_opportunities(player_data, player_data, 3)
 	for opponent in opponents_data: 
 		add_attack_opportunity(player_data, opponent)
 
@@ -116,3 +117,16 @@ func reset_opponent_opportunities(opponent:CharacterData):
 func reset_all_opponent_opportunities():
 	for opponent in opponents_data: 
 		reset_opponent_opportunities(opponent)
+
+func get_character_opportunities(character:CharacterData):
+	if not character in character_map:
+		return []
+	return character_map[character]
+
+func remove_opportunity(opportunity:OpportunityData):
+	for character in character_map:
+		var opportunities : Array = character_map[character]
+		var remove_index = opportunities.find(opportunity)
+		if remove_index >= 0:
+			opportunities.remove(remove_index)
+			emit_signal("opportunity_removed", opportunity)

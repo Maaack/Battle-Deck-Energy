@@ -15,18 +15,25 @@ signal tween_completed(card_data)
 onready var body_node = $Body
 onready var glow_node = $GlowContainer/Control/GlowNode
 onready var tween_node = $Tween
+onready var pulse_animation = $PulseAnimation
 
 export(Resource) var starting_card_data setget set_starting_card_data
 
 var card_data : CardData setget set_card_data
 var _last_animation_type : int = 0
 var base_values : Dictionary = {}
+var signals_on_hover : bool = false
+var signals_on_click : bool = false
 
 func _to_string():
 	if card_data is CardData:
 		return "%s" % card_data.title
 	else:
 		return ._to_string()
+
+func set_interactable(value:bool):
+	signals_on_hover = value
+	signals_on_click = value
 
 func _update_card_front():
 	if not is_instance_valid(card_data):
@@ -58,6 +65,8 @@ func _get_effect_bbtag_string(base_value:int, total_value:int):
 
 func _reset_base_values():
 	base_values.clear()
+	if card_data == null:
+		return
 	if card_data.description == "":
 		return
 	var description : String = card_data.description
@@ -96,6 +105,8 @@ func set_starting_card_data(value:CardData):
 
 func tween_to(new_prs:PRSData, tween_time:float = 0.0, animation_type:int = -1):
 	if is_instance_valid(tween_node):
+		if pulse_animation.is_playing():
+			yield(pulse_animation, "animation_finished")
 		if tween_node.is_active():
 			if _last_animation_type != animation_type:
 				tween_time += tween_node.get_runtime()
@@ -126,13 +137,19 @@ func glow_off():
 		glow_node.glow_off()
 
 func _on_Body_mouse_entered():
+	if not signals_on_hover:
+		return
 	emit_signal("mouse_entered", card_data)
 
 func _on_Body_mouse_exited():
+	if not signals_on_hover:
+		return
 	emit_signal("mouse_exited", card_data)
 	
 func _on_Body_gui_input(event):
 	if event is InputEventMouseButton:
+		if not signals_on_click:
+			return
 		match event.button_index:
 			BUTTON_LEFT:
 				if event.pressed:
@@ -142,3 +159,8 @@ func _on_Body_gui_input(event):
 
 func _on_Tween_tween_all_completed():
 	emit_signal("tween_completed", card_data)
+
+func play_card():
+	if tween_node.is_active():
+		tween_node.seek(tween_node.get_runtime())
+	pulse_animation.play("CardPulse")

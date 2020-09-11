@@ -13,7 +13,13 @@ signal lost_health(character, amount)
 signal gained_energy(character, amount)
 signal lost_energy(character, amount)
 signal gained_status(character, status)
+signal lost_status(character, status)
+signal updated_status(character, status, delta)
 signal died(character)
+
+const DEFENSE_STATUS = 'DEFENSE'
+
+onready var status_manager = $StatusManager
 
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
@@ -21,9 +27,6 @@ var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
 var statuses : Array = []
-
-var _drawing_cards : int = 0
-var _reshuffling_cards : int = 0
 
 func _reset_draw_pile():
 	for card in character_data.deck:
@@ -38,6 +41,7 @@ func _reset_exhaust_pile():
 
 func reset():
 	randomize()
+	character_data.energy = 0
 	_reset_draw_pile()
 	_reset_discard_pile()
 	_reset_exhaust_pile()
@@ -57,6 +61,18 @@ func lose_health(amount: int = 1):
 	if character_data.health == 0:
 		emit_signal("died", character_data)
 
+func take_damage(amount: int = 1):
+	var status : StatusData = status_manager.get_status_by_type(DEFENSE_STATUS)
+	if status != null:
+		var defense_down = min(amount, status.intensity)
+		status.intensity -= defense_down
+		emit_signal("updated_status", character_data, status, -(defense_down))
+		if status.intensity == 0:
+			status_manager.lose_status(status)
+		amount -= defense_down
+	if amount > 0:
+		lose_health(amount)
+
 func gain_energy(amount:int = 1):
 	character_data.energy += amount
 	emit_signal("gained_energy", character_data, amount)
@@ -69,35 +85,17 @@ func lose_energy(amount:int = 1):
 func reset_energy():
 	var recharge_amount : int = character_data.max_energy - character_data.energy
 	gain_energy(recharge_amount)
-	
-func gain_status(status:StatusData):
-	statuses.append(status)
-	emit_signal("gained_status", character_data, status)
-
-func gain_statuses(statuses:Array):
-	for status in statuses:
-		if status is StatusData:
-			gain_status(status)
 
 func reshuffle_discard_pile():
 	var discarded : Array = discard_pile.draw_all()
 	for card in discarded:
 		reshuffle_card(card)
 
-func draw_discarded_card():
-	if _reshuffling_cards > 0:
-		var card: CardData = discard_pile.draw_card()
-		reshuffle_card(card)
-
 func add_card_to_hand(card:CardData):
 	hand.add_card(card)
-	if _drawing_cards > 1:
-		_drawing_cards -= 1
 
 func discard_card_from_hand(card:CardData):
 	hand.discard_card(card)
-	if _drawing_cards > 1:
-		_drawing_cards -= 1
 
 func reshuffle_card(card:CardData):
 	draw_pile.add_card(card)
@@ -143,3 +141,21 @@ func play_card(card:CardData, opportunity:OpportunityData):
 	opportunity.card_data = card
 	if discarded_flag:
 		emit_signal("played_card", card, opportunity)
+	
+func gain_status(status:StatusData):
+	status_manager.gain_status(status)
+
+func update_statuses():
+	status_manager.decrement_durations()
+
+func get_statuses():
+	return status_manager.status_type_map.values()
+
+func _on_StatusManager_gained_status(status):
+	emit_signal("gained_status", character_data, status)
+
+func _on_StatusManager_lost_status(status):
+	emit_signal("lost_status", character_data, status)
+
+func _on_StatusManager_updated_status(status:StatusData, delta:int):
+	emit_signal("updated_status", character_data, status, delta)
