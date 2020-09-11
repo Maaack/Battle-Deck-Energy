@@ -8,8 +8,11 @@ const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
 const STRENGTH_STATUS = 'STRENGTH'
+const ATTACK_UP_STATUS = 'ATTACK_UP'
+const DEFENSE_UP_STATUS = 'DEFENSE_UP'
 const WEAK_STATUS = 'WEAK'
 const FRAGILE_STATUS = 'FRAGILE'
+const FORTITUDE_STATUS = 'FORTITUDE'
 const VULNERABLE_STATUS = 'VULNERABLE'
 const DEFENSE_STATUS = 'DEFENSE'
 const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
@@ -21,9 +24,9 @@ const MOD_DOWN_RATIO = 0.6666
 static func _get_source_status_types(effect_type:String):
 	match(effect_type):
 		ATTACK_EFFECT:
-			return [STRENGTH_STATUS, WEAK_STATUS]
+			return [STRENGTH_STATUS, WEAK_STATUS, ATTACK_UP_STATUS]
 		DEFEND_EFFECT:
-			return [FRAGILE_STATUS]
+			return [FORTITUDE_STATUS, FRAGILE_STATUS, DEFENSE_UP_STATUS]
 		_:
 			return []
 
@@ -36,9 +39,9 @@ static func _get_target_status_types(effect_type:String):
 
 static func _get_value_modified(value:int, modifier_type:String, modifier_value):
 	match(modifier_type):
-		VULNERABLE_STATUS:
+		STRENGTH_STATUS, VULNERABLE_STATUS, FORTITUDE_STATUS:
 			return int(value * MOD_UP_RATIO)
-		STRENGTH_STATUS:
+		ATTACK_UP_STATUS, DEFENSE_UP_STATUS:
 			return (value + modifier_value)
 		WEAK_STATUS, FRAGILE_STATUS:
 			return int(value * MOD_DOWN_RATIO)

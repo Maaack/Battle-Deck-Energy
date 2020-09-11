@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyStrength.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+title = "Attack Focused"
+description = "Deal 50% Damage per strike for %APPLY_STRENGTH turn(s)."
+energy_cost = 1
+battle_effects = [ ExtResource( 2 ) ]
+type_tag = "DEFEND"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyWeak.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/BattleEffects/SlashAttack.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+title = "Crippling Blow"
+description = "Deal %ATTACK Damage and apply %APPLY_WEAK Weak."
+energy_cost = 1
+battle_effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
+type_tag = "ATTACK"
