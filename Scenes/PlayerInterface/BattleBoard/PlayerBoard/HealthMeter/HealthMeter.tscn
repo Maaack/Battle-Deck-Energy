@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Themes/StyleBoxes/Meters/HealthMeterBGStyleBox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Meters/HealthMeterStyleBox.tres" type="StyleBox" id=3]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0368.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.gd" type="Script" id=5]
 
 [node name="HealthMeter" type="Control"]
@@ -19,13 +20,13 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_left = 16
+custom_constants/margin_left = 24
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HealthBar" type="ProgressBar" parent="MarginContainer"]
-margin_left = 16.0
+margin_left = 24.0
 margin_right = 144.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
@@ -34,7 +35,7 @@ custom_styles/fg = ExtResource( 3 )
 custom_styles/bg = ExtResource( 1 )
 max_value = 20.0
 step = 1.0
-value = 20.0
+value = 10.0
 rounded = true
 percent_visible = false
 __meta__ = {
@@ -46,7 +47,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
-text = "20 / 20"
+text = "### / ###"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmorIcon" type="TextureRect" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -5.0
+margin_top = -24.0
+margin_right = 43.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="ArmorLabel" type="Label" parent="ArmorIcon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.8147e-06
+margin_bottom = -2.0
+custom_fonts/font = ExtResource( 2 )
+text = "##"
 align = 1
 valign = 1
 __meta__ = {
