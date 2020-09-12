@@ -9,6 +9,6 @@
 script = ExtResource( 1 )
 starting_max_health = 21
 starting_max_energy = 1
-starting_hand_size = 4
+starting_hand_size = 3
 starting_deck = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ]
 nickname = "The Butcher"

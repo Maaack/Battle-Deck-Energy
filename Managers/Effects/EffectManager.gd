@@ -11,6 +11,7 @@ const DEFEND_EFFECT = 'DEFEND'
 const PARRY_EFFECT = 'PARRY'
 const OPENER_EFFECT = 'OPENER'
 const RICOCHET_EFFECT = 'RICOCHET'
+const FORTIFY_EFFECT = 'FORTIFY'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
@@ -60,7 +61,7 @@ func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_m
 		if effect is BattleEffect and effect.is_immediate():
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.effect_type):
-				PARRY_EFFECT, OPENER_EFFECT:
+				PARRY_EFFECT, OPENER_EFFECT, FORTIFY_EFFECT:
 					for _i in range(effect.effect_quantity):
 						emit_signal("add_opportunity", opportunity.source, final_target)
 				RICOCHET_EFFECT:

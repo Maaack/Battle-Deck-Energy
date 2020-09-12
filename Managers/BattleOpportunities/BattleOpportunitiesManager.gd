@@ -4,8 +4,9 @@ extends Node
 signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
 
-enum OpportunityType{ATTACK, PARRY, DEFEND}
+enum OpportunityType{OPEN, ATTACK, PARRY, DEFEND}
 
+const OPEN_TYPE = 'OPEN'
 const ATTACK_TYPE = 'ATTACK'
 const DEFEND_TYPE = 'DEFEND'
 const PARRY_TYPE = 'PARRY'
@@ -23,7 +24,6 @@ func set_player_data(value:CharacterData):
 	if is_instance_valid(player_data):
 		character_map[player_data] = []
 
-
 func add_opponent(opponent:CharacterData):
 	if is_instance_valid(opponent):
 		opponents_data.append(opponent)
@@ -33,28 +33,18 @@ func reset():
 	for character in character_map:
 		character_map[character].clear()
 
-func _count_cards_of_type(source:CharacterData, target:CharacterData, type_tag:String):
-	var count : int = 0
-	if source in character_map:
-		var opportunities : Array = character_map[source]
-		for opportunity in opportunities:
-			if opportunity is OpportunityData:
-				if opportunity.target == target and is_instance_valid(opportunity.card_data):
-					var card : CardData = opportunity.card_data
-					if card.type_tag == type_tag:
-						count += 1
-	return count
+func _new_open_opportunity(source:CharacterData):
+	var opportunity = OpportunityData.new()
+	opportunity.source = source
+	opportunity.opp_type = OpportunityType.OPEN
+	opportunity.allowed_types = offensive_slot_types
+	character_map[source].append(opportunity)
+	return opportunity
 
-func _count_attacks(source:CharacterData, target:CharacterData):
-	return _count_cards_of_type(source, target, ATTACK_TYPE)
-
-func _count_parries(source:CharacterData, target:CharacterData):
-	return _count_cards_of_type(source, target, PARRY_TYPE)
-
-func can_parry(source:CharacterData, target:CharacterData):
-	var target_attack_count : int = _count_attacks(target, source)
-	var parry_count : int = _count_parries(source, target)
-	return parry_count < target_attack_count
+func add_open_opportunity(source:CharacterData):
+	var opportunity = _new_open_opportunity(source)
+	emit_signal("opportunity_added", opportunity)
+	return opportunity
 
 func _new_attack_opportunity(source:CharacterData, target:CharacterData):
 	var opportunity = OpportunityData.new()
@@ -62,8 +52,6 @@ func _new_attack_opportunity(source:CharacterData, target:CharacterData):
 	opportunity.target = target
 	opportunity.opp_type = OpportunityType.ATTACK
 	opportunity.allowed_types = offensive_slot_types
-	if can_parry(source, target):
-		opportunity.allowed_types += parry_slot_types
 	character_map[source].append(opportunity)
 	return opportunity
 
@@ -97,6 +85,15 @@ func add_defend_opportunities(source:CharacterData, target:CharacterData, count:
 	for _i in range(count):
 		opportunities.append(add_defend_opportunity(source, target))
 	return opportunities
+
+func add_opportunity(source:CharacterData, target = null):
+	if target is CharacterData:
+		if source == target:
+			add_defend_opportunity(source, target)
+		else:
+			add_attack_opportunity(source, target)
+	else:
+		add_open_opportunity(source)
 
 func reset_player_opportunities():
 	character_map[player_data].clear()

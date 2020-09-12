@@ -5,18 +5,20 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.gd" type="Script" id=3]
 
 [node name="OpponentActionsInterface" instance=ExtResource( 1 )]
+margin_right = 264.0
+margin_bottom = 388.0
 size_flags_horizontal = 3
 script = ExtResource( 3 )
 
 [node name="Opponents" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="0"]
-margin_right = 280.0
+margin_right = 248.0
 margin_bottom = 138.0
 rect_min_size = Vector2( 0, 128 )
 size_flags_vertical = 3
 
 [node name="Players" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="1"]
 margin_top = 142.0
-margin_right = 280.0
+margin_right = 248.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 0, 128 )
 size_flags_vertical = 3
