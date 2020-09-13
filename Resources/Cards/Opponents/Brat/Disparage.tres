@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Disparage"
-description = "Apply Weak to opponent for %APPLY_WEAK turn(s) and absorb %DEFEND Damage."
+description = "Apply %APPLY_WEAK Weak and absorb %DEFEND Damage."
 energy_cost = 1
 battle_effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type_tag = "ATTACK"

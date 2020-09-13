@@ -1,12 +1,12 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyDefenseUp.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyDefenseUp2.tres" type="Resource" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Smooth Shields"
-description = "Adds %APPLY_DEFENSE_UP Damage absorption per shield."
+description = "Apply %APPLY_DEFENSE_UP Defense Up."
 energy_cost = 1
 battle_effects = [ ExtResource( 2 ) ]
 type_tag = "DEFEND"

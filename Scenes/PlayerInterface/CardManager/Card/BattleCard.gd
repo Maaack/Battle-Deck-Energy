@@ -94,7 +94,7 @@ func update_card_effects(total_values:Dictionary):
 	regex.compile("%(?<tag>[A-Z_]+)")
 	for result in regex.search_all(description):
 		var type_tag : String = result.get_string("tag")
-		if not type_tag in base_values:
+		if not type_tag in base_values or not type_tag in total_values:
 			continue
 		var tag_string = _get_effect_bbtag_string(base_values[type_tag], total_values[type_tag])
 		description = description.replace('%'+type_tag, tag_string)

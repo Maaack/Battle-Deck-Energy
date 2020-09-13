@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/BattleEffects/SlashAttack.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyAttackUp.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyVulnerable2.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Hurtful Words"
+description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and %APPLY_ATTACK_UP Attack Up."
+energy_cost = 1
+battle_effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ) ]
+type_tag = "ATTACK"

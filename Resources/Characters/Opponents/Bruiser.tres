@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Cards/Opponents/Bruiser/KnucklesUp.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/Bruiser/Untempered.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/Opponents/Bruiser/BigBruise.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Cards/Opponents/Bruiser/EvasiveShot.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+starting_max_health = 21
+starting_max_energy = 2
+starting_hand_size = 3
+starting_deck = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ]
+nickname = "Bruiser"
