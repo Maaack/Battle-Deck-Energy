@@ -1,23 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/VictoryPanel/VictoryPanel.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
 [ext_resource path="res://Themes/Fonts/morris_roman_48_outline_1.tres" type="DynamicFont" id=3]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.156863, 0.156863, 0.156863, 0.752941 )
-
 [node name="VictoryPanel" type="Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 2 )
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CentralPanel" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -27,11 +14,13 @@ margin_top = -180.0
 margin_right = 250.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 500, 360 )
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="CentralPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 16
@@ -42,13 +31,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CentralPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 484.0
 margin_bottom = 344.0
 
-[node name="Label" type="Label" parent="CentralPanel/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 468.0
 margin_bottom = 162.0
 size_flags_horizontal = 3
@@ -62,11 +51,11 @@ More enemies wait ahead."
 align = 1
 valign = 1
 
-[node name="ContinueButton" type="Button" parent="CentralPanel/MarginContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_top = 228.0
 margin_right = 468.0
 margin_bottom = 266.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Fight on"
-[connection signal="pressed" from="CentralPanel/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
