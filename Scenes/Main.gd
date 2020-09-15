@@ -45,6 +45,7 @@ func _on_BattleInterface_player_won():
 	var loot_interface = loot_interface_scene.instance()
 	campaign_interface_container.add_child(loot_interface)
 	loot_interface.connect("collected_card", self, "_on_LootPanel_collected_card")
+	loot_interface.connect("tree_exited", self, "_on_LootPanel_tree_exited")
 	var card_options : Array = level.lootable_cards.duplicate()
 	card_options.shuffle()
 	card_options = card_options.slice(0,2)
@@ -53,6 +54,8 @@ func _on_BattleInterface_player_won():
 func _on_LootPanel_collected_card(card:CardData):
 	if player_data is CharacterData:
 		player_data.deck.append(card)
+
+func _on_LootPanel_tree_exited():
 	shadow_panel.hide()
 	level_manager.advance()
 	start_battle()

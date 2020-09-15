@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyVulnerable.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/BattleEffects/HeavySlashAttack.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/BattleEffects/OpenerEffect.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Critical Hit"
+description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and add %OPENER Attack space(s)."
+energy_cost = 2
+battle_effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
+type_tag = "ATTACK"

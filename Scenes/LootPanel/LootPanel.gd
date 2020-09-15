@@ -1,12 +1,12 @@
 extends Control
 
 
-signal continue_pressed
+signal skip_loot_pressed
 signal collected_card(card_data)
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
-onready var loot_container = $MarginContainer/VBoxContainer/MarginContainer/LootContainer
+onready var loot_container = $MarginContainer/VBoxContainer/LootMargin/LootContainer
 onready var card_manager = $InspectorCardManager
 onready var spawn_card_timer = $SpawnCardTimer
 
@@ -59,4 +59,9 @@ func _on_InspectorCardManager_released_card(card_node:CardNode2D):
 	card_node.play_card()
 	yield(card_node, "animation_completed")
 	emit_signal("collected_card", card_node.card_data)
+	queue_free()
+
+
+func _on_SkipLootButton_pressed():
+	emit_signal("skip_loot_pressed")
 	queue_free()
