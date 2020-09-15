@@ -86,7 +86,7 @@ func _ready():
 	animation_queue.delay_timer()
 
 func _on_HandManager_card_updated(card_data:CardData, prs:PRSData):
-	card_manager.move_card(card_data, prs, 0.1, AnimationType.SHIFTING)
+	card_manager.move_card(card_data, prs, 0.1)
 
 func _on_CardSlot_moved(opening:BattleOpening):
 	var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
@@ -133,13 +133,13 @@ func _recalculate_all_cards():
 			if not is_instance_valid(card_instance):
 				continue
 			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
-				
+
 
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
 	card_instance.set_interactable(true)
-	card_manager.move_card(card, animation.prs, animation.tween_time, AnimationType.DRAWING)
+	card_manager.move_card(card, animation.prs, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
@@ -307,9 +307,9 @@ func _on_PlayerInterface_gui_input(event):
 			prs_data.scale = Vector2(1.25, 1.25)
 			var nearest_battle_opening = get_nearest_battle_opening(card, prs_data.position)
 			if nearest_battle_opening is BattleOpening:
-				card_manager.move_card(card, nearest_battle_opening.prs_data, 0.1, AnimationType.DRAGGING)
+				card_manager.move_card(card, nearest_battle_opening.prs_data, 0.1)
 			else:
-				card_manager.move_card(card, prs_data, 0.1, AnimationType.DRAGGING)
+				card_manager.move_card(card, prs_data, 0.1)
 			if nearest_battle_opening == _nearest_battle_opening:
 				return
 			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
