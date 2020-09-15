@@ -10,7 +10,6 @@ onready var loot_container = $MarginContainer/VBoxContainer/MarginContainer/Loot
 onready var card_manager = $InspectorCardManager
 onready var spawn_card_timer = $SpawnCardTimer
 
-export(Array, Resource) var starting_card_options : Array = []
 export(float, 0.0, 2.0) var default_animate_in_time : float = 0.2
 
 var card_options : Array = [] setget set_card_options
@@ -31,8 +30,10 @@ func _spawn_containers():
 		var container_node = loot_container.add_card_container()
 		card_container_map[card] = container_node
 
-func set_card_options(value:Array):
-	card_options = value
+func set_card_options(values:Array):
+	card_options = []
+	for card in values:
+		card_options.append(card.duplicate())
 	_spawn_containers()
 	yield(loot_container, "sort_children")
 	_add_cards_to_containers()
@@ -46,9 +47,6 @@ func _add_cards_to_containers():
 			card.prs.position = container.get_card_global_position()
 			_add_card_option(card)
 
-func _ready():
-	set_card_options(starting_card_options)
-
 func _on_ContinueButton_pressed():
 	emit_signal("continue_pressed")
 
@@ -60,4 +58,5 @@ func _on_InspectorCardManager_released_card(card_node:CardNode2D):
 	card_manager.hold_focus = true
 	card_node.play_card()
 	yield(card_node, "animation_completed")
-	print("selecting card %s" % card_node.card_data)
+	emit_signal("collected_card", card_node.card_data)
+	queue_free()

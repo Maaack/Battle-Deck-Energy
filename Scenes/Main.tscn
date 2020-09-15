@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/DeadPanel/DeadPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Managers/Levels/LevelManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/Levels/TheTwins.tres" type="Resource" id=9]
-[ext_resource path="res://Scenes/VictoryPanel/VictoryPanel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Resources/Levels/ButcherShop.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Levels/BullyTeam.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Levels/BratPair.tres" type="Resource" id=13]
@@ -19,6 +18,7 @@
 [ext_resource path="res://Resources/Levels/BratBrothers.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Levels/BullyRunIn.tres" type="Resource" id=18]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=19]
+[ext_resource path="res://Resources/Levels/BratEncounter.tres" type="Resource" id=20]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )
@@ -40,6 +40,7 @@ __meta__ = {
 [node name="Background" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -48,6 +49,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,6 +58,7 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 7
@@ -69,6 +72,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -205.0
 margin_bottom = -45.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 stretch_mode = 2
 __meta__ = {
@@ -80,6 +84,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -160.0
+mouse_filter = 2
 texture = ExtResource( 5 )
 stretch_mode = 2
 __meta__ = {
@@ -89,6 +94,7 @@ __meta__ = {
 [node name="BattleInterfaceContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,6 +105,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 custom_styles/panel = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -106,13 +113,18 @@ __meta__ = {
 
 [node name="DeadPanel" parent="." instance=ExtResource( 7 )]
 visible = false
+mouse_filter = 2
 
-[node name="VictoryPanel" parent="." instance=ExtResource( 10 )]
-visible = false
+[node name="CampaignInterfaceContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LevelManager" parent="." instance=ExtResource( 8 )]
-levels = [ ExtResource( 13 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 9 ) ]
+levels = [ ExtResource( 20 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 9 ) ]
 [connection signal="player_lost" from="BattleInterfaceContainer/BattleInterface" to="." method="_on_BattleInterface_player_lost"]
 [connection signal="player_won" from="BattleInterfaceContainer/BattleInterface" to="." method="_on_BattleInterface_player_won"]
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
-[connection signal="continue_pressed" from="VictoryPanel" to="." method="_on_VictoryPanel_continue_pressed"]

@@ -103,6 +103,8 @@ func update_card_effects(total_values:Dictionary):
 	description_label.bbcode_text = description
 	if card_data.battle_effects.size() > 0:
 		var battle_effect : BattleEffect = card_data.battle_effects[0]
+		if not battle_effect.effect_type in total_values:
+			return
 		var effect_total_value : int = total_values[battle_effect.effect_type]
 		effect_label.text = str(effect_total_value)
 
