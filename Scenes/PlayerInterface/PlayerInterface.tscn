@@ -84,7 +84,10 @@ __meta__ = {
 
 [node name="AnimationQueue" parent="." instance=ExtResource( 1 )]
 [connection signal="gui_input" from="." to="." method="_on_PlayerInterface_gui_input"]
+[connection signal="discard_pile_pressed" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_discard_pile_pressed"]
+[connection signal="draw_pile_pressed" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_draw_pile_pressed"]
 [connection signal="ending_turn" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_ending_turn"]
+[connection signal="exhaust_pile_pressed" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_exhaust_pile_pressed"]
 [connection signal="card_updated" from="HandContainer/CardControl/HandManager" to="." method="_on_HandManager_card_updated"]
 [connection signal="dragging_card" from="HandContainer/CardControl/CardManager" to="." method="_on_CardManager_dragging_card"]
 [connection signal="dropping_card" from="HandContainer/CardControl/CardManager" to="." method="_on_CardManager_dropping_card"]

@@ -21,6 +21,7 @@ func start_battle():
 		battle_interface_container.add_child(battle_interface)
 		battle_interface.connect("player_lost", self, "_on_BattleInterface_player_lost")
 		battle_interface.connect("player_won", self, "_on_BattleInterface_player_won")
+		battle_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 	battle_interface.player_data = player_data
 	battle_interface.opponents = level_manager.get_level_opponents()
 	battle_interface.start_battle()
@@ -72,3 +73,6 @@ func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
 	deck_view_container.add_child(deck_view)
 	deck_view.deck = deck
+
+func _on_BattleInterface_view_deck_pressed(deck):
+	_on_ViewDeck_pressed(deck)

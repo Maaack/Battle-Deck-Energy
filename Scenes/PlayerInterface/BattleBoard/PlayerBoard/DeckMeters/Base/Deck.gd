@@ -2,6 +2,8 @@ tool
 extends Control
 
 
+signal button_pressed
+
 onready var count_label = $TextureRect/Panel/CountLabel
 
 var count : int = 0 setget set_count
@@ -25,3 +27,6 @@ func add_card():
 func remove_card():
 	count -= 1
 	_update_count()
+
+func _on_TextureButton_pressed():
+	emit_signal("button_pressed")
