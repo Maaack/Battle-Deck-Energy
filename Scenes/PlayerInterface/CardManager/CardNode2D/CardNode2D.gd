@@ -4,8 +4,6 @@ extends Node2D
 
 class_name CardNode2D
 
-const CARD_EFFECT_TAG = 'card_effect'
-
 signal mouse_entered(card_node_2d)
 signal mouse_exited(card_node_2d)
 signal mouse_clicked(card_node_2d)
@@ -13,7 +11,12 @@ signal mouse_released(card_node_2d)
 signal tween_completed(card_node_2d)
 signal animation_completed(card_node_2d)
 
+const CARD_EFFECT_TAG = 'card_effect'
+
+enum MouseInputMode{NONE, GUI, PHYSICS}
+
 onready var tween_node = $Tween
+onready var area_2d_node = $Area2D
 onready var glow_node = $Card/GlowContainer/Control/GlowNode
 onready var pulse_animation = $Card/PulseAnimation
 onready var body_node = $Card/Body
@@ -29,6 +32,7 @@ export(Resource) var starting_card_data setget set_starting_card_data
 var card_data : CardData setget set_card_data
 var _last_animation_type : int = 0
 var base_values : Dictionary = {}
+var mouse_input_mode : int = MouseInputMode.GUI setget set_mouse_input_mode
 
 func _to_string():
 	if card_data is CardData:
@@ -112,6 +116,19 @@ func set_starting_card_data(value:CardData):
 	starting_card_data = value
 	_reset_card_data()
 
+func set_mouse_input_mode(value:int):
+	mouse_input_mode = value
+	match(mouse_input_mode):
+		MouseInputMode.GUI:
+			body_node.mouse_filter = Control.MOUSE_FILTER_PASS
+			area_2d_node.hide()
+		MouseInputMode.PHYSICS:
+			body_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			area_2d_node.show()
+		MouseInputMode.NONE:
+			body_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			area_2d_node.hide()
+
 func tween_to(new_prs:PRSData, tween_time:float = 0.0, animation_type:int = -1):
 	if is_instance_valid(tween_node):
 		if pulse_animation.is_playing():
@@ -164,13 +181,7 @@ func play_card():
 func _on_Tween_tween_all_completed():
 	emit_signal("tween_completed", self)
 
-func _on_Area2D_mouse_entered():
-	emit_signal("mouse_entered", self)
-
-func _on_Area2D_mouse_exited():
-	emit_signal("mouse_exited", self)
-
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _handle_input_event(event):
 	if event is InputEventMouseButton:
 		match event.button_index:
 			BUTTON_LEFT:
@@ -178,6 +189,24 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					emit_signal("mouse_clicked", self)
 				if not event.pressed:
 					emit_signal("mouse_released", self)
+
+func _on_Area2D_mouse_entered():
+	emit_signal("mouse_entered", self)
+
+func _on_Area2D_mouse_exited():
+	emit_signal("mouse_exited", self)
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	_handle_input_event(event)
+
+func _on_Body_mouse_entered():
+	emit_signal("mouse_entered", self)
+
+func _on_Body_mouse_exited():
+	emit_signal("mouse_exited", self)
+
+func _on_Body_gui_input(event):
+	_handle_input_event(event)
 
 func _on_PulseAnimation_animation_finished(anim_name):
 	emit_signal("animation_completed", self)

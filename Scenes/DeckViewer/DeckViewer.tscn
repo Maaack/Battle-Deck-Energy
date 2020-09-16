@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/DeckViewer/DeckViewer.gd" type="Script" id=1]
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/DeckViewer/GridContainer.gd" type="Script" id=3]
+[ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=4]
+[ext_resource path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/CardManager/CardNode2D/CardNode2D.tscn" type="PackedScene" id=9]
+
+[node name="DeckViewer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 500, 360 )
+mouse_filter = 2
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1264.0
+margin_bottom = 704.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 1248.0
+margin_bottom = 646.0
+mouse_filter = 1
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 1248.0
+margin_bottom = 646.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 5
+script = ExtResource( 3 )
+
+[node name="InspectorCardManager" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+position = Vector2( -16, -16 )
+base_card_scene = ExtResource( 9 )
+
+[node name="OptionsMargin" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 650.0
+margin_right = 1248.0
+margin_bottom = 688.0
+rect_min_size = Vector2( 0, 38 )
+size_flags_vertical = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsMargin"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -38.0
+margin_right = 224.0
+rect_min_size = Vector2( 224, 38 )
+size_flags_vertical = 5
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpawnCardTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsMargin/BackButton" to="." method="_on_BackButton_pressed"]
