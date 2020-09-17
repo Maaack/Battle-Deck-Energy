@@ -56,6 +56,7 @@ func force_move_card(card_data:CardData, new_transform:TransformData, tween_time
 	var card: CardNode2D = get_card_instance(card_data)
 	if is_instance_valid(card):
 		card.tween_to(new_transform, tween_time)
+		return
 	card_data.transform_data = new_transform
 
 func _on_Card_mouse_entered(card_node:CardNode2D):

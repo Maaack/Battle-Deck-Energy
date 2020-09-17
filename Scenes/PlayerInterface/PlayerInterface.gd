@@ -13,7 +13,7 @@ signal card_played_on_opportunity(card, opportunity)
 enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
 onready var animation_queue : Node = $AnimationQueue
-onready var card_manager : Node2D = $HandContainer/CardControl/CardManager
+onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
 onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
 onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
 onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
@@ -149,12 +149,14 @@ func _drawing_animation(card:CardData, animation:AnimationData):
 func _discarding_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
+	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	_discarding_cards_count += 1
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
+	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
@@ -245,13 +247,13 @@ func character_gains_energy(character:CharacterData, delta:int):
 	_show_energy_update_over_interface(actions_interface, delta)
 	if character == player_data:
 		player_board.gain_energy(delta)
-		card_manager.energy_limit += delta
+		card_manager.energy_available += delta
 
 func character_loses_energy(character:CharacterData, delta:int):
 	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
 	if character == player_data:
 		player_board.lose_energy(delta)
-		card_manager.energy_limit -= delta
+		card_manager.energy_available -= delta
 
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)
@@ -303,14 +305,11 @@ func _on_PlayerInterface_gui_input(event):
 		if card_manager.dragged_card != null:
 			var card_node : CardNode2D = card_manager.dragged_card
 			var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-			var transform_data = TransformData.new()
-			transform_data.position = event.position + card_manager_offset
-			transform_data.scale = Vector2(1.25, 1.25)
-			var nearest_battle_opening = get_nearest_battle_opening(card_node.card_data, transform_data.position)
+			var final_position : Vector2 =  event.position + card_manager_offset
+			card_manager.drag_to_position(final_position)
+			var nearest_battle_opening = get_nearest_battle_opening(card_node.card_data, final_position)
 			if nearest_battle_opening is BattleOpening:
 				card_manager.move_card(card_node.card_data, nearest_battle_opening.transform_data, 0.1)
-			else:
-				card_manager.move_card(card_node.card_data, transform_data, 0.1)
 			if nearest_battle_opening == _nearest_battle_opening:
 				return
 			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
@@ -353,17 +352,23 @@ func get_nearest_battle_opening(card:CardData, position = null):
 				nearest_battle_opening = battle_opening
 	return nearest_battle_opening
 
-func _on_CardManager_dragging_card(card:CardData):
+func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
 
-func _on_CardManager_dropping_card(card:CardData):
+func _on_dropping_card(card:CardData):
 	var nearest_battle_opening = get_nearest_battle_opening(card)
 	_openings_glow_off(card)
 	if nearest_battle_opening is BattleOpening:
 		emit_signal("card_played_on_opportunity", card, nearest_battle_opening.opportunity_data)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
+
+func _on_BattleCardManager_dragging_card(card_data:CardData):
+	_on_dragging_card(card_data)
+
+func _on_BattleCardManager_dropping_card(card_data:CardData):
+	_on_dropping_card(card_data)
 
 func play_card(character:CharacterData, card:CardData, opportunity:OpportunityData):
 	if not opportunity in _opportunities_map:

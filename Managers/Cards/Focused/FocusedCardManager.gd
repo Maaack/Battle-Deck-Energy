@@ -20,6 +20,14 @@ func is_card_focused(card_node:CardNode2D):
 func _can_change_focus():
 	return not hold_focus
 
+func remove_card(card_data:CardData):
+	var card_instance : CardNode2D = get_card_instance(card_data)
+	if not is_instance_valid(card_instance):
+		return
+	if _focused_card_parent_index != null and card_instance.get_position_in_parent() < _focused_card_parent_index:
+		_focused_card_parent_index -= 1
+	.remove_card(card_data)
+
 func focus_on_card(card_node:CardNode2D):
 	if hold_focus:
 		return
