@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource( 1 )
-effect_type = "RETAIN"
-effect_icon = ExtResource( 2 )
-effect_quantity = 0
-effect_color = Color( 0.129412, 0.298039, 0.988235, 1 )
+type_tag = "RETAIN"
+icon = ExtResource( 2 )
+amount = 0
+base_color = Color( 0.129412, 0.298039, 0.988235, 1 )
 apply_mode = 1
 aim_mode = 0

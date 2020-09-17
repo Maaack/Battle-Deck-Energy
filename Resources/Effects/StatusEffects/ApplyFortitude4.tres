@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource( 3 )
-effect_type = "APPLY_FORTITUDE"
-effect_icon = ExtResource( 1 )
-effect_quantity = 4
-effect_color = Color( 0.0784314, 0.415686, 0.870588, 1 )
+type_tag = "APPLY_FORTITUDE"
+icon = ExtResource( 1 )
+amount = 4
+base_color = Color( 0.0784314, 0.415686, 0.870588, 1 )
 apply_mode = 1
 aim_mode = 0
 starting_statuses = [ ExtResource( 2 ) ]

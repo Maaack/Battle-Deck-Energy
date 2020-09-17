@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource( 2 )
-effect_type = "APPLY_WEAK"
-effect_icon = ExtResource( 3 )
-effect_quantity = 1
-effect_color = Color( 0.529412, 0.054902, 0.772549, 1 )
+type_tag = "APPLY_WEAK"
+icon = ExtResource( 3 )
+amount = 1
+base_color = Color( 0.529412, 0.054902, 0.772549, 1 )
 apply_mode = 1
 aim_mode = 0
 starting_statuses = [ ExtResource( 1 ) ]

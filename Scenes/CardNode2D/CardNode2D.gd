@@ -48,19 +48,19 @@ func _reset_card_front():
 		energy_label.text = str(card_data.energy_cost)
 	if card_data.battle_effects.size() > 0:
 		var battle_effect : EffectData = card_data.battle_effects[0]
-		if battle_effect.effect_icon != null:
-			effect_texture.texture = battle_effect.effect_icon
-		if battle_effect.effect_quantity != 0:
-			effect_label.text = str(battle_effect.effect_quantity)
-		if battle_effect.effect_color != Color():
-			effect_label.add_color_override("font_color", battle_effect.effect_color)
+		if battle_effect.icon != null:
+			effect_texture.texture = battle_effect.icon
+		if battle_effect.amount != 0:
+			effect_label.text = str(battle_effect.amount)
+		if battle_effect.base_color != Color():
+			effect_label.add_color_override("font_color", battle_effect.base_color)
 	update_card_effects(base_values)
 
-func _get_effect_base_value(effect_type:String):
+func _get_effect_base_value(type_tag:String):
 	var value : int = 0
 	for effect in card_data.battle_effects:
-		if effect is EffectData and effect.effect_type == effect_type:
-			value += effect.effect_quantity
+		if effect is EffectData and effect.type_tag == type_tag:
+			value += effect.amount
 	return value
 
 func _get_effect_bbtag_string(base_value:int, total_value:int):
@@ -107,9 +107,9 @@ func update_card_effects(total_values:Dictionary):
 	description_label.bbcode_text = description
 	if card_data.battle_effects.size() > 0:
 		var battle_effect : EffectData = card_data.battle_effects[0]
-		if not battle_effect.effect_type in total_values:
+		if not battle_effect.type_tag in total_values:
 			return
-		var effect_total_value : int = total_values[battle_effect.effect_type]
+		var effect_total_value : int = total_values[battle_effect.type_tag]
 		effect_label.text = str(effect_total_value)
 
 func set_starting_card_data(value:CardData):

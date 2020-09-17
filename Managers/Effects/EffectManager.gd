@@ -35,7 +35,7 @@ func _get_character_statuses(character:CharacterData, character_manager_map:Dict
 func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_statuses = _get_character_statuses(source, character_manager_map)
 	var target_statuses = _get_character_statuses(target, character_manager_map)
-	var total_damage = effect_calculator.get_effect_total(effect.effect_quantity, effect.effect_type, source_statuses, target_statuses)
+	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
 	emit_signal("apply_damage", target, total_damage)
 
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
@@ -48,8 +48,8 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 			status_quantity = modified_status.duration
 		else:
 			status_quantity = modified_status.intensity
-		status_quantity *= effect.effect_quantity
-		status_quantity = effect_calculator.get_effect_total(status_quantity, effect.effect_type, source_statuses, target_statuses)
+		status_quantity *= effect.amount
+		status_quantity = effect_calculator.get_effect_total(status_quantity, effect.type_tag, source_statuses, target_statuses)
 		if modified_status.stacks_the_d():
 			modified_status.duration = status_quantity
 		else:
@@ -60,16 +60,16 @@ func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_m
 	for effect in card.battle_effects:
 		if effect is EffectData and effect.is_immediate():
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
-			match(effect.effect_type):
+			match(effect.type_tag):
 				PARRY_EFFECT, OPENER_EFFECT, FORTIFY_EFFECT:
-					for _i in range(effect.effect_quantity):
+					for _i in range(effect.amount):
 						emit_signal("add_opportunity", opportunity.source, final_target)
 				RICOCHET_EFFECT:
 					for opponent in character_manager_map.keys():
 						if opponent != final_target and opponent != opportunity.source:
 							emit_signal("add_opportunity", opportunity.source, opponent)
 				TARGET_APPLY_ENERGY_EFFECT:
-					emit_signal("apply_energy", final_target, effect.effect_quantity)
+					emit_signal("apply_energy", final_target, effect.amount)
 				ATTACK_EFFECT:
 					_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 			if effect is StatusEffectData:

@@ -21,8 +21,8 @@ const TARGET_IMMEDIATE_APPLY_STATUS = 'TARGET_IMMEDIATE_APPLY_STATUS'
 const MOD_UP_RATIO = 1.500
 const MOD_DOWN_RATIO = 0.667
 
-static func _get_source_status_types(effect_type:String):
-	match(effect_type):
+static func _get_source_status_types(type_tag:String):
+	match(type_tag):
 		ATTACK_EFFECT:
 			return [ATTACK_UP_STATUS, STRENGTH_STATUS, WEAK_STATUS]
 		DEFEND_EFFECT:
@@ -30,8 +30,8 @@ static func _get_source_status_types(effect_type:String):
 		_:
 			return []
 
-static func _get_target_status_types(effect_type:String):
-	match(effect_type):
+static func _get_target_status_types(type_tag:String):
+	match(type_tag):
 		ATTACK_EFFECT:
 			return [VULNERABLE_STATUS]
 		_:
@@ -47,15 +47,15 @@ static func _get_value_modified(value:float, modifier_type:String, modifier_valu
 			return value * MOD_DOWN_RATIO
 	return value
 
-static func get_effect_total(base_value:int, effect_type:String, source_statuses:Array, target_statuses=null):
+static func get_effect_total(base_value:int, type_tag:String, source_statuses:Array, target_statuses=null):
 	var total = float(base_value)
-	var source_status_types = _get_source_status_types(effect_type)
+	var source_status_types = _get_source_status_types(type_tag)
 	for status_type in source_status_types:
 		for status in source_statuses:
 			if status is StatusData and status.type_tag == status_type:
 				total = _get_value_modified(total, status_type, status.get_stack_value())
 	if target_statuses != null:
-		var target_status_types = _get_target_status_types(effect_type)
+		var target_status_types = _get_target_status_types(type_tag)
 		for status_type in target_status_types:
 			for status in target_statuses:
 				if status is StatusData and status.type_tag == status_type:

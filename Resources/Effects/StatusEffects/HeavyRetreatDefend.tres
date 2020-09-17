@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource( 2 )
-effect_type = "DEFEND"
-effect_icon = ExtResource( 3 )
-effect_quantity = 6
-effect_color = Color( 0.0823529, 0.435294, 0.894118, 1 )
+type_tag = "DEFEND"
+icon = ExtResource( 3 )
+amount = 6
+base_color = Color( 0.0823529, 0.435294, 0.894118, 1 )
 apply_mode = 1
 aim_mode = 1
 starting_statuses = [ ExtResource( 1 ) ]
