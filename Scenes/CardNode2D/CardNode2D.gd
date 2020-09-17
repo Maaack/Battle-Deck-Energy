@@ -175,6 +175,7 @@ func _animate_pulse():
 	_force_card_prs(card_data.prs)
 
 func play_card():
+	set_mouse_input_mode(MouseInputMode.NONE)
 	_finish_tween()
 	_animate_pulse()
 

@@ -3,10 +3,12 @@
 [ext_resource path="res://Managers/Openings/Opening.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/CardSlot/CardSlot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" type="StyleBox" id=3]
-[ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowAnimation.tres" type="Animation" id=4]
+[ext_resource path="res://Scenes/CardNode2D/GlowAnimation.tres" type="Animation" id=4]
 [ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" type="StyleBox" id=5]
-[ext_resource path="res://Scenes/PlayerInterface/CardManager/Card/GlowNode.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/CardNode2D/GlowNode.gd" type="Script" id=6]
 [ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" type="StyleBox" id=7]
+
+
 
 [node name="Opening" type="CenterContainer"]
 anchor_left = 0.5

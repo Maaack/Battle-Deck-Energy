@@ -6,7 +6,8 @@
 [ext_resource path="res://Scenes/LootPanel/HBoxContainer.gd" type="Script" id=4]
 [ext_resource path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Scenes/PlayerInterface/CardManager/CardNode2D/CardNode2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/CardNode2D/CardNode2D.tscn" type="PackedScene" id=9]
+
 
 [node name="LootPanel" type="Control"]
 anchor_right = 1.0

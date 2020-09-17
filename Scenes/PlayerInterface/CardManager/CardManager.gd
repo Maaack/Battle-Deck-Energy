@@ -24,7 +24,7 @@ func add_card(card_data:CardData):
 	if card_data in card_map:
 		return card_map[card_data]
 	var card_instance = base_card_scene.instance()
-	if card_instance is BattleCard:
+	if card_instance is CardNode2D:
 		card_instance.card_data = card_data
 		card_map[card_data] = card_instance
 		card_instance_map[card_instance] = card_data
@@ -36,7 +36,7 @@ func add_card(card_data:CardData):
 	return card_instance
 
 func remove_card(card_data:CardData):
-	var card_instance : BattleCard = get_card_instance(card_data)
+	var card_instance : CardNode2D = get_card_instance(card_data)
 	if not is_instance_valid(card_instance):
 		return
 	card_instance_map.erase(card_instance)
@@ -65,53 +65,52 @@ func move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween
 	force_move_card(card_data, new_prs, tween_time)
 
 func force_move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time()):
-	var card: BattleCard = get_card_instance(card_data)
+	var card: CardNode2D = get_card_instance(card_data)
 	if is_instance_valid(card):
 		card.tween_to(new_prs, tween_time)
+		return
 	card_data.prs = new_prs
 
-func focus_on_card(card:CardData):
-	focused_card = card
-	var card_instance : BattleCard = get_card_instance(card)
-	if not card_instance.signals_on_click or card.energy_cost > energy_limit:
-		card_instance.glow_not()
+func focus_on_card(card_node:CardNode2D):
+	focused_card = card_node
+	if card_node.card_data.energy_cost > energy_limit:
+		card_node.glow_not()
 	else:
-		card_instance.glow_on()
-	_focused_card_parent_index = card_instance.get_position_in_parent()
-	_focused_card_scale = focused_card.prs.scale
-	move_child(card_instance, get_child_count())
-	var new_prs : PRSData = card.prs.duplicate()
+		card_node.glow_on()
+	_focused_card_parent_index = card_node.get_position_in_parent()
+	_focused_card_scale = card_node.card_data.prs.scale
+	move_child(card_node, get_child_count())
+	var new_prs : PRSData = card_node.card_data.prs.duplicate()
 	new_prs.scale = scale_focused_card
-	move_card(card, new_prs, get_focus_time())
-	emit_signal("focused_on_card", card)
+	move_card(card_node.card_data, new_prs, get_focus_time())
+	emit_signal("focused_on_card", card_node.card_data)
 
-func focus_off_card(card:CardData):
-	var card_instance : BattleCard = get_card_instance(card)
-	card_instance.glow_off()
-	if focused_card == card:
+func focus_off_card(card_node:CardNode2D):
+	card_node.glow_off()
+	if focused_card == card_node:
 		focused_card = null
-		move_child(card_instance, _focused_card_parent_index)
+		move_child(card_node, _focused_card_parent_index)
 		_focused_card_parent_index = null
-		var new_prs : PRSData = card.prs.duplicate()
+		var new_prs : PRSData = card_node.card_data.prs.duplicate()
 		new_prs.scale = _focused_card_scale
-		move_card(card, new_prs,  get_focus_time())
+		move_card(card_node.card_data, new_prs,  get_focus_time())
 		_focused_card_scale = null
-	emit_signal("focused_off_card", card)
+	emit_signal("focused_off_card", card_node.card_data)
 
-func _on_Card_mouse_entered(card_data:CardData):
-	focus_on_card(card_data)
+func _on_Card_mouse_entered(card_node:CardNode2D):
+	focus_on_card(card_node)
 
-func _on_Card_mouse_exited(card_data:CardData):
-	focus_off_card(card_data)
+func _on_Card_mouse_exited(card_node:CardNode2D):
+	focus_off_card(card_node)
 
-func _on_Card_mouse_clicked(card_data:CardData):
-	if card_data.energy_cost > energy_limit:
+func _on_Card_mouse_clicked(card_node:CardNode2D):
+	if card_node.card_data.energy_cost > energy_limit:
 		return
-	dragged_card = card_data
-	emit_signal("dragging_card", card_data)
+	dragged_card = card_node
+	emit_signal("dragging_card", card_node.card_data)
 
-func _on_Card_mouse_released(card_data:CardData):
-	if dragged_card != card_data:
+func _on_Card_mouse_released(card_node:CardNode2D):
+	if dragged_card != card_node:
 		return
 	dragged_card = null
-	emit_signal("dropping_card", card_data)
+	emit_signal("dropping_card", card_node.card_data)

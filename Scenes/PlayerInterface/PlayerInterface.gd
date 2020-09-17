@@ -97,7 +97,7 @@ func _on_CardSlot_moved(opening:BattleOpening):
 	if is_instance_valid(opening.assigned_card):
 		card_manager.force_move_card(opening.assigned_card, opening.prs_data, 0.05)
 
-func _calculate_card_mod(card_instance:BattleCard, source:CharacterData, target = null):
+func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target = null):
 	var total_values : Dictionary = {}
 	for effect in card_instance.card_data.battle_effects:
 		var base_value = effect.effect_quantity
@@ -116,7 +116,7 @@ func _calculate_card_mod(card_instance:BattleCard, source:CharacterData, target 
 	return total_values
 
 func _new_character_card(character:CharacterData, card:CardData):
-	var card_instance : BattleCard = card_manager.add_card(card)
+	var card_instance : CardNode2D = card_manager.add_card(card)
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
 	return card_instance
@@ -141,20 +141,19 @@ func _recalculate_all_cards():
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
-	card_instance.set_interactable(true)
 	card_manager.move_card(card, animation.prs, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
 
 func _discarding_animation(card:CardData, animation:AnimationData):
-	var card_instance : BattleCard = card_manager.get_card_instance(card)
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	card_manager.move_card(card, animation.prs, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	_discarding_cards_count += 1
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
-	var card_instance : BattleCard = card_manager.get_card_instance(card)
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	card_manager.move_card(card, animation.prs, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
@@ -198,21 +197,20 @@ func _on_discard_complete():
 		emit_signal("discard_completed")
 		return true
 
-func _on_discard_card_completed(card_data:CardData):
-	hand_manager.queue_card(card_data)
-	card_manager.remove_card(card_data)
+func _on_discard_card_completed(card_node:CardNode2D):
+	hand_manager.queue_card(card_node.card_data)
+	card_manager.remove_card(card_node.card_data)
 	player_board.discard_card()
 	_on_discard_complete()
 
-func _on_exhaust_card_completed(card_data:CardData):
-	hand_manager.queue_card(card_data)
-	card_manager.remove_card(card_data)
+func _on_exhaust_card_completed(card_node:CardNode2D):
+	hand_manager.queue_card(card_node.card_data)
+	card_manager.remove_card(card_node.card_data)
 	player_board.exhaust_card()
 	_on_discard_complete()
 
-func _on_draw_card_completed(card_data:CardData):
-	var card_instance : BattleCard = card_manager.get_card_instance(card_data)
-	card_instance.disconnect("tween_completed", self, "_on_draw_card_completed")
+func _on_draw_card_completed(card_node:CardNode2D):
+	card_node.disconnect("tween_completed", self, "_on_draw_card_completed")
 	_on_draw_complete()
 
 func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int):
@@ -303,28 +301,27 @@ func remove_all_openings():
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:
 		if card_manager.dragged_card != null:
-			var card : CardData = card_manager.dragged_card
+			var card_node : CardNode2D = card_manager.dragged_card
 			var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 			var prs_data = PRSData.new()
 			prs_data.position = event.position + card_manager_offset
 			prs_data.scale = Vector2(1.25, 1.25)
-			var nearest_battle_opening = get_nearest_battle_opening(card, prs_data.position)
+			var nearest_battle_opening = get_nearest_battle_opening(card_node.card_data, prs_data.position)
 			if nearest_battle_opening is BattleOpening:
-				card_manager.move_card(card, nearest_battle_opening.prs_data, 0.1)
+				card_manager.move_card(card_node.card_data, nearest_battle_opening.prs_data, 0.1)
 			else:
-				card_manager.move_card(card, prs_data, 0.1)
+				card_manager.move_card(card_node.card_data, prs_data, 0.1)
 			if nearest_battle_opening == _nearest_battle_opening:
 				return
 			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
 				_nearest_battle_opening.glow_on()
 			_nearest_battle_opening = nearest_battle_opening
-			var card_instance = card_manager.get_card_instance(card)
-			var card_owner = _card_owner_map[card]
+			var card_owner = _card_owner_map[card_node.card_data]
 			var target = null
 			if nearest_battle_opening is BattleOpening:
 				nearest_battle_opening.glow_special()
 				target = nearest_battle_opening.get_target()
-			_calculate_card_mod(card_instance, card_owner, target)
+			_calculate_card_mod(card_node, card_owner, target)
 
 func get_player_card_openings(card:CardData):
 	var filtered_openings : Array = []
@@ -378,12 +375,11 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 	if character == player_data:
 		hand_manager.discard_card(card)
 		card_manager.move_card(card, opening_prs)
-		var card_instance : BattleCard = card_manager.get_card_instance(card)
+		var card_instance : CardNode2D = card_manager.get_card_instance(card)
 		card_instance.play_card()
 	else:
 		card.prs = opening_prs
-		var card_instance : BattleCard = _new_character_card(character, card)
-		card_instance.signals_on_hover = true
+		var card_instance : CardNode2D = _new_character_card(character, card)
 		_calculate_card_mod(card_instance, character, opportunity.target)
 
 func opponent_discards_card(card:CardData):
