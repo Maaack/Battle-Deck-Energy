@@ -22,7 +22,7 @@ var spread_from_index : int = NO_INDEX
 var queue: Array = []
 
 func add_card(card_key):
-	cards[card_key] = PRSData.new()
+	cards[card_key] = TransformData.new()
 	update_hand()
 
 func discard_card(card_key):
@@ -38,8 +38,8 @@ func discard_queue():
 		discard_card(card_key)
 	queue.clear()
 
-func get_prs_array():
-	var prs_array : Array = []
+func get_transform_array():
+	var transform_array : Array = []
 	var card_max_ratio : float = float(cards.size()) / float(max_hand_size)
 	var width_diff : float = (ending_width - starting_width) * card_max_ratio
 	var current_width : float = starting_width + width_diff
@@ -48,43 +48,43 @@ func get_prs_array():
 	var iter : int = 0
 	for card in cards:
 		iter += 1
-		var new_prs : PRSData = PRSData.new()
+		var new_transform : TransformData = TransformData.new()
 		var card_position_x : float = left_side + (iter * divided_space)
 		var card_position_y : float = hand_center_distance - hand_center_distance * sqrt(1 - pow(card_position_x/hand_center_distance, 2))
-		new_prs.position = Vector2(card_position_x, card_position_y)
-		new_prs.rotation = sin(card_position_x/hand_center_distance)
-		prs_array.append(new_prs)
-	return prs_array
+		new_transform.position = Vector2(card_position_x, card_position_y)
+		new_transform.rotation = sin(card_position_x/hand_center_distance)
+		transform_array.append(new_transform)
+	return transform_array
 
-func spread_positions_from_index(prs_array:Array, card_index:int):
+func spread_positions_from_index(transform_array:Array, card_index:int):
 	var index : int = 0
-	for prs in prs_array:
-		if prs is PRSData:
+	for transform in transform_array:
+		if transform is TransformData:
 			if index != card_index:
 				var hand_distance = abs(index - card_index)
 				var fan_distance = fan_cards_from_center / hand_distance
-				prs.position += Vector2(fan_distance * sign(index - card_index), 0)
+				transform.position += Vector2(fan_distance * sign(index - card_index), 0)
 			else:
-				prs.position += offset_nearest_card
-				prs.scale = scale_nearest_card
-				prs.rotation = 0.0
+				transform.position += offset_nearest_card
+				transform.scale = scale_nearest_card
+				transform.rotation = 0.0
 		index += 1
-	return prs_array
+	return transform_array
 
-func get_prs_array_spread():
-	var prs_array : Array = get_prs_array()
+func get_transform_array_spread():
+	var transform_array : Array = get_transform_array()
 	if spread_from_mouse_flag and spread_from_index >= 0:
-		prs_array = spread_positions_from_index(prs_array, spread_from_index)
-	return prs_array
+		transform_array = spread_positions_from_index(transform_array, spread_from_index)
+	return transform_array
 
 func update_hand():
-	var prs_array = get_prs_array_spread()
-	var prs_index = 0
+	var transform_array = get_transform_array_spread()
+	var transform_index = 0
 	for card_key in cards:
-		var new_prs_data : PRSData = prs_array[prs_index]
-		cards[card_key] = prs_array[prs_index]
+		var new_transform_data : TransformData = transform_array[transform_index]
+		cards[card_key] = transform_array[transform_index]
 		emit_signal("card_updated", card_key, cards[card_key])
-		prs_index += 1
+		transform_index += 1
 	emit_signal("hand_updated")
 
 func get_nearest_index(input_position:Vector2):
@@ -92,8 +92,8 @@ func get_nearest_index(input_position:Vector2):
 	var shortest_distance : float = ignore_mouse_range
 	var index : int = 0
 	for card_key in cards:
-		var prs : PRSData = cards[card_key]
-		var diff : Vector2 = prs.position - input_position
+		var transform : TransformData = cards[card_key]
+		var diff : Vector2 = transform.position - input_position
 		var distance : float = diff.length()
 		if distance < shortest_distance:
 			shortest_distance = distance

@@ -11,11 +11,11 @@ onready var animation_node = $CardSlot/GlowNode/AnimationPlayer
 
 var opportunity_data : OpportunityData setget set_opportunity_data
 var assigned_card = null
-var prs_data : PRSData
+var transform_data : TransformData
 
 func _ready():
-	prs_data = PRSData.new()
-	prs_data.scale = Vector2(0.5, 0.5)
+	transform_data = TransformData.new()
+	transform_data.scale = Vector2(0.5, 0.5)
 
 func _to_string():
 	return "BattleOpening:%d" % get_instance_id()

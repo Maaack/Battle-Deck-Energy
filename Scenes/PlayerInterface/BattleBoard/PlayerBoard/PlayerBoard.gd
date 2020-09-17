@@ -2,6 +2,9 @@ extends Control
 
 
 signal ending_turn
+signal draw_pile_pressed
+signal discard_pile_pressed
+signal exhaust_pile_pressed
 
 onready var draw_pile = $DrawPile
 onready var discard_pile = $DiscardPile
@@ -49,3 +52,12 @@ func reset_end_turn():
 
 func advance_round_count():
 	round_counter.advance_round()
+
+func _on_DrawPile_button_pressed():
+	emit_signal("draw_pile_pressed")
+
+func _on_DiscardPile_button_pressed():
+	emit_signal("discard_pile_pressed")
+
+func _on_ExhaustPile_button_pressed():
+	emit_signal("exhaust_pile_pressed")

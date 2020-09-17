@@ -4,7 +4,6 @@
 [ext_resource path="res://Assets/Sourced/Icons/LineHeroUnlimited/Medium/cards_game_solitaire_poker_blackjack_casino.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.gd" type="Script" id=3]
 
-
 [node name="Deck" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,3 +40,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

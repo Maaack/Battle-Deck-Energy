@@ -1,15 +1,15 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/BattleEffects/SlashAttack.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyVulnerable2.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyVulnerable.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/ApplyWeak2.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/LightSlashAttack.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Big Bruise"
 description = "Deal [b]3[/b] Strikes totalling %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and %APPLY_WEAK Weak."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+battle_effects = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ]
 type_tag = "ATTACK"

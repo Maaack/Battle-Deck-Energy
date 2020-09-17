@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/BattleEffects/BattleStatusEffects/IronShieldDefend.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/IronShieldDefend.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/OneEnergy/HeavySlashCard.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Cards/OneEnergy/SharpenBlades.tres" type="Resource" id=4]
 

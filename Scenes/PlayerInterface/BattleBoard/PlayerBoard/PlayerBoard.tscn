@@ -43,4 +43,7 @@ margin_bottom = -240.0
 [node name="BattleDeckEnergy" parent="." instance=ExtResource( 1 )]
 margin_top = -216.0
 margin_bottom = -152.0
+[connection signal="button_pressed" from="DrawPile" to="." method="_on_DrawPile_button_pressed"]
+[connection signal="button_pressed" from="DiscardPile" to="." method="_on_DiscardPile_button_pressed"]
+[connection signal="button_pressed" from="ExhaustPile" to="." method="_on_ExhaustPile_button_pressed"]
 [connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
