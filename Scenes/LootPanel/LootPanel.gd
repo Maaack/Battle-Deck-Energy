@@ -22,11 +22,11 @@ func _get_animate_in_time():
 	return default_animate_in_time
 
 func _add_card_option(card:CardData):
-	var prev_prs : PRSData = card.prs.duplicate()
-	card.prs.scale = INIT_CARD_SCALE
+	var prev_transform : TransformData = card.transform_data.duplicate()
+	card.transform_data.scale = INIT_CARD_SCALE
 	var card_node : CardNode2D = card_manager.add_card(card)
 	card_node.mouse_input_mode = card_node.MouseInputMode.PHYSICS
-	card_manager.move_card(card, prev_prs, _get_animate_in_time())
+	card_manager.move_card(card, prev_transform, _get_animate_in_time())
 
 func _spawn_containers():
 	for card in card_options:
@@ -48,7 +48,7 @@ func _add_cards_to_containers():
 		if card is CardData:
 			spawn_card_timer.start()
 			yield(spawn_card_timer, "timeout")
-			card.prs.position = container.get_card_parent_position() - center_offset
+			card.transform_data.position = container.get_card_parent_position() - center_offset
 			_add_card_option(card)
 
 func _on_ContinueButton_pressed():

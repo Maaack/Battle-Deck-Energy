@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/PlayerInterface/CardManager/AnimationQueue/AnimationQueue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/CardNode2D/CardNode2D.tscn" type="PackedScene" id=7]
 
 [node name="PlayerInterface" type="Control"]
 anchor_right = 1.0
@@ -74,7 +73,10 @@ mouse_filter = 1
 hand_center_distance = 2048.0
 
 [node name="CardManager" parent="HandContainer/CardControl" instance=ExtResource( 3 )]
-base_card_scene = ExtResource( 7 )
+default_tween_time = 0.5
+default_wait_time = 0.25
+default_focus_time = 0.15
+scale_focused_card = Vector2( 1.25, 1.25 )
 
 [node name="StatusUpdatesContainer" type="Control" parent="."]
 anchor_right = 1.0

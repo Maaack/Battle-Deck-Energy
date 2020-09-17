@@ -27,20 +27,20 @@ func focus_on_card(card_node:CardNode2D):
 		focus_off_card(_focused_card)
 	_focused_card = card_node
 	_focused_card_parent_index = _focused_card.get_position_in_parent()
-	_focused_card_scale = _focused_card.card_data.prs.scale
+	_focused_card_scale = _focused_card.card_data.transform_data.scale
 	move_child(_focused_card, get_child_count())
-	var new_prs : PRSData = _focused_card.card_data.prs.duplicate()
-	new_prs.scale = scale_focused_card
-	move_card(_focused_card.card_data, new_prs, get_focus_time())
+	var new_transform : TransformData = _focused_card.card_data.transform_data.duplicate()
+	new_transform.scale = scale_focused_card
+	move_card(_focused_card.card_data, new_transform, get_focus_time())
 
 func focus_off_card(card_node:CardNode2D):
 	if hold_focus or not is_card_focused(card_node):
 		return
 	move_child(_focused_card, _focused_card_parent_index)
 	_focused_card_parent_index = null
-	var new_prs : PRSData = _focused_card.card_data.prs.duplicate()
-	new_prs.scale = _focused_card_scale
-	move_card(_focused_card.card_data, new_prs, get_focus_time())
+	var new_transform : TransformData = _focused_card.card_data.transform_data.duplicate()
+	new_transform.scale = _focused_card_scale
+	move_card(_focused_card.card_data, new_transform, get_focus_time())
 	_focused_card = null
 	_focused_card_scale = null
 

@@ -59,17 +59,17 @@ func get_wait_time():
 func get_focus_time():
 	return default_focus_time
 
-func move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time(), anim_type:int = 0):
-	if card_data.prs.is_equal(new_prs):
+func move_card(card_data:CardData, new_transform:TransformData, tween_time:float = get_tween_time(), anim_type:int = 0):
+	if card_data.transform_data.is_equal(new_transform):
 		return
-	force_move_card(card_data, new_prs, tween_time)
+	force_move_card(card_data, new_transform, tween_time)
 
-func force_move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time()):
+func force_move_card(card_data:CardData, new_transform:TransformData, tween_time:float = get_tween_time()):
 	var card: CardNode2D = get_card_instance(card_data)
 	if is_instance_valid(card):
-		card.tween_to(new_prs, tween_time)
+		card.tween_to(new_transform, tween_time)
 		return
-	card_data.prs = new_prs
+	card_data.transform_data = new_transform
 
 func focus_on_card(card_node:CardNode2D):
 	focused_card = card_node
@@ -78,11 +78,11 @@ func focus_on_card(card_node:CardNode2D):
 	else:
 		card_node.glow_on()
 	_focused_card_parent_index = card_node.get_position_in_parent()
-	_focused_card_scale = card_node.card_data.prs.scale
+	_focused_card_scale = card_node.card_data.transform_data.scale
 	move_child(card_node, get_child_count())
-	var new_prs : PRSData = card_node.card_data.prs.duplicate()
-	new_prs.scale = scale_focused_card
-	move_card(card_node.card_data, new_prs, get_focus_time())
+	var new_transform : TransformData = card_node.card_data.transform_data.duplicate()
+	new_transform.scale = scale_focused_card
+	move_card(card_node.card_data, new_transform, get_focus_time())
 	emit_signal("focused_on_card", card_node.card_data)
 
 func focus_off_card(card_node:CardNode2D):
@@ -91,9 +91,9 @@ func focus_off_card(card_node:CardNode2D):
 		focused_card = null
 		move_child(card_node, _focused_card_parent_index)
 		_focused_card_parent_index = null
-		var new_prs : PRSData = card_node.card_data.prs.duplicate()
-		new_prs.scale = _focused_card_scale
-		move_card(card_node.card_data, new_prs,  get_focus_time())
+		var new_transform : TransformData = card_node.card_data.transform_data.duplicate()
+		new_transform.scale = _focused_card_scale
+		move_card(card_node.card_data, new_transform,  get_focus_time())
 		_focused_card_scale = null
 	emit_signal("focused_off_card", card_node.card_data)
 

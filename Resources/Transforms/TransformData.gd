@@ -1,7 +1,7 @@
 extends Resource
 
 
-class_name PRSData
+class_name TransformData
 
 const DEFAULT_POSITION : Vector2 = Vector2()
 const DEFAULT_ROTATION : float = 0.0

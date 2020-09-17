@@ -129,7 +129,7 @@ func set_mouse_input_mode(value:int):
 			body_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			area_2d_node.hide()
 
-func tween_to(new_prs:PRSData, tween_time:float = 0.0, animation_type:int = -1):
+func tween_to(new_transform:TransformData, tween_time:float = 0.0, animation_type:int = -1):
 	if is_instance_valid(tween_node):
 		if pulse_animation.is_playing():
 			yield(pulse_animation, "animation_finished")
@@ -139,26 +139,26 @@ func tween_to(new_prs:PRSData, tween_time:float = 0.0, animation_type:int = -1):
 			else:
 				tween_time = tween_node.get_runtime()
 			tween_node.remove_all()
-		tween_node.interpolate_property(self, "position", position, new_prs.position, tween_time)
-		tween_node.interpolate_property(self, "rotation", rotation, new_prs.rotation, tween_time)
-		tween_node.interpolate_property(self, "scale", scale, new_prs.scale, tween_time)
+		tween_node.interpolate_property(self, "position", position, new_transform.position, tween_time)
+		tween_node.interpolate_property(self, "rotation", rotation, new_transform.rotation, tween_time)
+		tween_node.interpolate_property(self, "scale", scale, new_transform.scale, tween_time)
 		tween_node.start()
-	card_data.prs = new_prs
+	card_data.transform_data = new_transform
 	_last_animation_type = animation_type
 
 func _finish_tween():
 	if tween_node.is_active():
 		tween_node.seek(tween_node.get_runtime())
 
-func _force_card_prs(prs:PRSData):
-	position = prs.position
-	rotation = prs.rotation
-	scale = prs.scale
+func _force_card_transform(transform:TransformData):
+	position = transform.position
+	rotation = transform.rotation
+	scale = transform.scale
 
 func set_card_data(value:CardData):
 	card_data = value
 	if is_instance_valid(card_data):
-		_force_card_prs(card_data.prs)
+		_force_card_transform(card_data.transform_data)
 
 func glow_on():
 		glow_node.glow_on()
@@ -172,7 +172,7 @@ func glow_off():
 func _animate_pulse():
 	pulse_animation.play("CardPulse")
 	yield(pulse_animation, "animation_finished")
-	_force_card_prs(card_data.prs)
+	_force_card_transform(card_data.transform_data)
 
 func play_card():
 	set_mouse_input_mode(MouseInputMode.NONE)

@@ -47,16 +47,16 @@ func get_card_instance(card_data:CardData):
 func get_tween_time():
 	return default_tween_time
 
-func move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time()):
-	if card_data.prs.is_equal(new_prs):
+func move_card(card_data:CardData, new_transform:TransformData, tween_time:float = get_tween_time()):
+	if card_data.transform_data.is_equal(new_transform):
 		return
-	force_move_card(card_data, new_prs, tween_time)
+	force_move_card(card_data, new_transform, tween_time)
 
-func force_move_card(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time()):
+func force_move_card(card_data:CardData, new_transform:TransformData, tween_time:float = get_tween_time()):
 	var card: CardNode2D = get_card_instance(card_data)
 	if is_instance_valid(card):
-		card.tween_to(new_prs, tween_time)
-	card_data.prs = new_prs
+		card.tween_to(new_transform, tween_time)
+	card_data.transform_data = new_transform
 
 func _on_Card_mouse_entered(card_node:CardNode2D):
 	emit_signal("focused_on_card", card_node)

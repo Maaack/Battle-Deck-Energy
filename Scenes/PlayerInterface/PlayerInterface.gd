@@ -51,11 +51,11 @@ func draw_card(card_data:CardData):
 	card_data = card_data
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var hand_offset : Vector2 = hand_manager.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-	card_data.prs.position = draw_pile_offset
-	card_data.prs.scale = Vector2(0.1, 0.1)
-	var new_prs : PRSData = PRSData.new()
-	new_prs.position = hand_offset
-	animation_queue.animate_move(card_data, new_prs, 0.4, 0.2, AnimationType.DRAWING)
+	card_data.transform_data.position = draw_pile_offset
+	card_data.transform_data.scale = Vector2(0.1, 0.1)
+	var new_transform : TransformData = TransformData.new()
+	new_transform.position = hand_offset
+	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DRAWING)
 
 func draw_cards(cards:Array):
 	for card in cards:
@@ -63,24 +63,24 @@ func draw_cards(cards:Array):
 
 func discard_card(card_data:CardData):
 	var discard_pile_offset : Vector2 = discard_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-	var new_prs : PRSData = PRSData.new()
-	new_prs.position = discard_pile_offset
-	new_prs.scale = Vector2(0.1, 0.1)
-	animation_queue.animate_move(card_data, new_prs, 0.4, 0.2, AnimationType.DISCARDING)
+	var new_transform : TransformData = TransformData.new()
+	new_transform.position = discard_pile_offset
+	new_transform.scale = Vector2(0.1, 0.1)
+	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DISCARDING)
 
 func exhaust_card(card_data:CardData):
 	var exhaust_pile_offset : Vector2 = exhaust_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-	var new_prs : PRSData = PRSData.new()
-	new_prs.position = exhaust_pile_offset
-	new_prs.scale = Vector2(0.1, 0.1)
-	animation_queue.animate_move(card_data, new_prs, 0.4, 0.2, AnimationType.EXHAUSTING)
+	var new_transform : TransformData = TransformData.new()
+	new_transform.position = exhaust_pile_offset
+	new_transform.scale = Vector2(0.1, 0.1)
+	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.EXHAUSTING)
 
 func reshuffle_card(card_data:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-	var new_prs : PRSData = PRSData.new()
-	new_prs.position = draw_pile_offset
-	new_prs.scale = Vector2(0.1, 0.1)
-	animation_queue.animate_move(card_data, new_prs, 0.2, 0.1, AnimationType.RESHUFFLING)
+	var new_transform : TransformData = TransformData.new()
+	new_transform.position = draw_pile_offset
+	new_transform.scale = Vector2(0.1, 0.1)
+	animation_queue.animate_move(card_data, new_transform, 0.2, 0.1, AnimationType.RESHUFFLING)
 
 func reset_end_turn():
 	player_board.reset_end_turn()
@@ -88,14 +88,14 @@ func reset_end_turn():
 func _ready():
 	animation_queue.delay_timer()
 
-func _on_HandManager_card_updated(card_data:CardData, prs:PRSData):
-	card_manager.move_card(card_data, prs, 0.1)
+func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
+	card_manager.move_card(card_data, transform, 0.1)
 
 func _on_CardSlot_moved(opening:BattleOpening):
 	var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-	opening.prs_data.position = opening.card_slot_node.get_global_transform().get_origin() + card_manager_offset
+	opening.transform_data.position = opening.card_slot_node.get_global_transform().get_origin() + card_manager_offset
 	if is_instance_valid(opening.assigned_card):
-		card_manager.force_move_card(opening.assigned_card, opening.prs_data, 0.05)
+		card_manager.force_move_card(opening.assigned_card, opening.transform_data, 0.05)
 
 func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target = null):
 	var total_values : Dictionary = {}
@@ -141,20 +141,20 @@ func _recalculate_all_cards():
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
-	card_manager.move_card(card, animation.prs, animation.tween_time)
+	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
 
 func _discarding_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
-	card_manager.move_card(card, animation.prs, animation.tween_time)
+	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	_discarding_cards_count += 1
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
-	card_manager.move_card(card, animation.prs, animation.tween_time)
+	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
@@ -170,7 +170,7 @@ func _on_AnimationQueue_animation_started(animation:AnimationData):
 		AnimationType.RESHUFFLING:
 			player_board.reshuffle_card()
 		_:
-			card_manager.move_card(card, animation.prs, animation.tween_time)
+			card_manager.move_card(card, animation.transform_data, animation.tween_time)
 
 func _on_PlayerBoard_ending_turn():
 	emit_signal("ending_turn")
@@ -303,14 +303,14 @@ func _on_PlayerInterface_gui_input(event):
 		if card_manager.dragged_card != null:
 			var card_node : CardNode2D = card_manager.dragged_card
 			var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-			var prs_data = PRSData.new()
-			prs_data.position = event.position + card_manager_offset
-			prs_data.scale = Vector2(1.25, 1.25)
-			var nearest_battle_opening = get_nearest_battle_opening(card_node.card_data, prs_data.position)
+			var transform_data = TransformData.new()
+			transform_data.position = event.position + card_manager_offset
+			transform_data.scale = Vector2(1.25, 1.25)
+			var nearest_battle_opening = get_nearest_battle_opening(card_node.card_data, transform_data.position)
 			if nearest_battle_opening is BattleOpening:
-				card_manager.move_card(card_node.card_data, nearest_battle_opening.prs_data, 0.1)
+				card_manager.move_card(card_node.card_data, nearest_battle_opening.transform_data, 0.1)
 			else:
-				card_manager.move_card(card_node.card_data, prs_data, 0.1)
+				card_manager.move_card(card_node.card_data, transform_data, 0.1)
 			if nearest_battle_opening == _nearest_battle_opening:
 				return
 			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
@@ -342,14 +342,14 @@ func _openings_glow_off(card:CardData):
 
 func get_nearest_battle_opening(card:CardData, position = null):
 	if position == null:
-		position = card.prs.position
+		position = card.transform_data.position
 	var shortest_distance : float = 120.0 # Ignore drop range
 	var nearest_battle_opening = null
 	for battle_opening in get_player_card_openings(card):
 		if battle_opening is BattleOpening:
-			var opening_prs : PRSData = battle_opening.prs_data
-			if opening_prs.position.distance_to(position) < shortest_distance:
-				shortest_distance = opening_prs.position.distance_to(position)
+			var opening_transform : TransformData = battle_opening.transform_data
+			if opening_transform.position.distance_to(position) < shortest_distance:
+				shortest_distance = opening_transform.position.distance_to(position)
 				nearest_battle_opening = battle_opening
 	return nearest_battle_opening
 
@@ -371,14 +371,14 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 		return
 	var battle_opening : BattleOpening = _opportunities_map[opportunity]
 	battle_opening.assigned_card = card
-	var opening_prs : PRSData = battle_opening.prs_data.duplicate()
+	var opening_transform : TransformData = battle_opening.transform_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
-		card_manager.move_card(card, opening_prs)
+		card_manager.move_card(card, opening_transform)
 		var card_instance : CardNode2D = card_manager.get_card_instance(card)
 		card_instance.play_card()
 	else:
-		card.prs = opening_prs
+		card.transform_data = opening_transform
 		var card_instance : CardNode2D = _new_character_card(character, card)
 		_calculate_card_mod(card_instance, character, opportunity.target)
 

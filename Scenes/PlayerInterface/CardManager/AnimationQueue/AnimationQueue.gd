@@ -18,14 +18,14 @@ func get_tween_time():
 func get_wait_time():
 	return default_wait_time
 
-func animate_move(card_data:CardData, new_prs:PRSData, tween_time:float = get_tween_time(), wait_time:float = get_wait_time(), anim_type:int = 0):
+func animate_move(card_data:CardData, new_transform:TransformData, tween_time:float = get_tween_time(), wait_time:float = get_wait_time(), anim_type:int = 0):
 	var animation_data : AnimationData
 	if card_data in card_animation_map and anim_type == card_animation_map[card_data].animation_type:
 		animation_data = card_animation_map[card_data]
 	else:
 		animation_data = AnimationData.new()
 	animation_data.card_data = card_data
-	animation_data.prs = new_prs.duplicate()
+	animation_data.transform_data = new_transform.duplicate()
 	animation_data.tween_time = tween_time
 	animation_data.animation_type = anim_type
 	animation_data.wait_time = wait_time
