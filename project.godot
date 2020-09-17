@@ -117,7 +117,7 @@ _global_script_classes=[ {
 "base": "EffectData",
 "class": "StatusEffectData",
 "language": "GDScript",
-"path": "res://Resources/Effects/BattleStatusEffect.gd"
+"path": "res://Resources/Effects/StatusEffectData.gd"
 }, {
 "base": "Node",
 "class": "StatusManager",
