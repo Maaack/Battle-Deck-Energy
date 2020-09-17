@@ -20,7 +20,7 @@ const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 
-func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:BattleEffect):
+func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:EffectData):
 	if effect.is_aimed_at_target():
 		return opportunity.target
 	else: 
@@ -32,7 +32,7 @@ func _get_character_statuses(character:CharacterData, character_manager_map:Dict
 	var character_manager : CharacterBattleManager = character_manager_map[character]
 	return character_manager.get_statuses()
 
-func _resolve_damage(effect:BattleEffect, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_statuses = _get_character_statuses(source, character_manager_map)
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.effect_quantity, effect.effect_type, source_statuses, target_statuses)
@@ -58,7 +58,7 @@ func _resolve_statuses(effect:BattleStatusEffect, source:CharacterData, target:C
 
 func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
 	for effect in card.battle_effects:
-		if effect is BattleEffect and effect.is_immediate():
+		if effect is EffectData and effect.is_immediate():
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.effect_type):
 				PARRY_EFFECT, OPENER_EFFECT, FORTIFY_EFFECT:

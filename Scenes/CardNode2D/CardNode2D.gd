@@ -47,7 +47,7 @@ func _reset_card_front():
 	if card_data.energy_cost >= 0:
 		energy_label.text = str(card_data.energy_cost)
 	if card_data.battle_effects.size() > 0:
-		var battle_effect : BattleEffect = card_data.battle_effects[0]
+		var battle_effect : EffectData = card_data.battle_effects[0]
 		if battle_effect.effect_icon != null:
 			effect_texture.texture = battle_effect.effect_icon
 		if battle_effect.effect_quantity != 0:
@@ -59,7 +59,7 @@ func _reset_card_front():
 func _get_effect_base_value(effect_type:String):
 	var value : int = 0
 	for effect in card_data.battle_effects:
-		if effect is BattleEffect and effect.effect_type == effect_type:
+		if effect is EffectData and effect.effect_type == effect_type:
 			value += effect.effect_quantity
 	return value
 
@@ -106,7 +106,7 @@ func update_card_effects(total_values:Dictionary):
 	description = "[center]%s[/center]" % description
 	description_label.bbcode_text = description
 	if card_data.battle_effects.size() > 0:
-		var battle_effect : BattleEffect = card_data.battle_effects[0]
+		var battle_effect : EffectData = card_data.battle_effects[0]
 		if not battle_effect.effect_type in total_values:
 			return
 		var effect_total_value : int = total_values[battle_effect.effect_type]
