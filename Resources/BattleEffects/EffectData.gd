@@ -1,7 +1,7 @@
 extends Resource
 
 
-class_name BattleEffect
+class_name EffectData
 
 enum ApplyMode{RESOLUTION, IMMEDIATE}
 enum AimMode{TARGET, SOURCE}

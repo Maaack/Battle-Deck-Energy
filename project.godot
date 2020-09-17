@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Animations/AnimationData.gd"
 }, {
-"base": "Resource",
-"class": "BattleEffect",
-"language": "GDScript",
-"path": "res://Resources/BattleEffects/BattleEffect.gd"
-}, {
 "base": "CenterContainer",
 "class": "BattleOpening",
 "language": "GDScript",
@@ -79,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Decks/DeckData.gd"
 }, {
+"base": "Resource",
+"class": "EffectData",
+"language": "GDScript",
+"path": "res://Resources/BattleEffects/EffectData.gd"
+}, {
 "base": "CardManager",
 "class": "FocusedCardManager",
 "language": "GDScript",
@@ -132,7 +132,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ActionsInterface": "",
 "AnimationData": "",
-"BattleEffect": "",
 "BattleOpening": "",
 "BattlePhase": "",
 "BattleStatusEffect": "",
@@ -144,6 +143,7 @@ _global_script_class_icons={
 "CharacterBattleManager": "",
 "CharacterData": "",
 "DeckData": "",
+"EffectData": "",
 "FocusedCardManager": "",
 "HandData": "",
 "LevelData": "",
