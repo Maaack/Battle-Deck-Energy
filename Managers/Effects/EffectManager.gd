@@ -38,7 +38,7 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var total_damage = effect_calculator.get_effect_total(effect.effect_quantity, effect.effect_type, source_statuses, target_statuses)
 	emit_signal("apply_damage", target, total_damage)
 
-func _resolve_statuses(effect:BattleStatusEffect, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	for status in effect.statuses:
 		var modified_status : StatusData = status.duplicate()
 		var source_statuses = _get_character_statuses(source, character_manager_map)
@@ -72,7 +72,7 @@ func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_m
 					emit_signal("apply_energy", final_target, effect.effect_quantity)
 				ATTACK_EFFECT:
 					_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
-			if effect is BattleStatusEffect:
+			if effect is StatusEffectData:
 				_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
 
 func include_innate_cards(cards:Array):

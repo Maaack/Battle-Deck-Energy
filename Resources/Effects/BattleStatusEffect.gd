@@ -1,7 +1,7 @@
 extends EffectData
 
 
-class_name BattleStatusEffect
+class_name StatusEffectData
 
 export(Array, Resource) var starting_statuses : Array = [] setget set_starting_statuses
 
