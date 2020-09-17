@@ -6,7 +6,3 @@
 [node name="BattleCardManager" type="Node2D"]
 script = ExtResource( 1 )
 base_card_scene = ExtResource( 2 )
-default_tween_time = null
-default_wait_time = null
-default_focus_time = null
-scale_focused_card = null

@@ -249,7 +249,6 @@ func _count_active_opponents():
 		if opponent is CharacterData:
 			if opponent.is_active():
 				active_opponents += 1
-	print("active opponents %d " % active_opponents)
 	return active_opponents
 
 func _on_CharacterBattleManager_died(character):
@@ -258,7 +257,6 @@ func _on_CharacterBattleManager_died(character):
 		emit_signal("player_lost")
 	else:
 		if _count_active_opponents() == 0:
-			print("player won!")
 			emit_signal("player_won")
 
 func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):

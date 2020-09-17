@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 
 signal focused_on_card(card_data)

@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 effect_type = "DEFEND"
 effect_icon = ExtResource( 2 )
-effect_quantity = 6
+effect_quantity = 8
 effect_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
 apply_mode = 1
 aim_mode = 0
