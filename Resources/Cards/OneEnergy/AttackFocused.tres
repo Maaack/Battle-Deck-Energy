@@ -10,4 +10,4 @@ title = "Attack Focused"
 description = "Apply %APPLY_STRENGTH Strength and add %FORTIFY Defend space(s)."
 energy_cost = 1
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
-type_tag = "DEFEND"
+type = 3

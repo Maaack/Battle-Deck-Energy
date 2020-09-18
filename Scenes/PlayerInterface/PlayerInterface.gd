@@ -327,7 +327,7 @@ func get_player_card_openings(card:CardData):
 	var openings : Array = actions_board.get_player_battle_openings()
 	for opening in openings:
 		if opening is BattleOpening:
-			if card.type_tag in opening.opportunity_data.allowed_types:
+			if card.type == opening.opportunity_data.type:
 				filtered_openings.append(opening)
 	return filtered_openings
 

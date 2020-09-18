@@ -228,8 +228,8 @@ func _on_EffectManager_apply_energy(character, energy):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_energy(energy)
 
-func _on_EffectManager_add_opportunity(source, target):
-	battle_opportunities_manager.add_opportunity(source, target)
+func _on_EffectManager_add_opportunity(type, source, target):
+	battle_opportunities_manager.add_opportunity(type, source, target)
 
 func _on_CharacterBattleManager_gained_energy(character:CharacterData, amount:int):
 	player_interface.character_gains_energy(character, amount)

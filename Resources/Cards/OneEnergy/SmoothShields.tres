@@ -3,13 +3,10 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyDefenseUp2.tres" type="Resource" id=2]
 
-
-
-
 [resource]
 script = ExtResource( 1 )
 title = "Smooth Shields"
 description = "Apply %APPLY_DEFENSE_UP Defense Up."
 energy_cost = 1
 effects = [ ExtResource( 2 ) ]
-type_tag = "DEFEND"
+type = 3

@@ -10,4 +10,4 @@ title = "Shield Bash"
 description = "Deal %ATTACK Damage and apply %APPLY_FRAGILE Fragile."
 energy_cost = 1
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
-type_tag = "ATTACK"
+type = 1

@@ -10,4 +10,4 @@ title = "Knuckles Up"
 description = "Absorb %DEFEND Damage and apply %APPLY_FORTITUDE Fortitude."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
-type_tag = "DEFEND"
+type = 2

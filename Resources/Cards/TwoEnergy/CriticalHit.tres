@@ -11,4 +11,4 @@ title = "Critical Hit"
 description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and add %OPENER Attack space(s)."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
-type_tag = "ATTACK"
+type = 1

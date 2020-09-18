@@ -10,4 +10,4 @@ title = "Crippling Blow"
 description = "Deal %ATTACK Damage and apply %APPLY_WEAK Weak."
 energy_cost = 1
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
-type_tag = "ATTACK"
+type = 1

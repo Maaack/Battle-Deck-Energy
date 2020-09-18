@@ -23,7 +23,7 @@ func _to_string():
 func set_opportunity_data(value:OpportunityData):
 	opportunity_data = value
 	if is_instance_valid(card_slot_node):
-		card_slot_node.allowed_types = opportunity_data.allowed_types
+		card_slot_node.type = opportunity_data.type
 
 func get_source():
 	return opportunity_data.source

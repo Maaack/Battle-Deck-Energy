@@ -9,4 +9,4 @@ title = "Annoy"
 description = "Deal [b]4[/b] Strikes totalling %ATTACK Damage."
 energy_cost = 1
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
-type_tag = "ATTACK"
+type = 1

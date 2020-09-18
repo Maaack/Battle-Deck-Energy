@@ -11,4 +11,4 @@ title = "Untempered"
 description = "Apply %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
-type_tag = "DEFEND"
+type = 2

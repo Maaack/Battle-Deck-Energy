@@ -10,4 +10,4 @@ title = "Second Critical"
 description = "Deal [b]2[/b] Strikes totalling %ATTACK Damage and apply %APPLY_VULNERABLE Vulnerable."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ) ]
-type_tag = "ATTACK"
+type = 1

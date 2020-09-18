@@ -9,4 +9,4 @@ title = "Double Shields"
 description = "Absorb %DEFEND Damage over [b]2[/b] Shields."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
-type_tag = "DEFEND"
+type = 2

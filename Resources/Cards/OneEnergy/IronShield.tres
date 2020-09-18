@@ -9,4 +9,4 @@ title = "Iron Shield"
 description = "Absorb %DEFEND Damage."
 energy_cost = 1
 effects = [ ExtResource( 2 ) ]
-type_tag = "DEFEND"
+type = 2

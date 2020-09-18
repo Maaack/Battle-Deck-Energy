@@ -10,4 +10,4 @@ title = "Fix Footing"
 description = "Absorb %DEFEND Damage and add %RICOCHET Attack space(s)."
 energy_cost = 1
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
-type_tag = "DEFEND"
+type = 3

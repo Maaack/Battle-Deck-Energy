@@ -3,13 +3,10 @@ extends Resource
 
 class_name OpportunityData
 
-const NO_TYPE = -1
-
 var source : CharacterData
 var target : CharacterData
-var opp_type : int = NO_TYPE
+var type : int = CardData.CardType.NONE
 var card_data = null setget set_card
-var allowed_types : Array = []
 var transform = TransformData.new()
 
 func _to_string():

@@ -4,13 +4,10 @@
 [ext_resource path="res://Resources/Effects/StatusEffects/StanceDefend.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/FortifyEffect2.tres" type="Resource" id=3]
 
-
-
-
 [resource]
 script = ExtResource( 1 )
 title = "Fortify"
 description = "Add %FORTIFY Defend space(s) and absorb %DEFEND Damage."
 energy_cost = 1
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
-type_tag = "DEFEND"
+type = 2
