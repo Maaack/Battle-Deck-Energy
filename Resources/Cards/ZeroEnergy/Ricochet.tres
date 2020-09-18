@@ -9,5 +9,5 @@ script = ExtResource( 1 )
 title = "Ricochet"
 description = "Deal %ATTACK Damage and add %RICOCHET Attack space on all other opponents."
 energy_cost = 0
-battle_effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type_tag = "ATTACK"

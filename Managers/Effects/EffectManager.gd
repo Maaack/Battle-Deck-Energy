@@ -57,7 +57,7 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 		emit_signal("apply_status", target, modified_status)
 
 func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
-	for effect in card.battle_effects:
+	for effect in card.effects:
 		if effect is EffectData and effect.is_immediate():
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.type_tag):

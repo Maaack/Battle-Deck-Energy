@@ -9,5 +9,5 @@ script = ExtResource( 1 )
 title = "Cheap Shot"
 description = "Deal %ATTACK Damage and absorb %DEFEND Damage."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type_tag = "ATTACK"

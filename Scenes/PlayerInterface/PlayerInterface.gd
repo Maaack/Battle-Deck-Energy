@@ -99,7 +99,7 @@ func _on_CardSlot_moved(opening:BattleOpening):
 
 func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target = null):
 	var total_values : Dictionary = {}
-	for effect in card_instance.card_data.battle_effects:
+	for effect in card_instance.card_data.effects:
 		var base_value = effect.amount
 		var type_tag = effect.type_tag
 		if not type_tag in total_values:

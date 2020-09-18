@@ -9,5 +9,5 @@ script = ExtResource( 1 )
 title = "Opening Strike"
 description = "Deal %ATTACK Damage and add [b]2[/b] Attack spaces."
 energy_cost = 0
-battle_effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type_tag = "ATTACK"

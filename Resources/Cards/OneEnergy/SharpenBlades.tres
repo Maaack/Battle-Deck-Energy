@@ -8,5 +8,5 @@ script = ExtResource( 1 )
 title = "Sharpen Blades"
 description = "Apply %APPLY_ATTACK_UP Attack Up."
 energy_cost = 1
-battle_effects = [ ExtResource( 2 ) ]
+effects = [ ExtResource( 2 ) ]
 type_tag = "DEFEND"

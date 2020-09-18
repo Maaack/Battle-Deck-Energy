@@ -8,5 +8,5 @@ script = ExtResource( 1 )
 title = "Heavy Slash"
 description = "Deal %ATTACK Damage."
 energy_cost = 1
-battle_effects = [ ExtResource( 2 ) ]
+effects = [ ExtResource( 2 ) ]
 type_tag = "ATTACK"

@@ -11,5 +11,5 @@ script = ExtResource( 1 )
 title = "Ancestry Bash"
 description = "Deal %ATTACK Damage, apply %APPLY_FRAGILE Fragile, %APPLY_WEAK Weak, and %APPLY_ATTACK_UP Attack Up."
 energy_cost = 2
-battle_effects = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ) ]
 type_tag = "ATTACK"

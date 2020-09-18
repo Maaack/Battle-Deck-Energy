@@ -13,5 +13,5 @@ description = "Gain [b]1[/b] Energy and Exhaust.
 Innate.
 Retained."
 energy_cost = 0
-battle_effects = [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
 type_tag = "DEFEND"

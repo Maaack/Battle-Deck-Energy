@@ -9,5 +9,5 @@ script = ExtResource( 1 )
 title = "Painful Memory"
 description = "Apply %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type_tag = "DEFEND"
