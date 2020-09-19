@@ -59,7 +59,6 @@ func add_opportunity(opportunity:OpportunityData):
 		type_map[type] = 0
 	type_map[type] += 1
 	opportunity.transform_data.scale = get_transform().get_scale()
-	print("add opportunity updating opportunity %s " % opportunity)
 	emit_signal("update_opportunity", opportunity, self)
 	_update_label()
 	_update_slots()

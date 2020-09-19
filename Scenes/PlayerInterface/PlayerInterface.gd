@@ -12,6 +12,8 @@ signal card_played_on_opportunity(card, opportunity)
 
 enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
+export(float, 0, 512) var opportunity_snap_range = 200.0
+
 onready var animation_queue : Node = $AnimationQueue
 onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
 onready var opponent_card_manager : Node2D = $HandContainer/CardControl/FocusedCardManager
@@ -97,7 +99,6 @@ func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card_manager.move_card(card_data, transform, 0.1)
 
 func _on_CardContainer_update_opportunity(opportunity:OpportunityData, container:CardContainer):
-	print("update_opportunity")
 	var card_manager_offset : Vector2 = card_manager.get_global_transform().get_origin()
 	opportunity.transform_data.position = container.get_card_parent_position() - card_manager_offset
 	if is_instance_valid(opportunity.card_data):
@@ -345,7 +346,7 @@ func _openings_glow_off(card:CardData):
 func get_nearest_card_opportunity(card:CardData, position = null):
 	if position == null:
 		position = card.transform_data.position
-	var shortest_distance : float = 120.0 # Ignore drop range
+	var shortest_distance : float = opportunity_snap_range
 	var nearest_opportunity = null
 	for opportunity in get_player_card_opportunities(card):
 		if opportunity is OpportunityData:
