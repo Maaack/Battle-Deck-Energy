@@ -3,28 +3,34 @@ extends CharacterActionsInterface
 
 class_name OpponentActionsInterface
 
-onready var opponent_opening_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Opponents
-onready var player_opening_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer/Players
 onready var dead_cover = $DeadCover
+onready var opponent_opportunities_container = $MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer
 
 func set_character_data(value:CharacterData):
 	.set_character_data(value)
 	if character_data is OpponentCharacterData:
 		_update_nickname(character_data.nickname)
-		
-func add_opening(opportunity:OpportunityData):
-	var container : Node
+
+func add_opportunity(opportunity:OpportunityData):
+	if opportunity in opportunities_map:
+		return
+	opportunities_map[opportunity] = true
 	if opportunity.source == character_data:
-		container = opponent_opening_container
-	elif opportunity.target == character_data:
-		container = player_opening_container
-	return _add_opening(opportunity, container)
+		opponent_opportunities_container.add_opportunity(opportunity)
+		return opponent_opportunities_container
+	else:
+		opportunities_container.add_opportunity(opportunity)
+		return opportunities_container
 
-func get_player_battle_openings():
-	return get_non_source_battle_openings()
-
-func get_opponent_battle_openings():
-	return get_source_battle_openings()
+func remove_opportunity(opportunity:OpportunityData, erase_flag = true):
+	if not opportunity in opportunities_map:
+		return
+	if opportunity.source == character_data:
+		opponent_opportunities_container.remove_opportunity(opportunity)
+	else:
+		opportunities_container.remove_opportunity(opportunity)
+	if erase_flag:
+		opportunities_map.erase(opportunity)
 
 func defeat_character():
 	.defeat_character()

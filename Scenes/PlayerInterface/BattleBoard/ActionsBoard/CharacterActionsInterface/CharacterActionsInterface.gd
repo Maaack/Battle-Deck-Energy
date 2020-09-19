@@ -3,11 +3,14 @@ extends ActionsInterface
 
 class_name CharacterActionsInterface
 
+signal update_opportunity(opportunity, container)
+
 const ARMOR_STATUS = 'DEFENSE'
 
 onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/NicknameLabel
 onready var health_meter = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter
 onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
+onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
 
 func _update_nickname(nickname:String = ""):
 	nickname_label.text = nickname
@@ -35,6 +38,25 @@ func set_character_data(value:CharacterData):
 	update_meters()
 	_update_nickname()
 
+func add_opportunity(opportunity:OpportunityData):
+	if opportunity in opportunities_map:
+		return
+	opportunities_map[opportunity] = true
+	opportunities_container.add_opportunity(opportunity)
+	return opportunities_container
+
+func remove_opportunity(opportunity:OpportunityData, erase_flag = true):
+	if not opportunity in opportunities_map:
+		return
+	opportunities_container.remove_opportunity(opportunity)
+	if erase_flag:
+		opportunities_map.erase(opportunity)
+
+func remove_all_opportunities():
+	for opportunity in opportunities_map:
+		remove_opportunity(opportunity, false)
+	opportunities_map.clear()
+
 func add_status(status:StatusData):
 	if status.type_tag == ARMOR_STATUS:
 		health_meter.armor = status.intensity
@@ -46,3 +68,9 @@ func remove_status(status:StatusData):
 		health_meter.armor = 0
 		return
 	status_icon_manager.remove_status(status)
+
+func defeat_character():
+	remove_all_opportunities()
+
+func _on_OpportunitiesContainter_update_opportunity(opportunity, container):
+	emit_signal("update_opportunity", opportunity, container)

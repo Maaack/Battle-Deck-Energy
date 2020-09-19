@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Managers/Cards/CardContainer/CardContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.gd" type="Script" id=2]
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=3]
+[ext_resource path="res://Themes/StyleBoxes/GrayOutlineStyleBox.tres" type="StyleBox" id=4]
+[ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_38_top_slimmed.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/OpportunityContainer/GlowNode.tscn" type="PackedScene" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.8, 0.8, 0.8, 0.435294 )
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[node name="OpportunitiesContainter" instance=ExtResource( 1 )]
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Slot1" type="Panel" parent="CenterContainer/Control" index="1"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -128.0
+margin_right = 88.0
+margin_bottom = 128.0
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Control/Slot1" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/Control/Slot1/MarginContainer" index="0"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 168.0
+margin_bottom = 248.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.8, 0.8, 0.8, 0.435294 )
+text = "1 ATTACK
+-
+1 DEFEND
+-
+1 SKILL"
+align = 1
+valign = 1
+
+[node name="Slot2" type="Panel" parent="CenterContainer/Control/Slot1" index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 164.0
+margin_right = 24.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot3" type="Panel" parent="CenterContainer/Control/Slot1" index="2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 187.0
+margin_right = 47.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GlowNode" parent="CenterContainer/Control" index="2" instance=ExtResource( 6 )]
+visible = false

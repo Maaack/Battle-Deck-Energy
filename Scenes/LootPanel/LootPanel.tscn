@@ -8,7 +8,6 @@
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Scenes/CardNode2D/CardNode2D.tscn" type="PackedScene" id=9]
 
-
 [node name="LootPanel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -138,6 +137,10 @@ __meta__ = {
 
 [node name="SpawnCardTimer" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
+
+[node name="RepositionTimer" type="Timer" parent="."]
+wait_time = 0.05
 one_shot = true
 [connection signal="released_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/InspectorCardManager" to="." method="_on_InspectorCardManager_released_card"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsMargin/SkipLootButton" to="." method="_on_SkipLootButton_pressed"]

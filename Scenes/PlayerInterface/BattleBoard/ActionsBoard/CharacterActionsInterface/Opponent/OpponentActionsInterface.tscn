@@ -1,26 +1,47 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/DeadCover/DeadCover.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.gd" type="Script" id=3]
+[ext_resource path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" type="PackedScene" id=4]
 
 [node name="OpponentActionsInterface" instance=ExtResource( 1 )]
 margin_right = 264.0
 margin_bottom = 388.0
+rect_min_size = Vector2( 264, 444 )
 size_flags_horizontal = 3
 script = ExtResource( 3 )
 
-[node name="Opponents" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="0"]
-margin_right = 248.0
-margin_bottom = 138.0
-rect_min_size = Vector2( 0, 128 )
-size_flags_vertical = 3
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" index="0"]
+margin_left = 2.0
+margin_right = 266.0
+margin_bottom = 444.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 104
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Players" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="1"]
-margin_top = 142.0
-margin_right = 248.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 0, 128 )
-size_flags_vertical = 3
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer" index="0"]
+margin_left = 16.0
+margin_top = 104.0
+margin_right = 232.0
+margin_bottom = 428.0
+
+[node name="OpponentOpportunitiesContainer" parent="MarginContainer/MarginContainer/Control" index="0" instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -90.0
+margin_top = 0.0
+margin_right = 134.0
+margin_bottom = 336.0
+rect_scale = Vector2( 0.4, 0.4 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="DeadCover" parent="." index="1" instance=ExtResource( 2 )]
+[connection signal="update_opportunity" from="MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer" to="." method="_on_OpportunitiesContainter_update_opportunity"]

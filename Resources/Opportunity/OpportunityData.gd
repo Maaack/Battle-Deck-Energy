@@ -7,7 +7,7 @@ var source : CharacterData
 var target : CharacterData
 var type : int = CardData.CardType.NONE
 var card_data = null setget set_card
-var transform = TransformData.new()
+var transform_data = TransformData.new()
 
 func _to_string():
 	return "OpportunityData:%d" % get_instance_id()

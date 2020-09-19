@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.gd" type="Script" id=6]
+[ext_resource path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" type="PackedScene" id=7]
 
 [node name="CharacterActionsInterface" type="Control"]
 margin_right = 200.0
@@ -29,7 +30,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 2.0
 margin_right = 266.0
-margin_bottom = 388.0
+margin_bottom = 444.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -131,7 +132,7 @@ margin_bottom = 36.0
 [node name="OpeningsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 108.0
 margin_right = 264.0
-margin_bottom = 388.0
+margin_bottom = 444.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 8
@@ -140,9 +141,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OpeningsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin"]
+[node name="OpportunitiesContainter" parent="MarginContainer/VBoxContainer/OpeningsMargin" instance=ExtResource( 7 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 8.0
+margin_top = 0.0
 margin_right = 256.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 0, 280 )
-size_flags_horizontal = 3
+margin_bottom = 336.0
+[connection signal="update_opportunity" from="MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter" to="." method="_on_OpportunitiesContainter_update_opportunity"]

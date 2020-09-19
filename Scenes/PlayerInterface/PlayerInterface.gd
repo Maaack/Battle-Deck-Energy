@@ -14,6 +14,7 @@ enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING,
 
 onready var animation_queue : Node = $AnimationQueue
 onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
+onready var opponent_card_manager : Node2D = $HandContainer/CardControl/FocusedCardManager
 onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
 onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
 onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
@@ -32,7 +33,7 @@ var _discarding_cards_count : int = 0
 var _opportunities_map : Dictionary = {}
 var _character_statuses_map : Dictionary = {}
 var _card_owner_map : Dictionary = {}
-var _nearest_battle_opening = null
+var _nearest_opportunity = null
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -40,9 +41,13 @@ func set_player_data(value:CharacterData):
 		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_draw_pile_size(player_data.deck_size())
 		actions_board.player_data = player_data
+		var interface : CharacterActionsInterface = actions_board.get_actions_instance(player_data)
+		interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
 
 func add_opponent(opponent:CharacterData):
-	return actions_board.add_opponent(opponent)
+	var interface  : CharacterActionsInterface = actions_board.add_opponent(opponent)
+	interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
+	return interface
 
 func set_draw_pile_count(count:int):
 		player_board.set_draw_pile_size(count)
@@ -91,11 +96,13 @@ func _ready():
 func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card_manager.move_card(card_data, transform, 0.1)
 
-func _on_CardSlot_moved(opening:BattleOpening):
-	var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-	opening.transform_data.position = opening.card_slot_node.get_global_transform().get_origin() + card_manager_offset
-	if is_instance_valid(opening.assigned_card):
-		card_manager.force_move_card(opening.assigned_card, opening.transform_data, 0.05)
+func _on_CardContainer_update_opportunity(opportunity:OpportunityData, container:CardContainer):
+	print("update_opportunity")
+	var card_manager_offset : Vector2 = card_manager.get_global_transform().get_origin()
+	opportunity.transform_data.position = container.get_card_parent_position() - card_manager_offset
+	if is_instance_valid(opportunity.card_data):
+		card_manager.force_move_card(opportunity.card_data, opportunity.transform_data, 0.05)
+		opponent_card_manager.force_move_card(opportunity.card_data, opportunity.transform_data, 0.05)
 
 func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target = null):
 	var total_values : Dictionary = {}
@@ -116,7 +123,11 @@ func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target 
 	return total_values
 
 func _new_character_card(character:CharacterData, card:CardData):
-	var card_instance : CardNode2D = card_manager.add_card(card)
+	var card_instance : CardNode2D
+	if character == player_data:
+		card_instance = card_manager.add_card(card)
+	else:
+		card_instance = opponent_card_manager.add_card(card)
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
 	return card_instance
@@ -269,98 +280,90 @@ func start_turn():
 func start_round():
 	player_board.advance_round_count()
 
-func _map_opportunity_node(opening:BattleOpening):
-	if not is_instance_valid(opening):
-		return
-	opening.connect("card_slot_moved", self, "_on_CardSlot_moved", [opening])
-	_opportunities_map[opening.opportunity_data] = opening
-
-func _map_opportunity_nodes(openings:Array):
-	for opening in openings:
-		if opening is BattleOpening:
-			_map_opportunity_node(opening)
-
 func clear_opportunities():
 	_opportunities_map.clear()
 
-func add_opening(opportunity:OpportunityData):
-	var opening : BattleOpening = actions_board.add_opening(opportunity)
-	_map_opportunity_node(opening)
-	return opening
+func add_opportunity(opportunity:OpportunityData):
+	var container = actions_board.add_opportunity(opportunity)
+	if is_instance_valid(container):
+		_opportunities_map[opportunity] = container
 
-func add_openings(opportunities:Array):
-	var openings : Array = actions_board.add_openings(opportunities)
-	_map_opportunity_nodes(openings)
-	return openings
+func remove_opportunity(opportunity:OpportunityData):
+	if not opportunity in _opportunities_map:
+		return
+	actions_board.remove_opportunity(opportunity)
+	if _nearest_opportunity == opportunity:
+		_nearest_opportunity = null
+	_opportunities_map.erase(opportunity)
 
-func remove_opening(opportunity:OpportunityData):
-	actions_board.remove_opening(opportunity)
-
-func remove_all_openings():
-	actions_board.remove_all_openings()
+func remove_all_opportunities():
+	actions_board.remove_all_opportunities()
 	clear_opportunities()
 
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:
 		if card_manager.dragged_card != null:
 			var card_node : CardNode2D = card_manager.dragged_card
-			var card_manager_offset : Vector2 = get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-			var final_position : Vector2 =  event.position + card_manager_offset
+			var card_manager_offset : Vector2 = card_manager.get_global_transform().get_origin()
+			var final_position : Vector2 =  event.position - card_manager_offset
 			card_manager.drag_to_position(final_position)
-			var nearest_battle_opening = get_nearest_battle_opening(card_node.card_data, final_position)
-			if nearest_battle_opening is BattleOpening:
-				card_manager.move_card(card_node.card_data, nearest_battle_opening.transform_data, 0.1)
-			if nearest_battle_opening == _nearest_battle_opening:
+			var nearest_opportunity = get_nearest_card_opportunity(card_node.card_data, final_position)
+			if nearest_opportunity is OpportunityData:
+				card_manager.move_card(card_node.card_data, nearest_opportunity.transform_data, 0.1)
+			if nearest_opportunity == _nearest_opportunity:
 				return
-			if _nearest_battle_opening != null and nearest_battle_opening != _nearest_battle_opening:
-				_nearest_battle_opening.glow_on()
-			_nearest_battle_opening = nearest_battle_opening
+			if _nearest_opportunity != null and nearest_opportunity != _nearest_opportunity:
+				var container : OpportunitiesContainer = _opportunities_map[_nearest_opportunity]
+				container.glow_on()
+			_nearest_opportunity = nearest_opportunity
 			var card_owner = _card_owner_map[card_node.card_data]
 			var target = null
-			if nearest_battle_opening is BattleOpening:
-				nearest_battle_opening.glow_special()
-				target = nearest_battle_opening.get_target()
+			if nearest_opportunity is OpportunityData:
+				var container : OpportunitiesContainer = _opportunities_map[nearest_opportunity]
+				container.glow_special()
+				target = nearest_opportunity.target
 			_calculate_card_mod(card_node, card_owner, target)
 
-func get_player_card_openings(card:CardData):
-	var filtered_openings : Array = []
-	var openings : Array = actions_board.get_player_battle_openings()
-	for opening in openings:
-		if opening is BattleOpening:
-			if card.type == opening.opportunity_data.type:
-				filtered_openings.append(opening)
-	return filtered_openings
+func get_player_card_opportunities(card:CardData):
+	var filtered_opportunities : Dictionary = {}
+	for opportunity in _opportunities_map:
+		if opportunity is OpportunityData:
+			if card.type == opportunity.type and player_data == opportunity.source:
+				filtered_opportunities[opportunity] = _opportunities_map[opportunity]
+	return filtered_opportunities
 
 func _openings_glow_on(card:CardData):
-	for battle_opening in get_player_card_openings(card):
-		battle_opening.glow_on()
+	for container in get_player_card_opportunities(card).values():
+		if container is OpportunitiesContainer:
+			container.glow_on()
 
 func _openings_glow_off(card:CardData):
-	for battle_opening in get_player_card_openings(card):
-		battle_opening.glow_off()
+	for container in get_player_card_opportunities(card).values():
+		if container is OpportunitiesContainer:
+			container.glow_off()
 
-func get_nearest_battle_opening(card:CardData, position = null):
+func get_nearest_card_opportunity(card:CardData, position = null):
 	if position == null:
 		position = card.transform_data.position
 	var shortest_distance : float = 120.0 # Ignore drop range
-	var nearest_battle_opening = null
-	for battle_opening in get_player_card_openings(card):
-		if battle_opening is BattleOpening:
-			var opening_transform : TransformData = battle_opening.transform_data
-			if opening_transform.position.distance_to(position) < shortest_distance:
-				shortest_distance = opening_transform.position.distance_to(position)
-				nearest_battle_opening = battle_opening
-	return nearest_battle_opening
+	var nearest_opportunity = null
+	for opportunity in get_player_card_opportunities(card):
+		if opportunity is OpportunityData:
+			var opportunity_transform : TransformData = opportunity.transform_data
+			if opportunity_transform.position.distance_to(position) < shortest_distance:
+				shortest_distance = opportunity_transform.position.distance_to(position)
+				nearest_opportunity = opportunity
+	return nearest_opportunity
 
 func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
 
 func _on_dropping_card(card:CardData):
-	var nearest_battle_opening = get_nearest_battle_opening(card)
+	var nearest_opportunity = get_nearest_card_opportunity(card)
 	_openings_glow_off(card)
-	if nearest_battle_opening is BattleOpening:
-		emit_signal("card_played_on_opportunity", card, nearest_battle_opening.opportunity_data)
+	if nearest_opportunity is OpportunityData:
+		emit_signal("card_played_on_opportunity", card, nearest_opportunity)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 
@@ -374,9 +377,8 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 	if not opportunity in _opportunities_map:
 		print("Warning: %s doesn't exist in opportunities map %s ." % [opportunity, str(_opportunities_map)])
 		return
-	var battle_opening : BattleOpening = _opportunities_map[opportunity]
-	battle_opening.assigned_card = card
-	var opening_transform : TransformData = battle_opening.transform_data.duplicate()
+	opportunity.card_data = card
+	var opening_transform : TransformData = opportunity.transform_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
 		card_manager.move_card(card, opening_transform)
@@ -388,7 +390,7 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 		_calculate_card_mod(card_instance, character, opportunity.target)
 
 func opponent_discards_card(card:CardData):
-	card_manager.remove_card(card)
+	opponent_card_manager.remove_card(card)
 
 func add_status(character:CharacterData, status:StatusData):
 	if not character in _character_statuses_map:
@@ -420,3 +422,11 @@ func _on_PlayerBoard_discard_pile_pressed():
 
 func _on_PlayerBoard_exhaust_pile_pressed():
 	emit_signal("exhaust_pile_pressed")
+
+func _on_PlayerInterface_resized():
+	if is_instance_valid($ResizeTimer):
+		$ResizeTimer.start()
+
+func _on_ResizeTimer_timeout():
+	for opportunity in _opportunities_map:
+		_on_CardContainer_update_opportunity(opportunity, _opportunities_map[opportunity])

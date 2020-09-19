@@ -116,13 +116,13 @@ func _discard_or_exhaust_card(card:CardData):
 
 func _discard_played_cards():
 	var discarding_flag = false
-	for opp_data in _round_opportunities_map:
-		if opp_data is OpportunityData and is_instance_valid(opp_data.card_data):
-			if opp_data.source == player_data:
+	for opportunity in _round_opportunities_map:
+		if opportunity is OpportunityData and is_instance_valid(opportunity.card_data):
+			if opportunity.source == player_data:
 				discarding_flag = true
-				_discard_or_exhaust_card(opp_data.card_data)
+				_discard_or_exhaust_card(opportunity.card_data)
 			else:
-				player_interface.opponent_discards_card(opp_data.card_data)
+				player_interface.opponent_discards_card(opportunity.card_data)
 	return discarding_flag
 
 func _resolve_actions(character:CharacterData):
@@ -144,7 +144,7 @@ func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
 
 func _discard_all_cards():
 	var discarding_flag = _discard_played_cards()
-	player_interface.remove_all_openings()
+	player_interface.remove_all_opportunities()
 	_round_opportunities_map.clear()
 	if discarding_flag:
 		player_interface.connect("discard_completed",  battle_phase_manager, "advance")
@@ -260,13 +260,12 @@ func _on_CharacterBattleManager_died(character):
 			emit_signal("player_won")
 
 func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):
-	var opening : BattleOpening = player_interface.add_opening(opportunity)
-	if is_instance_valid(opening):
-		_round_opportunities_map[opening.opportunity_data] = opening
+	player_interface.add_opportunity(opportunity)
+	_round_opportunities_map[opportunity] = true
 
 func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityData):
 	_round_opportunities_map.erase(opportunity)
-	player_interface.remove_opening(opportunity)
+	player_interface.remove_opportunity(opportunity)
 	if opportunity.card_data != null:
 		if opportunity.source == player_data:
 			_discard_or_exhaust_card(opportunity.card_data)

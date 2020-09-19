@@ -4,12 +4,15 @@ extends FocusedCardManager
 signal dragging_card(card_data)
 signal dropping_card(card_data)
 
-var dragged_card = null
-var energy_available = 0
 var locked_cards : Dictionary = {}
+var energy_available : int = 0
+var dragged_card = null
 
 func _can_afford_card(card_node:CardNode2D):
 	return card_node.card_data.energy_cost <= energy_available
+
+func is_locked_card(card_data:CardData):
+	return card_data in locked_cards
 
 func lock_card(card_data:CardData):
 	locked_cards[card_data] = true
@@ -52,7 +55,7 @@ func drag_to_position(position:Vector2):
 
 func _on_Card_mouse_clicked(card_node:CardNode2D):
 	._on_Card_mouse_clicked(card_node)
-	if not _can_afford_card(card_node):
+	if is_locked_card(card_node.card_data) or not _can_afford_card(card_node):
 		return
 	dragged_card = card_node
 	emit_signal("dragging_card", card_node.card_data)
