@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/CardNode2D/GlowAnimation.tres" type="Animation" id=1]
+[ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" type="StyleBox" id=2]
+[ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" type="StyleBox" id=3]
+[ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" type="StyleBox" id=4]
+[ext_resource path="res://Scenes/CardNode2D/GlowNode.gd" type="Script" id=5]
+
+[node name="GlowNode" type="Node2D"]
+script = ExtResource( 5 )
+glow_on_style = ExtResource( 3 )
+glow_not_style = ExtResource( 4 )
+glow_special_style = ExtResource( 2 )
+
+[node name="GlowPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -128.0
+margin_right = 88.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 176, 256 )
+custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Glow = ExtResource( 1 )

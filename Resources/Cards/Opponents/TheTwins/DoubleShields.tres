@@ -8,5 +8,5 @@ script = ExtResource( 1 )
 title = "Double Shields"
 description = "Absorb %DEFEND Damage over [b]2[/b] Shields."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
-type_tag = "DEFEND"
+effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
+type = 2

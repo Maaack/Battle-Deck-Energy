@@ -11,5 +11,5 @@ script = ExtResource( 1 )
 title = "Big Bruise"
 description = "Deal [b]3[/b] Strikes totalling %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and %APPLY_WEAK Weak."
 energy_cost = 2
-battle_effects = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ]
-type_tag = "ATTACK"
+effects = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ]
+type = 1

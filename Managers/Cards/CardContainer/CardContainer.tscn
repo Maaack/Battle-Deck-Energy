@@ -22,18 +22,16 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 40.0
-margin_bottom = 40.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" type="Control" parent="CenterContainer"]
-margin_left = 132.0
-margin_top = 188.0
-margin_right = 132.0
-margin_bottom = 188.0
+margin_left = 112.0
+margin_top = 168.0
+margin_right = 112.0
+margin_bottom = 168.0
 mouse_filter = 2
 
 [node name="CardCenter" type="Position2D" parent="CenterContainer/Control"]

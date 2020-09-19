@@ -37,18 +37,5 @@ margin_right = 288.0
 [node name="OpeningsMargin" parent="MarginContainer/VBoxContainer" index="2"]
 margin_right = 296.0
 
-[node name="OpeningsContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin" index="0"]
+[node name="OpportunitiesContainter" parent="MarginContainer/VBoxContainer/OpeningsMargin" index="0"]
 margin_right = 288.0
-
-[node name="Active" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="0"]
-margin_right = 280.0
-margin_bottom = 138.0
-rect_min_size = Vector2( 0, 128 )
-size_flags_vertical = 3
-
-[node name="Passive" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OpeningsMargin/OpeningsContainer" index="1"]
-margin_top = 142.0
-margin_right = 280.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 0, 128 )
-size_flags_vertical = 3

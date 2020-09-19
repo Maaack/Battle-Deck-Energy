@@ -4,7 +4,8 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/ShaderMaterial.tres" type="Material" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sourced/Icons/LineHeroUnlimited/Medium/security_and_protection_shield.png" type="Texture" id=4]
-[ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_38.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_38_top_padded.tres" type="DynamicFont" id=5]
+
 
 [node name="BattleDeckEnergy" type="Control"]
 anchor_top = 1.0

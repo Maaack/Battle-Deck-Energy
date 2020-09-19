@@ -10,5 +10,5 @@ script = ExtResource( 1 )
 title = "Evasive Combo"
 description = "Deal [b]2[/b] Strikes totalling %ATTACK Damage and absorb %DEFEND Damage."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
-type_tag = "ATTACK"
+effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
+type = 1

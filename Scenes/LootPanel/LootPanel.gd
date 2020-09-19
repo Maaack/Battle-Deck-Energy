@@ -10,6 +10,7 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 onready var loot_container = $MarginContainer/VBoxContainer/LootMargin/LootContainer
 onready var card_manager = $MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/InspectorCardManager
 onready var spawn_card_timer = $SpawnCardTimer
+onready var reposition_timer = $RepositionTimer
 
 export(float, 0.0, 2.0) var default_animate_in_time : float = 0.2
 
@@ -41,13 +42,20 @@ func set_card_options(values:Array):
 	yield(loot_container, "sort_children")
 	_add_cards_to_containers()
 
+func _update_card_position(card:CardData):
+	var center_offset : Vector2 = card_manager.get_global_transform().get_origin()
+	var container : CardContainer = card_container_map[card]
+	var transform : TransformData = card.transform_data.duplicate()
+	transform.position = container.get_card_parent_position() - center_offset
+	card_manager.force_move_card(card, transform, 0.05)
+
 func _add_cards_to_containers():
-	var center_offset : Vector2 = (loot_container.get_rect().size/2)
 	for card in card_container_map:
 		var container : CardContainer = card_container_map[card]
 		if card is CardData:
 			spawn_card_timer.start()
 			yield(spawn_card_timer, "timeout")
+			var center_offset : Vector2 = card_manager.get_global_transform().get_origin()
 			card.transform_data.position = container.get_card_parent_position() - center_offset
 			_add_card_option(card)
 

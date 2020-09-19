@@ -8,5 +8,5 @@ script = ExtResource( 1 )
 title = "Dual Strike"
 description = "Deals [b]2[/b] Strikes totalling %ATTACK Damage."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
-type_tag = "ATTACK"
+effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
+type = 1

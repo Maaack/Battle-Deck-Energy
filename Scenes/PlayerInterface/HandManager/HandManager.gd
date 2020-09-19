@@ -82,8 +82,8 @@ func update_hand():
 	var transform_index = 0
 	for card_key in cards:
 		var new_transform_data : TransformData = transform_array[transform_index]
-		cards[card_key] = transform_array[transform_index]
-		emit_signal("card_updated", card_key, cards[card_key])
+		cards[card_key] = new_transform_data
+		emit_signal("card_updated", card_key, new_transform_data)
 		transform_index += 1
 	emit_signal("hand_updated")
 

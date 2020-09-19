@@ -10,5 +10,5 @@ script = ExtResource( 1 )
 title = "Take Abuse"
 description = "Absorb %DEFEND Damage and apply %APPLY_FORTITUDE Fortidude."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
-type_tag = "DEFEND"
+effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+type = 2

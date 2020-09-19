@@ -9,5 +9,5 @@ script = ExtResource( 1 )
 title = "Knuckles Up"
 description = "Absorb %DEFEND Damage and apply %APPLY_FORTITUDE Fortitude."
 energy_cost = 2
-battle_effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
-type_tag = "DEFEND"
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+type = 2

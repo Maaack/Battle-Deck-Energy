@@ -4,13 +4,10 @@
 [ext_resource path="res://Resources/Effects/ParryEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ParryDefend.tres" type="Resource" id=3]
 
-
-
-
 [resource]
 script = ExtResource( 1 )
 title = "Parry"
 description = "Defend from %DEFEND Damage and add %PARRY Attack space on the opponent."
 energy_cost = 1
-battle_effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
-type_tag = "PARRY"
+effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
+type = 1

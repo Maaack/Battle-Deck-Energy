@@ -9,5 +9,5 @@ script = ExtResource( 1 )
 title = "Bruise"
 description = "Apply %APPLY_VULNERABLE Vulnerable and deal %ATTACK Damage."
 energy_cost = 1
-battle_effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
-type_tag = "ATTACK"
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+type = 1

@@ -4,7 +4,7 @@ extends Node
 signal apply_damage(character, damage)
 signal apply_status(character, status)
 signal apply_energy(character, energy)
-signal add_opportunity(source, target)
+signal add_opportunity(type, source, target)
 
 const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
@@ -57,17 +57,20 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 		emit_signal("apply_status", target, modified_status)
 
 func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
-	for effect in card.battle_effects:
+	for effect in card.effects:
 		if effect is EffectData and effect.is_immediate():
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.type_tag):
-				PARRY_EFFECT, OPENER_EFFECT, FORTIFY_EFFECT:
+				PARRY_EFFECT, OPENER_EFFECT:
 					for _i in range(effect.amount):
-						emit_signal("add_opportunity", opportunity.source, final_target)
+						emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, final_target)
 				RICOCHET_EFFECT:
 					for opponent in character_manager_map.keys():
 						if opponent != final_target and opponent != opportunity.source:
-							emit_signal("add_opportunity", opportunity.source, opponent)
+							emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, opponent)
+				FORTIFY_EFFECT:
+					for _i in range(effect.amount):
+						emit_signal("add_opportunity", CardData.CardType.DEFEND, opportunity.source, final_target)
 				TARGET_APPLY_ENERGY_EFFECT:
 					emit_signal("apply_energy", final_target, effect.amount)
 				ATTACK_EFFECT:
