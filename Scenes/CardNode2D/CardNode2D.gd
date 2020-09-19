@@ -24,6 +24,9 @@ onready var energy_panel = $Card/Body/BDEPanel
 onready var energy_label = $Card/Body/BDEPanel/BDECostLabel
 onready var title_label = $Card/Body/CardFront/TitlePanel/TitleLabel
 onready var description_label = $Card/Body/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel
+onready var attack_type_panel = $Card/Body/CardFront/Control/AttackPanel
+onready var defend_type_panel = $Card/Body/CardFront/Control/DefendPanel
+onready var skill_type_panel = $Card/Body/CardFront/Control/SkillPanel
 onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
 onready var effect_label = $Card/Body/CardFront/EffectContainer/Label
 
@@ -40,12 +43,25 @@ func _to_string():
 	else:
 		return ._to_string()
 
+func _reset_card_type():
+	attack_type_panel.hide()
+	defend_type_panel.hide()
+	skill_type_panel.hide()
+	match(card_data.type):
+		CardData.CardType.ATTACK:
+			attack_type_panel.show()
+		CardData.CardType.DEFEND:
+			defend_type_panel.show()
+		CardData.CardType.SKILL:
+			skill_type_panel.show()
+
 func _reset_card_front():
 	if not is_instance_valid(card_data):
 		return
 	title_label.text = card_data.title
 	if card_data.energy_cost >= 0:
 		energy_label.text = str(card_data.energy_cost)
+	_reset_card_type()
 	if card_data.effects.size() > 0:
 		var battle_effect : EffectData = card_data.effects[0]
 		if battle_effect.icon != null:

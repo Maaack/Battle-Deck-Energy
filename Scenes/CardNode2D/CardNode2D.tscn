@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_bold_20pt.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Themes/Fonts/markazi_text_20pt.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Themes/Fonts/markazi_text_20pt_bottom_shrinked.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=5]
 [ext_resource path="res://Themes/Fonts/morris_roman_24pt.tres" type="DynamicFont" id=6]
@@ -17,15 +17,24 @@
 [ext_resource path="res://Themes/RichTextEffects/CardEffectTextEffect.tres" type="RichTextEffect" id=15]
 [ext_resource path="res://Scenes/CardNode2D/CardPulse.tres" type="Animation" id=16]
 [ext_resource path="res://Scenes/CardNode2D/GlowAnimation.tres" type="Animation" id=17]
+[ext_resource path="res://Assets/Sourced/Fonts/markazi-text/MarkaziText-Regular.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://Themes/StyleBoxes/Cards/DefendTypeStyleBox.tres" type="StyleBox" id=19]
+[ext_resource path="res://Themes/StyleBoxes/Cards/AttackTypeStyleBox.tres" type="StyleBox" id=20]
+[ext_resource path="res://Themes/StyleBoxes/Cards/SkillTypeStyleBox.tres" type="StyleBox" id=21]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_filter = true
+font_data = ExtResource( 18 )
+
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.411765, 0.729412, 1 )
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 88, 128 )
 
 [node name="CardNode2D" type="Node2D"]
@@ -249,13 +258,80 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control" type="Control" parent="Card/Body/CardFront"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -36.0
+margin_top = -13.5
+margin_right = 36.0
+margin_bottom = 13.5
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttackPanel" type="Panel" parent="Card/Body/CardFront/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Card/Body/CardFront/Control/AttackPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "ATTACK"
+align = 1
+valign = 1
+
+[node name="DefendPanel" type="Panel" parent="Card/Body/CardFront/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Card/Body/CardFront/Control/DefendPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "DEFEND"
+align = 1
+valign = 1
+
+[node name="SkillPanel" type="Panel" parent="Card/Body/CardFront/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Card/Body/CardFront/Control/SkillPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "SKILL"
+align = 1
+valign = 1
+
 [node name="BDEPanel" type="Panel" parent="Card/Body"]
 margin_left = -15.0
 margin_top = -15.0
 margin_right = 25.0
 margin_bottom = 25.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -281,7 +357,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.50398, 0.503967 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 [connection signal="gui_input" from="Card/Body" to="." method="_on_Body_gui_input"]
 [connection signal="mouse_entered" from="Card/Body" to="." method="_on_Body_mouse_entered"]
 [connection signal="mouse_exited" from="Card/Body" to="." method="_on_Body_mouse_exited"]

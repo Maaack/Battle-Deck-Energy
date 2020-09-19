@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Themes/Fonts/markazi_text_20pt.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/markazi_text_20pt_bottom_shrinked.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/CardSlot/CardSlot.gd" type="Script" id=2]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
