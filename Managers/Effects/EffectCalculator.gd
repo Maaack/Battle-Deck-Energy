@@ -1,5 +1,8 @@
 extends Object
 
+
+class_name EffectCalculator
+
 const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
 const PARRY_EFFECT = 'PARRY'

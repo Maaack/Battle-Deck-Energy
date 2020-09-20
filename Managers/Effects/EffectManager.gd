@@ -2,7 +2,7 @@ extends Node
 
 
 signal apply_damage(character, damage)
-signal apply_status(character, status)
+signal apply_status(character, status, origin)
 signal apply_energy(character, energy)
 signal add_opportunity(type, source, target)
 
@@ -54,7 +54,7 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 			modified_status.duration = status_quantity
 		else:
 			modified_status.intensity = status_quantity
-		emit_signal("apply_status", target, modified_status)
+		emit_signal("apply_status", target, modified_status, source)
 
 func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
 	for effect in card.effects:

@@ -21,7 +21,7 @@ func _get_animate_in_time():
 func _add_card_option(card:CardData):
 	var prev_transform : TransformData = card.transform_data.duplicate()
 	card.transform_data.scale = INIT_CARD_SCALE
-	var card_node : CardNode2D = card_manager.add_card(card)
+	card_manager.add_card(card)
 	card_manager.move_card(card, prev_transform, _get_animate_in_time())
 
 func _spawn_containers():

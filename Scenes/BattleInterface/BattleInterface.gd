@@ -64,15 +64,12 @@ func _take_enemy_turn():
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
+	player_battle_manager.update_start_of_turn_statuses()
 	player_battle_manager.reset_energy()
 	player_interface.start_turn()
 
-func _setup_player_board():
-	battle_opportunities_manager.reset_player_opportunities()
-	_update_statuses(player_data)
-
 func _start_player_turn():
-	_setup_player_board()
+	battle_opportunities_manager.reset_player_opportunities()
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
 	player_battle_manager.draw_hand()
 
@@ -131,13 +128,6 @@ func _resolve_actions(character:CharacterData):
 		if opportunity.card_data != null:
 			_resolve_immediate_actions(opportunity.card_data, opportunity)
 
-func _update_statuses(character:CharacterData):
-	if not character in _character_manager_map:
-		return
-	var manager = _character_manager_map[character]
-	if manager is CharacterBattleManager:
-		manager.update_statuses()
-
 func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
 	effects_manager.resolve_opportunity(card, opportunity, _character_manager_map)
 	battle_opportunities_manager.remove_opportunity(opportunity)
@@ -191,14 +181,17 @@ func _on_Player_phase_entered():
 func _on_PlayerEndTurn_phase_entered():
 	if player_interface.is_connected("discard_completed", battle_phase_manager, "advance"):
 		player_interface.disconnect("discard_completed", battle_phase_manager, "advance")
+	player_battle_manager.update_end_of_turn_statuses()
 	battle_phase_manager.advance()
 
 func _on_EnemyResolution_phase_entered():
 	for opponent in opponents:
 		if not opponent.is_active():
 			continue
-		_update_statuses(opponent)
+		var manager : CharacterBattleManager = _character_manager_map[opponent]
+		manager.update_start_of_turn_statuses()
 		_resolve_actions(opponent)
+		manager.update_end_of_turn_statuses()
 	battle_phase_manager.advance()
 
 func _on_RoundEnd_phase_entered():
@@ -216,11 +209,11 @@ func _on_EffectManager_apply_damage(character, damage):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	battle_manager.take_damage(damage)
 
-func _on_EffectManager_apply_status(character, status):
+func _on_EffectManager_apply_status(character, status, origin):
 	if not character in _character_manager_map:
 		return
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
-	character_manager.gain_status(status)
+	character_manager.gain_status(status, origin)
 
 func _on_EffectManager_apply_energy(character, energy):
 	if not character in _character_manager_map:

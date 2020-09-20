@@ -17,8 +17,6 @@ signal lost_status(character, status)
 signal updated_status(character, status, delta)
 signal died(character)
 
-const DEFENSE_STATUS = 'DEFENSE'
-
 onready var status_manager = $StatusManager
 
 var character_data : CharacterData setget set_character_data
@@ -62,7 +60,7 @@ func lose_health(amount: int = 1):
 		emit_signal("died", character_data)
 
 func take_damage(amount: int = 1):
-	var status : StatusData = status_manager.get_status_by_type(DEFENSE_STATUS)
+	var status : StatusData = status_manager.get_status_by_type(EffectCalculator.DEFENSE_STATUS)
 	if status != null:
 		var defense_down = min(amount, status.intensity)
 		status.intensity -= defense_down
@@ -142,11 +140,20 @@ func play_card(card:CardData, opportunity:OpportunityData):
 	if discarded_flag:
 		emit_signal("played_card", card, opportunity)
 	
-func gain_status(status:StatusData):
-	status_manager.gain_status(status)
+func gain_status(status:StatusData, origin:CharacterData):
+	var cycle_mode : int = StatusManager.CycleMode.NONE
+	if status.has_the_d():
+		if origin == character_data or status.type_tag == EffectCalculator.VULNERABLE_STATUS:
+			cycle_mode = StatusManager.CycleMode.START
+		else:
+			cycle_mode = StatusManager.CycleMode.END
+	status_manager.gain_status(status, cycle_mode)
 
-func update_statuses():
-	status_manager.decrement_durations()
+func update_start_of_turn_statuses():
+	status_manager.decrement_durations(StatusManager.CycleMode.START)
+
+func update_end_of_turn_statuses():
+	status_manager.decrement_durations(StatusManager.CycleMode.END)
 
 func get_statuses():
 	return status_manager.status_type_map.values()
