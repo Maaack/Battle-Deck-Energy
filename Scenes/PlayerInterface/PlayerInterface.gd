@@ -14,7 +14,7 @@ enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING,
 
 export(float, 0, 512) var opportunity_snap_range = 200.0
 
-onready var animation_queue : Node = $AnimationQueue
+onready var animation_queue : Node = $BattleAnimationQueue
 onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
 onready var opponent_card_manager : Node2D = $HandContainer/CardControl/FocusedCardManager
 onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
@@ -114,10 +114,10 @@ func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target 
 			total_values[type_tag] = 0
 		var source_statuses : Array
 		if source and source in _character_statuses_map:
-			source_statuses = _character_statuses_map[source]
+			source_statuses = _character_statuses_map[source].values()
 		var target_statuses : Array
 		if target and target in _character_statuses_map:
-			target_statuses = _character_statuses_map[target]
+			target_statuses = _character_statuses_map[target].values()
 		var total_value = effect_calculator.get_effect_total(base_value, type_tag, source_statuses, target_statuses)
 		total_values[type_tag] += total_value
 	card_instance.update_card_effects(total_values)
@@ -149,7 +149,6 @@ func _recalculate_all_cards():
 				continue
 			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
 
-
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
@@ -172,7 +171,7 @@ func _exhausting_animation(card:CardData, animation:AnimationData):
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
-func _on_AnimationQueue_animation_started(animation:AnimationData):
+func _on_card_animation_started(animation:CardAnimationData):
 	var card : CardData = animation.card_data
 	match(animation.animation_type):
 		AnimationType.DRAWING:
@@ -185,6 +184,9 @@ func _on_AnimationQueue_animation_started(animation:AnimationData):
 			player_board.reshuffle_card()
 		_:
 			card_manager.move_card(card, animation.transform_data, animation.tween_time)
+
+func _on_status_animation_started(animation:StatusAnimationData):
+	_update_status(animation.character_data, animation.status_data, animation.delta)
 
 func _on_PlayerBoard_ending_turn():
 	emit_signal("ending_turn")
@@ -393,27 +395,21 @@ func play_card(character:CharacterData, card:CardData, opportunity:OpportunityDa
 func opponent_discards_card(card:CardData):
 	opponent_card_manager.remove_card(card)
 
-func add_status(character:CharacterData, status:StatusData):
+func _update_status(character:CharacterData, status:StatusData, delta:int):
 	if not character in _character_statuses_map:
-		_character_statuses_map[character] = []
-	if not status in _character_statuses_map[character]:
-		_character_statuses_map[character].append(status)
-	actions_board.add_status(character, status)
-
-func remove_status(character:CharacterData, status:StatusData):
-	if not character in _character_statuses_map:
-		return
-	if not status in _character_statuses_map[character]:
-		return
-	actions_board.remove_status(character, status)
-	_character_statuses_map[character].erase(status)
-
-func update_status(character:CharacterData, status:StatusData, delta:int):
+		_character_statuses_map[character] = {}
+	_character_statuses_map[character][status.type_tag] = status
 	var interface = actions_board.add_status(character, status)
 	if not interface is ActionsInterface:
 		return
 	_show_status_update_over_interface(interface, status, delta)
 	_recalculate_all_cards()
+	if status.get_stack_value() == 0:
+		actions_board.remove_status(character, status)
+		_character_statuses_map[character].erase(status.type_tag)
+
+func update_status(character:CharacterData, status:StatusData, delta:int):
+	animation_queue.animate_status(character, status, delta)
 
 func _on_PlayerBoard_draw_pile_pressed():
 	emit_signal("draw_pile_pressed")
@@ -431,3 +427,12 @@ func _on_PlayerInterface_resized():
 func _on_ResizeTimer_timeout():
 	for opportunity in _opportunities_map:
 		_on_CardContainer_update_opportunity(opportunity, _opportunities_map[opportunity])
+
+func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
+	if animation_data is CardAnimationData:
+		_on_card_animation_started(animation_data)
+	elif animation_data is StatusAnimationData:
+		_on_status_animation_started(animation_data)
+
+func _on_BattleAnimationQueue_queue_empty():
+	emit_signal("animation_queue_empty")

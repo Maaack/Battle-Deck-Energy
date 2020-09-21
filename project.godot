@@ -20,9 +20,19 @@ _global_script_classes=[ {
 "path": "res://Resources/Animations/AnimationData.gd"
 }, {
 "base": "Node",
+"class": "AnimationQueue",
+"language": "GDScript",
+"path": "res://Scenes/PlayerInterface/AnimationQueue/AnimationQueue.gd"
+}, {
+"base": "Node",
 "class": "BattlePhase",
 "language": "GDScript",
 "path": "res://Scenes/BattleInterface/BattlePhase/BattlePhase.gd"
+}, {
+"base": "AnimationData",
+"class": "CardAnimationData",
+"language": "GDScript",
+"path": "res://Resources/Animations/CardAnimations/CardAnimationData.gd"
 }, {
 "base": "Control",
 "class": "CardContainer",
@@ -114,6 +124,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.gd"
 }, {
+"base": "AnimationData",
+"class": "StatusAnimationData",
+"language": "GDScript",
+"path": "res://Resources/Animations/StatusAnimations/StatusAnimationData.gd"
+}, {
 "base": "Resource",
 "class": "StatusData",
 "language": "GDScript",
@@ -137,7 +152,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ActionsInterface": "",
 "AnimationData": "",
+"AnimationQueue": "",
 "BattlePhase": "",
+"CardAnimationData": "",
 "CardContainer": "",
 "CardData": "",
 "CardManager": "",
@@ -156,6 +173,7 @@ _global_script_class_icons={
 "OpportunitiesContainer": "",
 "OpportunityData": "",
 "PlayerActionsInterface": "",
+"StatusAnimationData": "",
 "StatusData": "",
 "StatusEffectData": "",
 "StatusManager": "",

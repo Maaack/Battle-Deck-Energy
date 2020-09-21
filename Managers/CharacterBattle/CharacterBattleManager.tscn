@@ -7,6 +7,4 @@
 script = ExtResource( 1 )
 
 [node name="StatusManager" parent="." instance=ExtResource( 2 )]
-[connection signal="gained_status" from="StatusManager" to="." method="_on_StatusManager_gained_status"]
-[connection signal="lost_status" from="StatusManager" to="." method="_on_StatusManager_lost_status"]
 [connection signal="updated_status" from="StatusManager" to="." method="_on_StatusManager_updated_status"]

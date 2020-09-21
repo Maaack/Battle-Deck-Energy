@@ -12,8 +12,6 @@ signal gained_health(character, amount)
 signal lost_health(character, amount)
 signal gained_energy(character, amount)
 signal lost_energy(character, amount)
-signal gained_status(character, status)
-signal lost_status(character, status)
 signal updated_status(character, status, delta)
 signal died(character)
 
@@ -64,7 +62,7 @@ func take_damage(amount: int = 1):
 	if status != null:
 		var defense_down = min(amount, status.intensity)
 		status.intensity -= defense_down
-		emit_signal("updated_status", character_data, status, -(defense_down))
+		emit_signal("updated_status", character_data, status.duplicate(), -(defense_down))
 		if status.intensity == 0:
 			status_manager.lose_status(status)
 		amount -= defense_down
@@ -157,12 +155,6 @@ func update_end_of_turn_statuses():
 
 func get_statuses():
 	return status_manager.status_type_map.values()
-
-func _on_StatusManager_gained_status(status):
-	emit_signal("gained_status", character_data, status)
-
-func _on_StatusManager_lost_status(status):
-	emit_signal("lost_status", character_data, status)
 
 func _on_StatusManager_updated_status(status:StatusData, delta:int):
 	emit_signal("updated_status", character_data, status, delta)

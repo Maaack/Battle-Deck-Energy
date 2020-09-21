@@ -37,8 +37,6 @@ func new_opponent(opponent_data:CharacterData):
 	battle_manager.connect("lost_energy", self, "_on_CharacterBattleManager_lost_energy")
 	battle_manager.connect("lost_health", self, "_on_CharacterBattleManager_lost_health")
 	battle_manager.connect("died", self, "_on_CharacterBattleManager_died")
-	battle_manager.connect("gained_status", self, "_on_CharacterBattleManager_gained_status")
-	battle_manager.connect("lost_status", self, "_on_CharacterBattleManager_lost_status")
 	battle_manager.connect("updated_status", self, "_on_CharacterBattleManager_updated_status")
 	battle_opportunities_manager.add_opponent(opponent_data)
 	player_interface.add_opponent(opponent_data)
@@ -264,12 +262,6 @@ func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityD
 			_discard_or_exhaust_card(opportunity.card_data)
 		else:
 			player_interface.opponent_discards_card(opportunity.card_data)
-
-func _on_CharacterBattleManager_gained_status(character, status):
-	player_interface.add_status(character, status)
-
-func _on_CharacterBattleManager_lost_status(character, status):
-	player_interface.remove_status(character, status)
 
 func _on_CharacterBattleManager_updated_status(character, status, delta):
 	player_interface.update_status(character, status, delta)

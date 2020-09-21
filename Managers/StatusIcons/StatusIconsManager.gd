@@ -6,12 +6,12 @@ onready var status_scene = preload("res://Scenes/PlayerInterface/BattleBoard/Act
 var status_map : Dictionary = {}
 
 func get_status_icon(status:StatusData):
-	if status in status_map:
-		return status_map[status]
+	if status.type_tag in status_map:
+		return status_map[status.type_tag]
 	var status_instance = status_scene.instance()
 	add_child(status_instance)
 	status_instance.icon = status.icon
-	status_map[status] = status_instance
+	status_map[status.type_tag] = status_instance
 	return status_instance
 
 func add_status(status:StatusData):
@@ -20,10 +20,12 @@ func add_status(status:StatusData):
 		status_icon.integer = status.duration
 	else:
 		status_icon.integer = status.intensity
+	if status_icon.integer == 0:
+		remove_status(status)
 
 func remove_status(status:StatusData):
-	if not status in status_map:
+	if not status.type_tag in status_map:
 		return
-	var status_instance = status_map[status]
+	var status_instance = status_map[status.type_tag]
 	status_instance.queue_free()
-	status_map.erase(status)
+	status_map.erase(status.type_tag)
