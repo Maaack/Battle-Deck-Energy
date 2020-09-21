@@ -10,8 +10,8 @@
 
 [node name="CharacterActionsInterface" type="Control"]
 margin_right = 244.0
-margin_bottom = 388.0
-rect_min_size = Vector2( 244, 388 )
+margin_bottom = 440.0
+rect_min_size = Vector2( 244, 440 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
