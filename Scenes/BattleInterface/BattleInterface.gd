@@ -126,9 +126,12 @@ func _resolve_actions(character:CharacterData):
 	var opportunities : Array = battle_opportunities_manager.get_character_opportunities(character)
 	for opportunity in opportunities:
 		if opportunity.card_data != null:
-			_resolve_immediate_actions(opportunity.card_data, opportunity)
+			_resolve_card_played_actions(opportunity.card_data, opportunity)
 
-func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
+func _resolve_card_drawn_actions(card:CardData):
+	pass
+
+func _resolve_card_played_actions(card:CardData, opportunity:OpportunityData):
 	effects_manager.resolve_opportunity(card, opportunity, _character_manager_map)
 	battle_opportunities_manager.remove_opportunity(opportunity)
 
@@ -143,10 +146,11 @@ func _discard_all_cards():
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
+	_resolve_card_drawn_actions(card)
 
 func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
 	player_battle_manager.play_card(card, opportunity)
-	_resolve_immediate_actions(card, opportunity)
+	_resolve_card_played_actions(card, opportunity)
 
 func _on_PlayerInterface_ending_turn():
 	_end_player_turn()

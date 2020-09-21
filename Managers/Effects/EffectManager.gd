@@ -38,6 +38,11 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
 	emit_signal("apply_damage", target, total_damage)
 
+func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
+	var target_statuses = _get_character_statuses(target, character_manager_map)
+	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, [], target_statuses)
+	emit_signal("apply_damage", target, total_damage)
+
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	for status in effect.statuses:
 		var modified_status : StatusData = status.duplicate()
@@ -56,9 +61,34 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 			modified_status.intensity = status_quantity
 		emit_signal("apply_status", target, modified_status, source)
 
+func _resolve_self_effects(effect:EffectData, character:CharacterData, character_manager_map:Dictionary):
+	match(effect.type_tag):
+		TARGET_APPLY_ENERGY_EFFECT:
+			emit_signal("apply_energy", character, effect.amount)
+		ATTACK_EFFECT:
+			_resolve_self_damage(effect, character, character_manager_map)
+	if effect is StatusEffectData:
+		_resolve_statuses(effect, character, character, character_manager_map)
+
+func resolve_on_draw(card:CardData, character:CharacterData, character_manager_map:Dictionary):
+	for effect in card.effects:
+		if effect is EffectData:
+			if not effect.applies_on_draw():
+				continue
+			_resolve_self_effects(effect, character, character_manager_map)
+
+func resolve_on_discard(card:CardData, character:CharacterData, character_manager_map:Dictionary):
+	for effect in card.effects:
+		if effect is EffectData:
+			if not effect.applies_on_discard():
+				continue
+			_resolve_self_effects(effect, character, character_manager_map)
+
 func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
 	for effect in card.effects:
-		if effect is EffectData and effect.is_immediate():
+		if effect is EffectData:
+			if not effect.applies_on_play():
+				continue
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.type_tag):
 				PARRY_EFFECT, OPENER_EFFECT:
