@@ -159,6 +159,8 @@ func _drawing_animation(card:CardData, animation:AnimationData):
 
 func _discarding_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	if not is_instance_valid(card_instance):
+		return
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
@@ -166,6 +168,8 @@ func _discarding_animation(card:CardData, animation:AnimationData):
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	if not is_instance_valid(card_instance):
+		return
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")

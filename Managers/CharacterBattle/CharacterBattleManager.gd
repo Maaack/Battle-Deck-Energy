@@ -104,6 +104,7 @@ func discard_card(card:CardData):
 	emit_signal("discarded_card", card)
 
 func exhaust_card(card:CardData):
+	discard_card_from_hand(card)
 	exhaust_pile.add_card(card)
 	emit_signal("exhausted_card", card)
 

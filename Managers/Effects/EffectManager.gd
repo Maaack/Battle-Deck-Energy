@@ -15,6 +15,7 @@ const FORTIFY_EFFECT = 'FORTIFY'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
+const MOMENTARY_EFFECT = 'MOMENTARY'
 const VULNERABLE_STATUS = 'VULNERABLE'
 const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
 
@@ -121,3 +122,23 @@ func exclude_retained_cards(cards:Array):
 		if card is CardData and not card.has_effect(RETAIN_EFFECT):
 			not_retained_cards.append(card)
 	return not_retained_cards
+
+func include_discardable_cards(cards:Array):
+	var discardable_cards : Array = []
+	for card in cards:
+		if card is CardData:
+			if card.has_effect(RETAIN_EFFECT):
+				continue
+			if card.has_effect(MOMENTARY_EFFECT):
+				continue
+			discardable_cards.append(card)
+	return discardable_cards
+
+func include_exhaustable_cards(cards:Array):
+	var exhaustable_cards : Array = []
+	for card in cards:
+		if card is CardData:
+			if not card.has_effect(MOMENTARY_EFFECT):
+				continue
+			exhaustable_cards.append(card)
+	return exhaustable_cards

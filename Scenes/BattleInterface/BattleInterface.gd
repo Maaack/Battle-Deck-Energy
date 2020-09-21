@@ -75,11 +75,14 @@ func _start_player_turn():
 
 func _end_player_turn():
 	var cards_in_hand : Array = player_battle_manager.hand.cards.duplicate()
-	var discarding_cards : Array = effects_manager.exclude_retained_cards(cards_in_hand)
-	if discarding_cards.size() > 0:
+	var discarding_cards : Array = effects_manager.include_discardable_cards(cards_in_hand)
+	var exhausting_cards : Array = effects_manager.include_exhaustable_cards(cards_in_hand)
+	if discarding_cards.size() + exhausting_cards.size() > 0:
 		player_interface.connect("discard_completed", battle_phase_manager, "advance")
 		for discarding_card in discarding_cards:
 			player_battle_manager.discard_card(discarding_card)
+		for exhausting_card in exhausting_cards:
+			player_battle_manager.exhaust_card(exhausting_card)
 	else:
 		battle_phase_manager.advance()
 
