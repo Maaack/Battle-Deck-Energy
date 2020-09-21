@@ -64,13 +64,13 @@ func _take_enemy_turn():
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
-	player_battle_manager.update_start_of_turn_statuses()
 	player_battle_manager.reset_energy()
 	player_interface.start_turn()
 
 func _start_player_turn():
 	battle_opportunities_manager.reset_player_opportunities()
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
+	player_battle_manager.update_start_of_turn_statuses()
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():
@@ -129,7 +129,7 @@ func _resolve_actions(character:CharacterData):
 			_resolve_card_played_actions(opportunity.card_data, opportunity)
 
 func _resolve_card_drawn_actions(card:CardData):
-	pass
+	effects_manager.resolve_on_draw(card, player_data, _character_manager_map)
 
 func _resolve_card_played_actions(card:CardData, opportunity:OpportunityData):
 	effects_manager.resolve_opportunity(card, opportunity, _character_manager_map)

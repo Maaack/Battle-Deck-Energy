@@ -33,7 +33,7 @@ func focus_on_card(card_node:CardNode2D):
 	if hold_focus:
 		return
 	.focus_on_card(card_node)
-	if _can_afford_card(card_node):
+	if card_node.is_playable() and _can_afford_card(card_node):
 		card_node.glow_on()
 	else:
 		card_node.glow_not()
@@ -55,7 +55,7 @@ func drag_to_position(position:Vector2):
 
 func _on_Card_mouse_clicked(card_node:CardNode2D):
 	._on_Card_mouse_clicked(card_node)
-	if is_locked_card(card_node.card_data) or not _can_afford_card(card_node):
+	if not card_node.is_playable() or is_locked_card(card_node.card_data) or not _can_afford_card(card_node):
 		return
 	dragged_card = card_node
 	emit_signal("dragging_card", card_node.card_data)
