@@ -10,8 +10,9 @@
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -32.0
-margin_right = 144.0
-rect_min_size = Vector2( 144, 32 )
+margin_right = 124.0
+rect_min_size = Vector2( 124, 32 )
+size_flags_horizontal = 3
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -27,7 +28,7 @@ __meta__ = {
 
 [node name="HealthBar" type="ProgressBar" parent="MarginContainer"]
 margin_left = 24.0
-margin_right = 144.0
+margin_right = 124.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 1

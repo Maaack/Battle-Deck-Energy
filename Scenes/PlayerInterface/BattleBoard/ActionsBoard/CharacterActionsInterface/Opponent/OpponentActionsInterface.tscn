@@ -6,18 +6,15 @@
 [ext_resource path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" type="PackedScene" id=4]
 
 [node name="OpponentActionsInterface" instance=ExtResource( 1 )]
-margin_right = 264.0
-margin_bottom = 388.0
-rect_min_size = Vector2( 264, 444 )
 size_flags_horizontal = 3
 script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer" index="0"]
 margin_left = 2.0
-margin_right = 266.0
+margin_right = 242.0
 margin_bottom = 444.0
-custom_constants/margin_right = 32
-custom_constants/margin_top = 104
+custom_constants/margin_right = 24
+custom_constants/margin_top = 80
 custom_constants/margin_left = 16
 custom_constants/margin_bottom = 16
 __meta__ = {
@@ -26,8 +23,8 @@ __meta__ = {
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer" index="0"]
 margin_left = 16.0
-margin_top = 104.0
-margin_right = 232.0
+margin_top = 80.0
+margin_right = 216.0
 margin_bottom = 428.0
 
 [node name="OpponentOpportunitiesContainer" parent="MarginContainer/MarginContainer/Control" index="0" instance=ExtResource( 4 )]

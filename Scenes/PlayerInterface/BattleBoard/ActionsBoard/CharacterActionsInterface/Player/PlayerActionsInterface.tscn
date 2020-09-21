@@ -4,38 +4,5 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.gd" type="Script" id=2]
 
 [node name="PlayerActionsInterface" instance=ExtResource( 1 )]
-margin_right = 300.0
-margin_bottom = 388.0
 size_flags_horizontal = 7
 script = ExtResource( 2 )
-
-[node name="VBoxContainer" parent="MarginContainer" index="0"]
-margin_right = 298.0
-
-[node name="Panel" parent="MarginContainer/VBoxContainer" index="0"]
-margin_right = 296.0
-
-[node name="Panel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer" index="0"]
-margin_right = 288.0
-
-[node name="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer" index="0"]
-margin_right = 272.0
-
-[node name="NicknameLabel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer" index="0"]
-margin_right = 116.0
-
-[node name="HealthMeter" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer" index="1"]
-margin_left = 120.0
-margin_right = 264.0
-
-[node name="StatusesMargin" parent="MarginContainer/VBoxContainer" index="1"]
-margin_right = 296.0
-
-[node name="StatusIconManager" parent="MarginContainer/VBoxContainer/StatusesMargin" index="0"]
-margin_right = 288.0
-
-[node name="OpeningsMargin" parent="MarginContainer/VBoxContainer" index="2"]
-margin_right = 296.0
-
-[node name="OpportunitiesContainter" parent="MarginContainer/VBoxContainer/OpeningsMargin" index="0"]
-margin_right = 288.0

@@ -133,6 +133,9 @@ __meta__ = {
 
 [node name="LevelManager" parent="." instance=ExtResource( 8 )]
 levels = [ ExtResource( 20 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 9 ) ]
+
+[node name="TestLevelManager" parent="." instance=ExtResource( 8 )]
+levels = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 9 ) ]
 [connection signal="player_lost" from="BattleInterfaceContainer/BattleInterface" to="." method="_on_BattleInterface_player_lost"]
 [connection signal="player_won" from="BattleInterfaceContainer/BattleInterface" to="." method="_on_BattleInterface_player_won"]
 [connection signal="view_deck_pressed" from="BattleInterfaceContainer/BattleInterface" to="." method="_on_BattleInterface_view_deck_pressed"]

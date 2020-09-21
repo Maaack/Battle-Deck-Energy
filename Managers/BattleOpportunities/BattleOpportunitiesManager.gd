@@ -56,6 +56,7 @@ func reset_opponent_opportunities(opponent:CharacterData):
 		print("Error: Getting opponent opportunities on unset opponent data.")
 		return
 	add_opportunity(CardData.CardType.DEFEND, opponent, opponent)
+	add_opportunity(CardData.CardType.SKILL, opponent, opponent)
 	add_opportunity(CardData.CardType.ATTACK, opponent, player_data)
 
 func reset_all_opponent_opportunities():

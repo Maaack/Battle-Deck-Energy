@@ -31,28 +31,30 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 32
-custom_constants/margin_top = 32
-custom_constants/margin_left = 32
-custom_constants/margin_bottom = 32
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BattleBoard/MarginContainer"]
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 1248.0
-margin_bottom = 688.0
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 1268.0
+margin_bottom = 720.0
 
 [node name="ActionsBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_right = 1256.0
+margin_bottom = 352.0
 
 [node name="PlayerBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 330.0
-margin_right = 1216.0
-margin_bottom = 656.0
+margin_top = 356.0
+margin_right = 1256.0
+margin_bottom = 708.0
 
 [node name="HandContainer" type="CenterContainer" parent="."]
 anchor_top = 1.0

@@ -9,9 +9,9 @@
 [ext_resource path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" type="PackedScene" id=7]
 
 [node name="CharacterActionsInterface" type="Control"]
-margin_right = 200.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 264, 388 )
+margin_right = 244.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 244, 388 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,15 +29,15 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 2.0
-margin_right = 266.0
+margin_right = 242.0
 margin_bottom = 444.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
-margin_right = 264.0
+margin_right = 240.0
 margin_bottom = 64.0
-rect_min_size = Vector2( 264, 64 )
+rect_min_size = Vector2( 0, 64 )
 mouse_filter = 2
 size_flags_horizontal = 3
 custom_styles/panel = ExtResource( 3 )
@@ -63,7 +63,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 256.0
+margin_right = 232.0
 margin_bottom = 56.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -88,33 +88,32 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 240.0
+margin_right = 216.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="NicknameLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer"]
-margin_right = 84.0
+margin_right = 80.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.156863, 0.156863, 0.156863, 1 )
-text = "Nickname"
+text = "Name"
 align = 1
 
 [node name="HealthMeter" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer" instance=ExtResource( 5 )]
 anchor_top = 0.0
 anchor_bottom = 0.0
-margin_left = 88.0
+margin_left = 84.0
 margin_top = 0.0
-margin_right = 232.0
+margin_right = 208.0
 margin_bottom = 32.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="StatusesMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 68.0
-margin_right = 264.0
+margin_right = 240.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 0, 24 )
 size_flags_horizontal = 3
@@ -126,12 +125,12 @@ __meta__ = {
 
 [node name="StatusIconManager" parent="MarginContainer/VBoxContainer/StatusesMargin" instance=ExtResource( 4 )]
 margin_left = 8.0
-margin_right = 256.0
+margin_right = 232.0
 margin_bottom = 36.0
 
 [node name="OpeningsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 108.0
-margin_right = 264.0
+margin_right = 240.0
 margin_bottom = 444.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -148,6 +147,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_top = 0.0
-margin_right = 256.0
+margin_right = 232.0
 margin_bottom = 336.0
 [connection signal="update_opportunity" from="MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter" to="." method="_on_OpportunitiesContainter_update_opportunity"]
