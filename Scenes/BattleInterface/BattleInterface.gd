@@ -131,6 +131,9 @@ func _resolve_actions(character:CharacterData):
 func _resolve_card_drawn_actions(card:CardData):
 	effects_manager.resolve_on_draw(card, player_data, _character_manager_map)
 
+func _resolve_card_discarded_actions(card:CardData):
+	effects_manager.resolve_on_discard(card, player_data, _character_manager_map)
+
 func _resolve_card_played_actions(card:CardData, opportunity:OpportunityData):
 	effects_manager.resolve_opportunity(card, opportunity, _character_manager_map)
 	battle_opportunities_manager.remove_opportunity(opportunity)
@@ -157,6 +160,7 @@ func _on_PlayerInterface_ending_turn():
 
 func _on_CharacterBattleManager_discarded_card(card):
 	player_interface.discard_card(card)
+	_resolve_card_discarded_actions(card)
 
 func _on_CharacterBattleManager_exhausted_card(card):
 	player_interface.exhaust_card(card)

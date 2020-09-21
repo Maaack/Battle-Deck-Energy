@@ -105,17 +105,17 @@ func _on_CardContainer_update_opportunity(opportunity:OpportunityData, container
 		card_manager.force_move_card(opportunity.card_data, opportunity.transform_data, 0.05)
 		opponent_card_manager.force_move_card(opportunity.card_data, opportunity.transform_data, 0.05)
 
-func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target = null):
+func _calculate_card_mod(card_instance:CardNode2D, source = null, target = null):
 	var total_values : Dictionary = {}
 	for effect in card_instance.card_data.effects:
 		var base_value = effect.amount
 		var type_tag = effect.type_tag
 		if not type_tag in total_values:
 			total_values[type_tag] = 0
-		var source_statuses : Array
-		if source and source in _character_statuses_map:
+		var source_statuses : Array = []
+		if source and source in _character_statuses_map and card_instance.card_data.type != CardData.CardType.STRESS:
 			source_statuses = _character_statuses_map[source].values()
-		var target_statuses : Array
+		var target_statuses : Array = []
 		if target and target in _character_statuses_map:
 			target_statuses = _character_statuses_map[target].values()
 		var total_value = effect_calculator.get_effect_total(base_value, type_tag, source_statuses, target_statuses)
