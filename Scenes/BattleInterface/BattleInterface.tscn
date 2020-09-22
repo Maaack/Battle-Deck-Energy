@@ -70,6 +70,7 @@ one_shot = true
 [connection signal="died" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_died"]
 [connection signal="discarded_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_discarded_card"]
 [connection signal="drew_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card"]
+[connection signal="drew_card_from_draw_pile" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card_from_draw_pile"]
 [connection signal="exhausted_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_exhausted_card"]
 [connection signal="gained_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_energy"]
 [connection signal="gained_health" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_health"]

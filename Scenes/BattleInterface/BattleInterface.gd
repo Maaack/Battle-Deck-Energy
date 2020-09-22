@@ -146,6 +146,9 @@ func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
 	_resolve_card_drawn_actions(card)
 
+func _on_CharacterBattleManager_drew_card_from_draw_pile(card):
+	player_interface.draw_card_from_draw_pile(card)
+
 func _on_PlayerInterface_card_played(card):
 	player_battle_manager.play_card(card)
 	_resolve_card_played_actions(card)
@@ -298,16 +301,19 @@ func _on_PlayerInterface_exhaust_pile_pressed():
 	emit_signal("view_deck_pressed", deck)
 
 func _on_EffectManager_add_card_to_hand(card, character):
-	pass
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	player_interface.new_character_card(character, card)
+	player_interface.animate_playing_card(card)
+	battle_manager.add_card_to_hand(card)
 
 func _on_EffectManager_add_card_to_draw_pile(card, character):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	player_interface.new_character_card(character, card)
 	player_interface.animate_playing_card(card)
-	battle_manager.reshuffle_card(card)
+	battle_manager.add_card_to_draw_pile(card)
 
 func _on_EffectManager_add_card_to_discard_pile(card, character):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	player_interface.new_character_card(character, card)
 	player_interface.animate_playing_card(card)
-	battle_manager.discard_card(card)
+	battle_manager.add_card_to_discard_pile(card)
