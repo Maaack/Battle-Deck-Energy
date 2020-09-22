@@ -18,6 +18,8 @@ signal died(character)
 
 onready var status_manager = $StatusManager
 
+var defense_status_resource = preload("res://Resources/Statuses/Defense.tres")
+
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
 var discard_pile : DeckData = DeckData.new()
@@ -163,12 +165,21 @@ func gain_status(status:StatusData, origin:CharacterData):
 			cycle_mode = StatusManager.CycleMode.START
 		else:
 			cycle_mode = StatusManager.CycleMode.END
+	if status.type_tag == EffectCalculator.TOXIN_STATUS or status.type_tag == EffectCalculator.EN_GARDE_STATUS :
+		cycle_mode = StatusManager.CycleMode.NONE
 	status_manager.gain_status(status, cycle_mode)
 
 func _run_start_of_turn_statuses():
 	var toxin_status : StatusData = status_manager.get_status_by_type(EffectCalculator.TOXIN_STATUS)
 	if toxin_status:
 		take_damage(toxin_status.duration)
+		status_manager.decrement_duration(toxin_status)
+	var en_garde_status : StatusData = status_manager.get_status_by_type(EffectCalculator.EN_GARDE_STATUS)
+	if en_garde_status:
+		var defense_status = defense_status_resource.duplicate()
+		defense_status.intensity = en_garde_status.intensity
+		gain_status(defense_status, character_data)
+		status_manager.decrement_duration(en_garde_status)
 
 func update_start_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.START)

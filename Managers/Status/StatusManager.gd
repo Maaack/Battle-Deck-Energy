@@ -39,6 +39,19 @@ func lose_status(status:StatusData):
 	status_type_map.erase(status_type)
 	status_cycle_map.erase(status_type)
 
+func decrement_duration(status:StatusData):
+	if status.has_the_d():
+		status.duration -= 1
+		if status.stacks_the_d():
+			emit_signal("updated_status", status.duplicate(), -1)
+		elif not status.has_the_d():
+			var diff : int = -(status.get_stack_value())
+			status.reset_stack()
+			emit_signal("updated_status", status.duplicate(), diff)
+		if not status.has_the_d():
+			lose_status(status)
+
+
 func decrement_durations(cycle_mode:int = CycleMode.START):
 	var local_status_cycle_map : Dictionary = status_cycle_map.duplicate()
 	for status_type in local_status_cycle_map:
@@ -47,13 +60,4 @@ func decrement_durations(cycle_mode:int = CycleMode.START):
 		var status : StatusData = status_type_map[status_type]
 		if not is_instance_valid(status):
 			continue
-		if status.has_the_d():
-			status.duration -= 1
-			if status.stacks_the_d():
-				emit_signal("updated_status", status.duplicate(), -1)
-			elif not status.has_the_d():
-				var diff : int = -(status.get_stack_value())
-				status.reset_stack()
-				emit_signal("updated_status", status.duplicate(), diff)
-			if not status.has_the_d():
-				lose_status(status)
+		decrement_duration(status)
