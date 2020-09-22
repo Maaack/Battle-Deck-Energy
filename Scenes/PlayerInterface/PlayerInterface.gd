@@ -182,6 +182,16 @@ func _exhausting_animation(card:CardData, animation:AnimationData):
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
+func _reshuffling_animation(card:CardData, animation:AnimationData):
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	if is_instance_valid(card_instance):
+		card_manager.move_card(card, animation.transform_data, animation.tween_time)
+		card_manager.lock_card(card)
+		card_instance.connect("tween_completed", self, "_on_reshuffle_card_completed")
+	else:
+		player_board.draw_discarded_card()
+		player_board.reshuffle_card()
+
 func _on_card_animation_started(animation:CardAnimationData):
 	var card : CardData = animation.card_data
 	match(animation.animation_type):
@@ -192,7 +202,7 @@ func _on_card_animation_started(animation:CardAnimationData):
 		AnimationType.EXHAUSTING:
 			_exhausting_animation(card, animation)
 		AnimationType.RESHUFFLING:
-			player_board.reshuffle_card()
+			_reshuffling_animation(card, animation)
 		_:
 			card_manager.move_card(card, animation.transform_data, animation.tween_time)
 
@@ -236,6 +246,10 @@ func _on_exhaust_card_completed(card_node:CardNode2D):
 	card_manager.remove_card(card_node.card_data)
 	player_board.exhaust_card()
 	_on_discard_complete()
+
+func _on_reshuffle_card_completed(card_node:CardNode2D):
+	card_manager.remove_card(card_node.card_data)
+	player_board.reshuffle_card()
 
 func _on_draw_card_completed(card_node:CardNode2D):
 	card_node.disconnect("tween_completed", self, "_on_draw_card_completed")

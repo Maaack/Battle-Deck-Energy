@@ -9,8 +9,6 @@ onready var advance_phase_timer = $AdvancePhaseTimer
 onready var advance_character_timer = $AdvanceCharacterTimer
 onready var advance_action_timer = $AdvanceActionTimer
 onready var battle_end_timer = $BattleEndDelayTimer
-onready var battle_won_timer = $BattleWonDelayTimer
-onready var battle_lost_timer = $BattleLostDelayTimer
 onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
@@ -260,7 +258,7 @@ func _count_active_opponents():
 func _on_CharacterBattleManager_died(character):
 	player_interface.character_dies(character)
 	if character == player_data:
-		battle_lost_timer.start()
+		battle_end_timer.start()
 		yield(battle_end_timer, "timeout")
 		emit_signal("player_lost")
 	else:
@@ -303,7 +301,9 @@ func _on_EffectManager_add_card_to_hand(card, character):
 	pass
 
 func _on_EffectManager_add_card_to_draw_pile(card, character):
-	pass
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	player_interface.new_character_card(character, card)
+	battle_manager.reshuffle_card(card)
 
 func _on_EffectManager_add_card_to_discard_pile(card, character):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]

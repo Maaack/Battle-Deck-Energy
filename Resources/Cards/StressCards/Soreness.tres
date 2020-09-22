@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Sore"
+title = "Soreness"
 description = "Unplayable."
 energy_cost = 1
 effects = [ ExtResource( 2 ) ]
