@@ -303,9 +303,11 @@ func _on_EffectManager_add_card_to_hand(card, character):
 func _on_EffectManager_add_card_to_draw_pile(card, character):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	player_interface.new_character_card(character, card)
+	player_interface.animate_playing_card(card)
 	battle_manager.reshuffle_card(card)
 
 func _on_EffectManager_add_card_to_discard_pile(card, character):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	player_interface.new_character_card(character, card)
+	player_interface.animate_playing_card(card)
 	battle_manager.discard_card(card)

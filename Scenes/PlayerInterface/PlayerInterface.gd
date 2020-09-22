@@ -407,6 +407,10 @@ func _on_BattleCardManager_playing_card(card_data:CardData):
 	if card_data.type == CardData.CardType.STRESS:
 		emit_signal("card_played", card_data)
 
+func animate_playing_card(card:CardData):
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	card_instance.play_card()
+
 func play_card(character:CharacterData, card:CardData, opportunity = null):
 	var opening_transform : TransformData = card.transform_data.duplicate()
 	if opportunity is OpportunityData:
@@ -415,8 +419,7 @@ func play_card(character:CharacterData, card:CardData, opportunity = null):
 	if character == player_data:
 		hand_manager.discard_card(card)
 		card_manager.move_card(card, opening_transform)
-		var card_instance : CardNode2D = card_manager.get_card_instance(card)
-		card_instance.play_card()
+		animate_playing_card(card)
 	else:
 		card.transform_data = opening_transform
 		var card_instance : CardNode2D = _new_character_card(character, card)
