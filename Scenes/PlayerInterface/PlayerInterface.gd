@@ -353,9 +353,10 @@ func _on_PlayerInterface_gui_input(event):
 
 func get_player_card_opportunities(card:CardData):
 	var filtered_opportunities : Dictionary = {}
+	var playable_types : Array = effect_calculator.get_playable_types(card)
 	for opportunity in _opportunities_map:
 		if opportunity is OpportunityData:
-			if card.type == opportunity.type and player_data == opportunity.source:
+			if opportunity.type in playable_types and player_data == opportunity.source:
 				filtered_opportunities[opportunity] = _opportunities_map[opportunity]
 	return filtered_opportunities
 
@@ -399,10 +400,6 @@ func _on_BattleCardManager_dragging_card(card_data:CardData):
 
 func _on_BattleCardManager_dropping_card(card_data:CardData):
 	_on_dropping_card(card_data)
-
-func _on_BattleCardManager_playing_card(card_data:CardData):
-	if card_data.type == CardData.CardType.STRESS:
-		emit_signal("card_played", card_data)
 
 func animate_playing_card(card:CardData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
