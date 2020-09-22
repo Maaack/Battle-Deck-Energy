@@ -10,6 +10,10 @@ const RICOCHET_EFFECT = 'RICOCHET'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
+const UNPLAYABLE_EFFECT = 'UNPLAYABLE'
+const PLAY_AS_DEFEND_EFFECT = 'PLAY_AS_DEFEND'
+const PLAY_AS_ATTACK_EFFECT = 'PLAY_AS_ATTACK'
+const PLAY_AS_SKILL_EFFECT = 'PLAY_AS_SKILL'
 const STRENGTH_STATUS = 'STRENGTH'
 const ATTACK_UP_STATUS = 'ATTACK_UP'
 const DEFENSE_UP_STATUS = 'DEFENSE_UP'
@@ -64,3 +68,14 @@ static func get_effect_total(base_value:int, type_tag:String, source_statuses:Ar
 				if status is StatusData and status.type_tag == status_type:
 					total = _get_value_modified(total, status_type, status.get_stack_value())
 	return int(total)
+
+static func get_playable_types(card_data:CardData):
+	var playable_types : Array = []
+	playable_types.append(card_data.type)
+	if card_data.has_effect(PLAY_AS_DEFEND_EFFECT):
+		playable_types.append(CardData.CardType.DEFEND)
+	if card_data.has_effect(PLAY_AS_ATTACK_EFFECT):
+		playable_types.append(CardData.CardType.ATTACK)
+	if card_data.has_effect(PLAY_AS_SKILL_EFFECT):
+		playable_types.append(CardData.CardType.SKILL)
+	return playable_types

@@ -8,9 +8,10 @@ signal exhaust_pile_pressed
 signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
+signal card_played(card)
 signal card_played_on_opportunity(card, opportunity)
 
-enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
+enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
 export(float, 0, 512) var opportunity_snap_range = 200.0
 
@@ -55,18 +56,15 @@ func set_draw_pile_count(count:int):
 		player_board.set_draw_pile_size(count)
 
 func draw_card(card_data:CardData):
-	card_data = card_data
-	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var hand_offset : Vector2 = hand_manager.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
+	var new_transform : TransformData = TransformData.new(hand_offset)
+	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DRAWING_INTO_HAND)
+
+func draw_card_from_draw_pile(card_data:CardData):
+	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	card_data.transform_data.position = draw_pile_offset
 	card_data.transform_data.scale = Vector2(0.1, 0.1)
-	var new_transform : TransformData = TransformData.new()
-	new_transform.position = hand_offset
-	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DRAWING)
-
-func draw_cards(cards:Array):
-	for card in cards:
-		draw_card(card)
+	animation_queue.animate_move(card_data, card_data.transform_data, 0.0, 0.05, AnimationType.DRAWING_FROM_DRAW_PILE)
 
 func discard_card(card_data:CardData):
 	var discard_pile_offset : Vector2 = discard_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
@@ -105,17 +103,17 @@ func _on_CardContainer_update_opportunity(opportunity:OpportunityData, container
 		card_manager.force_move_card(opportunity.card_data, opportunity.transform_data, 0.05)
 		opponent_card_manager.force_move_card(opportunity.card_data, opportunity.transform_data, 0.05)
 
-func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData, target = null):
+func _calculate_card_mod(card_instance:CardNode2D, source = null, target = null):
 	var total_values : Dictionary = {}
 	for effect in card_instance.card_data.effects:
 		var base_value = effect.amount
 		var type_tag = effect.type_tag
 		if not type_tag in total_values:
 			total_values[type_tag] = 0
-		var source_statuses : Array
-		if source and source in _character_statuses_map:
+		var source_statuses : Array = []
+		if source and source in _character_statuses_map and card_instance.card_data.type != CardData.CardType.STRESS:
 			source_statuses = _character_statuses_map[source].values()
-		var target_statuses : Array
+		var target_statuses : Array = []
 		if target and target in _character_statuses_map:
 			target_statuses = _character_statuses_map[target].values()
 		var total_value = effect_calculator.get_effect_total(base_value, type_tag, source_statuses, target_statuses)
@@ -144,13 +142,18 @@ func _recalculate_all_cards():
 		if opportunity is OpportunityData:
 			if opportunity.card_data == null or opportunity.source == player_data:
 				continue
-			var card_instance = card_manager.get_card_instance(opportunity.card_data)
+			var card_instance = opponent_card_manager.get_card_instance(opportunity.card_data)
 			if not is_instance_valid(card_instance):
 				continue
 			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
 
+func new_character_card(character_data:CharacterData, card:CardData):
+	var center_offset : Vector2 = get_global_transform().get_origin() + (get_rect().size / 2)
+	var card_manager_offset : Vector2 = card_manager.get_global_transform().get_origin()
+	card.transform_data.position = center_offset - card_manager_offset
+	return _new_character_card(character_data, card)
+
 func _drawing_animation(card:CardData, animation:AnimationData):
-	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
@@ -159,6 +162,8 @@ func _drawing_animation(card:CardData, animation:AnimationData):
 
 func _discarding_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	if not is_instance_valid(card_instance):
+		return
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
@@ -166,22 +171,36 @@ func _discarding_animation(card:CardData, animation:AnimationData):
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	if not is_instance_valid(card_instance):
+		return
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
+func _reshuffling_animation(card:CardData, animation:AnimationData):
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	if is_instance_valid(card_instance):
+		card_manager.move_card(card, animation.transform_data, animation.tween_time)
+		card_manager.lock_card(card)
+		card_instance.connect("tween_completed", self, "_on_reshuffle_card_completed")
+	else:
+		player_board.draw_discarded_card()
+		player_board.reshuffle_card()
+
 func _on_card_animation_started(animation:CardAnimationData):
 	var card : CardData = animation.card_data
 	match(animation.animation_type):
-		AnimationType.DRAWING:
+		AnimationType.DRAWING_FROM_DRAW_PILE:
+			player_board.draw_card()
+		AnimationType.DRAWING_INTO_HAND:
 			_drawing_animation(card, animation)
 		AnimationType.DISCARDING:
 			_discarding_animation(card, animation)
 		AnimationType.EXHAUSTING:
 			_exhausting_animation(card, animation)
 		AnimationType.RESHUFFLING:
-			player_board.reshuffle_card()
+			_reshuffling_animation(card, animation)
 		_:
 			card_manager.move_card(card, animation.transform_data, animation.tween_time)
 
@@ -191,6 +210,7 @@ func _on_status_animation_started(animation:StatusAnimationData):
 func _on_PlayerBoard_ending_turn():
 	emit_signal("ending_turn")
 	hand_manager.spread_from_mouse_flag = false
+	card_manager.active = false
 
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
@@ -224,6 +244,10 @@ func _on_exhaust_card_completed(card_node:CardNode2D):
 	card_manager.remove_card(card_node.card_data)
 	player_board.exhaust_card()
 	_on_discard_complete()
+
+func _on_reshuffle_card_completed(card_node:CardNode2D):
+	card_manager.remove_card(card_node.card_data)
+	player_board.reshuffle_card()
 
 func _on_draw_card_completed(card_node:CardNode2D):
 	card_node.disconnect("tween_completed", self, "_on_draw_card_completed")
@@ -264,7 +288,6 @@ func character_gains_energy(character:CharacterData, delta:int):
 		card_manager.energy_available += delta
 
 func character_loses_energy(character:CharacterData, delta:int):
-	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
 	if character == player_data:
 		player_board.lose_energy(delta)
 		card_manager.energy_available -= delta
@@ -278,6 +301,7 @@ func character_dies(character:CharacterData):
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
+	card_manager.active = true
 	reset_end_turn()
 	
 func start_round():
@@ -329,9 +353,10 @@ func _on_PlayerInterface_gui_input(event):
 
 func get_player_card_opportunities(card:CardData):
 	var filtered_opportunities : Dictionary = {}
+	var playable_types : Array = effect_calculator.get_playable_types(card)
 	for opportunity in _opportunities_map:
 		if opportunity is OpportunityData:
-			if card.type == opportunity.type and player_data == opportunity.source:
+			if opportunity.type in playable_types and player_data == opportunity.source:
 				filtered_opportunities[opportunity] = _opportunities_map[opportunity]
 	return filtered_opportunities
 
@@ -376,17 +401,19 @@ func _on_BattleCardManager_dragging_card(card_data:CardData):
 func _on_BattleCardManager_dropping_card(card_data:CardData):
 	_on_dropping_card(card_data)
 
-func play_card(character:CharacterData, card:CardData, opportunity:OpportunityData):
-	if not opportunity in _opportunities_map:
-		print("Warning: %s doesn't exist in opportunities map %s ." % [opportunity, str(_opportunities_map)])
-		return
-	opportunity.card_data = card
-	var opening_transform : TransformData = opportunity.transform_data.duplicate()
+func animate_playing_card(card:CardData):
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	card_instance.play_card()
+
+func play_card(character:CharacterData, card:CardData, opportunity = null):
+	var opening_transform : TransformData = card.transform_data.duplicate()
+	if opportunity is OpportunityData:
+		opportunity.card_data = card
+		opening_transform = opportunity.transform_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
 		card_manager.move_card(card, opening_transform)
-		var card_instance : CardNode2D = card_manager.get_card_instance(card)
-		card_instance.play_card()
+		animate_playing_card(card)
 	else:
 		card.transform_data = opening_transform
 		var card_instance : CardNode2D = _new_character_card(character, card)

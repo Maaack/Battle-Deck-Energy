@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Resources/Statuses/Defense.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffectData.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0396.png" type="Texture" id=3]
 
 [resource]

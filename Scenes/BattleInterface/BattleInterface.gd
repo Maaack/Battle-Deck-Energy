@@ -6,8 +6,9 @@ signal player_lost
 signal view_deck_pressed(deck)
 
 onready var advance_phase_timer = $AdvancePhaseTimer
-onready var battle_won_timer = $BattleWonDelayTimer
-onready var battle_lost_timer = $BattleLostDelayTimer
+onready var advance_character_timer = $AdvanceCharacterTimer
+onready var advance_action_timer = $AdvanceActionTimer
+onready var battle_end_timer = $BattleEndDelayTimer
 onready var player_interface = $PlayerInterface
 onready var player_battle_manager = $CharacterBattleManager
 onready var ai_opponents_manager = $AIOpponentsManager
@@ -64,22 +65,25 @@ func _take_enemy_turn():
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
-	player_battle_manager.update_start_of_turn_statuses()
-	player_battle_manager.reset_energy()
 	player_interface.start_turn()
 
 func _start_player_turn():
 	battle_opportunities_manager.reset_player_opportunities()
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
+	player_battle_manager.update_start_of_turn_statuses()
+	player_battle_manager.reset_energy()
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():
 	var cards_in_hand : Array = player_battle_manager.hand.cards.duplicate()
-	var discarding_cards : Array = effects_manager.exclude_retained_cards(cards_in_hand)
-	if discarding_cards.size() > 0:
+	var discarding_cards : Array = effects_manager.include_discardable_cards(cards_in_hand)
+	var exhausting_cards : Array = effects_manager.include_exhaustable_cards(cards_in_hand)
+	if discarding_cards.size() + exhausting_cards.size() > 0:
 		player_interface.connect("discard_completed", battle_phase_manager, "advance")
 		for discarding_card in discarding_cards:
 			player_battle_manager.discard_card(discarding_card)
+		for exhausting_card in exhausting_cards:
+			player_battle_manager.exhaust_card(exhausting_card)
 	else:
 		battle_phase_manager.advance()
 
@@ -111,48 +115,54 @@ func _discard_or_exhaust_card(card:CardData):
 	else:
 		player_battle_manager.discard_card(card)
 
-func _discard_played_cards():
-	var discarding_flag = false
-	for opportunity in _round_opportunities_map:
-		if opportunity is OpportunityData and is_instance_valid(opportunity.card_data):
-			if opportunity.source == player_data:
-				discarding_flag = true
-				_discard_or_exhaust_card(opportunity.card_data)
-			else:
-				player_interface.opponent_discards_card(opportunity.card_data)
-	return discarding_flag
+func _resolve_card_played_actions(card:CardData, opportunity = null):
+	if opportunity is OpportunityData:
+		effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
+		battle_opportunities_manager.remove_opportunity(opportunity)
+	else:
+		effects_manager.resolve_on_play(card, player_data, _character_manager_map)
+	_discard_or_exhaust_card(card)
 
-func _resolve_actions(character:CharacterData):
+func _resolve_character_actions(character:CharacterData):
 	var opportunities : Array = battle_opportunities_manager.get_character_opportunities(character)
 	for opportunity in opportunities:
 		if opportunity.card_data != null:
-			_resolve_immediate_actions(opportunity.card_data, opportunity)
+			effects_manager.resolve_on_play_opportunity(opportunity.card_data, opportunity, _character_manager_map)
+			battle_opportunities_manager.remove_opportunity(opportunity)
+			player_interface.opponent_discards_card(opportunity.card_data)
 
-func _resolve_immediate_actions(card:CardData, opportunity:OpportunityData):
-	effects_manager.resolve_opportunity(card, opportunity, _character_manager_map)
-	battle_opportunities_manager.remove_opportunity(opportunity)
+func _resolve_card_drawn_actions(card:CardData):
+	effects_manager.resolve_on_draw(card, player_data, _character_manager_map)
 
-func _discard_all_cards():
-	var discarding_flag = _discard_played_cards()
+func _resolve_card_discarded_actions(card:CardData):
+	effects_manager.resolve_on_discard(card, player_data, _character_manager_map)
+
+func _clear_round_opportunities():
 	player_interface.remove_all_opportunities()
 	_round_opportunities_map.clear()
-	if discarding_flag:
-		player_interface.connect("discard_completed",  battle_phase_manager, "advance")
-	else:
-		battle_phase_manager.advance()
+	battle_phase_manager.advance()
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
+	_resolve_card_drawn_actions(card)
+
+func _on_CharacterBattleManager_drew_card_from_draw_pile(card):
+	player_interface.draw_card_from_draw_pile(card)
+
+func _on_PlayerInterface_card_played(card):
+	player_battle_manager.play_card(card)
+	_resolve_card_played_actions(card)
 
 func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
-	player_battle_manager.play_card(card, opportunity)
-	_resolve_immediate_actions(card, opportunity)
+	player_battle_manager.play_card_on_opportunity(card, opportunity)
+	_resolve_card_played_actions(card, opportunity)
 
 func _on_PlayerInterface_ending_turn():
 	_end_player_turn()
 
 func _on_CharacterBattleManager_discarded_card(card):
 	player_interface.discard_card(card)
+	_resolve_card_discarded_actions(card)
 
 func _on_CharacterBattleManager_exhausted_card(card):
 	player_interface.exhaust_card(card)
@@ -190,12 +200,16 @@ func _on_EnemyResolution_phase_entered():
 			continue
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
 		manager.update_start_of_turn_statuses()
-		_resolve_actions(opponent)
+		_resolve_character_actions(opponent)
+		advance_action_timer.start()
+		yield(advance_action_timer, "timeout")
 		manager.update_end_of_turn_statuses()
+		advance_character_timer.start()
+		yield(advance_character_timer, "timeout")
 	battle_phase_manager.advance()
 
 func _on_RoundEnd_phase_entered():
-	_discard_all_cards()
+	_clear_round_opportunities()
 
 func _on_AIOpponentsManager_played_card(character, card, opportunity):
 	player_interface.play_card(character, card, opportunity)
@@ -247,10 +261,14 @@ func _count_active_opponents():
 func _on_CharacterBattleManager_died(character):
 	player_interface.character_dies(character)
 	if character == player_data:
-		battle_lost_timer.start()
+		battle_end_timer.start()
+		yield(battle_end_timer, "timeout")
+		emit_signal("player_lost")
 	else:
 		if _count_active_opponents() == 0:
-			battle_won_timer.start()
+			battle_end_timer.start()
+			yield(battle_end_timer, "timeout")
+			emit_signal("player_won")
 
 func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):
 	player_interface.add_opportunity(opportunity)
@@ -259,11 +277,6 @@ func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityDat
 func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityData):
 	_round_opportunities_map.erase(opportunity)
 	player_interface.remove_opportunity(opportunity)
-	if opportunity.card_data != null:
-		if opportunity.source == player_data:
-			_discard_or_exhaust_card(opportunity.card_data)
-		else:
-			player_interface.opponent_discards_card(opportunity.card_data)
 
 func _on_CharacterBattleManager_updated_status(character, status, delta):
 	player_interface.update_status(character, status, delta)
@@ -287,8 +300,20 @@ func _on_PlayerInterface_exhaust_pile_pressed():
 		return
 	emit_signal("view_deck_pressed", deck)
 
-func _on_BattleWonDelayTimer_timeout():
-	emit_signal("player_won")
+func _on_EffectManager_add_card_to_hand(card, character):
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	player_interface.new_character_card(character, card)
+	player_interface.animate_playing_card(card)
+	battle_manager.add_card_to_hand(card)
 
-func _on_BattleLostDelayTimer_timeout():
-	emit_signal("player_lost")
+func _on_EffectManager_add_card_to_draw_pile(card, character):
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	player_interface.new_character_card(character, card)
+	player_interface.animate_playing_card(card)
+	battle_manager.add_card_to_draw_pile(card)
+
+func _on_EffectManager_add_card_to_discard_pile(card, character):
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	player_interface.new_character_card(character, card)
+	player_interface.animate_playing_card(card)
+	battle_manager.add_card_to_discard_pile(card)

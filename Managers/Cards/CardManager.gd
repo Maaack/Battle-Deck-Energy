@@ -6,6 +6,7 @@ class_name CardManager
 signal focused_on_card(card_node)
 signal focused_off_card(card_node)
 signal clicked_card(card_node)
+signal double_clicked_card(card_node)
 signal released_card(card_node)
 signal tween_completed(card_node)
 
@@ -27,6 +28,7 @@ func add_card(card_data:CardData):
 		card_instance.connect("mouse_entered", self, "_on_Card_mouse_entered")
 		card_instance.connect("mouse_exited", self, "_on_Card_mouse_exited")
 		card_instance.connect("mouse_clicked", self, "_on_Card_mouse_clicked")
+		card_instance.connect("mouse_double_clicked", self, "_on_Card_mouse_double_clicked")
 		card_instance.connect("mouse_released", self, "_on_Card_mouse_released")
 		card_instance.connect("tween_completed", self, "_on_Card_tween_completed")
 	return card_instance
@@ -67,6 +69,9 @@ func _on_Card_mouse_exited(card_node:CardNode2D):
 
 func _on_Card_mouse_clicked(card_node:CardNode2D):
 	emit_signal("clicked_card", card_node)
+
+func _on_Card_mouse_double_clicked(card_node:CardNode2D):
+	emit_signal("double_clicked_card", card_node)
 
 func _on_Card_mouse_released(card_node:CardNode2D):
 	emit_signal("released_card", card_node)

@@ -3,7 +3,7 @@ extends Resource
 
 class_name CardData
 
-enum CardType{NONE, ATTACK, DEFEND, SKILL}
+enum CardType{NONE, ATTACK, DEFEND, SKILL, STRESS}
 
 export(String) var title : String = 'CardData'
 export(String, MULTILINE) var description : String = ''

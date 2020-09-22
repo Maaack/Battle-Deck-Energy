@@ -34,7 +34,7 @@ mouse_filter = 2
 custom_constants/margin_right = 12
 custom_constants/margin_top = 12
 custom_constants/margin_left = 12
-custom_constants/margin_bottom = 0
+custom_constants/margin_bottom = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,18 +43,18 @@ __meta__ = {
 margin_left = 12.0
 margin_top = 12.0
 margin_right = 1268.0
-margin_bottom = 720.0
+margin_bottom = 704.0
 
 [node name="ActionsBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_right = 1256.0
-margin_bottom = 352.0
+margin_bottom = 344.0
 
 [node name="PlayerBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 356.0
+margin_top = 348.0
 margin_right = 1256.0
-margin_bottom = 708.0
+margin_bottom = 692.0
 
 [node name="HandContainer" type="CenterContainer" parent="."]
 anchor_top = 1.0

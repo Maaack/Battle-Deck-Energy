@@ -32,7 +32,6 @@ func draw_discarded_card():
 	discard_pile.remove_card()
 
 func reshuffle_card():
-	discard_pile.remove_card()
 	draw_pile.add_card()
 
 func discard_card():

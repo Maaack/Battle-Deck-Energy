@@ -3,6 +3,7 @@ extends Node
 
 class_name CharacterBattleManager
 
+signal drew_card_from_draw_pile(card)
 signal drew_card(card)
 signal discarded_card(card)
 signal exhausted_card(card)
@@ -87,25 +88,36 @@ func reshuffle_discard_pile():
 	for card in discarded:
 		reshuffle_card(card)
 
-func add_card_to_hand(card:CardData):
-	hand.add_card(card)
-
-func discard_card_from_hand(card:CardData):
-	hand.discard_card(card)
-
-func reshuffle_card(card:CardData):
+func add_card_to_draw_pile(card:CardData):
 	draw_pile.add_card(card)
 	draw_pile.shuffle()
 	emit_signal("reshuffled_card", card)
 
-func discard_card(card:CardData):
-	discard_card_from_hand(card)
+func add_card_to_hand(card:CardData):
+	hand.add_card(card)
+	emit_signal("drew_card", card)
+
+func add_card_to_discard_pile(card:CardData):
 	discard_pile.add_card(card)
 	emit_signal("discarded_card", card)
 
-func exhaust_card(card:CardData):
+func add_card_to_exhaust_pile(card:CardData):
 	exhaust_pile.add_card(card)
 	emit_signal("exhausted_card", card)
+
+func _discard_card_from_hand(card:CardData):
+	hand.discard_card(card)
+
+func reshuffle_card(card:CardData):
+	add_card_to_draw_pile(card)
+
+func discard_card(card:CardData):
+	_discard_card_from_hand(card)
+	add_card_to_discard_pile(card)
+
+func exhaust_card(card:CardData):
+	_discard_card_from_hand(card)
+	add_card_to_exhaust_pile(card)
 
 func draw_card(card = null):
 	if draw_pile.size() < 1:
@@ -117,8 +129,8 @@ func draw_card(card = null):
 		drawn_card = draw_pile.draw_card()
 	if not is_instance_valid(drawn_card):
 		return
+	emit_signal("drew_card_from_draw_pile", drawn_card)
 	add_card_to_hand(drawn_card)
-	emit_signal("drew_card", drawn_card)
 
 func draw_hand():
 	for _i in range(character_data.hand_size):
@@ -131,7 +143,13 @@ func discard_hand():
 		discard_card(card)
 	return shuffled_cards
 
-func play_card(card:CardData, opportunity:OpportunityData):
+func play_card(card:CardData):
+	lose_energy(card.energy_cost)
+	var discarded_flag = hand.discard_card(card)
+	if discarded_flag:
+		emit_signal("played_card", card, null)
+	
+func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
 	lose_energy(card.energy_cost)
 	var discarded_flag = hand.discard_card(card)
 	opportunity.card_data = card

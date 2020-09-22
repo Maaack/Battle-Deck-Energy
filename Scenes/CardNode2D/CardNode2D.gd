@@ -7,6 +7,7 @@ class_name CardNode2D
 signal mouse_entered(card_node_2d)
 signal mouse_exited(card_node_2d)
 signal mouse_clicked(card_node_2d)
+signal mouse_double_clicked(card_node_2d)
 signal mouse_released(card_node_2d)
 signal tween_completed(card_node_2d)
 signal animation_completed(card_node_2d)
@@ -27,6 +28,7 @@ onready var description_label = $Card/Body/CardFront/DescriptionPanel/MarginCont
 onready var attack_type_panel = $Card/Body/CardFront/Control/AttackPanel
 onready var defend_type_panel = $Card/Body/CardFront/Control/DefendPanel
 onready var skill_type_panel = $Card/Body/CardFront/Control/SkillPanel
+onready var stress_type_panel = $Card/Body/CardFront/Control/StressPanel
 onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
 onready var effect_label = $Card/Body/CardFront/EffectContainer/Label
 
@@ -43,10 +45,14 @@ func _to_string():
 	else:
 		return ._to_string()
 
+func is_playable():
+	return !(card_data.has_effect(EffectCalculator.UNPLAYABLE_EFFECT))
+
 func _reset_card_type():
 	attack_type_panel.hide()
 	defend_type_panel.hide()
 	skill_type_panel.hide()
+	stress_type_panel.hide()
 	match(card_data.type):
 		CardData.CardType.ATTACK:
 			attack_type_panel.show()
@@ -54,11 +60,15 @@ func _reset_card_type():
 			defend_type_panel.show()
 		CardData.CardType.SKILL:
 			skill_type_panel.show()
+		CardData.CardType.STRESS:
+			stress_type_panel.show()
 
 func _reset_card_front():
 	if not is_instance_valid(card_data):
 		return
 	title_label.text = card_data.title
+	if not is_playable():
+		energy_panel.hide()
 	if card_data.energy_cost >= 0:
 		energy_label.text = str(card_data.energy_cost)
 	_reset_card_type()
@@ -66,7 +76,7 @@ func _reset_card_front():
 		var battle_effect : EffectData = card_data.effects[0]
 		if battle_effect.icon != null:
 			effect_texture.texture = battle_effect.icon
-		if battle_effect.amount != 0:
+		if battle_effect.amount >= 0:
 			effect_label.text = str(battle_effect.amount)
 		if battle_effect.base_color != Color():
 			effect_label.add_color_override("font_color", battle_effect.base_color)
@@ -202,7 +212,9 @@ func _handle_input_event(event):
 	if event is InputEventMouseButton:
 		match event.button_index:
 			BUTTON_LEFT:
-				if event.pressed:
+				if event.doubleclick:
+					emit_signal("mouse_double_clicked", self)
+				elif event.pressed:
 					emit_signal("mouse_clicked", self)
 				if not event.pressed:
 					emit_signal("mouse_released", self)

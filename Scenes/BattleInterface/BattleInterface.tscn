@@ -19,14 +19,17 @@ __meta__ = {
 }
 
 [node name="AdvancePhaseTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="AdvanceCharacterTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AdvanceActionTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
-[node name="BattleWonDelayTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[node name="BattleLostDelayTimer" type="Timer" parent="."]
+[node name="BattleEndDelayTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
 
@@ -58,8 +61,7 @@ one_shot = true
 
 [node name="EffectManager" parent="." instance=ExtResource( 8 )]
 [connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
-[connection signal="timeout" from="BattleWonDelayTimer" to="." method="_on_BattleWonDelayTimer_timeout"]
-[connection signal="timeout" from="BattleLostDelayTimer" to="." method="_on_BattleLostDelayTimer_timeout"]
+[connection signal="card_played" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played"]
 [connection signal="card_played_on_opportunity" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
 [connection signal="discard_pile_pressed" from="PlayerInterface" to="." method="_on_PlayerInterface_discard_pile_pressed"]
 [connection signal="draw_pile_pressed" from="PlayerInterface" to="." method="_on_PlayerInterface_draw_pile_pressed"]
@@ -68,6 +70,7 @@ one_shot = true
 [connection signal="died" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_died"]
 [connection signal="discarded_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_discarded_card"]
 [connection signal="drew_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card"]
+[connection signal="drew_card_from_draw_pile" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card_from_draw_pile"]
 [connection signal="exhausted_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_exhausted_card"]
 [connection signal="gained_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_energy"]
 [connection signal="gained_health" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_health"]
@@ -87,6 +90,9 @@ one_shot = true
 [connection signal="phase_entered" from="BattlePhaseManager/RoundEnd" to="." method="_on_RoundEnd_phase_entered"]
 [connection signal="opportunity_added" from="BattleOpportunitiesManager" to="." method="_on_BattleOpportunitiesManager_opportunity_added"]
 [connection signal="opportunity_removed" from="BattleOpportunitiesManager" to="." method="_on_BattleOpportunitiesManager_opportunity_removed"]
+[connection signal="add_card_to_discard_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_discard_pile"]
+[connection signal="add_card_to_draw_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_draw_pile"]
+[connection signal="add_card_to_hand" from="EffectManager" to="." method="_on_EffectManager_add_card_to_hand"]
 [connection signal="add_opportunity" from="EffectManager" to="." method="_on_EffectManager_add_opportunity"]
 [connection signal="apply_damage" from="EffectManager" to="." method="_on_EffectManager_apply_damage"]
 [connection signal="apply_energy" from="EffectManager" to="." method="_on_EffectManager_apply_energy"]

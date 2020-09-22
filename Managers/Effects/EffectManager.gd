@@ -5,6 +5,9 @@ signal apply_damage(character, damage)
 signal apply_status(character, status, origin)
 signal apply_energy(character, energy)
 signal add_opportunity(type, source, target)
+signal add_card_to_hand(card, character)
+signal add_card_to_draw_pile(card, character)
+signal add_card_to_discard_pile(card, character)
 
 const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
@@ -15,6 +18,7 @@ const FORTIFY_EFFECT = 'FORTIFY'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
+const MOMENTARY_EFFECT = 'MOMENTARY'
 const VULNERABLE_STATUS = 'VULNERABLE'
 const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
 
@@ -38,6 +42,11 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
 	emit_signal("apply_damage", target, total_damage)
 
+func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
+	var target_statuses = _get_character_statuses(target, character_manager_map)
+	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, [], target_statuses)
+	emit_signal("apply_damage", target, total_damage)
+
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	for status in effect.statuses:
 		var modified_status : StatusData = status.duplicate()
@@ -56,9 +65,53 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 			modified_status.intensity = status_quantity
 		emit_signal("apply_status", target, modified_status, source)
 
-func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
+func _resolve_deck_mod(effect:DeckModEffectData, character:CharacterData):
+	var new_card = effect.card.duplicate()
+	match(effect.destination):
+		DeckModEffectData.DestinationMode.HAND:
+			emit_signal("add_card_to_hand", new_card, character)
+		DeckModEffectData.DestinationMode.DRAW:
+			emit_signal("add_card_to_draw_pile", new_card, character)
+		DeckModEffectData.DestinationMode.DISCARD:
+			emit_signal("add_card_to_discard_pile", new_card, character)
+
+func _resolve_self_effects(effect:EffectData, character:CharacterData, character_manager_map:Dictionary):
+	match(effect.type_tag):
+		TARGET_APPLY_ENERGY_EFFECT:
+			emit_signal("apply_energy", character, effect.amount)
+		ATTACK_EFFECT:
+			_resolve_self_damage(effect, character, character_manager_map)
+	if effect is StatusEffectData:
+		_resolve_statuses(effect, character, character, character_manager_map)
+	if effect is DeckModEffectData:
+		_resolve_deck_mod(effect, character)
+
+func resolve_on_draw(card:CardData, character:CharacterData, character_manager_map:Dictionary):
 	for effect in card.effects:
-		if effect is EffectData and effect.is_immediate():
+		if effect is EffectData:
+			if not effect.applies_on_draw():
+				continue
+			_resolve_self_effects(effect, character, character_manager_map)
+
+func resolve_on_discard(card:CardData, character:CharacterData, character_manager_map:Dictionary):
+	for effect in card.effects:
+		if effect is EffectData:
+			if not effect.applies_on_discard():
+				continue
+			_resolve_self_effects(effect, character, character_manager_map)
+
+func resolve_on_play(card:CardData, character:CharacterData, character_manager_map:Dictionary):
+	for effect in card.effects:
+		if effect is EffectData:
+			if not effect.applies_on_play():
+				continue
+			_resolve_self_effects(effect, character, character_manager_map)
+
+func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
+	for effect in card.effects:
+		if effect is EffectData:
+			if not effect.applies_on_play():
+				continue
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.type_tag):
 				PARRY_EFFECT, OPENER_EFFECT:
@@ -77,6 +130,8 @@ func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_m
 					_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 			if effect is StatusEffectData:
 				_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
+			if effect is DeckModEffectData:
+				_resolve_deck_mod(effect, final_target)
 
 func include_innate_cards(cards:Array):
 	var innate_cards : Array = []
@@ -91,3 +146,23 @@ func exclude_retained_cards(cards:Array):
 		if card is CardData and not card.has_effect(RETAIN_EFFECT):
 			not_retained_cards.append(card)
 	return not_retained_cards
+
+func include_discardable_cards(cards:Array):
+	var discardable_cards : Array = []
+	for card in cards:
+		if card is CardData:
+			if card.has_effect(RETAIN_EFFECT):
+				continue
+			if card.has_effect(MOMENTARY_EFFECT):
+				continue
+			discardable_cards.append(card)
+	return discardable_cards
+
+func include_exhaustable_cards(cards:Array):
+	var exhaustable_cards : Array = []
+	for card in cards:
+		if card is CardData:
+			if not card.has_effect(MOMENTARY_EFFECT):
+				continue
+			exhaustable_cards.append(card)
+	return exhaustable_cards
