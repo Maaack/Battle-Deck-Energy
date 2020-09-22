@@ -150,6 +150,12 @@ func _recalculate_all_cards():
 				continue
 			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
 
+func new_character_card(player_data:CharacterData, card:CardData):
+	var center_offset : Vector2 = get_global_transform().get_origin() + (get_rect().size / 2)
+	var card_manager_offset : Vector2 = card_manager.get_global_transform().get_origin()
+	card.transform_data.position = center_offset - card_manager_offset
+	var card_instance = _new_character_card(player_data, card)
+
 func _drawing_animation(card:CardData, animation:AnimationData):
 	player_board.draw_card()
 	var card_instance = _new_character_card(player_data, card)

@@ -5,6 +5,9 @@ signal apply_damage(character, damage)
 signal apply_status(character, status, origin)
 signal apply_energy(character, energy)
 signal add_opportunity(type, source, target)
+signal add_card_to_hand(card, character)
+signal add_card_to_draw_pile(card, character)
+signal add_card_to_discard_pile(card, character)
 
 const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
@@ -62,6 +65,16 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 			modified_status.intensity = status_quantity
 		emit_signal("apply_status", target, modified_status, source)
 
+func _resolve_deck_mod(effect:DeckModEffectData, character:CharacterData):
+	var new_card = effect.card.duplicate()
+	match(effect.destination):
+		DeckModEffectData.DestinationMode.HAND:
+			emit_signal("add_card_to_hand", new_card, character)
+		DeckModEffectData.DestinationMode.DRAW:
+			emit_signal("add_card_to_draw_pile", new_card, character)
+		DeckModEffectData.DestinationMode.DISCARD:
+			emit_signal("add_card_to_discard_pile", new_card, character)
+
 func _resolve_self_effects(effect:EffectData, character:CharacterData, character_manager_map:Dictionary):
 	match(effect.type_tag):
 		TARGET_APPLY_ENERGY_EFFECT:
@@ -70,6 +83,8 @@ func _resolve_self_effects(effect:EffectData, character:CharacterData, character
 			_resolve_self_damage(effect, character, character_manager_map)
 	if effect is StatusEffectData:
 		_resolve_statuses(effect, character, character, character_manager_map)
+	if effect is DeckModEffectData:
+		_resolve_deck_mod(effect, character)
 
 func resolve_on_draw(card:CardData, character:CharacterData, character_manager_map:Dictionary):
 	for effect in card.effects:
@@ -115,6 +130,8 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 					_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 			if effect is StatusEffectData:
 				_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
+			if effect is DeckModEffectData:
+				_resolve_deck_mod(effect, final_target)
 
 func include_innate_cards(cards:Array):
 	var innate_cards : Array = []

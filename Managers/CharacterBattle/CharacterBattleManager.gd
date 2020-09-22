@@ -87,10 +87,10 @@ func reshuffle_discard_pile():
 	for card in discarded:
 		reshuffle_card(card)
 
-func add_card_to_hand(card:CardData):
+func _add_card_to_hand(card:CardData):
 	hand.add_card(card)
 
-func discard_card_from_hand(card:CardData):
+func _discard_card_from_hand(card:CardData):
 	hand.discard_card(card)
 
 func reshuffle_card(card:CardData):
@@ -99,12 +99,12 @@ func reshuffle_card(card:CardData):
 	emit_signal("reshuffled_card", card)
 
 func discard_card(card:CardData):
-	discard_card_from_hand(card)
+	_discard_card_from_hand(card)
 	discard_pile.add_card(card)
 	emit_signal("discarded_card", card)
 
 func exhaust_card(card:CardData):
-	discard_card_from_hand(card)
+	_discard_card_from_hand(card)
 	exhaust_pile.add_card(card)
 	emit_signal("exhausted_card", card)
 
@@ -118,7 +118,7 @@ func draw_card(card = null):
 		drawn_card = draw_pile.draw_card()
 	if not is_instance_valid(drawn_card):
 		return
-	add_card_to_hand(drawn_card)
+	_add_card_to_hand(drawn_card)
 	emit_signal("drew_card", drawn_card)
 
 func draw_hand():

@@ -293,3 +293,14 @@ func _on_BattleWonDelayTimer_timeout():
 
 func _on_BattleLostDelayTimer_timeout():
 	emit_signal("player_lost")
+
+func _on_EffectManager_add_card_to_hand(card, character):
+	pass
+
+func _on_EffectManager_add_card_to_draw_pile(card, character):
+	pass
+
+func _on_EffectManager_add_card_to_discard_pile(card, character):
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	player_interface.new_character_card(character, card)
+	battle_manager.discard_card(card)
