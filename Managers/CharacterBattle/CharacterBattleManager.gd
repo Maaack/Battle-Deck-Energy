@@ -165,8 +165,14 @@ func gain_status(status:StatusData, origin:CharacterData):
 			cycle_mode = StatusManager.CycleMode.END
 	status_manager.gain_status(status, cycle_mode)
 
+func _run_start_of_turn_statuses():
+	var toxin_status : StatusData = status_manager.get_status_by_type(EffectCalculator.TOXIN_STATUS)
+	if toxin_status:
+		take_damage(toxin_status.duration)
+
 func update_start_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.START)
+	_run_start_of_turn_statuses()
 
 func update_end_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.END)
