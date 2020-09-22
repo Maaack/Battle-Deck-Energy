@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 type_tag = "PLAY_AS_ATTACK"
 icon = ExtResource( 2 )
-amount = 0
+amount = 1
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
 apply_mode = 0
 aim_mode = 0

@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 type_tag = "PLAY_AS_DEFEND"
 icon = ExtResource( 2 )
-amount = 0
+amount = 1
 base_color = Color( 0.00392157, 0.513726, 0.168627, 1 )
 apply_mode = 0
 aim_mode = 0

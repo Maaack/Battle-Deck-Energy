@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 type_tag = "PLAY_AS_SKILL"
 icon = ExtResource( 2 )
-amount = 0
+amount = 1
 base_color = Color( 0.905882, 0.745098, 0, 1 )
 apply_mode = 0
 aim_mode = 0
