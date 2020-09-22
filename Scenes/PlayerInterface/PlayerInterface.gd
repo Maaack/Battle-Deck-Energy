@@ -196,6 +196,7 @@ func _on_status_animation_started(animation:StatusAnimationData):
 func _on_PlayerBoard_ending_turn():
 	emit_signal("ending_turn")
 	hand_manager.spread_from_mouse_flag = false
+	card_manager.active = false
 
 func _on_AnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
@@ -283,6 +284,7 @@ func character_dies(character:CharacterData):
 
 func start_turn():
 	hand_manager.spread_from_mouse_flag = true
+	card_manager.active = true
 	reset_end_turn()
 	
 func start_round():

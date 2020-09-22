@@ -64,13 +64,13 @@ func _take_enemy_turn():
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
-	player_battle_manager.reset_energy()
 	player_interface.start_turn()
 
 func _start_player_turn():
 	battle_opportunities_manager.reset_player_opportunities()
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
 	player_battle_manager.update_start_of_turn_statuses()
+	player_battle_manager.reset_energy()
 	player_battle_manager.draw_hand()
 
 func _end_player_turn():

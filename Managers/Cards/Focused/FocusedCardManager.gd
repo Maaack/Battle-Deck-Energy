@@ -10,6 +10,7 @@ var _focused_card = null
 var _focused_card_parent_index = null
 var _focused_card_scale = null
 var hold_focus : bool = false
+var active : bool = true
 
 func get_focus_time():
 	return default_focus_time
@@ -18,7 +19,7 @@ func is_card_focused(card_node:CardNode2D):
 	return _focused_card == card_node
 
 func _can_change_focus():
-	return not hold_focus
+	return not hold_focus and active
 
 func remove_card(card_data:CardData):
 	var card_instance : CardNode2D = get_card_instance(card_data)
@@ -29,7 +30,7 @@ func remove_card(card_data:CardData):
 	.remove_card(card_data)
 
 func focus_on_card(card_node:CardNode2D):
-	if hold_focus:
+	if not _can_change_focus():
 		return
 	if _focused_card != null:
 		focus_off_card(_focused_card)
@@ -42,7 +43,7 @@ func focus_on_card(card_node:CardNode2D):
 	move_card(_focused_card.card_data, new_transform, get_focus_time())
 
 func focus_off_card(card_node:CardNode2D):
-	if hold_focus or not is_card_focused(card_node):
+	if not _can_change_focus() or not is_card_focused(card_node):
 		return
 	move_child(_focused_card, _focused_card_parent_index)
 	_focused_card_parent_index = null
