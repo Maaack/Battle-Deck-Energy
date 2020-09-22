@@ -145,7 +145,7 @@ func _recalculate_all_cards():
 		if opportunity is OpportunityData:
 			if opportunity.card_data == null or opportunity.source == player_data:
 				continue
-			var card_instance = card_manager.get_card_instance(opportunity.card_data)
+			var card_instance = opponent_card_manager.get_card_instance(opportunity.card_data)
 			if not is_instance_valid(card_instance):
 				continue
 			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
