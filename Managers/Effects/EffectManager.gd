@@ -85,7 +85,14 @@ func resolve_on_discard(card:CardData, character:CharacterData, character_manage
 				continue
 			_resolve_self_effects(effect, character, character_manager_map)
 
-func resolve_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
+func resolve_on_play(card:CardData, character:CharacterData, character_manager_map:Dictionary):
+	for effect in card.effects:
+		if effect is EffectData:
+			if not effect.applies_on_play():
+				continue
+			_resolve_self_effects(effect, character, character_manager_map)
+
+func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
 	for effect in card.effects:
 		if effect is EffectData:
 			if not effect.applies_on_play():

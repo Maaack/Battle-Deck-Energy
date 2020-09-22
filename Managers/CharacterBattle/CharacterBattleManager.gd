@@ -132,7 +132,13 @@ func discard_hand():
 		discard_card(card)
 	return shuffled_cards
 
-func play_card(card:CardData, opportunity:OpportunityData):
+func play_card(card:CardData):
+	lose_energy(card.energy_cost)
+	var discarded_flag = hand.discard_card(card)
+	if discarded_flag:
+		emit_signal("played_card", card, null)
+	
+func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
 	lose_energy(card.energy_cost)
 	var discarded_flag = hand.discard_card(card)
 	opportunity.card_data = card

@@ -104,6 +104,7 @@ one_shot = true
 [connection signal="card_updated" from="HandContainer/CardControl/HandManager" to="." method="_on_HandManager_card_updated"]
 [connection signal="dragging_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_BattleCardManager_dragging_card"]
 [connection signal="dropping_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_BattleCardManager_dropping_card"]
+[connection signal="playing_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_BattleCardManager_playing_card"]
 [connection signal="animation_started" from="BattleAnimationQueue" to="." method="_on_BattleAnimationQueue_animation_started"]
 [connection signal="queue_empty" from="BattleAnimationQueue" to="." method="_on_BattleAnimationQueue_queue_empty"]
 [connection signal="timeout" from="ResizeTimer" to="." method="_on_ResizeTimer_timeout"]

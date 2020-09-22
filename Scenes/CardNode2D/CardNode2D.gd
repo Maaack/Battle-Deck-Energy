@@ -7,6 +7,7 @@ class_name CardNode2D
 signal mouse_entered(card_node_2d)
 signal mouse_exited(card_node_2d)
 signal mouse_clicked(card_node_2d)
+signal mouse_double_clicked(card_node_2d)
 signal mouse_released(card_node_2d)
 signal tween_completed(card_node_2d)
 signal animation_completed(card_node_2d)
@@ -75,7 +76,7 @@ func _reset_card_front():
 		var battle_effect : EffectData = card_data.effects[0]
 		if battle_effect.icon != null:
 			effect_texture.texture = battle_effect.icon
-		if battle_effect.amount != 0:
+		if battle_effect.amount >= 0:
 			effect_label.text = str(battle_effect.amount)
 		if battle_effect.base_color != Color():
 			effect_label.add_color_override("font_color", battle_effect.base_color)
@@ -211,7 +212,9 @@ func _handle_input_event(event):
 	if event is InputEventMouseButton:
 		match event.button_index:
 			BUTTON_LEFT:
-				if event.pressed:
+				if event.doubleclick:
+					emit_signal("mouse_double_clicked", self)
+				elif event.pressed:
 					emit_signal("mouse_clicked", self)
 				if not event.pressed:
 					emit_signal("mouse_released", self)

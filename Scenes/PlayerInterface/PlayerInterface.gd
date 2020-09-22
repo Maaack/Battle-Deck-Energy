@@ -8,6 +8,7 @@ signal exhaust_pile_pressed
 signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
+signal card_played(card)
 signal card_played_on_opportunity(card, opportunity)
 
 enum AnimationType{NONE, DRAWING, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
@@ -380,12 +381,15 @@ func _on_BattleCardManager_dragging_card(card_data:CardData):
 func _on_BattleCardManager_dropping_card(card_data:CardData):
 	_on_dropping_card(card_data)
 
-func play_card(character:CharacterData, card:CardData, opportunity:OpportunityData):
-	if not opportunity in _opportunities_map:
-		print("Warning: %s doesn't exist in opportunities map %s ." % [opportunity, str(_opportunities_map)])
-		return
-	opportunity.card_data = card
-	var opening_transform : TransformData = opportunity.transform_data.duplicate()
+func _on_BattleCardManager_playing_card(card_data:CardData):
+	if card_data.type == CardData.CardType.STRESS:
+		emit_signal("card_played", card_data)
+
+func play_card(character:CharacterData, card:CardData, opportunity = null):
+	var opening_transform : TransformData = card.transform_data.duplicate()
+	if opportunity is OpportunityData:
+		opportunity.card_data = card
+		opening_transform = opportunity.transform_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
 		card_manager.move_card(card, opening_transform)
