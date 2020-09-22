@@ -114,29 +114,6 @@ func _discard_or_exhaust_card(card:CardData):
 	else:
 		player_battle_manager.discard_card(card)
 
-func _discard_played_cards():
-	var discarding_flag = false
-	for opportunity in _round_opportunities_map:
-		if opportunity is OpportunityData and is_instance_valid(opportunity.card_data):
-			if opportunity.source == player_data:
-				discarding_flag = true
-				_discard_or_exhaust_card(opportunity.card_data)
-			else:
-				player_interface.opponent_discards_card(opportunity.card_data)
-	return discarding_flag
-
-func _resolve_actions(character:CharacterData):
-	var opportunities : Array = battle_opportunities_manager.get_character_opportunities(character)
-	for opportunity in opportunities:
-		if opportunity.card_data != null:
-			_resolve_card_played_actions(opportunity.card_data, opportunity)
-
-func _resolve_card_drawn_actions(card:CardData):
-	effects_manager.resolve_on_draw(card, player_data, _character_manager_map)
-
-func _resolve_card_discarded_actions(card:CardData):
-	effects_manager.resolve_on_discard(card, player_data, _character_manager_map)
-
 func _resolve_card_played_actions(card:CardData, opportunity = null):
 	if opportunity is OpportunityData:
 		effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
@@ -145,14 +122,24 @@ func _resolve_card_played_actions(card:CardData, opportunity = null):
 		effects_manager.resolve_on_play(card, player_data, _character_manager_map)
 	_discard_or_exhaust_card(card)
 
-func _discard_all_cards():
-	var discarding_flag = _discard_played_cards()
+func _resolve_character_actions(character:CharacterData):
+	var opportunities : Array = battle_opportunities_manager.get_character_opportunities(character)
+	for opportunity in opportunities:
+		if opportunity.card_data != null:
+			effects_manager.resolve_on_play_opportunity(opportunity.card_data, opportunity, _character_manager_map)
+			battle_opportunities_manager.remove_opportunity(opportunity)
+			player_interface.opponent_discards_card(opportunity.card_data)
+
+func _resolve_card_drawn_actions(card:CardData):
+	effects_manager.resolve_on_draw(card, player_data, _character_manager_map)
+
+func _resolve_card_discarded_actions(card:CardData):
+	effects_manager.resolve_on_discard(card, player_data, _character_manager_map)
+
+func _clear_round_opportunities():
 	player_interface.remove_all_opportunities()
 	_round_opportunities_map.clear()
-	if discarding_flag:
-		player_interface.connect("discard_completed",  battle_phase_manager, "advance")
-	else:
-		battle_phase_manager.advance()
+	battle_phase_manager.advance()
 
 func _on_CharacterBattleManager_drew_card(card):
 	player_interface.draw_card(card)
@@ -209,12 +196,12 @@ func _on_EnemyResolution_phase_entered():
 			continue
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
 		manager.update_start_of_turn_statuses()
-		_resolve_actions(opponent)
+		_resolve_character_actions(opponent)
 		manager.update_end_of_turn_statuses()
 	battle_phase_manager.advance()
 
 func _on_RoundEnd_phase_entered():
-	_discard_all_cards()
+	_clear_round_opportunities()
 
 func _on_AIOpponentsManager_played_card(character, card, opportunity):
 	player_interface.play_card(character, card, opportunity)
@@ -278,9 +265,6 @@ func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityDat
 func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityData):
 	_round_opportunities_map.erase(opportunity)
 	player_interface.remove_opportunity(opportunity)
-	if opportunity.card_data != null:
-		if opportunity.source != player_data:
-			player_interface.opponent_discards_card(opportunity.card_data)
 
 func _on_CharacterBattleManager_updated_status(character, status, delta):
 	player_interface.update_status(character, status, delta)
