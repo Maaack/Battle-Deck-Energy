@@ -8,6 +8,7 @@ signal view_deck_pressed(deck)
 onready var advance_phase_timer = $AdvancePhaseTimer
 onready var advance_character_timer = $AdvanceCharacterTimer
 onready var advance_action_timer = $AdvanceActionTimer
+onready var battle_end_timer = $BattleEndDelayTimer
 onready var battle_won_timer = $BattleWonDelayTimer
 onready var battle_lost_timer = $BattleLostDelayTimer
 onready var player_interface = $PlayerInterface
@@ -260,9 +261,13 @@ func _on_CharacterBattleManager_died(character):
 	player_interface.character_dies(character)
 	if character == player_data:
 		battle_lost_timer.start()
+		yield(battle_end_timer, "timeout")
+		emit_signal("player_lost")
 	else:
 		if _count_active_opponents() == 0:
-			battle_won_timer.start()
+			battle_end_timer.start()
+			yield(battle_end_timer, "timeout")
+			emit_signal("player_won")
 
 func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):
 	player_interface.add_opportunity(opportunity)
@@ -293,12 +298,6 @@ func _on_PlayerInterface_exhaust_pile_pressed():
 	if deck.size() == 0:
 		return
 	emit_signal("view_deck_pressed", deck)
-
-func _on_BattleWonDelayTimer_timeout():
-	emit_signal("player_won")
-
-func _on_BattleLostDelayTimer_timeout():
-	emit_signal("player_lost")
 
 func _on_EffectManager_add_card_to_hand(card, character):
 	pass

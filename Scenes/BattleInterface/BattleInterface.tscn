@@ -29,11 +29,7 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[node name="BattleWonDelayTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[node name="BattleLostDelayTimer" type="Timer" parent="."]
+[node name="BattleEndDelayTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
 
@@ -65,8 +61,6 @@ one_shot = true
 
 [node name="EffectManager" parent="." instance=ExtResource( 8 )]
 [connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
-[connection signal="timeout" from="BattleWonDelayTimer" to="." method="_on_BattleWonDelayTimer_timeout"]
-[connection signal="timeout" from="BattleLostDelayTimer" to="." method="_on_BattleLostDelayTimer_timeout"]
 [connection signal="card_played" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played"]
 [connection signal="card_played_on_opportunity" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
 [connection signal="discard_pile_pressed" from="PlayerInterface" to="." method="_on_PlayerInterface_discard_pile_pressed"]
