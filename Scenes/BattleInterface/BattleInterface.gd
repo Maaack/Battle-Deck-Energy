@@ -6,6 +6,8 @@ signal player_lost
 signal view_deck_pressed(deck)
 
 onready var advance_phase_timer = $AdvancePhaseTimer
+onready var advance_character_timer = $AdvanceCharacterTimer
+onready var advance_action_timer = $AdvanceActionTimer
 onready var battle_won_timer = $BattleWonDelayTimer
 onready var battle_lost_timer = $BattleLostDelayTimer
 onready var player_interface = $PlayerInterface
@@ -197,7 +199,11 @@ func _on_EnemyResolution_phase_entered():
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
 		manager.update_start_of_turn_statuses()
 		_resolve_character_actions(opponent)
+		advance_action_timer.start()
+		yield(advance_action_timer, "timeout")
 		manager.update_end_of_turn_statuses()
+		advance_character_timer.start()
+		yield(advance_character_timer, "timeout")
 	battle_phase_manager.advance()
 
 func _on_RoundEnd_phase_entered():

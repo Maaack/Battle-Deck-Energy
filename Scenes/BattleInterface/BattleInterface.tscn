@@ -19,6 +19,13 @@ __meta__ = {
 }
 
 [node name="AdvancePhaseTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="AdvanceCharacterTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AdvanceActionTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
