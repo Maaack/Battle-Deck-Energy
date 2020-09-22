@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Decks/DeckData.gd"
 }, {
+"base": "EffectData",
+"class": "DeckModEffectData",
+"language": "GDScript",
+"path": "res://Resources/Effects/DeckModEffects/DeckModEffectData.gd"
+}, {
 "base": "Object",
 "class": "EffectCalculator",
 "language": "GDScript",
@@ -163,6 +168,7 @@ _global_script_class_icons={
 "CharacterBattleManager": "",
 "CharacterData": "",
 "DeckData": "",
+"DeckModEffectData": "",
 "EffectCalculator": "",
 "EffectData": "",
 "FocusedCardManager": "",
