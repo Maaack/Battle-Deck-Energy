@@ -11,6 +11,7 @@ signal add_card_to_discard_pile(card, character)
 signal draw_from_draw_pile(character, count)
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
+var toxin_effect_resource = preload("res://Resources/Statuses/Toxin.tres")
 
 func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:EffectData):
 	if effect.is_aimed_at_target():
@@ -29,6 +30,15 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
 	emit_signal("apply_damage", target, total_damage)
+	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	if source_battle_manager:
+		var venomous_status : StatusData = source_battle_manager.get_status_by_type(EffectCalculator.VENOMOUS_STATUS)
+		if venomous_status:
+			var toxin_status : StatusData = toxin_effect_resource.duplicate()
+			toxin_status.intensity = venomous_status.intensity
+			toxin_status.duration = venomous_status.duration
+			target_battle_manager.gain_status(toxin_status, source)
 
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)

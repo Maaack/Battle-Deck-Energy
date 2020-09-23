@@ -191,5 +191,11 @@ func update_end_of_turn_statuses():
 func get_statuses():
 	return status_manager.status_type_map.values()
 
+func get_status_by_type(type_tag:String):
+	return status_manager.get_status_by_type(type_tag)
+
+func has_status_by_type(type_tag:String):
+	return get_status_by_type(type_tag) != null
+
 func _on_StatusManager_updated_status(status:StatusData, delta:int):
 	emit_signal("updated_status", character_data, status, delta)
