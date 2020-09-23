@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 type_tag = "APPLY_WEAK"
 icon = ExtResource( 3 )
-amount = 4
+amount = 8
 base_color = Color( 0.529412, 0.054902, 0.772549, 1 )
 apply_mode = 1
 aim_mode = 0

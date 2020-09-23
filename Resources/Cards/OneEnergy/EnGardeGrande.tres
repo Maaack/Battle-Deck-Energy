@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "En Garde Grande"
+title = "Garde Grande"
 description = "Apply %APPLY_EN_GARDE En Garde."
 energy_cost = 1
 effects = [ ExtResource( 2 ) ]

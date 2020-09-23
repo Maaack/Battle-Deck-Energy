@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=28 format=2]
+[gd_resource type="Resource" load_steps=34 format=2]
 
 [ext_resource path="res://Resources/Levels/LevelData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Characters/Opponents/OtherTwin.tres" type="Resource" id=2]
@@ -18,7 +18,7 @@
 [ext_resource path="res://Resources/Cards/OneEnergy/SmoothShields.tres" type="Resource" id=16]
 [ext_resource path="res://Resources/Cards/TwoEnergy/TripleCritical.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Cards/OneEnergy/PoisonBlades.tres" type="Resource" id=18]
-[ext_resource path="res://Resources/Cards/OneEnergy/DirtyNeedle.tres" type="Resource" id=19]
+[ext_resource path="res://Resources/Cards/OneEnergy/ToxicNeedle.tres" type="Resource" id=19]
 [ext_resource path="res://Resources/Cards/TwoEnergy/Biohazard.tres" type="Resource" id=20]
 [ext_resource path="res://Resources/Cards/TwoEnergy/StabToDeath.tres" type="Resource" id=21]
 [ext_resource path="res://Resources/Cards/OneEnergy/AttackFocused.tres" type="Resource" id=22]
@@ -27,9 +27,15 @@
 [ext_resource path="res://Resources/Cards/TwoEnergy/EnGardeMaximale.tres" type="Resource" id=25]
 [ext_resource path="res://Resources/Cards/OneEnergy/EnGardeGrande.tres" type="Resource" id=26]
 [ext_resource path="res://Resources/Cards/TwoEnergy/SerpentsBlade.tres" type="Resource" id=27]
+[ext_resource path="res://Resources/Cards/TwoEnergy/SecurePerimeter.tres" type="Resource" id=28]
+[ext_resource path="res://Resources/Cards/OneEnergy/JabCombo.tres" type="Resource" id=29]
+[ext_resource path="res://Resources/Cards/TwoEnergy/CrippleForLife.tres" type="Resource" id=30]
+[ext_resource path="res://Resources/Cards/TwoEnergy/ShatterDefenses.tres" type="Resource" id=31]
+[ext_resource path="res://Resources/Cards/OneEnergy/QuickThinking.tres" type="Resource" id=32]
+[ext_resource path="res://Resources/Cards/OneEnergy/HocusFocus.tres" type="Resource" id=33]
 
 [resource]
 script = ExtResource( 1 )
 tags = [ "PAIR" ]
 opponents = [ ExtResource( 2 ), ExtResource( 2 ) ]
-lootable_cards = [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 14 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 23 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 4 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 17 ) ]
+lootable_cards = [ ExtResource( 15 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 14 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 3 ), ExtResource( 33 ), ExtResource( 7 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 32 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 30 ), ExtResource( 4 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 31 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 17 ) ]

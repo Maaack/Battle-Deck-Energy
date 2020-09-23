@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "En Garde Maximale"
+title = "Garde Maximale"
 description = "Apply %APPLY_EN_GARDE En Garde and apply %APPLY_FORTITUDE Fortitude."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]

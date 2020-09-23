@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Biohazard"
-description = "Apply %APPLY_VULNERABLE Venomous and %APPLY_TOXIN Toxin."
+description = "Apply %APPLY_VENEMOUS Venomous and %APPLY_TOXIN Toxin."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type = 3
