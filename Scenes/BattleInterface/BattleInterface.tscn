@@ -97,3 +97,4 @@ one_shot = true
 [connection signal="apply_damage" from="EffectManager" to="." method="_on_EffectManager_apply_damage"]
 [connection signal="apply_energy" from="EffectManager" to="." method="_on_EffectManager_apply_energy"]
 [connection signal="apply_status" from="EffectManager" to="." method="_on_EffectManager_apply_status"]
+[connection signal="draw_from_draw_pile" from="EffectManager" to="." method="_on_EffectManager_draw_from_draw_pile"]

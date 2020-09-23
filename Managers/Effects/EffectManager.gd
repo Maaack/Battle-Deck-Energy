@@ -8,19 +8,7 @@ signal add_opportunity(type, source, target)
 signal add_card_to_hand(card, character)
 signal add_card_to_draw_pile(card, character)
 signal add_card_to_discard_pile(card, character)
-
-const ATTACK_EFFECT = 'ATTACK'
-const DEFEND_EFFECT = 'DEFEND'
-const PARRY_EFFECT = 'PARRY'
-const OPENER_EFFECT = 'OPENER'
-const RICOCHET_EFFECT = 'RICOCHET'
-const FORTIFY_EFFECT = 'FORTIFY'
-const EXHAUST_EFFECT = 'EXHAUST'
-const RETAIN_EFFECT = 'RETAIN'
-const INNATE_EFFECT = 'INNATE'
-const MOMENTARY_EFFECT = 'MOMENTARY'
-const VULNERABLE_STATUS = 'VULNERABLE'
-const TARGET_APPLY_ENERGY_EFFECT = 'TARGET_APPLY_ENERGY'
+signal draw_from_draw_pile(character, count)
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 
@@ -77,10 +65,12 @@ func _resolve_deck_mod(effect:DeckModEffectData, character:CharacterData):
 
 func _resolve_self_effects(effect:EffectData, character:CharacterData, character_manager_map:Dictionary):
 	match(effect.type_tag):
-		TARGET_APPLY_ENERGY_EFFECT:
-			emit_signal("apply_energy", character, effect.amount)
-		ATTACK_EFFECT:
+		EffectCalculator.ATTACK_EFFECT:
 			_resolve_self_damage(effect, character, character_manager_map)
+		EffectCalculator.DRAW_CARD_EFFECT:
+			emit_signal("draw_from_draw_pile", character, effect.amount)
+		EffectCalculator.TARGET_APPLY_ENERGY_EFFECT:
+			emit_signal("apply_energy", character, effect.amount)
 	if effect is StatusEffectData:
 		_resolve_statuses(effect, character, character, character_manager_map)
 	if effect is DeckModEffectData:
@@ -114,19 +104,21 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 				continue
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.type_tag):
-				PARRY_EFFECT, OPENER_EFFECT:
+				EffectCalculator.PARRY_EFFECT, EffectCalculator.OPENER_EFFECT:
 					for _i in range(effect.amount):
 						emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, final_target)
-				RICOCHET_EFFECT:
+				EffectCalculator.RICOCHET_EFFECT:
 					for opponent in character_manager_map.keys():
 						if opponent != final_target and opponent != opportunity.source:
 							emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, opponent)
-				FORTIFY_EFFECT:
+				EffectCalculator.FORTIFY_EFFECT:
 					for _i in range(effect.amount):
 						emit_signal("add_opportunity", CardData.CardType.DEFEND, opportunity.source, final_target)
-				TARGET_APPLY_ENERGY_EFFECT:
+				EffectCalculator.DRAW_CARD_EFFECT:
+					emit_signal("draw_from_draw_pile", final_target, effect.amount)
+				EffectCalculator.TARGET_APPLY_ENERGY_EFFECT:
 					emit_signal("apply_energy", final_target, effect.amount)
-				ATTACK_EFFECT:
+				EffectCalculator.ATTACK_EFFECT:
 					_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 			if effect is StatusEffectData:
 				_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
@@ -136,14 +128,14 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 func include_innate_cards(cards:Array):
 	var innate_cards : Array = []
 	for card in cards:
-		if card is CardData and card.has_effect(INNATE_EFFECT):
+		if card is CardData and card.has_effect(EffectCalculator.INNATE_EFFECT):
 			innate_cards.append(card)
 	return innate_cards
 
 func exclude_retained_cards(cards:Array):
 	var not_retained_cards : Array = []
 	for card in cards:
-		if card is CardData and not card.has_effect(RETAIN_EFFECT):
+		if card is CardData and not card.has_effect(EffectCalculator.RETAIN_EFFECT):
 			not_retained_cards.append(card)
 	return not_retained_cards
 
@@ -151,9 +143,9 @@ func include_discardable_cards(cards:Array):
 	var discardable_cards : Array = []
 	for card in cards:
 		if card is CardData:
-			if card.has_effect(RETAIN_EFFECT):
+			if card.has_effect(EffectCalculator.RETAIN_EFFECT):
 				continue
-			if card.has_effect(MOMENTARY_EFFECT):
+			if card.has_effect(EffectCalculator.MOMENTARY_EFFECT):
 				continue
 			discardable_cards.append(card)
 	return discardable_cards
@@ -162,7 +154,7 @@ func include_exhaustable_cards(cards:Array):
 	var exhaustable_cards : Array = []
 	for card in cards:
 		if card is CardData:
-			if not card.has_effect(MOMENTARY_EFFECT):
+			if not card.has_effect(EffectCalculator.MOMENTARY_EFFECT):
 				continue
 			exhaustable_cards.append(card)
 	return exhaustable_cards
