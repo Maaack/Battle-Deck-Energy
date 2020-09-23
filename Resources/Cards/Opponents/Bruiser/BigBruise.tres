@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak2.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/LightSlashAttack.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/AttackEffect3.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" type="Resource" id=5]
 

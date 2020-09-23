@@ -277,6 +277,8 @@ func character_gains_health(character:CharacterData, delta:int):
 
 func character_loses_health(character:CharacterData, delta:int):
 	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	if not actions_interface:
+		return
 	_show_health_update_over_interface(actions_interface, -(delta))
 	actions_interface.update_health()
 

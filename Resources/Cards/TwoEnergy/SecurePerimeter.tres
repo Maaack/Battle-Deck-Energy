@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/StatusEffects/WoodShieldDefend.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+title = "Secure Perimeter"
+description = "Absorb %DEFEND Damage over [b]4[/b] shields."
+energy_cost = 2
+effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+type = 2

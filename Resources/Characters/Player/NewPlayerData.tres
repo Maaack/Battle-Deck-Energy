@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/Cards/StartingSet/BasicShield.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Cards/StartingSet/BasicSlash.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/StartingSet/FixFooting.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/StartingSet/BasicEnGarde.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Cards/ZeroEnergy/SecondWindCard.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Cards/TwoEnergy/CriticalHit.tres" type="Resource" id=6]

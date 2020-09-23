@@ -110,7 +110,7 @@ func start_round():
 	advance_phase_timer.start()
 
 func _discard_or_exhaust_card(card:CardData):
-	if card.has_effect(effects_manager.EXHAUST_EFFECT):
+	if card.has_effect(EffectCalculator.EXHAUST_EFFECT):
 		player_battle_manager.exhaust_card(card)
 	else:
 		player_battle_manager.discard_card(card)
@@ -317,3 +317,8 @@ func _on_EffectManager_add_card_to_discard_pile(card, character):
 	player_interface.new_character_card(character, card)
 	player_interface.animate_playing_card(card)
 	battle_manager.add_card_to_discard_pile(card)
+
+func _on_EffectManager_draw_from_draw_pile(character, count):
+	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	for _i in range(count):
+		battle_manager.draw_card()
