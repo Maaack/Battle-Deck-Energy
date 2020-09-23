@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Nasty Slash"
+title = "Toxic Slash"
 description = "Deal %ATTACK Damage and apply %APPLY_TOXIN Toxin."
 energy_cost = 1
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]

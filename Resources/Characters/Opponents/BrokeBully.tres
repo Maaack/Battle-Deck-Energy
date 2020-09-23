@@ -5,9 +5,6 @@
 [ext_resource path="res://Resources/Effects/StatusEffects/IronShieldDefend.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Cards/OneEnergy/CripplingSlash.tres" type="Resource" id=4]
 
-
-
-
 [resource]
 script = ExtResource( 1 )
 starting_max_health = 15

@@ -8,7 +8,6 @@
 [ext_resource path="res://Resources/Cards/TwoEnergy/CriticalHit.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Cards/StressCards/Apprehension.tres" type="Resource" id=7]
 
-
 [resource]
 script = ExtResource( 4 )
 starting_max_health = 40
