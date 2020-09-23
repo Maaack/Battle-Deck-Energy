@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/JabAttack.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/OpenerEffect2.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin2.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
-title = "Opening Strike"
-description = "Deal %ATTACK Damage and add [b]2[/b] Attack spaces."
-energy_cost = 0
-effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
+title = "Dirty Needle"
+description = "Deal %ATTACK Damage and apply %APPLY_TOXIN Toxin."
+energy_cost = 1
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type = 1

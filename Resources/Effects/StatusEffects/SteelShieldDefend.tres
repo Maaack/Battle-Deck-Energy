@@ -8,7 +8,7 @@
 script = ExtResource( 3 )
 type_tag = "DEFEND"
 icon = ExtResource( 1 )
-amount = 16
+amount = 12
 base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
 apply_mode = 1
 aim_mode = 0
