@@ -124,6 +124,9 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 				EffectCalculator.FORTIFY_EFFECT:
 					for _i in range(effect.amount):
 						emit_signal("add_opportunity", CardData.CardType.DEFEND, opportunity.source, final_target)
+				EffectCalculator.FOCUS_EFFECT:
+					for _i in range(effect.amount):
+						emit_signal("add_opportunity", CardData.CardType.SKILL, opportunity.source, final_target)
 				EffectCalculator.DRAW_CARD_EFFECT:
 					emit_signal("draw_from_draw_pile", final_target, effect.amount)
 				EffectCalculator.TARGET_APPLY_ENERGY_EFFECT:
