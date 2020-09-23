@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 2 )
 title = "Defense Stance"
-description = "Apply %APPLY_FORTITUDE Fortitude and add %FORTIFY Defend space(s).	"
+description = "Apply %APPLY_FORTITUDE Fortitude and add %FORTIFY Defend space(s)."
 energy_cost = 1
 effects = [ ExtResource( 3 ), ExtResource( 1 ) ]
 type = 3
