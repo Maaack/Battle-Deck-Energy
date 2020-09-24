@@ -1,13 +1,14 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AttackEffect1.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin2.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/OpenerEffect.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Lethal Needle"
-description = "Deal %ATTACK Damage and apply %APPLY_TOXIN Toxin."
+description = "Deal %ATTACK Damage, apply %APPLY_TOXIN Toxin, and add [b]1[/b] Attack space(s)."
 energy_cost = 1
-effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
 type = 1

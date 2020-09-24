@@ -9,4 +9,4 @@ title = "Poison Blades"
 description = "Apply %APPLY_VENOMOUS Venomous."
 energy_cost = 1
 effects = [ ExtResource( 2 ) ]
-type = 2
+type = 3

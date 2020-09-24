@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AttackEffect6.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/DrawCardSourceEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/FocusEffect.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/FocusSourceEffect.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
