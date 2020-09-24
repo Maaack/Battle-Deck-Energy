@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Intimidation"
+title = "Intimidated"
 description = "Takes Attack space.
 Exhausts."
 energy_cost = 1
