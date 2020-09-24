@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-type_tag = "ADD_INTIMIDATION"
+type_tag = "ADD_INTIMIDATED"
 icon = ExtResource( 2 )
 amount = 1
 base_color = Color( 0.529412, 0.054902, 0.772549, 1 )

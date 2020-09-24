@@ -1,14 +1,15 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/IronShieldDefend.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/OneEnergy/HeavySlashCard.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/OneEnergy/SharpenBlades.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Cards/Opponents/TheButcher/Mince.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/TheButcher/ExpertsEdge.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/Opponents/TheButcher/DeadEyes.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Cards/Opponents/TheButcher/OneDeepCut.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
-starting_max_health = 21
+starting_max_health = 72
 starting_max_energy = 1
 starting_hand_size = 3
-starting_deck = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ]
+starting_deck = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 5 ) ]
 nickname = "The Butcher"

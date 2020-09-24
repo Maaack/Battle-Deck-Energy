@@ -13,4 +13,4 @@ base_color = Color( 0.00392157, 0.603922, 0.141176, 1 )
 apply_mode = 1
 aim_mode = 0
 starting_card = ExtResource( 3 )
-destination = 2
+destination = 1

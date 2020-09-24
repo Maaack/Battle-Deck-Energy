@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Shock"
+title = "Shocked"
 description = "Momentary.
 Unplayable."
 energy_cost = 1

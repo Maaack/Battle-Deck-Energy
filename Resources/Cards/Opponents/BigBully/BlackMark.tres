@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
-title = "Disparage"
-description = "Apply %APPLY_WEAK Weak and add %ADD_SORENESS Soreness cards."
+title = "Black Mark"
+description = "Deal %ATTACK Damage over [b]2[/b] strikes and add %ADD_SORENESS Soreness card(s)."
 energy_cost = 1
-effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ]
 type = 1

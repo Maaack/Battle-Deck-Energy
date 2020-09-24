@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Energy"
-description = "Battle Deck Energy is spent on playing cards, and recharges every turn."
+description = "Battle Deck Energy is spent on playing card(s), and recharges every turn."
 icon = ExtResource( 2 )
 color = Color( 1, 0.411765, 0.729412, 1 )
 intensity = 1

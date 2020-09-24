@@ -200,6 +200,8 @@ func _on_EnemyResolution_phase_entered():
 			continue
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
 		manager.update_start_of_turn_statuses()
+		if not opponent.is_active():
+			continue
 		_resolve_character_actions(opponent)
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")

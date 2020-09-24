@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Double Deal"
-description = "Deal %ATTACK Damage over [b]2[/b] strikes, draw [b]2[/b] cards, and add [b]1[/b] Attack space(s) on others."
+description = "Deal %ATTACK Damage over [b]2[/b] strikes, draw [b]2[/b] card(s), and add [b]1[/b] Attack space(s) on others."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ) ]
 type = 1
