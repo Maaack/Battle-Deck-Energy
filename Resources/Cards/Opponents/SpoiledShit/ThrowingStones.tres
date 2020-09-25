@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyStrength.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyVulnerable.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Throwing Stones"
+description = "Deal %DAMAGE Damage over [b]4[/b]. Receive %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable."
+energy_cost = 2
+effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+type = 1

@@ -3,7 +3,7 @@ extends Resource
 
 class_name CharacterData
 
-export(int, 0, 64) var starting_max_health : int = 20 setget set_starting_max_health
+export(int, 0, 1024) var starting_max_health : int = 20 setget set_starting_max_health
 export(int, 0, 8) var starting_max_energy: int = 3 setget set_starting_max_energy
 export(int, 0, 16) var starting_hand_size: int = 5 setget set_starting_hand_size
 export(Array, Resource) var starting_deck : Array = [] setget set_starting_deck

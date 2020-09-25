@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Quick Thinking"
-description = "Draw [b]3[/b] cards and add %FOCUS Skill space(s)."
+description = "Draw [b]3[/b] card(s) and add %FOCUS Skill space(s)."
 energy_cost = 1
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ) ]
 type = 3

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Bruise"
+description = "Deal %ATTACK Damage over [b]3[/b] strikes, apply %APPLY_VULNERABLE Vulnerable, and add %ADD_SORENESS Soreness card(s)."
+energy_cost = 2
+effects = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+type = 1

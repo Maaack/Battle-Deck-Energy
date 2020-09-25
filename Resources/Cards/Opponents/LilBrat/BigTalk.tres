@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 2 )
+title = "Big Talk"
+description = "Absorb %DEFEND Damage and apply %APPLY_STRENGTH Strength."
+energy_cost = 1
+effects = [ ExtResource( 3 ), ExtResource( 1 ) ]
+type = 2

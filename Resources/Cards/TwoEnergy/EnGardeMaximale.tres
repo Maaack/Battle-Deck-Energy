@@ -1,13 +1,15 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyEnGarde15.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyFortitude2.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/PlayAsSkillEffect.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Garde Maximale"
-description = "Apply %APPLY_EN_GARDE En Garde and apply %APPLY_FORTITUDE Fortitude."
+description = "Apply %APPLY_EN_GARDE En Garde and apply %APPLY_FORTITUDE Fortitude.
+Can take Skill space."
 energy_cost = 2
-effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
 type = 2

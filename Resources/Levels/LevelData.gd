@@ -39,7 +39,7 @@ export(Array, Resource) var lootable_cards : Array = [
 	preload("res://Resources/Cards/TwoEnergy/EnGardeMaximale.tres"),
 	preload("res://Resources/Cards/TwoEnergy/FlyingStrike.tres"),
 	preload("res://Resources/Cards/TwoEnergy/Hyperfocus.tres"),
-	preload("res://Resources/Cards/TwoEnergy/LightningDefense.tres"),
+	preload("res://Resources/Cards/TwoEnergy/LightningShield.tres"),
 	preload("res://Resources/Cards/TwoEnergy/SecurePerimeter.tres"),
 	preload("res://Resources/Cards/TwoEnergy/SerpentsBlade.tres"),
 	preload("res://Resources/Cards/TwoEnergy/ShatterDefenses.tres"),

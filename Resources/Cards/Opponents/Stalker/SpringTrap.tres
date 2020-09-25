@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/DeckModEffects/AddShocked.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "Spring Trap"
+description = "Deal %DAMAGE Damage, apply %APPLY_VULNERABLE Vulnerable, add %ADD_SHOCKED Shocked, and %ADD_RESTRAINED Restrained card(s)."
+energy_cost = 2
+effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+type = 1
