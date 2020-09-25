@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "One Deep Cut"
-description = "Deal %DAMAGE Damage and add %ADD_BLEEDING Bleeding."
+description = "Deal %DAMAGE Damage and add %ADD_BLEEDING Bleeding card(s)."
 energy_cost = 3
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type = 1
