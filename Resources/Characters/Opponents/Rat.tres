@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/Opponents/Rat/BiteAndScurry.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Opponents/Rat/Scratch.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/Rat/Rabid.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 4 )
+starting_max_health = 3
+starting_max_energy = 0
+starting_hand_size = 2
+starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ) ]
+nickname = "Rat"

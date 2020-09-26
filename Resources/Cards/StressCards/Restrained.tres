@@ -10,8 +10,7 @@
 script = ExtResource( 1 )
 title = "Restrained"
 description = "Takes any space.
-Exhausts.
-"
+Exhausts."
 energy_cost = 1
 effects = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
 type = 4

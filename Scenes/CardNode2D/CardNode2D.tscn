@@ -202,7 +202,6 @@ __meta__ = {
 }
 
 [node name="OldDescriptionLabel" type="Label" parent="Card/Body/CardFront/DescriptionPanel/OldMarginContainer"]
-visible = false
 margin_left = 2.0
 margin_top = 27.0
 margin_right = 158.0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/AttackEffect3.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/RetreatDefendEffect1.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Bite And Scurry"
+description = "Deal %ATTACK Damage and absorb %DEFEND Damage. Exhausts."
+energy_cost = 0
+effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+type = 1

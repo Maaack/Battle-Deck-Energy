@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/AttackEffect3.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 2 )
+title = "Toxic Bite"
+description = "Deal %ATTACK Damage and apply %APPLY_TOXIN Toxin. Exhausts."
+energy_cost = 1
+effects = [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ) ]
+type = 1
