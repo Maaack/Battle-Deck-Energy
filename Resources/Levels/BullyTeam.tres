@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=44 format=2]
 
 [ext_resource path="res://Resources/Levels/LevelData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Characters/Opponents/LilBrat.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Characters/Opponents/Rank2/LilBrat.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Characters/Opponents/BigBully.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Cards/OneEnergy/HeavySlashCard.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Cards/TwoEnergy/CriticalHit.tres" type="Resource" id=5]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Resources/Cards/TwoEnergy/LightningShield.tres" type="Resource" id=41]
 [ext_resource path="res://Resources/Cards/TwoEnergy/DoubleDeal.tres" type="Resource" id=42]
 [ext_resource path="res://Resources/Cards/ZeroEnergy/VenomVial.tres" type="Resource" id=43]
+
 
 [resource]
 script = ExtResource( 1 )

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/AttackEffect6.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyWeak.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "Big Fury"
+description = "Deal %ATTACK Damage and add %ADD_INTIMIDATED Intimidated card(s). Receive %APPLY_WEAK Weak.
+Exhausts."
+energy_cost = 1
+effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ]
+type = 1

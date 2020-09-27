@@ -153,6 +153,16 @@ _global_script_classes=[ {
 "class": "TransformData",
 "language": "GDScript",
 "path": "res://Resources/Transforms/TransformData.gd"
+}, {
+"base": "Resource",
+"class": "WeightedData",
+"language": "GDScript",
+"path": "res://Resources/Weighted/WeightedData.gd"
+}, {
+"base": "Resource",
+"class": "WeightedDataList",
+"language": "GDScript",
+"path": "res://Resources/Weighted/WeightedDataList.gd"
 } ]
 _global_script_class_icons={
 "ActionsInterface": "",
@@ -183,7 +193,9 @@ _global_script_class_icons={
 "StatusData": "",
 "StatusEffectData": "",
 "StatusManager": "",
-"TransformData": ""
+"TransformData": "",
+"WeightedData": "",
+"WeightedDataList": ""
 }
 
 [application]

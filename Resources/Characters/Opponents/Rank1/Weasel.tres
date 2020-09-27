@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/Opponents/Weasel/ClawSwipe.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Opponents/Weasel/BiteAndHold.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/Weasel/HardToHit.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 4 )
+starting_max_health = 6
+starting_max_energy = 1
+starting_hand_size = 2
+starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
+nickname = "Weasel"

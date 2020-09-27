@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Cripple For Life"
+title = "Shatter Defenses"
 description = "Deal %ATTACK Damage over [b]2[/b] strikes and apply %APPLY_FRAGILE Fragile."
 energy_cost = 2
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ) ]
