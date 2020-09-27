@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Weighted/LevelList/Level10/RascalBullyAndCadLevelChance.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Weighted/LevelList/Level10/RascalAndCadPairLevelChance.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Weighted/LevelList/Level10/BratBullyAndCadLevelChance.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Weighted/LevelList/Level10/BratAndBullyPairLevelChance.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+starting_list = [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/Opponents/Runt/BothBigFists.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Opponents/Runt/OverCompensate.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/Runt/BigFury.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 4 )
+starting_max_health = 9
+starting_max_energy = 1
+starting_hand_size = 3
+starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ]
+nickname = "Runt"

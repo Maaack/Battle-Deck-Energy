@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Cards/Opponents/Rascal/DeflectBlame.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/Rascal/DirtyNails.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/Opponents/Rascal/ThrowSand.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+starting_max_health = 12
+starting_max_energy = 1
+starting_hand_size = 3
+starting_deck = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ) ]
+nickname = "Rascal"

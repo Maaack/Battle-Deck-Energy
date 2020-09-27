@@ -8,7 +8,8 @@
 [resource]
 script = ExtResource( 1 )
 title = "Yank Shield"
-description = "Deal %ATTACK Damage, apply %APPLY_FRAGILE Fragile, and add %ADD_CONFUSED Confused card(s)."
+description = "Deal %ATTACK Damage, apply %APPLY_FRAGILE Fragile, and add %ADD_CONFUSED Confused card(s).
+Exhausts."
 energy_cost = 1
 effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
 type = 1
