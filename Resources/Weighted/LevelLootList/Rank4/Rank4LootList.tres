@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=16 format=2]
+
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/TripleCriticalCardDrop.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/BiohazardCardDrop.tres" type="Resource" id=13]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/SecurePerimeterCardDrop.tres" type="Resource" id=25]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/FlyingStrikeCardDrop.tres" type="Resource" id=28]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/DoubleDealCardDrop.tres" type="Resource" id=30]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/LightningShieldCardDrop.tres" type="Resource" id=31]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/EnGardeMaximaleCardDrop.tres" type="Resource" id=32]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/SerpentsBladeCardDrop.tres" type="Resource" id=33]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/ShatterDefensesCardDrop.tres" type="Resource" id=34]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/StabToDeathCardDrop.tres" type="Resource" id=35]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/TheWallCardDrop.tres" type="Resource" id=37]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/CrippleForLifeCardDrop.tres" type="Resource" id=40]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/HyperfocusCardDrop.tres" type="Resource" id=41]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/CriticalHitCardDrop.tres" type="Resource" id=42]
+
+[resource]
+script = ExtResource( 1 )
+starting_list = [ ExtResource( 13 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 28 ), ExtResource( 41 ), ExtResource( 31 ), ExtResource( 25 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 9 ) ]

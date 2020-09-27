@@ -50,10 +50,8 @@ func _on_BattleInterface_player_won():
 	loot_interface.connect("collected_card", self, "_on_LootPanel_collected_card")
 	loot_interface.connect("skip_loot_pressed", self, "_on_LootPanel_skip_loot_pressed")
 	loot_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
-	var card_options : Array = level.lootable_cards.duplicate()
-	card_options.shuffle()
-	card_options = card_options.slice(0,2)
-	loot_interface.card_options = card_options
+	var card_list : WeightedDataList = level.lootable_cards.duplicate()
+	loot_interface.card_options = card_list.slice_random(3)
 	loot_interface.player_data = player_data
 
 func _on_LootPanel_collected_card(card:CardData):
