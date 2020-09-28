@@ -21,7 +21,8 @@ var opponents : Array = [] setget set_opponents
 
 var _character_manager_map : Dictionary = {}
 var _round_opportunities_map : Dictionary = {}
-var _skip_opening_phase = false
+var _skip_opening_phase : bool = false
+var _battle_ended : bool = false
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -196,6 +197,8 @@ func _on_PlayerEndTurn_phase_entered():
 
 func _on_EnemyResolution_phase_entered():
 	for opponent in opponents:
+		if _battle_ended:
+			return
 		if not opponent.is_active():
 			continue
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
@@ -208,6 +211,8 @@ func _on_EnemyResolution_phase_entered():
 		manager.update_end_of_turn_statuses()
 		advance_character_timer.start()
 		yield(advance_character_timer, "timeout")
+	if _battle_ended:
+		return
 	battle_phase_manager.advance()
 
 func _on_RoundEnd_phase_entered():
@@ -263,11 +268,13 @@ func _count_active_opponents():
 func _on_CharacterBattleManager_died(character):
 	player_interface.character_dies(character)
 	if character == player_data:
+		_battle_ended = true
 		battle_end_timer.start()
 		yield(battle_end_timer, "timeout")
 		emit_signal("player_lost")
 	else:
 		if _count_active_opponents() == 0:
+			_battle_ended = true
 			battle_end_timer.start()
 			yield(battle_end_timer, "timeout")
 			emit_signal("player_won")

@@ -8,8 +8,7 @@
 script = ExtResource( 1 )
 title = "Confused"
 description = "Takes Defend space.
-Exhausts.
-"
+Exhausts."
 energy_cost = 1
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type = 4

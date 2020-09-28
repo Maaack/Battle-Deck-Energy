@@ -81,6 +81,7 @@ base_card_scene = ExtResource( 7 )
 
 [node name="FocusedCardManager" parent="HandContainer/CardControl" instance=ExtResource( 3 )]
 base_card_scene = ExtResource( 7 )
+scale_focused_card = Vector2( 1, 1 )
 
 [node name="StatusUpdatesContainer" type="Control" parent="."]
 anchor_right = 1.0
