@@ -61,13 +61,17 @@ func remove_all_opportunities():
 	opportunities_map.clear()
 
 func add_status(status:StatusData):
-	if status.type_tag == ARMOR_STATUS:
-		health_meter.armor = status.intensity
-		return
+	match(status.type_tag):
+		EffectCalculator.HEALTH_STATUS:
+			health_meter.health = status.intensity
+			return
+		EffectCalculator.DEFENSE_STATUS:
+			health_meter.armor = status.intensity
+			return
 	status_icon_manager.add_status(status)
 
 func remove_status(status:StatusData):
-	if status.type_tag == ARMOR_STATUS:
+	if status.type_tag == EffectCalculator.DEFENSE_STATUS:
 		health_meter.armor = 0
 		return
 	status_icon_manager.remove_status(status)

@@ -29,7 +29,6 @@ func defeat_opponent(opponent:CharacterData):
 	if not interface:
 		return
 	interface.defeat_character()
-	characters_map.erase(opponent)
 
 func get_actions_instance(character:CharacterData):
 	if character in characters_map:

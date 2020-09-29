@@ -43,11 +43,13 @@ func _on_DeadPanel_retry_pressed():
 
 func _on_BattleInterface_player_lost():
 	battle_interface.queue_free()
+	tooltip_manager.reset()
 	shadow_panel.show()
 	dead_panel.show()
 
 func _on_BattleInterface_player_won():
 	battle_interface.queue_free()
+	tooltip_manager.reset()
 	shadow_panel.show()
 	var level : LevelData = level_manager.get_current_level()
 	var loot_interface = loot_interface_scene.instance()
