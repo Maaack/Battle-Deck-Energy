@@ -149,4 +149,6 @@ margin_left = 8.0
 margin_top = 0.0
 margin_right = 232.0
 margin_bottom = 336.0
+[connection signal="status_forgotten" from="MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager" to="." method="_on_StatusIconManager_status_forgotten"]
+[connection signal="status_inspected" from="MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager" to="." method="_on_StatusIconManager_status_inspected"]
 [connection signal="update_opportunity" from="MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter" to="." method="_on_OpportunitiesContainter_update_opportunity"]

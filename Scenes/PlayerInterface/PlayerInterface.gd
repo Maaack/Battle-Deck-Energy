@@ -12,8 +12,8 @@ signal card_played(card)
 signal card_played_on_opportunity(card, opportunity)
 signal card_inspected(card)
 signal card_forgotten(card)
-signal show_definitions(keys, list_position)
-signal hide_definitions
+signal status_inspected(status_icon)
+signal status_forgotten(status_icon)
 
 enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
@@ -50,10 +50,14 @@ func set_player_data(value:CharacterData):
 		actions_board.player_data = player_data
 		var interface : CharacterActionsInterface = actions_board.get_actions_instance(player_data)
 		interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
+		interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
+		interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 
 func add_opponent(opponent:CharacterData):
 	var interface  : CharacterActionsInterface = actions_board.add_opponent(opponent)
 	interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
+	interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
+	interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 	return interface
 
 func set_draw_pile_count(count:int):
@@ -393,7 +397,6 @@ func get_nearest_card_opportunity(card:CardData, position = null):
 func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
-	emit_signal("hide_definitions")
 
 func _on_dropping_card(card:CardData):
 	var nearest_opportunity = get_nearest_card_opportunity(card)
@@ -477,3 +480,9 @@ func _on_inspected_on_card(card_node:CardNode2D):
 
 func _on_inspected_off_card(card_node:CardNode2D):
 	emit_signal("card_forgotten", card_node)
+
+func _on_StatusIcon_inspected(status_icon:StatusIcon):
+	emit_signal("status_inspected", status_icon)
+
+func _on_StatusIcon_forgotten(status_icon:StatusIcon):
+	emit_signal("status_forgotten", status_icon)

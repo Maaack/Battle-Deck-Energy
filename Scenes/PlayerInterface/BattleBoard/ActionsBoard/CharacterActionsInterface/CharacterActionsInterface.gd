@@ -4,6 +4,8 @@ extends ActionsInterface
 class_name CharacterActionsInterface
 
 signal update_opportunity(opportunity, container)
+signal status_inspected(status_icon)
+signal status_forgotten(status_icon)
 
 const ARMOR_STATUS = 'DEFENSE'
 
@@ -74,3 +76,9 @@ func defeat_character():
 
 func _on_OpportunitiesContainter_update_opportunity(opportunity, container):
 	emit_signal("update_opportunity", opportunity, container)
+
+func _on_StatusIconManager_status_forgotten(status_icon):
+	emit_signal("status_forgotten", status_icon)
+
+func _on_StatusIconManager_status_inspected(status_icon):
+	emit_signal("status_inspected", status_icon)

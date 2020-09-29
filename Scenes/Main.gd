@@ -25,6 +25,8 @@ func start_battle():
 		battle_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 		battle_interface.connect("card_inspected", self, "_on_Card_inspected")
 		battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
+		battle_interface.connect("status_inspected", self, "_on_StatusIcon_forgotten")
+		battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 	battle_interface.player_data = player_data
 	battle_interface.opponents = level_manager.get_level_opponents()
 	battle_interface.start_battle()
@@ -84,4 +86,10 @@ func _on_Card_inspected(card_node):
 	tooltip_manager.inspect_card(card_node)
 
 func _on_Card_forgotten(_card_node):
+	tooltip_manager.reset()
+
+func _on_StatusIcon_inspected(status_icon):
+	tooltip_manager.inspect_status(status_icon)
+
+func _on_StatusIcon_forgotten(status_icon):
 	tooltip_manager.reset()

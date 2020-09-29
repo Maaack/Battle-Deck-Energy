@@ -159,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Effects/StatusEffects/StatusEffectData.gd"
 }, {
+"base": "Control",
+"class": "StatusIcon",
+"language": "GDScript",
+"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd"
+}, {
 "base": "Node",
 "class": "StatusManager",
 "language": "GDScript",
@@ -215,6 +220,7 @@ _global_script_class_icons={
 "StatusAnimationData": "",
 "StatusData": "",
 "StatusEffectData": "",
+"StatusIcon": "",
 "StatusManager": "",
 "TooltipListNode2D": "",
 "TransformData": "",

@@ -69,6 +69,8 @@ one_shot = true
 [connection signal="draw_pile_pressed" from="PlayerInterface" to="." method="_on_PlayerInterface_draw_pile_pressed"]
 [connection signal="ending_turn" from="PlayerInterface" to="." method="_on_PlayerInterface_ending_turn"]
 [connection signal="exhaust_pile_pressed" from="PlayerInterface" to="." method="_on_PlayerInterface_exhaust_pile_pressed"]
+[connection signal="status_forgotten" from="PlayerInterface" to="." method="_on_PlayerInterface_status_forgotten"]
+[connection signal="status_inspected" from="PlayerInterface" to="." method="_on_PlayerInterface_status_inspected"]
 [connection signal="died" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_died"]
 [connection signal="discarded_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_discarded_card"]
 [connection signal="drew_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card"]

@@ -4,6 +4,7 @@ extends Control
 var tooltip_list_scene = preload("res://Scenes/TooltipList/TooltipList.tscn")
 
 export(Array, Resource) var term_definitions : Array = [] setget set_term_definitions
+export(float) var list_position_margin : float = 132
 
 var key_definition_map : Dictionary = {}
 
@@ -52,4 +53,13 @@ func inspect_card(card_node:CardNode2D):
 					keys.append(status_data.type_tag)
 		elif effect_data is EffectData:
 			keys.append(effect_data.type_tag)
+	show_definitions(keys, list_position)
+
+func inspect_status(status_icon:StatusIcon):
+	var list_position : Vector2 = status_icon.tooltip_target.global_position
+	if list_position.x < list_position_margin:
+		list_position.x = list_position_margin
+	if list_position.x > get_rect().size.x - list_position_margin:
+		list_position.x = get_rect().size.x - list_position_margin
+	var keys : Array = [status_icon.status_data.type_tag]
 	show_definitions(keys, list_position)
