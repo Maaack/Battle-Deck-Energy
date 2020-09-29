@@ -83,3 +83,19 @@ func remove_status(character:CharacterData, status:StatusData):
 		return
 	interface.remove_status(status)
 	return interface
+
+func mark_character_active(character:CharacterData):
+	if not character in characters_map:
+		return
+	var actions_interface : CharacterActionsInterface = characters_map[character]
+	if actions_interface == null:
+		return
+	actions_interface.mark_active()
+
+func mark_character_inactive(character:CharacterData):
+	if not character in characters_map:
+		return
+	var actions_interface : CharacterActionsInterface = characters_map[character]
+	if actions_interface == null:
+		return
+	actions_interface.mark_inactive()

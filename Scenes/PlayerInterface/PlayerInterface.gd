@@ -486,3 +486,9 @@ func _on_StatusIcon_inspected(status_icon:StatusIcon):
 
 func _on_StatusIcon_forgotten(status_icon:StatusIcon):
 	emit_signal("status_forgotten", status_icon)
+
+func mark_character_active(character:CharacterData):
+	actions_board.mark_character_active(character)
+
+func mark_character_inactive(character:CharacterData):
+	actions_board.mark_character_inactive(character)

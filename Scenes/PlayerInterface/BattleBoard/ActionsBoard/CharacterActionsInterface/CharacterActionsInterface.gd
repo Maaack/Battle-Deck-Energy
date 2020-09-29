@@ -13,6 +13,7 @@ onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContaine
 onready var health_meter = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter
 onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
 onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
+onready var active_panel = $ActivePanel
 
 func _update_nickname(nickname:String = ""):
 	nickname_label.text = nickname
@@ -82,3 +83,9 @@ func _on_StatusIconManager_status_forgotten(status_icon):
 
 func _on_StatusIconManager_status_inspected(status_icon):
 	emit_signal("status_inspected", status_icon)
+
+func mark_active():
+	active_panel.show()
+
+func mark_inactive():
+	active_panel.hide()

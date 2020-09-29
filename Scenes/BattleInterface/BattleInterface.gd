@@ -70,12 +70,18 @@ func _take_enemy_turn():
 func _on_hand_drawn():
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
+	player_interface.mark_character_inactive(player_data)
 	player_interface.start_turn()
 
 func _start_player_turn():
 	battle_opportunities_manager.reset_player_opportunities()
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
+	player_interface.mark_character_active(player_data)
+	advance_action_timer.start()
+	yield(advance_action_timer, "timeout")
 	player_battle_manager.update_start_of_turn_statuses()
+	advance_action_timer.start()
+	yield(advance_action_timer, "timeout")
 	player_battle_manager.reset_energy()
 	player_battle_manager.draw_hand()
 
@@ -206,13 +212,20 @@ func _on_EnemyResolution_phase_entered():
 		if not opponent.is_active():
 			continue
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
+		player_interface.mark_character_active(opponent)
+		advance_action_timer.start()
+		yield(advance_action_timer, "timeout")
 		manager.update_start_of_turn_statuses()
 		if not opponent.is_active():
+			player_interface.mark_character_inactive(opponent)
 			continue
+		advance_action_timer.start()
+		yield(advance_action_timer, "timeout")
 		_resolve_character_actions(opponent)
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
 		manager.update_end_of_turn_statuses()
+		player_interface.mark_character_inactive(opponent)
 		advance_character_timer.start()
 		yield(advance_character_timer, "timeout")
 	if _battle_ended:
