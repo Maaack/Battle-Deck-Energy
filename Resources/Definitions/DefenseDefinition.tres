@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = "DEFENSE"
+term = "Defense"
+definition = "Absorbs damage equal to value. Depletes at the start of the next turn."
+related_definitions = [  ]

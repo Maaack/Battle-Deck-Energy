@@ -2,11 +2,13 @@ extends Control
 
 
 signal back_pressed
+signal card_inspected(card_node)
+signal card_forgotten(card_node)
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
 onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
-onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/InspectorCardManager
+onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
 onready var spawn_card_timer = $SpawnCardTimer
 
 export(float, 0.0, 2.0) var default_animate_in_time : float = 0.2
@@ -47,5 +49,12 @@ func _add_cards_to_containers():
 			_add_card_option(card)
 
 func _on_BackButton_pressed():
+	emit_signal("card_forgotten", null)
 	emit_signal("back_pressed")
 	queue_free()
+
+func _on_SelectorCardManager_inspected_on_card(card_node_2d):
+	emit_signal("card_inspected", card_node_2d)
+
+func _on_SelectorCardManager_inspected_off_card(card_node_2d):
+	emit_signal("card_forgotten", card_node_2d)

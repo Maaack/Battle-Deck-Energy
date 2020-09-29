@@ -4,12 +4,12 @@
 [ext_resource path="res://Resources/Effects/InnateEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Effects/TargetApplyEnergy2.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Effects/GainEnergy2.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Second Wind"
-description = "Gain %TARGET_APPLY_ENERGY Energy and Exhaust.
+description = "Gain %GAIN_ENERGY Energy and Exhaust.
 Innate.
 Retained."
 energy_cost = 0

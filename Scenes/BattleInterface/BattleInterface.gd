@@ -4,6 +4,10 @@ extends Control
 signal player_won
 signal player_lost
 signal view_deck_pressed(deck)
+signal card_inspected(card_node)
+signal card_forgotten(card_node)
+signal status_inspected(status_icon)
+signal status_forgotten(status_icon)
 
 onready var advance_phase_timer = $AdvancePhaseTimer
 onready var advance_character_timer = $AdvanceCharacterTimer
@@ -331,3 +335,15 @@ func _on_EffectManager_draw_from_draw_pile(character, count):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	for _i in range(count):
 		battle_manager.draw_card()
+
+func _on_PlayerInterface_card_inspected(card):
+	emit_signal("card_inspected", card)
+
+func _on_PlayerInterface_card_forgotten(card):
+	emit_signal("card_forgotten", card)
+
+func _on_PlayerInterface_status_inspected(status_icon):
+	emit_signal("status_inspected", status_icon)
+
+func _on_PlayerInterface_status_forgotten(status_icon):
+	emit_signal("status_forgotten", status_icon)

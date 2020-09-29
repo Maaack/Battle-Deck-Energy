@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Managers/Cards/Focused/FocusedCardManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/CardNode2D/CardNode2D.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Managers/Cards/Focused/Battle/BattleCardManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Managers/Cards/Focused/Inspector/Battle/BattleCardManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.tscn" type="PackedScene" id=9]
 
 [node name="PlayerInterface" type="Control"]
@@ -77,10 +76,8 @@ mouse_filter = 1
 hand_center_distance = 2048.0
 
 [node name="BattleCardManager" parent="HandContainer/CardControl" instance=ExtResource( 8 )]
-base_card_scene = ExtResource( 7 )
 
-[node name="FocusedCardManager" parent="HandContainer/CardControl" instance=ExtResource( 3 )]
-base_card_scene = ExtResource( 7 )
+[node name="InspectorCardManager" parent="HandContainer/CardControl" instance=ExtResource( 1 )]
 scale_focused_card = Vector2( 1, 1 )
 
 [node name="StatusUpdatesContainer" type="Control" parent="."]
@@ -105,6 +102,10 @@ one_shot = true
 [connection signal="card_updated" from="HandContainer/CardControl/HandManager" to="." method="_on_HandManager_card_updated"]
 [connection signal="dragging_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_BattleCardManager_dragging_card"]
 [connection signal="dropping_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_BattleCardManager_dropping_card"]
+[connection signal="inspected_off_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_inspected_off_card"]
+[connection signal="inspected_on_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_inspected_on_card"]
+[connection signal="inspected_off_card" from="HandContainer/CardControl/InspectorCardManager" to="." method="_on_inspected_off_card"]
+[connection signal="inspected_on_card" from="HandContainer/CardControl/InspectorCardManager" to="." method="_on_inspected_on_card"]
 [connection signal="animation_started" from="BattleAnimationQueue" to="." method="_on_BattleAnimationQueue_animation_started"]
 [connection signal="queue_empty" from="BattleAnimationQueue" to="." method="_on_BattleAnimationQueue_queue_empty"]
 [connection signal="timeout" from="ResizeTimer" to="." method="_on_ResizeTimer_timeout"]

@@ -79,8 +79,10 @@ func _resolve_self_effects(effect:EffectData, character:CharacterData, character
 			_resolve_self_damage(effect, character, character_manager_map)
 		EffectCalculator.DRAW_CARD_EFFECT:
 			emit_signal("draw_from_draw_pile", character, effect.amount)
-		EffectCalculator.TARGET_APPLY_ENERGY_EFFECT:
+		EffectCalculator.GAIN_ENERGY_EFFECT:
 			emit_signal("apply_energy", character, effect.amount)
+		EffectCalculator.LOSE_ENERGY_EFFECT:
+			emit_signal("apply_energy", character, -(effect.amount))
 	if effect is StatusEffectData:
 		_resolve_statuses(effect, character, character, character_manager_map)
 	if effect is DeckModEffectData:
@@ -129,8 +131,10 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 						emit_signal("add_opportunity", CardData.CardType.SKILL, opportunity.source, final_target)
 				EffectCalculator.DRAW_CARD_EFFECT:
 					emit_signal("draw_from_draw_pile", final_target, effect.amount)
-				EffectCalculator.TARGET_APPLY_ENERGY_EFFECT:
+				EffectCalculator.GAIN_ENERGY_EFFECT:
 					emit_signal("apply_energy", final_target, effect.amount)
+				EffectCalculator.LOSE_ENERGY_EFFECT:
+					emit_signal("apply_energy", final_target, -(effect.amount))
 				EffectCalculator.ATTACK_EFFECT:
 					_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 			if effect is StatusEffectData:

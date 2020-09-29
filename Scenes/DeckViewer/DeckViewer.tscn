@@ -4,9 +4,8 @@
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
 [ext_resource path="res://Scenes/DeckViewer/GridContainer.gd" type="Script" id=3]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=4]
-[ext_resource path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/CardNode2D/CardNode2D.tscn" type="PackedScene" id=9]
-
+[ext_resource path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/CardNode2D/CardNode2D.tscn" type="PackedScene" id=6]
 
 [node name="DeckViewer" type="Control"]
 anchor_right = 1.0
@@ -63,9 +62,8 @@ custom_constants/hseparation = 20
 columns = 5
 script = ExtResource( 3 )
 
-[node name="InspectorCardManager" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource( 5 )]
-position = Vector2( -16, -16 )
-base_card_scene = ExtResource( 9 )
+[node name="SelectorCardManager" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+base_card_scene = ExtResource( 6 )
 
 [node name="OptionsMargin" type="Control" parent="MarginContainer/VBoxContainer"]
 margin_top = 650.0
@@ -92,4 +90,6 @@ __meta__ = {
 [node name="SpawnCardTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+[connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
+[connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsMargin/BackButton" to="." method="_on_BackButton_pressed"]

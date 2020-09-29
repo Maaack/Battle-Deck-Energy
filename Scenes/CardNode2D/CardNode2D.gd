@@ -31,6 +31,8 @@ onready var skill_type_panel = $Card/Body/CardFront/Control/SkillPanel
 onready var stress_type_panel = $Card/Body/CardFront/Control/StressPanel
 onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
 onready var effect_label = $Card/Body/CardFront/EffectContainer/Label
+onready var left_tooltip_target = $Card/LeftTooltip2D
+onready var right_tooltip_target = $Card/RightTooltip2D
 
 export(Resource) var starting_card_data setget set_starting_card_data
 
