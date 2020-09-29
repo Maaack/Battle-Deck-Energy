@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "TOXIN"
-term = "Toxin"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+key = "LOSE_ENERGY"
+term = "Lose Energy"
+definition = "Lose Battle Deck Energy equal to value for the rest of the turn."
 related_definitions = [  ]

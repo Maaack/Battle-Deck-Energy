@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "TOXIN"
-term = "Toxin"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+key = "INNATE"
+term = "Innate"
+definition = "The card will be drawn for free at the start of battle."
 related_definitions = [  ]

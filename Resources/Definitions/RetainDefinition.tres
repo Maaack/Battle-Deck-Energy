@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "TOXIN"
-term = "Toxin"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+key = "RETAIN"
+term = "Retain"
+definition = "The card will not discard at the end of the turn."
 related_definitions = [  ]

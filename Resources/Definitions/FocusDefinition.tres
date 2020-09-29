@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "TOXIN"
-term = "Toxin"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+key = "FOCUS"
+term = "Focus"
+definition = "Adds additional Skill spaces on the target."
 related_definitions = [  ]

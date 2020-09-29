@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "TOXIN"
-term = "Toxin"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+key = "OPENER"
+term = "Opener"
+definition = "Adds additional Attack spaces on the target."
 related_definitions = [  ]

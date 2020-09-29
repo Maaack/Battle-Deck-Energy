@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource( 1 )
-type_tag = "TARGET_APPLY_ENERGY"
+type_tag = "GAIN_ENERGY"
 icon = ExtResource( 2 )
-amount = 2
+amount = 1
 base_color = Color( 0.737255, 0.109804, 0.776471, 1 )
 apply_mode = 1
 aim_mode = 0

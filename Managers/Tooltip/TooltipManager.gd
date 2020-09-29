@@ -50,4 +50,6 @@ func inspect_card(card_node:CardNode2D):
 			for status_data in effect_data.statuses:
 				if status_data is StatusData:
 					keys.append(status_data.type_tag)
+		elif effect_data is EffectData:
+			keys.append(effect_data.type_tag)
 	show_definitions(keys, list_position)

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "TOXIN"
-term = "Toxin"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+key = "FRAGILE"
+term = "Fragile"
+definition = "Decreases damage absorbed per shield by 33%. Loses [b]1[/b] every turn."
 related_definitions = [  ]
