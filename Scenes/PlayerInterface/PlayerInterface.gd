@@ -10,6 +10,10 @@ signal drawing_completed
 signal discard_completed
 signal card_played(card)
 signal card_played_on_opportunity(card, opportunity)
+signal card_inspected(card)
+signal card_forgotten(card)
+signal show_definitions(keys, list_position)
+signal hide_definitions
 
 enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
@@ -17,7 +21,7 @@ export(float, 0, 512) var opportunity_snap_range = 200.0
 
 onready var animation_queue : Node = $BattleAnimationQueue
 onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
-onready var opponent_card_manager : Node2D = $HandContainer/CardControl/FocusedCardManager
+onready var opponent_card_manager : Node2D = $HandContainer/CardControl/InspectorCardManager
 onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
 onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
 onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
@@ -127,6 +131,7 @@ func _new_character_card(character:CharacterData, card:CardData):
 		card_instance = card_manager.add_card(card)
 	else:
 		card_instance = opponent_card_manager.add_card(card)
+	card_instance.connect("mouse_double_clicked", self, "_on_CardNode2D_double_clicked")
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
 	return card_instance
@@ -388,6 +393,7 @@ func get_nearest_card_opportunity(card:CardData, position = null):
 func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
+	emit_signal("hide_definitions")
 
 func _on_dropping_card(card:CardData):
 	var nearest_opportunity = get_nearest_card_opportunity(card)
@@ -465,3 +471,9 @@ func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 
 func _on_BattleAnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
+
+func _on_inspected_on_card(card_node:CardNode2D):
+	emit_signal("card_inspected", card_node)
+
+func _on_inspected_off_card(card_node:CardNode2D):
+	emit_signal("card_forgotten", card_node)

@@ -43,6 +43,10 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 8 )
 
 [node name="Card" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="GlowContainer" type="CenterContainer" parent="Card"]
 anchor_left = 0.5
@@ -367,6 +371,12 @@ __meta__ = {
 
 [node name="PulseAnimation" type="AnimationPlayer" parent="Card"]
 anims/CardPulse = ExtResource( 16 )
+
+[node name="LeftTooltip2D" type="Position2D" parent="Card"]
+position = Vector2( -220, -128 )
+
+[node name="RightTooltip2D" type="Position2D" parent="Card"]
+position = Vector2( 220, -128 )
 
 [node name="Tween" type="Tween" parent="."]
 

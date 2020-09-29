@@ -3,12 +3,14 @@ extends Control
 
 signal skip_loot_pressed
 signal view_deck_pressed(deck)
-signal collected_card(card_data)
+signal card_collected(card_data)
+signal card_inspected(card_node)
+signal card_forgotten(card_node)
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
 onready var loot_container = $MarginContainer/VBoxContainer/LootMargin/LootContainer
-onready var card_manager = $MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/InspectorCardManager
+onready var card_manager = $MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager
 onready var spawn_card_timer = $SpawnCardTimer
 onready var reposition_timer = $RepositionTimer
 
@@ -62,7 +64,7 @@ func _add_cards_to_containers():
 func _on_ContinueButton_pressed():
 	emit_signal("continue_pressed")
 
-func _on_InspectorCardManager_released_card(card_node:CardNode2D):
+func _on_SelectorCardManager_released_card(card_node):
 	if selected_card != null:
 		return
 	selected_card = card_node
@@ -70,7 +72,8 @@ func _on_InspectorCardManager_released_card(card_node:CardNode2D):
 	card_manager.hold_focus = true
 	card_node.play_card()
 	yield(card_node, "animation_completed")
-	emit_signal("collected_card", card_node.card_data)
+	emit_signal("card_collected", card_node.card_data)
+	emit_signal("card_forgotten", card_node)
 	queue_free()
 
 func _on_SkipLootButton_pressed():
@@ -80,3 +83,9 @@ func _on_SkipLootButton_pressed():
 func _on_ViewDeckButton_pressed():
 	if player_data is CharacterData:
 		emit_signal("view_deck_pressed", player_data.deck)
+
+func _on_SelectorCardManager_inspected_on_card(card_node_2d):
+	emit_signal("card_inspected", card_node_2d)
+
+func _on_SelectorCardManager_inspected_off_card(card_node_2d):
+	emit_signal("card_forgotten", card_node_2d)

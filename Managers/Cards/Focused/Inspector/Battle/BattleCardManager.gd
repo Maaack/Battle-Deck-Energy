@@ -1,9 +1,8 @@
-extends FocusedCardManager
+extends InspectorCardManager
 
 
 signal dragging_card(card_data)
 signal dropping_card(card_data)
-signal inspecting_card(card_data)
 
 var locked_cards : Dictionary = {}
 var energy_available : int = 0
@@ -65,13 +64,8 @@ func _on_Card_mouse_clicked(card_node:CardNode2D):
 	if not _is_card_playable(card_node):
 		return
 	dragged_card = card_node
+	_stop_inspecting(card_node)
 	emit_signal("dragging_card", card_node.card_data)
-
-func _on_Card_mouse_double_clicked(card_node:CardNode2D):
-	._on_Card_mouse_double_clicked(card_node)
-	if not _is_card_playable(card_node):
-		return
-	emit_signal("inspecting_card", card_node.card_data)
 	
 func _on_Card_mouse_released(card_node:CardNode2D):
 	._on_Card_mouse_released(card_node)

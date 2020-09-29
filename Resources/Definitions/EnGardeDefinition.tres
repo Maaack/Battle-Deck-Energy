@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Definitions/DefenseDefinition.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+key = "EN_GARDE"
+term = "En Garde"
+definition = "Applies defense equal to value and depletes at the start of the next turn."
+related_definitions = [ ExtResource( 2 ) ]
