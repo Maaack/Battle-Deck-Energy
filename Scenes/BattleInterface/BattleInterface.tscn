@@ -76,8 +76,6 @@ one_shot = true
 [connection signal="drew_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card"]
 [connection signal="drew_card_from_draw_pile" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_drew_card_from_draw_pile"]
 [connection signal="exhausted_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_exhausted_card"]
-[connection signal="gained_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_gained_energy"]
-[connection signal="lost_energy" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_lost_energy"]
 [connection signal="played_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_played_card"]
 [connection signal="reshuffled_card" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_reshuffled_card"]
 [connection signal="updated_status" from="CharacterBattleManager" to="." method="_on_CharacterBattleManager_updated_status"]

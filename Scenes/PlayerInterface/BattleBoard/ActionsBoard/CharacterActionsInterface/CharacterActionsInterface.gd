@@ -60,21 +60,17 @@ func remove_all_opportunities():
 		remove_opportunity(opportunity, false)
 	opportunities_map.clear()
 
-func add_status(status:StatusData):
+func update_status(status:StatusData):
 	match(status.type_tag):
+		EffectCalculator.ENERGY_STATUS:
+			return
 		EffectCalculator.HEALTH_STATUS:
 			health_meter.health = status.intensity
 			return
 		EffectCalculator.DEFENSE_STATUS:
 			health_meter.armor = status.intensity
 			return
-	status_icon_manager.add_status(status)
-
-func remove_status(status:StatusData):
-	if status.type_tag == EffectCalculator.DEFENSE_STATUS:
-		health_meter.armor = 0
-		return
-	status_icon_manager.remove_status(status)
+	status_icon_manager.update_status(status)
 
 func defeat_character():
 	remove_all_opportunities()

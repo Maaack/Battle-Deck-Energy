@@ -69,18 +69,11 @@ func remove_all_opportunities():
 		if child is CharacterActionsInterface:
 			child.remove_all_opportunities()
 
-func add_status(character:CharacterData, status:StatusData):
+func update_status(character:CharacterData, status:StatusData):
 	var interface : ActionsInterface = get_actions_instance(character)
 	if not is_instance_valid(interface):
 		return
-	interface.add_status(status)
-	return interface
-
-func remove_status(character:CharacterData, status:StatusData):
-	var interface : ActionsInterface = get_actions_instance(character)
-	if not is_instance_valid(interface):
-		return
-	interface.remove_status(status)
+	interface.update_status(status)
 	return interface
 
 func mark_character_active(character:CharacterData):

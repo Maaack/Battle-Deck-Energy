@@ -15,8 +15,5 @@ func add_opportunity(opportunity:OpportunityData):
 func remove_opportunity(opportunity:OpportunityData, erase_flag = true):
 	pass
 
-func add_status(status:StatusData):
-	pass
-
-func remove_status(status:StatusData):
+func update_status(status:StatusData):
 	pass

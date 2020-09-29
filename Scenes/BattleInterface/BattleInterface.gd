@@ -40,8 +40,6 @@ func new_opponent(opponent_data:CharacterData):
 	opponent_data = opponent_data.duplicate()
 	var battle_manager : CharacterBattleManager = ai_opponents_manager.add_opponent(opponent_data)
 	_character_manager_map[opponent_data] = battle_manager
-	battle_manager.connect("gained_energy", self, "_on_CharacterBattleManager_gained_energy")
-	battle_manager.connect("lost_energy", self, "_on_CharacterBattleManager_lost_energy")
 	battle_manager.connect("died", self, "_on_CharacterBattleManager_died")
 	battle_manager.connect("updated_status", self, "_on_CharacterBattleManager_updated_status")
 	battle_opportunities_manager.add_opponent(opponent_data)
@@ -259,12 +257,6 @@ func _on_EffectManager_apply_energy(character, energy):
 
 func _on_EffectManager_add_opportunity(type, source, target):
 	battle_opportunities_manager.add_opportunity(type, source, target)
-
-func _on_CharacterBattleManager_gained_energy(character:CharacterData, amount:int):
-	player_interface.character_gains_energy(character, amount)
-
-func _on_CharacterBattleManager_lost_energy(character:CharacterData, amount:int):
-	player_interface.character_loses_energy(character, amount)
 
 func _count_active_opponents():
 	var active_opponents : int = 0

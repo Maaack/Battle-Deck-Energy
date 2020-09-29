@@ -16,19 +16,16 @@ func get_status_icon(status:StatusData):
 	status_instance.status_data = status
 	status_instance.connect("mouse_entered", self, "_on_StatusIcon_mouse_entered", [status_instance])
 	status_instance.connect("mouse_exited", self, "_on_StatusIcon_mouse_exited", [status_instance])
+	status_instance.connect("tree_exited", self, "_on_StatusIcon_tree_exited", [status_instance])
 	status_map[status.type_tag] = status_instance
 	return status_instance
 
-func add_status(status:StatusData):
+func update_status(status:StatusData):
 	var status_icon = get_status_icon(status)
 	status_icon.status_data = status
 
-func remove_status(status:StatusData):
-	if not status.type_tag in status_map:
-		return
-	var status_instance = status_map[status.type_tag]
-	status_instance.queue_free()
-	status_map.erase(status.type_tag)
+func _on_StatusIcon_tree_exited(status_icon:StatusIcon):
+	status_map.erase(status_icon.status_data.type_tag)
 
 func _on_StatusIcon_mouse_entered(status_icon:StatusIcon):
 	emit_signal("status_inspected", status_icon)
