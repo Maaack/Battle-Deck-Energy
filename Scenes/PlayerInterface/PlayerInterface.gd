@@ -408,14 +408,6 @@ func _update_status(character:CharacterData, status:StatusData, delta:int):
 	var interface = actions_board.update_status(character, status)
 	if not interface is ActionsInterface:
 		return
-	if status.type_tag == EffectCalculator.ENERGY_STATUS:
-		if character == player_data:
-			player_board.gain_energy(delta)
-			card_manager.energy_available += delta
-			if delta < 0:
-				return
-		else:
-			return
 	_show_status_update_over_interface(interface, status, delta)
 	_recalculate_all_cards()
 	if status.get_stack_value() == 0:
@@ -424,6 +416,14 @@ func _update_status(character:CharacterData, status:StatusData, delta:int):
 			character_dies(character)
 
 func update_status(character:CharacterData, status:StatusData, delta:int):
+	if status.type_tag == EffectCalculator.ENERGY_STATUS:
+		if character == player_data:
+			player_board.gain_energy(delta)
+			card_manager.energy_available += delta
+			if delta < 0:
+				return
+		else:
+			return
 	animation_queue.animate_status(character, status, delta)
 
 func _on_PlayerBoard_draw_pile_pressed():

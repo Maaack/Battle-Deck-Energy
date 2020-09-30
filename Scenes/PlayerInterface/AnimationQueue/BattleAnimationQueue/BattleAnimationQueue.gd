@@ -3,7 +3,7 @@ extends AnimationQueue
 
 var card_animation_map : Dictionary = {}
 
-func animate_status(character_data:CharacterData, status_data:StatusData, delta:int, wait_time:float = 0.2, anim_type:int = 0):
+func animate_status(character_data:CharacterData, status_data:StatusData, delta:int, wait_time:float = 0.3, anim_type:int = 0):
 	var animation_data : StatusAnimationData = StatusAnimationData.new()
 	animation_data.character_data = character_data
 	animation_data.status_data = status_data
