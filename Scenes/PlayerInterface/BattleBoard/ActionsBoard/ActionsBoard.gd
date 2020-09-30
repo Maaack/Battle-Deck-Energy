@@ -29,7 +29,6 @@ func defeat_opponent(opponent:CharacterData):
 	if not interface:
 		return
 	interface.defeat_character()
-	characters_map.erase(opponent)
 
 func get_actions_instance(character:CharacterData):
 	if character in characters_map:
@@ -70,16 +69,25 @@ func remove_all_opportunities():
 		if child is CharacterActionsInterface:
 			child.remove_all_opportunities()
 
-func add_status(character:CharacterData, status:StatusData):
+func update_status(character:CharacterData, status:StatusData):
 	var interface : ActionsInterface = get_actions_instance(character)
 	if not is_instance_valid(interface):
 		return
-	interface.add_status(status)
+	interface.update_status(status)
 	return interface
 
-func remove_status(character:CharacterData, status:StatusData):
-	var interface : ActionsInterface = get_actions_instance(character)
-	if not is_instance_valid(interface):
+func mark_character_active(character:CharacterData):
+	if not character in characters_map:
 		return
-	interface.remove_status(status)
-	return interface
+	var actions_interface : CharacterActionsInterface = characters_map[character]
+	if actions_interface == null:
+		return
+	actions_interface.mark_active()
+
+func mark_character_inactive(character:CharacterData):
+	if not character in characters_map:
+		return
+	var actions_interface : CharacterActionsInterface = characters_map[character]
+	if actions_interface == null:
+		return
+	actions_interface.mark_inactive()

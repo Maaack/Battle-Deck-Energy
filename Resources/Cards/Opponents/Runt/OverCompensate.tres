@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 2 )
 title = "Over Compensate"
-description = "Apply %APPLY_STRENGTH Strength and %APPLY_VULNERABLE.
+description = "Apply %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable.
 Exhausts."
 energy_cost = 1
 effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ) ]

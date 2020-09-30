@@ -13,6 +13,7 @@ onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContaine
 onready var health_meter = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter
 onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
 onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
+onready var active_panel = $ActivePanel
 
 func _update_nickname(nickname:String = ""):
 	nickname_label.text = nickname
@@ -59,17 +60,17 @@ func remove_all_opportunities():
 		remove_opportunity(opportunity, false)
 	opportunities_map.clear()
 
-func add_status(status:StatusData):
-	if status.type_tag == ARMOR_STATUS:
-		health_meter.armor = status.intensity
-		return
-	status_icon_manager.add_status(status)
-
-func remove_status(status:StatusData):
-	if status.type_tag == ARMOR_STATUS:
-		health_meter.armor = 0
-		return
-	status_icon_manager.remove_status(status)
+func update_status(status:StatusData):
+	match(status.type_tag):
+		EffectCalculator.ENERGY_STATUS:
+			return
+		EffectCalculator.HEALTH_STATUS:
+			health_meter.health = status.intensity
+			return
+		EffectCalculator.DEFENSE_STATUS:
+			health_meter.armor = status.intensity
+			return
+	status_icon_manager.update_status(status)
 
 func defeat_character():
 	remove_all_opportunities()
@@ -82,3 +83,9 @@ func _on_StatusIconManager_status_forgotten(status_icon):
 
 func _on_StatusIconManager_status_inspected(status_icon):
 	emit_signal("status_inspected", status_icon)
+
+func mark_active():
+	active_panel.show()
+
+func mark_inactive():
+	active_panel.hide()

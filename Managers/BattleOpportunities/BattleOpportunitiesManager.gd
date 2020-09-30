@@ -47,11 +47,15 @@ func reset_player_opportunities():
 		print("Error: Getting player opportunities with no player set.")
 		return
 	for opponent in opponents_data: 
+		if not opponent.is_active():
+			continue
 		add_opportunity(CardData.CardType.ATTACK, player_data, opponent)
 	add_opportunity(CardData.CardType.DEFEND, player_data, player_data)
 	add_opportunity(CardData.CardType.SKILL, player_data, player_data)
 
 func reset_opponent_opportunities(opponent:CharacterData):
+	if not opponent.is_active():
+		return
 	if not opponent in opponents_data:
 		print("Error: Getting opponent opportunities on unset opponent data.")
 		return

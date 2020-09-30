@@ -25,7 +25,7 @@ func start_battle():
 		battle_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 		battle_interface.connect("card_inspected", self, "_on_Card_inspected")
 		battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
-		battle_interface.connect("status_inspected", self, "_on_StatusIcon_forgotten")
+		battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
 		battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 	battle_interface.player_data = player_data
 	battle_interface.opponents = level_manager.get_level_opponents()
@@ -43,11 +43,13 @@ func _on_DeadPanel_retry_pressed():
 
 func _on_BattleInterface_player_lost():
 	battle_interface.queue_free()
+	tooltip_manager.reset()
 	shadow_panel.show()
 	dead_panel.show()
 
 func _on_BattleInterface_player_won():
 	battle_interface.queue_free()
+	tooltip_manager.reset()
 	shadow_panel.show()
 	var level : LevelData = level_manager.get_current_level()
 	var loot_interface = loot_interface_scene.instance()

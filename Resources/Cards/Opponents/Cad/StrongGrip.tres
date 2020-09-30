@@ -1,14 +1,15 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak2.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Strong Grip"
-description = "Deal %ATTACK Damage, apply %APPLY_WEAK Weak, and add %ADD_RESTRAINED Restrained card(s)."
+description = "Apply %APPLY_WEAK Weak and add %ADD_RESTRAINED Restrained card(s).
+Exhausts."
 energy_cost = 1
-effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
+effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
 type = 1

@@ -1,15 +1,14 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
-[ext_resource path="res://Resources/Cards/Opponents/BigBully/SneakAttack.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Opponents/BigBully/OneHardPunch.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Cards/Opponents/BigBully/BlackMark.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/Opponents/BigBully/TakeAbuse.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Cards/Opponents/BigBully/AncestryBash.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 4 )
 starting_max_health = 15
 starting_max_energy = 1
 starting_hand_size = 3
-starting_deck = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
+starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
 nickname = "Big Bully"

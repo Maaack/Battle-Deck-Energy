@@ -1,14 +1,12 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/AttackEffect4.tres" type="Resource" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Demean"
-description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and add %ADD_INTIMIDATED Intimidated card(s)."
+description = "Deal %ATTACK Damage."
 energy_cost = 1
-effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ) ]
 type = 1

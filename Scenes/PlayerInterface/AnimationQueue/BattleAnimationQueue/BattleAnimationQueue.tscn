@@ -5,5 +5,3 @@
 
 [node name="BattleAnimationQueue" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-default_tween_time = 0.5
-default_wait_time = 0.25

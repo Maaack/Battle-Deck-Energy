@@ -9,16 +9,14 @@ signal discarded_card(card)
 signal exhausted_card(card)
 signal reshuffled_card(card)
 signal played_card(card, opportunity)
-signal gained_health(character, amount)
-signal lost_health(character, amount)
-signal gained_energy(character, amount)
-signal lost_energy(character, amount)
 signal updated_status(character, status, delta)
 signal died(character)
 
 onready var status_manager = $StatusManager
 
 var defense_status_resource = preload("res://Resources/Statuses/Defense.tres")
+var health_status_base = preload("res://Resources/Statuses/Health.tres")
+var energy_status_base = preload("res://Resources/Statuses/Energy.tres")
 
 var character_data : CharacterData setget set_character_data
 var draw_pile : DeckData = DeckData.new()
@@ -38,6 +36,16 @@ func _reset_discard_pile():
 func _reset_exhaust_pile():
 	exhaust_pile.clear()
 
+func get_health_status_snapshot():
+	var health_status_snapshot = health_status_base.duplicate()
+	health_status_snapshot.intensity = character_data.health
+	return health_status_snapshot
+
+func get_energy_status_snapshot():
+	var energy_status_snapshot = energy_status_base.duplicate()
+	energy_status_snapshot.intensity = character_data.energy
+	return energy_status_snapshot
+
 func reset():
 	randomize()
 	character_data.energy = 0
@@ -51,12 +59,14 @@ func set_character_data(value:CharacterData):
 
 func gain_health(amount: int = 1):
 	character_data.health += amount
-	emit_signal("gained_health", character_data, amount)
+	var health_status_snapshot = get_health_status_snapshot()
+	emit_signal("updated_status", character_data, health_status_snapshot, amount)
 
 func lose_health(amount: int = 1):
 	amount = min(character_data.health, amount)
 	character_data.health -= amount
-	emit_signal("lost_health", character_data, amount)
+	var health_status_snapshot = get_health_status_snapshot()
+	emit_signal("updated_status", character_data, health_status_snapshot, -(amount))
 	if character_data.health == 0:
 		emit_signal("died", character_data)
 
@@ -74,12 +84,14 @@ func take_damage(amount: int = 1):
 
 func gain_energy(amount:int = 1):
 	character_data.energy += amount
-	emit_signal("gained_energy", character_data, amount)
+	var energy_status_snapshot = get_energy_status_snapshot()
+	emit_signal("updated_status", character_data, energy_status_snapshot, amount)
 
 func lose_energy(amount:int = 1):
 	amount = min(character_data.energy, amount)
 	character_data.energy -= amount
-	emit_signal("lost_energy", character_data, amount)
+	var energy_status_snapshot = get_energy_status_snapshot()
+	emit_signal("updated_status", character_data, energy_status_snapshot, -(amount))
 
 func reset_energy():
 	var recharge_amount : int = character_data.max_energy - character_data.energy

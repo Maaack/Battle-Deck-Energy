@@ -32,8 +32,6 @@ onready var status_update_container : Control = $StatusUpdatesContainer
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
-var health_status_base = preload("res://Resources/Statuses/Health.tres")
-var energy_status_base = preload("res://Resources/Statuses/Energy.tres")
 var player_data : CharacterData setget set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
@@ -273,36 +271,6 @@ func _show_status_update_over_interface(interface:ActionsInterface, status:Statu
 	var interface_offset = interface.rect_position + interface_center
 	return _show_status_update(interface_offset, status, delta)
 
-func _show_health_update_over_interface(interface:ActionsInterface, delta:int):
-	_show_status_update_over_interface(interface, health_status_base, delta)
-
-func _show_energy_update_over_interface(interface:ActionsInterface, delta:int):
-	_show_status_update_over_interface(interface, energy_status_base, delta)
-
-func character_gains_health(character:CharacterData, delta:int):
-	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
-	_show_health_update_over_interface(actions_interface, delta)
-	actions_interface.update_health()
-
-func character_loses_health(character:CharacterData, delta:int):
-	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
-	if not actions_interface:
-		return
-	_show_health_update_over_interface(actions_interface, -(delta))
-	actions_interface.update_health()
-
-func character_gains_energy(character:CharacterData, delta:int):
-	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
-	_show_energy_update_over_interface(actions_interface, delta)
-	if character == player_data:
-		player_board.gain_energy(delta)
-		card_manager.energy_available += delta
-
-func character_loses_energy(character:CharacterData, delta:int):
-	if character == player_data:
-		player_board.lose_energy(delta)
-		card_manager.energy_available -= delta
-
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)
 	for card in _card_owner_map:
@@ -437,16 +405,25 @@ func _update_status(character:CharacterData, status:StatusData, delta:int):
 	if not character in _character_statuses_map:
 		_character_statuses_map[character] = {}
 	_character_statuses_map[character][status.type_tag] = status
-	var interface = actions_board.add_status(character, status)
+	var interface = actions_board.update_status(character, status)
 	if not interface is ActionsInterface:
 		return
 	_show_status_update_over_interface(interface, status, delta)
 	_recalculate_all_cards()
 	if status.get_stack_value() == 0:
-		actions_board.remove_status(character, status)
 		_character_statuses_map[character].erase(status.type_tag)
+		if status.type_tag == EffectCalculator.HEALTH_STATUS:
+			character_dies(character)
 
 func update_status(character:CharacterData, status:StatusData, delta:int):
+	if status.type_tag == EffectCalculator.ENERGY_STATUS:
+		if character == player_data:
+			player_board.gain_energy(delta)
+			card_manager.energy_available += delta
+			if delta < 0:
+				return
+		else:
+			return
 	animation_queue.animate_status(character, status, delta)
 
 func _on_PlayerBoard_draw_pile_pressed():
@@ -486,3 +463,9 @@ func _on_StatusIcon_inspected(status_icon:StatusIcon):
 
 func _on_StatusIcon_forgotten(status_icon:StatusIcon):
 	emit_signal("status_forgotten", status_icon)
+
+func mark_character_active(character:CharacterData):
+	actions_board.mark_character_active(character)
+
+func mark_character_inactive(character:CharacterData):
+	actions_board.mark_character_inactive(character)

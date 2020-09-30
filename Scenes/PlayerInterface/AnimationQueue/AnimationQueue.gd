@@ -23,7 +23,8 @@ func _start_timer(wait_time:float = get_wait_time()):
 	if timer_node.time_left > 0.0:
 		return
 	if wait_time == 0.0:
-		wait_time = 0.001
+		_animate_next()
+		return
 	timer_node.wait_time = wait_time
 	timer_node.start()
 
@@ -38,8 +39,8 @@ func _animate_next():
 		emit_signal("queue_empty")
 		return
 	var next_animation : AnimationData = animation_queue.pop_front()
-	_start_timer(next_animation.wait_time)
 	_animate(next_animation)
+	_start_timer(next_animation.wait_time)
 
 func delay_timer(delay_time : float = 1.0):
 	_start_timer(delay_time)
