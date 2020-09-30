@@ -25,7 +25,7 @@ func start_battle():
 		battle_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 		battle_interface.connect("card_inspected", self, "_on_Card_inspected")
 		battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
-		battle_interface.connect("status_inspected", self, "_on_StatusIcon_forgotten")
+		battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
 		battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 	battle_interface.player_data = player_data
 	battle_interface.opponents = level_manager.get_level_opponents()

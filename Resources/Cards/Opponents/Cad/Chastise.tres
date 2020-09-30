@@ -1,13 +1,15 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddDiffident.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Chastise"
-description = "Deal %ATTACK Damage and add %ADD_DIFFIDENT Diffident card(s)."
+description = "Deal %ATTACK Damage and add %ADD_DIFFIDENT Diffident card(s).
+Exhausts."
 energy_cost = 1
-effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
 type = 1
