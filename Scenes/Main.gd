@@ -33,6 +33,7 @@ func start_battle(current_level:BattleLevelData):
 	battle_interface.start_battle()
 
 func start_shelter():
+	shadow_panel.show()
 	var shelter_interface = shelter_interface_scene.instance()
 	campaign_interface_container.add_child(shelter_interface)
 	shelter_interface.player_data = player_data
