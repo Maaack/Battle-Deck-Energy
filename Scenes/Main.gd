@@ -2,7 +2,6 @@ extends Control
 
 
 onready var battle_interface_container = $BattleInterfaceContainer
-onready var battle_interface = $BattleInterfaceContainer/BattleInterface
 onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
 onready var level_manager = $LevelManager
@@ -13,10 +12,12 @@ onready var deck_view_container = $DeckViewContainer
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
 var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/BattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
+var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
+var battle_interface
 var player_data
 
-func start_battle():
+func start_battle(current_level:BattleLevelData):
 	if not is_instance_valid(battle_interface):
 		battle_interface = battle_interface_scene.instance()
 		battle_interface_container.add_child(battle_interface)
@@ -28,18 +29,38 @@ func start_battle():
 		battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
 		battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 	battle_interface.player_data = player_data
-	battle_interface.opponents = level_manager.get_level_opponents()
+	battle_interface.opponents = current_level.opponents
 	battle_interface.start_battle()
+
+func start_shelter():
+	var shelter_interface = shelter_interface_scene.instance()
+	campaign_interface_container.add_child(shelter_interface)
+	shelter_interface.player_data = player_data
+	shelter_interface.connect("shelter_left", self, "_start_next_level")
+	shelter_interface.connect("bath_pressed", deck_view_container, "add_child")
+
+func start_level():
+	var current_level : LevelData = level_manager.get_current_level()
+	if current_level is BattleLevelData:
+		start_battle(current_level)
+	elif current_level is ShelterLevelData:
+		start_shelter()
+
+func _start_next_level():
+	tooltip_manager.reset()
+	shadow_panel.hide()
+	level_manager.advance()
+	start_level()
 
 func _ready():
 	player_data = starting_player_data.duplicate()
-	start_battle()
+	start_level()
 
 func _on_DeadPanel_retry_pressed():
 	shadow_panel.hide()
 	dead_panel.hide()
 	player_data = starting_player_data.duplicate()
-	start_battle()
+	start_level()
 
 func _on_BattleInterface_player_lost():
 	battle_interface.queue_free()
@@ -55,7 +76,7 @@ func _on_BattleInterface_player_won():
 	var loot_interface = loot_interface_scene.instance()
 	campaign_interface_container.add_child(loot_interface)
 	loot_interface.connect("card_collected", self, "_on_LootPanel_card_collected")
-	loot_interface.connect("skip_loot_pressed", self, "_on_LootPanel_skip_loot_pressed")
+	loot_interface.connect("skip_loot_pressed", self, "_start_next_level")
 	loot_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 	loot_interface.connect("card_inspected", self, "_on_Card_inspected")
 	loot_interface.connect("card_forgotten", self, "_on_Card_forgotten")
@@ -66,16 +87,7 @@ func _on_BattleInterface_player_won():
 func _on_LootPanel_card_collected(card:CardData):
 	if player_data is CharacterData:
 		player_data.deck.append(card)
-	_on_LootPanel_closed()
-
-func _on_LootPanel_closed():
-	tooltip_manager.reset()
-	shadow_panel.hide()
-	level_manager.advance()
-	start_battle()
-
-func _on_LootPanel_skip_loot_pressed():
-	_on_LootPanel_closed()
+	_start_next_level()
 
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
@@ -93,5 +105,5 @@ func _on_Card_forgotten(_card_node):
 func _on_StatusIcon_inspected(status_icon):
 	tooltip_manager.inspect_status(status_icon)
 
-func _on_StatusIcon_forgotten(status_icon):
+func _on_StatusIcon_forgotten(_status_icon):
 	tooltip_manager.reset()

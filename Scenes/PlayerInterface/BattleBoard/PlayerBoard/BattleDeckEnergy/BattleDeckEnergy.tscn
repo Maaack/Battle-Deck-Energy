@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/ShaderMaterial.tres" type="Material" id=2]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" type="Material" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/LineHeroUnlimited/Medium/security_and_protection_shield.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=4]
 [ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_38_top_padded.tres" type="DynamicFont" id=5]
-
 
 [node name="BattleDeckEnergy" type="Control"]
 anchor_top = 1.0
@@ -35,10 +34,10 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = -6.0
 margin_top = -96.0
-margin_right = 58.0
-margin_bottom = -32.0
-rect_scale = Vector2( 1.2, 1.5 )
+margin_right = 72.0
+margin_bottom = 7.62939e-06
 texture = ExtResource( 4 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

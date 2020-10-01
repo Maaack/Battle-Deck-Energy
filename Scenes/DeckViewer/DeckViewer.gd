@@ -1,6 +1,8 @@
 extends Control
 
 
+class_name DeckViewer
+
 signal back_pressed
 signal card_inspected(card_node)
 signal card_forgotten(card_node)
@@ -34,7 +36,7 @@ func _spawn_containers():
 func set_deck(value:Array):
 	for card in value:
 		if card is CardData:
-			deck.append(card.duplicate())
+			deck.append(card)
 	_spawn_containers()
 	yield(deck_container, "sort_children")
 	_add_cards_to_containers()
@@ -45,7 +47,8 @@ func _add_cards_to_containers():
 		if card is CardData:
 			spawn_card_timer.start()
 			yield(spawn_card_timer, "timeout")
-			card.transform_data.position = container.get_card_parent_position()
+			var container_offset : Vector2 = deck_container.get_global_transform().get_origin()
+			card.transform_data.position = container.get_card_parent_position() - container_offset
 			_add_card_option(card)
 
 func _on_BackButton_pressed():

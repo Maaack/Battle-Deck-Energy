@@ -38,7 +38,8 @@ func reset_hand_size():
 		hand_size = starting_hand_size
 
 func reset_deck():
-	deck = starting_deck.duplicate()
+	for card in starting_deck:
+		deck.append(card.duplicate())
 
 func set_starting_deck(value:Array):
 	starting_deck = value
