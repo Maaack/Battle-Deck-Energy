@@ -4,7 +4,7 @@ extends Control
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
-onready var level_manager = $LevelManager
+onready var level_manager = $TestLevelManager
 onready var tooltip_manager = $TooltipManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
@@ -16,6 +16,12 @@ var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/S
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
 var battle_interface
 var player_data
+
+func _add_deck_view(deck_viewer:DeckViewer):
+	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
+	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
+	deck_viewer.connect("tree_exited", tooltip_manager, "reset")
+	deck_view_container.add_child(deck_viewer)
 
 func start_battle(current_level:BattleLevelData):
 	if not is_instance_valid(battle_interface):
@@ -38,7 +44,7 @@ func start_shelter():
 	campaign_interface_container.add_child(shelter_interface)
 	shelter_interface.player_data = player_data
 	shelter_interface.connect("shelter_left", self, "_start_next_level")
-	shelter_interface.connect("bath_pressed", deck_view_container, "add_child")
+	shelter_interface.connect("bath_pressed", self, "_add_deck_view")
 
 func start_level():
 	var current_level : LevelData = level_manager.get_current_level()
@@ -55,6 +61,7 @@ func _start_next_level():
 
 func _ready():
 	player_data = starting_player_data.duplicate()
+	player_data.health -= 10
 	start_level()
 
 func _on_DeadPanel_retry_pressed():
