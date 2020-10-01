@@ -1,14 +1,17 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyFortitude.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=4]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1009.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Knuckles Up"
 description = "Absorb %DEFEND Damage over [b]2[/b] shields, apply %APPLY_STRENGTH Strength, and %APPLY_FORTITUDE Fortitude."
 energy_cost = 2
+icon = ExtResource( 5 )
+base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
 effects = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ]
 type = 2

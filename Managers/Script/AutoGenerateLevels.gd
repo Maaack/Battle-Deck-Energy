@@ -47,7 +47,6 @@ func get_level_directories(source_path:String, destination_path:String):
 func save_weighted_level(full_path:String, filename:String, destination_path:String):
 	var weighted_level : WeightedData = WeightedData.new()
 	weighted_level.data = load(full_path)
-	var file = File.new()
 	var new_filename : String = destination_path + filename.get_basename() + "LevelChance.tres"
 	print("Saving file %s " % new_filename)
 	ResourceSaver.save(new_filename, weighted_level)

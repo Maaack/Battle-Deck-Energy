@@ -17,11 +17,12 @@ onready var central_control = $CentralControl
 onready var continue_delay_timer = $ContinueDelayTimer
 onready var particle_generator = $CentralControl/Particles2D
 
+export(float) var health_gain_ratio : float = 0.25
+
 var deck_cleaner_scene = preload("res://Scenes/DeckViewer/DeckCleaner/DeckCleaner.tscn")
 var status_text_animation = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
 var health_status_base = preload("res://Resources/Statuses/Health.tres")
 var player_data : CharacterData setget set_player_data
-var health_gain_ratio : float = 0.2
 
 func get_raised_health():
 	var max_health : int = player_data.max_health

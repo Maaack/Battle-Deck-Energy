@@ -15,7 +15,7 @@
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/BiohazardCardDrop.tres" type="Resource" id=13]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/ZeroEnergy/OpeningJabCardDrop.tres" type="Resource" id=14]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/DefenseFocusedCardDrop.tres" type="Resource" id=15]
-[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/ZeroEnergy/ExtraDefensiveCardDrop.tres" type="Resource" id=16]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/ZeroEnergy/DefensiveTradeCardDrop.tres" type="Resource" id=16]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/OpeningStrikeCardDrop.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/OpeningStanceCardDrop.tres" type="Resource" id=18]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/ShieldBashCardDrop.tres" type="Resource" id=19]
@@ -42,6 +42,7 @@
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/CrippleForLifeCardDrop.tres" type="Resource" id=40]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/HyperfocusCardDrop.tres" type="Resource" id=41]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/CriticalHitCardDrop.tres" type="Resource" id=42]
+
 
 [resource]
 script = ExtResource( 1 )
