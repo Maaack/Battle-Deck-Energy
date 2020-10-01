@@ -9,6 +9,7 @@ signal card_forgotten(card_node)
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 const FINAL_CARD_SCALE = Vector2(1.0, 1.0)
+const FINAL_ROTATION = 0
 
 onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
@@ -24,24 +25,30 @@ func _get_animate_in_time():
 	return default_animate_in_time
 
 func _add_card_option(card:CardData):
-	var prev_transform : TransformData = card.transform_data.duplicate()
-	prev_transform.scale = FINAL_CARD_SCALE
+	var final_transform : TransformData = card.transform_data.duplicate()
+	final_transform.scale = FINAL_CARD_SCALE
+	final_transform.rotation = FINAL_ROTATION
 	card.transform_data.scale = INIT_CARD_SCALE
 	card_manager.add_card(card)
-	card_manager.move_card(card, prev_transform, _get_animate_in_time())
+	card_manager.move_card(card, final_transform, _get_animate_in_time())
 
 func _spawn_containers():
 	for card in deck:
 		var container_node = deck_container.add_card_container()
 		card_container_map[card] = container_node
 
+func _add_cards_from_deck():
+	if not is_instance_valid(deck_container):
+		return
+	_spawn_containers()
+	yield(deck_container, "sort_children")
+	_add_cards_to_containers()
+
 func set_deck(value:Array):
 	for card in value:
 		if card is CardData:
 			deck.append(card)
-	_spawn_containers()
-	yield(deck_container, "sort_children")
-	_add_cards_to_containers()
+	_add_cards_from_deck()
 
 func _add_cards_to_containers():
 	for card in card_container_map:

@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/RicochetEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/FortifyEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0369.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0541.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -11,6 +11,6 @@ title = "Opening Stance"
 description = "Add %FORTIFY Defend space(s) and %RICOCHET Attack space(s)."
 energy_cost = 1
 icon = ExtResource( 4 )
-base_color = Color( 0.0823529, 0.435294, 0.894118, 1 )
+base_color = Color( 0.396078, 0.309804, 0.917647, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type = 3

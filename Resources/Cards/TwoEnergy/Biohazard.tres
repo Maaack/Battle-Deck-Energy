@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVenomous5.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin2.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1057.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_2740.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -11,6 +11,6 @@ title = "Biohazard"
 description = "Apply %APPLY_VENOMOUS Venomous and %APPLY_TOXIN Toxin."
 energy_cost = 2
 icon = ExtResource( 4 )
-base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+base_color = Color( 0.0941176, 0.780392, 0.00392157, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type = 3

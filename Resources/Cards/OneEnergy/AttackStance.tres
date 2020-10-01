@@ -1,16 +1,15 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://Resources/Effects/RicochetEffect.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength2.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0034.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0545.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 2 )
 title = "Attack Stance"
-description = "Apply %APPLY_STRENGTH Strength and add %RICOCHET Attack space(s)."
+description = "Apply %APPLY_STRENGTH Strength."
 energy_cost = 1
-icon = ExtResource( 4 )
-base_color = Color( 0.764706, 0.454902, 0, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 1 ) ]
+icon = ExtResource( 3 )
+base_color = Color( 0.403922, 0.333333, 0.929412, 1 )
+effects = [ ExtResource( 1 ) ]
 type = 3

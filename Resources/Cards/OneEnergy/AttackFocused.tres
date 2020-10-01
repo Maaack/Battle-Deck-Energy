@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Resources/Effects/RicochetEffect.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0344.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0027.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 2 )
-title = "Attack Stance"
+title = "Attack Focused"
 description = "Add %RICOCHET Attack space(s)."
 energy_cost = 1
 icon = ExtResource( 3 )
