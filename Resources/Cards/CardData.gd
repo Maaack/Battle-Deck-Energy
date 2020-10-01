@@ -8,6 +8,8 @@ enum CardType{NONE, ATTACK, DEFEND, SKILL, STRESS}
 export(String) var title : String = 'CardData'
 export(String, MULTILINE) var description : String = ''
 export(int, 0, 9) var energy_cost : int = 1
+export(Texture) var icon : Texture
+export(Color) var base_color : Color
 export(Array, Resource) var effects : Array = []
 export(CardType) var type : int = CardType.ATTACK
 

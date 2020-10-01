@@ -73,15 +73,14 @@ func _reset_card_front():
 		energy_panel.hide()
 	if card_data.energy_cost >= 0:
 		energy_label.text = str(card_data.energy_cost)
+	effect_texture.texture = card_data.icon
+	if card_data.base_color != Color():
+		effect_label.add_color_override("font_color", card_data.base_color)
 	_reset_card_type()
 	if card_data.effects.size() > 0:
 		var battle_effect : EffectData = card_data.effects[0]
-		if battle_effect.icon != null:
-			effect_texture.texture = battle_effect.icon
 		if battle_effect.amount >= 0:
 			effect_label.text = str(battle_effect.amount)
-		if battle_effect.base_color != Color():
-			effect_label.add_color_override("font_color", battle_effect.base_color)
 	update_card_effects(base_values)
 
 func _get_effect_base_value(type_tag:String):
