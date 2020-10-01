@@ -9,9 +9,9 @@ const DINE_DESCRIPTION = "Heal %d%% (%d) of your Max Health\n%d/%d --> %d/%d"
 const BATH_DESCRIPTION = "Clean your Deck of %d Card"
 
 onready var dine_label = $OptionsContainer/HBoxContainer/DineControl/Label
-onready var bath_label = $OptionsContainer/HBoxContainer/BathControl/Label
+onready var bathe_label = $OptionsContainer/HBoxContainer/BatheControl/Label
 onready var dine_button = $OptionsContainer/HBoxContainer/DineControl/DineButton
-onready var bath_button = $OptionsContainer/HBoxContainer/BathControl/BathButton
+onready var bathe_button = $OptionsContainer/HBoxContainer/BatheControl/BatheButton
 onready var card_manager = $CentralControl/CardManager
 onready var central_control = $CentralControl
 onready var continue_delay_timer = $ContinueDelayTimer
@@ -42,7 +42,7 @@ func get_clean_card_count():
 func _reset_bath_description():
 	if player_data is CharacterData:
 		var clean_card_count : int = get_clean_card_count()
-		bath_label.text = BATH_DESCRIPTION % [clean_card_count]
+		bathe_label.text = BATH_DESCRIPTION % [clean_card_count]
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -54,7 +54,7 @@ func _heal_player():
 
 func disable_buttons():
 	dine_button.disabled = true
-	bath_button.disabled = true
+	bathe_button.disabled = true
 
 func _on_DineButton_pressed():
 	disable_buttons()

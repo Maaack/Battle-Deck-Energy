@@ -4,7 +4,7 @@ extends Control
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
-onready var level_manager = $TestLevelManager
+onready var level_manager = $LevelManager
 onready var tooltip_manager = $TooltipManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
@@ -18,10 +18,10 @@ var battle_interface
 var player_data
 
 func _add_deck_view(deck_viewer:DeckViewer):
+	deck_view_container.add_child(deck_viewer)
 	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
 	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
 	deck_viewer.connect("tree_exited", tooltip_manager, "reset")
-	deck_view_container.add_child(deck_viewer)
 
 func start_battle(current_level:BattleLevelData):
 	if not is_instance_valid(battle_interface):
@@ -61,7 +61,6 @@ func _start_next_level():
 
 func _ready():
 	player_data = starting_player_data.duplicate()
-	player_data.health -= 10
 	start_level()
 
 func _on_DeadPanel_retry_pressed():
@@ -99,9 +98,7 @@ func _on_LootPanel_card_collected(card:CardData):
 
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
-	deck_view_container.add_child(deck_view)
-	deck_view.connect("card_inspected", self, "_on_Card_inspected")
-	deck_view.connect("card_forgotten", self, "_on_Card_forgotten")
+	_add_deck_view(deck_view)
 	deck_view.deck = deck
 
 func _on_Card_inspected(card_node):

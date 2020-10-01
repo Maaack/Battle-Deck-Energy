@@ -120,14 +120,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BathControl" type="Control" parent="OptionsContainer/HBoxContainer"]
+[node name="BatheControl" type="Control" parent="OptionsContainer/HBoxContainer"]
 margin_left = 642.0
 margin_right = 1280.0
 margin_bottom = 220.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BathButton" type="Button" parent="OptionsContainer/HBoxContainer/BathControl"]
+[node name="BatheButton" type="Button" parent="OptionsContainer/HBoxContainer/BatheControl"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -139,12 +139,12 @@ margin_bottom = 19.0
 rect_min_size = Vector2( 224, 38 )
 focus_mode = 0
 enabled_focus_mode = 0
-text = "Bath"
+text = "Bathe"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="OptionsContainer/HBoxContainer/BathControl"]
+[node name="Label" type="Label" parent="OptionsContainer/HBoxContainer/BatheControl"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -179,4 +179,4 @@ texture = ExtResource( 5 )
 
 [node name="ContinueDelayTimer" type="Timer" parent="."]
 [connection signal="pressed" from="OptionsContainer/HBoxContainer/DineControl/DineButton" to="." method="_on_DineButton_pressed"]
-[connection signal="pressed" from="OptionsContainer/HBoxContainer/BathControl/BathButton" to="." method="_on_BathButton_pressed"]
+[connection signal="pressed" from="OptionsContainer/HBoxContainer/BatheControl/BatheButton" to="." method="_on_BathButton_pressed"]

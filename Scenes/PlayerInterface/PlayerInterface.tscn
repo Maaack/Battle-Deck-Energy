@@ -78,7 +78,7 @@ hand_center_distance = 2048.0
 [node name="BattleCardManager" parent="HandContainer/CardControl" instance=ExtResource( 8 )]
 
 [node name="InspectorCardManager" parent="HandContainer/CardControl" instance=ExtResource( 1 )]
-scale_focused_card = Vector2( 1, 1 )
+scale_focused_card = Vector2( 1.1, 1.1 )
 
 [node name="StatusUpdatesContainer" type="Control" parent="."]
 anchor_right = 1.0
