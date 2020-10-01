@@ -420,7 +420,7 @@ func update_status(character:CharacterData, status:StatusData, delta:int):
 		if character == player_data:
 			player_board.gain_energy(delta)
 			card_manager.energy_available += delta
-			if delta < 0:
+			if delta <= 0:
 				return
 		else:
 			return

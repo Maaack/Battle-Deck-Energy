@@ -1,12 +1,10 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Weighted/LevelList/Level07/BratTrioLevelChance.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Weighted/LevelList/Level07/BratAndBullyLevelChance.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Weighted/LevelList/Level07/RascalAndCadLevelChance.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Weighted/LevelList/Level07/RascalTrioLevelChance.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Weighted/LevelList/Level07/SpoiledShitAloneLevelChance.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Weighted/LevelList/Level07/GiantRatPairLevelChance.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Weighted/LevelList/Level07/WeaselPairLevelChance.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Weighted/LevelList/Level07/RatTrioAndGiantRatLevelChance.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
-starting_list = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ) ]
+starting_list = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]

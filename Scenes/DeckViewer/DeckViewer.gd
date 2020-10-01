@@ -1,11 +1,14 @@
 extends Control
 
 
+class_name DeckViewer
+
 signal back_pressed
 signal card_inspected(card_node)
 signal card_forgotten(card_node)
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
+const FINAL_CARD_SCALE = Vector2(1.0, 1.0)
 
 onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
@@ -22,6 +25,7 @@ func _get_animate_in_time():
 
 func _add_card_option(card:CardData):
 	var prev_transform : TransformData = card.transform_data.duplicate()
+	prev_transform.scale = FINAL_CARD_SCALE
 	card.transform_data.scale = INIT_CARD_SCALE
 	card_manager.add_card(card)
 	card_manager.move_card(card, prev_transform, _get_animate_in_time())
@@ -34,7 +38,7 @@ func _spawn_containers():
 func set_deck(value:Array):
 	for card in value:
 		if card is CardData:
-			deck.append(card.duplicate())
+			deck.append(card)
 	_spawn_containers()
 	yield(deck_container, "sort_children")
 	_add_cards_to_containers()
@@ -45,7 +49,8 @@ func _add_cards_to_containers():
 		if card is CardData:
 			spawn_card_timer.start()
 			yield(spawn_card_timer, "timeout")
-			card.transform_data.position = container.get_card_parent_position()
+			var container_offset : Vector2 = deck_container.get_global_transform().get_origin()
+			card.transform_data.position = container.get_card_parent_position() - container_offset
 			_add_card_option(card)
 
 func _on_BackButton_pressed():

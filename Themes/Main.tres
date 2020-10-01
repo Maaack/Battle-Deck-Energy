@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" load_steps=7 format=2]
 
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=2]
 [ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnHoverStyleBox.tres" type="StyleBox" id=3]
 [ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnPressedStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/VioletStyleBox.tres" type="StyleBox" id=5]
+[ext_resource path="res://Themes/StyleBoxes/GrayStyleBox.tres" type="StyleBox" id=6]
 
 [resource]
 default_font = ExtResource( 1 )
@@ -14,7 +15,7 @@ Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = null
-Button/styles/disabled = null
+Button/styles/disabled = ExtResource( 6 )
 Button/styles/focus = null
 Button/styles/hover = ExtResource( 3 )
 Button/styles/normal = ExtResource( 2 )

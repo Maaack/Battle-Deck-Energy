@@ -20,7 +20,7 @@ func get_current_level():
 	return level_list
 
 func get_level_opponents():
-	var level : LevelData = get_current_level()
+	var level : BattleLevelData = get_current_level()
 	if level == null:
 		return
 	return level.opponents

@@ -61,9 +61,6 @@ func _add_cards_to_containers():
 			card.transform_data.position = container.get_card_parent_position() - center_offset
 			_add_card_option(card)
 
-func _on_ContinueButton_pressed():
-	emit_signal("continue_pressed")
-
 func _on_SelectorCardManager_released_card(card_node):
 	if selected_card != null:
 		return

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/AnimationQueue/AnimationQueue.gd"
 }, {
+"base": "LevelData",
+"class": "BattleLevelData",
+"language": "GDScript",
+"path": "res://Resources/Levels/BattleLevelData.gd"
+}, {
 "base": "Node",
 "class": "BattlePhase",
 "language": "GDScript",
@@ -69,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Characters/CharacterData.gd"
 }, {
+"base": "DeckViewer",
+"class": "DeckCleaner",
+"language": "GDScript",
+"path": "res://Scenes/DeckViewer/DeckCleaner/DeckCleaner.gd"
+}, {
 "base": "Resource",
 "class": "DeckData",
 "language": "GDScript",
@@ -78,6 +88,11 @@ _global_script_classes=[ {
 "class": "DeckModEffectData",
 "language": "GDScript",
 "path": "res://Resources/Effects/DeckModEffects/DeckModEffectData.gd"
+}, {
+"base": "Control",
+"class": "DeckViewer",
+"language": "GDScript",
+"path": "res://Scenes/DeckViewer/DeckViewer.gd"
 }, {
 "base": "Resource",
 "class": "DefinitionData",
@@ -144,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.gd"
 }, {
+"base": "LevelData",
+"class": "ShelterLevelData",
+"language": "GDScript",
+"path": "res://Resources/Levels/ShelterLevelData.gd"
+}, {
 "base": "AnimationData",
 "class": "StatusAnimationData",
 "language": "GDScript",
@@ -193,6 +213,7 @@ _global_script_class_icons={
 "ActionsInterface": "",
 "AnimationData": "",
 "AnimationQueue": "",
+"BattleLevelData": "",
 "BattlePhase": "",
 "CardAnimationData": "",
 "CardContainer": "",
@@ -202,8 +223,10 @@ _global_script_class_icons={
 "CharacterActionsInterface": "",
 "CharacterBattleManager": "",
 "CharacterData": "",
+"DeckCleaner": "",
 "DeckData": "",
 "DeckModEffectData": "",
+"DeckViewer": "",
 "DefinitionData": "",
 "EffectCalculator": "",
 "EffectData": "",
@@ -217,6 +240,7 @@ _global_script_class_icons={
 "OpportunityData": "",
 "PlayerActionsInterface": "",
 "SelectorCardManager": "",
+"ShelterLevelData": "",
 "StatusAnimationData": "",
 "StatusData": "",
 "StatusEffectData": "",
