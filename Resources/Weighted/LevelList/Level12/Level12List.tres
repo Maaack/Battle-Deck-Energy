@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Weighted/LevelList/Level12/BratBrothersLevelChance.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Weighted/LevelList/Level12/BruiserAloneLevelChance.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Weighted/LevelList/Level12/StalkerAloneLevelChance.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
-starting_list = [ ExtResource( 2 ) ]
+starting_list = [ ExtResource( 2 ), ExtResource( 3 ) ]

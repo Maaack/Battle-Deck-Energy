@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Levels/BattleLevelData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Weighted/LevelLootList/Rank1/Rank1LootList.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Characters/Opponents/SpoiledShit.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+opponents = [ ExtResource( 3 ) ]
+lootable_cards = ExtResource( 2 )

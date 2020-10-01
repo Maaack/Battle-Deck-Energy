@@ -8,6 +8,7 @@ signal card_inspected(card_node)
 signal card_forgotten(card_node)
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
+const FINAL_CARD_SCALE = Vector2(1.0, 1.0)
 
 onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
@@ -24,6 +25,7 @@ func _get_animate_in_time():
 
 func _add_card_option(card:CardData):
 	var prev_transform : TransformData = card.transform_data.duplicate()
+	prev_transform.scale = FINAL_CARD_SCALE
 	card.transform_data.scale = INIT_CARD_SCALE
 	card_manager.add_card(card)
 	card_manager.move_card(card, prev_transform, _get_animate_in_time())
