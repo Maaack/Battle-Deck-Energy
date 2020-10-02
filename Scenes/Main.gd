@@ -4,7 +4,7 @@ extends Control
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
-onready var level_manager = $LevelManager
+onready var level_manager = $TestLevelManager
 onready var tooltip_manager = $TooltipManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer

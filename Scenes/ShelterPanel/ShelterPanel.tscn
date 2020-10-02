@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/ShelterPanel/ShetlerPanel.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShader.shader" type="Shader" id=7]
 [ext_resource path="res://Scenes/ShelterPanel/FlameParticles2D.tres" type="Material" id=8]
+[ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_blowing.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/ShelterPanel/SparkParticles2D.tres" type="Material" id=11]
+[ext_resource path="res://Assets/Originals/Particles/spark_8x8.png" type="Texture" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )
@@ -86,7 +90,7 @@ __meta__ = {
 
 [node name="DineControl" type="Control" parent="OptionsContainer/HBoxContainer"]
 margin_right = 638.0
-margin_bottom = 220.0
+margin_bottom = 219.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -123,7 +127,7 @@ __meta__ = {
 [node name="BatheControl" type="Control" parent="OptionsContainer/HBoxContainer"]
 margin_left = 642.0
 margin_right = 1280.0
-margin_bottom = 220.0
+margin_bottom = 219.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -161,22 +165,92 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_top = 62.0
-margin_bottom = 62.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardManager" parent="CentralControl" instance=ExtResource( 4 )]
-
-[node name="Particles2D" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 18 )
+[node name="BlowingParticles2D" type="Particles2D" parent="CentralControl"]
+position = Vector2( 0, 60 )
 emitting = false
-amount = 50
+amount = 60
 lifetime = 2.0
 process_material = ExtResource( 8 )
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SparkParticles2D" type="Particles2D" parent="CentralControl"]
+position = Vector2( 0, 110 )
+amount = 4
+lifetime = 1.7
+process_material = ExtResource( 11 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SparkParticles2D2" type="Particles2D" parent="CentralControl"]
+position = Vector2( 0, 110 )
+emitting = false
+amount = 12
+lifetime = 1.7
+process_material = ExtResource( 11 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CracklingAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CentralControl"]
+position = Vector2( 0, 60 )
+stream = ExtResource( 9 )
+volume_db = -7.0
+autoplay = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BlowingAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CentralControl"]
+position = Vector2( 0, 60 )
+stream = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CardManager" parent="CentralControl" instance=ExtResource( 4 )]
+position = Vector2( 0, 60 )
+
+[node name="AnimationDelayTimer" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="ContinueDelayTimer" type="Timer" parent="."]
+wait_time = 1.2
+
+[node name="SparksDelayTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="BlowingDelayTimer" type="Timer" parent="."]
+wait_time = 0.8
+
+[node name="ContinueButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -272.0
+margin_top = -86.0
+margin_right = -48.0
+margin_bottom = -48.0
+rect_min_size = Vector2( 224, 38 )
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="OptionsContainer/HBoxContainer/DineControl/DineButton" to="." method="_on_DineButton_pressed"]
 [connection signal="pressed" from="OptionsContainer/HBoxContainer/BatheControl/BatheButton" to="." method="_on_BathButton_pressed"]
+[connection signal="timeout" from="ContinueDelayTimer" to="." method="_on_ContinueDelayTimer_timeout"]
+[connection signal="timeout" from="SparksDelayTimer" to="." method="_on_SparksDelayTimer_timeout"]
+[connection signal="timeout" from="BlowingDelayTimer" to="." method="_on_BlowingDelayTimer_timeout"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]

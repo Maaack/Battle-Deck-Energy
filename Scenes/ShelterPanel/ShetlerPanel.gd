@@ -12,10 +12,16 @@ onready var dine_label = $OptionsContainer/HBoxContainer/DineControl/Label
 onready var bathe_label = $OptionsContainer/HBoxContainer/BatheControl/Label
 onready var dine_button = $OptionsContainer/HBoxContainer/DineControl/DineButton
 onready var bathe_button = $OptionsContainer/HBoxContainer/BatheControl/BatheButton
+onready var continue_button = $ContinueButton
 onready var card_manager = $CentralControl/CardManager
 onready var central_control = $CentralControl
+onready var animation_delay_timer = $AnimationDelayTimer
 onready var continue_delay_timer = $ContinueDelayTimer
-onready var particle_generator = $CentralControl/Particles2D
+onready var sparks_delay_timer = $SparksDelayTimer
+onready var blowing_delay_timer = $BlowingDelayTimer
+onready var blowing_particle_generator = $CentralControl/BlowingParticles2D
+onready var spark_particle_generator = $CentralControl/SparkParticles2D2
+onready var blowing_audio_player = $CentralControl/BlowingAudioStreamPlayer2D
 
 export(float) var health_gain_ratio : float = 0.25
 
@@ -56,25 +62,29 @@ func _heal_player():
 func disable_buttons():
 	dine_button.disabled = true
 	bathe_button.disabled = true
+	continue_button.disabled = true
+
+func _stoke_fire():
+	blowing_particle_generator.emitting = true
+	spark_particle_generator.emitting = true
+	blowing_audio_player.play()
+	blowing_delay_timer.start()
+	sparks_delay_timer.start()
 
 func _on_DineButton_pressed():
 	disable_buttons()
 	emit_signal("dine_pressed")
-	continue_delay_timer.start()
-	yield(continue_delay_timer, "timeout")
+	blowing_particle_generator.emitting = true
+	blowing_delay_timer.start()
+	animation_delay_timer.start()
+	yield(animation_delay_timer, "timeout")
 	var raised_health : int = get_raised_health()
 	var delta : int = raised_health - player_data.health
 	var status_update_instance = status_text_animation.instance()
-	particle_generator.emitting = true
 	_heal_player()
 	central_control.add_child(status_update_instance)
 	status_update_instance.set_status_update(health_status_base, delta)
-	yield(status_update_instance, "tree_exited")
-	particle_generator.emitting = false
 	continue_delay_timer.start()
-	yield(continue_delay_timer, "timeout")
-	emit_signal("shelter_left")
-	queue_free()
 
 func _on_BathButton_pressed():
 	var deck_cleaner_instance = deck_cleaner_scene.instance()
@@ -84,21 +94,28 @@ func _on_BathButton_pressed():
 
 func _on_Card_cleaned(card_data:CardData):
 	disable_buttons()
+	player_data.deck.erase(card_data)
 	card_data.transform_data.position = Vector2(0, 0)
 	card_manager.add_card(card_data)
-	continue_delay_timer.start()
-	yield(continue_delay_timer, "timeout")
+	animation_delay_timer.start()
+	yield(animation_delay_timer, "timeout")
 	var new_transform = card_data.transform_data.duplicate()
 	new_transform.scale = Vector2(0.05, 0.05)
 	card_manager.move_card(card_data, new_transform)
 	yield(card_manager, "tween_completed")
-	particle_generator.emitting = true
+	_stoke_fire()
 	card_manager.remove_card(card_data)
-	player_data.deck.erase(card_data)
 	continue_delay_timer.start()
-	yield(continue_delay_timer, "timeout")
-	particle_generator.emitting = false
-	continue_delay_timer.start()
-	yield(continue_delay_timer, "timeout")
+
+func _on_ContinueDelayTimer_timeout():
+	continue_button.disabled = false
+
+func _on_ContinueButton_pressed():
 	emit_signal("shelter_left")
 	queue_free()
+
+func _on_SparksDelayTimer_timeout():
+	spark_particle_generator.emitting = false
+
+func _on_BlowingDelayTimer_timeout():
+	blowing_particle_generator.emitting = false
