@@ -120,14 +120,15 @@ func _ready():
 	_reset_base_values()
 	_reset_card_front()
 
+func _get_random_pitch():
+	return rand_range(0.89090, 1.12246)
+
 func play_draw_audio():
-	var random_pitch : float = rand_range(0.89090, 1.12246)
-	draw_audio_player.pitch_scale = random_pitch
+	draw_audio_player.pitch_scale = _get_random_pitch()
 	draw_audio_player.play()
 
 func play_drop_audio():
-	var random_pitch : float = rand_range(0.89090, 1.12246)
-	drop_audio_player.pitch_scale = random_pitch
+	drop_audio_player.pitch_scale = _get_random_pitch()
 	drop_audio_player.play()
 
 func update_card_effects(total_values:Dictionary):
