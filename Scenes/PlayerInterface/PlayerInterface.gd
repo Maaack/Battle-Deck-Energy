@@ -164,6 +164,7 @@ func _drawing_animation(card:CardData, animation:AnimationData):
 	var card_instance = _new_character_card(player_data, card)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
+	card_instance.draw_audio_player.play()
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_bold_20pt.tres" type="DynamicFont" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://Themes/StyleBoxes/Cards/AttackTypeStyleBox.tres" type="StyleBox" id=20]
 [ext_resource path="res://Themes/StyleBoxes/Cards/SkillTypeStyleBox.tres" type="StyleBox" id=21]
 [ext_resource path="res://Themes/StyleBoxes/Cards/StressTypeStyleBox.tres" type="StyleBox" id=22]
+[ext_resource path="res://Assets/Sourced/Sounds/240776__f4ngy__card-flip_1.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Assets/Sourced/Sounds/240776__f4ngy__card-flip_2.ogg" type="AudioStream" id=24]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -386,6 +388,12 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.50398, 0.503967 )
 shape = SubResource( 3 )
+
+[node name="DrawAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 23 )
+
+[node name="DropAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 24 )
 [connection signal="gui_input" from="Card/Body" to="." method="_on_Body_gui_input"]
 [connection signal="mouse_entered" from="Card/Body" to="." method="_on_Body_mouse_entered"]
 [connection signal="mouse_exited" from="Card/Body" to="." method="_on_Body_mouse_exited"]

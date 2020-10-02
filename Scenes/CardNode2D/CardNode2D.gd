@@ -33,6 +33,8 @@ onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
 onready var effect_label = $Card/Body/CardFront/EffectContainer/Label
 onready var left_tooltip_target = $Card/LeftTooltip2D
 onready var right_tooltip_target = $Card/RightTooltip2D
+onready var draw_audio_player = $DrawAudioStreamPlayer2D
+onready var drop_audio_player = $DropAudioStreamPlayer2D
 
 export(Resource) var starting_card_data setget set_starting_card_data
 
