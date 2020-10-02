@@ -29,6 +29,7 @@ onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/Pla
 onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
 onready var exhaust_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/ExhaustPile
 onready var status_update_container : Control = $StatusUpdatesContainer
+onready var shuffle_audio_player = $ShuffleAudioStreamPlayer2D
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
@@ -133,7 +134,6 @@ func _new_character_card(character:CharacterData, card:CardData):
 		card_instance = card_manager.add_card(card)
 	else:
 		card_instance = opponent_card_manager.add_card(card)
-	card_instance.connect("mouse_double_clicked", self, "_on_CardNode2D_double_clicked")
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
 	return card_instance
@@ -164,7 +164,7 @@ func _drawing_animation(card:CardData, animation:AnimationData):
 	var card_instance = _new_character_card(player_data, card)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
-	card_instance.draw_audio_player.play()
+	card_instance.play_draw_audio()
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
 
@@ -186,6 +186,12 @@ func _exhausting_animation(card:CardData, animation:AnimationData):
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
+func play_shuffle_audio():
+	if not shuffle_audio_player.playing:
+		var random_pitch : float = rand_range(0.89090, 1.12246)
+		shuffle_audio_player.pitch_scale = random_pitch	
+		shuffle_audio_player.play()
+
 func _reshuffling_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	if is_instance_valid(card_instance):
@@ -195,6 +201,7 @@ func _reshuffling_animation(card:CardData, animation:AnimationData):
 	else:
 		player_board.draw_discarded_card()
 		player_board.reshuffle_card()
+	play_shuffle_audio()
 
 func _on_card_animation_started(animation:CardAnimationData):
 	var card : CardData = animation.card_data
