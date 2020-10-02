@@ -174,6 +174,8 @@ func _discarding_animation(card:CardData, animation:AnimationData):
 		return
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
+	if card_instance.tween_node.is_active():
+		yield(card_instance, "tween_completed")
 	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
 	_discarding_cards_count += 1
 
@@ -183,6 +185,8 @@ func _exhausting_animation(card:CardData, animation:AnimationData):
 		return
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
+	if card_instance.tween_node.is_active():
+		yield(card_instance, "tween_completed")
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
 	_discarding_cards_count += 1
 
