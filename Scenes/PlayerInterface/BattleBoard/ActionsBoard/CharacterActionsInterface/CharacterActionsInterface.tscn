@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Themes/StyleBoxes/Glows/WhiteGlowOutlineStyleBox.tres" type="StyleBox" id=8]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/StabAudioStreamPlayer2D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ClankAudioStreamPlayer2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ShieldAudioStreamPlayer2D.tscn" type="PackedScene" id=11]
 
 [node name="CharacterActionsInterface" type="Control"]
 margin_right = 244.0
@@ -21,6 +22,7 @@ __meta__ = {
 }
 stab_audio_scene = ExtResource( 9 )
 clank_audio_scene = ExtResource( 10 )
+shield_audio_scene = ExtResource( 11 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0

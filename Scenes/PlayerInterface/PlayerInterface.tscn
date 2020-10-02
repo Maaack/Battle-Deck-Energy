@@ -98,6 +98,7 @@ one_shot = true
 [node name="ShuffleAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 38, 608 )
 stream = ExtResource( 3 )
+volume_db = -7.0
 [connection signal="gui_input" from="." to="." method="_on_PlayerInterface_gui_input"]
 [connection signal="resized" from="." to="." method="_on_PlayerInterface_resized"]
 [connection signal="discard_pile_pressed" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_discard_pile_pressed"]
