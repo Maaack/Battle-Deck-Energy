@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/240777__f4ngy__dealing-card_1.ogg-73d1891685a830254bf8231b94b2d98a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sourced/Sounds/240777__f4ngy__dealing-card_1.ogg"
+dest_files=[ "res://.import/240777__f4ngy__dealing-card_1.ogg-73d1891685a830254bf8231b94b2d98a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

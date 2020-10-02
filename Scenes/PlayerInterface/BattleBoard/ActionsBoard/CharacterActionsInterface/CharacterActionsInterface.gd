@@ -14,9 +14,9 @@ onready var health_meter = $MarginContainer/VBoxContainer/Panel/MarginContainer/
 onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
 onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
 onready var active_panel = $ActivePanel
-onready var stab_audio_player = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter/StabAudioStreamPlayer2D
-onready var clank_audio_player = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter/ClankAudioStreamPlayer2D
-onready var sharpen_audio_player = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter/SharpenStreamPlayer2D
+
+export(PackedScene) var stab_audio_scene : PackedScene
+export(PackedScene) var clank_audio_scene : PackedScene
 
 func _update_nickname(nickname:String = ""):
 	nickname_label.text = nickname
@@ -25,16 +25,20 @@ func _get_random_pitch():
 	return rand_range(0.89090, 1.12246)
 
 func play_stab_audio():
-	stab_audio_player.pitch_scale = _get_random_pitch()
-	stab_audio_player.play()
+	var audio_stream_instance : AudioStreamPlayer2D = stab_audio_scene.instance()
+	health_meter.add_child(audio_stream_instance)
+	audio_stream_instance.pitch_scale = _get_random_pitch()
+	audio_stream_instance.play()
+	yield(audio_stream_instance, "finished")
+	audio_stream_instance.queue_free()
 
 func play_clank_audio():
-	clank_audio_player.pitch_scale = _get_random_pitch()
-	clank_audio_player.play()
-
-func play_sharpen_audio():
-	sharpen_audio_player.pitch_scale = _get_random_pitch()
-	sharpen_audio_player.play()
+	var audio_stream_instance : AudioStreamPlayer2D = clank_audio_scene.instance()
+	health_meter.add_child(audio_stream_instance)
+	audio_stream_instance.pitch_scale = _get_random_pitch()
+	audio_stream_instance.play()
+	yield(audio_stream_instance, "finished")
+	audio_stream_instance.queue_free()
 
 func update_health():
 	if not is_instance_valid(health_meter):

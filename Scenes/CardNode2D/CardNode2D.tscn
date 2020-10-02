@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_bold_20pt.tres" type="DynamicFont" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Themes/StyleBoxes/Cards/StressTypeStyleBox.tres" type="StyleBox" id=22]
 [ext_resource path="res://Assets/Sourced/Sounds/240776__f4ngy__card-flip_1.ogg" type="AudioStream" id=23]
 [ext_resource path="res://Assets/Sourced/Sounds/240776__f4ngy__card-flip_2.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Assets/Sourced/Sounds/240777__f4ngy__dealing-card_1.ogg" type="AudioStream" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -391,14 +392,21 @@ shape = SubResource( 3 )
 
 [node name="DrawAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 23 )
+volume_db = -3.0
 
 [node name="DropAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 24 )
+volume_db = -2.0
+
+[node name="SlideAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 25 )
+volume_db = 8.0
 [connection signal="gui_input" from="Card/Body" to="." method="_on_Body_gui_input"]
 [connection signal="mouse_entered" from="Card/Body" to="." method="_on_Body_mouse_entered"]
 [connection signal="mouse_exited" from="Card/Body" to="." method="_on_Body_mouse_exited"]
 [connection signal="animation_finished" from="Card/PulseAnimation" to="." method="_on_PulseAnimation_animation_finished"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="tween_started" from="Tween" to="." method="_on_Tween_tween_started"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

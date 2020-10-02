@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sourced/Sounds/504615_neospica_slicing-through-flesh.ogg" type="AudioStream" id=1]
+
+[node name="StabAudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+volume_db = -9.0

@@ -8,8 +8,8 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.gd" type="Script" id=6]
 [ext_resource path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Themes/StyleBoxes/Glows/WhiteGlowOutlineStyleBox.tres" type="StyleBox" id=8]
-[ext_resource path="res://Assets/Sourced/Sounds/504615_neospica_slicing-through-flesh.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Assets/Sourced/Sounds/240787_f4ngy_metal-clank.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/StabAudioStreamPlayer2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ClankAudioStreamPlayer2D.tscn" type="PackedScene" id=10]
 
 [node name="CharacterActionsInterface" type="Control"]
 margin_right = 244.0
@@ -19,6 +19,8 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+stab_audio_scene = ExtResource( 9 )
+clank_audio_scene = ExtResource( 10 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -113,18 +115,6 @@ margin_top = 0.0
 margin_right = 208.0
 margin_bottom = 32.0
 size_flags_vertical = 3
-
-[node name="StabAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter"]
-position = Vector2( -102, -16 )
-stream = ExtResource( 9 )
-volume_db = -6.0
-
-[node name="ClankAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter"]
-stream = ExtResource( 10 )
-volume_db = 8.0
-attenuation = 0.00112178
-
-[node name="SharpenStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter"]
 
 [node name="StatusesMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 68.0

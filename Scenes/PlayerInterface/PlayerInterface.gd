@@ -174,6 +174,7 @@ func _discarding_animation(card:CardData, animation:AnimationData):
 		return
 	if card_instance.tween_node.is_active():
 		yield(card_instance, "tween_completed")
+	card_instance.connect("tween_started", self, "_on_discard_card_started")
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
@@ -185,6 +186,7 @@ func _exhausting_animation(card:CardData, animation:AnimationData):
 		return
 	if card_instance.tween_node.is_active():
 		yield(card_instance, "tween_completed")
+	card_instance.connect("tween_started", self, "_on_discard_card_started")
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
 	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
@@ -251,6 +253,9 @@ func _on_discard_complete():
 		hand_manager.discard_queue()
 		emit_signal("discard_completed")
 		return true
+
+func _on_discard_card_started(card_node:CardNode2D):
+	card_node.play_slide_audio()
 
 func _on_discard_card_completed(card_node:CardNode2D):
 	hand_manager.queue_card(card_node.card_data)

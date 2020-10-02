@@ -10,6 +10,7 @@ signal mouse_clicked(card_node_2d)
 signal mouse_double_clicked(card_node_2d)
 signal mouse_released(card_node_2d)
 signal tween_completed(card_node_2d)
+signal tween_started(card_node_2d)
 signal animation_completed(card_node_2d)
 
 const CARD_EFFECT_TAG = 'card_effect'
@@ -35,6 +36,7 @@ onready var left_tooltip_target = $Card/LeftTooltip2D
 onready var right_tooltip_target = $Card/RightTooltip2D
 onready var draw_audio_player = $DrawAudioStreamPlayer2D
 onready var drop_audio_player = $DropAudioStreamPlayer2D
+onready var slide_audio_player = $SlideAudioStreamPlayer2D
 
 export(Resource) var starting_card_data setget set_starting_card_data
 
@@ -121,7 +123,7 @@ func _ready():
 	_reset_card_front()
 
 func _get_random_pitch():
-	return rand_range(0.89090, 1.12246)
+	return rand_range(0.88775, 1.12246)
 
 func play_draw_audio():
 	draw_audio_player.pitch_scale = _get_random_pitch()
@@ -130,6 +132,10 @@ func play_draw_audio():
 func play_drop_audio():
 	drop_audio_player.pitch_scale = _get_random_pitch()
 	drop_audio_player.play()
+
+func play_slide_audio():
+	slide_audio_player.pitch_scale = _get_random_pitch()
+	slide_audio_player.play()
 
 func update_card_effects(total_values:Dictionary):
 	if card_data.description == "":
@@ -218,6 +224,9 @@ func play_card():
 	set_mouse_input_mode(MouseInputMode.NONE)
 	_finish_tween()
 	_animate_pulse()
+
+func _on_Tween_tween_started(object, key):
+	emit_signal("tween_started", self)
 
 func _on_Tween_tween_all_completed():
 	emit_signal("tween_completed", self)
