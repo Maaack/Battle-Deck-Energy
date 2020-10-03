@@ -154,6 +154,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.gd"
 }, {
+"base": "Control",
+"class": "ScrollingTextPanel",
+"language": "GDScript",
+"path": "res://Scenes/ScrollingTextPanel/ScrollingTextPanel.gd"
+}, {
 "base": "InspectorCardManager",
 "class": "SelectorCardManager",
 "language": "GDScript",
@@ -239,6 +244,7 @@ _global_script_class_icons={
 "OpportunitiesContainer": "",
 "OpportunityData": "",
 "PlayerActionsInterface": "",
+"ScrollingTextPanel": "",
 "SelectorCardManager": "",
 "ShelterLevelData": "",
 "StatusAnimationData": "",

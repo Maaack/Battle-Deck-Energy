@@ -35,7 +35,6 @@ func regex_replace_urls(credits:String):
 	return regex.sub(credits, replace_string, true)
 
 func regex_replace_titles(credits:String):
-	print(heading_fonts)
 	var iter = 0
 	for heading_font in heading_fonts:
 		if heading_font is DynamicFont:

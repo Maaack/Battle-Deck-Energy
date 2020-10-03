@@ -115,11 +115,11 @@ texture = ExtResource( 7 )
 [node name="Label" type="Label" parent="MarginContainer/Control/TitleContainer/Label"]
 margin_left = 233.0
 margin_top = 268.0
-margin_right = 565.0
+margin_right = 572.0
 margin_bottom = 327.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "a little premature"
+text = "premature release"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
