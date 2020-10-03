@@ -122,10 +122,10 @@ position = Vector2( 315.5, 194.5 )
 texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="MarginContainer/Control/TitleContainer/Label"]
-margin_left = 159.984
-margin_top = 296.194
-margin_right = 451.984
-margin_bottom = 355.194
+margin_left = 154.74
+margin_top = 284.957
+margin_right = 446.74
+margin_bottom = 343.957
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "a little premature"
