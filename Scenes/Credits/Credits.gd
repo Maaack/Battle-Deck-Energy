@@ -39,15 +39,15 @@ func regex_replace_titles(credits:String):
 		if heading_font is DynamicFont:
 			iter += 1
 			var regex = RegEx.new()
-			var match_string : String = "[^#]#{%d} ([^\n]*)" % iter
-			var replace_string : String = "\n[font=%s]$1[/font]" % [heading_font.resource_path]
+			var match_string : String = "([^#])#{%d} ([^\n]*)" % iter
+			var replace_string : String = "$1[font=%s]$2[/font]" % [heading_font.resource_path]
 			regex.compile(match_string)
 			credits = regex.sub(credits, replace_string, true)
 	return credits
 
 func _ready():
 	var text : String = load_file(attribution_file_path)
-	text = text.right(text.find("\n"))
+	text = text.right(text.find("\n")) # Trims first line "ATTRIBUTION"
 	text = regex_replace_urls(text)
 	text = regex_replace_titles(text)
 	var prefix_lines = "\n".repeat(lines_prefixed)
