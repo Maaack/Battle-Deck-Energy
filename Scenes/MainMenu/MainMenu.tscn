@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=2]
@@ -8,11 +8,13 @@
 [ext_resource path="res://Assets/Originals/Title/Deck_text.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Originals/Title/Energy_text.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Originals/Title/Battle_text.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=9]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,18 +62,21 @@ __meta__ = {
 margin_top = 430.0
 margin_right = 302.0
 margin_bottom = 468.0
+focus_mode = 0
 text = "New"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 margin_top = 492.0
 margin_right = 302.0
 margin_bottom = 530.0
+focus_mode = 0
 text = "Credits"
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
 margin_top = 554.0
 margin_right = 302.0
 margin_bottom = 592.0
+focus_mode = 0
 text = "Exit"
 
 [node name="TitleContainer" type="Control" parent="MarginContainer/Control"]
@@ -119,3 +124,11 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WindowContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]

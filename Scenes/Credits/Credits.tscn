@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_42pt.tres" type="DynamicFont" id=2]
@@ -6,10 +6,13 @@
 [ext_resource path="res://Scenes/Credits/Credits.gd" type="Script" id=4]
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Themes/HiddenScrollBar.tres" type="Theme" id=6]
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=7]
+[ext_resource path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" type="StyleBox" id=8]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 7 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -18,6 +21,14 @@ h1_font = ExtResource( 1 )
 h2_font = ExtResource( 1 )
 h3_font = ExtResource( 2 )
 h4_font = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
@@ -45,6 +56,22 @@ __meta__ = {
 
 [node name="ScrollResetTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ContinueButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -350.0
+margin_top = -86.0
+margin_right = -48.0
+margin_bottom = -48.0
+focus_mode = 0
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="scroll_ended" from="ScrollContainer" to="." method="_on_ScrollContainer_scroll_ended"]
 [connection signal="gui_input" from="ScrollContainer/RichTextLabel" to="." method="_on_RichTextLabel_gui_input"]
 [connection signal="timeout" from="ScrollResetTimer" to="." method="_on_ScrollResetTimer_timeout"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]

@@ -1,6 +1,8 @@
 extends Control
 
 
+signal continue_pressed
+
 onready var scroll_container = $ScrollContainer
 onready var rich_text_label = $ScrollContainer/RichTextLabel
 onready var scroll_timer = $ScrollResetTimer
@@ -72,3 +74,7 @@ func _on_RichTextLabel_gui_input(event):
 
 func _on_ScrollResetTimer_timeout():
 	set_process(true)
+
+func _on_ContinueButton_pressed():
+	emit_signal("continue_pressed")
+	queue_free()
