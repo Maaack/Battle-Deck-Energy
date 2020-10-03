@@ -3,7 +3,7 @@
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=2]
 [ext_resource path="res://Themes/Fonts/kool_bean_128pt.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Themes/Fonts/markazi_text_bold_48pt.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Themes/Fonts/kool_bean_48pt.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" type="Material" id=5]
 [ext_resource path="res://Assets/Originals/Title/Deck_text.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Originals/Title/Energy_text.png" type="Texture" id=7]
@@ -20,20 +20,6 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 358.098
-margin_right = 358.098
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -921.852
-margin_right = -921.852
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 7
@@ -122,11 +108,14 @@ position = Vector2( 315.5, 194.5 )
 texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="MarginContainer/Control/TitleContainer/Label"]
-margin_left = 154.74
-margin_top = 284.957
-margin_right = 446.74
-margin_bottom = 343.957
+margin_left = 233.0
+margin_top = 268.0
+margin_right = 565.0
+margin_bottom = 327.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "a little premature"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
