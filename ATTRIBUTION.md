@@ -7,6 +7,11 @@ License: [MIT License](./LICENSE.md)
 
 ## Art Assets
 ### Fonts
+#### Title
+Author: [Insanitype](https://www.1001fonts.com/users/insanitype/)  
+Source: [1001Fonts](https://www.1001fonts.com/kool-beans-font.html)  
+License: [Freeware License](./Assets/Sourced/Fonts/kool-beans/koolbeans.txt)
+
 #### Card Titles
 Author: [Typographer Mediengestaltung](https://www.1001fonts.com/users/steffmann/)  
 Source: [1001Fonts](https://www.1001fonts.com/morris-roman-font.html)  
