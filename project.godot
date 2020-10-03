@@ -261,7 +261,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Battle Deck Energy"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
