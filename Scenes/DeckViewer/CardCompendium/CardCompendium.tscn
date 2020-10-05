@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/DeckViewer/DeckViewer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/DeckViewer/CardCompendium/CardCompendium.gd" type="Script" id=2]
+
+[node name="CardCompendium" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+player_card_directory = "res://Resources/Cards/"
