@@ -1,17 +1,16 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AttackEffect1.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin2.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/OpenerEffect.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin3.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_2836.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Lethal Needle"
-description = "Deal %ATTACK Damage, apply %APPLY_TOXIN Toxin, and add [b]1[/b] Attack space(s)."
+description = "Deal %ATTACK Damage and apply %APPLY_TOXIN Toxin."
 energy_cost = 1
 icon = ExtResource( 5 )
 base_color = Color( 0.0392157, 0.784314, 0.0941176, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type = 1

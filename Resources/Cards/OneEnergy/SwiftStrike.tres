@@ -8,9 +8,9 @@
 [resource]
 script = ExtResource( 1 )
 title = "Swift Strike"
-description = "Deal %ATTACK Damage and draw [b]1[/b] card."
+description = "Deal %ATTACK Damage and draw [b]2[/b] card(s)."
 energy_cost = 1
 icon = ExtResource( 4 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ) ]
 type = 1

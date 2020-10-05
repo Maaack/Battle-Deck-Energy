@@ -1,16 +1,16 @@
 [gd_resource type="Resource" load_steps=38 format=2]
 
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/AttackStanceCardDrop.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/FlexCardDrop.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/SwiftStrikeCardDrop.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/HocusFocusCardDrop.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/AttackFocusedCardDrop.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/ChargeThroughCardDrop.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/TripleCriticalCardDrop.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/HeavySlashCardDrop.tres" type="Resource" id=10]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/CripplingSlashCardDrop.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/JabComboCardDrop.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/BiohazardCardDrop.tres" type="Resource" id=13]
-[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/DefenseFocusedCardDrop.tres" type="Resource" id=15]
+[ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/StackShieldsCardDrop.tres" type="Resource" id=15]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/OpeningStrikeCardDrop.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/OpeningStanceCardDrop.tres" type="Resource" id=18]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/OneEnergy/ShieldBashCardDrop.tres" type="Resource" id=19]
@@ -37,6 +37,9 @@
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/CrippleForLifeCardDrop.tres" type="Resource" id=40]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/HyperfocusCardDrop.tres" type="Resource" id=41]
 [ext_resource path="res://Resources/Weighted/LevelLootList/CardDrops/TwoEnergy/CriticalHitCardDrop.tres" type="Resource" id=42]
+
+
+
 
 [resource]
 script = ExtResource( 1 )
