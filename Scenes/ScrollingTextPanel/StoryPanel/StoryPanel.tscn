@@ -6,7 +6,7 @@
 max_speed_down = 2.0
 
 [node name="RichTextLabel" parent="MarginContainer/ScrollContainer" index="0"]
-margin_bottom = 1302.0
+margin_bottom = 1271.0
 bbcode_text = "[center]
 
 
@@ -32,14 +32,13 @@ bbcode_text = "[center]
 
 
 You were born with more Battle Deck Energy than most people.
-Bullies in power have been keeping you down, fearful of one day losing that power to you.
+Bullies in power have kept you down, fearful of one day losing that power to you.
 
 Damage has been done, but you're onto their game.
-Now you must battle to recover your self-confidence and topple your oppressors.
+Now you must battle to recover your self-confidence and topple the oppressors.
 
-They were right to be afraid of you...
-The reign of tyrants cannot last forever.
-
+Tyrants are right to be afraid...
+Their reign cannot last forever.
 
 
 
@@ -72,14 +71,13 @@ text = "
 
 
 You were born with more Battle Deck Energy than most people.
-Bullies in power have been keeping you down, fearful of one day losing that power to you.
+Bullies in power have kept you down, fearful of one day losing that power to you.
 
 Damage has been done, but you're onto their game.
-Now you must battle to recover your self-confidence and topple your oppressors.
+Now you must battle to recover your self-confidence and topple the oppressors.
 
-They were right to be afraid of you...
-The reign of tyrants cannot last forever.
-
+Tyrants are right to be afraid...
+Their reign cannot last forever.
 
 
 
