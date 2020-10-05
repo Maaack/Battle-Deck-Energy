@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/260713__daenerys__fire-crackling_loop.ogg-3e8fa564911320e36e7bed8857cd7073.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg"
+dest_files=[ "res://.import/260713__daenerys__fire-crackling_loop.ogg-3e8fa564911320e36e7bed8857cd7073.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

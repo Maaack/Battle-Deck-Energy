@@ -128,7 +128,6 @@ func _resolve_card_played_actions(card:CardData, opportunity = null):
 		battle_opportunities_manager.remove_opportunity(opportunity)
 	else:
 		effects_manager.resolve_on_play(card, player_data, _character_manager_map)
-	_discard_or_exhaust_card(card)
 
 func _resolve_character_actions(character:CharacterData):
 	var opportunities : Array = battle_opportunities_manager.get_character_opportunities(character)
@@ -158,11 +157,9 @@ func _on_CharacterBattleManager_drew_card_from_draw_pile(card):
 
 func _on_PlayerInterface_card_played(card):
 	player_battle_manager.play_card(card)
-	_resolve_card_played_actions(card)
 
 func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
 	player_battle_manager.play_card_on_opportunity(card, opportunity)
-	_resolve_card_played_actions(card, opportunity)
 
 func _on_PlayerInterface_ending_turn():
 	_end_player_turn()
@@ -179,6 +176,8 @@ func _on_CharacterBattleManager_reshuffled_card(card):
 
 func _on_CharacterBattleManager_played_card(card:CardData, opportunity:OpportunityData):
 	player_interface.play_card(player_data, card, opportunity)
+	_resolve_card_played_actions(card, opportunity)
+	_discard_or_exhaust_card(card)
 
 func _on_Opening_phase_entered():
 	setup_battle()

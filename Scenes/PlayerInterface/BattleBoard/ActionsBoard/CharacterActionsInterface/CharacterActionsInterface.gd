@@ -15,9 +15,32 @@ onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/
 onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
 onready var active_panel = $ActivePanel
 
+export(PackedScene) var stab_audio_scene : PackedScene
+export(PackedScene) var clank_audio_scene : PackedScene
+export(PackedScene) var shield_audio_scene : PackedScene
+
 func _update_nickname(nickname:String = ""):
 	nickname_label.text = nickname
 
+func _get_random_pitch():
+	return rand_range(0.89090, 1.12246)
+
+func spawn_audio_stream(audio_stream_instance:AudioStreamPlayer2D):
+	health_meter.add_child(audio_stream_instance)
+	audio_stream_instance.pitch_scale = _get_random_pitch()
+	audio_stream_instance.play()
+	yield(audio_stream_instance, "finished")
+	audio_stream_instance.queue_free()
+
+func play_stab_audio():
+	spawn_audio_stream(stab_audio_scene.instance())
+
+func play_clank_audio():
+	spawn_audio_stream(clank_audio_scene.instance())
+
+func play_shield_audio():
+	spawn_audio_stream(shield_audio_scene.instance())
+	
 func update_health():
 	if not is_instance_valid(health_meter):
 		return
@@ -65,9 +88,15 @@ func update_status(status:StatusData):
 		EffectCalculator.ENERGY_STATUS:
 			return
 		EffectCalculator.HEALTH_STATUS:
+			if health_meter.health > status.intensity:
+				play_stab_audio()
 			health_meter.health = status.intensity
 			return
 		EffectCalculator.DEFENSE_STATUS:
+			if health_meter.armor > status.intensity:
+				play_clank_audio()
+			elif health_meter.armor < status.intensity:
+				play_shield_audio()
 			health_meter.armor = status.intensity
 			return
 	status_icon_manager.update_status(status)
