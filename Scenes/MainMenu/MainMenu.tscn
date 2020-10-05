@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=2]
+[ext_resource path="res://Themes/Fonts/kool_bean_128pt.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Themes/Fonts/kool_bean_48pt.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Originals/Title/Deck_text.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Originals/Title/Energy_text.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Originals/Title/Battle_text.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=9]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 128
+custom_constants/margin_top = 64
+custom_constants/margin_left = 128
+custom_constants/margin_bottom = 64
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 1152.0
+margin_bottom = 656.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -592.0
+margin_right = 302.0
+custom_constants/separation = 24
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+margin_top = 430.0
+margin_right = 302.0
+margin_bottom = 468.0
+focus_mode = 0
+text = "New"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+margin_top = 492.0
+margin_right = 302.0
+margin_bottom = 530.0
+focus_mode = 0
+text = "Credits"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+margin_top = 554.0
+margin_right = 302.0
+margin_bottom = 592.0
+focus_mode = 0
+text = "Exit"
+
+[node name="TitleContainer" type="Control" parent="MarginContainer/Control"]
+margin_bottom = 592.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/Control/TitleContainer"]
+margin_left = -2.37842
+margin_right = 603.622
+margin_bottom = 291.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.847059, 0.596078, 0.796078, 1 )
+text = "Battle  Deck
+       Energy "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer/Label"]
+material = ExtResource( 5 )
+position = Vector2( 153, 77 )
+texture = ExtResource( 8 )
+
+[node name="DeckSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer/Label"]
+material = ExtResource( 5 )
+position = Vector2( 469, 77 )
+texture = ExtResource( 6 )
+
+[node name="EnergySprite" type="Sprite" parent="MarginContainer/Control/TitleContainer/Label"]
+material = ExtResource( 5 )
+position = Vector2( 315.5, 194.5 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="MarginContainer/Control/TitleContainer/Label"]
+margin_left = 233.0
+margin_top = 268.0
+margin_right = 572.0
+margin_bottom = 327.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "premature release"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]

@@ -1,0 +1,11 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sourced/Fonts/kool-beans/KoolBean.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 48
+use_mipmaps = true
+use_filter = true
+extra_spacing_bottom = -40
+extra_spacing_space = 6
+font_data = ExtResource( 1 )
