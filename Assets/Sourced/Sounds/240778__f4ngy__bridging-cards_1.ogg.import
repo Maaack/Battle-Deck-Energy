@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/240778__f4ngy__bridging-cards_1.ogg-a4ba5e1e9749cb452a8a920d085d29e9.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sourced/Sounds/240778__f4ngy__bridging-cards_1.ogg"
+dest_files=[ "res://.import/240778__f4ngy__bridging-cards_1.ogg-a4ba5e1e9749cb452a8a920d085d29e9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/240776__f4ngy__card-flip_1.ogg-77e16d2ddbf67da9c84d817c99214904.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sourced/Sounds/240776__f4ngy__card-flip_1.ogg"
+dest_files=[ "res://.import/240776__f4ngy__card-flip_1.ogg-77e16d2ddbf67da9c84d817c99214904.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

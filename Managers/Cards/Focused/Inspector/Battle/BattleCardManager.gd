@@ -65,10 +65,12 @@ func _on_Card_mouse_clicked(card_node:CardNode2D):
 		return
 	dragged_card = card_node
 	_stop_inspecting(card_node)
+	card_node.play_draw_audio()
 	emit_signal("dragging_card", card_node.card_data)
 	
 func _on_Card_mouse_released(card_node:CardNode2D):
 	._on_Card_mouse_released(card_node)
+	card_node.play_drop_audio()
 	if dragged_card != card_node:
 		return
 	dragged_card = null

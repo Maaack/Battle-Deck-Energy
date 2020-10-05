@@ -22,6 +22,30 @@ Author: [Markazi Text Authors](https://www.1001fonts.com/users/markazi-text-auth
 Source: [1001Fonts](https://www.1001fonts.com/markazi-text-font.html)  
 License: [SIL Open Font License (OFL)](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
 
+### Audio
+#### Card, Deck, and Shield Up Sounds
+Author: [f4ngy](https://freesound.org/people/f4ngy/)  
+Source: [freesound.org](https://freesound.org/people/f4ngy/sounds/240776/)  
+Source: [freesound.org](https://freesound.org/people/f4ngy/sounds/240777/)  
+Source: [freesound.org](https://freesound.org/people/f4ngy/sounds/240778/)  
+Source: [freesound.org](https://freesound.org/people/f4ngy/sounds/240787/)  
+License: [Attribution 3.0 Unported (CC BY 3.0)](http://creativecommons.org/licenses/by/3.0/)
+
+#### Fire Sounds
+Author: [daenerys](https://freesound.org/people/daenerys/)  
+Source: [freesound.org](https://freesound.org/people/daenerys/sounds/260713/)  
+License: [Attribution 3.0 Unported (CC BY 3.0)](http://creativecommons.org/licenses/by/3.0/)
+
+#### Slicing Flesh Sound
+Author: [NeoSpica](https://freesound.org/people/NeoSpica/)  
+Source: [freesound.org](https://freesound.org/people/NeoSpica/sounds/504615/)  
+License: [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+
+#### Shield Hit Sound
+Author: [daenerys](https://freesound.org/people/igorzets/)  
+Source: [freesound.org](https://freesound.org/people/igorzets/sounds/333941/)  
+License: [Attribution 3.0 Unported (CC BY 3.0)](http://creativecommons.org/licenses/by/3.0/)  
+
 ### Images
 #### Mountain Background Pack
 Author: [ansimuz](http://ansimuz.com/site/)  
