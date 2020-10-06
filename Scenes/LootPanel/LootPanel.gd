@@ -11,6 +11,7 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
 onready var loot_container = $MarginContainer/VBoxContainer/LootMargin/LootContainer
 onready var card_manager = $MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager
+onready var skip_loot_button = $MarginContainer/VBoxContainer/OptionsContainer/SkipLootButton
 onready var spawn_card_timer = $SpawnCardTimer
 onready var reposition_timer = $RepositionTimer
 
@@ -64,6 +65,7 @@ func _add_cards_to_containers():
 func _on_SelectorCardManager_released_card(card_node):
 	if selected_card != null:
 		return
+	skip_loot_button.disabled = true
 	selected_card = card_node
 	card_manager.focus_on_card(card_node)
 	card_manager.hold_focus = true
