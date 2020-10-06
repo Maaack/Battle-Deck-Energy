@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Mince"
-description = "Deal %DAMAGE Damage over [b]5[/b] strikes. Receive %APPLY_WEAK Weak."
+description = "Deal %ATTACK Damage over [b]5[/b] strikes. Receive %APPLY_WEAK Weak."
 energy_cost = 3
 icon = ExtResource( 4 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )

@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Debilitate"
-description = "Deal %DAMAGE Damage and add %ADD_LIMP_MUSCLE Limp Muscle card(s)."
+description = "Deal %ATTACK Damage and add %ADD_LIMP_MUSCLE Limp Muscle card(s)."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.764706, 0.454902, 0, 1 )

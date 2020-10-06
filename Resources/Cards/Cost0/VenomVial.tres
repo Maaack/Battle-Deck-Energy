@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 title = "Venom Vial"
 description = "Applies %APPLY_VENOMOUS Venomous.
 Exhausts.
-Retained"
+Retained."
 energy_cost = 0
 icon = ExtResource( 5 )
 base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )

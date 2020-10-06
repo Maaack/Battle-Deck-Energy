@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Mercy Kill"
-description = "Deal %DAMAGE Damage over [b]3[/b] strikes and add %ADD_RESTRAINED Restrained card(s)."
+description = "Deal %ATTACK Damage over [b]3[/b] strikes and add %ADD_RESTRAINED Restrained card(s)."
 energy_cost = 2
 icon = ExtResource( 4 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )

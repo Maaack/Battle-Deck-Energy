@@ -13,4 +13,4 @@ starting_max_health = 24
 starting_max_energy = 2
 starting_hand_size = 3
 starting_deck = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ) ]
-nickname = "Spoiled Shit"
+nickname = "Stalker"

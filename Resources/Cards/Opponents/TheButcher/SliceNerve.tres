@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Slice Nerve"
-description = "Deal %DAMAGE Damage, apply %APPLY_VULNERABLE Vulnerable, and add %ADD_HIT_NERVE Hit Nerve card(s)."
+description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and add %ADD_HIT_NERVE Hit Nerve card(s)."
 energy_cost = 3
 icon = ExtResource( 5 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
