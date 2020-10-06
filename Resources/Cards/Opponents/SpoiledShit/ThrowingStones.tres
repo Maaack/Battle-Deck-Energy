@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Throwing Stones"
-description = "Deal %DAMAGE Damage over [b]4[/b]. Receive %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable."
+description = "Deal %ATTACK Damage over [b]4[/b]. Receive %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )

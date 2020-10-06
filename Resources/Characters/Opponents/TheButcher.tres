@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource( 1 )
-starting_max_health = 72
+starting_max_health = 66
 starting_max_energy = 1
 starting_hand_size = 3
 starting_deck = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ) ]

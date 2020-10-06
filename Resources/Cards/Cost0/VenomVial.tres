@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVenomous.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=4]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_2728.png" type="Texture" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "Venom Vial"
+description = "Applies %APPLY_VENOMOUS Venomous.
+Exhausts.
+Retained."
+energy_cost = 0
+icon = ExtResource( 5 )
+base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+type = 3

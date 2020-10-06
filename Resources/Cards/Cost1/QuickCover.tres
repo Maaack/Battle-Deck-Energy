@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/DrawCardEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1005.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Quick Cover"
+description = "Absorb %DEFEND Damage and draw [b]2[/b] card(s)."
+energy_cost = 1
+icon = ExtResource( 3 )
+base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+effects = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ) ]
+type = 2

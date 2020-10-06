@@ -8,7 +8,7 @@
 script = ExtResource( 2 )
 type_tag = "APPLY_TOXIN"
 icon = ExtResource( 3 )
-amount = 2
+amount = 3
 base_color = Color( 0.368627, 0.733333, 0.0431373, 1 )
 apply_mode = 1
 aim_mode = 0

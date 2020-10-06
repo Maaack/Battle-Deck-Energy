@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Cut Artery"
-description = "Deal %DAMAGE Damage, apply %APPLY_VULNERABLE Vulnerable, and add %ADD_BLEEDING Bleeding card(s)."
+description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and add %ADD_BLEEDING Bleeding card(s)."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )

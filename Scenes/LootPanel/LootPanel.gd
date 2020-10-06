@@ -11,6 +11,7 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
 onready var loot_container = $MarginContainer/VBoxContainer/LootMargin/LootContainer
 onready var card_manager = $MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager
+onready var skip_loot_button = $MarginContainer/VBoxContainer/OptionsContainer/SkipLootButton
 onready var spawn_card_timer = $SpawnCardTimer
 onready var reposition_timer = $RepositionTimer
 
@@ -28,7 +29,6 @@ func _add_card_option(card:CardData):
 	var prev_transform : TransformData = card.transform_data.duplicate()
 	card.transform_data.scale = INIT_CARD_SCALE
 	var card_node : CardNode2D = card_manager.add_card(card)
-	card_node.mouse_input_mode = card_node.MouseInputMode.PHYSICS
 	card_manager.move_card(card, prev_transform, _get_animate_in_time())
 
 func _spawn_containers():
@@ -61,18 +61,6 @@ func _add_cards_to_containers():
 			card.transform_data.position = container.get_card_parent_position() - center_offset
 			_add_card_option(card)
 
-func _on_SelectorCardManager_released_card(card_node):
-	if selected_card != null:
-		return
-	selected_card = card_node
-	card_manager.focus_on_card(card_node)
-	card_manager.hold_focus = true
-	card_node.play_card()
-	yield(card_node, "animation_completed")
-	emit_signal("card_collected", card_node.card_data)
-	emit_signal("card_forgotten", card_node)
-	queue_free()
-
 func _on_SkipLootButton_pressed():
 	emit_signal("skip_loot_pressed")
 	queue_free()
@@ -86,3 +74,13 @@ func _on_SelectorCardManager_inspected_on_card(card_node_2d):
 
 func _on_SelectorCardManager_inspected_off_card(card_node_2d):
 	emit_signal("card_forgotten", card_node_2d)
+
+func _on_SelectorCardManager_double_clicked_card(card_node):
+	skip_loot_button.disabled = true
+	card_manager.focus_on_card(card_node)
+	card_manager.hold_focus = true
+	card_node.play_card()
+	yield(card_node, "animation_completed")
+	emit_signal("card_collected", card_node.card_data)
+	emit_signal("card_forgotten", card_node)
+	queue_free()

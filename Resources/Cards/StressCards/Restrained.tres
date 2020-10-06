@@ -16,4 +16,4 @@ energy_cost = 1
 icon = ExtResource( 6 )
 base_color = Color( 0.00392157, 0.607843, 0.0784314, 1 )
 effects = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
-type = 3
+type = 4

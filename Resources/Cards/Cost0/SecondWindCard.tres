@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0211.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Effects/InnateEffect.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Effects/GainEnergy2.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+title = "Second Wind"
+description = "Gain %GAIN_ENERGY Energy and Exhaust.
+Innate.
+Retained."
+energy_cost = 0
+icon = ExtResource( 4 )
+base_color = Color( 0.870588, 0.207843, 0.0431373, 1 )
+effects = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ) ]
+type = 3

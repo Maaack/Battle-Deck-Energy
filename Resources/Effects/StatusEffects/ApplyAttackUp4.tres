@@ -8,7 +8,7 @@
 script = ExtResource( 2 )
 type_tag = "APPLY_ATTACK_UP"
 icon = ExtResource( 3 )
-amount = 2
+amount = 4
 base_color = Color( 0.866667, 0.0509804, 0.129412, 1 )
 apply_mode = 1
 aim_mode = 0
