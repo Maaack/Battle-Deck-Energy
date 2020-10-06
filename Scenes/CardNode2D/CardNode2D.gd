@@ -81,18 +81,7 @@ func _reset_card_front():
 	if card_data.base_color != Color():
 		effect_label.add_color_override("font_color", card_data.base_color)
 	_reset_card_type()
-	if card_data.effects.size() > 0:
-		var battle_effect : EffectData = card_data.effects[0]
-		if battle_effect.amount >= 0:
-			effect_label.text = str(battle_effect.amount)
 	update_card_effects(base_values)
-
-func _get_effect_base_value(type_tag:String):
-	var value : int = 0
-	for effect in card_data.effects:
-		if effect is EffectData and effect.type_tag == type_tag:
-			value += effect.amount
-	return value
 
 func _get_effect_bbtag_string(base_value:int, total_value:int):
 	var modifier_delta = total_value - base_value
@@ -103,15 +92,12 @@ func _reset_base_values():
 	base_values.clear()
 	if card_data == null:
 		return
-	if card_data.description == "":
-		return
-	var description : String = card_data.description
-	var regex = RegEx.new()
-	regex.compile("%(?<tag>[A-Z_]+)")
-	for result in regex.search_all(description):
-		var type_tag : String = result.get_string("tag")
-		var base_value = _get_effect_base_value(type_tag)
-		base_values[type_tag] = base_value
+	for effect in card_data.effects:
+		if effect is EffectData:
+			var effect_type = effect.type_tag
+			if not effect_type in base_values:
+				base_values[effect_type] = 0
+			base_values[effect_type] += effect.amount
 
 func _reset_card_data():
 	if starting_card_data is CardData:
