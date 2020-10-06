@@ -137,8 +137,8 @@ one_shot = true
 [node name="RepositionTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+[connection signal="double_clicked_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_double_clicked_card"]
 [connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
 [connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]
-[connection signal="released_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_released_card"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsContainer/SkipLootButton" to="." method="_on_SkipLootButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsContainer/ViewDeckButton" to="." method="_on_ViewDeckButton_pressed"]

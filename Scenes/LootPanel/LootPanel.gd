@@ -62,18 +62,6 @@ func _add_cards_to_containers():
 			card.transform_data.position = container.get_card_parent_position() - center_offset
 			_add_card_option(card)
 
-func _on_SelectorCardManager_released_card(card_node):
-	if selected_card != null:
-		return
-	skip_loot_button.disabled = true
-	selected_card = card_node
-	card_manager.focus_on_card(card_node)
-	card_manager.hold_focus = true
-	card_node.play_card()
-	yield(card_node, "animation_completed")
-	emit_signal("card_collected", card_node.card_data)
-	emit_signal("card_forgotten", card_node)
-	queue_free()
 
 func _on_SkipLootButton_pressed():
 	emit_signal("skip_loot_pressed")
@@ -88,3 +76,13 @@ func _on_SelectorCardManager_inspected_on_card(card_node_2d):
 
 func _on_SelectorCardManager_inspected_off_card(card_node_2d):
 	emit_signal("card_forgotten", card_node_2d)
+
+func _on_SelectorCardManager_double_clicked_card(card_node):
+	skip_loot_button.disabled = true
+	card_manager.focus_on_card(card_node)
+	card_manager.hold_focus = true
+	card_node.play_card()
+	yield(card_node, "animation_completed")
+	emit_signal("card_collected", card_node.card_data)
+	emit_signal("card_forgotten", card_node)
+	queue_free()
