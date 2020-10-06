@@ -1,7 +1,8 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Resources/Cards/TwoEnergy/CrippleForLife.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Cost2/CrippleForLife.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=2]
+
 
 [resource]
 script = ExtResource( 2 )

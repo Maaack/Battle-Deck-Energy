@@ -4,8 +4,8 @@
 [ext_resource path="res://Resources/Cards/StartingSet/BasicSlash.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/StartingSet/BasicEnGarde.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Cards/ZeroEnergy/SecondWindCard.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Cards/TwoEnergy/CriticalHit.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Cards/StressCards/Diffident.tres" type="Resource" id=7]
 
 [resource]
@@ -13,4 +13,4 @@ script = ExtResource( 4 )
 starting_max_health = 64
 starting_max_energy = 3
 starting_hand_size = 5
-starting_deck = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ) ]
+starting_deck = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ) ]

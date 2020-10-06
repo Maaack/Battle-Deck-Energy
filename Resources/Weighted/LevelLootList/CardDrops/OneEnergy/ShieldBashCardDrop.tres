@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Resources/Cards/OneEnergy/ShieldBashCard.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Cost1/ShieldBashCard.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=2]
 
 [resource]
