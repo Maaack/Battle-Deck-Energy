@@ -29,7 +29,6 @@ func _add_card_option(card:CardData):
 	var prev_transform : TransformData = card.transform_data.duplicate()
 	card.transform_data.scale = INIT_CARD_SCALE
 	var card_node : CardNode2D = card_manager.add_card(card)
-	card_node.mouse_input_mode = card_node.MouseInputMode.PHYSICS
 	card_manager.move_card(card, prev_transform, _get_animate_in_time())
 
 func _spawn_containers():
@@ -61,7 +60,6 @@ func _add_cards_to_containers():
 			var center_offset : Vector2 = card_manager.get_global_transform().get_origin()
 			card.transform_data.position = container.get_card_parent_position() - center_offset
 			_add_card_option(card)
-
 
 func _on_SkipLootButton_pressed():
 	emit_signal("skip_loot_pressed")
