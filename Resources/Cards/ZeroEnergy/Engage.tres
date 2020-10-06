@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Engage"
-description = "Add [b]2[/b] Attack space(s)."
+description = "Add [b]2[/b] Attack space(s) on target."
 energy_cost = 0
 icon = ExtResource( 3 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
