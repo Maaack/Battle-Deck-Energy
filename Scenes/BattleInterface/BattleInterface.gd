@@ -236,11 +236,15 @@ func _on_AIOpponentsManager_played_card(character, card, opportunity):
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
 
-func _on_EffectManager_apply_damage(character, damage):
+func _on_EffectManager_apply_health(character, health):
 	if not character in _character_manager_map:
 		return
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
-	battle_manager.take_damage(damage)
+	if health < 0:
+		var damage : int = -(health)
+		battle_manager.take_damage(damage)
+	else:
+		battle_manager.gain_health(health)
 
 func _on_EffectManager_apply_status(character, status, origin):
 	if not character in _character_manager_map:

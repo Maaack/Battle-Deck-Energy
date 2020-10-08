@@ -24,16 +24,19 @@ func _add_deck_view(deck_viewer:DeckViewer):
 	deck_viewer.connect("tree_exited", tooltip_manager, "reset")
 
 func start_battle(current_level:BattleLevelData):
-	if not is_instance_valid(battle_interface):
-		battle_interface = battle_interface_scene.instance()
-		battle_interface_container.add_child(battle_interface)
-		battle_interface.connect("player_lost", self, "_on_BattleInterface_player_lost")
-		battle_interface.connect("player_won", self, "_on_BattleInterface_player_won")
-		battle_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
-		battle_interface.connect("card_inspected", self, "_on_Card_inspected")
-		battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
-		battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
-		battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
+	if is_instance_valid(battle_interface):
+		print("Warning: Previous battle has not cleared.")
+		battle_interface.queue_free()
+		battle_interface = null
+	battle_interface = battle_interface_scene.instance()
+	battle_interface_container.add_child(battle_interface)
+	battle_interface.connect("player_lost", self, "_on_BattleInterface_player_lost")
+	battle_interface.connect("player_won", self, "_on_BattleInterface_player_won")
+	battle_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
+	battle_interface.connect("card_inspected", self, "_on_Card_inspected")
+	battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
+	battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
+	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 	battle_interface.player_data = player_data
 	battle_interface.opponents = current_level.opponents
 	battle_interface.start_battle()

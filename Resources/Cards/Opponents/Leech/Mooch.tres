@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0796.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyStrength2.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Mooch"
+description = "Deal %ATTACK Damage and gain %APPLY_STRENGTH Strength on self."
+energy_cost = 0
+icon = ExtResource( 3 )
+base_color = Color( 0.529412, 0.054902, 0.772549, 1 )
+effects = [ ExtResource( 2 ), ExtResource( 4 ) ]
+type = 1

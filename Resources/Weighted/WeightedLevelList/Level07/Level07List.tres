@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level07/WeaselPairLevelLevelChance.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level07/TattletalePairLevelLevelChance.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level07/LeechTrioAndTattletaleLevelLevelChance.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level07/LeechTrioAndWeaselLevelLevelChance.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 4 )
+starting_list = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ) ]
