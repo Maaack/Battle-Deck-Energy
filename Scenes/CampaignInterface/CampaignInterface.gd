@@ -85,7 +85,7 @@ func _on_BattleInterface_player_won():
 	var loot_interface = loot_interface_scene.instance()
 	campaign_interface_container.add_child(loot_interface)
 	loot_interface.connect("card_collected", self, "_on_LootPanel_card_collected")
-	loot_interface.connect("skip_loot_pressed", self, "_start_next_level")
+	loot_interface.connect("tree_exiting", self, "_start_next_level")
 	loot_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 	loot_interface.connect("card_inspected", self, "_on_Card_inspected")
 	loot_interface.connect("card_forgotten", self, "_on_Card_forgotten")
@@ -96,7 +96,6 @@ func _on_BattleInterface_player_won():
 func _on_LootPanel_card_collected(card:CardData):
 	if player_data is CharacterData:
 		player_data.deck.append(card)
-	_start_next_level()
 
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()

@@ -270,17 +270,18 @@ func _count_active_opponents():
 	return active_opponents
 
 func _on_CharacterBattleManager_died(character):
+	if _battle_ended:
+		return
 	if character == player_data:
 		_battle_ended = true
 		battle_end_timer.start()
 		yield(battle_end_timer, "timeout")
 		emit_signal("player_lost")
-	else:
-		if _count_active_opponents() == 0:
-			_battle_ended = true
-			battle_end_timer.start()
-			yield(battle_end_timer, "timeout")
-			emit_signal("player_won")
+	elif _count_active_opponents() == 0:
+		_battle_ended = true
+		battle_end_timer.start()
+		yield(battle_end_timer, "timeout")
+		emit_signal("player_won")
 
 func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):
 	player_interface.add_opportunity(opportunity)
