@@ -14,7 +14,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-max_speed_down = 3.0
+max_speed_down = 1.0
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0

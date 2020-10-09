@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyAttackUp2.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0342.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVenomous5.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength2.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+title = "Insane Ego"
+description = "Apply %APPLY_ATTACK_UP Attack Up, %APPLY_STRENGTH Strength, %APPLY_VENOMOUS Venomous, and %APPLY_VULNERABLE Vulnerable."
+energy_cost = 3
+icon = ExtResource( 4 )
+base_color = Color( 0.866667, 0.0509804, 0.129412, 1 )
+effects = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 2 ) ]
+type = 3

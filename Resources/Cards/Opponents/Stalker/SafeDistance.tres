@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak2.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyEnGarde10.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1009.png" type="Texture" id=5]

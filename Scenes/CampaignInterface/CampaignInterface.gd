@@ -14,6 +14,7 @@ var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
+var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
 var battle_interface
 var player_data
 
@@ -49,12 +50,21 @@ func start_shelter():
 	shelter_interface.connect("shelter_left", self, "_start_next_level")
 	shelter_interface.connect("bath_pressed", self, "_add_deck_view")
 
+func start_story_level(current_level:StoryLevelData):
+	shadow_panel.show()
+	var story_interface = story_panel_scene.instance()
+	campaign_interface_container.add_child(story_interface)
+	story_interface.set_text(current_level.bbcode_text)
+	story_interface.connect("continue_pressed", self, "_start_next_level")
+
 func start_level():
 	var current_level : LevelData = level_manager.get_current_level()
 	if current_level is BattleLevelData:
 		start_battle(current_level)
 	elif current_level is ShelterLevelData:
 		start_shelter()
+	elif current_level is StoryLevelData:
+		start_story_level(current_level)
 
 func _start_next_level():
 	tooltip_manager.reset()
@@ -64,6 +74,7 @@ func _start_next_level():
 
 func _ready():
 	player_data = starting_player_data.duplicate()
+	start_level()
 
 func _on_DeadPanel_retry_pressed():
 	shadow_panel.hide()
@@ -113,6 +124,3 @@ func _on_StatusIcon_inspected(status_icon):
 
 func _on_StatusIcon_forgotten(_status_icon):
 	tooltip_manager.reset()
-
-func _on_StoryPanel_continue_pressed():
-	start_level()

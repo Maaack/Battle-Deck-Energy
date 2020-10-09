@@ -1,0 +1,45 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Levels/StoryLevel/StoryLevelData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+bbcode_text = "[center]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I don't know how you got here. Congratulations!(?)
+Take a screenshot and post it game page if you can, or share with https://maaack.itch.io/.
+
+Ahead is shelter, and then you'll restart the journey from the beginning, keeping your deck. Or you've broke everything...
+
+I mean - I've broke everything.
+
+Hope to see you again, Traveler.
+
+
+
+
+
+
+[/center]"
