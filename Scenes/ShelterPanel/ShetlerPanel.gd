@@ -36,6 +36,8 @@ func get_raised_health():
 	return min(player_data.health + health_increase, max_health)
 
 func _reset_dine_description():
+	if not is_instance_valid(dine_label):
+		return
 	if player_data is CharacterData:
 		var max_health : int = player_data.max_health
 		var current_health : int = player_data.health

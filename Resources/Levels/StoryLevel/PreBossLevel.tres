@@ -1,0 +1,42 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Levels/StoryLevel/StoryLevelData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+bbcode_text = "[center]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Take shelter here, traveler! Ahead is the Cafeteria.
+I hope you have a strong stomach, or packed your own lunch. Commander Cafeteria is serving death today...
+
+So good luck!
+
+
+
+
+
+
+
+[/center]"

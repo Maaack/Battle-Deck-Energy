@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=11 format=2]
+
+[ext_resource path="res://Resources/Cards/Cost1/HeavySlashCard.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Cost1/QuickThinking.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Cost1/JabCombo.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Cards/Cost0/Engage.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Cards/Cost1/EnGardeGrande.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Cards/Cost1/ChargeThrough.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Cards/Cost1/IronShield.tres" type="Resource" id=10]
+
+[resource]
+script = ExtResource( 4 )
+starting_max_health = 64
+starting_max_energy = 3
+starting_hand_size = 5
+starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 2 ) ]
