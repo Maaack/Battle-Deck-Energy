@@ -171,5 +171,5 @@ term_definitions = [ ExtResource( 31 ), ExtResource( 46 ), ExtResource( 27 ), Ex
 levels = [ ExtResource( 9 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 13 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 52 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 51 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 50 ), ExtResource( 25 ), ExtResource( 13 ) ]
 
 [node name="TestLevelManager" parent="." instance=ExtResource( 8 )]
-levels = [ ExtResource( 3 ) ]
+levels = [ ExtResource( 25 ) ]
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
