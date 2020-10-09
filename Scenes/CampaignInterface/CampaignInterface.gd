@@ -79,6 +79,7 @@ func _ready():
 func _on_DeadPanel_retry_pressed():
 	shadow_panel.hide()
 	dead_panel.hide()
+	level_manager.reset()
 	player_data = starting_player_data.duplicate()
 	start_level()
 
