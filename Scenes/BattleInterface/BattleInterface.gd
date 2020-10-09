@@ -97,6 +97,7 @@ func _end_player_turn():
 func setup_battle():
 	if _skip_opening_phase:
 		battle_phase_manager.advance()
+		return
 	_skip_opening_phase = true
 	var starting_cards : Array = player_battle_manager.draw_pile.cards.duplicate()
 	var innate_cards : Array = effects_manager.include_innate_cards(starting_cards)
