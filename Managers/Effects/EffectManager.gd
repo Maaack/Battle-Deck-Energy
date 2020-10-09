@@ -1,7 +1,6 @@
 extends Node
 
-
-signal apply_damage(character, damage)
+signal apply_health(character, health)
 signal apply_status(character, status, origin)
 signal apply_energy(character, energy)
 signal add_opportunity(type, source, target)
@@ -29,7 +28,7 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var source_statuses = _get_character_statuses(source, character_manager_map)
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
-	emit_signal("apply_damage", target, total_damage)
+	emit_signal("apply_health", target, -(total_damage))
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	if source_battle_manager:
@@ -43,7 +42,7 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, [], target_statuses)
-	emit_signal("apply_damage", target, total_damage)
+	emit_signal("apply_health", target, -(total_damage))
 
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	for status in effect.statuses:

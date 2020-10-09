@@ -1,17 +1,16 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyStrength.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyVulnerable.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0327.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
-title = "Throwing Stones"
-description = "Deal %ATTACK Damage over [b]4[/b]. Receive %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable."
+title = "Throw Stones"
+description = "Deal %ATTACK Damage over [b]4[/b] strikes. Gain %APPLY_VULNERABLE Vulnerable on self."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ) ]
 type = 1

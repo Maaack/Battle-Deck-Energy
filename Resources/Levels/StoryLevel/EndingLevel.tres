@@ -1,0 +1,48 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Levels/StoryLevel/StoryLevelData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+bbcode_text = "[center]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Beware, traveler! Ahead are \"Unbalanced Lands\"!
+There are some shelters back-to-back, two Spoiled Shits to build your deck, and then you'll face The Patriarch.
+
+Then you'll lose.
+
+If we never see each other again, thank you for playing!
+
+If you'd like to follow the game's development (or branch the code):
+Github: [url=https://github.com/Maaack/Battle-Deck-Energy]https://github.com/Maaack/Battle-Deck-Energy[/url] 
+itch.io: [url=https://maaack.itch.io/battle-deck-energy-premature-release]https://maaack.itch.io/battle-deck-energy-premature-release[/url]
+
+You've already won, so don't take it too hard ahead!
+
+
+
+
+
+[/center]"

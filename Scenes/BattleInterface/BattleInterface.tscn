@@ -94,7 +94,7 @@ one_shot = true
 [connection signal="add_card_to_draw_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_draw_pile"]
 [connection signal="add_card_to_hand" from="EffectManager" to="." method="_on_EffectManager_add_card_to_hand"]
 [connection signal="add_opportunity" from="EffectManager" to="." method="_on_EffectManager_add_opportunity"]
-[connection signal="apply_damage" from="EffectManager" to="." method="_on_EffectManager_apply_damage"]
 [connection signal="apply_energy" from="EffectManager" to="." method="_on_EffectManager_apply_energy"]
+[connection signal="apply_health" from="EffectManager" to="." method="_on_EffectManager_apply_health"]
 [connection signal="apply_status" from="EffectManager" to="." method="_on_EffectManager_apply_status"]
 [connection signal="draw_from_draw_pile" from="EffectManager" to="." method="_on_EffectManager_draw_from_draw_pile"]

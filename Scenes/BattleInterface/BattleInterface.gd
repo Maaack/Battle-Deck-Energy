@@ -236,11 +236,15 @@ func _on_AIOpponentsManager_played_card(character, card, opportunity):
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
 
-func _on_EffectManager_apply_damage(character, damage):
+func _on_EffectManager_apply_health(character, health):
 	if not character in _character_manager_map:
 		return
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
-	battle_manager.take_damage(damage)
+	if health < 0:
+		var damage : int = -(health)
+		battle_manager.take_damage(damage)
+	else:
+		battle_manager.gain_health(health)
 
 func _on_EffectManager_apply_status(character, status, origin):
 	if not character in _character_manager_map:
@@ -266,17 +270,18 @@ func _count_active_opponents():
 	return active_opponents
 
 func _on_CharacterBattleManager_died(character):
+	if _battle_ended:
+		return
 	if character == player_data:
 		_battle_ended = true
 		battle_end_timer.start()
 		yield(battle_end_timer, "timeout")
 		emit_signal("player_lost")
-	else:
-		if _count_active_opponents() == 0:
-			_battle_ended = true
-			battle_end_timer.start()
-			yield(battle_end_timer, "timeout")
-			emit_signal("player_won")
+	elif _count_active_opponents() == 0:
+		_battle_ended = true
+		battle_end_timer.start()
+		yield(battle_end_timer, "timeout")
+		emit_signal("player_won")
 
 func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):
 	player_interface.add_opportunity(opportunity)

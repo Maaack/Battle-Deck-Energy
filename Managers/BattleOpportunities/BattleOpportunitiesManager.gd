@@ -31,15 +31,11 @@ func _new_opportunity(type:int, source:CharacterData, target:CharacterData):
 	return opportunity
 
 func add_opportunity(type:int, source:CharacterData, target:CharacterData):
+	if not target.is_active():
+		return
 	var opportunity = _new_opportunity(type, source, target)
 	emit_signal("opportunity_added", opportunity)
 	return opportunity
-
-func add_opportunities(type, source:CharacterData, target:CharacterData, count:int = 1):
-	var opportunities : Array = []
-	for _i in range(count):
-		opportunities.append(add_opportunities(type, source, target))
-	return opportunities
 
 func reset_player_opportunities():
 	character_map[player_data].clear()

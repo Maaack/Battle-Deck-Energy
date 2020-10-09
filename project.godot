@@ -167,7 +167,7 @@ _global_script_classes=[ {
 "base": "LevelData",
 "class": "ShelterLevelData",
 "language": "GDScript",
-"path": "res://Resources/Levels/ShelterLevelData.gd"
+"path": "res://Resources/Levels/ShelterLevel/ShelterLevelData.gd"
 }, {
 "base": "AnimationData",
 "class": "StatusAnimationData",
@@ -193,6 +193,11 @@ _global_script_classes=[ {
 "class": "StatusManager",
 "language": "GDScript",
 "path": "res://Managers/Status/StatusManager.gd"
+}, {
+"base": "LevelData",
+"class": "StoryLevelData",
+"language": "GDScript",
+"path": "res://Resources/Levels/StoryLevel/StoryLevelData.gd"
 }, {
 "base": "Node2D",
 "class": "TooltipListNode2D",
@@ -252,6 +257,7 @@ _global_script_class_icons={
 "StatusEffectData": "",
 "StatusIcon": "",
 "StatusManager": "",
+"StoryLevelData": "",
 "TooltipListNode2D": "",
 "TransformData": "",
 "WeightedData": "",

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Levels/StoryLevel/StoryLevelData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+bbcode_text = "[center]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You were gifted with more Battle Deck Energy than \"most\";
+In the technical interpretation of \" > 50% + 1\".
+Still, bullies have kept you down, fearful of one day being overthrown.
+
+Damage has been done, but you're onto their game.
+Now you must battle to recover your self-confidence and topple the oppressors.
+
+Tyrants are right to be afraid...
+Their reign cannot last forever.
+
+
+
+
+
+
+[/center]"

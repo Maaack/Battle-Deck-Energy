@@ -76,11 +76,11 @@ func _on_SelectorCardManager_inspected_off_card(card_node_2d):
 	emit_signal("card_forgotten", card_node_2d)
 
 func _on_SelectorCardManager_double_clicked_card(card_node):
+	emit_signal("card_collected", card_node.card_data)
 	skip_loot_button.disabled = true
 	card_manager.focus_on_card(card_node)
 	card_manager.hold_focus = true
 	card_node.play_card()
 	yield(card_node, "animation_completed")
-	emit_signal("card_collected", card_node.card_data)
 	emit_signal("card_forgotten", card_node)
 	queue_free()
