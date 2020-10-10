@@ -5,7 +5,7 @@ class_name StatusManager
 
 signal updated_status(status, delta)
 
-enum CycleMode{NONE,START,END}
+enum CycleMode{NONE, START_1, START_2, START_3, END}
 
 var status_type_map : Dictionary = {}
 var status_cycle_map : Dictionary = {}
@@ -50,7 +50,7 @@ func decrement_duration(status:StatusData):
 		if not status.has_the_d():
 			lose_status(status)
 
-func decrement_durations(cycle_mode:int = CycleMode.START):
+func decrement_durations(cycle_mode:int = CycleMode.START_1):
 	var local_status_cycle_map : Dictionary = status_cycle_map.duplicate()
 	for status_type in local_status_cycle_map:
 		if local_status_cycle_map[status_type] != cycle_mode:

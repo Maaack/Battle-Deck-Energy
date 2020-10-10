@@ -47,7 +47,6 @@ func get_energy_status_snapshot():
 	return energy_status_snapshot
 
 func reset():
-	randomize()
 	character_data.energy = 0
 	_reset_draw_pile()
 	_reset_discard_pile()
@@ -173,29 +172,34 @@ func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE
 	if status.has_the_d():
-		if origin == character_data or status.type_tag == EffectCalculator.VULNERABLE_STATUS:
-			cycle_mode = StatusManager.CycleMode.START
+		if origin == character_data:
+			cycle_mode = StatusManager.CycleMode.START_1
 		else:
 			cycle_mode = StatusManager.CycleMode.END
-	if status.type_tag == EffectCalculator.TOXIN_STATUS or status.type_tag == EffectCalculator.EN_GARDE_STATUS :
-		cycle_mode = StatusManager.CycleMode.NONE
+	match(status.type_tag):
+		EffectCalculator.DEFENSE_STATUS, EffectCalculator.VULNERABLE_STATUS:
+			cycle_mode = StatusManager.CycleMode.START_2
+		EffectCalculator.TOXIN_STATUS, EffectCalculator.EN_GARDE_STATUS:
+			cycle_mode = StatusManager.CycleMode.START_3
 	status_manager.gain_status(status, cycle_mode)
 
 func _run_start_of_turn_statuses():
 	var toxin_status : StatusData = status_manager.get_status_by_type(EffectCalculator.TOXIN_STATUS)
 	if toxin_status:
 		take_damage(toxin_status.duration)
-		status_manager.decrement_duration(toxin_status)
 	var en_garde_status : StatusData = status_manager.get_status_by_type(EffectCalculator.EN_GARDE_STATUS)
 	if en_garde_status:
 		var defense_status = defense_status_resource.duplicate()
 		defense_status.intensity = en_garde_status.intensity
 		gain_status(defense_status, character_data)
-		status_manager.decrement_duration(en_garde_status)
 
-func update_start_of_turn_statuses():
-	status_manager.decrement_durations(StatusManager.CycleMode.START)
+func update_early_start_of_turn_statuses():
+	status_manager.decrement_durations(StatusManager.CycleMode.START_1)
+
+func update_late_start_of_turn_statuses():
+	status_manager.decrement_durations(StatusManager.CycleMode.START_2)
 	_run_start_of_turn_statuses()
+	status_manager.decrement_durations(StatusManager.CycleMode.START_3)
 
 func update_end_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.END)

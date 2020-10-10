@@ -60,6 +60,13 @@ func _setup_enemy_board():
 	advance_phase_timer.start()
 
 func _take_enemy_turn():
+	for opponent in opponents:
+		if _battle_ended:
+			return
+		if not opponent.is_active():
+			continue
+		var manager : CharacterBattleManager = _character_manager_map[opponent]
+		manager.update_early_start_of_turn_statuses()
 	ai_opponents_manager.opponents_take_turn(_round_opportunities_map.keys())
 	advance_phase_timer.start()
 
@@ -75,7 +82,8 @@ func _start_player_turn():
 	player_interface.mark_character_active(player_data)
 	advance_action_timer.start()
 	yield(advance_action_timer, "timeout")
-	player_battle_manager.update_start_of_turn_statuses()
+	player_battle_manager.update_early_start_of_turn_statuses()
+	player_battle_manager.update_late_start_of_turn_statuses()
 	advance_action_timer.start()
 	yield(advance_action_timer, "timeout")
 	player_battle_manager.reset_energy()
@@ -211,7 +219,7 @@ func _on_EnemyResolution_phase_entered():
 		player_interface.mark_character_active(opponent)
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
-		manager.update_start_of_turn_statuses()
+		manager.update_late_start_of_turn_statuses()
 		if not opponent.is_active():
 			player_interface.mark_character_inactive(opponent)
 			continue
@@ -295,10 +303,17 @@ func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityD
 func _on_CharacterBattleManager_updated_status(character, status, delta):
 	player_interface.update_status(character, status, delta)
 
+func _duplicate_array_contents(values:Array):
+	var new_values : Array = []
+	for value in values:
+		new_values.append(value.duplicate())
+	return new_values
+
 func _on_PlayerInterface_draw_pile_pressed():
 	var deck : Array = player_battle_manager.draw_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
+	deck = _duplicate_array_contents(deck)
 	deck.sort()
 	emit_signal("view_deck_pressed", deck)
 
@@ -306,12 +321,14 @@ func _on_PlayerInterface_discard_pile_pressed():
 	var deck : Array = player_battle_manager.discard_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
+	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
 func _on_PlayerInterface_exhaust_pile_pressed():
 	var deck : Array = player_battle_manager.exhaust_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
+	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
 func _on_EffectManager_add_card_to_hand(card, character):

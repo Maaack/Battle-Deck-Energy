@@ -14,6 +14,8 @@ signal tween_started(card_node_2d)
 signal animation_completed(card_node_2d)
 
 const CARD_EFFECT_TAG = 'card_effect'
+const COST_LIMITED_COLOR = Color(0.835294, 0, 0)
+const COST_AFFORDABLE_COLOR = Color(1, 1, 1)
 
 enum MouseInputMode{NONE, GUI, PHYSICS}
 
@@ -44,6 +46,7 @@ var card_data : CardData setget set_card_data
 var _last_animation_type : int = 0
 var base_values : Dictionary = {}
 var mouse_input_mode : int = MouseInputMode.GUI setget set_mouse_input_mode
+var locked_face : bool = false
 
 func _to_string():
 	if card_data is CardData:
@@ -70,6 +73,8 @@ func _reset_card_type():
 			stress_type_panel.show()
 
 func _reset_card_front():
+	if locked_face:
+		return
 	if not is_instance_valid(card_data):
 		return
 	title_label.text = card_data.title
@@ -82,6 +87,14 @@ func _reset_card_front():
 		effect_label.add_color_override("font_color", card_data.base_color)
 	_reset_card_type()
 	update_card_effects(base_values)
+
+func update_affordability(energy:int):
+	if locked_face:
+		return
+	if energy >= card_data.energy_cost:
+		energy_label.set("custom_colors/font_color", COST_AFFORDABLE_COLOR)
+	else:
+		energy_label.set("custom_colors/font_color", COST_LIMITED_COLOR)
 
 func _get_effect_bbtag_string(base_value:int, total_value:int):
 	var modifier_delta = total_value - base_value

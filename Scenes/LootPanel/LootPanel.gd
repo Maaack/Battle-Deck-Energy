@@ -76,6 +76,9 @@ func _on_SelectorCardManager_inspected_off_card(card_node_2d):
 	emit_signal("card_forgotten", card_node_2d)
 
 func _on_SelectorCardManager_double_clicked_card(card_node):
+	if is_instance_valid(selected_card):
+		return
+	selected_card = card_node
 	emit_signal("card_collected", card_node.card_data)
 	skip_loot_button.disabled = true
 	card_manager.focus_on_card(card_node)
