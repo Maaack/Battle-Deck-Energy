@@ -78,4 +78,5 @@ __meta__ = {
 [connection signal="timeout" from="ScrollResetTimer" to="." method="_on_ScrollResetTimer_timeout"]
 [connection signal="scroll_ended" from="MarginContainer/ScrollContainer" to="." method="_on_ScrollContainer_scroll_ended"]
 [connection signal="gui_input" from="MarginContainer/ScrollContainer/RichTextLabel" to="." method="_on_RichTextLabel_gui_input"]
+[connection signal="meta_clicked" from="MarginContainer/ScrollContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
