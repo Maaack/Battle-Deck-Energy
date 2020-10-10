@@ -295,10 +295,17 @@ func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityD
 func _on_CharacterBattleManager_updated_status(character, status, delta):
 	player_interface.update_status(character, status, delta)
 
+func _duplicate_array_contents(values:Array):
+	var new_values : Array = []
+	for value in values:
+		new_values.append(value.duplicate())
+	return new_values
+
 func _on_PlayerInterface_draw_pile_pressed():
 	var deck : Array = player_battle_manager.draw_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
+	deck = _duplicate_array_contents(deck)
 	deck.sort()
 	emit_signal("view_deck_pressed", deck)
 
@@ -306,12 +313,14 @@ func _on_PlayerInterface_discard_pile_pressed():
 	var deck : Array = player_battle_manager.discard_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
+	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
 func _on_PlayerInterface_exhaust_pile_pressed():
 	var deck : Array = player_battle_manager.exhaust_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
+	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
 func _on_EffectManager_add_card_to_hand(card, character):
