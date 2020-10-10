@@ -68,5 +68,5 @@ process_material = ExtResource( 6 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 30, 56 )
 stream = ExtResource( 7 )
-volume_db = -24.0
+volume_db = -26.0
 autoplay = true
