@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-montain-far.png" type="Texture" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
@@ -53,6 +53,12 @@
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level25/Level25List.tres" type="Resource" id=51]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level22/Level22List.tres" type="Resource" id=52]
 [ext_resource path="res://Resources/Levels/StoryLevel/PreBossLevel.tres" type="Resource" id=53]
+[ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=54]
+[ext_resource path="res://Assets/Sourced/Music/RPG-Battle-Climax.ogg" type="AudioStream" id=55]
+[ext_resource path="res://Assets/Sourced/Music/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=56]
+[ext_resource path="res://Assets/Sourced/Music/Comrades-Always.ogg" type="AudioStream" id=57]
+[ext_resource path="res://Assets/Sourced/Music/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=58]
+[ext_resource path="res://Assets/Sourced/Music/Into-Battle_v001.ogg" type="AudioStream" id=59]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )
@@ -174,4 +180,11 @@ levels = [ ExtResource( 9 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 
 
 [node name="TestLevelManager" parent="." instance=ExtResource( 8 )]
 levels = [ ExtResource( 53 ), ExtResource( 6 ) ]
+
+[node name="MoodManager" parent="." instance=ExtResource( 54 )]
+intro_song = ExtResource( 58 )
+easy_battle_song = ExtResource( 55 )
+hard_battle_song = ExtResource( 59 )
+shelter_song = ExtResource( 57 )
+victory_song = ExtResource( 56 )
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]

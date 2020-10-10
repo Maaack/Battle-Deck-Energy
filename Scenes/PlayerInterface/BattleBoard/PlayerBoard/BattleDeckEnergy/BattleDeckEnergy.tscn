@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" type="Material" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=4]
 [ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_38_top_padded.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/SparksParticlesMaterial.tres" type="Material" id=6]
+[ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=7]
 
 [node name="BattleDeckEnergy" type="Control"]
 anchor_top = 1.0
@@ -57,3 +59,14 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Particles2D" type="Particles2D" parent="Panel"]
+position = Vector2( 30, 42 )
+amount = 2
+process_material = ExtResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 30, 56 )
+stream = ExtResource( 7 )
+volume_db = -24.0
+autoplay = true
