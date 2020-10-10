@@ -47,7 +47,6 @@ func get_energy_status_snapshot():
 	return energy_status_snapshot
 
 func reset():
-	randomize()
 	character_data.energy = 0
 	_reset_draw_pile()
 	_reset_discard_pile()

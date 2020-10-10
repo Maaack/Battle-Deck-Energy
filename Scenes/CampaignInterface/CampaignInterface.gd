@@ -85,6 +85,7 @@ func _start_next_level():
 	start_level()
 
 func _ready():
+	randomize()
 	player_data = starting_player_data.duplicate()
 	start_level()
 
