@@ -6,9 +6,8 @@ signal continue_pressed
 onready var scroll_container = $ScrollContainer
 onready var rich_text_label = $ScrollContainer/RichTextLabel
 onready var scroll_timer = $ScrollResetTimer
-onready var heading_fonts : Array = [h1_font, h2_font, h3_font, h4_font]
 
-export(String) var attribution_file_path : String = "res://ATTRIBUTION.md"
+export(String) var attribution_file_path : String = "res://ATTRIBUTION.md" setget set_file_path
 export(DynamicFont) var h1_font
 export(DynamicFont) var h2_font
 export(DynamicFont) var h3_font
@@ -36,6 +35,7 @@ func regex_replace_urls(credits:String):
 
 func regex_replace_titles(credits:String):
 	var iter = 0
+	var heading_fonts : Array = [h1_font, h2_font, h3_font, h4_font]
 	for heading_font in heading_fonts:
 		if heading_font is DynamicFont:
 			iter += 1
@@ -46,23 +46,28 @@ func regex_replace_titles(credits:String):
 			credits = regex.sub(credits, replace_string, true)
 	return credits
 
-func _ready():
-	var text : String = load_file(attribution_file_path)
+func set_file_path(value:String):
+	var text : String = load_file(value)
+	if text == "":
+		return
 	text = text.right(text.find("\n")) # Trims first line "ATTRIBUTION"
 	text = regex_replace_urls(text)
 	text = regex_replace_titles(text)
 	var prefix_lines = "\n".repeat(lines_prefixed)
 	var suffix_lines = "\n".repeat(lines_suffixed)
-	rich_text_label.bbcode_text = "%s[center]%s[/center]%s" % [prefix_lines, text, suffix_lines]
+	$ScrollContainer/RichTextLabel.bbcode_text = "%s[center]%s[/center]%s" % [prefix_lines, text, suffix_lines]
+
+func _ready():
+	set_file_path(attribution_file_path)
 
 func _process(delta):
 	current_speed += accel_down
 	if current_speed > max_speed_down:
 		current_speed = max_speed_down
 	if round(current_speed) > 0:
-		var previous_scroll = scroll_container.scroll_vertical
-		scroll_container.scroll_vertical += round(current_speed)
-		if previous_scroll == scroll_container.scroll_vertical:
+		var previous_scroll = $ScrollContainer.scroll_vertical
+		$ScrollContainer.scroll_vertical += round(current_speed)
+		if previous_scroll == $ScrollContainer.scroll_vertical:
 			set_process(false)
 
 func _on_RichTextLabel_gui_input(event):
