@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Into-Battle_v001.ogg-858395ea9192a07609921da7d947b29f.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg"
+dest_files=[ "res://.import/Into-Battle_v001.ogg-858395ea9192a07609921da7d947b29f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

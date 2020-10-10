@@ -23,6 +23,20 @@ Source: [1001Fonts](https://www.1001fonts.com/markazi-text-font.html)
 License: [SIL Open Font License (OFL)](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
 
 ### Audio
+
+#### Menu, Battle, and Shelter Music
+Author: [Eric Matyas](www.soundimage.org)  
+Source: [Soundimage.org](https://soundimage.org/wp-content/uploads/2020/06/Comrades-Always.mp3)  
+Source: [Soundimage.org](http://soundimage.org/wp-content/uploads/2016/07/Into-Battle_v001.mp3)  
+Source: [Soundimage.org](http://soundimage.org/wp-content/uploads/2014/07/RPG-Battle-Climax.mp3)  
+Source: [Soundimage.org](http://soundimage.org/wp-content/uploads/2016/04/Analog-Nostalgia.mp3)   
+License: [Attribution License](https://soundimage.org/attribution-info/)
+
+#### Intro and Victory Music
+Author: [Of Far Different Nature](https://fardifferent.itch.io/)  
+Source: [itch.io](https://fardifferent.itch.io/loops)  
+License: [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+
 #### Card, Deck, and Shield Up Sounds
 Author: [f4ngy](https://freesound.org/people/f4ngy/)  
 Source: [freesound.org](https://freesound.org/people/f4ngy/sounds/240776/)  
@@ -56,7 +70,7 @@ License: [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creative
 #### Decks and Refresh Loop
 Author: [Wishforge.Games](http://wishforge.games/)  
 Source: [itch.io](https://wishforge.itch.io/3000-free-icons)  
-License: [Standard License](./Assets/Sourced/Icons/LineHeroUnlimited/License.txt)
+License: ["Standard License"](./Assets/Sourced/Icons/LineHeroUnlimited/License.txt)
 
 #### Battle Effects
 Author: [Lorc, Delapouite, and contributors](https://game-icons.net/about.html#authors)  

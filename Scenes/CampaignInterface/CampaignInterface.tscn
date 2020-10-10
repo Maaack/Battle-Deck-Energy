@@ -54,11 +54,11 @@
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level22/Level22List.tres" type="Resource" id=52]
 [ext_resource path="res://Resources/Levels/StoryLevel/PreBossLevel.tres" type="Resource" id=53]
 [ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=54]
-[ext_resource path="res://Assets/Sourced/Music/RPG-Battle-Climax.ogg" type="AudioStream" id=55]
-[ext_resource path="res://Assets/Sourced/Music/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=56]
-[ext_resource path="res://Assets/Sourced/Music/Comrades-Always.ogg" type="AudioStream" id=57]
-[ext_resource path="res://Assets/Sourced/Music/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=58]
-[ext_resource path="res://Assets/Sourced/Music/Into-Battle_v001.ogg" type="AudioStream" id=59]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" type="AudioStream" id=55]
+[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=56]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" type="AudioStream" id=57]
+[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=58]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" type="AudioStream" id=59]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )

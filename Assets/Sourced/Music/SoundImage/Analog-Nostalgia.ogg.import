@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Analog-Nostalgia.ogg-b6bbce81bc88b5bc275e30d03c92da58.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sourced/Music/SoundImage/Analog-Nostalgia.ogg"
+dest_files=[ "res://.import/Analog-Nostalgia.ogg-b6bbce81bc88b5bc275e30d03c92da58.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
