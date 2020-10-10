@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Throw Sand"
-description = "Deal %ATTACK Damage, retreat from %DEFEND Damage, and add %ADD_CONFUSED Confused card(s).
+description = "Deal %ATTACK Damage, absorb %DEFEND Damage, and add %ADD_CONFUSED Confused card(s).
 Exhausts."
 energy_cost = 1
 icon = ExtResource( 6 )
