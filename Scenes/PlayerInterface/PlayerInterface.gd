@@ -136,6 +136,7 @@ func _new_character_card(character:CharacterData, card:CardData):
 		card_instance = opponent_card_manager.add_card(card)
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
+	card_instance.update_affordability(character.energy)
 	return card_instance
 
 func _recalculate_all_cards():
