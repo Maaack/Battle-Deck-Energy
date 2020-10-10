@@ -5,8 +5,14 @@ signal dragging_card(card_data)
 signal dropping_card(card_data)
 
 var locked_cards : Dictionary = {}
-var energy_available : int = 0
+var energy_available : int = 0 setget set_energy_available
 var dragged_card = null
+
+func set_energy_available(value:int):
+	energy_available = value
+	for card_data in card_map:
+		var card_instance : CardNode2D = card_map[card_data]
+		card_instance.update_affordability(energy_available)
 
 func _ready():
 	active = false

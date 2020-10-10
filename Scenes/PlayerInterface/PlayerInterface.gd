@@ -387,6 +387,8 @@ func _on_dropping_card(card:CardData):
 	var nearest_opportunity = get_nearest_card_opportunity(card)
 	_openings_glow_off(card)
 	if nearest_opportunity is OpportunityData:
+		var card_instance : CardNode2D = card_manager.get_card_instance(card)
+		card_instance.locked_face = true
 		emit_signal("card_played_on_opportunity", card, nearest_opportunity)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
