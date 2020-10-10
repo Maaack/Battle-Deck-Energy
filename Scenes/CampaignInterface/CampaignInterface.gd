@@ -6,6 +6,7 @@ onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
 onready var level_manager = $LevelManager
 onready var tooltip_manager = $TooltipManager
+onready var mood_manager = $MoodManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 
@@ -65,6 +66,8 @@ func start_level():
 		start_shelter()
 	elif current_level is StoryLevelData:
 		start_story_level(current_level)
+	if current_level.mood_type != "":
+		mood_manager.set_mood(current_level.mood_type)
 
 func _start_next_level():
 	tooltip_manager.reset()

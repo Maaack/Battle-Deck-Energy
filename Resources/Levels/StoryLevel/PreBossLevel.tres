@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
+mood_type = "SHELTER"
 bbcode_text = "[center]
 
 

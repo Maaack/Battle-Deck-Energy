@@ -8,5 +8,6 @@
 
 [resource]
 script = ExtResource( 1 )
+mood_type = "EASY_BATTLE"
 opponents = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
 lootable_cards = ExtResource( 2 )

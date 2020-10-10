@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
+mood_type = "INTRO"
 bbcode_text = "[center]
 
 
