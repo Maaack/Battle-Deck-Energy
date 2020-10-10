@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/ShelterPanel/ShetlerPanel.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
@@ -6,26 +6,15 @@
 [ext_resource path="res://Managers/Cards/CardManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=5]
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShader.shader" type="Shader" id=7]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_blowing.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Assets/Originals/Particles/spark_8x8.png" type="Texture" id=12]
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 7 )
-shader_param/transparent = Color( 0.505882, 0.0470588, 0.0470588, 0 )
-shader_param/inner_color = Color( 1, 0.737255, 0.878431, 1 )
-shader_param/outer_color = Color( 1, 0.411765, 0.729412, 1 )
-shader_param/inner_threshold = 0.36
-shader_param/outer_threshold = 0.1
-shader_param/soft_edge = 0.08
-shader_param/center = Vector2( 0.5, 0.8 )
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.04, 0.08, 0.6 )
 colors = PoolColorArray( 1, 0.737255, 0.878431, 0, 1, 0.776471, 0.898039, 0, 1, 0.823529, 0.917647, 0.752941, 1, 0.422353, 0.734252, 0.0209748 )
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.075188, 0.08, 0.93, 1 )
 colors = PoolColorArray( 0.996078, 0.772549, 0.898039, 0, 0.996078, 0.772549, 0.898039, 0, 1, 0.952941, 0.980392, 1, 0.996078, 0.772549, 0.898039, 1, 0.996078, 0.772549, 0.898039, 0 )
 
@@ -59,7 +48,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource( 2 )
+modulate = Color( 1, 0.411765, 0.729412, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -209,7 +198,7 @@ angular_velocity_random = 1.0
 linear_accel = -166.0
 radial_accel = -20.0
 angle_random = 1.0
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -229,7 +218,7 @@ angular_velocity_random = 1.0
 linear_accel = -166.0
 radial_accel = -20.0
 angle_random = 1.0
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
