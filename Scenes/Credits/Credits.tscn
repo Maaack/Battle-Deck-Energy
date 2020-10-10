@@ -389,5 +389,6 @@ __meta__ = {
 }
 [connection signal="scroll_ended" from="ScrollContainer" to="." method="_on_ScrollContainer_scroll_ended"]
 [connection signal="gui_input" from="ScrollContainer/RichTextLabel" to="." method="_on_RichTextLabel_gui_input"]
+[connection signal="meta_clicked" from="ScrollContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="timeout" from="ScrollResetTimer" to="." method="_on_ScrollResetTimer_timeout"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]

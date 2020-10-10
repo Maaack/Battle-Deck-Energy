@@ -39,3 +39,7 @@ func _on_ScrollResetTimer_timeout():
 func _on_ContinueButton_pressed():
 	emit_signal("continue_pressed")
 	queue_free()
+
+func _on_RichTextLabel_meta_clicked(meta:String):
+	if meta.begins_with("https://"):
+		OS.shell_open(meta)
