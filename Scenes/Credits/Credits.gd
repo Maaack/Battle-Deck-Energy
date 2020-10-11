@@ -13,7 +13,7 @@ export(DynamicFont) var h2_font
 export(DynamicFont) var h3_font
 export(DynamicFont) var h4_font
 export(int) var lines_prefixed : int = 22
-export(int) var lines_suffixed : int = 25
+export(int) var lines_suffixed : int = 32
 export(float) var max_speed_down : float = 5.0
 export(float) var accel_down : float = 0.01
 

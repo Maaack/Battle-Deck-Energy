@@ -38,10 +38,13 @@ func set_player_data(value:CharacterData):
 
 func new_opponent(opponent_data:CharacterData):
 	opponent_data = opponent_data.duplicate()
+	opponent_data.deck = _duplicate_array_contents(opponent_data.deck)
 	var battle_manager : CharacterBattleManager = ai_opponents_manager.add_opponent(opponent_data)
 	_character_manager_map[opponent_data] = battle_manager
 	battle_manager.connect("died", self, "_on_CharacterBattleManager_died")
 	battle_manager.connect("updated_status", self, "_on_CharacterBattleManager_updated_status")
+	battle_manager.connect("discarded_card", self, "_on_OpponentBattleManager_discarded_card")
+	battle_manager.connect("exhausted_card", self, "_on_CharacterBattleManager_exhausted_card")
 	battle_opportunities_manager.add_opponent(opponent_data)
 	player_interface.add_opponent(opponent_data)
 	opponents.append(opponent_data)
@@ -125,11 +128,12 @@ func start_round():
 	player_interface.start_round()
 	advance_phase_timer.start()
 
-func _discard_or_exhaust_card(card:CardData):
+func _discard_or_exhaust_card(character:CharacterData, card:CardData):
+	var character_battle_manager : CharacterBattleManager = _character_manager_map[character]
 	if card.has_effect(EffectCalculator.EXHAUST_EFFECT):
-		player_battle_manager.exhaust_card(card)
+		character_battle_manager.exhaust_card(card)
 	else:
-		player_battle_manager.discard_card(card)
+		character_battle_manager.discard_card(card)
 
 func _resolve_card_played_actions(card:CardData, opportunity = null):
 	if opportunity is OpportunityData:
@@ -144,7 +148,7 @@ func _resolve_character_actions(character:CharacterData):
 		if opportunity.card_data != null:
 			effects_manager.resolve_on_play_opportunity(opportunity.card_data, opportunity, _character_manager_map)
 			battle_opportunities_manager.remove_opportunity(opportunity)
-			player_interface.opponent_discards_card(opportunity.card_data)
+			_discard_or_exhaust_card(character, opportunity.card_data)
 
 func _resolve_card_drawn_actions(card:CardData):
 	effects_manager.resolve_on_draw(card, player_data, _character_manager_map)
@@ -177,6 +181,9 @@ func _on_CharacterBattleManager_discarded_card(card):
 	player_interface.discard_card(card)
 	_resolve_card_discarded_actions(card)
 
+func _on_OpponentBattleManager_discarded_card(card):
+	player_interface.discard_card(card)
+	
 func _on_CharacterBattleManager_exhausted_card(card):
 	player_interface.exhaust_card(card)
 
@@ -186,7 +193,7 @@ func _on_CharacterBattleManager_reshuffled_card(card):
 func _on_CharacterBattleManager_played_card(card:CardData, opportunity:OpportunityData):
 	player_interface.play_card(player_data, card, opportunity)
 	_resolve_card_played_actions(card, opportunity)
-	_discard_or_exhaust_card(card)
+	_discard_or_exhaust_card(player_data, card)
 
 func _on_Opening_phase_entered():
 	setup_battle()
@@ -228,6 +235,7 @@ func _on_EnemyResolution_phase_entered():
 		_resolve_character_actions(opponent)
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
+		manager.discard_hand()
 		manager.update_end_of_turn_statuses()
 		player_interface.mark_character_inactive(opponent)
 		advance_character_timer.start()

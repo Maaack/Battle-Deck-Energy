@@ -10,5 +10,5 @@ script = ExtResource( 4 )
 starting_max_health = 9
 starting_max_energy = 1
 starting_hand_size = 3
-starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ]
+starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
 nickname = "Hostile Runt"
