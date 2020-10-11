@@ -54,7 +54,3 @@ func opponents_take_turn(opportunities:Array):
 					opportunity.card_data = random_card
 					emit_signal("played_card", child.character_data, opportunity.card_data, opportunity)
 
-func opponents_end_turn():
-	for child in get_children():
-		if child is CharacterBattleManager:
-			child.discard_hand()
