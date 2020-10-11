@@ -47,10 +47,8 @@ func opponents_take_turn(opportunities:Array):
 			if not random_card.title in played_cards:
 				played_cards[random_card.title] = 0
 			played_cards[random_card.title] += 1
-			print("card %s played %d times " % [random_card.title, played_cards[random_card.title]])
 			var opponent_opportunities : Array = opponent_map[character_data]
 			for opportunity in opponent_opportunities:
 				if opportunity is OpportunityData and random_card.type == opportunity.type:
 					opportunity.card_data = random_card
 					emit_signal("played_card", child.character_data, opportunity.card_data, opportunity)
-
