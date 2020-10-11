@@ -7,6 +7,13 @@ export(Array, Resource) var starting_list = [] setget set_starting_list
 
 var list : Array
 
+func append_data(value):
+	var weighted_data : WeightedData = WeightedData.new()
+	weighted_data.data = value
+	weighted_data.weight = 1
+	list.append(weighted_data)
+	return weighted_data
+
 func set_starting_list(value:Array):
 	starting_list = value
 	list = starting_list

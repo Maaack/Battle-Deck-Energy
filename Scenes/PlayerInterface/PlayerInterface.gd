@@ -74,6 +74,11 @@ func draw_card_from_draw_pile(card_data:CardData):
 	animation_queue.animate_move(card_data, card_data.transform_data, 0.0, 0.05, AnimationType.DRAWING_FROM_DRAW_PILE)
 
 func discard_card(card_data:CardData):
+	if not card_data in _card_owner_map:
+		return
+	if _card_owner_map[card_data] != player_data:
+		opponent_discards_card(card_data)
+		return
 	var discard_pile_offset : Vector2 = discard_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = discard_pile_offset
@@ -81,6 +86,11 @@ func discard_card(card_data:CardData):
 	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DISCARDING)
 
 func exhaust_card(card_data:CardData):
+	if not card_data in _card_owner_map:
+		return
+	if _card_owner_map[card_data] != player_data:
+		opponent_discards_card(card_data)
+		return
 	var exhaust_pile_offset : Vector2 = exhaust_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = exhaust_pile_offset
