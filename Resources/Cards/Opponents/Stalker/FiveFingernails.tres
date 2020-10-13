@@ -10,6 +10,6 @@ title = "Five Fingernails"
 description = "Deal %ATTACK Damage over [b]5[/b] strikes."
 energy_cost = 2
 icon = ExtResource( 3 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
 type = 1

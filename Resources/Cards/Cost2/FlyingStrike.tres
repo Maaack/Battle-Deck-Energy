@@ -12,6 +12,6 @@ title = "Flying Strike"
 description = "Deal %ATTACK Damage, draw [b]3[/b] card(s), and add [b]1[/b] Skill space(s)."
 energy_cost = 2
 icon = ExtResource( 5 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ) ]
 type = 1

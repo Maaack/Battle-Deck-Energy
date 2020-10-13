@@ -14,6 +14,6 @@ Momentary.
 Unplayable."
 energy_cost = 1
 icon = ExtResource( 3 )
-base_color = Color( 0.737255, 0.109804, 0.776471, 1 )
+base_color = Color( 0.823529, 0.392157, 0.443137, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
 type = 4

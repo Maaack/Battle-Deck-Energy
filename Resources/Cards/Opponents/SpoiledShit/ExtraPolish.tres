@@ -12,6 +12,6 @@ title = "Extra Polish"
 description = "Absorb %DEFEND Damage, apply %APPLY_ATTACK_UP Attack Up, and %APPLY_DEFENSE_UP Defense Up."
 energy_cost = 2
 icon = ExtResource( 5 )
-base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
 type = 2

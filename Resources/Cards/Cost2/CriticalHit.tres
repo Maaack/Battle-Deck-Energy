@@ -12,6 +12,6 @@ title = "Critical Hit"
 description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and add %OPENER Attack space(s)."
 energy_cost = 2
 icon = ExtResource( 3 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
 type = 1

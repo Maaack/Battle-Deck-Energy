@@ -10,6 +10,6 @@ title = "Maw"
 description = "Deal %ATTACK Damage over [b]3[/b] strikes."
 energy_cost = 1
 icon = ExtResource( 3 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ]
 type = 1

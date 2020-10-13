@@ -12,6 +12,6 @@ description = "Apply %APPLY_EN_GARDE En Garde.
 Can take Skill space."
 energy_cost = 1
 icon = ExtResource( 2 )
-base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 4 ) ]
 type = 2

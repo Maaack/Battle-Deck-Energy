@@ -12,6 +12,6 @@ title = "Hard to Hit"
 description = "Absorb %DEFEND Damage and apply %APPLY_EN_GARDE En Garde. Exhausts."
 energy_cost = 1
 icon = ExtResource( 5 )
-base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ]
 type = 2

@@ -10,6 +10,6 @@ title = "Heavy Slash"
 description = "Deal %ATTACK Damage."
 energy_cost = 1
 icon = ExtResource( 2 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 3 ) ]
 type = 1

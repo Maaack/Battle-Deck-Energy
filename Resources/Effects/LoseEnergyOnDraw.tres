@@ -8,6 +8,6 @@ script = ExtResource( 1 )
 type_tag = "LOSE_ENERGY"
 icon = ExtResource( 2 )
 amount = 1
-base_color = Color( 0.737255, 0.109804, 0.776471, 1 )
+base_color = Color( 0.823529, 0.392157, 0.443137, 1 )
 apply_mode = 2
 aim_mode = 0

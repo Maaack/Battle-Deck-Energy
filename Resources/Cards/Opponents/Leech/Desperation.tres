@@ -13,6 +13,6 @@ description = "Deal %ATTACK Damage and apply %APPLY_VULNERABLE Vulnerable on sel
 Exhausts."
 energy_cost = 0
 icon = ExtResource( 3 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ) ]
 type = 1

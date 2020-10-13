@@ -10,6 +10,6 @@ title = "Years of Abuse"
 description = "Absorb %DEFEND Damage over [b]10[/b] shields."
 energy_cost = 3
 icon = ExtResource( 5 )
-base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
 type = 2

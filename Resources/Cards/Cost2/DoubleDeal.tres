@@ -11,6 +11,6 @@ title = "Double Deal"
 description = "Deal %ATTACK Damage over [b]2[/b] strikes and draw [b]2[/b] card(s)."
 energy_cost = 2
 icon = ExtResource( 5 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ) ]
 type = 1

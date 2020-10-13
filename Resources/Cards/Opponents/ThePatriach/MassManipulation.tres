@@ -14,6 +14,6 @@ description = "Adds %ADD_CONFUSED Confused, %ADD_DIFFIDENT Diffident, %ADD_INTIM
 Exhausts."
 energy_cost = 3
 icon = ExtResource( 4 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ]
 type = 1

@@ -8,6 +8,6 @@ script = ExtResource( 1 )
 type_tag = "ATTACK"
 icon = ExtResource( 2 )
 amount = 1
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 apply_mode = 1
 aim_mode = 0

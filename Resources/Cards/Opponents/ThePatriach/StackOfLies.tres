@@ -10,6 +10,6 @@ title = "Stack of Lies"
 description = "Deal %ATTACK Damage over [b]4[/b] strikes."
 energy_cost = 3
 icon = ExtResource( 2 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ) ]
 type = 1
