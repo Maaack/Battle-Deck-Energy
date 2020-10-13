@@ -63,21 +63,21 @@ __meta__ = {
 }
 
 [node name="NewGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 430.0
+margin_top = 445.0
 margin_right = 302.0
-margin_bottom = 468.0
+margin_bottom = 478.0
 focus_mode = 0
 text = "New"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 492.0
+margin_top = 502.0
 margin_right = 302.0
-margin_bottom = 530.0
+margin_bottom = 535.0
 focus_mode = 0
 text = "Credits"
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 554.0
+margin_top = 559.0
 margin_right = 302.0
 margin_bottom = 592.0
 focus_mode = 0
