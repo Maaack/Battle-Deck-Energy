@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Hyperfocus"
-description = "Add [b]2[/b] Attack space(s), [b]2[/b] Defend space(s), and [b]1[/b] Skill space(s)."
+description = "Add %RICOCHET Attack space(s), %FORTIFY Defend space(s), and %FOCUS Skill space(s)."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.00392157, 0.74902, 0.184314, 1 )
