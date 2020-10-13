@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" type="Material" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" type="Texture" id=4]
-[ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_38_top_padded.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelDynamicFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/SparksParticlesMaterial.tres" type="Material" id=6]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sourced/Fonts/markazi-text/MarkaziText-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 44
+extra_spacing_top = 6
+font_data = ExtResource( 8 )
 
 [node name="BattleDeckEnergy" type="Control"]
 anchor_top = 1.0
@@ -44,18 +50,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="CurrentLabel" type="Label" parent="Panel"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -92.0
-margin_top = -2.0
-margin_right = -15.0
-margin_bottom = 50.0
+margin_left = -96.0
+margin_right = -55.0
+margin_bottom = 48.0
 custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.823529, 0.392157, 0.443137, 1 )
-text = "# / #"
+text = "0"
 align = 2
-valign = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DivideLabel" type="Label" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -56.0
+margin_top = -4.0
+margin_right = -33.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 1 )
+text = "/"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxLabel" type="Label" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -34.0
+margin_right = -4.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
