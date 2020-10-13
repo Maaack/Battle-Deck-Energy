@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Themes/StyleBoxes/CardTitleStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Assets/Originals/ArtistRender/BDEUpdateScreen.png" type="Texture" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=3]
 [ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=4]
@@ -11,6 +11,20 @@
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/StabAudioStreamPlayer2D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ClankAudioStreamPlayer2D.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ShieldAudioStreamPlayer2D.tscn" type="PackedScene" id=11]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.960784, 0.929412, 0.729412, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.549188, 0.553711, 0.404469, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_size = 1
+shadow_offset = Vector2( 0, 1 )
 
 [node name="CharacterActionsInterface" type="Control"]
 margin_right = 244.0
@@ -23,6 +37,11 @@ __meta__ = {
 stab_audio_scene = ExtResource( 9 )
 clank_audio_scene = ExtResource( 10 )
 shield_audio_scene = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 91.2372, 363.688 )
+texture = ExtResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -74,7 +93,7 @@ margin_right = 232.0
 margin_bottom = 56.0
 mouse_filter = 2
 size_flags_horizontal = 3
-custom_styles/panel = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -134,6 +153,7 @@ __meta__ = {
 margin_left = 8.0
 margin_right = 232.0
 margin_bottom = 36.0
+alignment = 2
 
 [node name="OpeningsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 108.0
