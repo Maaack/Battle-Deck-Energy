@@ -1,23 +1,23 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/markazi_text_bold_20pt.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Themes/Fonts/markazi_text_20pt_bottom_shrinked.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleAttackStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=5]
-[ext_resource path="res://Themes/Fonts/morris_roman_24pt.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Themes/Fonts/Cards/TitleDynamicFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Themes/StyleBoxes/EnergyPanelStyleBox.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scenes/CardNode2D/CardNode2D.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/CardNode2D/GlowNode.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0341.png" type="Texture" id=10]
 [ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowStyleBox.tres" type="StyleBox" id=11]
-[ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Themes/Fonts/Cards/EnergyDynamicFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowStyleBox.tres" type="StyleBox" id=13]
 [ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowStyleBox.tres" type="StyleBox" id=14]
 [ext_resource path="res://Themes/RichTextEffects/CardEffectTextEffect.tres" type="RichTextEffect" id=15]
 [ext_resource path="res://Scenes/CardNode2D/CardPulse.tres" type="Animation" id=16]
 [ext_resource path="res://Scenes/CardNode2D/GlowAnimation.tres" type="Animation" id=17]
-[ext_resource path="res://Assets/Sourced/Fonts/markazi-text/MarkaziText-Regular.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://Themes/Fonts/Cards/TypeDynamicFont.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TypeDefendStyleBox.tres" type="StyleBox" id=19]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TypeAttackStyleBox.tres" type="StyleBox" id=20]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TypeSkillStyleBox.tres" type="StyleBox" id=21]
@@ -29,11 +29,6 @@
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleDefendStyleBox.tres" type="StyleBox" id=28]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleSkillStyleBox.tres" type="StyleBox" id=29]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleStressStyleBox.tres" type="StyleBox" id=30]
-
-[sub_resource type="DynamicFont" id=1]
-size = 18
-use_filter = true
-font_data = ExtResource( 18 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 88, 128 )
@@ -49,6 +44,7 @@ type_attack_style_box = ExtResource( 20 )
 type_defend_style_box = ExtResource( 19 )
 type_skill_style_box = ExtResource( 21 )
 type_stress_style_box = ExtResource( 22 )
+unafforadable_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 
 [node name="Card" type="Node2D" parent="."]
 
@@ -142,9 +138,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -78.0
-margin_top = -47.5
+margin_top = -48.0
 margin_right = 78.0
-margin_bottom = 47.5
+margin_bottom = 48.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -186,6 +183,7 @@ anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 6 )
 text = "Card Title"
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -287,10 +285,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Card/Body/CardFront/Control/TypePanel"]
+[node name="TypeLabel" type="Label" parent="Card/Body/CardFront/Control/TypePanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
+margin_bottom = 1.0
+custom_fonts/font = ExtResource( 18 )
 text = "ATTACK"
 align = 1
 valign = 1
@@ -310,12 +309,12 @@ __meta__ = {
 }
 
 [node name="BDECostLabel" type="Label" parent="Card/Body/BDEPanel"]
-margin_top = -10.301
 margin_right = 40.0
-margin_bottom = 48.699
+margin_bottom = 37.0
 custom_fonts/font = ExtResource( 12 )
 text = "0"
 align = 1
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

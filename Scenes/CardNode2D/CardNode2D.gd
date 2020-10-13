@@ -30,7 +30,7 @@ onready var title_panel = $Card/Body/CardFront/TitlePanel
 onready var title_label = $Card/Body/CardFront/TitlePanel/TitleLabel
 onready var description_label = $Card/Body/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel
 onready var type_panel = $Card/Body/CardFront/Control/TypePanel
-onready var type_label = $Card/Body/CardFront/Control/TypePanel/Label
+onready var type_label = $Card/Body/CardFront/Control/TypePanel/TypeLabel
 onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
 onready var left_tooltip_target = $Card/LeftTooltip2D
 onready var right_tooltip_target = $Card/RightTooltip2D
@@ -47,6 +47,8 @@ export(StyleBox) var type_attack_style_box : StyleBox
 export(StyleBox) var type_defend_style_box : StyleBox
 export(StyleBox) var type_skill_style_box : StyleBox
 export(StyleBox) var type_stress_style_box : StyleBox
+export(Color) var unafforadable_color : Color
+
 
 var card_data : CardData setget set_card_data
 var _last_animation_type : int = 0
@@ -102,7 +104,7 @@ func update_affordability(energy:int):
 	if energy >= card_data.energy_cost:
 		energy_label.set("custom_colors/font_color", COST_AFFORDABLE_COLOR)
 	else:
-		energy_label.set("custom_colors/font_color", COST_LIMITED_COLOR)
+		energy_label.set("custom_colors/font_color", unafforadable_color)
 
 func _get_effect_bbtag_string(base_value:int, total_value:int):
 	var modifier_delta = total_value - base_value
