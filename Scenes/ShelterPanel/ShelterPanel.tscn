@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/ShelterPanel/ShetlerPanel.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white_large.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" type="Texture" id=3]
 [ext_resource path="res://Managers/Cards/CardManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=5]
 [ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=6]
