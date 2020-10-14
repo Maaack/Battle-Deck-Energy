@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Themes/Fonts/markazi_text_semi_bold_48_outline_3.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/StatusTextAnimation/StatusTextAnimationDynamicFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
