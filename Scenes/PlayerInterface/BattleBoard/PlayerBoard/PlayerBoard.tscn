@@ -14,6 +14,7 @@ mouse_filter = 2
 size_flags_vertical = 3
 script = ExtResource( 5 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 516.403 ],
 "_edit_use_anchors_": false
 }
 
@@ -22,8 +23,8 @@ margin_top = -128.0
 margin_bottom = -64.0
 
 [node name="DiscardPile" parent="." instance=ExtResource( 4 )]
-margin_top = -147.0
-margin_bottom = -83.0
+margin_top = -134.0
+margin_bottom = -70.0
 
 [node name="ExhaustPile" parent="." instance=ExtResource( 7 )]
 margin_top = -66.0
@@ -31,9 +32,9 @@ margin_bottom = -2.0
 
 [node name="EndTurnButton" parent="." instance=ExtResource( 3 )]
 margin_left = -64.0
-margin_top = -191.0
+margin_top = -178.0
 margin_right = -64.0
-margin_bottom = -191.0
+margin_bottom = -178.0
 
 [node name="BattleDeckEnergy" parent="." instance=ExtResource( 1 )]
 margin_top = -216.0
