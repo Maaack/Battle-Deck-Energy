@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=11 format=2]
 
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBox.tres" type="StyleBox" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Themes/StyleBoxes/VioletStyleBox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Themes/StyleBoxes/GrayStyleBox.tres" type="StyleBox" id=6]
 [ext_resource path="res://Themes/Fonts/Buttons/EndTurnDynamicFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Themes/StyleBoxes/Panels/TooltipStylebox.tres" type="StyleBox" id=8]
+[ext_resource path="res://Themes/Fonts/Labels/BoldDynamicFont.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Themes/Fonts/Labels/NormalDynamicFont.tres" type="DynamicFont" id=10]
 
 [resource]
 default_font = ExtResource( 1 )
@@ -22,3 +25,21 @@ Button/styles/hover = ExtResource( 2 )
 Button/styles/normal = ExtResource( 3 )
 Button/styles/pressed = ExtResource( 4 )
 Panel/styles/panel = ExtResource( 5 )
+PanelContainer/styles/panel = ExtResource( 8 )
+RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
+RichTextLabel/colors/font_color_selected = Color( 0.49, 0.49, 0.49, 1 )
+RichTextLabel/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+RichTextLabel/colors/selection_color = Color( 0.1, 0.1, 1, 0.8 )
+RichTextLabel/constants/line_separation = 1
+RichTextLabel/constants/shadow_as_outline = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/table_hseparation = 3
+RichTextLabel/constants/table_vseparation = 3
+RichTextLabel/fonts/bold_font = ExtResource( 9 )
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = ExtResource( 10 )
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
