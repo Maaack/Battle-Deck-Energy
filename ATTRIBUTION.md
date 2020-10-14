@@ -5,10 +5,8 @@ Author: [Marek Belski](https://github.com/Maaack)
 Source: [Github : Battle-Deck-Energy](https://github.com/Maaack/Battle-Deck-Energy)  
 License: [MIT License](./LICENSE.md)
 
-### Artist
-Author: [Amy Stewart](https://github.com/Maaack)  
-Source: [Github](https://github.com/Maaack/Battle-Deck-Energy)  
-License: [Attribution 3.0 Unported (CC BY 3.0)](http://creativecommons.org/licenses/by/3.0/)
+### UI Designer
+Author: Amy Stewart  
 
 ## Art Assets
 ### Fonts

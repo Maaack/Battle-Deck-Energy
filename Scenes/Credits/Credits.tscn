@@ -21,6 +21,8 @@ h1_font = ExtResource( 1 )
 h2_font = ExtResource( 1 )
 h3_font = ExtResource( 2 )
 h4_font = ExtResource( 3 )
+lines_prefixed = 24
+lines_suffixed = 40
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -76,10 +78,8 @@ Author: [url=https://github.com/Maaack]Marek Belski[/url]
 Source: [url=https://github.com/Maaack/Battle-Deck-Energy]Github : Battle-Deck-Energy[/url]  
 License: [url=./LICENSE.md]MIT License[/url]
 
-[font=res://Themes/Fonts/markazi_text_42pt.tres]Artist[/font]
-Author: [url=https://github.com/Maaack]Amy Stewart[/url]  
-Source: [url=https://github.com/Maaack/Battle-Deck-Energy]Github[/url]  
-License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]
+[font=res://Themes/Fonts/markazi_text_42pt.tres]UI Designer[/font]
+Author: Amy Stewart  
 
 [font=res://Themes/Fonts/markazi_text_48pt.tres]Art Assets[/font]
 [font=res://Themes/Fonts/markazi_text_42pt.tres]Fonts[/font]
@@ -215,8 +215,18 @@ License: [url=https://www.gimp.org/about/COPYING]GNU General Public License vers
 
 
 
+
+
+
+
+
+
+
+
 "
 text = "
+
+
 
 
 
@@ -245,10 +255,8 @@ Author: Marek Belski
 Source: Github : Battle-Deck-Energy  
 License: MIT License
 
-Artist
+UI Designer
 Author: Amy Stewart  
-Source: Github  
-License: Attribution 3.0 Unported (CC BY 3.0)
 
 Art Assets
 Fonts
@@ -353,6 +361,14 @@ GIMP
 Author: Spencer Kimball, Peter Mattis, and contributors  
 Source: gimp.org  
 License: GNU General Public License version 3
+
+
+
+
+
+
+
+
 
 
 
