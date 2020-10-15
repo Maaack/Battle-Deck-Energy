@@ -20,10 +20,10 @@ Author: [Youssef Habchi](https://youssef-habchi.com/)
 Source: [1001Fonts : road-rage-font.html](https://www.1001fonts.com/road-rage-font.html)  
 License: [Custom Personal Use Only License](./Assets/Sourced/Fonts/road-rage/READ ME.txt)
 
-#### Markazi UI Text
-Author: [Markazi Text Authors](https://www.1001fonts.com/users/markazi-text-authors/)  
-Source: [1001Fonts](https://www.1001fonts.com/markazi-text-font.html)  
-License: [SIL Open Font License (OFL)](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+#### UI Text
+Author: [The Jura Font Project Authors](https://www.1001fonts.com/users/danieljohnson/)  
+Source: [1001Fonts : jura-font.html](https://www.1001fonts.com/jura-font.html)  
+License: [SIL Open Font License, Version 1.1](./Assets/Sourced/Fonts/Jura/OFL.txt)
 
 ### Audio
 #### Menu, Battle, and Shelter Music
