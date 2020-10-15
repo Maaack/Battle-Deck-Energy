@@ -3,7 +3,7 @@
 [ext_resource path="res://Managers/Cards/CardContainer/CardContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.gd" type="Script" id=2]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=3]
-[ext_resource path="res://Themes/StyleBoxes/GrayOutlineStyleBox.tres" type="StyleBox" id=4]
+[ext_resource path="res://Themes/StyleBoxes/Cards/OpportunityOutlineStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/OpportunityContainer/GlowNode.tscn" type="PackedScene" id=6]
 
@@ -12,7 +12,7 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color( 0.8, 0.8, 0.8, 0.435294 )
+border_color = Color( 0.960784, 0.929412, 0.729412, 0.501961 )
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 
@@ -54,7 +54,7 @@ margin_bottom = 248.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.8, 0.8, 0.8, 0.435294 )
+custom_colors/font_color = Color( 0.960784, 0.929412, 0.729412, 0.501961 )
 text = "1 ATTACK
 -
 1 DEFEND
@@ -64,6 +64,7 @@ align = 1
 valign = 1
 
 [node name="Slot2" type="Panel" parent="CenterContainer/Control/Slot1" index="1"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 164.0
@@ -74,6 +75,7 @@ __meta__ = {
 }
 
 [node name="Slot3" type="Panel" parent="CenterContainer/Control/Slot1" index="2"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 187.0
