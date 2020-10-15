@@ -23,7 +23,6 @@ h3_font = ExtResource( 2 )
 h4_font = ExtResource( 3 )
 lines_prefixed = 24
 lines_suffixed = 40
-max_speed_down = 5.0
 accel_down = 0.005
 
 [node name="Panel" type="Panel" parent="."]
@@ -45,7 +44,7 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 5177.0
+margin_bottom = 5010.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -92,12 +91,12 @@ License: [url=./Assets/Sourced/Fonts/commando/ReadMe.txt]Custom Free License[/ur
 #### Headings
 Author: [url=https://youssef-habchi.com/]Youssef Habchi[/url]  
 Source: [url=https://www.1001fonts.com/road-rage-font.html]1001Fonts : road-rage-font.html[/url]  
-License: [url=./Assets/Sourced/Fonts/road-rage/READ ME.txt]Custom Personal Use Only License[/url]
+License: [url=./Assets/Sourced/Fonts/road-rage/READ ME.txt]Custom Personal-Use-Only License[/url]
 
 #### UI Text
-Author: [url=https://www.1001fonts.com/users/danieljohnson/]The Jura Font Project Authors[/url]  
-Source: [url=https://www.1001fonts.com/jura-font.html]1001Fonts : jura-font.html[/url]  
-License: [url=./Assets/Sourced/Fonts/Jura/OFL.txt]SIL Open Font License, Version 1.1[/url]
+Author: [url=https://www.1001fonts.com/users/TipoType/]TipoType[/url]  
+Source: [url=https://www.1001fonts.com/economica-font.html]1001Fonts : economica-font.html[/url]  
+License: [url=./Assets/Sourced/Fonts/economica/SIL-Open-Font-License.txt]SIL Open Font License, Version 1.1[/url]
 
 ### Audio
 #### Menu, Battle, and Shelter Music
@@ -259,11 +258,11 @@ License: Custom Free License
 #### Headings
 Author: Youssef Habchi  
 Source: 1001Fonts : road-rage-font.html  
-License: Custom Personal Use Only License
+License: Custom Personal-Use-Only License
 
 #### UI Text
-Author: The Jura Font Project Authors  
-Source: 1001Fonts : jura-font.html  
+Author: TipoType  
+Source: 1001Fonts : economica-font.html  
 License: SIL Open Font License, Version 1.1
 
 ### Audio

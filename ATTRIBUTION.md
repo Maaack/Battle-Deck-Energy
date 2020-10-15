@@ -18,12 +18,12 @@ License: [Custom Free License](./Assets/Sourced/Fonts/commando/ReadMe.txt)
 #### Headings
 Author: [Youssef Habchi](https://youssef-habchi.com/)  
 Source: [1001Fonts : road-rage-font.html](https://www.1001fonts.com/road-rage-font.html)  
-License: [Custom Personal Use Only License](./Assets/Sourced/Fonts/road-rage/READ ME.txt)
+License: [Custom Personal-Use-Only License](./Assets/Sourced/Fonts/road-rage/READ ME.txt)
 
 #### UI Text
-Author: [The Jura Font Project Authors](https://www.1001fonts.com/users/danieljohnson/)  
-Source: [1001Fonts : jura-font.html](https://www.1001fonts.com/jura-font.html)  
-License: [SIL Open Font License, Version 1.1](./Assets/Sourced/Fonts/Jura/OFL.txt)
+Author: [TipoType](https://www.1001fonts.com/users/TipoType/)  
+Source: [1001Fonts : economica-font.html](https://www.1001fonts.com/economica-font.html)  
+License: [SIL Open Font License, Version 1.1](./Assets/Sourced/Fonts/economica/SIL-Open-Font-License.txt)
 
 ### Audio
 #### Menu, Battle, and Shelter Music

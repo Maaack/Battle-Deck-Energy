@@ -218,9 +218,9 @@ __meta__ = {
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="Card/Body/CardFront/DescriptionPanel/MarginContainer"]
 margin_left = 8.0
-margin_top = 31.0
+margin_top = 40.0
 margin_right = 154.0
-margin_bottom = 94.0
+margin_bottom = 86.0
 mouse_filter = 2
 size_flags_vertical = 4
 custom_fonts/bold_font = ExtResource( 2 )
