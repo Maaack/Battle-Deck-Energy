@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Themes/StyleBoxes/Meters/HealthMeterBGStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Assets/Mixed/GoodStats/defense-status.png" type="Texture" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Meters/HealthMeterStyleBox.tres" type="StyleBox" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0368.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.gd" type="Script" id=5]
 [ext_resource path="res://Themes/Fonts/Labels/HealthDynamicFont.tres" type="DynamicFont" id=6]
 
@@ -57,22 +57,25 @@ __meta__ = {
 
 [node name="ArmorIcon" type="TextureRect" parent="."]
 visible = false
-self_modulate = Color( 0.988235, 0.996078, 0.192157, 1 )
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = -5.0
-margin_top = -24.0
-margin_right = 43.0
-margin_bottom = 24.0
+margin_left = -9.0
+margin_top = -26.0
+margin_right = 49.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ArmorLabel" type="Label" parent="ArmorIcon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2.0
 margin_right = -3.8147e-06
-margin_bottom = -2.0
+margin_bottom = -4.0
 custom_fonts/font = ExtResource( 6 )
 text = "##"
 align = 1
