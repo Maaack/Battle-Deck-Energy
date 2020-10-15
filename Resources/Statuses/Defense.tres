@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1001.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Mixed/GoodStats/defense-status.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=2]
 
 [resource]
@@ -8,7 +8,7 @@ script = ExtResource( 2 )
 title = "Defense"
 description = "Defense cancels out an equal amount of incoming damage."
 icon = ExtResource( 1 )
-color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+color = Color( 0.392157, 0.490196, 0.203922, 1 )
 intensity = 1
 duration = 1
 type_tag = "DEFENSE"

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin2.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0310.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/death-juice.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
 
 [resource]
@@ -12,6 +12,6 @@ description = "Apply %APPLY_TOXIN Toxin.
 Retained."
 energy_cost = 0
 icon = ExtResource( 3 )
-base_color = Color( 0.368627, 0.733333, 0.0431373, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 4 ) ]
 type = 1

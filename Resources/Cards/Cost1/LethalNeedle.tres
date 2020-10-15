@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_2836.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/hypodermic-test.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Effects/AttackEffect1.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin3.tres" type="Resource" id=4]
 
@@ -11,6 +11,6 @@ title = "Lethal Needle"
 description = "Deal %ATTACK Damage and apply %APPLY_TOXIN Toxin."
 energy_cost = 1
 icon = ExtResource( 2 )
-base_color = Color( 0.0392157, 0.784314, 0.0941176, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 4 ) ]
 type = 1

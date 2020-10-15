@@ -1,27 +1,17 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/ShelterPanel/ShetlerPanel.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white_large.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" type="Texture" id=3]
 [ext_resource path="res://Managers/Cards/CardManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=5]
-[ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShader.shader" type="Shader" id=7]
+[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scenes/ShelterPanel/FireShaderMaterial.tres" type="Material" id=7]
 [ext_resource path="res://Scenes/ShelterPanel/FlameParticles2D.tres" type="Material" id=8]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_blowing.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Scenes/ShelterPanel/SparkParticles2D.tres" type="Material" id=11]
 [ext_resource path="res://Assets/Originals/Particles/spark_8x8.png" type="Texture" id=12]
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 7 )
-shader_param/transparent = Color( 0.505882, 0.0470588, 0.0470588, 0 )
-shader_param/inner_color = Color( 1, 0.737255, 0.878431, 1 )
-shader_param/outer_color = Color( 1, 0.411765, 0.729412, 1 )
-shader_param/inner_threshold = 0.36
-shader_param/outer_threshold = 0.1
-shader_param/soft_edge = 0.08
-shader_param/center = Vector2( 0.5, 0.8 )
 
 [node name="ShelterPanel" type="Control"]
 anchor_right = 1.0
@@ -39,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -340.0
-margin_top = -230.0
-margin_right = 340.0
-margin_bottom = -171.0
+margin_left = -392.5
+margin_top = -200.5
+margin_right = 392.5
+margin_bottom = -141.5
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "A new friend offers you shelter..."
@@ -53,7 +43,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource( 1 )
+material = ExtResource( 7 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -115,8 +105,8 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 24.0
-margin_bottom = 54.0
+margin_top = 40.5
+margin_bottom = 70.5
 text = "Heal 25% of your Max Health"
 align = 1
 valign = 1
@@ -152,8 +142,8 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 24.0
-margin_bottom = 54.0
+margin_top = 40.5
+margin_bottom = 70.5
 text = "Clean your Deck of 1 Card"
 align = 1
 __meta__ = {
@@ -172,8 +162,8 @@ __meta__ = {
 [node name="BlowingParticles2D" type="Particles2D" parent="CentralControl"]
 position = Vector2( 0, 60 )
 emitting = false
-amount = 60
-lifetime = 2.0
+amount = 50
+lifetime = 1.8
 process_material = ExtResource( 8 )
 texture = ExtResource( 5 )
 __meta__ = {
@@ -181,7 +171,7 @@ __meta__ = {
 }
 
 [node name="SparkParticles2D" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 110 )
+position = Vector2( 0, 100 )
 amount = 4
 lifetime = 1.7
 process_material = ExtResource( 11 )
@@ -191,7 +181,7 @@ __meta__ = {
 }
 
 [node name="SparkParticles2D2" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 110 )
+position = Vector2( 0, 100 )
 emitting = false
 amount = 12
 lifetime = 1.7
@@ -238,7 +228,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -272.0
-margin_top = -86.0
+margin_top = -108.0
 margin_right = -48.0
 margin_bottom = -48.0
 rect_min_size = Vector2( 224, 38 )

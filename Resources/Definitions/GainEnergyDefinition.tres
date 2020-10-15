@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 key = "GAIN_ENERGY"
 term = "Gain Energy"
-definition = "Gain Battle Deck Energy equal to value for the rest of the turn."
+definition = "Gain Energy equal to value for the rest of the turn."
 related_definitions = [  ]

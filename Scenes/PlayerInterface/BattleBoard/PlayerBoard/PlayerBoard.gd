@@ -10,7 +10,6 @@ onready var draw_pile = $DrawPile
 onready var discard_pile = $DiscardPile
 onready var exhaust_pile = $ExhaustPile
 onready var end_turn_button = $EndTurnButton
-onready var round_counter = $RoundCounter
 onready var energy_meter = $BattleDeckEnergy
 
 func set_draw_pile_size(value:int):
@@ -50,7 +49,7 @@ func reset_end_turn():
 	end_turn_button.reset()
 
 func advance_round_count():
-	round_counter.advance_round()
+	pass
 
 func _on_DrawPile_button_pressed():
 	emit_signal("draw_pile_pressed")

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MainMenu/FireTextShader.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/transparent = Color( 1, 1, 1, 0 )
+shader_param/inner_color = Color( 0.960784, 0.929412, 0.729412, 1 )
+shader_param/outer_color = Color( 0.823529, 0.392157, 0.443137, 1 )
+shader_param/stretch = Vector2( 4.8, 1 )
+shader_param/inner_threshold = 0.55
+shader_param/outer_threshold = 0.3
+shader_param/soft_edge = 0.08

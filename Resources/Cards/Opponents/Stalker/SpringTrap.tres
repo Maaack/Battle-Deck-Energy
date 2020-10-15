@@ -3,8 +3,8 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/AttackEffect4.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/wolf-trap.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" type="Resource" id=5]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0327.png" type="Texture" id=6]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,7 +12,7 @@ title = "Spring Trap"
 description = "Deal %ATTACK Damage and add %ADD_RESTRAINED Restrained card(s).
 Exhausts."
 energy_cost = 2
-icon = ExtResource( 6 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+icon = ExtResource( 4 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 2 ) ]
 type = 1

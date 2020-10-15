@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Themes/Fonts/markazi_text_16pt_outline_1.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0188.png" type="Texture" id=2]
+[ext_resource path="res://Themes/Fonts/Labels/StatusIconDynamicText.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Mixed/GoodStats/attack-up-2.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd" type="Script" id=3]
 
 [node name="StatusIcon" type="Control"]
@@ -62,7 +62,7 @@ anchor_bottom = 1.0
 margin_left = -16.0
 margin_top = -14.0
 custom_fonts/font = ExtResource( 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.243137, 0.129412, 0.215686, 1 )
 text = "2"
 align = 2
 valign = 2

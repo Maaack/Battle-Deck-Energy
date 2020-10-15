@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0368.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/defensive-trade.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Effects/FortifyEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Effects/InnateEffect.tres" type="Resource" id=5]
@@ -14,6 +14,6 @@ Innate.
 Retained."
 energy_cost = 0
 icon = ExtResource( 2 )
-base_color = Color( 0.0823529, 0.435294, 0.894118, 1 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
 type = 3

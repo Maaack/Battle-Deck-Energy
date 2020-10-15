@@ -26,21 +26,31 @@ onready var pulse_animation = $Card/PulseAnimation
 onready var body_node = $Card/Body
 onready var energy_panel = $Card/Body/BDEPanel
 onready var energy_label = $Card/Body/BDEPanel/BDECostLabel
+onready var title_panel = $Card/Body/CardFront/TitlePanel
 onready var title_label = $Card/Body/CardFront/TitlePanel/TitleLabel
 onready var description_label = $Card/Body/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel
-onready var attack_type_panel = $Card/Body/CardFront/Control/AttackPanel
-onready var defend_type_panel = $Card/Body/CardFront/Control/DefendPanel
-onready var skill_type_panel = $Card/Body/CardFront/Control/SkillPanel
-onready var stress_type_panel = $Card/Body/CardFront/Control/StressPanel
+onready var type_panel = $Card/Body/CardFront/Control/TypePanel
+onready var type_label = $Card/Body/CardFront/Control/TypePanel/TypeLabel
 onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
-onready var effect_label = $Card/Body/CardFront/EffectContainer/Label
 onready var left_tooltip_target = $Card/LeftTooltip2D
 onready var right_tooltip_target = $Card/RightTooltip2D
+onready var bottom_left_tooltip_target = $Card/BottomLeftTooltip2D
+onready var bottom_right_tooltip_target = $Card/BottomRightTooltip2D
 onready var draw_audio_player = $DrawAudioStreamPlayer2D
 onready var drop_audio_player = $DropAudioStreamPlayer2D
 onready var slide_audio_player = $SlideAudioStreamPlayer2D
 
 export(Resource) var starting_card_data setget set_starting_card_data
+export(StyleBox) var title_attack_style_box : StyleBox
+export(StyleBox) var title_defend_style_box : StyleBox
+export(StyleBox) var title_skill_style_box : StyleBox
+export(StyleBox) var title_stress_style_box : StyleBox
+export(StyleBox) var type_attack_style_box : StyleBox
+export(StyleBox) var type_defend_style_box : StyleBox
+export(StyleBox) var type_skill_style_box : StyleBox
+export(StyleBox) var type_stress_style_box : StyleBox
+export(Color) var unafforadable_color : Color
+
 
 var card_data : CardData setget set_card_data
 var _last_animation_type : int = 0
@@ -58,19 +68,23 @@ func is_playable():
 	return !(card_data.has_effect(EffectCalculator.UNPLAYABLE_EFFECT))
 
 func _reset_card_type():
-	attack_type_panel.hide()
-	defend_type_panel.hide()
-	skill_type_panel.hide()
-	stress_type_panel.hide()
 	match(card_data.type):
 		CardData.CardType.ATTACK:
-			attack_type_panel.show()
+			title_panel.add_stylebox_override("panel", title_attack_style_box)
+			type_panel.add_stylebox_override("panel", type_attack_style_box)
+			type_label.text = 'ATTACK'
 		CardData.CardType.DEFEND:
-			defend_type_panel.show()
+			title_panel.add_stylebox_override("panel", title_defend_style_box)
+			type_panel.add_stylebox_override("panel", type_defend_style_box)
+			type_label.text = 'DEFEND'
 		CardData.CardType.SKILL:
-			skill_type_panel.show()
+			title_panel.add_stylebox_override("panel", title_skill_style_box)
+			type_panel.add_stylebox_override("panel", type_skill_style_box)
+			type_label.text = 'SKILL'
 		CardData.CardType.STRESS:
-			stress_type_panel.show()
+			title_panel.add_stylebox_override("panel", title_stress_style_box)
+			type_panel.add_stylebox_override("panel", type_stress_style_box)
+			type_label.text = 'STRESS'
 
 func _reset_card_front():
 	if locked_face:
@@ -83,8 +97,6 @@ func _reset_card_front():
 	if card_data.energy_cost >= 0:
 		energy_label.text = str(card_data.energy_cost)
 	effect_texture.texture = card_data.icon
-	if card_data.base_color != Color():
-		effect_label.add_color_override("font_color", card_data.base_color)
 	_reset_card_type()
 	update_card_effects(base_values)
 
@@ -94,7 +106,7 @@ func update_affordability(energy:int):
 	if energy >= card_data.energy_cost:
 		energy_label.set("custom_colors/font_color", COST_AFFORDABLE_COLOR)
 	else:
-		energy_label.set("custom_colors/font_color", COST_LIMITED_COLOR)
+		energy_label.set("custom_colors/font_color", unafforadable_color)
 
 func _get_effect_bbtag_string(base_value:int, total_value:int):
 	var modifier_delta = total_value - base_value
@@ -150,12 +162,6 @@ func update_card_effects(total_values:Dictionary):
 		description = description.replace('%'+type_tag, tag_string)
 	description = "[center]%s[/center]" % description
 	description_label.bbcode_text = description
-	if card_data.effects.size() > 0:
-		var battle_effect : EffectData = card_data.effects[0]
-		if not battle_effect.type_tag in total_values:
-			return
-		var effect_total_value : int = total_values[battle_effect.type_tag]
-		effect_label.text = str(effect_total_value)
 
 func set_starting_card_data(value:CardData):
 	starting_card_data = value

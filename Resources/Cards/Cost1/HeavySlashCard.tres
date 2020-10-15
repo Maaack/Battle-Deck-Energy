@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0334.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/blade-drag.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Effects/AttackEffect6.tres" type="Resource" id=3]
 
 [resource]
@@ -10,6 +10,6 @@ title = "Heavy Slash"
 description = "Deal %ATTACK Damage."
 energy_cost = 1
 icon = ExtResource( 2 )
-base_color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 3 ) ]
 type = 1

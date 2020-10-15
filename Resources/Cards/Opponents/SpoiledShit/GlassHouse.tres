@@ -3,14 +3,14 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyFragile3.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect12.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1003.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/tower-fall.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Glass House"
 description = "Absorb %DEFEND Damage and %APPLY_FRAGILE Fragile."
 energy_cost = 2
-icon = ExtResource( 5 )
-base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+icon = ExtResource( 4 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type = 2
