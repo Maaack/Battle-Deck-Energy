@@ -105,3 +105,7 @@ License: [Copyright © 2000-2020 JetBrains s.r.o](https://www.jetbrains.com/)
 Author: [Spencer Kimball, Peter Mattis, and contributors](https://www.gimp.org/about/authors.html)  
 Source: [gimp.org](https://www.gimp.org/downloads/)  
 License: [GNU General Public License version 3](https://www.gimp.org/about/COPYING)
+
+#### Inkscape
+Source: [inkscape.org](https://inkscape.org/release/)  
+License: [GNU General Public License](https://inkscape.org/about/license/)
