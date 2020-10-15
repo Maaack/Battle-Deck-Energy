@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" type="DynamicFont" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/Analog-Nostalgia.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Assets/Mixed/Backgrounds/Deck-Fighter.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" type="Material" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SlideInLeft"
@@ -186,21 +187,18 @@ __meta__ = {
 }
 
 [node name="BattleSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
-visible = false
 material = ExtResource( 5 )
-position = Vector2( -276, 94 )
+position = Vector2( -175, 90 )
 texture = ExtResource( 8 )
 
 [node name="DeckSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
-visible = false
 material = ExtResource( 5 )
-position = Vector2( 40, 94 )
+position = Vector2( 202, 96 )
 texture = ExtResource( 6 )
 
 [node name="EnergySprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
-visible = false
-material = ExtResource( 5 )
-position = Vector2( -113.5, 211.5 )
+material = ExtResource( 13 )
+position = Vector2( -24, 248 )
 texture = ExtResource( 7 )
 
 [node name="WindowContainer" type="Control" parent="."]
