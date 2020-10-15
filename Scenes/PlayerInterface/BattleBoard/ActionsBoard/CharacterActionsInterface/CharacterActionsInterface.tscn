@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Mixed/Characters/silhouette.png" type="Texture" id=1]
+[ext_resource path="res://Themes/Fonts/Labels/CharacterNicknameDynamicFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=3]
 [ext_resource path="res://Managers/StatusIcons/StatusIconManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.tscn" type="PackedScene" id=5]
@@ -23,6 +24,23 @@ __meta__ = {
 stab_audio_scene = ExtResource( 9 )
 clank_audio_scene = ExtResource( 10 )
 shield_audio_scene = ExtResource( 11 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CenterContainer"]
+margin_left = 122.0
+margin_top = 188.0
+margin_right = 122.0
+margin_bottom = 188.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer/Control"]
+texture = ExtResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
