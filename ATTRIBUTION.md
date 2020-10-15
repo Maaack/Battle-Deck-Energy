@@ -68,11 +68,6 @@ Author: [Fighter Vectors by Vecteezy](https://www.vecteezy.com/free-vector/fight
 Source: [vecteezy.com : 134426-wushu-fighter-with-sword](https://www.vecteezy.com/vector-art/134426-wushu-fighter-with-sword)  
 License: [Custom Free Attribution License](https://www.vecteezy.com/licensing-agreement)
 
-#### Mountain Background Pack
-Author: [ansimuz](http://ansimuz.com/site/)  
-Source: [OpenGameArt.Org : mountain-at-dusk-background](https://opengameart.org/content/mountain-at-dusk-background)  
-License: [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
-
 ### Icons
 #### Card Icons and Status Effects
 Author: [Lorc, Delapouite, and contributors](https://game-icons.net/about.html#authors)  
