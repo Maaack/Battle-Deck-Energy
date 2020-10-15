@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/throwing-ball.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyVulnerable.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0327.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Throw Stones"
 description = "Deal %ATTACK Damage over [b]4[/b] strikes. Gain %APPLY_VULNERABLE Vulnerable on self."
 energy_cost = 2
-icon = ExtResource( 5 )
+icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ) ]
 type = 1

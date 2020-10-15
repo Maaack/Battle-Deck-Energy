@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/dig-hole.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" type="Resource" id=5]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0327.png" type="Texture" id=6]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,7 +12,7 @@ title = "Threaten"
 description = "Apply %APPLY_VULNERABLE Vulnerable, and add %ADD_RESTRAINED Restrained card(s).
 Exhausts."
 energy_cost = 2
-icon = ExtResource( 6 )
+icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
 type = 1

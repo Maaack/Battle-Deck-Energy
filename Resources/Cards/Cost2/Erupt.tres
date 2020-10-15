@@ -3,14 +3,14 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/DrawCardEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/GainEnergy4.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0215.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Energy/volcano.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Erupt"
 description = "Gain %GAIN_ENERGY Energy and draw [b]3[/b] card(s)."
 energy_cost = 2
-icon = ExtResource( 5 )
-base_color = Color( 0.870588, 0.207843, 0.0431373, 1 )
+icon = ExtResource( 4 )
+base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
 type = 3

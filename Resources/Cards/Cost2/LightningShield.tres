@@ -4,7 +4,7 @@
 [ext_resource path="res://Resources/Effects/FocusEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/DrawCardEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect12.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0370.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/bolt-shield.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,6 +12,6 @@ title = "Lightning Shield"
 description = "Absorb %DEFEND Damage, draw [b]3[/b] card(s), and add [b]1[/b] Skill space(s)."
 energy_cost = 2
 icon = ExtResource( 5 )
-base_color = Color( 0.0980392, 0.427451, 0.968627, 1 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ]
 type = 2

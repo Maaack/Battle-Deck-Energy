@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0460.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/hocus-focus.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Effects/FocusEffect4.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
 
@@ -12,6 +12,6 @@ description = "Add %FOCUS Skill space(s).
 Retained."
 energy_cost = 1
 icon = ExtResource( 2 )
-base_color = Color( 0.00392157, 0.662745, 0.145098, 1 )
+base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 4 ) ]
 type = 3

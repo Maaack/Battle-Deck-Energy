@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/DrawCardEffect.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1005.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/winged-shield.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=4]
 
 [resource]

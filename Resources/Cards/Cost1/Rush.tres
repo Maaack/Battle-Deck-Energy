@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/DrawCardEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/GainEnergy2.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0188.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Energy/fire-dash.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -11,6 +11,6 @@ title = "Rush"
 description = "Gain %GAIN_ENERGY Energy and draw [b]1[/b] card(s)."
 energy_cost = 1
 icon = ExtResource( 4 )
-base_color = Color( 0.870588, 0.207843, 0.0431373, 1 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type = 3

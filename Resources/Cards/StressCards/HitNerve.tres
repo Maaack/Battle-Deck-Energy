@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerableOnDraw.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/UnplayableEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0128.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Mixed/CardIcons/StressGlowPlayer/hit-nerve.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,6 +12,6 @@ description = "Applies %APPLY_VULNERABLE Vulnerable when drawn.
 Unplayable."
 energy_cost = 1
 icon = ExtResource( 4 )
-base_color = Color( 0.529412, 0.054902, 0.772549, 1 )
+base_color = Color( 0.345098, 0.270588, 0.388235, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type = 4

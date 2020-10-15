@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin2.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1057.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowEnemy/enrage.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVenomous2.tres" type="Resource" id=5]
 
 [resource]
@@ -12,6 +12,6 @@ title = "Jealousy"
 description = "Apply %APPLY_VENOMOUS Venomous and %APPLY_TOXIN Toxin. Exhausts."
 energy_cost = 0
 icon = ExtResource( 4 )
-base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
 effects = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 2 ) ]
 type = 3

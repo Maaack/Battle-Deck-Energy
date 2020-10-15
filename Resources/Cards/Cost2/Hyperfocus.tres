@@ -4,7 +4,7 @@
 [ext_resource path="res://Resources/Effects/FortifyEffect2.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/RicochetEffect2.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/FocusEffect3.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0459.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/hyperfocus.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,6 +12,6 @@ title = "Hyperfocus"
 description = "Add %RICOCHET Attack space(s), %FORTIFY Defend space(s), and %FOCUS Skill space(s)."
 energy_cost = 2
 icon = ExtResource( 5 )
-base_color = Color( 0.00392157, 0.74902, 0.184314, 1 )
+base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
 type = 3
