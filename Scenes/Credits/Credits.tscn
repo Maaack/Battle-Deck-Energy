@@ -44,7 +44,7 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 4980.0
+margin_bottom = 4830.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -140,11 +140,6 @@ License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unport
 Author: [url=https://www.vecteezy.com/free-vector/fighter]Fighter Vectors by Vecteezy[/url]   
 Source: [url=https://www.vecteezy.com/vector-art/134426-wushu-fighter-with-sword]vecteezy.com : 134426-wushu-fighter-with-sword[/url]  
 License: [url=https://www.vecteezy.com/licensing-agreement]Custom Free Attribution License[/url]
-
-#### Mountain Background Pack
-Author: [url=http://ansimuz.com/site/]ansimuz[/url]  
-Source: [url=https://opengameart.org/content/mountain-at-dusk-background]OpenGameArt.Org : mountain-at-dusk-background[/url]  
-License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal (CC0 1.0) Public Domain Dedication[/url]
 
 ### Icons
 #### Card Icons and Status Effects
@@ -306,11 +301,6 @@ License: Attribution 3.0 Unported (CC BY 3.0)
 Author: Fighter Vectors by Vecteezy   
 Source: vecteezy.com : 134426-wushu-fighter-with-sword  
 License: Custom Free Attribution License
-
-#### Mountain Background Pack
-Author: ansimuz  
-Source: OpenGameArt.Org : mountain-at-dusk-background  
-License: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
 
 ### Icons
 #### Card Icons and Status Effects
