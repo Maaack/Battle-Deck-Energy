@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Sourced/Backgrounds/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=2]
+[ext_resource path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Themes/Fonts/TitleScreen/TitleDynamicFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Themes/Fonts/TitleScreen/HeaderDynamicFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" type="Material" id=5]
@@ -10,6 +10,24 @@
 [ext_resource path="res://Assets/Originals/Title/Battle_text.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/Analog-Nostalgia.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Mixed/Backgrounds/Deck-Fighter.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SlideInLeft"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -798, 119 ), Vector2( -798, 119 ), Vector2( -380, 119 ), Vector2( -240, 119 ) ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -20,16 +38,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BackgroundControl" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 12 )
 expand = true
 stretch_mode = 7
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect2" type="TextureRect" parent="BackgroundControl"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -241.0
+margin_right = 558.0
+margin_bottom = 565.0
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundControl/TextureRect2"]
+anims/SlideInLeft = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -50,93 +86,122 @@ margin_right = 1152.0
 margin_bottom = 656.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_top = -592.0
-margin_right = 302.0
+margin_left = -151.0
+margin_top = -546.0
+margin_right = 151.0
+margin_bottom = 46.0
 custom_constants/separation = 24
 alignment = 2
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="NewGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 436.0
+margin_top = 364.0
 margin_right = 302.0
-margin_bottom = 472.0
+margin_bottom = 424.0
 focus_mode = 0
 text = "New"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 496.0
+margin_top = 448.0
 margin_right = 302.0
-margin_bottom = 532.0
+margin_bottom = 508.0
 focus_mode = 0
 text = "Credits"
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 556.0
+margin_top = 532.0
 margin_right = 302.0
 margin_bottom = 592.0
 focus_mode = 0
 text = "Exit"
 
 [node name="TitleContainer" type="Control" parent="MarginContainer/Control"]
-anchor_left = 1.0
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MarginContainer/Control/TitleContainer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -706.0
-margin_bottom = 291.0
+[node name="BattleDeckLabel" type="Label" parent="MarginContainer/Control/TitleContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -425.0
+margin_top = -286.0
+margin_right = 431.0
+margin_bottom = -146.0
+rect_rotation = -0.024621
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0.243137, 0.129412, 0.215686, 1 )
-text = "Battle Deck
-Energy"
-align = 2
+custom_colors/font_color = Color( 0.345098, 0.270588, 0.388235, 1 )
+custom_colors/font_outline_modulate = Color( 0.243137, 0.129412, 0.215686, 1 )
+text = "Battle Deck"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BattleSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer/Label"]
-visible = false
-material = ExtResource( 5 )
-position = Vector2( 153, 77 )
-texture = ExtResource( 8 )
+[node name="EnergyLabel" type="Label" parent="MarginContainer/Control/TitleContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -440.0
+margin_top = -194.0
+margin_right = 416.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.615686, 0.188235, 0.231373, 1 )
+custom_colors/font_outline_modulate = Color( 0.243137, 0.129412, 0.215686, 1 )
+text = "Energy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="DeckSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer/Label"]
-visible = false
-material = ExtResource( 5 )
-position = Vector2( 469, 77 )
-texture = ExtResource( 6 )
-
-[node name="EnergySprite" type="Sprite" parent="MarginContainer/Control/TitleContainer/Label"]
-visible = false
-material = ExtResource( 5 )
-position = Vector2( 315.5, 194.5 )
-texture = ExtResource( 7 )
-
-[node name="Label2" type="Label" parent="MarginContainer/Control/TitleContainer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -511.0
-margin_top = 237.0
-margin_right = 3.05176e-05
-margin_bottom = 296.0
+[node name="ReleaseLabel" type="Label" parent="MarginContainer/Control/TitleContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -63.1404
+margin_top = 53.9644
+margin_right = 447.86
+margin_bottom = 112.964
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.960784, 0.929412, 0.729412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "premature release"
-align = 2
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BattleSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
+visible = false
+material = ExtResource( 5 )
+position = Vector2( -276, 94 )
+texture = ExtResource( 8 )
+
+[node name="DeckSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
+visible = false
+material = ExtResource( 5 )
+position = Vector2( 40, 94 )
+texture = ExtResource( 6 )
+
+[node name="EnergySprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
+visible = false
+material = ExtResource( 5 )
+position = Vector2( -113.5, 211.5 )
+texture = ExtResource( 7 )
 
 [node name="WindowContainer" type="Control" parent="."]
 anchor_right = 1.0

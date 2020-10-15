@@ -63,6 +63,11 @@ Source: [freesound.org : 333941](https://freesound.org/people/igorzets/sounds/33
 License: [Attribution 3.0 Unported (CC BY 3.0)](http://creativecommons.org/licenses/by/3.0/)  
 
 ### Images
+#### Title Screen Background
+Author: [Fighter Vectors by Vecteezy](https://www.vecteezy.com/free-vector/fighter)   
+Source: [vecteezy.com : 134426-wushu-fighter-with-sword](https://www.vecteezy.com/vector-art/134426-wushu-fighter-with-sword)  
+License: [Custom Free Attribution License](https://www.vecteezy.com/licensing-agreement)
+
 #### Mountain Background Pack
 Author: [ansimuz](http://ansimuz.com/site/)  
 Source: [OpenGameArt.Org : mountain-at-dusk-background](https://opengameart.org/content/mountain-at-dusk-background)  

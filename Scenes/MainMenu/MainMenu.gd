@@ -2,8 +2,12 @@ extends Control
 
 
 onready var window_container = $WindowContainer
+onready var animation_player = $BackgroundControl/TextureRect2/AnimationPlayer
 
 var credits_scene = preload("res://Scenes/Credits/Credits.tscn")
+
+func _ready():
+	animation_player.play("SlideInLeft")
 
 func _on_NewGameButton_pressed():
 	get_tree().change_scene("res://Scenes/CampaignInterface/CampaignInterface.tscn")
