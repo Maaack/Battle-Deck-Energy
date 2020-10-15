@@ -1,15 +1,17 @@
-[gd_resource type="Theme" load_steps=11 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://Themes/Fonts/MainDynamicFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBox.tres" type="StyleBox" id=2]
+[ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBoxTexture.tres" type="StyleBox" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/NormalStyleBoxTexture.tres" type="StyleBox" id=3]
-[ext_resource path="res://Themes/StyleBoxes/Buttons/PressedStyleBox.tres" type="StyleBox" id=4]
+[ext_resource path="res://Themes/StyleBoxes/Buttons/PressedStyleBoxTexture.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/VioletStyleBox.tres" type="StyleBox" id=5]
-[ext_resource path="res://Themes/StyleBoxes/GrayStyleBox.tres" type="StyleBox" id=6]
+[ext_resource path="res://Themes/StyleBoxes/Buttons/DisabledStyleBoxTexture.tres" type="StyleBox" id=6]
 [ext_resource path="res://Themes/Fonts/Buttons/EndTurnDynamicFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Themes/StyleBoxes/Panels/TooltipStylebox.tres" type="StyleBox" id=8]
 [ext_resource path="res://Themes/Fonts/Labels/BoldDynamicFont.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Themes/Fonts/Labels/NormalDynamicFont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Themes/Fonts/Labels/ItalicsDynamicFont.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Themes/Fonts/Labels/BoldItalicsDynamicFont.tres" type="DynamicFont" id=12]
 
 [resource]
 default_font = ExtResource( 1 )
@@ -37,8 +39,8 @@ RichTextLabel/constants/shadow_offset_y = 1
 RichTextLabel/constants/table_hseparation = 3
 RichTextLabel/constants/table_vseparation = 3
 RichTextLabel/fonts/bold_font = ExtResource( 9 )
-RichTextLabel/fonts/bold_italics_font = null
-RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/bold_italics_font = ExtResource( 12 )
+RichTextLabel/fonts/italics_font = ExtResource( 11 )
 RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = ExtResource( 10 )
 RichTextLabel/styles/focus = null
