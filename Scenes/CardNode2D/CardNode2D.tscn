@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/Cards/DescriptionBoldDynamicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/spinning-sword.png" type="Texture" id=3]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleAttackStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=5]
 [ext_resource path="res://Themes/Fonts/Cards/TitleDynamicFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Themes/StyleBoxes/EnergyPanelStyleBox.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scenes/CardNode2D/CardNode2D.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/CardNode2D/GlowNode.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0341.png" type="Texture" id=10]
 [ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowStyleBox.tres" type="StyleBox" id=11]
 [ext_resource path="res://Themes/Fonts/Cards/EnergyDynamicFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowStyleBox.tres" type="StyleBox" id=13]
@@ -157,7 +157,7 @@ margin_right = 41.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 84, 84 )
 mouse_filter = 2
-texture = ExtResource( 10 )
+texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -218,9 +218,9 @@ __meta__ = {
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="Card/Body/CardFront/DescriptionPanel/MarginContainer"]
 margin_left = 8.0
-margin_top = 40.0
+margin_top = 27.0
 margin_right = 154.0
-margin_bottom = 86.0
+margin_bottom = 99.0
 mouse_filter = 2
 size_flags_vertical = 4
 custom_fonts/bold_font = ExtResource( 2 )

@@ -1,15 +1,12 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Statuses/AttackUp.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0342.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 2 )
 type_tag = "APPLY_ATTACK_UP"
-icon = ExtResource( 3 )
 amount = 4
-base_color = Color( 0.866667, 0.0509804, 0.129412, 1 )
 apply_mode = 1
 aim_mode = 0
 starting_statuses = [ ExtResource( 1 ) ]

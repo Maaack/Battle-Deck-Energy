@@ -7,9 +7,7 @@ enum ApplyMode{NONE, PLAY, DRAW, DISCARD, EXHAUST}
 enum AimMode{TARGET, SOURCE}
 
 export(String) var type_tag : String = ''
-export(Texture) var icon : Texture
 export(int) var amount : int = 0
-export(Color) var base_color : Color = Color()
 export(ApplyMode) var apply_mode : int = ApplyMode.PLAY
 export(AimMode) var aim_mode : int = AimMode.TARGET
 
@@ -21,6 +19,7 @@ func applies_on_play():
 
 func applies_on_draw():
 	return apply_mode == ApplyMode.DRAW
+
 
 func applies_on_discard():
 	return apply_mode == ApplyMode.DISCARD

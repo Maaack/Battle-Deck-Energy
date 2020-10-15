@@ -1,13 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0341.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Effects/EffectData.gd" type="Script" id=2]
 
 [resource]
 script = ExtResource( 2 )
 type_tag = "ATTACK"
-icon = ExtResource( 1 )
 amount = 3
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 apply_mode = 1
 aim_mode = 0
