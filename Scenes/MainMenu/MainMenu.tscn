@@ -56,9 +56,8 @@ __meta__ = {
 [node name="TextureRect2" type="TextureRect" parent="BackgroundControl"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = -240.0
+margin_left = -798.0
 margin_top = -241.0
-margin_right = 558.0
 margin_bottom = 565.0
 texture = ExtResource( 11 )
 __meta__ = {

@@ -11,4 +11,3 @@ shader_param/stretch = Vector2( 3, 1 )
 shader_param/inner_threshold = 0.55
 shader_param/outer_threshold = 0.3
 shader_param/soft_edge = 0.08
-shader_param/center = Vector2( 0.5, 0.8 )
