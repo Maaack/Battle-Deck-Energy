@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/ScrollingTextPanel/ScrollingTextPanel.gd" type="Script" id=1]
-[ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Themes/HiddenScrollBar.tres" type="Theme" id=6]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=7]
 [ext_resource path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" type="StyleBox" id=8]
@@ -48,11 +47,10 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ScrollContainer"]
 margin_right = 576.0
-margin_bottom = 31.0
+margin_bottom = 26.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 fit_content_height = true
 scroll_active = false

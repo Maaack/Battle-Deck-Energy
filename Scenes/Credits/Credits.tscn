@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Themes/Fonts/markazi_text_48pt.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Themes/Fonts/markazi_text_42pt.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Themes/Fonts/markazi_text_36pt.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Themes/Fonts/Credits/H2DynamicFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/Credits/H3DynamicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Themes/Fonts/Credits/H4DynamicFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/Credits/Credits.gd" type="Script" id=4]
-[ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Themes/HiddenScrollBar.tres" type="Theme" id=6]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=7]
 [ext_resource path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" type="StyleBox" id=8]
+[ext_resource path="res://Themes/Fonts/Credits/H1DynamicFont.tres" type="DynamicFont" id=9]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -17,7 +17,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-h1_font = ExtResource( 1 )
+h1_font = ExtResource( 9 )
 h2_font = ExtResource( 1 )
 h3_font = ExtResource( 2 )
 h4_font = ExtResource( 3 )
@@ -43,11 +43,10 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 5372.0
+margin_bottom = 5939.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
-custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "
 
@@ -71,35 +70,37 @@ bbcode_text = "
 
 
 
+
+
 [center]
-[font=res://Themes/Fonts/markazi_text_48pt.tres]Collaborators[/font]
-[font=res://Themes/Fonts/markazi_text_42pt.tres]Engineer and PM[/font]
+[font=res://Themes/Fonts/Credits/H2DynamicFont.tres]Collaborators[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Engineer and PM[/font]
 Author: [url=https://github.com/Maaack]Marek Belski[/url]  
 Source: [url=https://github.com/Maaack/Battle-Deck-Energy]Github : Battle-Deck-Energy[/url]  
 License: [url=./LICENSE.md]MIT License[/url]
 
-[font=res://Themes/Fonts/markazi_text_42pt.tres]UI Designer[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]UI Designer[/font]
 Author: Amy Stewart  
 
-[font=res://Themes/Fonts/markazi_text_48pt.tres]Art Assets[/font]
-[font=res://Themes/Fonts/markazi_text_42pt.tres]Fonts[/font]
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Titles[/font]
+[font=res://Themes/Fonts/Credits/H2DynamicFont.tres]Art Assets[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Fonts[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Titles[/font]
 Author: [url=http://defaulterror.za.net]Derek Clark[/url]  
 Source: [url=https://www.dafont.com/commando.font]dafont.com : commando.font[/url]  
 License: [url=./Assets/Sourced/Fonts/commando/ReadMe.txt]Custom Free License[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Headings[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Headings[/font]
 Author: [url=https://youssef-habchi.com/]Youssef Habchi[/url]  
 Source: [url=https://www.1001fonts.com/road-rage-font.html]1001Fonts : road-rage-font.html[/url]  
 License: [url=./Assets/Sourced/Fonts/road-rage/READ ME.txt]Custom Personal Use Only License[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Markazi UI Text[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Markazi UI Text[/font]
 Author: [url=https://www.1001fonts.com/users/markazi-text-authors/]Markazi Text Authors[/url]  
 Source: [url=https://www.1001fonts.com/markazi-text-font.html]1001Fonts[/url]  
 License: [url=http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL]SIL Open Font License (OFL)[/url]
 
-[font=res://Themes/Fonts/markazi_text_42pt.tres]Audio[/font]
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Menu, Battle, and Shelter Music[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Audio[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Menu, Battle, and Shelter Music[/font]
 Author: [url=www.soundimage.org]Eric Matyas[/url]  
 Source: [url=https://soundimage.org/wp-content/uploads/2020/06/Comrades-Always.mp3]Soundimage.org : Comrades-Always.mp3[/url]  
 Source: [url=http://soundimage.org/wp-content/uploads/2016/07/Into-Battle_v001.mp3]Soundimage.org : Into-Battle_v001.mp3[/url]  
@@ -107,12 +108,12 @@ Source: [url=http://soundimage.org/wp-content/uploads/2014/07/RPG-Battle-Climax.
 Source: [url=http://soundimage.org/wp-content/uploads/2016/04/Analog-Nostalgia.mp3]Soundimage.org : Analog-Nostalgia.mp3[/url]   
 License: [url=https://soundimage.org/attribution-info/]Attribution License[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Intro and Victory Music[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Intro and Victory Music[/font]
 Author: [url=https://fardifferent.itch.io/]Of Far Different Nature[/url]  
 Source: [url=https://fardifferent.itch.io/loops]itch.io : loops[/url]  
 License: [url=https://creativecommons.org/licenses/by/4.0/]Attribution 4.0 International (CC BY 4.0)[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Card, Deck, and Shield Up Sounds[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Card, Deck, and Shield Up Sounds[/font]
 Author: [url=https://freesound.org/people/f4ngy/]f4ngy[/url]  
 Source: [url=https://freesound.org/people/f4ngy/sounds/240776/]freesound.org : 240776[/url]  
 Source: [url=https://freesound.org/people/f4ngy/sounds/240777/]freesound.org : 240777[/url]  
@@ -120,67 +121,67 @@ Source: [url=https://freesound.org/people/f4ngy/sounds/240778/]freesound.org : 2
 Source: [url=https://freesound.org/people/f4ngy/sounds/240787/]freesound.org : 240787[/url]  
 License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Fire Sounds[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Fire Sounds[/font]
 Author: [url=https://freesound.org/people/daenerys/]daenerys[/url]  
 Source: [url=https://freesound.org/people/daenerys/sounds/260713/]freesound.org : 260713[/url]  
 License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Slicing Flesh Sound[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Slicing Flesh Sound[/font]
 Author: [url=https://freesound.org/people/NeoSpica/]NeoSpica[/url]  
 Source: [url=https://freesound.org/people/NeoSpica/sounds/504615/]freesound.org : 504615[/url]  
 License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal (CC0 1.0) Public Domain Dedication[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Shield Hit Sound[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Shield Hit Sound[/font]
 Author: [url=https://freesound.org/people/igorzets/]daenerys[/url]  
 Source: [url=https://freesound.org/people/igorzets/sounds/333941/]freesound.org : 333941[/url]  
 License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]  
 
-[font=res://Themes/Fonts/markazi_text_42pt.tres]Images[/font]
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Mountain Background Pack[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Images[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Mountain Background Pack[/font]
 Author: [url=http://ansimuz.com/site/]ansimuz[/url]  
 Source: [url=https://opengameart.org/content/mountain-at-dusk-background]OpenGameArt.Org : mountain-at-dusk-background[/url]  
 License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal (CC0 1.0) Public Domain Dedication[/url]
 
-[font=res://Themes/Fonts/markazi_text_42pt.tres]Icons[/font]
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Decks and Refresh Loop[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Icons[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Decks and Refresh Loop[/font]
 Author: [url=http://wishforge.games/]Wishforge.Games[/url]  
 Source: [url=https://wishforge.itch.io/3000-free-icons]itch.io : 3000-free-icons[/url]  
 License: [url=./Assets/Sourced/Icons/LineHeroUnlimited/License.txt]\"Standard License\"[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Battle Effects[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Battle Effects[/font]
 Author: [url=https://game-icons.net/about.html#authors]Lorc, Delapouite, and contributors[/url]  
 Source: [url=https://thewristbandit.itch.io/boxes-be-gone]itch.io : boxes-be-gone[/url]  
 Original Source: [url=https://game-icons.net/]Game-icons.net[/url]  
 License: [url=https://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]  
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Banner Art[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Banner Art[/font]
 Author: [url=https://fontawesome.com/]Font Awesome[/url]  
 Source: [url=https://fontawesome.com/]fontawesome.com[/url]  
 License: [url=https://creativecommons.org/licenses/by/4.0/]Attribution 4.0 International (CC BY 4.0)[/url]  
 
-[font=res://Themes/Fonts/markazi_text_42pt.tres]Programmer Art[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Programmer Art[/font]
 Author: [url=https://github.com/Maaack]Maaack[/url]  
 Source: [url=https://github.com/Maaack/Battle-Deck-Energy]Github[/url]  
 License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal (CC0 1.0)
 Public Domain Dedication[/url]
 
-[font=res://Themes/Fonts/markazi_text_48pt.tres]Development Tools[/font]
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Godot[/font]
+[font=res://Themes/Fonts/Credits/H2DynamicFont.tres]Development Tools[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Godot[/font]
 Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
 Source: [url=https://godotengine.org/]godotengine.org[/url]  
 License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]Git[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Git[/font]
 Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
 Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
 License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]PyCharm[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]PyCharm[/font]
 Author: [url=https://www.jetbrains.com/]Jet Brains[/url]  
 Source: [url=https://www.jetbrains.com/pycharm/download/]jetbrains.com[/url]  
 License: [url=https://www.jetbrains.com/]Copyright © 2000-2020 JetBrains s.r.o[/url]
 
-[font=res://Themes/Fonts/markazi_text_36pt.tres]GIMP[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]GIMP[/font]
 Author: [url=https://www.gimp.org/about/authors.html]Spencer Kimball, Peter Mattis, and contributors[/url]  
 Source: [url=https://www.gimp.org/downloads/]gimp.org[/url]  
 License: [url=https://www.gimp.org/about/COPYING]GNU General Public License version 3[/url][/center]
@@ -409,6 +410,7 @@ __meta__ = {
 }
 
 [node name="ScrollResetTimer" type="Timer" parent="."]
+wait_time = 1.5
 one_shot = true
 
 [node name="ContinueButton" type="Button" parent="."]

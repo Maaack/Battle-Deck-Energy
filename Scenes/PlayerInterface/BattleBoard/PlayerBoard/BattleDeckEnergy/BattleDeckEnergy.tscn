@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" type="Material" id=2]
@@ -7,12 +7,7 @@
 [ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelDynamicFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/SparksParticlesMaterial.tres" type="Material" id=6]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Assets/Sourced/Fonts/markazi-text/MarkaziText-Regular.ttf" type="DynamicFontData" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-size = 44
-extra_spacing_top = 6
-font_data = ExtResource( 8 )
+[ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelDividerDynamicFont.tres" type="DynamicFont" id=8]
 
 [node name="BattleDeckEnergy" type="Control"]
 anchor_top = 1.0
@@ -68,10 +63,10 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -56.0
-margin_top = -4.0
+margin_top = -8.0
 margin_right = -33.0
-margin_bottom = 55.0
-custom_fonts/font = SubResource( 1 )
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 8 )
 text = "/"
 align = 1
 __meta__ = {

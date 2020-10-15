@@ -5,7 +5,7 @@
 [resource]
 size = 38
 outline_size = 3
-outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+outline_color = Color( 0.243137, 0.129412, 0.215686, 1 )
 use_filter = true
 extra_spacing_bottom = -10
 extra_spacing_space = 8

@@ -1,8 +1,7 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/Cards/DescriptionBoldDynamicFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Themes/Fonts/markazi_text_20pt_bottom_shrinked.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleAttackStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/CardFront.tres" type="StyleBox" id=5]
 [ext_resource path="res://Themes/Fonts/Cards/TitleDynamicFont.tres" type="DynamicFont" id=6]
@@ -233,35 +232,6 @@ text = "Card Description will autowrap to the next line."
 fit_content_height = true
 scroll_active = false
 custom_effects = [ ExtResource( 15 ) ]
-
-[node name="OldMarginContainer" type="MarginContainer" parent="Card/Body/CardFront/DescriptionPanel"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-custom_constants/margin_right = 2
-custom_constants/margin_top = 2
-custom_constants/margin_left = 2
-custom_constants/margin_bottom = 2
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="OldDescriptionLabel" type="Label" parent="Card/Body/CardFront/DescriptionPanel/OldMarginContainer"]
-margin_left = 2.0
-margin_top = 27.0
-margin_right = 158.0
-margin_bottom = 90.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Card Description will autowrap to the next line."
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Control" type="Control" parent="Card/Body/CardFront"]
 anchor_left = 0.5

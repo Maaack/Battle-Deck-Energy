@@ -28,18 +28,19 @@ shield_audio_scene = ExtResource( 11 )
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 64.0
+margin_top = 118.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" type="Control" parent="CenterContainer"]
 margin_left = 122.0
-margin_top = 188.0
+margin_top = 161.0
 margin_right = 122.0
-margin_bottom = 188.0
+margin_bottom = 161.0
 
 [node name="Sprite" type="Sprite" parent="CenterContainer/Control"]
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

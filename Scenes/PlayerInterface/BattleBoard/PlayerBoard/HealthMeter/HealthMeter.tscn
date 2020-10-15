@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Themes/StyleBoxes/Meters/HealthMeterBGStyleBox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Meters/HealthMeterStyleBox.tres" type="StyleBox" id=3]
 [ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0368.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.gd" type="Script" id=5]
+[ext_resource path="res://Themes/Fonts/Labels/HealthDynamicFont.tres" type="DynamicFont" id=6]
 
 [node name="HealthMeter" type="Control"]
 anchor_top = 1.0
@@ -47,7 +47,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 6 )
 text = "### / ###"
 align = 1
 valign = 1
@@ -73,7 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -3.8147e-06
 margin_bottom = -2.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 6 )
 text = "##"
 align = 1
 valign = 1
