@@ -101,35 +101,6 @@ margin_right = 1248.0
 margin_bottom = 688.0
 size_flags_vertical = 7
 
-[node name="SkipLootButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsContainer"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -224.0
-margin_top = -38.0
-rect_min_size = Vector2( 224, 38 )
-size_flags_vertical = 5
-text = "Skip Loot"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ViewDeckButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsContainer"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -112.0
-margin_top = -38.0
-margin_right = 112.0
-rect_min_size = Vector2( 224, 38 )
-size_flags_vertical = 5
-text = "View Deck"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="SpawnCardTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
@@ -137,8 +108,40 @@ one_shot = true
 [node name="RepositionTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="SkipLootButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -272.0
+margin_top = -108.0
+margin_right = -48.0
+margin_bottom = -48.0
+rect_min_size = Vector2( 224, 60 )
+size_flags_vertical = 5
+text = "Skip Loot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewDeckButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -108.0
+margin_right = 112.0
+margin_bottom = -48.0
+rect_min_size = Vector2( 224, 38 )
+size_flags_vertical = 5
+text = "View Deck"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="double_clicked_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_double_clicked_card"]
 [connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
 [connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsContainer/SkipLootButton" to="." method="_on_SkipLootButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsContainer/ViewDeckButton" to="." method="_on_ViewDeckButton_pressed"]
+[connection signal="pressed" from="SkipLootButton" to="." method="_on_SkipLootButton_pressed"]
+[connection signal="pressed" from="ViewDeckButton" to="." method="_on_ViewDeckButton_pressed"]

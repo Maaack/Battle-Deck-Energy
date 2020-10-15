@@ -105,8 +105,8 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 24.0
-margin_bottom = 54.0
+margin_top = 40.5
+margin_bottom = 70.5
 text = "Heal 25% of your Max Health"
 align = 1
 valign = 1
@@ -142,8 +142,8 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 24.0
-margin_bottom = 54.0
+margin_top = 40.5
+margin_bottom = 70.5
 text = "Clean your Deck of 1 Card"
 align = 1
 __meta__ = {
@@ -171,7 +171,7 @@ __meta__ = {
 }
 
 [node name="SparkParticles2D" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 110 )
+position = Vector2( 0, 100 )
 amount = 4
 lifetime = 1.7
 process_material = ExtResource( 11 )
@@ -181,7 +181,7 @@ __meta__ = {
 }
 
 [node name="SparkParticles2D2" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 110 )
+position = Vector2( 0, 100 )
 emitting = false
 amount = 12
 lifetime = 1.7
@@ -228,7 +228,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -272.0
-margin_top = -86.0
+margin_top = -108.0
 margin_right = -48.0
 margin_bottom = -48.0
 rect_min_size = Vector2( 224, 38 )

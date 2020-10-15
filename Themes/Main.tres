@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Themes/Fonts/markazi_text_24pt.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBox.tres" type="StyleBox" id=2]
-[ext_resource path="res://Themes/StyleBoxes/Buttons/NormalStyleBox.tres" type="StyleBox" id=3]
+[ext_resource path="res://Themes/StyleBoxes/Buttons/NormalStyleBoxTexture.tres" type="StyleBox" id=3]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/PressedStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/VioletStyleBox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Themes/StyleBoxes/GrayStyleBox.tres" type="StyleBox" id=6]

@@ -1,13 +1,10 @@
-[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
+[gd_resource type="ParticlesMaterial" load_steps=2 format=2]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.075188, 0.08, 0.93, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0, 0.823242, 0.726768, 0.73817, 1, 0.823529, 0.392157, 0.443137, 1, 0.823529, 0.392157, 0.443137, 0 )
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[ext_resource path="res://Scenes/ShelterPanel/SparkGradientTexture.tres" type="Texture" id=1]
 
 [resource]
+emission_shape = 1
+emission_sphere_radius = 20.0
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 90.0
@@ -20,4 +17,4 @@ orbit_velocity_random = 0.0
 linear_accel = -166.0
 radial_accel = -20.0
 angle_random = 1.0
-color_ramp = SubResource( 2 )
+color_ramp = ExtResource( 1 )
