@@ -9,8 +9,6 @@ uniform float inner_threshold = 0.36;
 uniform float outer_threshold = 0.1;
 uniform float soft_edge = 0.08;
 
-uniform vec2 center = vec2(0.5, 0.8);
-
 float rand(vec2 coord){
 	return fract(sin(dot(coord, vec2(12.9898, 78.233)))* 43758.5453123);
 }

@@ -1,14 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
 [ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Energy"
 description = "Battle Deck Energy is spent on playing card(s), and recharges every turn."
-icon = ExtResource( 2 )
-color = Color( 1, 0.411765, 0.729412, 1 )
+color = Color( 0.823529, 0.392157, 0.443137, 1 )
 intensity = 1
 duration = 0
 type_tag = "ENERGY"

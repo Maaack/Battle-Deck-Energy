@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 title = "Health"
 description = "The life force of the player."
-color = Color( 0.803922, 0.0392157, 0.0392157, 1 )
+color = Color( 0.615686, 0.188235, 0.231373, 1 )
 intensity = 1
 duration = 0
 type_tag = "HEALTH"

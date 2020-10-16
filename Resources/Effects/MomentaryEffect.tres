@@ -1,13 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
 [ext_resource path="res://Resources/Effects/EffectData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0036.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 type_tag = "MOMENTARY"
-icon = ExtResource( 2 )
 amount = 0
-base_color = Color( 0, 0.466667, 0.862745, 1 )
 apply_mode = 0
 aim_mode = 0

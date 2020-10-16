@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/LoseEnergyOnDraw.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_0110.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/StressGlowPlayer/exhausted.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Effects/MomentaryEffect.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Effects/UnplayableEffect.tres" type="Resource" id=5]
 
@@ -14,6 +14,6 @@ Momentary.
 Unplayable."
 energy_cost = 1
 icon = ExtResource( 3 )
-base_color = Color( 0.737255, 0.109804, 0.776471, 1 )
+base_color = Color( 0.345098, 0.270588, 0.388235, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
 type = 4

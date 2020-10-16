@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/BoxesBeGone/sprite_1003.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/take-abuse.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )
 title = "Years of Abuse"
 description = "Absorb %DEFEND Damage over [b]10[/b] shields."
 energy_cost = 3
-icon = ExtResource( 5 )
-base_color = Color( 0.00392157, 0.560784, 0.0901961, 1 )
+icon = ExtResource( 3 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
 type = 2

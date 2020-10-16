@@ -1,10 +1,10 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=6 format=2]
 
-[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnNormalStyleBox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnHoverStyleBox.tres" type="StyleBox" id=2]
-[ext_resource path="res://Themes/Fonts/morris_roman_24pt.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Themes/StyleBoxes/EndTurn/EndTurnPressedStyleBox.tres" type="StyleBox" id=4]
-
+[ext_resource path="res://Themes/StyleBoxes/Buttons/PressedStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBox.tres" type="StyleBox" id=2]
+[ext_resource path="res://Themes/Fonts/Buttons/EndTurnDynamicFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Themes/StyleBoxes/Buttons/DisabledStyleBox.tres" type="StyleBox" id=4]
+[ext_resource path="res://Themes/StyleBoxes/Buttons/NormalStyleBoxTexture.tres" type="StyleBox" id=5]
 
 [resource]
 default_font = ExtResource( 3 )
@@ -17,5 +17,5 @@ Button/fonts/font = null
 Button/styles/disabled = ExtResource( 4 )
 Button/styles/focus = null
 Button/styles/hover = ExtResource( 2 )
-Button/styles/normal = ExtResource( 1 )
-Button/styles/pressed = ExtResource( 4 )
+Button/styles/normal = ExtResource( 5 )
+Button/styles/pressed = ExtResource( 1 )

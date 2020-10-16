@@ -11,7 +11,7 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
 onready var loot_container = $MarginContainer/VBoxContainer/LootMargin/LootContainer
 onready var card_manager = $MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager
-onready var skip_loot_button = $MarginContainer/VBoxContainer/OptionsContainer/SkipLootButton
+onready var skip_loot_button = $SkipLootButton
 onready var spawn_card_timer = $SpawnCardTimer
 onready var reposition_timer = $RepositionTimer
 

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Statuses/DefenseUp.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 2 )
+type_tag = "APPLY_DEFENSE_UP"
+amount = 4
+apply_mode = 1
+aim_mode = 0
+starting_statuses = [ ExtResource( 3 ) ]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Themes/Fonts/morris_roman_48_outline_3.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/DarkPanel/DarkOutlineDynamicFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/StyleBoxes/DeadGrayStyleBox.tres" type="StyleBox" id=2]
 
 [node name="DeadCover" type="Control"]

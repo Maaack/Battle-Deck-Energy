@@ -73,21 +73,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsMargin"]
+[node name="SpawnCardTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="BackButton" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -38.0
-margin_right = 224.0
+margin_left = 48.0
+margin_top = -108.0
+margin_right = 272.0
+margin_bottom = -48.0
 rect_min_size = Vector2( 224, 38 )
 size_flags_vertical = 5
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SpawnCardTimer" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
 [connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
 [connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsMargin/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
