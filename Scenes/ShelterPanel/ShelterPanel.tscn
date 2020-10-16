@@ -7,10 +7,10 @@
 [ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=5]
 [ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Scenes/ShelterPanel/FireShaderMaterial.tres" type="Material" id=7]
-[ext_resource path="res://Scenes/ShelterPanel/FlameParticles2D.tres" type="Material" id=8]
+[ext_resource path="res://Scenes/ShelterPanel/SparkGradient.tres" type="Gradient" id=8]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_blowing.ogg" type="AudioStream" id=10]
-[ext_resource path="res://Scenes/ShelterPanel/SparkParticles2D.tres" type="Material" id=11]
+[ext_resource path="res://Scenes/ShelterPanel/FlameGradient.tres" type="Gradient" id=11]
 [ext_resource path="res://Assets/Originals/Particles/spark_8x8.png" type="Texture" id=12]
 
 [node name="ShelterPanel" type="Control"]
@@ -159,34 +159,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlowingParticles2D" type="Particles2D" parent="CentralControl"]
+[node name="BlowingParticles2D" type="CPUParticles2D" parent="CentralControl"]
 position = Vector2( 0, 60 )
 emitting = false
 amount = 50
 lifetime = 1.8
-process_material = ExtResource( 8 )
 texture = ExtResource( 5 )
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, -98 )
+initial_velocity = 120.0
+initial_velocity_random = 0.3
+linear_accel = -100.0
+color_ramp = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SparkParticles2D" type="Particles2D" parent="CentralControl"]
+[node name="SparkParticles2D" type="CPUParticles2D" parent="CentralControl"]
 position = Vector2( 0, 100 )
 amount = 4
 lifetime = 1.7
-process_material = ExtResource( 11 )
 texture = ExtResource( 12 )
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector2( 0, -1 )
+spread = 60.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 120.0
+initial_velocity_random = 0.3
+linear_accel = -80.0
+color_ramp = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SparkParticles2D2" type="Particles2D" parent="CentralControl"]
+[node name="SparkParticles2D2" type="CPUParticles2D" parent="CentralControl"]
 position = Vector2( 0, 100 )
-emitting = false
 amount = 12
 lifetime = 1.7
-process_material = ExtResource( 11 )
 texture = ExtResource( 12 )
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector2( 0, -1 )
+spread = 60.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 120.0
+initial_velocity_random = 0.3
+linear_accel = -90.0
+color_ramp = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
