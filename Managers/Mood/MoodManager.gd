@@ -19,6 +19,13 @@ export(AudioStream) var victory_song : AudioStream
 
 var current_mood : String
 
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_mute"):
+		if audio_player.stream_paused:
+			audio_player.stream_paused = false
+		else:
+			audio_player.stream_paused = true
+
 func update_mood():
 	match(current_mood):
 		INTRO_MOOD:
