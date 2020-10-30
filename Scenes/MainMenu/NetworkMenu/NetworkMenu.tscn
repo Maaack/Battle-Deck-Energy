@@ -262,8 +262,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="text_changed" from="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer/PlayerNameLineEdit" to="." method="_on_PlayerNameLineEdit_text_changed"]
+[connection signal="text_changed" from="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer/IPLineEdit" to="." method="_on_IPLineEdit_text_changed"]
 [connection signal="pressed" from="MultiplayerPanel/ButtonsMargin/ButtonsHBox/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="MultiplayerPanel/ButtonsMargin/ButtonsHBox/HostButton" to="." method="_on_HostButton_pressed"]
 [connection signal="pressed" from="MultiplayerPanel/ButtonsMargin/ButtonsHBox/JoinButton" to="." method="_on_JoinButton_pressed"]
-[connection signal="pressed" from="LobbyPanel/ButtonsMargin/ButtonsHBox/LeaveButton" to="." method="_on_BackButton_pressed"]
-[connection signal="pressed" from="LobbyPanel/ButtonsMargin/ButtonsHBox/StartButton" to="." method="_on_JoinButton_pressed"]
+[connection signal="pressed" from="LobbyPanel/ButtonsMargin/ButtonsHBox/LeaveButton" to="." method="_on_LeaveButton_pressed"]

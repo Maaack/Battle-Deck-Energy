@@ -9,7 +9,7 @@ var credits_scene = preload("res://Scenes/Credits/Credits.tscn")
 func _ready():
 	animation_player.play("SlideInLeft")
 
-func _on_NewGameButton_pressed():
+func _on_CampaignGameButton_pressed():
 	get_tree().change_scene("res://Scenes/CampaignInterface/CampaignInterface.tscn")
 
 func _on_CreditsButton_pressed():
@@ -18,3 +18,6 @@ func _on_CreditsButton_pressed():
 
 func _on_ExitGameButton_pressed():
 	get_tree().quit()
+
+func _on_MultiplayerButton_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")

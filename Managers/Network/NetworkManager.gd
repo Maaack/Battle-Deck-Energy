@@ -19,7 +19,6 @@ signal connection_failed
 signal server_disconnected
 
 sync func register_player(player_id : int, player_name : String):
-	print("register_player %d %s" % [player_id, player_name])
 	var new_player : PlayerData = PlayerData.new()
 	new_player.name = player_name
 	players[player_id] = new_player
@@ -38,7 +37,6 @@ func _on_player_disconnected(disconnected_player_id : int):
 
 func _on_player_connected(connected_player_id : int):
 	var local_player_id : int = get_tree().get_network_unique_id()
-	print("Sending %d data about %s" % [connected_player_id, str(local_player)])
 	rpc_id(connected_player_id, 'register_player', local_player_id, local_player.name)
 
 func _on_connected_to_server():
@@ -50,10 +48,10 @@ func _on_connection_failed():
 	emit_signal("connection_failed")
 
 func _on_server_disconnected():
+	players.clear()
 	emit_signal("server_disconnected")
 
 func host_server(port : int = DEFAULT_SERVER_PORT, max_players : int = DEFAULT_MAX_PLAYERS):
-	print("hosting server at port %d " % port)
 	server_port = port
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(port, max_players)
@@ -66,6 +64,10 @@ func join_server(ip : String = DEFAULT_SERVER_IP, port : int = DEFAULT_SERVER_PO
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_client(ip, port)
 	get_tree().set_network_peer(peer)
+
+func leave_server():
+	players.clear()
+	get_tree().set_network_peer(null)
 
 func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
