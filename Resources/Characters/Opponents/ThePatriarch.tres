@@ -9,8 +9,8 @@
 
 [resource]
 script = ExtResource( 1 )
+nickname = "The Patriarch"
 starting_max_health = 166
 starting_max_energy = 3
 starting_hand_size = 5
 starting_deck = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 6 ) ]
-nickname = "The Patriarch"

@@ -8,8 +8,7 @@ onready var opponent_opportunities_container = $MarginContainer/MarginContainer/
 
 func set_character_data(value:CharacterData):
 	.set_character_data(value)
-	if character_data is OpponentCharacterData:
-		_update_nickname(character_data.nickname)
+	_update_nickname(character_data.nickname)
 
 func add_opportunity(opportunity:OpportunityData):
 	if opportunity in opportunities_map:

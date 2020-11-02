@@ -162,14 +162,12 @@ __meta__ = {
 material = ExtResource( 5 )
 position = Vector2( 249.966, 80.1074 )
 rotation = 0.000429718
-scale = Vector2( 1, 1 )
 texture = ExtResource( 8 )
 
 [node name="DeckSprite" type="Sprite" parent="MarginContainer/MainControl/TitleContainer/BattleDeckLabel"]
 material = ExtResource( 5 )
 position = Vector2( 626.963, 86.2694 )
 rotation = 0.000429718
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="EnergyLabel" type="Label" parent="MarginContainer/MainControl/TitleContainer"]

@@ -7,8 +7,8 @@
 
 [resource]
 script = ExtResource( 1 )
+nickname = "Leech"
 starting_max_health = 4
 starting_max_energy = 0
 starting_hand_size = 2
 starting_deck = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ]
-nickname = "Leech"

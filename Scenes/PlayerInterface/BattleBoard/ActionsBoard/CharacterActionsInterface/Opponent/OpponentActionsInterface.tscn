@@ -12,7 +12,7 @@ script = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 122, 240 )
 
-[node name="MarginContainer" parent="." index="1"]
+[node name="MarginContainer" parent="." index="2"]
 margin_bottom = 4.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer" index="0"]
@@ -44,5 +44,5 @@ rect_scale = Vector2( 0.5, 0.5 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="DeadCover" parent="." index="2" instance=ExtResource( 2 )]
+[node name="DeadCover" parent="." index="4" instance=ExtResource( 2 )]
 [connection signal="update_opportunity" from="MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer" to="." method="_on_OpportunitiesContainter_update_opportunity"]

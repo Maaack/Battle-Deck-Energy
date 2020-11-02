@@ -67,9 +67,15 @@ func open_multiplayer_menu():
 	$LobbyPanel.hide()
 	$MultiplayerPanel.show()
 
+remotesync func start_game():
+	get_tree().change_scene("res://Scenes/MultiplayerInterface/MultiplayerInterface.tscn")
+
 func _on_server_disconnected():
 	open_multiplayer_menu()
 
 func _on_LeaveButton_pressed():
 	Network.leave_server()
 	open_multiplayer_menu()
+
+func _on_StartButton_pressed():
+	rpc('start_game')
