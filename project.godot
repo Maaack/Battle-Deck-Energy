@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Levels/BattleLevelData.gd"
 }, {
-"base": "Node",
-"class": "BattlePhase",
-"language": "GDScript",
-"path": "res://Scenes/BattleInterface/BattlePhase/BattlePhase.gd"
-}, {
 "base": "AnimationData",
 "class": "CardAnimationData",
 "language": "GDScript",
@@ -109,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Effects/EffectCalculator.gd"
 }, {
+"base": "Object",
+"class": "EffectCardFilter",
+"language": "GDScript",
+"path": "res://Managers/Effects/EffectCardFilter.gd"
+}, {
 "base": "Resource",
 "class": "EffectData",
 "language": "GDScript",
@@ -144,6 +144,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Network/NetworkManager.gd"
 }, {
+"base": "Node",
+"class": "NewCharacterBattleManager",
+"language": "GDScript",
+"path": "res://Managers/NewCharacterBattle/NewCharacterBattleManager.gd"
+}, {
 "base": "CharacterActionsInterface",
 "class": "OpponentActionsInterface",
 "language": "GDScript",
@@ -163,6 +168,11 @@ _global_script_classes=[ {
 "class": "OpportunityData",
 "language": "GDScript",
 "path": "res://Resources/Opportunity/OpportunityData.gd"
+}, {
+"base": "Node",
+"class": "Phase",
+"language": "GDScript",
+"path": "res://Managers/BattlePhase/Phase.gd"
 }, {
 "base": "CharacterActionsInterface",
 "class": "PlayerActionsInterface",
@@ -244,7 +254,6 @@ _global_script_class_icons={
 "AnimationData": "",
 "AnimationQueue": "",
 "BattleLevelData": "",
-"BattlePhase": "",
 "CardAnimationData": "",
 "CardContainer": "",
 "CardData": "",
@@ -260,6 +269,7 @@ _global_script_class_icons={
 "DeckViewer": "",
 "DefinitionData": "",
 "EffectCalculator": "",
+"EffectCardFilter": "",
 "EffectData": "",
 "FocusedCardManager": "",
 "HandData": "",
@@ -267,10 +277,12 @@ _global_script_class_icons={
 "LevelData": "",
 "MoodManager": "",
 "NetworkManager": "",
+"NewCharacterBattleManager": "",
 "OpponentActionsInterface": "",
 "OpponentCharacterData": "",
 "OpportunitiesContainer": "",
 "OpportunityData": "",
+"Phase": "",
 "PlayerActionsInterface": "",
 "PlayerData": "",
 "ScrollingTextPanel": "",

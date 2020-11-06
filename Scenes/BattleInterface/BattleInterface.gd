@@ -66,7 +66,7 @@ func _take_enemy_turn():
 	for opponent in opponents:
 		if _battle_ended:
 			return
-		if not opponent.is_active():
+		if not opponent.is_alive():
 			continue
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
 		manager.update_early_start_of_turn_statuses()
@@ -94,8 +94,8 @@ func _start_player_turn():
 
 func _end_player_turn():
 	var cards_in_hand : Array = player_battle_manager.hand.cards.duplicate()
-	var discarding_cards : Array = effects_manager.include_discardable_cards(cards_in_hand)
-	var exhausting_cards : Array = effects_manager.include_exhaustable_cards(cards_in_hand)
+	var discarding_cards : Array = EffectCardFilter.include_discardable_cards(cards_in_hand)
+	var exhausting_cards : Array = EffectCardFilter.include_exhaustable_cards(cards_in_hand)
 	if discarding_cards.size() + exhausting_cards.size() > 0:
 		player_interface.connect("discard_completed", battle_phase_manager, "advance")
 		for discarding_card in discarding_cards:
@@ -111,7 +111,7 @@ func setup_battle():
 		return
 	_skip_opening_phase = true
 	var starting_cards : Array = player_battle_manager.draw_pile.cards.duplicate()
-	var innate_cards : Array = effects_manager.include_innate_cards(starting_cards)
+	var innate_cards : Array = EffectCardFilter.include_innate_cards(starting_cards)
 	if innate_cards.size() > 0:
 		player_interface.connect("drawing_completed", battle_phase_manager, "advance")
 		for innate_card in innate_cards:
@@ -220,14 +220,14 @@ func _on_EnemyResolution_phase_entered():
 	for opponent in opponents:
 		if _battle_ended:
 			return
-		if not opponent.is_active():
+		if not opponent.is_alive():
 			continue
 		var manager : CharacterBattleManager = _character_manager_map[opponent]
 		player_interface.mark_character_active(opponent)
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
 		manager.update_late_start_of_turn_statuses()
-		if not opponent.is_active():
+		if not opponent.is_alive():
 			player_interface.mark_character_inactive(opponent)
 			continue
 		advance_action_timer.start()
@@ -282,7 +282,7 @@ func _count_active_opponents():
 	var active_opponents : int = 0
 	for opponent in opponents:
 		if opponent is CharacterData:
-			if opponent.is_active():
+			if opponent.is_alive():
 				active_opponents += 1
 	return active_opponents
 

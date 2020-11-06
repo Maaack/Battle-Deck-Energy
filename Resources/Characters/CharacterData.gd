@@ -19,7 +19,7 @@ var hand_size : int = 0
 func _to_string():
 	return "Character:%d" % get_instance_id()
 
-func is_active():
+func is_alive():
 	return health > 0
 
 func reset_health():

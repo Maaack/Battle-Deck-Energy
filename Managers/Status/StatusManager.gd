@@ -3,7 +3,7 @@ extends Node
 
 class_name StatusManager
 
-signal updated_status(status, delta)
+signal status_updated(status, delta)
 
 enum CycleMode{NONE, START_1, START_2, START_3, END}
 
@@ -29,7 +29,7 @@ func gain_status(status:StatusData, cycle_mode:int = CycleMode.NONE):
 	var local_status = get_local_status(status, cycle_mode)
 	var stack_delta = status.get_stack_value()
 	local_status.add_to_stack(stack_delta)
-	emit_signal("updated_status", local_status.duplicate(), stack_delta)
+	emit_signal("status_updated", local_status.duplicate(), stack_delta)
 
 func lose_status(status:StatusData):
 	var status_type : String = status.type_tag
@@ -42,11 +42,11 @@ func decrement_duration(status:StatusData):
 	if status.has_the_d():
 		status.duration -= 1
 		if status.stacks_the_d():
-			emit_signal("updated_status", status.duplicate(), -1)
+			emit_signal("status_updated", status.duplicate(), -1)
 		elif not status.has_the_d():
 			var diff : int = -(status.get_stack_value())
 			status.reset_stack()
-			emit_signal("updated_status", status.duplicate(), diff)
+			emit_signal("status_updated", status.duplicate(), diff)
 		if not status.has_the_d():
 			lose_status(status)
 

@@ -10,7 +10,7 @@ onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
-var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/BattleInterface.tscn")
+var battle_interface_scene : PackedScene = preload("res://Scenes/MultiplayerBattleInterface/MultiplayerBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
@@ -44,11 +44,9 @@ func start_battle():
 		if player is PlayerData:
 			var player_character : CharacterData = starting_player_data.duplicate()
 			player_character.nickname = player.name
+			battle_interface.add_character(player_character, player.name)
 			if player.name == Network.local_player.name:
-				battle_interface.player_data = player_character
-			else:
-				local_opponents.append(player_character)
-	battle_interface.opponents = local_opponents
+				battle_interface.player_character = player_character
 	battle_interface.start_battle()
 
 func _ready():

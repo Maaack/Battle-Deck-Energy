@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Managers/MultiplayerBattle/MultiplayerBattleManager.gd" type="Script" id=1]
+[ext_resource path="res://Managers/BattlePhase/PhaseManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Managers/Effects/EffectManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Managers/BattlePhase/Phase.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Managers/Team/TeamManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Managers/Opportunities/OpportunitiesManager.tscn" type="PackedScene" id=7]
+
+[node name="MultiplayerBattleManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="AdvancePhaseTimer" type="Timer" parent="."]
+
+[node name="AdvanceCharacterTimer" type="Timer" parent="."]
+
+[node name="AdvanceActionTimer" type="Timer" parent="."]
+
+[node name="BattlePhaseManager" parent="." instance=ExtResource( 2 )]
+
+[node name="BattleStart" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+
+[node name="RoundStart" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+
+[node name="TeamPhase" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+
+[node name="RoundEnd" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+
+[node name="TeamPhaseManager" parent="." instance=ExtResource( 2 )]
+starting_phase_tier = 0
+
+[node name="TeamStart" parent="TeamPhaseManager" instance=ExtResource( 5 )]
+
+[node name="CharacterPhaseManager" parent="." instance=ExtResource( 2 )]
+starting_phase_tier = 0
+
+[node name="CharacterStart" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+
+[node name="DrawingCards" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+
+[node name="Playing" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+
+[node name="DiscardingCards" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+
+[node name="EffectManager" parent="." instance=ExtResource( 3 )]
+
+[node name="TeamManager" parent="." instance=ExtResource( 6 )]
+
+[node name="OpportunitiesManager" parent="." instance=ExtResource( 7 )]
+[connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
+[connection signal="phase_entered" from="BattlePhaseManager/BattleStart" to="." method="_on_BattleStart_phase_entered"]
+[connection signal="phase_entered" from="BattlePhaseManager/RoundStart" to="." method="_on_RoundStart_phase_entered"]
+[connection signal="phase_entered" from="BattlePhaseManager/TeamPhase" to="." method="_on_TeamPhase_phase_entered"]
+[connection signal="phase_entered" from="BattlePhaseManager/RoundEnd" to="." method="_on_RoundEnd_phase_entered"]
+[connection signal="phase_entered" from="TeamPhaseManager/TeamStart" to="." method="_on_TeamStart_phase_entered"]
+[connection signal="phase_entered" from="CharacterPhaseManager/CharacterStart" to="." method="_on_CharacterStart_phase_entered"]
+[connection signal="add_card_to_discard_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_discard_pile"]
+[connection signal="add_card_to_draw_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_draw_pile"]
+[connection signal="add_card_to_hand" from="EffectManager" to="." method="_on_EffectManager_add_card_to_hand"]
+[connection signal="add_opportunity" from="EffectManager" to="." method="_on_EffectManager_add_opportunity"]
+[connection signal="apply_energy" from="EffectManager" to="." method="_on_EffectManager_apply_energy"]
+[connection signal="apply_health" from="EffectManager" to="." method="_on_EffectManager_apply_health"]
+[connection signal="apply_status" from="EffectManager" to="." method="_on_EffectManager_apply_status"]
+[connection signal="draw_from_draw_pile" from="EffectManager" to="." method="_on_EffectManager_draw_from_draw_pile"]
+[connection signal="opportunity_added" from="OpportunitiesManager" to="." method="_on_OpportunitiesManager_opportunity_added"]
+[connection signal="opportunity_removed" from="OpportunitiesManager" to="." method="_on_OpportunitiesManager_opportunity_removed"]

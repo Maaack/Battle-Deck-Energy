@@ -31,7 +31,7 @@ func opponents_take_turn(opportunities:Array):
 	for child in get_children():
 		if child is CharacterBattleManager:
 			var character_data = child.character_data
-			if not character_data.is_active():
+			if not character_data.is_alive():
 				continue
 			child.draw_hand()
 			var played_cards : Dictionary = character_played_cards[character_data]
