@@ -11,10 +11,15 @@
 script = ExtResource( 1 )
 
 [node name="AdvancePhaseTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
 
 [node name="AdvanceCharacterTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="AdvanceActionTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [node name="BattlePhaseManager" parent="." instance=ExtResource( 2 )]
 
@@ -54,6 +59,8 @@ starting_phase_tier = 0
 [connection signal="phase_entered" from="BattlePhaseManager/RoundEnd" to="." method="_on_RoundEnd_phase_entered"]
 [connection signal="phase_entered" from="TeamPhaseManager/TeamStart" to="." method="_on_TeamStart_phase_entered"]
 [connection signal="phase_entered" from="CharacterPhaseManager/CharacterStart" to="." method="_on_CharacterStart_phase_entered"]
+[connection signal="phase_entered" from="CharacterPhaseManager/DrawingCards" to="." method="_on_DrawingCards_phase_entered"]
+[connection signal="phase_entered" from="CharacterPhaseManager/Playing" to="." method="_on_Playing_phase_entered"]
 [connection signal="add_card_to_discard_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_discard_pile"]
 [connection signal="add_card_to_draw_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_draw_pile"]
 [connection signal="add_card_to_hand" from="EffectManager" to="." method="_on_EffectManager_add_card_to_hand"]

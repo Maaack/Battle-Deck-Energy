@@ -40,13 +40,15 @@ func start_battle():
 	battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
 	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 	var local_opponents : Array = []
+	var local_player_character : CharacterData
 	for player in Network.players.values():
 		if player is PlayerData:
 			var player_character : CharacterData = starting_player_data.duplicate()
 			player_character.nickname = player.name
 			battle_interface.add_character(player_character, player.name)
 			if player.name == Network.local_player.name:
-				battle_interface.player_character = player_character
+				local_player_character = player_character
+	battle_interface.player_character = local_player_character
 	battle_interface.start_battle()
 
 func _ready():

@@ -22,6 +22,11 @@ func add_character(character : CharacterData, team : String):
 func set_player_character(value : CharacterData):
 	player_character = value
 	player_interface.player_data = value
+	for character_data in battle_manager.get_all_characters():
+		if character_data is CharacterData:
+			if character_data == value:
+				continue
+			player_interface.add_opponent(character_data)
 
 func start_battle():
 	battle_manager.start_battle()
@@ -30,17 +35,37 @@ func _on_hand_drawn(character : CharacterData):
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
 	player_interface.mark_character_inactive(character)
-	player_interface.start_turn()
+	battle_manager.advance_character_phase()
+
+func _on_hand_discarded(character :  CharacterData):
+	if player_interface.is_connected("discard_completed", self, "_on_hand_discarded"):
+		player_interface.disconnect("discard_completed", self, "_on_hand_discarded")
+	battle_manager.advance_character_phase()
 
 func _on_BattleManager_active_character_updated(character : CharacterData):
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
 	player_interface.mark_character_active(character)
 
-func _on_CharacterBattleManager_drew_card(card):
-	player_interface.draw_card(card)
+func _on_MultiplayerBattleManager_turn_started(character : CharacterData):
+	if character == player_character:
+		player_interface.start_turn()
 
-func _on_CharacterBattleManager_drew_card_from_draw_pile(card):
-	player_interface.draw_card_from_draw_pile(card)
+func _on_MultiplayerBattleManager_before_hand_discarded(character : CharacterData):
+	if character == player_character:
+		player_interface.connect("discard_completed", self, "_on_hand_discarded", [character])
+
+func _on_MultiplayerBattleManager_before_hand_drawn(character : CharacterData):
+	if character == player_character:
+		player_interface.connect("drawing_completed", self, "_on_hand_drawn", [character])
+
+func _on_MultiplayerBattleManager_card_drawn(character : CharacterData, card : CardData):
+	if character == player_character:
+		player_interface.draw_card_from_draw_pile(card)
+
+func _on_MultiplayerBattleManager_card_added_to_hand(character : CharacterData, card : CardData):
+	if character == player_character:
+		print("card added to hand %s " % card)
+		player_interface.draw_card(card)
 
 func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
 	battle_manager.on_card_played(player_character, card, opportunity)
@@ -48,25 +73,29 @@ func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:O
 func _on_PlayerInterface_ending_turn():
 	battle_manager.advance_character_phase()
 
-func _on_CharacterBattleManager_discarded_card(card):
-	player_interface.discard_card(card)
+func _on_MultiplayerBattleManager_card_discarded(character : CharacterData, card : CardData):
+	if character == player_character:
+		player_interface.discard_card(card)
 	
-func _on_CharacterBattleManager_exhausted_card(card):
-	player_interface.exhaust_card(card)
+func _on_MultiplayerBattleManager_card_exhausted(character : CharacterData, card : CardData):
+	if character == player_character:
+		player_interface.exhaust_card(card)
 
-func _on_CharacterBattleManager_reshuffled_card(card):
-	player_interface.reshuffle_card(card)
+func _on_MultiplayerBattleManager_card_reshuffled(character : CharacterData, card : CardData):
+	if character == player_character:
+		player_interface.reshuffle_card(card)
 
-func _on_CharacterBattleManager_played_card(character: CharacterData, card:CardData, opportunity:OpportunityData):
-	player_interface.play_card(character, card, opportunity)
+func _on_MultiplayerBattleManager_card_played(character : CharacterData, card : CardData, opportunity : OpportunityData):
+	if character == player_character:
+		player_interface.play_card(character, card, opportunity)
 
-func _on_BattleOpportunitiesManager_opportunity_added(opportunity:OpportunityData):
+func _on_MultiplayerBattleManager_opportunity_added(opportunity : OpportunityData):
 	player_interface.add_opportunity(opportunity)
 
-func _on_BattleOpportunitiesManager_opportunity_removed(opportunity:OpportunityData):
+func _on_MultiplayerBattleManager_opportunity_removed(opportunity : OpportunityData):
 	player_interface.remove_opportunity(opportunity)
 
-func _on_CharacterBattleManager_updated_status(character, status, delta):
+func _on_MultiplayerBattleManager_status_updated(character : CharacterData, status : StatusData, delta : int):
 	player_interface.update_status(character, status, delta)
 
 func _duplicate_array_contents(values:Array):
@@ -111,9 +140,3 @@ func _on_PlayerInterface_status_inspected(status_icon):
 
 func _on_PlayerInterface_status_forgotten(status_icon):
 	emit_signal("status_forgotten", status_icon)
-
-func _on_MultiplayerBattleManager_before_hand_discarded(character):
-	player_interface.connect("discard_completed", battle_manager, "advance_character_phase")
-
-func _on_MultiplayerBattleManager_before_hand_drawn(character):
-	player_interface.connect("drawing_completed", battle_manager, "advance_character_phase")

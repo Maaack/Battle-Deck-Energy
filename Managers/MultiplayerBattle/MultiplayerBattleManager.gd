@@ -14,6 +14,7 @@ signal active_character_updated(character)
 signal active_team_updated(team)
 signal before_hand_discarded(character)
 signal before_hand_drawn(character)
+signal turn_started(character)
 signal team_lost(team)
 signal team_won(team)
 signal opportunity_added(opportunity)
@@ -41,7 +42,7 @@ func add_team(team : String):
 	if not team in teams_in_play:
 		teams_in_play.append(team)
 		var team_phase_instance : Phase = team_phase_manager.add_phase(team)
-		team_phase_instance.connect("phase_entered", self, "_on_Team_phase_entered")
+		team_phase_instance.connect("phase_entered", self, "_on_Team_phase_entered", [team])
 
 func add_character(character_data : CharacterData, team : String):
 	if character_data in _character_manager_map:
@@ -66,13 +67,18 @@ func get_character_manager(character_data : CharacterData):
 	if character_data in _character_manager_map:
 		return _character_manager_map[character_data]
 
+func get_all_characters():
+	return _character_manager_map.keys()
+
 func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
 		active_character = character_data
+		print("active character: %s" % character_data)
 		emit_signal("active_character_updated")
 	var team : String = team_manager.get_team(character_data)
 	if active_team != team:
 		active_team = team
+		print("active team: %s" % team)
 		emit_signal("active_team_updated")
 
 func start_battle():
@@ -88,17 +94,20 @@ func _setup_opportunities(character_data : CharacterData):
 	opportunities_manager.add_opportunity(CardData.CardType.SKILL, character_data, character_data)
 
 func _start_character_turn(character_data : CharacterData):
-	var character_manager = _character_manager_map[character_data]
 	_set_active_character(character_data)
 	_setup_opportunities(character_data)
 	advance_action_timer.start()
 	yield(advance_action_timer, "timeout")
+	character_phase_manager.advance()
+
+func _active_character_draws():
+	var character_manager = _character_manager_map[active_character]
 	character_manager.update_early_start_of_turn_statuses()
 	character_manager.update_late_start_of_turn_statuses()
 	advance_action_timer.start()
 	yield(advance_action_timer, "timeout")
 	character_manager.reset_energy()
-	emit_signal("before_hand_drawn", character_data)
+	emit_signal("before_hand_drawn", active_character)
 	character_manager.draw_hand()
 
 func _end_character_turn(character_data : CharacterData):
@@ -117,7 +126,7 @@ func setup_battle():
 	_skip_battle_setup = true
 	for character_manager in _character_manager_map.values():
 		if character_manager.has_innate_cards_in_draw_pile():
-			character_manager.draw_card()
+			character_manager.draw_innate_cards()
 	battle_phase_manager.advance()
 
 func start_round():
@@ -199,6 +208,13 @@ func _on_Team_phase_entered(team : String):
 		if not character.is_alive():
 			continue
 		_set_active_character(character)
+		_start_character_turn(character)
+		return
+	team_phase_manager.advance()
+
+func _on_DrawingCards_phase_entered():
+	_active_character_draws()
+
 
 func _on_BattleStart_phase_entered():
 	setup_battle()
@@ -269,3 +285,5 @@ func _on_OpportunitiesManager_opportunity_added(opportunity):
 func _on_OpportunitiesManager_opportunity_removed(opportunity):
 	emit_signal("opportunity_removed", opportunity)
 
+func _on_Playing_phase_entered():
+	emit_signal("turn_started", active_character)
