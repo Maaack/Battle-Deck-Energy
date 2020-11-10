@@ -48,6 +48,8 @@ func add_character(character_data : CharacterData, team : String):
 	if character_data in _character_manager_map:
 		return
 	var battle_manager = character_battle_manager_scene.instance()
+	battle_manager.name = character_data.nickname + 'CharacterBattleManager'
+	battle_manager.owner 
 	add_child(battle_manager)
 	battle_manager.character_data = character_data
 	battle_manager.connect("card_added_to_hand", self, "_on_CharacterBattleManager_card_added_to_hand")
@@ -62,6 +64,11 @@ func add_character(character_data : CharacterData, team : String):
 	add_team(team)
 	_character_manager_map[character_data] = battle_manager
 	team_manager.add_character(character_data, team)
+	return battle_manager
+
+func add_player(player_id : int, character_data : CharacterData, team : String):
+	var battle_manager = add_character(character_data, team)
+	battle_manager.set_network_master(player_id)
 
 func get_character_manager(character_data : CharacterData):
 	if character_data in _character_manager_map:
@@ -73,12 +80,12 @@ func get_all_characters():
 func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
 		active_character = character_data
-		print("active character: %s" % character_data)
+		print("Active character: %s" % character_data)
 		emit_signal("active_character_updated")
 	var team : String = team_manager.get_team(character_data)
 	if active_team != team:
 		active_team = team
-		print("active team: %s" % team)
+		print("Active team: %s" % team)
 		emit_signal("active_team_updated")
 
 func start_battle():
@@ -111,7 +118,7 @@ func _active_character_draws():
 	character_manager.draw_hand()
 
 func _end_character_turn(character_data : CharacterData):
-	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
+	var character_manager : NewCharacterBattleManager = _character_manager_map[character_data]
 	character_manager.update_end_of_turn_statuses()
 	if character_manager.has_discardable_cards_in_hand():
 		emit_signal("before_hand_discarded", character_data)
@@ -137,7 +144,7 @@ func advance_character_phase():
 	character_phase_manager.advance()
 
 func _discard_or_exhaust_card(character:CharacterData, card:CardData):
-	var character_battle_manager : CharacterBattleManager = _character_manager_map[character]
+	var character_battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	if card.has_effect(EffectCalculator.EXHAUST_EFFECT):
 		character_battle_manager.exhaust_card(card)
 	else:
@@ -170,13 +177,14 @@ func _on_CharacterBattleManager_card_reshuffled(character : CharacterData, card 
 	emit_signal("card_reshuffled", character, card)
 
 func on_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
-	emit_signal("card_played", character, card)
+	var character_battle_manager : NewCharacterBattleManager = _character_manager_map[character]
+	character_battle_manager.play_card_on_opportunity(card, opportunity)
+
+func _on_CharacterBattleManager_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
+	emit_signal("card_played", character, card, opportunity)
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 	opportunities_manager.remove_opportunity(opportunity)
 	_discard_or_exhaust_card(character, card)
-
-func _on_CharacterBattleManager_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
-	on_card_played(character, card, opportunity)
 
 func _on_CharacterBattleManager_status_updated(character : CharacterData, status, delta):
 	emit_signal("status_updated", character, status, delta)
@@ -215,7 +223,6 @@ func _on_Team_phase_entered(team : String):
 func _on_DrawingCards_phase_entered():
 	_active_character_draws()
 
-
 func _on_BattleStart_phase_entered():
 	setup_battle()
 
@@ -232,7 +239,7 @@ func _on_TeamPhase_phase_entered():
 	team_phase_manager.advance()
 
 func _on_CharacterStart_phase_entered():
-	pass # Cycle to next character
+	team_phase_manager.advance()
 
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
@@ -240,7 +247,7 @@ func _on_AdvancePhaseTimer_timeout():
 func _on_EffectManager_apply_health(character, health):
 	if not character in _character_manager_map:
 		return
-	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	var battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	if health < 0:
 		var damage : int = -(health)
 		battle_manager.take_damage(damage)
@@ -250,32 +257,32 @@ func _on_EffectManager_apply_health(character, health):
 func _on_EffectManager_apply_status(character, status, origin):
 	if not character in _character_manager_map:
 		return
-	var character_manager : CharacterBattleManager = _character_manager_map[character]
+	var character_manager : NewCharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_status(status, origin)
 
 func _on_EffectManager_apply_energy(character, energy):
 	if not character in _character_manager_map:
 		return
-	var character_manager : CharacterBattleManager = _character_manager_map[character]
+	var character_manager : NewCharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_energy(energy)
 
 func _on_EffectManager_add_opportunity(type, source, target):
 	opportunities_manager.add_opportunity(type, source, target)
 
 func _on_EffectManager_add_card_to_hand(card, character):
-	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	var battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	battle_manager.add_card_to_hand(card)
 
 func _on_EffectManager_add_card_to_draw_pile(card, character):
-	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	var battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	battle_manager.add_card_to_draw_pile(card)
 
 func _on_EffectManager_add_card_to_discard_pile(card, character):
-	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	var battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	battle_manager.add_card_to_discard_pile(card)
 
 func _on_EffectManager_draw_from_draw_pile(character, count):
-	var battle_manager : CharacterBattleManager = _character_manager_map[character]
+	var battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	for _i in range(count):
 		battle_manager.draw_card()
 
@@ -287,3 +294,6 @@ func _on_OpportunitiesManager_opportunity_removed(opportunity):
 
 func _on_Playing_phase_entered():
 	emit_signal("turn_started", active_character)
+
+func _on_DiscardingCards_phase_entered():
+	_end_character_turn(active_character)

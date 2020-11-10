@@ -11,33 +11,49 @@ onready var server_ip : String = DEFAULT_SERVER_IP
 onready var server_port : int = DEFAULT_SERVER_PORT
 
 var players : Dictionary = {}
+var players_synced : Array = []
 var local_player : PlayerData
 
 signal player_list_changed
 signal connection_succeeded
 signal connection_failed
 signal server_disconnected
+signal synced
 
-sync func register_player(player_id : int, player_name : String):
+func is_server():
+	return get_tree().get_network_unique_id() == 1
+
+remotesync func _register_player(player_id : int, player_name : String):
 	var new_player : PlayerData = PlayerData.new()
 	new_player.name = player_name
 	players[player_id] = new_player
+	print(players)
 	emit_signal("player_list_changed")
 
-func register_local_player():
-	var local_player_id : int = get_tree().get_network_unique_id()
-	rpc('register_player', local_player_id, local_player.name)
-
-func unregister_player(player_id : int):
+func _unregister_player(player_id : int):
 	players.erase(player_id)
 	emit_signal("player_list_changed")
 
+remotesync func _sync_player(player_id : int):
+	if not player_id in players_synced:
+		players_synced.append(player_id)
+	if players_synced.size() == players.size():
+		players_synced.clear()
+		emit_signal('synced')
+
+func sync_up():
+	rpc('_sync_player', get_tree().get_network_unique_id())
+
+func register_local_player():
+	var local_player_id : int = get_tree().get_network_unique_id()
+	rpc('_register_player', local_player_id, local_player.name)
+
 func _on_player_disconnected(disconnected_player_id : int):
-	unregister_player(disconnected_player_id)
+	_unregister_player(disconnected_player_id)
 
 func _on_player_connected(connected_player_id : int):
 	var local_player_id : int = get_tree().get_network_unique_id()
-	rpc_id(connected_player_id, 'register_player', local_player_id, local_player.name)
+	rpc_id(connected_player_id, '_register_player', local_player_id, local_player.name)
 
 func _on_connected_to_server():
 	register_local_player()

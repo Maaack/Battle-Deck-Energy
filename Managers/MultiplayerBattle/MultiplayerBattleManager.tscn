@@ -61,6 +61,7 @@ starting_phase_tier = 0
 [connection signal="phase_entered" from="CharacterPhaseManager/CharacterStart" to="." method="_on_CharacterStart_phase_entered"]
 [connection signal="phase_entered" from="CharacterPhaseManager/DrawingCards" to="." method="_on_DrawingCards_phase_entered"]
 [connection signal="phase_entered" from="CharacterPhaseManager/Playing" to="." method="_on_Playing_phase_entered"]
+[connection signal="phase_entered" from="CharacterPhaseManager/DiscardingCards" to="." method="_on_DiscardingCards_phase_entered"]
 [connection signal="add_card_to_discard_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_discard_pile"]
 [connection signal="add_card_to_draw_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_draw_pile"]
 [connection signal="add_card_to_hand" from="EffectManager" to="." method="_on_EffectManager_add_card_to_hand"]

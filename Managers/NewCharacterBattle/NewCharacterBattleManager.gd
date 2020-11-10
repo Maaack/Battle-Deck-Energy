@@ -101,7 +101,7 @@ func reset_energy():
 func reshuffle_card(card:CardData):
 	draw_pile.add_card(card)
 	draw_pile.shuffle()
-	emit_signal("card_reshuffled", card)
+	emit_signal("card_reshuffled", character_data, card)
 
 func add_card_to_draw_pile(card:CardData):
 	reshuffle_card(card)
@@ -117,11 +117,11 @@ func add_card_to_hand(card:CardData):
 
 func add_card_to_discard_pile(card:CardData):
 	discard_pile.add_card(card)
-	emit_signal("card_discarded", card)
+	emit_signal("card_discarded", character_data, card)
 
 func add_card_to_exhaust_pile(card:CardData):
 	exhaust_pile.add_card(card)
-	emit_signal("card_exhausted", card)
+	emit_signal("card_exhausted", character_data, card)
 
 func _discard_card_from_hand(card:CardData):
 	hand.discard_card(card)
@@ -178,16 +178,12 @@ func discard_hand():
 
 func play_card(card:CardData):
 	lose_energy(card.energy_cost)
-	var discarded_flag = hand.discard_card(card)
-	if discarded_flag:
-		emit_signal("card_played", card, null)
+	emit_signal("card_played", character_data, card, null)
 	
 func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
-	lose_energy(card.energy_cost)
-	var discarded_flag = hand.discard_card(card)
 	opportunity.card_data = card
-	if discarded_flag:
-		emit_signal("card_played", card, opportunity)
+	lose_energy(card.energy_cost)
+	emit_signal("card_played", character_data, card, opportunity)
 	
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE

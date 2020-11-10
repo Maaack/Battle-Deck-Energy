@@ -21,7 +21,7 @@ func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:Effe
 func _get_character_statuses(character:CharacterData, character_manager_map:Dictionary):
 	if not character in character_manager_map:
 		return []
-	var character_manager : CharacterBattleManager = character_manager_map[character]
+	var character_manager : NewCharacterBattleManager = character_manager_map[character]
 	return character_manager.get_statuses()
 
 func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
@@ -29,8 +29,8 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
 	emit_signal("apply_health", target, -(total_damage))
-	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
-	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var source_battle_manager : NewCharacterBattleManager = character_manager_map[source]
+	var target_battle_manager : NewCharacterBattleManager = character_manager_map[target]
 	if source_battle_manager:
 		var venomous_status : StatusData = source_battle_manager.get_status_by_type(EffectCalculator.VENOMOUS_STATUS)
 		if venomous_status:

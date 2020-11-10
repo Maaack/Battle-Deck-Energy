@@ -17,7 +17,7 @@ var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.
 var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
 var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
 var battle_interface
-var player_data
+var local_player_character
 
 func _add_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
@@ -25,7 +25,18 @@ func _add_deck_view(deck_viewer:DeckViewer):
 	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
 	deck_viewer.connect("tree_exited", tooltip_manager, "reset")
 
-func start_battle():
+remotesync func create_character_for_player(player_id : int):
+	if not player_id in Network.players:
+		print("Warning: player_id %d does not exist in network players." % player_id)
+		return
+	var player : PlayerData = Network.players[player_id]
+	var player_character : CharacterData = starting_player_data.duplicate()
+	player_character.nickname = player.name
+	battle_interface.add_character(player_character, player.name)
+	if player.name == Network.local_player.name:
+		local_player_character = player_character
+
+remotesync func init_battle_scene():
 	if is_instance_valid(battle_interface):
 		print("Warning: Previous battle has not cleared.")
 		battle_interface.queue_free()
@@ -39,21 +50,22 @@ func start_battle():
 	battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
 	battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
 	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
-	var local_opponents : Array = []
-	var local_player_character : CharacterData
-	for player in Network.players.values():
-		if player is PlayerData:
-			var player_character : CharacterData = starting_player_data.duplicate()
-			player_character.nickname = player.name
-			battle_interface.add_character(player_character, player.name)
-			if player.name == Network.local_player.name:
-				local_player_character = player_character
+
+remotesync func start_battle():
 	battle_interface.player_character = local_player_character
 	battle_interface.start_battle()
 
+func all_ready():
+	for player_id in Network.players:
+		rpc('create_character_for_player', player_id)
+	rpc('start_battle')
+
 func _ready():
 	randomize()
-	start_battle()
+	init_battle_scene()
+	if Network.is_server():
+		Network.connect('synced', self, 'all_ready')
+	Network.sync_up()
 
 func _on_DeadPanel_retry_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
