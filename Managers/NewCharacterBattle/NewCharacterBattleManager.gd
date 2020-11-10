@@ -58,12 +58,12 @@ func set_character_data(value:CharacterData):
 	character_data = value
 	reset()
 
-func gain_health(amount: int = 1):
+remotesync func gain_health(amount: int = 1):
 	character_data.health += amount
 	var health_status_snapshot = get_health_status_snapshot()
 	emit_signal("status_updated", character_data, health_status_snapshot, amount)
 
-func lose_health(amount: int = 1):
+remotesync func lose_health(amount: int = 1):
 	amount = min(character_data.health, amount)
 	character_data.health -= amount
 	var health_status_snapshot = get_health_status_snapshot()
@@ -71,7 +71,7 @@ func lose_health(amount: int = 1):
 	if character_data.health == 0:
 		emit_signal("character_died", character_data)
 
-func take_damage(amount: int = 1):
+remotesync func take_damage(amount: int = 1):
 	var status : StatusData = status_manager.get_status_by_type(EffectCalculator.DEFENSE_STATUS)
 	if status != null:
 		var defense_down = min(amount, status.intensity)
@@ -83,18 +83,18 @@ func take_damage(amount: int = 1):
 	if amount > 0:
 		lose_health(amount)
 
-func gain_energy(amount:int = 1):
+remotesync func gain_energy(amount:int = 1):
 	character_data.energy += amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, amount)
 
-func lose_energy(amount:int = 1):
+remotesync func lose_energy(amount:int = 1):
 	amount = min(character_data.energy, amount)
 	character_data.energy -= amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, -(amount))
 
-func reset_energy():
+remotesync func reset_energy():
 	var recharge_amount : int = character_data.max_energy - character_data.energy
 	gain_energy(recharge_amount)
 

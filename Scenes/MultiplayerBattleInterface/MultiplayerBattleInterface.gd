@@ -19,8 +19,8 @@ var player_character setget set_player_character
 remotesync func _advance_character_phase():
 	battle_manager.advance_character_phase()
 
-func add_player(player_id : int, character, team):
-	battle_manager.add_character(character, team)
+func add_player(player_id : int, character : CharacterData, team : String):
+	battle_manager.add_player(player_id, character, team)
 
 func add_character(character : CharacterData, team : String):
 	battle_manager.add_character(character, team)

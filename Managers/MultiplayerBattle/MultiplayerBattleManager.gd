@@ -80,12 +80,10 @@ func get_all_characters():
 func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
 		active_character = character_data
-		print("Active character: %s" % character_data)
 		emit_signal("active_character_updated")
 	var team : String = team_manager.get_team(character_data)
 	if active_team != team:
 		active_team = team
-		print("Active team: %s" % team)
 		emit_signal("active_team_updated")
 
 func start_battle():
@@ -247,12 +245,12 @@ func _on_AdvancePhaseTimer_timeout():
 func _on_EffectManager_apply_health(character, health):
 	if not character in _character_manager_map:
 		return
-	var battle_manager : NewCharacterBattleManager = _character_manager_map[character]
+	var character_manager : NewCharacterBattleManager = _character_manager_map[character]
 	if health < 0:
 		var damage : int = -(health)
-		battle_manager.take_damage(damage)
+		character_manager.rpc('take_damage', damage)
 	else:
-		battle_manager.gain_health(health)
+		character_manager.rpc('gain_health', health)
 
 func _on_EffectManager_apply_status(character, status, origin):
 	if not character in _character_manager_map:
