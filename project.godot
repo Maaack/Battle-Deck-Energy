@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Characters/CharacterData.gd"
 }, {
+"base": "Resource",
+"class": "CommonData",
+"language": "GDScript",
+"path": "res://Resources/Common/CommonData.gd"
+}, {
 "base": "LevelData",
 "class": "CreditsLevelData",
 "language": "GDScript",
@@ -262,6 +267,7 @@ _global_script_class_icons={
 "CharacterActionsInterface": "",
 "CharacterBattleManager": "",
 "CharacterData": "",
+"CommonData": "",
 "CreditsLevelData": "",
 "DeckCleaner": "",
 "DeckData": "",
