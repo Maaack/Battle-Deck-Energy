@@ -30,6 +30,7 @@ onready var opportunities_manager = $OpportunitiesManager
 onready var effects_manager = $EffectManager
 onready var team_manager = $TeamManager
 
+var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 var character_battle_manager_scene = preload("res://Managers/NewCharacterBattle/NewCharacterBattleManager.tscn")
 var _character_manager_map : Dictionary = {}
 var _skip_battle_setup : bool = false
@@ -177,12 +178,17 @@ func _on_CharacterBattleManager_card_reshuffled(character : CharacterData, card 
 func on_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
 	var character_battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	character_battle_manager.play_card_on_opportunity(card, opportunity)
+	rpc('_remote_on_card_played', card.title, opportunity.source.nickname, opportunity.target.nickname, opportunity.type)
+	opportunities_manager.remove_opportunity(opportunity)
+	_discard_or_exhaust_card(character, card)
+
+remotesync func _remote_on_card_played(card_key : String, opportunity_source : String, opportunity_target : String , opportunity_type : int):
+	var opportunity = opportunities_manager.get_matching_opportunity(opportunity_source, opportunity_target, opportunity_type)
+	var card = card_library.data[card_key]
+	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 
 func _on_CharacterBattleManager_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
 	emit_signal("card_played", character, card, opportunity)
-	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
-	opportunities_manager.remove_opportunity(opportunity)
-	_discard_or_exhaust_card(character, card)
 
 func _on_CharacterBattleManager_status_updated(character : CharacterData, status, delta):
 	emit_signal("status_updated", character, status, delta)
@@ -248,9 +254,9 @@ func _on_EffectManager_apply_health(character, health):
 	var character_manager : NewCharacterBattleManager = _character_manager_map[character]
 	if health < 0:
 		var damage : int = -(health)
-		character_manager.rpc('take_damage', damage)
+		character_manager.take_damage(damage)
 	else:
-		character_manager.rpc('gain_health', health)
+		character_manager.gain_health(health)
 
 func _on_EffectManager_apply_status(character, status, origin):
 	if not character in _character_manager_map:
@@ -289,6 +295,9 @@ func _on_OpportunitiesManager_opportunity_added(opportunity):
 
 func _on_OpportunitiesManager_opportunity_removed(opportunity):
 	emit_signal("opportunity_removed", opportunity)
+
+func _on_OpportunitiesManager_opportunities_reset():
+	pass
 
 func _on_Playing_phase_entered():
 	emit_signal("turn_started", active_character)

@@ -72,12 +72,6 @@ func _on_MultiplayerBattleManager_card_added_to_hand(character : CharacterData, 
 	if character == player_character:
 		player_interface.draw_card(card)
 
-func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
-	battle_manager.on_card_played(player_character, card, opportunity)
-
-func _on_PlayerInterface_ending_turn():
-	_advance_character_phase()
-
 func _on_MultiplayerBattleManager_card_discarded(character : CharacterData, card : CardData):
 	if character == player_character:
 		player_interface.discard_card(card)
@@ -108,6 +102,12 @@ func _duplicate_array_contents(values:Array):
 	for value in values:
 		new_values.append(value.duplicate())
 	return new_values
+
+func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
+	battle_manager.on_card_played(player_character, card, opportunity)
+
+func _on_PlayerInterface_ending_turn():
+	_advance_character_phase()
 
 func _on_PlayerInterface_draw_pile_pressed():
 	var character_manager : NewCharacterBattleManager = battle_manager.get_character_manager(player_character)

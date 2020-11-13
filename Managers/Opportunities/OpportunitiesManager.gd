@@ -3,11 +3,13 @@ extends Node
 
 signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
+signal opportunities_reset
 
 var opportunities : Array = []
 
 func reset():
 	opportunities.clear()
+	emit_signal("opportunities_reset")
 
 func _new_opportunity(type:int, source:CharacterData, target:CharacterData):
 	var opportunity = OpportunityData.new()
@@ -29,3 +31,11 @@ func remove_opportunity(opportunity:OpportunityData):
 	if remove_index >= 0:
 		opportunities.remove(remove_index)
 		emit_signal("opportunity_removed", opportunity)
+
+func get_matching_opportunity(source_name : String, target_name : String, type : int):
+	for opportunity in opportunities:
+		if opportunity is OpportunityData:
+			if opportunity.source.nickname == source_name \
+			and opportunity.target.nickname == target_name \
+			and opportunity.type == type:
+				return opportunity

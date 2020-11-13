@@ -179,12 +179,11 @@ func discard_hand():
 func play_card(card:CardData):
 	lose_energy(card.energy_cost)
 	emit_signal("card_played", character_data, card, null)
-	
+
 func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
-	opportunity.card_data = card
 	lose_energy(card.energy_cost)
 	emit_signal("card_played", character_data, card, opportunity)
-	
+
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE
 	if status.has_the_d():
