@@ -9,7 +9,7 @@ onready var mood_manager = $MoodManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 
-var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
+var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
 var battle_interface_scene : PackedScene = preload("res://Scenes/MultiplayerBattleInterface/MultiplayerBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
@@ -32,7 +32,7 @@ remotesync func create_character_for_player(player_id : int):
 	var player : PlayerData = Network.players[player_id]
 	var player_character : CharacterData = starting_player_data.duplicate()
 	player_character.nickname = player.name
-	battle_interface.add_character(player_character, player.name)
+	battle_interface.add_player(player_id, player_character, player.name)
 	if player.name == Network.local_player.name:
 		local_player_character = player_character
 
