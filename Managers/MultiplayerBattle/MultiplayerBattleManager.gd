@@ -19,6 +19,7 @@ signal team_lost(team)
 signal team_won(team)
 signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
+signal opportunities_reset
 
 onready var advance_phase_timer = $AdvancePhaseTimer
 onready var advance_character_timer = $AdvanceCharacterTimer
@@ -297,7 +298,7 @@ func _on_OpportunitiesManager_opportunity_removed(opportunity):
 	emit_signal("opportunity_removed", opportunity)
 
 func _on_OpportunitiesManager_opportunities_reset():
-	pass
+	emit_signal("opportunities_reset")
 
 func _on_Playing_phase_entered():
 	emit_signal("turn_started", active_character)

@@ -41,12 +41,12 @@ func _on_hand_drawn(character : CharacterData):
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
 	player_interface.mark_character_inactive(character)
-	_advance_character_phase()
+	rpc('_advance_character_phase')
 
 func _on_hand_discarded(character :  CharacterData):
 	if player_interface.is_connected("discard_completed", self, "_on_hand_discarded"):
 		player_interface.disconnect("discard_completed", self, "_on_hand_discarded")
-	_advance_character_phase()
+	rpc('_advance_character_phase')
 
 func _on_BattleManager_active_character_updated(character : CharacterData):
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
@@ -97,6 +97,9 @@ func _on_MultiplayerBattleManager_opportunity_removed(opportunity : OpportunityD
 func _on_MultiplayerBattleManager_status_updated(character : CharacterData, status : StatusData, delta : int):
 	player_interface.update_status(character, status, delta)
 
+func _on_MultiplayerBattleManager_opportunities_reset():
+	player_interface.remove_all_opportunities()
+
 func _duplicate_array_contents(values:Array):
 	var new_values : Array = []
 	for value in values:
@@ -107,7 +110,7 @@ func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:O
 	battle_manager.on_card_played(player_character, card, opportunity)
 
 func _on_PlayerInterface_ending_turn():
-	_advance_character_phase()
+	rpc('_advance_character_phase')
 
 func _on_PlayerInterface_draw_pile_pressed():
 	var character_manager : NewCharacterBattleManager = battle_manager.get_character_manager(player_character)
