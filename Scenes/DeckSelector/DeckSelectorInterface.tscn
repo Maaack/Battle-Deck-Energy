@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.gd" type="Script" id=1]
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=4]
+[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Resources/Decks/LameVenomousDeck.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Decks/LamestStartingDeck.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Decks/LameStrikeDeck.tres" type="Resource" id=11]
+[ext_resource path="res://Resources/Decks/LameToxicDeck.tres" type="Resource" id=12]
+
+[node name="DeckSelectorInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+decks = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ) ]
+
+[node name="DeckSelectPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -180.0
+margin_right = 300.0
+margin_bottom = 220.0
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckSelectPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeckSelectPanel/MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 592.0
+margin_bottom = 392.0
+custom_constants/separation = 6
+
+[node name="Label" type="Label" parent="DeckSelectPanel/MarginContainer/VBoxContainer"]
+margin_right = 584.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 8 )
+text = "Pick your Battle Deck"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="DeckSelectPanel/MarginContainer/VBoxContainer"]
+margin_top = 62.0
+margin_right = 584.0
+margin_bottom = 318.0
+size_flags_vertical = 3
+custom_constants/icon_margin = 10
+custom_constants/hseparation = 50
+max_columns = 2
+same_column_width = true
+icon_scale = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeckSelectPanel/MarginContainer/VBoxContainer"]
+margin_top = 324.0
+margin_right = 584.0
+margin_bottom = 384.0
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 584.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 120
+custom_constants/margin_left = 120
+
+[node name="ConfirmButton" type="Button" parent="DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+margin_left = 120.0
+margin_right = 464.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+disabled = true
+text = "Confirm"
+[connection signal="item_selected" from="DeckSelectPanel/MarginContainer/VBoxContainer/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="pressed" from="DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]

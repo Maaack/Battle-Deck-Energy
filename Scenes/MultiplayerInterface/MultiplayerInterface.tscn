@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=2]
 [ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/MultiplayerInterface/MultiplayerInterface.gd" type="Script" id=4]
 [ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Definitions/ToxinDefinition.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Definitions/DefenseDefinition.tres" type="Resource" id=26]
 [ext_resource path="res://Resources/Definitions/EnGardeDefinition.tres" type="Resource" id=28]
@@ -104,13 +105,8 @@ __meta__ = {
 visible = false
 mouse_filter = 2
 
-[node name="CampaignInterfaceContainer" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="DeckSelectorInterface" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="DeckViewContainer" type="Control" parent="."]
 anchor_right = 1.0

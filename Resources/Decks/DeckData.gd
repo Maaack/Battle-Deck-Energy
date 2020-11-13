@@ -3,7 +3,9 @@ extends Resource
 
 class_name DeckData
 
-var cards = []
+export(String) var title : String = ""
+export(Texture) var icon : Texture
+export(Array, Resource) var cards : Array = []
 
 func size():
 	return cards.size()

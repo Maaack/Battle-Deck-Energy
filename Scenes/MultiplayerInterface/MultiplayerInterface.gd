@@ -6,7 +6,6 @@ onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
 onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
-onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
