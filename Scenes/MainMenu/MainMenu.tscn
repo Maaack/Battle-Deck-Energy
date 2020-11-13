@@ -98,29 +98,29 @@ margin_left = -151.0
 margin_top = -546.0
 margin_right = 151.0
 margin_bottom = 46.0
-custom_constants/separation = 24
+custom_constants/separation = 20
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CampaignGameButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
-margin_top = 280.0
+margin_top = 292.0
 margin_right = 302.0
-margin_bottom = 340.0
+margin_bottom = 352.0
 focus_mode = 0
 text = "Campaign"
 
 [node name="MultiplayerButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
-margin_top = 364.0
+margin_top = 372.0
 margin_right = 302.0
-margin_bottom = 424.0
+margin_bottom = 432.0
 text = "Multiplayer"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
-margin_top = 448.0
+margin_top = 452.0
 margin_right = 302.0
-margin_bottom = 508.0
+margin_bottom = 512.0
 focus_mode = 0
 text = "Credits"
 
@@ -198,14 +198,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -63.1404
-margin_top = -27.0356
-margin_right = 447.86
-margin_bottom = 31.964
+margin_left = -103.14
+margin_top = -17.0356
+margin_right = 407.86
+margin_bottom = 41.964
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.960784, 0.929412, 0.729412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "deck 2 deck"
+text = "lame deck precedent"
 align = 1
 valign = 1
 __meta__ = {
