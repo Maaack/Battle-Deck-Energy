@@ -39,7 +39,7 @@ func append_cards(source_path:String):
 					var card_data : CardData = load(full_path)
 					if not is_instance_valid(card_data):
 						continue
-					card_library.data.append(card_data)
+					card_library.data[card_data.title] = card_data
 
 func _run():
 	card_library.data.clear()
