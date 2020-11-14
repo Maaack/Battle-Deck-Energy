@@ -9,12 +9,9 @@ onready var mood_manager = $MoodManager
 onready var deck_view_container = $DeckViewContainer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/MultiplayerPlayerData.tres")
+var default_lame_deck : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
 var battle_interface_scene : PackedScene = preload("res://Scenes/MultiplayerBattleInterface/MultiplayerBattleInterface.tscn")
-var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
-var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
-var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
-var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
 var battle_interface
 var local_player_character : CharacterData
 var local_player_deck : DeckData
@@ -35,6 +32,8 @@ remotesync func create_character_for_player(player_id : int):
 	if player.name == Network.local_player.name:
 		local_player_character = player_character
 		player_character.deck = local_player_deck.cards
+	else:
+		player_character.deck = default_lame_deck.cards
 	battle_interface.add_player(player_id, player_character, player.name)
 
 remotesync func init_battle_scene():
