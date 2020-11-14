@@ -1,6 +1,8 @@
 extends Control
 
 
+signal deck_selected(deck)
+
 onready var confirm_button = $DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ConfirmButton
 onready var item_list = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList
 
@@ -20,4 +22,5 @@ func _on_ItemList_item_selected(index : int):
 	confirm_button.disabled = false
 
 func _on_ConfirmButton_pressed():
-	print("Confirming %s for battle!" % [item_list.get_item_text(selected_index)])
+	emit_signal("deck_selected", decks[selected_index])
+	hide()

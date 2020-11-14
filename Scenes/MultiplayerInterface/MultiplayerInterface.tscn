@@ -106,7 +106,6 @@ visible = false
 mouse_filter = 2
 
 [node name="DeckSelectorInterface" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="DeckViewContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -129,3 +128,4 @@ hard_battle_song = ExtResource( 56 )
 shelter_song = ExtResource( 50 )
 victory_song = ExtResource( 55 )
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
+[connection signal="deck_selected" from="DeckSelectorInterface" to="." method="_on_DeckSelectorInterface_deck_selected"]

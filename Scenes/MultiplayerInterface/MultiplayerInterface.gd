@@ -8,7 +8,7 @@ onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
 onready var deck_view_container = $DeckViewContainer
 
-var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
+var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/MultiplayerPlayerData.tres")
 var battle_interface_scene : PackedScene = preload("res://Scenes/MultiplayerBattleInterface/MultiplayerBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
@@ -16,7 +16,8 @@ var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.
 var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
 var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
 var battle_interface
-var local_player_character
+var local_player_character : CharacterData
+var local_player_deck : DeckData
 
 func _add_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
@@ -31,9 +32,10 @@ remotesync func create_character_for_player(player_id : int):
 	var player : PlayerData = Network.players[player_id]
 	var player_character : CharacterData = starting_player_data.duplicate()
 	player_character.nickname = player.name
-	battle_interface.add_player(player_id, player_character, player.name)
 	if player.name == Network.local_player.name:
 		local_player_character = player_character
+		player_character.deck = local_player_deck.cards
+	battle_interface.add_player(player_id, player_character, player.name)
 
 remotesync func init_battle_scene():
 	if is_instance_valid(battle_interface):
@@ -59,12 +61,18 @@ func all_ready():
 		rpc('create_character_for_player', player_id)
 	rpc('start_battle')
 
-func _ready():
-	randomize()
-	init_battle_scene()
+func _on_deck_selected():
 	if Network.is_server():
 		Network.connect('synced', self, 'all_ready')
 	Network.sync_up()
+
+func _ready():
+	randomize()
+	init_battle_scene()
+
+func _on_DeckSelectorInterface_deck_selected(deck : DeckData):
+	local_player_deck = deck
+	_on_deck_selected()
 
 func _on_DeadPanel_retry_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
