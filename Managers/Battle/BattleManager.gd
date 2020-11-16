@@ -1,6 +1,8 @@
 extends Node
 
 
+class_name BattleManager
+
 signal card_drawn(character, card)
 signal card_added_to_hand(character, card)
 signal card_removed_from_hand(character, card)
@@ -32,13 +34,16 @@ onready var effects_manager = $EffectManager
 onready var team_manager = $TeamManager
 
 var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
-var character_battle_manager_scene = preload("res://Managers/NewCharacterBattle/NewCharacterBattleManager.tscn")
+var character_battle_manager_scene = load("res://Managers/NewCharacterBattle/NewCharacterBattleManager.tscn")
 var _character_manager_map : Dictionary = {}
 var _skip_battle_setup : bool = false
 var _battle_ended : bool = false
 var teams_in_play : Array = []
 var active_character
 var active_team
+
+func get_character_manager_instance():
+	return character_battle_manager_scene.instance()
 
 func add_team(team : String):
 	if not team in teams_in_play:
@@ -49,9 +54,8 @@ func add_team(team : String):
 func add_character(character_data : CharacterData, team : String):
 	if character_data in _character_manager_map:
 		return
-	var battle_manager = character_battle_manager_scene.instance()
+	var battle_manager = get_character_manager_instance()
 	battle_manager.name = character_data.nickname + 'CharacterBattleManager'
-	battle_manager.owner 
 	add_child(battle_manager)
 	battle_manager.character_data = character_data
 	battle_manager.connect("card_added_to_hand", self, "_on_CharacterBattleManager_card_added_to_hand")
@@ -67,10 +71,6 @@ func add_character(character_data : CharacterData, team : String):
 	_character_manager_map[character_data] = battle_manager
 	team_manager.add_character(character_data, team)
 	return battle_manager
-
-func add_player(player_id : int, character_data : CharacterData, team : String):
-	var battle_manager = add_character(character_data, team)
-	battle_manager.set_network_master(player_id)
 
 func get_character_manager(character_data : CharacterData):
 	if character_data in _character_manager_map:
@@ -244,7 +244,13 @@ func _on_TeamPhase_phase_entered():
 	team_phase_manager.advance()
 
 func _on_CharacterStart_phase_entered():
-	team_phase_manager.advance()
+	var active_team_list : Array = team_manager.get_team_list(active_team)
+	var active_player_index : int = active_team_list.find(active_character)
+	if active_player_index < active_team_list.size() - 1:
+		active_character = active_team_list[active_player_index + 1]
+		advance_character_phase()
+	else:
+		team_phase_manager.advance()
 
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()

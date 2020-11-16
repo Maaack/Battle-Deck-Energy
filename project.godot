@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Levels/BattleLevelData.gd"
 }, {
+"base": "Node",
+"class": "BattleManager",
+"language": "GDScript",
+"path": "res://Managers/Battle/BattleManager.gd"
+}, {
+"base": "BattleManager",
+"class": "CampaignBattleManager",
+"language": "GDScript",
+"path": "res://Managers/Battle/Campaign/CampaignBattleManager.gd"
+}, {
 "base": "AnimationData",
 "class": "CardAnimationData",
 "language": "GDScript",
@@ -143,6 +153,11 @@ _global_script_classes=[ {
 "class": "MoodManager",
 "language": "GDScript",
 "path": "res://Managers/Mood/MoodManager.gd"
+}, {
+"base": "BattleManager",
+"class": "MultiplayerBattleManager",
+"language": "GDScript",
+"path": "res://Managers/Battle/Multiplayer/MultiplayerBattleManager.gd"
 }, {
 "base": "Node",
 "class": "NetworkManager",
@@ -259,6 +274,8 @@ _global_script_class_icons={
 "AnimationData": "",
 "AnimationQueue": "",
 "BattleLevelData": "",
+"BattleManager": "",
+"CampaignBattleManager": "",
 "CardAnimationData": "",
 "CardContainer": "",
 "CardData": "",
@@ -282,6 +299,7 @@ _global_script_class_icons={
 "InspectorCardManager": "",
 "LevelData": "",
 "MoodManager": "",
+"MultiplayerBattleManager": "",
 "NetworkManager": "",
 "NewCharacterBattleManager": "",
 "OpponentActionsInterface": "",
