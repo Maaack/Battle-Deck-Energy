@@ -16,8 +16,8 @@ onready var battle_manager = $MultiplayerBattleManager
 var _battle_ended : bool = false
 var player_character setget set_player_character
 
-remotesync func _advance_character_phase():
-	battle_manager.advance_character_phase()
+func _advance_character_phase():
+	battle_manager.rpc('advance_character_phase')
 
 func add_player(player_id : int, character : CharacterData, team : String):
 	battle_manager.add_player(player_id, character, team)
@@ -41,12 +41,12 @@ func _on_hand_drawn(character : CharacterData):
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
 	player_interface.mark_character_inactive(character)
-	rpc('_advance_character_phase')
+	_advance_character_phase()
 
 func _on_hand_discarded(character :  CharacterData):
 	if player_interface.is_connected("discard_completed", self, "_on_hand_discarded"):
 		player_interface.disconnect("discard_completed", self, "_on_hand_discarded")
-	rpc('_advance_character_phase')
+	_advance_character_phase()
 
 func _on_BattleManager_active_character_updated(character : CharacterData):
 	player_interface.connect("drawing_completed", self, "_on_hand_drawn")
@@ -110,7 +110,7 @@ func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:O
 	battle_manager.on_card_played(player_character, card, opportunity)
 
 func _on_PlayerInterface_ending_turn():
-	rpc('_advance_character_phase')
+	_advance_character_phase()
 
 func _on_PlayerInterface_draw_pile_pressed():
 	var character_manager : NewCharacterBattleManager = battle_manager.get_character_manager(player_character)

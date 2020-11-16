@@ -140,7 +140,7 @@ func start_round():
 	opportunities_manager.reset()
 	advance_phase_timer.start()
 
-func advance_character_phase():
+remotesync func advance_character_phase():
 	character_phase_manager.advance()
 
 func _discard_or_exhaust_card(character:CharacterData, card:CardData):
