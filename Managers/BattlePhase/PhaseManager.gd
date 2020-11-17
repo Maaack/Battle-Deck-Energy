@@ -39,5 +39,14 @@ func advance():
 		print("Error: Advancing battle phases without children.")
 		return
 	_phase_tier = next_phase % child_count
+	var phase_node = get_children()[_phase_tier]
+	print("Phase `%s`" % phase_node.name)
 	enter_phase()
 	return _phase_tier
+
+func move_phase(phase_name : String, new_index : int):
+	for child in get_children():
+		if child.name == phase_name:
+			move_child(child, new_index)
+			return
+	print("Warning: No phase by name `%s` found" % phase_name)

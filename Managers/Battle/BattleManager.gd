@@ -82,11 +82,11 @@ func get_all_characters():
 func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
 		active_character = character_data
-		emit_signal("active_character_updated")
+		emit_signal("active_character_updated", character_data)
 	var team : String = team_manager.get_team(character_data)
 	if active_team != team:
 		active_team = team
-		emit_signal("active_team_updated")
+		emit_signal("active_team_updated", active_team)
 
 func start_battle():
 	battle_phase_manager.advance()

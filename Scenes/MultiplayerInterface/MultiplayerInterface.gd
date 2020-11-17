@@ -10,7 +10,7 @@ onready var deck_view_container = $DeckViewContainer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/MultiplayerPlayerData.tres")
 var default_lame_deck : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
-var battle_interface_scene : PackedScene = preload("res://Scenes/MultiplayerBattleInterface/MultiplayerBattleInterface.tscn")
+var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/Multiplayer/MultiplayerBattleInterface.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
 var battle_interface
 var local_player_character : CharacterData
