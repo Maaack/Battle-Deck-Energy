@@ -1,6 +1,8 @@
 extends Node
 
 
+class_name PhaseManager
+
 const INIT_PHASE = -1
 
 export(int) var starting_phase_tier = INIT_PHASE

@@ -23,15 +23,15 @@ signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
 signal opportunities_reset
 
-onready var advance_phase_timer = $AdvancePhaseTimer
-onready var advance_character_timer = $AdvanceCharacterTimer
-onready var advance_action_timer = $AdvanceActionTimer
-onready var battle_phase_manager = $BattlePhaseManager
-onready var team_phase_manager = $TeamPhaseManager
-onready var character_phase_manager = $CharacterPhaseManager
+onready var advance_phase_timer : Timer = $AdvancePhaseTimer
+onready var advance_character_timer : Timer = $AdvanceCharacterTimer
+onready var advance_action_timer : Timer = $AdvanceActionTimer
+onready var battle_phase_manager : PhaseManager = $BattlePhaseManager
+onready var team_phase_manager : PhaseManager = $TeamPhaseManager
+onready var character_phase_manager : PhaseManager = $CharacterPhaseManager
 onready var opportunities_manager = $OpportunitiesManager
 onready var effects_manager = $EffectManager
-onready var team_manager = $TeamManager
+onready var team_manager : TeamManager = $TeamManager
 
 var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 var character_battle_manager_scene = load("res://Managers/NewCharacterBattle/NewCharacterBattleManager.tscn")
@@ -78,6 +78,9 @@ func get_character_manager(character_data : CharacterData):
 
 func get_all_characters():
 	return _character_manager_map.keys()
+
+func get_team(character_data : CharacterData):
+	return team_manager.get_team(character_data)
 
 func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
@@ -179,14 +182,9 @@ func _on_CharacterBattleManager_card_reshuffled(character : CharacterData, card 
 func on_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
 	var character_battle_manager : NewCharacterBattleManager = _character_manager_map[character]
 	character_battle_manager.play_card_on_opportunity(card, opportunity)
-	rpc('_remote_on_card_played', card.title, opportunity.source.nickname, opportunity.target.nickname, opportunity.type)
+	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 	opportunities_manager.remove_opportunity(opportunity)
 	_discard_or_exhaust_card(character, card)
-
-remotesync func _remote_on_card_played(card_key : String, opportunity_source : String, opportunity_target : String , opportunity_type : int):
-	var opportunity = opportunities_manager.get_matching_opportunity(opportunity_source, opportunity_target, opportunity_type)
-	var card = card_library.data[card_key]
-	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 
 func _on_CharacterBattleManager_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
 	emit_signal("card_played", character, card, opportunity)

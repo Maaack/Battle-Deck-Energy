@@ -1,6 +1,9 @@
 extends Control
 
 
+const PLAYER_TEAM = "Player"
+const ENEMY_TEAM = "Enemy"
+
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
@@ -11,7 +14,7 @@ onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
-var battle_interface_scene : PackedScene = preload("res://Scenes/OldBattleInterface/BattleInterface.tscn")
+var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/Campaign/CampaignBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
@@ -40,8 +43,10 @@ func start_battle(current_level:BattleLevelData):
 	battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
 	battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
 	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
-	battle_interface.player_data = player_data
-	battle_interface.opponents = current_level.opponents
+	battle_interface.add_character(player_data, PLAYER_TEAM)
+	for opponent in current_level.opponents:
+		battle_interface.add_character(opponent.duplicate(), ENEMY_TEAM)
+	battle_interface.player_character = player_data
 	battle_interface.start_battle()
 
 func start_shelter():

@@ -1,6 +1,8 @@
 extends Node
 
 
+class_name TeamManager
+
 signal teams_updated
 signal team_list_updated(team_list)
 

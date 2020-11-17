@@ -199,6 +199,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/BattlePhase/Phase.gd"
 }, {
+"base": "Node",
+"class": "PhaseManager",
+"language": "GDScript",
+"path": "res://Managers/BattlePhase/PhaseManager.gd"
+}, {
 "base": "CharacterActionsInterface",
 "class": "PlayerActionsInterface",
 "language": "GDScript",
@@ -253,6 +258,11 @@ _global_script_classes=[ {
 "class": "StoryLevelData",
 "language": "GDScript",
 "path": "res://Resources/Levels/StoryLevel/StoryLevelData.gd"
+}, {
+"base": "Node",
+"class": "TeamManager",
+"language": "GDScript",
+"path": "res://Managers/Team/TeamManager.gd"
 }, {
 "base": "Node2D",
 "class": "TooltipListNode2D",
@@ -313,6 +323,7 @@ _global_script_class_icons={
 "OpportunitiesContainer": "",
 "OpportunityData": "",
 "Phase": "",
+"PhaseManager": "",
 "PlayerActionsInterface": "",
 "PlayerData": "",
 "ScrollingTextPanel": "",
@@ -324,6 +335,7 @@ _global_script_class_icons={
 "StatusIcon": "",
 "StatusManager": "",
 "StoryLevelData": "",
+"TeamManager": "",
 "TooltipListNode2D": "",
 "TransformData": "",
 "WeightedData": "",

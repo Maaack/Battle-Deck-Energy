@@ -4,7 +4,6 @@
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Managers/Battle/Campaign/CampaignBattleManager.tscn" type="PackedScene" id=3]
 
-
 [node name="CampaignBattleInterface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
