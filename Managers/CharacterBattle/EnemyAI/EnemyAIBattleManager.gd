@@ -5,6 +5,11 @@ class_name EnemyAIBattleManager
 
 var played_cards : Dictionary = {}
 
+func _play_card(card : CardData, opportunity : OpportunityData):
+	opportunity.card_data = card
+	emit_signal("card_played", character_data, card, opportunity)
+	discard_card(card)
+
 func take_turn(opportunities : Array):
 	if not character_data.is_alive():
 		return
@@ -21,8 +26,7 @@ func take_turn(opportunities : Array):
 		played_cards[random_card.title] = 0
 	played_cards[random_card.title] += 1
 	for opportunity in opportunities:
-		if opportunity is OpportunityData and random_card.type == opportunity.type:
-			opportunity.card_data = random_card
-			emit_signal("card_played", character_data, random_card, opportunity)
-			discard_card(random_card)
+		if random_card.type == opportunity.type:
+			_play_card(random_card, opportunity)
+			end_turn()
 			return

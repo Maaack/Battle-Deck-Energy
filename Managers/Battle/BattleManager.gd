@@ -63,6 +63,7 @@ func _connect_character_battle_manager(character_battle_manager : CharacterBattl
 	character_battle_manager.connect("card_reshuffled", self, "_on_CharacterBattleManager_card_reshuffled")
 	character_battle_manager.connect("character_died", self, "_on_CharacterBattleManager_character_died")
 	character_battle_manager.connect("status_updated", self, "_on_CharacterBattleManager_status_updated")
+	character_battle_manager.connect("turn_ended", self, "_on_CharacterBattleManager_turn_ended")
 
 func add_character(character_data : CharacterData, team : String):
 	if character_data in _character_manager_map:
@@ -101,6 +102,7 @@ func start_battle():
 
 func _setup_opportunities(character_data : CharacterData):
 	var enemies_list = team_manager.get_enemies(character_data)
+	print("%s and enemies : %s" % [character_data.nickname, enemies_list] )
 	for enemy in enemies_list: 
 		if not enemy.is_alive():
 			continue
@@ -151,7 +153,7 @@ func setup_battle():
 func start_round():
 	advance_phase_timer.start()
 
-remotesync func advance_character_phase():
+func advance_character_phase():
 	character_phase_manager.advance()
 
 func _discard_or_exhaust_card(character:CharacterData, card:CardData):
@@ -198,6 +200,14 @@ func _on_CharacterBattleManager_card_played(character : CharacterData, card:Card
 	opportunities_manager.remove_opportunity(opportunity)
 	_discard_or_exhaust_card(character, card)
 
+func on_ending_turn(character : CharacterData):
+	var character_battle_manager : CharacterBattleManager = _character_manager_map[character]
+	character_battle_manager.end_turn()
+
+func _on_CharacterBattleManager_turn_ended(character : CharacterData):
+	if character == active_character:
+		advance_character_phase()
+
 func _on_CharacterBattleManager_status_updated(character : CharacterData, status, delta):
 	emit_signal("status_updated", character, status, delta)
 
@@ -220,17 +230,27 @@ func _on_CharacterBattleManager_character_died(character):
 		var winning_team : String = teams_in_play[0]
 		emit_signal("team_won", winning_team)
 
+func get_next_team_member():
+	var active_team_list : Array = team_manager.get_team_list(active_team)
+	var active_player_index : int = active_team_list.find(active_character)
+	while(active_player_index < active_team_list.size() - 1):
+		active_player_index += 1
+		var next_character : CharacterData = active_team_list[active_player_index]
+		if next_character.is_alive():
+			return next_character
+
+func start_next_member_or_team():
+	var next_character = get_next_team_member()
+	if next_character != null:
+		_set_active_character(next_character)
+		_start_character_turn(next_character)
+	else:
+		team_phase_manager.advance()
+
 func _on_Team_phase_entered(team : String):
-	var team_list : Array = team_manager.get_team_list(team)
-	for character in team_list:
-		if not character is CharacterData:
-			continue
-		if not character.is_alive():
-			continue
-		_set_active_character(character)
-		_start_character_turn(character)
-		return
-	team_phase_manager.advance()
+	active_team = team
+	emit_signal("active_team_updated", active_team)
+	start_next_member_or_team()
 
 func _on_DrawingCards_phase_entered():
 	_active_character_draws()
@@ -251,13 +271,7 @@ func _on_TeamPhase_phase_entered():
 	team_phase_manager.advance()
 
 func _on_CharacterStart_phase_entered():
-	var active_team_list : Array = team_manager.get_team_list(active_team)
-	var active_player_index : int = active_team_list.find(active_character)
-	if active_player_index < active_team_list.size() - 1:
-		active_character = active_team_list[active_player_index + 1]
-		advance_character_phase()
-	else:
-		team_phase_manager.advance()
+	start_next_member_or_team()
 
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()

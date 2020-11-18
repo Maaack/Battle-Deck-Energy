@@ -111,7 +111,7 @@ func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:O
 	battle_manager.on_card_played(player_character, card, opportunity)
 
 func _on_PlayerInterface_ending_turn():
-	_advance_character_phase()
+	battle_manager.on_ending_turn(player_character)
 
 func _on_PlayerInterface_draw_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)

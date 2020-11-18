@@ -417,7 +417,6 @@ func animate_playing_card(card:CardData):
 func play_card(character:CharacterData, card:CardData, opportunity = null):
 	var opening_transform : TransformData = card.transform_data.duplicate()
 	if opportunity is OpportunityData:
-		opportunity.card_data = card
 		opening_transform = opportunity.transform_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)

@@ -29,3 +29,17 @@ func _active_character_draws():
 	else:
 		emit_signal("before_hand_drawn", active_character)
 		character_manager.draw_hand()
+
+func _end_character_turn(character_data : CharacterData):
+	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
+	character_manager.update_end_of_turn_statuses()
+	if character_manager is EnemyAIBattleManager:
+		character_manager.discard_hand()
+		advance_action_timer.start()
+		yield(advance_action_timer, "timeout")
+		advance_character_phase()
+	elif character_manager.has_discardable_cards_in_hand():
+		emit_signal("before_hand_discarded", character_data)
+		character_manager.discard_hand()
+	else:
+		character_phase_manager.advance()
