@@ -1,20 +1,18 @@
 extends Node
 
 
-class_name NewCharacterBattleManager
+class_name OldCharacterBattleManager
 
-signal card_drawn(character, card)
-signal card_added_to_hand(character, card)
-signal card_removed_from_hand(character, card)
-signal card_discarded(character, card)
-signal card_exhausted(character, card)
-signal card_reshuffled(character, card)
-signal card_played(character, card, opportunity)
-signal status_updated(character, status, delta)
-signal character_died(character)
+signal drew_card_from_draw_pile(card)
+signal drew_card(card)
+signal discarded_card(card)
+signal exhausted_card(card)
+signal reshuffled_card(card)
+signal played_card(card, opportunity)
+signal updated_status(character, status, delta)
+signal died(character)
 
 onready var status_manager = $StatusManager
-onready var iff_manager = $IFFManager
 
 var defense_status_resource = preload("res://Resources/Statuses/Defense.tres")
 var health_status_base = preload("res://Resources/Statuses/Health.tres")
@@ -58,53 +56,45 @@ func set_character_data(value:CharacterData):
 	character_data = value
 	reset()
 
-remotesync func gain_health(amount: int = 1):
+func gain_health(amount: int = 1):
 	character_data.health += amount
 	var health_status_snapshot = get_health_status_snapshot()
-	emit_signal("status_updated", character_data, health_status_snapshot, amount)
+	emit_signal("updated_status", character_data, health_status_snapshot, amount)
 
-remotesync func lose_health(amount: int = 1):
+func lose_health(amount: int = 1):
 	amount = min(character_data.health, amount)
 	character_data.health -= amount
 	var health_status_snapshot = get_health_status_snapshot()
-	emit_signal("status_updated", character_data, health_status_snapshot, -(amount))
+	emit_signal("updated_status", character_data, health_status_snapshot, -(amount))
 	if character_data.health == 0:
-		emit_signal("character_died", character_data)
+		emit_signal("died", character_data)
 
-remotesync func take_damage(amount: int = 1):
+func take_damage(amount: int = 1):
 	var status : StatusData = status_manager.get_status_by_type(EffectCalculator.DEFENSE_STATUS)
 	if status != null:
 		var defense_down = min(amount, status.intensity)
 		status.intensity -= defense_down
-		emit_signal("status_updated", character_data, status.duplicate(), -(defense_down))
+		emit_signal("updated_status", character_data, status.duplicate(), -(defense_down))
 		if status.intensity == 0:
 			status_manager.lose_status(status)
 		amount -= defense_down
 	if amount > 0:
 		lose_health(amount)
 
-remotesync func gain_energy(amount:int = 1):
+func gain_energy(amount:int = 1):
 	character_data.energy += amount
 	var energy_status_snapshot = get_energy_status_snapshot()
-	emit_signal("status_updated", character_data, energy_status_snapshot, amount)
+	emit_signal("updated_status", character_data, energy_status_snapshot, amount)
 
-remotesync func lose_energy(amount:int = 1):
+func lose_energy(amount:int = 1):
 	amount = min(character_data.energy, amount)
 	character_data.energy -= amount
 	var energy_status_snapshot = get_energy_status_snapshot()
-	emit_signal("status_updated", character_data, energy_status_snapshot, -(amount))
+	emit_signal("updated_status", character_data, energy_status_snapshot, -(amount))
 
-remotesync func reset_energy():
+func reset_energy():
 	var recharge_amount : int = character_data.max_energy - character_data.energy
 	gain_energy(recharge_amount)
-
-func reshuffle_card(card:CardData):
-	draw_pile.add_card(card)
-	draw_pile.shuffle()
-	emit_signal("card_reshuffled", character_data, card)
-
-func add_card_to_draw_pile(card:CardData):
-	reshuffle_card(card)
 
 func reshuffle_discard_pile():
 	var discarded : Array = discard_pile.draw_all()
@@ -113,19 +103,23 @@ func reshuffle_discard_pile():
 
 func add_card_to_hand(card:CardData):
 	hand.add_card(card)
-	emit_signal("card_added_to_hand", character_data, card)
+	emit_signal("drew_card", card)
 
 func add_card_to_discard_pile(card:CardData):
 	discard_pile.add_card(card)
-	emit_signal("card_discarded", character_data, card)
+	emit_signal("discarded_card", card)
 
 func add_card_to_exhaust_pile(card:CardData):
 	exhaust_pile.add_card(card)
-	emit_signal("card_exhausted", character_data, card)
+	emit_signal("exhausted_card", card)
 
 func _discard_card_from_hand(card:CardData):
 	hand.discard_card(card)
-	emit_signal("card_removed_from_hand", character_data, card)
+
+func reshuffle_card(card:CardData):
+	draw_pile.add_card(card)
+	draw_pile.shuffle()
+	emit_signal("reshuffled_card", card)
 
 func discard_card(card:CardData):
 	_discard_card_from_hand(card)
@@ -145,7 +139,7 @@ func draw_card(card = null):
 		drawn_card = draw_pile.draw_card()
 	if not is_instance_valid(drawn_card):
 		return
-	emit_signal("card_drawn", character_data, drawn_card)
+	emit_signal("drew_card_from_draw_pile", drawn_card)
 	add_card_to_hand(drawn_card)
 
 func draw_hand():
@@ -161,11 +155,6 @@ func draw_innate_cards():
 	for card in innate_cards:
 		draw_card(card)
 
-func has_discardable_cards_in_hand():
-	var discarding_cards : Array = EffectCardFilter.include_discardable_cards(hand.cards)
-	var exhausting_cards : Array = EffectCardFilter.include_exhaustable_cards(hand.cards)
-	return discarding_cards.size() + exhausting_cards.size() > 0
-
 func discard_hand():
 	var discarding_cards : Array = EffectCardFilter.include_discardable_cards(hand.cards)
 	var exhausting_cards : Array = EffectCardFilter.include_exhaustable_cards(hand.cards)
@@ -176,14 +165,24 @@ func discard_hand():
 	for card in exhausting_cards:
 		exhaust_card(card)
 
+func has_discardable_cards_in_hand():
+	var discarding_cards : Array = EffectCardFilter.include_discardable_cards(hand.cards)
+	var exhausting_cards : Array = EffectCardFilter.include_exhaustable_cards(hand.cards)
+	return discarding_cards.size() + exhausting_cards.size() > 0
+
 func play_card(card:CardData):
 	lose_energy(card.energy_cost)
-	emit_signal("card_played", character_data, card, null)
-
+	var discarded_flag = hand.discard_card(card)
+	if discarded_flag:
+		emit_signal("played_card", card, null)
+	
 func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
 	lose_energy(card.energy_cost)
-	emit_signal("card_played", character_data, card, opportunity)
-
+	var discarded_flag = hand.discard_card(card)
+	opportunity.card_data = card
+	if discarded_flag:
+		emit_signal("played_card", card, opportunity)
+	
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE
 	if status.has_the_d():
@@ -228,5 +227,5 @@ func get_status_by_type(type_tag:String):
 func has_status_by_type(type_tag:String):
 	return get_status_by_type(type_tag) != null
 
-func _on_StatusManager_status_updated(status:StatusData, delta:int):
-	emit_signal("status_updated", character_data, status, delta)
+func _on_StatusManager_status_updated(status, delta):
+	emit_signal("updated_status", character_data, status, delta)

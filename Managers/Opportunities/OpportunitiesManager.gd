@@ -1,6 +1,8 @@
 extends Node
 
 
+class_name OpportunitiesManager
+
 signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
 signal opportunities_reset

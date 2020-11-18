@@ -114,7 +114,7 @@ func _on_PlayerInterface_ending_turn():
 	_advance_character_phase()
 
 func _on_PlayerInterface_draw_pile_pressed():
-	var character_manager : NewCharacterBattleManager = battle_manager.get_character_manager(player_character)
+	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.draw_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
@@ -123,7 +123,7 @@ func _on_PlayerInterface_draw_pile_pressed():
 	emit_signal("view_deck_pressed", deck)
 
 func _on_PlayerInterface_discard_pile_pressed():
-	var character_manager : NewCharacterBattleManager = battle_manager.get_character_manager(player_character)
+	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.discard_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
@@ -131,7 +131,7 @@ func _on_PlayerInterface_discard_pile_pressed():
 	emit_signal("view_deck_pressed", deck)
 
 func _on_PlayerInterface_exhaust_pile_pressed():
-	var character_manager : NewCharacterBattleManager = battle_manager.get_character_manager(player_character)
+	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.exhaust_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
