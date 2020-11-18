@@ -179,11 +179,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Network/NetworkManager.gd"
 }, {
-"base": "Node",
-"class": "OldCharacterBattleManager",
-"language": "GDScript",
-"path": "res://Managers/OldCharacterBattle/OldCharacterBattleManager.gd"
-}, {
 "base": "CharacterActionsInterface",
 "class": "OpponentActionsInterface",
 "language": "GDScript",
@@ -334,7 +329,6 @@ _global_script_class_icons={
 "MoodManager": "",
 "MultiplayerBattleManager": "",
 "NetworkManager": "",
-"OldCharacterBattleManager": "",
 "OpponentActionsInterface": "",
 "OpponentCharacterData": "",
 "OpportunitiesContainer": "",
