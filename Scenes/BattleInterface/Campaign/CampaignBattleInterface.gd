@@ -6,6 +6,8 @@ func _ready():
 
 func _on_BattleManager_team_won(team):
 	var player_team = battle_manager.get_team(player_character)
+	battle_end_timer.start()
+	yield(battle_end_timer, "timeout")
 	if team == player_team:
 		emit_signal("player_won")
 	else:
