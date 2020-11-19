@@ -1,20 +1,25 @@
-extends CharacterBattleManager
+extends EnemyAIBattleManager
 
 
-class_name EnemyAIBattleManager
+class_name SlowEnemyAIBattleManager
 
-var played_cards : Dictionary = {}
+signal card_revealed(character, card)
+
+var slowed_cards : Array = []
 
 func _play_card(card : CardData, opportunity : OpportunityData):
 	opportunity.card_data = card
-	emit_signal("card_played", character_data, card, opportunity)
-	discard_card(card)
+	slowed_cards.append([card, opportunity])
+	emit_signal("card_revealed", character_data, card)
 
 func take_turn(opportunities : Array):
 	if not character_data.is_alive():
 		end_turn()
 		return
 	var weighted_hand : WeightedDataList = WeightedDataList.new()
+	while (slowed_cards.size() > 0):
+		var card_and_opp : Array = slowed_cards.pop_front()
+		emit_signal("card_played", character_data, card_and_opp[0], card_and_opp[1])
 	for card in hand.cards:
 		if card is CardData:
 			var divide_weight = 1

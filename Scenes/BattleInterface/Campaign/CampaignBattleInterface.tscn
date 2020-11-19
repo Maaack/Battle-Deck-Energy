@@ -44,4 +44,5 @@ one_shot = true
 [connection signal="opportunity_removed" from="CampaignBattleManager" to="." method="_on_BattleManager_opportunity_removed"]
 [connection signal="status_updated" from="CampaignBattleManager" to="." method="_on_BattleManager_status_updated"]
 [connection signal="team_won" from="CampaignBattleManager" to="." method="_on_BattleManager_team_won"]
+[connection signal="turn_ended" from="CampaignBattleManager" to="." method="_on_BattleManager_turn_ended"]
 [connection signal="turn_started" from="CampaignBattleManager" to="." method="_on_BattleManager_turn_started"]

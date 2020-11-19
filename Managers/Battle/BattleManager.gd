@@ -17,6 +17,7 @@ signal active_team_updated(team)
 signal before_hand_discarded(character)
 signal before_hand_drawn(character)
 signal turn_started(character)
+signal turn_ended(character)
 signal team_lost(team)
 signal team_won(team)
 signal opportunity_added(opportunity)
@@ -205,6 +206,7 @@ func on_ending_turn(character : CharacterData):
 	character_battle_manager.end_turn()
 
 func _on_CharacterBattleManager_turn_ended(character : CharacterData):
+	emit_signal("turn_ended", character)
 	if character == active_character:
 		advance_character_phase()
 

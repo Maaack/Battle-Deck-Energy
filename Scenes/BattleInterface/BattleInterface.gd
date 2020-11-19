@@ -42,7 +42,6 @@ func start_battle():
 func _on_hand_drawn(character : CharacterData):
 	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
 		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
-	player_interface.mark_character_inactive(character)
 	_advance_character_phase()
 
 func _on_hand_discarded(character :  CharacterData):
@@ -56,6 +55,9 @@ func _on_BattleManager_active_character_updated(character : CharacterData):
 func _on_BattleManager_turn_started(character : CharacterData):
 	if character == player_character:
 		player_interface.start_turn()
+
+func _on_BattleManager_turn_ended(character : CharacterData):
+	player_interface.mark_character_inactive(character)
 
 func _on_BattleManager_before_hand_discarded(character : CharacterData):
 	if character == player_character:
