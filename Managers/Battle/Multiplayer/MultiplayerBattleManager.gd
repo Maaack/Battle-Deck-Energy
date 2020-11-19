@@ -13,6 +13,7 @@ func add_player(player_id : int, character_data : CharacterData, team : String):
 	battle_manager.set_network_master(player_id)
 
 remotesync func advance_character_phase():
+	print("Remote advance character phase")
 	character_phase_manager.advance()
 
 remotesync func _remote_on_card_played(card_key : String, card_player_id : int, source_player_id : int, target_player_id : int , opportunity_type : int):
@@ -27,7 +28,11 @@ remotesync func _remote_on_card_played(card_key : String, card_player_id : int, 
 remotesync func _remote_on_turn_ended(player_id : int):
 	var character : CharacterData = player_id_character_map[player_id]
 	emit_signal("turn_ended", character)
-
+	
+func _end_character_turn(character_data : CharacterData):
+	print("Ending turn `%s`" % str(character_data))
+	._end_character_turn(character_data)
+	
 func on_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
 	.on_card_played(character, card, opportunity)
 	emit_signal("card_played", character, card, opportunity)
@@ -44,3 +49,4 @@ func _on_CharacterBattleManager_turn_ended(character : CharacterData):
 	rpc('_remote_on_turn_ended', player_id)
 	if character == active_character:
 		rpc('advance_character_phase')
+

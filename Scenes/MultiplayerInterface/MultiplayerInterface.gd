@@ -3,6 +3,7 @@ extends Control
 
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var dead_panel = $DeadPanel
+onready var win_panel = $WinPanel
 onready var shadow_panel = $ShadowPanel
 onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
@@ -76,6 +77,9 @@ func _on_DeckSelectorInterface_deck_selected(deck : DeckData):
 func _on_DeadPanel_retry_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
+func _on_WinPanel_return_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+
 func _on_BattleInterface_player_lost():
 	battle_interface.queue_free()
 	tooltip_manager.reset()
@@ -83,7 +87,10 @@ func _on_BattleInterface_player_lost():
 	dead_panel.show()
 
 func _on_BattleInterface_player_won():
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	battle_interface.queue_free()
+	tooltip_manager.reset()
+	shadow_panel.show()
+	win_panel.show()
 
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
@@ -101,3 +108,4 @@ func _on_StatusIcon_inspected(status_icon):
 
 func _on_StatusIcon_forgotten(_status_icon):
 	tooltip_manager.reset()
+
