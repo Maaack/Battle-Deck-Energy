@@ -44,4 +44,5 @@ one_shot = true
 [connection signal="opportunity_removed" from="MultiplayerBattleManager" to="." method="_on_BattleManager_opportunity_removed"]
 [connection signal="status_updated" from="MultiplayerBattleManager" to="." method="_on_BattleManager_status_updated"]
 [connection signal="team_won" from="MultiplayerBattleManager" to="." method="_on_BattleManager_team_won"]
+[connection signal="turn_ended" from="MultiplayerBattleManager" to="." method="_on_BattleManager_turn_ended"]
 [connection signal="turn_started" from="MultiplayerBattleManager" to="." method="_on_BattleManager_turn_started"]
