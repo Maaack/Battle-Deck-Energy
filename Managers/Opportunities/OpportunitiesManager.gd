@@ -34,10 +34,10 @@ func remove_opportunity(opportunity:OpportunityData):
 		opportunities.remove(remove_index)
 		emit_signal("opportunity_removed", opportunity)
 
-func get_matching_opportunity(source_name : String, target_name : String, type : int):
+func get_matching_opportunity(source:CharacterData, target:CharacterData, type : int):
 	for opportunity in opportunities:
 		if opportunity is OpportunityData:
-			if opportunity.source.nickname == source_name \
-			and opportunity.target.nickname == target_name \
+			if opportunity.source == source \
+			and opportunity.target == target \
 			and opportunity.type == type:
 				return opportunity
