@@ -76,20 +76,21 @@ func _on_BattleManager_card_added_to_hand(character : CharacterData, card : Card
 		player_interface.draw_card(card)
 
 func _on_BattleManager_card_discarded(character : CharacterData, card : CardData):
-	if character == player_character:
-		player_interface.discard_card(card)
+	player_interface.discard_card(card)
 	
 func _on_BattleManager_card_exhausted(character : CharacterData, card : CardData):
-	if character == player_character:
-		player_interface.exhaust_card(card)
+	player_interface.exhaust_card(card)
 
 func _on_BattleManager_card_reshuffled(character : CharacterData, card : CardData):
 	if character == player_character:
 		player_interface.reshuffle_card(card)
 
 func _on_BattleManager_card_played(character : CharacterData, card : CardData, opportunity : OpportunityData):
-	if character == player_character:
-		player_interface.play_card(character, card, opportunity)
+	player_interface.play_card(character, card, opportunity)
+
+func _on_BattleManager_card_spawned(character, card):
+	player_interface.new_character_card(character, card)
+	player_interface.animate_playing_card(card)
 
 func _on_BattleManager_opportunity_added(opportunity : OpportunityData):
 	player_interface.add_opportunity(opportunity)

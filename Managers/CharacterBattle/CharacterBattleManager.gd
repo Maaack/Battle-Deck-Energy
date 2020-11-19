@@ -208,6 +208,9 @@ func _run_start_of_turn_statuses():
 		defense_status.intensity = en_garde_status.intensity
 		gain_status(defense_status, character_data)
 
+func has_statuses():
+	return status_manager.has_statuses()
+
 func update_early_start_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.START_1)
 

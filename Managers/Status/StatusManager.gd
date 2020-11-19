@@ -10,6 +10,9 @@ enum CycleMode{NONE, START_1, START_2, START_3, END}
 var status_type_map : Dictionary = {}
 var status_cycle_map : Dictionary = {}
 
+func has_statuses():
+	return status_type_map.size() > 0
+
 func get_status_by_type(status_type:String):
 	if not status_type in status_type_map:
 		return

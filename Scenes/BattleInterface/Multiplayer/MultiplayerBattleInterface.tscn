@@ -39,6 +39,7 @@ one_shot = true
 [connection signal="card_exhausted" from="MultiplayerBattleManager" to="." method="_on_BattleManager_card_exhausted"]
 [connection signal="card_played" from="MultiplayerBattleManager" to="." method="_on_BattleManager_card_played"]
 [connection signal="card_reshuffled" from="MultiplayerBattleManager" to="." method="_on_BattleManager_card_reshuffled"]
+[connection signal="card_spawned" from="MultiplayerBattleManager" to="." method="_on_BattleManager_card_spawned"]
 [connection signal="opportunities_reset" from="MultiplayerBattleManager" to="." method="_on_BattleManager_opportunities_reset"]
 [connection signal="opportunity_added" from="MultiplayerBattleManager" to="." method="_on_BattleManager_opportunity_added"]
 [connection signal="opportunity_removed" from="MultiplayerBattleManager" to="." method="_on_BattleManager_opportunity_removed"]

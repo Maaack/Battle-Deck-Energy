@@ -21,3 +21,6 @@ func _on_BattleManager_turn_started(character : CharacterData):
 		if character_battle_manager is EnemyAIBattleManager:
 			var opportunities : Array = battle_manager.get_opportunities()
 			character_battle_manager.take_turn(opportunities)
+
+func _on_CampaignBattleManager_card_revealed(character : CharacterData, card : CardData, opportunity: OpportunityData):
+	player_interface.reveal_card(character, card, opportunity)

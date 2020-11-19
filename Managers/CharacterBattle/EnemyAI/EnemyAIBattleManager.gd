@@ -8,7 +8,6 @@ var played_cards : Dictionary = {}
 func _play_card(card : CardData, opportunity : OpportunityData):
 	opportunity.card_data = card
 	emit_signal("card_played", character_data, card, opportunity)
-	discard_card(card)
 
 func take_turn(opportunities : Array):
 	if not character_data.is_alive():

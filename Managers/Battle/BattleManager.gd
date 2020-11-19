@@ -9,7 +9,9 @@ signal card_removed_from_hand(character, card)
 signal card_discarded(character, card)
 signal card_exhausted(character, card)
 signal card_reshuffled(character, card)
+signal card_revealed(character, card)
 signal card_played(character, card, opportunity)
+signal card_spawned(character, card)
 signal status_updated(character, status, delta)
 signal character_died(character)
 signal active_character_updated(character)
@@ -25,7 +27,6 @@ signal opportunity_removed(opportunity)
 signal opportunities_reset
 
 onready var advance_phase_timer : Timer = $AdvancePhaseTimer
-onready var advance_character_timer : Timer = $AdvanceCharacterTimer
 onready var advance_action_timer : Timer = $AdvanceActionTimer
 onready var battle_phase_manager : PhaseManager = $BattlePhaseManager
 onready var team_phase_manager : PhaseManager = $TeamPhaseManager
@@ -124,10 +125,11 @@ func _start_character_turn(character_data : CharacterData):
 
 func _active_character_draws():
 	var character_manager = _character_manager_map[active_character]
-	character_manager.update_early_start_of_turn_statuses()
-	character_manager.update_late_start_of_turn_statuses()
-	advance_action_timer.start()
-	yield(advance_action_timer, "timeout")
+	if character_manager.has_statuses():
+		character_manager.update_early_start_of_turn_statuses()
+		character_manager.update_late_start_of_turn_statuses()
+		advance_action_timer.start()
+		yield(advance_action_timer, "timeout")
 	character_manager.reset_energy()
 	emit_signal("before_hand_drawn", active_character)
 	character_manager.draw_hand()
@@ -149,9 +151,6 @@ func setup_battle():
 	for character_manager in _character_manager_map.values():
 		if character_manager.has_innate_cards_in_draw_pile():
 			character_manager.draw_innate_cards()
-	battle_phase_manager.advance()
-
-func start_round():
 	advance_phase_timer.start()
 
 func advance_character_phase():
@@ -193,13 +192,16 @@ func _on_CharacterBattleManager_card_reshuffled(character : CharacterData, card 
 func on_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
 	var character_battle_manager : CharacterBattleManager = _character_manager_map[character]
 	character_battle_manager.play_card_on_opportunity(card, opportunity)
-	emit_signal("card_played", character, card, opportunity)
 
 func _on_CharacterBattleManager_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
 	print("`%s` played `%s` on `%s`" % [str(character.nickname), str(card.title), str(opportunity.target.nickname)])
+	emit_signal("card_played", character, card, opportunity)
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 	opportunities_manager.remove_opportunity(opportunity)
 	_discard_or_exhaust_card(character, card)
+	
+func _on_CharacterBattleManager_card_revealed(character : CharacterData, card : CardData, opportunity : OpportunityData):
+	emit_signal("card_revealed", character, card, opportunity)
 
 func on_ending_turn(character : CharacterData):
 	var character_battle_manager : CharacterBattleManager = _character_manager_map[character]
@@ -261,7 +263,7 @@ func _on_BattleStart_phase_entered():
 	setup_battle()
 
 func _on_RoundStart_phase_entered():
-	start_round()
+	advance_phase_timer.start()
 
 func _on_RoundEnd_phase_entered():
 	battle_phase_manager.advance()
@@ -319,6 +321,9 @@ func _on_EffectManager_draw_from_draw_pile(character, count):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	for _i in range(count):
 		battle_manager.draw_card()
+
+func _on_EffectManager_spawn_card(card, character):
+	emit_signal("card_spawned", character, card)
 
 func _on_OpportunitiesManager_opportunity_added(opportunity):
 	emit_signal("opportunity_added", opportunity)

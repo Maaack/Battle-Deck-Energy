@@ -10,6 +10,7 @@ signal add_opportunity(type, source, target)
 signal add_card_to_hand(card, character)
 signal add_card_to_draw_pile(card, character)
 signal add_card_to_discard_pile(card, character)
+signal spawn_card(card, character)
 signal draw_from_draw_pile(character, count)
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
@@ -67,6 +68,7 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 
 func _resolve_deck_mod(effect:DeckModEffectData, character:CharacterData):
 	var new_card = effect.card.duplicate()
+	emit_signal("spawn_card", new_card, character)
 	match(effect.destination):
 		DeckModEffectData.DestinationMode.HAND:
 			emit_signal("add_card_to_hand", new_card, character)

@@ -16,6 +16,12 @@ func _new_character_manager_instance(character_data : CharacterData, team : Stri
 	_character_manager_map[character_data] = character_battle_manager
 	return character_battle_manager
 
+func _connect_character_battle_manager(character_battle_manager : CharacterBattleManager):
+	._connect_character_battle_manager(character_battle_manager)
+	if character_battle_manager is SlowEnemyAIBattleManager:
+		character_battle_manager.connect("card_revealed", self, "_on_CharacterBattleManager_card_revealed")
+		pass
+
 func setup_battle():
 	if not _skip_battle_setup:
 		for character_manager in _character_manager_map.values():
@@ -27,15 +33,14 @@ func setup_battle():
 
 func _active_character_draws():
 	var character_manager = _character_manager_map[active_character]
-	character_manager.update_early_start_of_turn_statuses()
-	character_manager.update_late_start_of_turn_statuses()
-	advance_action_timer.start()
-	yield(advance_action_timer, "timeout")
+	if character_manager.has_statuses():
+		character_manager.update_early_start_of_turn_statuses()
+		character_manager.update_late_start_of_turn_statuses()
+		advance_action_timer.start()
+		yield(advance_action_timer, "timeout")
 	character_manager.reset_energy()
 	if character_manager is EnemyAIBattleManager:
 		character_manager.draw_hand()
-		advance_action_timer.start()
-		yield(advance_action_timer, "timeout")
 		advance_character_phase()
 	else:
 		emit_signal("before_hand_drawn", active_character)
@@ -54,3 +59,4 @@ func _end_character_turn(character_data : CharacterData):
 		character_manager.discard_hand()
 	else:
 		character_phase_manager.advance()
+
