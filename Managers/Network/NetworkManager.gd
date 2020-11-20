@@ -15,6 +15,8 @@ var players_synced : Array = []
 var local_player : PlayerData
 
 signal player_list_changed
+signal player_disconnected(player)
+signal player_connected(player)
 signal connection_succeeded
 signal connection_failed
 signal server_disconnected
@@ -24,14 +26,16 @@ func is_server():
 	return get_tree().get_network_unique_id() == 1
 
 remotesync func _register_player(player_id : int, player_name : String):
-	var new_player : PlayerData = PlayerData.new()
-	new_player.name = player_name
-	players[player_id] = new_player
-	print(players)
+	var connected_player : PlayerData = PlayerData.new()
+	connected_player.name = player_name
+	players[player_id] = connected_player
+	emit_signal("player_connected", connected_player)
 	emit_signal("player_list_changed")
 
 func _unregister_player(player_id : int):
+	var disconnected_player = players[player_id]
 	players.erase(player_id)
+	emit_signal("player_disconnected", disconnected_player)
 	emit_signal("player_list_changed")
 
 remotesync func _sync_player(player_id : int):
@@ -86,8 +90,8 @@ func leave_server():
 	get_tree().set_network_peer(null)
 
 func _ready():
-	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
-	get_tree().connect('network_peer_connected', self, '_on_player_connected')
-	get_tree().connect("connected_to_server", self, "_on_connected_to_server")
-	get_tree().connect("connection_failed", self, "_on_connection_failed")
-	get_tree().connect("server_disconnected", self, "_on_server_disconnected")
+	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected', [], CONNECT_DEFERRED)
+	get_tree().connect('network_peer_connected', self, '_on_player_connected', [], CONNECT_DEFERRED)
+	get_tree().connect("connected_to_server", self, "_on_connected_to_server", [], CONNECT_DEFERRED)
+	get_tree().connect("connection_failed", self, "_on_connection_failed", [], CONNECT_DEFERRED)
+	get_tree().connect("server_disconnected", self, "_on_server_disconnected", [], CONNECT_DEFERRED)

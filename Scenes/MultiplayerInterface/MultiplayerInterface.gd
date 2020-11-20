@@ -66,7 +66,19 @@ func _on_deck_selected():
 		Network.connect('synced', self, 'all_ready')
 	Network.sync_up()
 
+func _on_player_disconnected(player : PlayerData):
+	DialogWindows.report_error('Player `%s` Disconnected!' % player.name)
+	Network.leave_server()
+	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+
+func _on_server_disconnected():
+	DialogWindows.report_error('Server Disconnected!')
+	Network.leave_server()
+	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+
 func _ready():
+	Network.connect("player_disconnected", self, "_on_player_disconnected")
+	Network.connect("server_disconnected", self, "_on_server_disconnected")
 	randomize()
 	init_battle_scene()
 

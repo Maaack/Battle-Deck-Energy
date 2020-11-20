@@ -33,6 +33,13 @@ func _on_connection_succeeded():
 	$MultiplayerPanel.hide()
 	$LobbyPanel.show()
 
+func _on_connection_failed():
+	DialogWindows.report_error('Connection Failed!')
+
+func _on_server_disconnected():
+	open_multiplayer_menu()
+	DialogWindows.report_error('Server Disconnected!')
+
 func refresh_lobby():
 	var players : Array = Network.players.values()
 	$LobbyPanel/ItemList.clear()
@@ -69,9 +76,6 @@ func open_multiplayer_menu():
 
 remotesync func start_game():
 	get_tree().change_scene("res://Scenes/MultiplayerInterface/MultiplayerInterface.tscn")
-
-func _on_server_disconnected():
-	open_multiplayer_menu()
 
 func _on_LeaveButton_pressed():
 	Network.leave_server()

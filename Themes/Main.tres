@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=14 format=2]
 
 [ext_resource path="res://Themes/Fonts/MainDynamicFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBoxTexture.tres" type="StyleBox" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Themes/Fonts/Labels/NormalDynamicFont.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Themes/Fonts/Labels/ItalicsDynamicFont.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Themes/Fonts/Labels/BoldItalicsDynamicFont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Themes/StyleBoxes/Popups/WindowDialogStyleBox.tres" type="StyleBox" id=13]
 
 [resource]
 default_font = ExtResource( 1 )
@@ -65,3 +66,12 @@ TooltipLabel/constants/shadow_offset_x = 1
 TooltipLabel/constants/shadow_offset_y = 1
 TooltipLabel/fonts/font = ExtResource( 1 )
 TooltipPanel/styles/panel = ExtResource( 5 )
+WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
+WindowDialog/constants/close_h_ofs = 18
+WindowDialog/constants/close_v_ofs = 18
+WindowDialog/constants/scaleborder_size = 4
+WindowDialog/constants/title_height = 20
+WindowDialog/fonts/title_font = null
+WindowDialog/icons/close = null
+WindowDialog/icons/close_highlight = null
+WindowDialog/styles/panel = ExtResource( 13 )
