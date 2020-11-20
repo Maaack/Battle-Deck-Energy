@@ -104,7 +104,6 @@ func start_battle():
 
 func _setup_opportunities(character_data : CharacterData):
 	var enemies_list = team_manager.get_enemies(character_data)
-	print("%s and enemies : %s" % [character_data.nickname, enemies_list] )
 	for enemy in enemies_list: 
 		if not enemy.is_alive():
 			continue
@@ -121,7 +120,7 @@ func _start_character_turn(character_data : CharacterData):
 	_setup_opportunities(character_data)
 	advance_action_timer.start()
 	yield(advance_action_timer, "timeout")
-	character_phase_manager.advance()
+	advance_character_phase()
 
 func _active_character_draws():
 	var character_manager = _character_manager_map[active_character]
@@ -141,7 +140,7 @@ func _end_character_turn(character_data : CharacterData):
 		emit_signal("before_hand_discarded", character_data)
 		character_manager.discard_hand()
 	else:
-		character_phase_manager.advance()
+		advance_character_phase()
 
 func setup_battle():
 	if _skip_battle_setup:
@@ -194,7 +193,6 @@ func on_card_played(character : CharacterData, card:CardData, opportunity:Opport
 	character_battle_manager.play_card_on_opportunity(card, opportunity)
 
 func _on_CharacterBattleManager_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
-	print("`%s` played `%s` on `%s`" % [str(character.nickname), str(card.title), str(opportunity.target.nickname)])
 	emit_signal("card_played", character, card, opportunity)
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 	opportunities_manager.remove_opportunity(opportunity)
