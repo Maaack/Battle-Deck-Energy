@@ -55,12 +55,12 @@ func reset():
 	_reset_discard_pile()
 	_reset_exhaust_pile()
 
-remotesync func gain_health(amount: int = 1):
+func gain_health(amount: int = 1):
 	character_data.health += amount
 	var health_status_snapshot = get_health_status_snapshot()
 	emit_signal("status_updated", character_data, health_status_snapshot, amount)
 
-remotesync func lose_health(amount: int = 1):
+func lose_health(amount: int = 1):
 	amount = min(character_data.health, amount)
 	character_data.health -= amount
 	var health_status_snapshot = get_health_status_snapshot()
@@ -68,30 +68,18 @@ remotesync func lose_health(amount: int = 1):
 	if character_data.health == 0:
 		emit_signal("character_died", character_data)
 
-remotesync func take_damage(amount: int = 1):
-	var status : StatusData = status_manager.get_status_by_type(EffectCalculator.DEFENSE_STATUS)
-	if status != null:
-		var defense_down = min(amount, status.intensity)
-		status.intensity -= defense_down
-		emit_signal("status_updated", character_data, status.duplicate(), -(defense_down))
-		if status.intensity == 0:
-			status_manager.lose_status(status)
-		amount -= defense_down
-	if amount > 0:
-		lose_health(amount)
-
-remotesync func gain_energy(amount:int = 1):
+func gain_energy(amount:int = 1):
 	character_data.energy += amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, amount)
 
-remotesync func lose_energy(amount:int = 1):
+func lose_energy(amount:int = 1):
 	amount = min(character_data.energy, amount)
 	character_data.energy -= amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, -(amount))
 
-remotesync func reset_energy():
+func reset_energy():
 	var recharge_amount : int = character_data.max_energy - character_data.energy
 	gain_energy(recharge_amount)
 
@@ -201,7 +189,7 @@ func gain_status(status:StatusData, origin:CharacterData):
 func _run_start_of_turn_statuses():
 	var toxin_status : StatusData = status_manager.get_status_by_type(EffectCalculator.TOXIN_STATUS)
 	if toxin_status:
-		take_damage(toxin_status.duration)
+		lose_health(toxin_status.duration)
 	var en_garde_status : StatusData = status_manager.get_status_by_type(EffectCalculator.EN_GARDE_STATUS)
 	if en_garde_status:
 		var defense_status = defense_status_resource.duplicate()

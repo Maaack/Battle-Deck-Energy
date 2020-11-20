@@ -28,11 +28,27 @@ func _get_character_statuses(character:CharacterData, character_manager_map:Dict
 	var character_manager : CharacterBattleManager = character_manager_map[character]
 	return character_manager.get_statuses()
 
+func _get_defense_status(target, character_manager_map:Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	return target_battle_manager.get_status_by_type(EffectCalculator.DEFENSE_STATUS)
+
+func _apply_damage(source, target, amount, character_manager_map:Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var defense_status : StatusData = _get_defense_status(target, character_manager_map)
+	if defense_status != null:
+		var modified_status : StatusData = defense_status.duplicate()
+		var defense_down = min(amount, modified_status.intensity)
+		modified_status.intensity = -(defense_down)
+		emit_signal("apply_status", target, modified_status, source)
+		amount -= defense_down
+	if amount > 0:
+		emit_signal("apply_health", target, -(amount))
+
 func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_statuses = _get_character_statuses(source, character_manager_map)
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
-	emit_signal("apply_health", target, -(total_damage))
+	_apply_damage(source, target, total_damage, character_manager_map)
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	if source_battle_manager:

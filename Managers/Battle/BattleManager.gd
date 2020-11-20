@@ -284,7 +284,7 @@ func _on_EffectManager_apply_health(character, health):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	if health < 0:
 		var damage : int = -(health)
-		character_manager.take_damage(damage)
+		character_manager.lose_health(damage)
 	else:
 		character_manager.gain_health(health)
 
