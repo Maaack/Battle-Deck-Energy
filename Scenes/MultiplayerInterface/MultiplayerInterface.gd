@@ -75,9 +75,11 @@ func _on_DeckSelectorInterface_deck_selected(deck : DeckData):
 	_on_deck_selected()
 
 func _on_DeadPanel_retry_pressed():
+	Network.leave_server()
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_WinPanel_return_pressed():
+	Network.leave_server()
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_BattleInterface_player_lost():
