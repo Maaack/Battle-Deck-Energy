@@ -20,8 +20,8 @@ var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/S
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
 var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
 var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
-var battle_interface
-var player_data
+var player_data : CharacterData
+var battle_interface : BattleInterface
 
 func _add_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
@@ -70,6 +70,10 @@ func start_credits():
 	campaign_interface_container.add_child(credits_interface)
 	credits_interface.connect("continue_pressed", self, "_start_next_level")
 
+func save_deck():
+	PersistentData.save_deck(player_data.deck, "", null)
+	_start_next_level()
+
 func start_level():
 	var current_level : LevelData = level_manager.get_current_level()
 	if current_level is BattleLevelData:
@@ -80,6 +84,8 @@ func start_level():
 		start_story_level(current_level)
 	elif current_level is CreditsLevelData:
 		start_credits()
+	elif current_level is SaveDeckLevelData:
+		save_deck()
 	if current_level.mood_type != "":
 		mood_manager.set_mood(current_level.mood_type)
 

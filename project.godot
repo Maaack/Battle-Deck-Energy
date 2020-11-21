@@ -224,6 +224,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Players/PlayerDater.gd"
 }, {
+"base": "LevelData",
+"class": "SaveDeckLevelData",
+"language": "GDScript",
+"path": "res://Resources/Levels/SaveDeckLevel/SaveDeckLevelData.gd"
+}, {
 "base": "Control",
 "class": "ScrollingTextPanel",
 "language": "GDScript",
@@ -343,6 +348,7 @@ _global_script_class_icons={
 "PhaseManager": "",
 "PlayerActionsInterface": "",
 "PlayerData": "",
+"SaveDeckLevelData": "",
 "ScrollingTextPanel": "",
 "SelectorCardManager": "",
 "ShelterLevelData": "",
@@ -369,6 +375,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+PersistentData="*res://Managers/PersistentData/PersistentData.gd"
 Network="*res://Managers/Network/NetworkManager.gd"
 DialogWindows="*res://Scenes/DialogWindows/DialogWindows.tscn"
 
