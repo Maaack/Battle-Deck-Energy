@@ -95,12 +95,16 @@ func _on_WinPanel_return_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_BattleInterface_player_lost():
+	Network.disconnect("player_disconnected", self, "_on_player_disconnected")
+	Network.disconnect("server_disconnected", self, "_on_server_disconnected")
 	battle_interface.queue_free()
 	tooltip_manager.reset()
 	shadow_panel.show()
 	dead_panel.show()
 
 func _on_BattleInterface_player_won():
+	Network.disconnect("player_disconnected", self, "_on_player_disconnected")
+	Network.disconnect("server_disconnected", self, "_on_server_disconnected")
 	battle_interface.queue_free()
 	tooltip_manager.reset()
 	shadow_panel.show()
