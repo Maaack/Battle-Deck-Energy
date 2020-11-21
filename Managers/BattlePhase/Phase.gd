@@ -1,7 +1,7 @@
 extends Node
 
 
-class_name BattlePhase
+class_name Phase
 
 signal phase_entered
 signal phase_exited

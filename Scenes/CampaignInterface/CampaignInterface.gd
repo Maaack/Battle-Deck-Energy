@@ -1,6 +1,9 @@
 extends Control
 
 
+const PLAYER_TEAM = "Player"
+const ENEMY_TEAM = "Enemy"
+
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var dead_panel = $DeadPanel
 onready var shadow_panel = $ShadowPanel
@@ -10,15 +13,16 @@ onready var mood_manager = $MoodManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 
-var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewPlayerData.tres")
-var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/BattleInterface.tscn")
+var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
+var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/Campaign/CampaignBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
 var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
 var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
-var battle_interface
-var player_data
+var save_deck_panel_scene : PackedScene = preload("res://Scenes/SaveDeck/SaveDeckPanel.tscn")
+var player_data : CharacterData
+var battle_interface : BattleInterface
 
 func _add_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
@@ -40,8 +44,10 @@ func start_battle(current_level:BattleLevelData):
 	battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
 	battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
 	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
-	battle_interface.player_data = player_data
-	battle_interface.opponents = current_level.opponents
+	battle_interface.add_character(player_data, PLAYER_TEAM)
+	for opponent in current_level.opponents:
+		battle_interface.add_character(opponent.duplicate(), ENEMY_TEAM)
+	battle_interface.player_character = player_data
 	battle_interface.start_battle()
 
 func start_shelter():
@@ -65,6 +71,18 @@ func start_credits():
 	campaign_interface_container.add_child(credits_interface)
 	credits_interface.connect("continue_pressed", self, "_start_next_level")
 
+func _on_save_deck(cards : Array, title : String, icon : Texture):
+	PersistentData.save_deck(cards, title, icon)
+	_start_next_level()
+
+func save_deck():
+	shadow_panel.show()
+	var save_deck_interface = save_deck_panel_scene.instance()
+	campaign_interface_container.add_child(save_deck_interface)
+	save_deck_interface.cards = player_data.deck
+	save_deck_interface.connect("save_pressed", self, "_on_save_deck")
+	save_deck_interface.connect("skip_pressed", self, "_start_next_level")
+
 func start_level():
 	var current_level : LevelData = level_manager.get_current_level()
 	if current_level is BattleLevelData:
@@ -75,6 +93,8 @@ func start_level():
 		start_story_level(current_level)
 	elif current_level is CreditsLevelData:
 		start_credits()
+	elif current_level is SaveDeckLevelData:
+		save_deck()
 	if current_level.mood_type != "":
 		mood_manager.set_mood(current_level.mood_type)
 

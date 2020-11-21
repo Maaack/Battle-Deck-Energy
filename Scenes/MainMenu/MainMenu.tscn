@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" type="DynamicFont" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Mixed/Backgrounds/Deck-Fighter.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" type="Material" id=13]
+[ext_resource path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SlideInLeft"
@@ -42,6 +43,9 @@ __meta__ = {
 [node name="BackgroundControl" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundControl"]
 anchor_right = 1.0
@@ -79,13 +83,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="MainControl" type="Control" parent="MarginContainer"]
 margin_left = 128.0
 margin_top = 64.0
 margin_right = 1152.0
 margin_bottom = 656.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainControl"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -94,34 +98,40 @@ margin_left = -151.0
 margin_top = -546.0
 margin_right = 151.0
 margin_bottom = 46.0
-custom_constants/separation = 24
+custom_constants/separation = 20
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NewGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 364.0
+[node name="CampaignGameButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
+margin_top = 292.0
 margin_right = 302.0
-margin_bottom = 424.0
+margin_bottom = 352.0
 focus_mode = 0
-text = "New"
+text = "Campaign"
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
-margin_top = 448.0
+[node name="MultiplayerButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
+margin_top = 372.0
 margin_right = 302.0
-margin_bottom = 508.0
+margin_bottom = 432.0
+text = "Multiplayer"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
+margin_top = 452.0
+margin_right = 302.0
+margin_bottom = 512.0
 focus_mode = 0
 text = "Credits"
 
-[node name="ExitGameButton" type="Button" parent="MarginContainer/Control/VBoxContainer"]
+[node name="ExitGameButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
 margin_top = 532.0
 margin_right = 302.0
 margin_bottom = 592.0
 focus_mode = 0
 text = "Exit"
 
-[node name="TitleContainer" type="Control" parent="MarginContainer/Control"]
+[node name="TitleContainer" type="Control" parent="MarginContainer/MainControl"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -129,15 +139,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BattleDeckLabel" type="Label" parent="MarginContainer/Control/TitleContainer"]
+[node name="BattleDeckLabel" type="Label" parent="MarginContainer/MainControl/TitleContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -425.0
-margin_top = -286.0
+margin_top = -362.0
 margin_right = 431.0
-margin_bottom = -146.0
+margin_bottom = -222.0
 rect_rotation = -0.024621
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.345098, 0.270588, 0.388235, 1 )
@@ -148,15 +158,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnergyLabel" type="Label" parent="MarginContainer/Control/TitleContainer"]
+[node name="BattleSprite" type="Sprite" parent="MarginContainer/MainControl/TitleContainer/BattleDeckLabel"]
+material = ExtResource( 5 )
+position = Vector2( 249.966, 80.1074 )
+rotation = 0.000429718
+texture = ExtResource( 8 )
+
+[node name="DeckSprite" type="Sprite" parent="MarginContainer/MainControl/TitleContainer/BattleDeckLabel"]
+material = ExtResource( 5 )
+position = Vector2( 626.963, 86.2694 )
+rotation = 0.000429718
+texture = ExtResource( 6 )
+
+[node name="EnergyLabel" type="Label" parent="MarginContainer/MainControl/TitleContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -440.0
-margin_top = -194.0
+margin_top = -270.0
 margin_right = 416.0
-margin_bottom = 70.0
+margin_bottom = -6.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.615686, 0.188235, 0.231373, 1 )
 custom_colors/font_outline_modulate = Color( 0.243137, 0.129412, 0.215686, 1 )
@@ -166,39 +188,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReleaseLabel" type="Label" parent="MarginContainer/Control/TitleContainer"]
+[node name="EnergySprite" type="Sprite" parent="MarginContainer/MainControl/TitleContainer/EnergyLabel"]
+material = ExtResource( 13 )
+position = Vector2( 416, 146 )
+texture = ExtResource( 7 )
+
+[node name="ReleaseLabel" type="Label" parent="MarginContainer/MainControl/TitleContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -63.1404
-margin_top = 53.9644
-margin_right = 447.86
-margin_bottom = 112.964
+margin_left = -103.14
+margin_top = -17.0356
+margin_right = 407.86
+margin_bottom = 41.964
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.960784, 0.929412, 0.729412, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "premature release"
+text = "lame deck precedent"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BattleSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
-material = ExtResource( 5 )
-position = Vector2( -175, 90 )
-texture = ExtResource( 8 )
-
-[node name="DeckSprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
-material = ExtResource( 5 )
-position = Vector2( 202, 96 )
-texture = ExtResource( 6 )
-
-[node name="EnergySprite" type="Sprite" parent="MarginContainer/Control/TitleContainer"]
-material = ExtResource( 13 )
-position = Vector2( -24, 248 )
-texture = ExtResource( 7 )
+[node name="NetworkMenu" parent="MarginContainer" instance=ExtResource( 14 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 1152.0
+margin_bottom = 656.0
 
 [node name="WindowContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -212,6 +233,7 @@ __meta__ = {
 stream = ExtResource( 10 )
 volume_db = -15.0
 autoplay = true
-[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/CampaignGameButton" to="." method="_on_CampaignGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/MultiplayerButton" to="." method="_on_MultiplayerButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]

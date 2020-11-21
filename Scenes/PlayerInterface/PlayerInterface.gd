@@ -40,6 +40,7 @@ var _opportunities_map : Dictionary = {}
 var _character_statuses_map : Dictionary = {}
 var _card_owner_map : Dictionary = {}
 var _nearest_opportunity = null
+var _revealed_card_opportunity_map = {}
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -156,14 +157,12 @@ func _recalculate_all_cards():
 			continue
 		_calculate_card_mod(card_instance, player_data)
 	# Opponent cards that are already played
-	for opportunity in _opportunities_map:
-		if opportunity is OpportunityData:
-			if opportunity.card_data == null or opportunity.source == player_data:
-				continue
-			var card_instance = opponent_card_manager.get_card_instance(opportunity.card_data)
-			if not is_instance_valid(card_instance):
-				continue
-			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
+	for card in opponent_card_manager.card_map:
+		var card_instance = opponent_card_manager.card_map[card]
+		if not card in _revealed_card_opportunity_map:
+			continue
+		var opportunity : OpportunityData = _revealed_card_opportunity_map[card]
+		_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
 
 func new_character_card(character_data:CharacterData, card:CardData):
 	var center_offset : Vector2 = get_global_transform().get_origin() + (get_rect().size / 2)
@@ -411,27 +410,43 @@ func _on_BattleCardManager_dropping_card(card_data:CardData):
 	_on_dropping_card(card_data)
 
 func animate_playing_card(card:CardData):
-	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	var card_instance : CardNode2D
+	if _card_owner_map[card] == player_data:
+		card_instance = card_manager.get_card_instance(card)
+	else:
+		card_instance = opponent_card_manager.get_card_instance(card)
 	card_instance.play_card()
 
-func play_card(character:CharacterData, card:CardData, opportunity = null):
+func play_card(character : CharacterData, card : CardData, opportunity = null):
 	var opening_transform : TransformData = card.transform_data.duplicate()
 	if opportunity is OpportunityData:
-		opportunity.card_data = card
 		opening_transform = opportunity.transform_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
 		card_manager.move_card(card, opening_transform)
-		animate_playing_card(card)
-	else:
-		card.transform_data = opening_transform
-		var card_instance : CardNode2D = _new_character_card(character, card)
-		_calculate_card_mod(card_instance, character, opportunity.target)
+	if card in _revealed_card_opportunity_map:
+		_revealed_card_opportunity_map.erase(card)
+	animate_playing_card(card)
+
+func reveal_card(character : CharacterData, card : CardData, opportunity : OpportunityData):
+	var manager_offset : Vector2 = opponent_card_manager.get_global_transform().get_origin()
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	if actions_interface is OpponentActionsInterface:
+		_revealed_card_opportunity_map[card] = opportunity
+		card.transform_data = actions_interface.get_reveal_transform()
+		card.transform_data.position -= manager_offset
+	var card_instance : CardNode2D = _new_character_card(character, card)
+	_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
 
 func opponent_discards_card(card:CardData):
+	var card_instance : CardNode2D = opponent_card_manager.get_card_instance(card)
+	if not is_instance_valid(card_instance):
+		return
+	if card_instance.pulse_animation.is_playing():
+		yield(card_instance.pulse_animation, "animation_finished")
 	opponent_card_manager.remove_card(card)
 
-func _update_status(character:CharacterData, status:StatusData, delta:int):
+func _update_status(character : CharacterData, status : StatusData, delta : int):
 	if not character in _character_statuses_map:
 		_character_statuses_map[character] = {}
 	_character_statuses_map[character][status.type_tag] = status
@@ -445,7 +460,7 @@ func _update_status(character:CharacterData, status:StatusData, delta:int):
 		if status.type_tag == EffectCalculator.HEALTH_STATUS:
 			character_dies(character)
 
-func update_status(character:CharacterData, status:StatusData, delta:int):
+func update_status(character : CharacterData, status : StatusData, delta : int):
 	if status.type_tag == EffectCalculator.ENERGY_STATUS:
 		if character == player_data:
 			player_board.gain_energy(delta)

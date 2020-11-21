@@ -1,5 +1,8 @@
 extends Node
 
+
+class_name EffectsManager
+
 signal apply_health(character, health)
 signal apply_status(character, status, origin)
 signal apply_energy(character, energy)
@@ -7,6 +10,7 @@ signal add_opportunity(type, source, target)
 signal add_card_to_hand(card, character)
 signal add_card_to_draw_pile(card, character)
 signal add_card_to_discard_pile(card, character)
+signal spawn_card(card, character)
 signal draw_from_draw_pile(character, count)
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
@@ -24,11 +28,27 @@ func _get_character_statuses(character:CharacterData, character_manager_map:Dict
 	var character_manager : CharacterBattleManager = character_manager_map[character]
 	return character_manager.get_statuses()
 
+func _get_defense_status(target, character_manager_map:Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	return target_battle_manager.get_status_by_type(EffectCalculator.DEFENSE_STATUS)
+
+func _apply_damage(source, target, amount, character_manager_map:Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var defense_status : StatusData = _get_defense_status(target, character_manager_map)
+	if defense_status != null:
+		var modified_status : StatusData = defense_status.duplicate()
+		var defense_down = min(amount, modified_status.intensity)
+		modified_status.intensity = -(defense_down)
+		emit_signal("apply_status", target, modified_status, source)
+		amount -= defense_down
+	if amount > 0:
+		emit_signal("apply_health", target, -(amount))
+
 func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_statuses = _get_character_statuses(source, character_manager_map)
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
-	emit_signal("apply_health", target, -(total_damage))
+	_apply_damage(source, target, total_damage, character_manager_map)
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	if source_battle_manager:
@@ -64,6 +84,7 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 
 func _resolve_deck_mod(effect:DeckModEffectData, character:CharacterData):
 	var new_card = effect.card.duplicate()
+	emit_signal("spawn_card", new_card, character)
 	match(effect.destination):
 		DeckModEffectData.DestinationMode.HAND:
 			emit_signal("add_card_to_hand", new_card, character)
@@ -140,37 +161,3 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 				_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
 			if effect is DeckModEffectData:
 				_resolve_deck_mod(effect, final_target)
-
-func include_innate_cards(cards:Array):
-	var innate_cards : Array = []
-	for card in cards:
-		if card is CardData and card.has_effect(EffectCalculator.INNATE_EFFECT):
-			innate_cards.append(card)
-	return innate_cards
-
-func exclude_retained_cards(cards:Array):
-	var not_retained_cards : Array = []
-	for card in cards:
-		if card is CardData and not card.has_effect(EffectCalculator.RETAIN_EFFECT):
-			not_retained_cards.append(card)
-	return not_retained_cards
-
-func include_discardable_cards(cards:Array):
-	var discardable_cards : Array = []
-	for card in cards:
-		if card is CardData:
-			if card.has_effect(EffectCalculator.RETAIN_EFFECT):
-				continue
-			if card.has_effect(EffectCalculator.MOMENTARY_EFFECT):
-				continue
-			discardable_cards.append(card)
-	return discardable_cards
-
-func include_exhaustable_cards(cards:Array):
-	var exhaustable_cards : Array = []
-	for card in cards:
-		if card is CardData:
-			if not card.has_effect(EffectCalculator.MOMENTARY_EFFECT):
-				continue
-			exhaustable_cards.append(card)
-	return exhaustable_cards

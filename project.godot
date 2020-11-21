@@ -24,15 +24,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/AnimationQueue/AnimationQueue.gd"
 }, {
+"base": "Control",
+"class": "BattleInterface",
+"language": "GDScript",
+"path": "res://Scenes/BattleInterface/BattleInterface.gd"
+}, {
 "base": "LevelData",
 "class": "BattleLevelData",
 "language": "GDScript",
 "path": "res://Resources/Levels/BattleLevelData.gd"
 }, {
 "base": "Node",
-"class": "BattlePhase",
+"class": "BattleManager",
 "language": "GDScript",
-"path": "res://Scenes/BattleInterface/BattlePhase/BattlePhase.gd"
+"path": "res://Managers/Battle/BattleManager.gd"
+}, {
+"base": "BattleManager",
+"class": "CampaignBattleManager",
+"language": "GDScript",
+"path": "res://Managers/Battle/Campaign/CampaignBattleManager.gd"
 }, {
 "base": "AnimationData",
 "class": "CardAnimationData",
@@ -74,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Characters/CharacterData.gd"
 }, {
+"base": "Resource",
+"class": "CommonData",
+"language": "GDScript",
+"path": "res://Resources/Common/CommonData.gd"
+}, {
 "base": "LevelData",
 "class": "CreditsLevelData",
 "language": "GDScript",
@@ -109,10 +124,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Effects/EffectCalculator.gd"
 }, {
+"base": "Object",
+"class": "EffectCardFilter",
+"language": "GDScript",
+"path": "res://Managers/Effects/EffectCardFilter.gd"
+}, {
 "base": "Resource",
 "class": "EffectData",
 "language": "GDScript",
 "path": "res://Resources/Effects/EffectData.gd"
+}, {
+"base": "Node",
+"class": "EffectsManager",
+"language": "GDScript",
+"path": "res://Managers/Effects/EffectManager.gd"
+}, {
+"base": "CharacterBattleManager",
+"class": "EnemyAIBattleManager",
+"language": "GDScript",
+"path": "res://Managers/CharacterBattle/EnemyAI/EnemyAIBattleManager.gd"
 }, {
 "base": "CardManager",
 "class": "FocusedCardManager",
@@ -139,6 +169,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Mood/MoodManager.gd"
 }, {
+"base": "BattleManager",
+"class": "MultiplayerBattleManager",
+"language": "GDScript",
+"path": "res://Managers/Battle/Multiplayer/MultiplayerBattleManager.gd"
+}, {
+"base": "Node",
+"class": "NetworkManager",
+"language": "GDScript",
+"path": "res://Managers/Network/NetworkManager.gd"
+}, {
 "base": "CharacterActionsInterface",
 "class": "OpponentActionsInterface",
 "language": "GDScript",
@@ -154,15 +194,40 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.gd"
 }, {
+"base": "Node",
+"class": "OpportunitiesManager",
+"language": "GDScript",
+"path": "res://Managers/Opportunities/OpportunitiesManager.gd"
+}, {
 "base": "Resource",
 "class": "OpportunityData",
 "language": "GDScript",
 "path": "res://Resources/Opportunity/OpportunityData.gd"
 }, {
+"base": "Node",
+"class": "Phase",
+"language": "GDScript",
+"path": "res://Managers/BattlePhase/Phase.gd"
+}, {
+"base": "Node",
+"class": "PhaseManager",
+"language": "GDScript",
+"path": "res://Managers/BattlePhase/PhaseManager.gd"
+}, {
 "base": "CharacterActionsInterface",
 "class": "PlayerActionsInterface",
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.gd"
+}, {
+"base": "Resource",
+"class": "PlayerData",
+"language": "GDScript",
+"path": "res://Resources/Players/PlayerDater.gd"
+}, {
+"base": "LevelData",
+"class": "SaveDeckLevelData",
+"language": "GDScript",
+"path": "res://Resources/Levels/SaveDeckLevel/SaveDeckLevelData.gd"
 }, {
 "base": "Control",
 "class": "ScrollingTextPanel",
@@ -178,6 +243,11 @@ _global_script_classes=[ {
 "class": "ShelterLevelData",
 "language": "GDScript",
 "path": "res://Resources/Levels/ShelterLevel/ShelterLevelData.gd"
+}, {
+"base": "EnemyAIBattleManager",
+"class": "SlowEnemyAIBattleManager",
+"language": "GDScript",
+"path": "res://Managers/CharacterBattle/EnemyAI/Slow/SlowEnemyAIBattleManager.gd"
 }, {
 "base": "AnimationData",
 "class": "StatusAnimationData",
@@ -209,6 +279,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Levels/StoryLevel/StoryLevelData.gd"
 }, {
+"base": "Node",
+"class": "TeamManager",
+"language": "GDScript",
+"path": "res://Managers/Team/TeamManager.gd"
+}, {
 "base": "Node2D",
 "class": "TooltipListNode2D",
 "language": "GDScript",
@@ -233,8 +308,10 @@ _global_script_class_icons={
 "ActionsInterface": "",
 "AnimationData": "",
 "AnimationQueue": "",
+"BattleInterface": "",
 "BattleLevelData": "",
-"BattlePhase": "",
+"BattleManager": "",
+"CampaignBattleManager": "",
 "CardAnimationData": "",
 "CardContainer": "",
 "CardData": "",
@@ -243,6 +320,7 @@ _global_script_class_icons={
 "CharacterActionsInterface": "",
 "CharacterBattleManager": "",
 "CharacterData": "",
+"CommonData": "",
 "CreditsLevelData": "",
 "DeckCleaner": "",
 "DeckData": "",
@@ -250,26 +328,38 @@ _global_script_class_icons={
 "DeckViewer": "",
 "DefinitionData": "",
 "EffectCalculator": "",
+"EffectCardFilter": "",
 "EffectData": "",
+"EffectsManager": "",
+"EnemyAIBattleManager": "",
 "FocusedCardManager": "",
 "HandData": "",
 "InspectorCardManager": "",
 "LevelData": "",
 "MoodManager": "",
+"MultiplayerBattleManager": "",
+"NetworkManager": "",
 "OpponentActionsInterface": "",
 "OpponentCharacterData": "",
 "OpportunitiesContainer": "",
+"OpportunitiesManager": "",
 "OpportunityData": "",
+"Phase": "",
+"PhaseManager": "",
 "PlayerActionsInterface": "",
+"PlayerData": "",
+"SaveDeckLevelData": "",
 "ScrollingTextPanel": "",
 "SelectorCardManager": "",
 "ShelterLevelData": "",
+"SlowEnemyAIBattleManager": "",
 "StatusAnimationData": "",
 "StatusData": "",
 "StatusEffectData": "",
 "StatusIcon": "",
 "StatusManager": "",
 "StoryLevelData": "",
+"TeamManager": "",
 "TooltipListNode2D": "",
 "TransformData": "",
 "WeightedData": "",
@@ -280,7 +370,14 @@ _global_script_class_icons={
 
 config/name="Battle Deck Energy"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
+boot_splash/image="res://Assets/Originals/FinalScreenshots/Screenshot from 2020-10-15 22-36-34.png"
 config/icon="res://icon.png"
+
+[autoload]
+
+PersistentData="*res://Managers/PersistentData/PersistentData.gd"
+Network="*res://Managers/Network/NetworkManager.gd"
+DialogWindows="*res://Scenes/DialogWindows/DialogWindows.tscn"
 
 [display]
 
