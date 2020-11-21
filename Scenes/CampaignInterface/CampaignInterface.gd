@@ -20,6 +20,7 @@ var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/S
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
 var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
 var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
+var save_deck_panel_scene : PackedScene = preload("res://Scenes/SaveDeck/SaveDeckPanel.tscn")
 var player_data : CharacterData
 var battle_interface : BattleInterface
 
@@ -70,9 +71,17 @@ func start_credits():
 	campaign_interface_container.add_child(credits_interface)
 	credits_interface.connect("continue_pressed", self, "_start_next_level")
 
-func save_deck():
-	PersistentData.save_deck(player_data.deck, "", null)
+func _on_save_deck(cards : Array, title : String, icon : Texture):
+	PersistentData.save_deck(cards, title, icon)
 	_start_next_level()
+
+func save_deck():
+	shadow_panel.show()
+	var save_deck_interface = save_deck_panel_scene.instance()
+	campaign_interface_container.add_child(save_deck_interface)
+	save_deck_interface.cards = player_data.deck
+	save_deck_interface.connect("save_pressed", self, "_on_save_deck")
+	save_deck_interface.connect("skip_pressed", self, "_start_next_level")
 
 func start_level():
 	var current_level : LevelData = level_manager.get_current_level()

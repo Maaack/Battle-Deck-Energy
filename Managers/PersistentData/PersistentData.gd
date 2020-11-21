@@ -70,12 +70,9 @@ func load_decks():
 	"\\d{4}-\\d{2}-\\d{2}_\\d{2}:\\d{2}:\\d{2}\\.json"
 	regex.compile(match_string)
 	for content in contents:
-		print("content %s " % content)
 		var regex_match = regex.search(content)
 		if regex_match:
-			print("regex_matched %s " % content)
 			var deck : DeckData = load_deck_file(directory_path + content)
-			print("deck is %s " % str(deck.cards))
 			if deck != null:
 				decks.append(deck)
 	return decks
@@ -95,5 +92,5 @@ func load_deck_file(filepath : String):
 		if card != null:
 			saved_deck.cards.append(card)
 	if DECK_ICON_KEY in saved_dict:
-		saved_deck.icon = saved_dict[DECK_ICON_KEY]
+		saved_deck.icon = load(saved_dict[DECK_ICON_KEY])
 	return saved_deck
