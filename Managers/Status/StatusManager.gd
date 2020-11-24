@@ -78,8 +78,10 @@ func lose_status(status:StatusData):
 	status_cycle_map.erase(status)
 	var status_type : String = status.type_tag
 	if status is RelatedStatusData:
-		related_status_source_map[status.source].erase(status_type)
-		related_status_target_map[status.target].erase(status_type)
+		if status.source in related_status_source_map:
+			related_status_source_map[status.source].erase(status_type)
+		if status.target in related_status_target_map:
+			related_status_target_map[status.target].erase(status_type)
 	else:
 		status_map.erase(status_type)
 

@@ -29,6 +29,12 @@ func get_stack_value():
 	else:
 		return intensity
 
+func set_stack_value(value:int):
+	if stacks_the_d():
+		duration = value
+	else:
+		intensity = value
+
 func add_to_stack(value:int):
 	if stacks_the_d():
 		duration += value

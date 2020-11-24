@@ -65,9 +65,8 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 			var riposte_status = riposte_status_resource.duplicate()
 			riposte_status.source = target
 			riposte_status.target = source
-			emit_signal("apply_status", target, riposte_status, source)
+			emit_signal("apply_status", target, riposte_status, target)
 			emit_signal("apply_status", source, riposte_status, target)
-			
 
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)
@@ -79,17 +78,14 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 		var modified_status : StatusData = status.duplicate()
 		var source_statuses = _get_character_statuses(source, character_manager_map)
 		var target_statuses = _get_character_statuses(target, character_manager_map)
-		var status_quantity : int
-		if modified_status.stacks_the_d():
-			status_quantity = modified_status.duration
-		else:
-			status_quantity = modified_status.intensity
+		var status_quantity : int = modified_status.get_stack_value()
 		status_quantity *= effect.amount
 		status_quantity = effect_calculator.get_effect_total(status_quantity, effect.type_tag, source_statuses, target_statuses)
-		if modified_status.stacks_the_d():
-			modified_status.duration = status_quantity
-		else:
-			modified_status.intensity = status_quantity
+		modified_status.set_stack_value(status_quantity)
+		if modified_status is RelatedStatusData:
+			modified_status.source = source
+			modified_status.target = target
+			emit_signal("apply_status", source, modified_status, source)
 		emit_signal("apply_status", target, modified_status, source)
 
 func _resolve_deck_mod(effect:DeckModEffectData, character:CharacterData):
