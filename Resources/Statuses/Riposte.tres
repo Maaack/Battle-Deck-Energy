@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Statuses/RelatedStatusData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+title = "Riposte"
+description = "Adds Attack spaces for the target's opponent on their next turn."
+color = Color( 0.54902, 0.560784, 0.682353, 1 )
+intensity = 1
+duration = 1
+type_tag = "RIPOSTE"
+stack_type = 0

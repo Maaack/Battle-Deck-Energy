@@ -27,6 +27,11 @@ var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
 var statuses : Array = []
+onready var base_opportunities : Dictionary = {
+	CardData.CardType.ATTACK : 1,
+	CardData.CardType.DEFEND : 1,
+	CardData.CardType.SKILL : 1,
+}
 
 func _reset_draw_pile():
 	for card in character_data.deck:
@@ -174,8 +179,9 @@ func end_turn():
 
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE
+	var is_origin : bool = origin == character_data
 	if status.has_the_d():
-		if origin == character_data:
+		if is_origin:
 			cycle_mode = StatusManager.CycleMode.START_1
 		else:
 			cycle_mode = StatusManager.CycleMode.END
@@ -184,13 +190,13 @@ func gain_status(status:StatusData, origin:CharacterData):
 			cycle_mode = StatusManager.CycleMode.START_2
 		EffectCalculator.TOXIN_STATUS, EffectCalculator.EN_GARDE_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_3
-	status_manager.gain_status(status, cycle_mode)
+	status_manager.gain_status(status, cycle_mode, !(is_origin))
 
 func _run_start_of_turn_statuses():
-	var toxin_status : StatusData = status_manager.get_status_by_type(EffectCalculator.TOXIN_STATUS)
+	var toxin_status : StatusData = status_manager.get_status(EffectCalculator.TOXIN_STATUS)
 	if toxin_status:
 		lose_health(toxin_status.duration)
-	var en_garde_status : StatusData = status_manager.get_status_by_type(EffectCalculator.EN_GARDE_STATUS)
+	var en_garde_status : StatusData = status_manager.get_status(EffectCalculator.EN_GARDE_STATUS)
 	if en_garde_status:
 		var defense_status = defense_status_resource.duplicate()
 		defense_status.intensity = en_garde_status.intensity
@@ -211,13 +217,16 @@ func update_end_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.END)
 
 func get_statuses():
-	return status_manager.status_type_map.values()
+	return status_manager.status_map.values()
 
-func get_status_by_type(type_tag:String):
-	return status_manager.get_status_by_type(type_tag)
+func get_status(type_tag:String):
+	return status_manager.get_status(type_tag)
 
-func has_status_by_type(type_tag:String):
-	return get_status_by_type(type_tag) != null
+func get_related_status(type_tag:String, related:CharacterData, is_target : bool = true):
+	return status_manager.get_related_status(type_tag, related, is_target)
+
+func has_status(type_tag:String, source = null):
+	return get_status(type_tag) != null
 
 func _on_StatusManager_status_updated(status:StatusData, delta:int):
 	emit_signal("status_updated", character_data, status, delta)

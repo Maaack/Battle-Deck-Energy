@@ -14,7 +14,8 @@ signal spawn_card(card, character)
 signal draw_from_draw_pile(character, count)
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
-var toxin_effect_resource = preload("res://Resources/Statuses/Toxin.tres")
+var toxin_status_resource = preload("res://Resources/Statuses/Toxin.tres")
+var riposte_status_resource = preload("res://Resources/Statuses/Riposte.tres")
 
 func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:EffectData):
 	if effect.is_aimed_at_target():
@@ -30,7 +31,7 @@ func _get_character_statuses(character:CharacterData, character_manager_map:Dict
 
 func _get_defense_status(target, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
-	return target_battle_manager.get_status_by_type(EffectCalculator.DEFENSE_STATUS)
+	return target_battle_manager.get_status(EffectCalculator.DEFENSE_STATUS)
 
 func _apply_damage(source, target, amount, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
@@ -39,7 +40,8 @@ func _apply_damage(source, target, amount, character_manager_map:Dictionary):
 		var modified_status : StatusData = defense_status.duplicate()
 		var defense_down = min(amount, modified_status.intensity)
 		modified_status.intensity = -(defense_down)
-		emit_signal("apply_status", target, modified_status, source)
+		if modified_status.intensity != 0:
+			emit_signal("apply_status", target, modified_status, source)
 		amount -= defense_down
 	if amount > 0:
 		emit_signal("apply_health", target, -(amount))
@@ -52,12 +54,20 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	if source_battle_manager:
-		var venomous_status : StatusData = source_battle_manager.get_status_by_type(EffectCalculator.VENOMOUS_STATUS)
+		var venomous_status : StatusData = source_battle_manager.get_status(EffectCalculator.VENOMOUS_STATUS)
 		if venomous_status:
-			var toxin_status : StatusData = toxin_effect_resource.duplicate()
+			var toxin_status : StatusData = toxin_status_resource.duplicate()
 			toxin_status.intensity = venomous_status.intensity
 			toxin_status.duration = venomous_status.duration
-			target_battle_manager.gain_status(toxin_status, source)
+			emit_signal("apply_status", target, toxin_status, source)
+		var parried_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.PARRIED_STATUS, target)
+		if parried_status:
+			var riposte_status = riposte_status_resource.duplicate()
+			riposte_status.source = target
+			riposte_status.target = source
+			emit_signal("apply_status", target, riposte_status, source)
+			emit_signal("apply_status", source, riposte_status, target)
+			
 
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)
@@ -161,3 +171,27 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 				_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
 			if effect is DeckModEffectData:
 				_resolve_deck_mod(effect, final_target)
+
+func add_all_opportunities(type : int, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
+	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
+	var base_opportunities : int = source_battle_manager.base_opportunities[type]
+	if base_opportunities != null:
+		for _i in range(base_opportunities):
+				emit_signal("add_opportunity", type, source, target)
+	match(type):
+		CardData.CardType.ATTACK:
+			var riposte_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.RIPOSTE_STATUS, target, false)
+			if riposte_status != null:
+				for _i in range(riposte_status.get_stack_value()):
+					emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
+			var marked_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.MARKED_STATUS, target, false)
+			if marked_status != null:
+				emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
+		CardData.CardType.DEFEND:
+			var fortified_status : StatusData = source_battle_manager.get_status(EffectCalculator.FORTIFIED_STATUS)
+			if fortified_status != null:
+				emit_signal("add_opportunity", CardData.CardType.DEFEND, source, target)
+		CardData.CardType.SKILL:
+			var focused_status : StatusData = source_battle_manager.get_status(EffectCalculator.FOCUSED_STATUS)
+			if focused_status != null:
+				emit_signal("add_opportunity", CardData.CardType.SKILL, source, target)

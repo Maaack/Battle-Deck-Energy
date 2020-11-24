@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Statuses/RelatedStatusData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+title = "Marked"
+description = "Status description."
+color = Color( 0.203922, 0.521569, 0.615686, 1 )
+intensity = 1
+duration = 1
+type_tag = "MARKED"
+stack_type = 1

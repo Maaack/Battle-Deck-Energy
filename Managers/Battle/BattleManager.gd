@@ -102,22 +102,22 @@ func _set_active_character(character_data : CharacterData):
 func start_battle():
 	battle_phase_manager.advance()
 
-func _setup_opportunities(character_data : CharacterData):
+func _setup_character_opportunities(character_data : CharacterData):
 	var enemies_list = team_manager.get_enemies(character_data)
 	for enemy in enemies_list: 
 		if not enemy.is_alive():
 			continue
-		opportunities_manager.add_opportunity(CardData.CardType.ATTACK, character_data, enemy)
-	opportunities_manager.add_opportunity(CardData.CardType.DEFEND, character_data, character_data)
-	opportunities_manager.add_opportunity(CardData.CardType.SKILL, character_data, character_data)
-
+		effects_manager.add_all_opportunities(CardData.CardType.ATTACK, character_data, enemy, _character_manager_map)
+	effects_manager.add_all_opportunities(CardData.CardType.DEFEND, character_data, character_data, _character_manager_map)
+	effects_manager.add_all_opportunities(CardData.CardType.SKILL, character_data, character_data, _character_manager_map)
+	
 func get_opportunities():
 	return opportunities_manager.opportunities
 
 func _start_character_turn(character_data : CharacterData):
 	_set_active_character(character_data)
 	opportunities_manager.reset()
-	_setup_opportunities(character_data)
+	_setup_character_opportunities(character_data)
 	advance_action_timer.start()
 	yield(advance_action_timer, "timeout")
 	advance_character_phase()
