@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/attack-up-3.png-72dc7bac82a43b2c3e7a8b30204dbc42.stex"
+path="res://.import/riposte.png-a7bda3d92d19521ad1f287a10ae10ec9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mixed/GoodStats/attack-up-3.png"
-dest_files=[ "res://.import/attack-up-3.png-72dc7bac82a43b2c3e7a8b30204dbc42.stex" ]
+source_file="res://Assets/Mixed/GoodStats/riposte.png"
+dest_files=[ "res://.import/riposte.png-a7bda3d92d19521ad1f287a10ae10ec9.stex" ]
 
 [params]
 

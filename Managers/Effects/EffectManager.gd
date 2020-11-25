@@ -66,7 +66,7 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 			riposte_status.source = target
 			riposte_status.target = source
 			emit_signal("apply_status", target, riposte_status, target)
-			emit_signal("apply_status", source, riposte_status, source)
+			emit_signal("apply_status", source, riposte_status, target)
 
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)

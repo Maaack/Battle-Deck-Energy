@@ -49,8 +49,7 @@ func get_manager_status(status:StatusData, cycle_mode:int = CycleMode.NONE, is_t
 		return status_map[status_type]
 	var new_status : StatusData = status.duplicate()
 	new_status.reset_stack()
-	if is_target:
-		status_cycle_map[new_status] = cycle_mode
+	status_cycle_map[new_status] = cycle_mode
 	if new_status is RelatedStatusData:
 		if is_target:
 			if not status.source in related_status_source_map:

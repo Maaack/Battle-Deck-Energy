@@ -180,6 +180,10 @@ func end_turn():
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE
 	var is_origin : bool = origin == character_data
+	var is_target : bool = true
+	if status is RelatedStatusData:
+		if status.target != character_data:
+			is_target = false
 	if status.has_the_d():
 		if is_origin:
 			cycle_mode = StatusManager.CycleMode.START_1
@@ -190,7 +194,7 @@ func gain_status(status:StatusData, origin:CharacterData):
 			cycle_mode = StatusManager.CycleMode.START_2
 		EffectCalculator.TOXIN_STATUS, EffectCalculator.EN_GARDE_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_3
-	status_manager.gain_status(status, cycle_mode, !(is_origin))
+	status_manager.gain_status(status, cycle_mode, is_target)
 
 func _run_start_of_turn_statuses():
 	var toxin_status : StatusData = status_manager.get_status(EffectCalculator.TOXIN_STATUS)
@@ -217,7 +221,14 @@ func update_end_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.END)
 
 func get_statuses():
-	return status_manager.status_map.values()
+	var all_statuses : Array = status_manager.status_map.values()
+	for statuses in status_manager.related_status_source_map.values():
+		if statuses is Dictionary:
+			all_statuses += statuses.values()
+	for statuses in status_manager.related_status_target_map.values():
+		if statuses is Dictionary:
+			all_statuses += statuses.values()
+	return all_statuses
 
 func get_status(type_tag:String):
 	return status_manager.get_status(type_tag)

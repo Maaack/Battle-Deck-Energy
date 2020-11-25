@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/attack-up-2.png-7db68e0e4e0ad35611ab87d83aabfd19.stex"
+path="res://.import/parried.png-e78b244a26dbe072afb201e501bb2788.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mixed/GoodStats/attack-up-2.png"
-dest_files=[ "res://.import/attack-up-2.png-7db68e0e4e0ad35611ab87d83aabfd19.stex" ]
+source_file="res://Assets/Mixed/GoodStats/parried.png"
+dest_files=[ "res://.import/parried.png-e78b244a26dbe072afb201e501bb2788.stex" ]
 
 [params]
 

@@ -45,7 +45,7 @@ const MOD_DOWN_RATIO = 0.667
 static func _get_source_status_types(type_tag:String):
 	match(type_tag):
 		ATTACK_EFFECT:
-			return [ATTACK_UP_STATUS, STRENGTH_STATUS, WEAK_STATUS]
+			return [ATTACK_UP_STATUS, STRENGTH_STATUS, WEAK_STATUS, PARRIED_STATUS]
 		DEFEND_EFFECT:
 			return [DEFENSE_UP_STATUS, FORTITUDE_STATUS, FRAGILE_STATUS]
 		_:
@@ -66,6 +66,8 @@ static func _get_value_modified(value:float, modifier_type:String, modifier_valu
 			return (value + modifier_value)
 		WEAK_STATUS, FRAGILE_STATUS:
 			return value * MOD_DOWN_RATIO
+		PARRIED_STATUS:
+			return value - 1
 	return value
 
 static func get_effect_total(base_value:int, type_tag:String, source_statuses:Array, target_statuses=null):
