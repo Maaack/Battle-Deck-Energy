@@ -20,19 +20,19 @@ func get_status(status_type:String):
 		return
 	return status_map[status_type]
 
-func get_related_status(status_type, related, is_target: bool = true):
+func get_related_status(status_type : String, related, is_target: bool = true):
 	if is_target:
-		if not related in related_status_target_map:
-			return
-		if not status_type in related_status_target_map[related]:
-			return
-		return related_status_target_map[related][status_type]
-	else:
 		if not related in related_status_source_map:
 			return
 		if not status_type in related_status_source_map[related]:
 			return
 		return related_status_source_map[related][status_type]
+	else:
+		if not related in related_status_target_map:
+			return
+		if not status_type in related_status_target_map[related]:
+			return
+		return related_status_target_map[related][status_type]
 
 func get_manager_status(status:StatusData, cycle_mode:int = CycleMode.NONE, is_target: bool = true):
 	var status_type : String = status.type_tag

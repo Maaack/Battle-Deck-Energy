@@ -447,6 +447,13 @@ func opponent_discards_card(card:CardData):
 	opponent_card_manager.remove_card(card)
 
 func _update_status(character : CharacterData, status : StatusData, delta : int):
+	if status is RelatedStatusData:
+		if character == player_data:
+			# Don't show related statuses on the player character
+			return
+		if status.source != player_data and status.target != player_data:
+			# Don't show related statuses of unrelated characters
+			return
 	if not character in _character_statuses_map:
 		_character_statuses_map[character] = {}
 	_character_statuses_map[character][status.type_tag] = status
