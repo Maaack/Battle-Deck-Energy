@@ -29,13 +29,23 @@ func _get_character_statuses(character:CharacterData, character_manager_map:Dict
 	var character_manager : CharacterBattleManager = character_manager_map[character]
 	return character_manager.get_statuses()
 
-func _get_defense_status(target, character_manager_map:Dictionary):
-	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
-	return target_battle_manager.get_status(EffectCalculator.DEFENSE_STATUS)
-
-func _apply_damage(source, target, amount, character_manager_map:Dictionary):
-	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
-	var defense_status : StatusData = _get_defense_status(target, character_manager_map)
+func _apply_damage(source_battle_manager : CharacterBattleManager, target_battle_manager : CharacterBattleManager, amount):
+	var source = source_battle_manager.character_data
+	var target = target_battle_manager.character_data
+	var parry_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.PARRIED_STATUS, target)
+	if parry_status != null:
+		var modified_status : StatusData = parry_status.duplicate()
+		var parry_down = min(amount, modified_status.intensity)
+		modified_status.intensity = -(parry_down)
+		if modified_status.intensity != 0:
+			var riposte_status = riposte_status_resource.duplicate()
+			riposte_status.source = target
+			riposte_status.target = source
+			emit_signal("apply_status", target, riposte_status, target)
+			emit_signal("apply_status", source, riposte_status, target)
+			emit_signal("apply_status", source, modified_status, source)
+		amount -= parry_down
+	var defense_status : StatusData = target_battle_manager.get_status(EffectCalculator.DEFENSE_STATUS)
 	if defense_status != null:
 		var modified_status : StatusData = defense_status.duplicate()
 		var defense_down = min(amount, modified_status.intensity)
@@ -47,12 +57,12 @@ func _apply_damage(source, target, amount, character_manager_map:Dictionary):
 		emit_signal("apply_health", target, -(amount))
 
 func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
-	var source_statuses = _get_character_statuses(source, character_manager_map)
-	var target_statuses = _get_character_statuses(target, character_manager_map)
-	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
-	_apply_damage(source, target, total_damage, character_manager_map)
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var source_statuses = source_battle_manager.get_statuses()
+	var target_statuses = target_battle_manager.get_statuses()
+	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
+	_apply_damage(source_battle_manager, target_battle_manager, total_damage)
 	if source_battle_manager:
 		var venomous_status : StatusData = source_battle_manager.get_status(EffectCalculator.VENOMOUS_STATUS)
 		if venomous_status:
@@ -60,13 +70,6 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 			toxin_status.intensity = venomous_status.intensity
 			toxin_status.duration = venomous_status.duration
 			emit_signal("apply_status", target, toxin_status, source)
-		var parried_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.PARRIED_STATUS, target)
-		if parried_status:
-			var riposte_status = riposte_status_resource.duplicate()
-			riposte_status.source = target
-			riposte_status.target = source
-			emit_signal("apply_status", target, riposte_status, target)
-			emit_signal("apply_status", source, riposte_status, target)
 
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)

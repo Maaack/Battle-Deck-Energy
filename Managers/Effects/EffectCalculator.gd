@@ -42,10 +42,10 @@ const ENERGY_STATUS = 'ENERGY'
 const MOD_UP_RATIO = 1.500
 const MOD_DOWN_RATIO = 0.667
 
-static func _get_source_status_types(type_tag:String):
+static func _get_source_status_types(type_tag:String, predict_all : bool = true):
 	match(type_tag):
 		ATTACK_EFFECT:
-			return [ATTACK_UP_STATUS, STRENGTH_STATUS, WEAK_STATUS, PARRIED_STATUS]
+			return [ATTACK_UP_STATUS, STRENGTH_STATUS, WEAK_STATUS]
 		DEFEND_EFFECT:
 			return [DEFENSE_UP_STATUS, FORTITUDE_STATUS, FRAGILE_STATUS]
 		_:
@@ -66,23 +66,22 @@ static func _get_value_modified(value:float, modifier_type:String, modifier_valu
 			return (value + modifier_value)
 		WEAK_STATUS, FRAGILE_STATUS:
 			return value * MOD_DOWN_RATIO
-		PARRIED_STATUS:
-			return value - 1
 	return value
+
+static func _mod_effect_total_by_statuses(total : float, status_types : Array, statuses : Array):
+	for status_type in status_types:
+		for status in statuses:
+			if status is StatusData and status.type_tag == status_type:
+				total = _get_value_modified(total, status_type, status.get_stack_value())
+	return total
 
 static func get_effect_total(base_value:int, type_tag:String, source_statuses:Array, target_statuses=null):
 	var total = float(base_value)
 	var source_status_types = _get_source_status_types(type_tag)
-	for status_type in source_status_types:
-		for status in source_statuses:
-			if status is StatusData and status.type_tag == status_type:
-				total = _get_value_modified(total, status_type, status.get_stack_value())
+	total = _mod_effect_total_by_statuses(total, source_status_types, source_statuses)
 	if target_statuses != null:
 		var target_status_types = _get_target_status_types(type_tag)
-		for status_type in target_status_types:
-			for status in target_statuses:
-				if status is StatusData and status.type_tag == status_type:
-					total = _get_value_modified(total, status_type, status.get_stack_value())
+		total = _mod_effect_total_by_statuses(total, target_status_types, target_statuses)
 	return int(total)
 
 static func get_playable_types(card_data:CardData):
