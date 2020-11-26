@@ -22,9 +22,9 @@ const PLAY_AS_SKILL_EFFECT = 'PLAY_AS_SKILL'
 const STRENGTH_STATUS = 'STRENGTH'
 const ATTACK_UP_STATUS = 'ATTACK_UP'
 const DEFENSE_UP_STATUS = 'DEFENSE_UP'
-const WEAK_STATUS = 'WEAK'
+const WEAKNESS_STATUS = 'WEAKNESS'
 const FRAGILE_STATUS = 'FRAGILE'
-const FORTITUDE_STATUS = 'FORTITUDE'
+const DURABLE_STATUS = 'DURABLE'
 const VULNERABLE_STATUS = 'VULNERABLE'
 const DEFENSE_STATUS = 'DEFENSE'
 const TOXIN_STATUS = 'TOXIN'
@@ -44,10 +44,10 @@ const MOD_DOWN_RATIO = 0.667
 
 static func _get_source_status_types(type_tag:String, predict_all : bool = true):
 	match(type_tag):
-		ATTACK_EFFECT:
-			return [ATTACK_UP_STATUS, STRENGTH_STATUS, WEAK_STATUS]
+		ATTACK_EFFECT, PARRY_EFFECT:
+			return [ATTACK_UP_STATUS, STRENGTH_STATUS, WEAKNESS_STATUS]
 		DEFEND_EFFECT:
-			return [DEFENSE_UP_STATUS, FORTITUDE_STATUS, FRAGILE_STATUS]
+			return [DEFENSE_UP_STATUS, DURABLE_STATUS, FRAGILE_STATUS]
 		_:
 			return []
 
@@ -60,11 +60,11 @@ static func _get_target_status_types(type_tag:String):
 
 static func _get_value_modified(value:float, modifier_type:String, modifier_value):
 	match(modifier_type):
-		STRENGTH_STATUS, VULNERABLE_STATUS, FORTITUDE_STATUS:
+		STRENGTH_STATUS, VULNERABLE_STATUS, DURABLE_STATUS:
 			return value * MOD_UP_RATIO
 		ATTACK_UP_STATUS, DEFENSE_UP_STATUS:
 			return (value + modifier_value)
-		WEAK_STATUS, FRAGILE_STATUS:
+		WEAKNESS_STATUS, FRAGILE_STATUS:
 			return value * MOD_DOWN_RATIO
 	return value
 

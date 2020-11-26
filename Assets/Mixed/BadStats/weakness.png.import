@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/weak.png-ca4640b414205ed0be481dc9f88b9d4a.stex"
+path="res://.import/weakness.png-62a2ebe454727f53a973cdfbbb228f63.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mixed/BadStats/weak.png"
-dest_files=[ "res://.import/weak.png-ca4640b414205ed0be481dc9f88b9d4a.stex" ]
+source_file="res://Assets/Mixed/BadStats/weakness.png"
+dest_files=[ "res://.import/weakness.png-62a2ebe454727f53a973cdfbbb228f63.stex" ]
 
 [params]
 
