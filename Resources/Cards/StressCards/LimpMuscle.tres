@@ -3,13 +3,13 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyFragileOnDraw.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/UnplayableEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeaknessOnDraw.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeakOnDraw.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/StressGlowPlayer/limp-muscle.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Limp Muscle"
-description = "Applies %APPLY_WEAKNESS Weakness and %APPLY_FRAGILE Fragile when drawn.
+description = "Applies %APPLY_WEAK Weak and %APPLY_FRAGILE Fragile when drawn.
 Unplayable."
 energy_cost = 1
 icon = ExtResource( 5 )

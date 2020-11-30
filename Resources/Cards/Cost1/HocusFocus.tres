@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/hocus-focus.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Effects/FocusEffect4.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/AddSkillEffect4.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Hocus Focus"
-description = "Add %FOCUS Skill space(s).
+description = "Add %ADD_SKILL Skill space(s).
 Retained."
 energy_cost = 1
 icon = ExtResource( 2 )

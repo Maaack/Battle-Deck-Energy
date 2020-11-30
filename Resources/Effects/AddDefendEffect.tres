@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Effects/EffectData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+type_tag = "ADD_DEFEND"
+amount = 1
+apply_mode = 1
+aim_mode = 0

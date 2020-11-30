@@ -55,6 +55,7 @@ func _apply_damage(source_battle_manager : CharacterBattleManager, target_battle
 		amount -= defense_down
 	if amount > 0:
 		emit_signal("apply_health", target, -(amount))
+	return amount
 
 func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
@@ -62,10 +63,10 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 	var source_statuses = source_battle_manager.get_statuses()
 	var target_statuses = target_battle_manager.get_statuses()
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
-	_apply_damage(source_battle_manager, target_battle_manager, total_damage)
+	var health_damage = _apply_damage(source_battle_manager, target_battle_manager, total_damage)
 	if source_battle_manager:
 		var venomous_status : StatusData = source_battle_manager.get_status(EffectCalculator.VENOMOUS_STATUS)
-		if venomous_status:
+		if venomous_status and health_damage > 0:
 			var toxin_status : StatusData = toxin_status_resource.duplicate()
 			toxin_status.intensity = venomous_status.intensity
 			toxin_status.duration = venomous_status.duration
@@ -145,17 +146,17 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 				continue
 			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
 			match(effect.type_tag):
-				EffectCalculator.PARRY_EFFECT, EffectCalculator.OPENER_EFFECT:
+				EffectCalculator.ADD_ATTACK_EFFECT:
 					for _i in range(effect.amount):
 						emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, final_target)
 				EffectCalculator.RICOCHET_EFFECT:
 					for opponent in character_manager_map.keys():
 						if opponent != final_target and opponent != opportunity.source:
 							emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, opponent)
-				EffectCalculator.FORTIFY_EFFECT:
+				EffectCalculator.ADD_DEFEND_EFFECT:
 					for _i in range(effect.amount):
 						emit_signal("add_opportunity", CardData.CardType.DEFEND, opportunity.source, final_target)
-				EffectCalculator.FOCUS_EFFECT:
+				EffectCalculator.ADD_SKILL_EFFECT:
 					for _i in range(effect.amount):
 						emit_signal("add_opportunity", CardData.CardType.SKILL, opportunity.source, final_target)
 				EffectCalculator.DRAW_CARD_EFFECT:
@@ -187,10 +188,27 @@ func add_all_opportunities(type : int, source : CharacterData, target : Characte
 			if marked_status != null:
 				emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
 		CardData.CardType.DEFEND:
+			var reinforced_status : StatusData = source_battle_manager.get_status(EffectCalculator.REINFORCED_STATUS)
+			if reinforced_status != null:
+				for _i in range(reinforced_status.get_stack_value()):
+					emit_signal("add_opportunity", CardData.CardType.DEFEND, source, target)
 			var fortified_status : StatusData = source_battle_manager.get_status(EffectCalculator.FORTIFIED_STATUS)
 			if fortified_status != null:
 				emit_signal("add_opportunity", CardData.CardType.DEFEND, source, target)
 		CardData.CardType.SKILL:
 			var focused_status : StatusData = source_battle_manager.get_status(EffectCalculator.FOCUSED_STATUS)
 			if focused_status != null:
+				for _i in range(focused_status.get_stack_value()):
+					emit_signal("add_opportunity", CardData.CardType.SKILL, source, target)
+			var premeditated_status : StatusData = source_battle_manager.get_status(EffectCalculator.PREMEDITATED_STATUS)
+			if premeditated_status != null:
 				emit_signal("add_opportunity", CardData.CardType.SKILL, source, target)
+
+func set_starting_energy(character_battle_manager : CharacterBattleManager):
+	var base_energy = character_battle_manager.starting_energy - character_battle_manager.current_energy
+	var character = character_battle_manager.character_data
+	var charged_status : StatusData = character_battle_manager.get_status(EffectCalculator.CHARGED_STATUS)
+	if charged_status != null:
+		base_energy += charged_status.get_stack_value()
+	emit_signal("apply_energy", character, base_energy)
+	

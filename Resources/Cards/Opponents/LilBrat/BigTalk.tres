@@ -1,14 +1,15 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/angry-eyes.png" type="Texture" id=4]
 
+
 [resource]
 script = ExtResource( 2 )
 title = "Big Talk"
-description = "Absorb %DEFEND Damage and apply %APPLY_STRENGTH Strength."
+description = "Absorb %DEFEND Damage and apply %APPLY_STRONG Strong."
 energy_cost = 1
 icon = ExtResource( 4 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

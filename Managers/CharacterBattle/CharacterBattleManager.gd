@@ -22,6 +22,8 @@ var health_status_base = preload("res://Resources/Statuses/Health.tres")
 var energy_status_base = preload("res://Resources/Statuses/Energy.tres")
 
 var character_data : CharacterData
+var starting_energy : int = 0
+var current_energy : int = 0
 var draw_pile : DeckData = DeckData.new()
 var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
@@ -32,6 +34,9 @@ onready var base_opportunities : Dictionary = {
 	CardData.CardType.DEFEND : 1,
 	CardData.CardType.SKILL : 1,
 }
+
+func _reset_energy():
+	starting_energy = character_data.energy
 
 func _reset_draw_pile():
 	for card in character_data.deck:
@@ -51,14 +56,14 @@ func get_health_status_snapshot():
 
 func get_energy_status_snapshot():
 	var energy_status_snapshot = energy_status_base.duplicate()
-	energy_status_snapshot.intensity = character_data.energy
+	energy_status_snapshot.intensity = current_energy
 	return energy_status_snapshot
 
 func reset():
-	character_data.energy = 0
 	_reset_draw_pile()
 	_reset_discard_pile()
 	_reset_exhaust_pile()
+	_reset_energy()
 
 func gain_health(amount: int = 1):
 	character_data.health += amount
@@ -74,19 +79,15 @@ func lose_health(amount: int = 1):
 		emit_signal("character_died", character_data)
 
 func gain_energy(amount:int = 1):
-	character_data.energy += amount
+	current_energy += amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, amount)
 
 func lose_energy(amount:int = 1):
-	amount = min(character_data.energy, amount)
-	character_data.energy -= amount
+	amount = min(current_energy, amount)
+	current_energy -= amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, -(amount))
-
-func reset_energy():
-	var recharge_amount : int = character_data.max_energy - character_data.energy
-	gain_energy(recharge_amount)
 
 func reshuffle_card(card:CardData):
 	draw_pile.add_card(card)

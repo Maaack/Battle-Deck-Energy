@@ -124,12 +124,12 @@ func _start_character_turn(character_data : CharacterData):
 
 func _active_character_draws():
 	var character_manager = _character_manager_map[active_character]
+	effects_manager.set_starting_energy(character_manager)
 	if character_manager.has_statuses():
 		character_manager.update_early_start_of_turn_statuses()
 		character_manager.update_late_start_of_turn_statuses()
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
-	character_manager.reset_energy()
 	emit_signal("before_hand_drawn", active_character)
 	character_manager.draw_hand()
 
@@ -279,8 +279,6 @@ func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
 
 func _on_EffectManager_apply_health(character, health):
-	if not character in _character_manager_map:
-		return
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	if health < 0:
 		var damage : int = -(health)
@@ -289,14 +287,10 @@ func _on_EffectManager_apply_health(character, health):
 		character_manager.gain_health(health)
 
 func _on_EffectManager_apply_status(character, status, origin):
-	if not character in _character_manager_map:
-		return
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_status(status, origin)
 
 func _on_EffectManager_apply_energy(character, energy):
-	if not character in _character_manager_map:
-		return
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_energy(energy)
 

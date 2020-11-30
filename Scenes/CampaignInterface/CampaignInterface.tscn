@@ -34,18 +34,18 @@
 [ext_resource path="res://Resources/Definitions/UnplayableDefinition.tres" type="Resource" id=34]
 [ext_resource path="res://Resources/Definitions/InnateDefinition.tres" type="Resource" id=35]
 [ext_resource path="res://Resources/Definitions/RetainDefinition.tres" type="Resource" id=36]
-[ext_resource path="res://Resources/Definitions/OpenerDefinition.tres" type="Resource" id=37]
+[ext_resource path="res://Resources/Definitions/AddAttackDefinition.tres" type="Resource" id=37]
 [ext_resource path="res://Resources/Definitions/ExhaustDefinition.tres" type="Resource" id=38]
-[ext_resource path="res://Resources/Definitions/FocusDefinition.tres" type="Resource" id=39]
+[ext_resource path="res://Resources/Definitions/AddSkillDefinition.tres" type="Resource" id=39]
 [ext_resource path="res://Resources/Definitions/VulnerableDefinition.tres" type="Resource" id=40]
-[ext_resource path="res://Resources/Definitions/FortifyDefinition.tres" type="Resource" id=41]
+[ext_resource path="res://Resources/Definitions/AddDefendDefinition.tres" type="Resource" id=41]
 [ext_resource path="res://Resources/Definitions/DefenseUpDefinition.tres" type="Resource" id=42]
 [ext_resource path="res://Resources/Definitions/RicochetDefinition.tres" type="Resource" id=43]
-[ext_resource path="res://Resources/Definitions/WeaknessDefinition.tres" type="Resource" id=44]
+[ext_resource path="res://Resources/Definitions/WeakDefinition.tres" type="Resource" id=44]
 [ext_resource path="res://Resources/Definitions/MomentaryDefinition.tres" type="Resource" id=45]
 [ext_resource path="res://Resources/Definitions/AttackUpDefinition.tres" type="Resource" id=46]
 [ext_resource path="res://Resources/Definitions/FragileDefinition.tres" type="Resource" id=47]
-[ext_resource path="res://Resources/Definitions/StrengthDefinition.tres" type="Resource" id=48]
+[ext_resource path="res://Resources/Definitions/StrongDefinition.tres" type="Resource" id=48]
 [ext_resource path="res://Resources/Definitions/LoseEnergyDefinition.tres" type="Resource" id=49]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level28/Level28List.tres" type="Resource" id=50]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level25/Level25List.tres" type="Resource" id=51]
@@ -58,6 +58,11 @@
 [ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=58]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" type="AudioStream" id=59]
 [ext_resource path="res://Resources/Levels/CreditsLevel/CreditsLevel.tres" type="Resource" id=60]
+
+
+
+
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )

@@ -38,7 +38,7 @@ func _active_character_draws():
 		character_manager.update_late_start_of_turn_statuses()
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
-	character_manager.reset_energy()
+	effects_manager.set_starting_energy(character_manager)
 	if character_manager is EnemyAIBattleManager:
 		character_manager.draw_hand()
 		advance_character_phase()
