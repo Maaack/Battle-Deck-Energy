@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/exhausted.png-1063a2141fa054b9eef25df0df0ef69a.stex"
+path="res://.import/drained.png-f9f2c09dc6fc8b11c1f18e4a51073720.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mixed/CardIcons/StressGlowPlayer/exhausted.png"
-dest_files=[ "res://.import/exhausted.png-1063a2141fa054b9eef25df0df0ef69a.stex" ]
+source_file="res://Assets/Mixed/CardIcons/StressGlowPlayer/drained.png"
+dest_files=[ "res://.import/drained.png-f9f2c09dc6fc8b11c1f18e4a51073720.stex" ]
 
 [params]
 

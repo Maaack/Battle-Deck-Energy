@@ -1,16 +1,17 @@
 [gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/DeckModEffects/AddExhausted.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/DeckModEffects/AddDrained.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddDiffident.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/shouting.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddConfused.tres" type="Resource" id=6]
 
+
 [resource]
 script = ExtResource( 1 )
 title = "Mass Manipulation"
-description = "Adds %ADD_CONFUSED Confused, %ADD_DIFFIDENT Diffident, %ADD_INTIMIDATED Intimidated, and %ADD_EXHYAUSTED Exhausted card(s).
+description = "Adds %ADD_CONFUSED Confused, %ADD_DIFFIDENT Diffident, %ADD_INTIMIDATED Intimidated, and %ADD_DRAINED Drained card(s).
 Exhausts."
 energy_cost = 3
 icon = ExtResource( 4 )
