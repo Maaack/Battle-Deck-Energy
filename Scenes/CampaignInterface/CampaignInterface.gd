@@ -14,6 +14,7 @@ onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
+var starting_deck_data : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
 var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/Campaign/CampaignBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
@@ -107,6 +108,8 @@ func _start_next_level():
 func _ready():
 	randomize()
 	player_data = starting_player_data.duplicate()
+	for card in starting_deck_data.cards:
+		player_data.deck.append(card.duplicate())
 	start_level()
 
 func _on_DeadPanel_retry_pressed():

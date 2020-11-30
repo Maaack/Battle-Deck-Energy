@@ -8,3 +8,4 @@ type_tag = "PLAY_AS_SKILL"
 amount = 1
 apply_mode = 0
 aim_mode = 0
+team_aim_mode = 0

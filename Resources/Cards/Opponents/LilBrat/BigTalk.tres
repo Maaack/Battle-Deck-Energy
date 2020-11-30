@@ -5,7 +5,6 @@
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/angry-eyes.png" type="Texture" id=4]
 
-
 [resource]
 script = ExtResource( 2 )
 title = "Big Talk"

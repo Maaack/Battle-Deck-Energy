@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/RicochetEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/AddAttackEffectEnemies.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/AddDefendEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/AddSkillEffect.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/open-stance-1.png" type="Texture" id=5]
@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Open Stance"
-description = "Add %ADD_DEFEND Defend space(s), %RICOCHET Attack space(s), and %ADD_SKILL Skill space(s)."
+description = "Add %ADD_DEFEND Defend actions, %ADD_ATTACK Attack actions, and %ADD_SKILL Skill actions."
 energy_cost = 1
 icon = ExtResource( 5 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )

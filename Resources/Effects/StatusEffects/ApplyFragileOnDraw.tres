@@ -9,4 +9,5 @@ type_tag = "APPLY_FRAGILE"
 amount = 1
 apply_mode = 2
 aim_mode = 0
+team_aim_mode = 0
 starting_statuses = [ ExtResource( 3 ) ]

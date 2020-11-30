@@ -7,7 +7,6 @@
 [ext_resource path="res://Resources/Effects/StatusEffects/SourceApplyWeak2.tres" type="Resource" id=5]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/pointy-sword.png" type="Texture" id=6]
 
-
 [resource]
 script = ExtResource( 1 )
 title = "Big Fury"

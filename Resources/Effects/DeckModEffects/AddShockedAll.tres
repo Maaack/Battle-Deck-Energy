@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource( 1 )
-type_tag = "ADD_SHOCKED_ALL"
+type_tag = "ADD_SHOCKED"
 amount = 1
 apply_mode = 1
 aim_mode = 0
+team_aim_mode = 2
 starting_card = ExtResource( 2 )
 destination = 1

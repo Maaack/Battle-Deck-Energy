@@ -44,6 +44,9 @@ var teams_in_play : Array = []
 var active_character
 var active_team
 
+func _ready():
+	effects_manager.team_manager = team_manager
+
 func _new_character_manager_instance(character_data : CharacterData, team : String):
 	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instance()
 	_character_manager_map[character_data] = character_battle_manager

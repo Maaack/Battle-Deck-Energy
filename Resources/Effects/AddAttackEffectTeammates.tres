@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-type_tag = "RICOCHET"
-amount = 2
+type_tag = "ADD_ATTACK"
+amount = 1
 apply_mode = 1
 aim_mode = 0
+team_aim_mode = 1

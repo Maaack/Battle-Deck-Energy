@@ -6,7 +6,6 @@
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/evil-eyes.png" type="Texture" id=5]
 
-
 [resource]
 script = ExtResource( 1 )
 title = "Dead Eyes"

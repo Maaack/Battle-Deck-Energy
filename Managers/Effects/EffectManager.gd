@@ -16,12 +16,27 @@ signal draw_from_draw_pile(character, count)
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var toxin_status_resource = preload("res://Resources/Statuses/Toxin.tres")
 var riposte_status_resource = preload("res://Resources/Statuses/Riposte.tres")
+var team_manager : TeamManager
 
-func _resolve_opportunity_effect_target(opportunity:OpportunityData, effect:EffectData):
+func _resolve_opportunity_effect_targets(opportunity:OpportunityData, effect:EffectData):
+	var targets : Array = []
+	var primary_target : CharacterData
 	if effect.is_aimed_at_target():
-		return opportunity.target
-	else: 
-		return opportunity.source
+		primary_target = opportunity.target
+	else:
+		primary_target = opportunity.source
+	if team_manager == null:
+		print("Warning: EffectManager.team_manager is not set")
+		return [primary_target]
+	if effect.is_aimed_at_teammates():
+		targets += team_manager.get_allies(primary_target)
+	elif effect.is_aimed_at_entire_team():
+		targets += team_manager.get_entire_team(primary_target)
+	elif effect.is_aimed_at_enemies():
+		targets += team_manager.get_enemies(primary_target)
+	else:
+		targets.append(primary_target)
+	return targets
 
 func _get_character_statuses(character:CharacterData, character_manager_map:Dictionary):
 	if not character in character_manager_map:
@@ -144,33 +159,30 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 		if effect is EffectData:
 			if not effect.applies_on_play():
 				continue
-			var final_target = _resolve_opportunity_effect_target(opportunity, effect)
-			match(effect.type_tag):
-				EffectCalculator.ADD_ATTACK_EFFECT:
-					for _i in range(effect.amount):
-						emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, final_target)
-				EffectCalculator.RICOCHET_EFFECT:
-					for opponent in character_manager_map.keys():
-						if opponent != final_target and opponent != opportunity.source:
-							emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, opponent)
-				EffectCalculator.ADD_DEFEND_EFFECT:
-					for _i in range(effect.amount):
-						emit_signal("add_opportunity", CardData.CardType.DEFEND, opportunity.source, final_target)
-				EffectCalculator.ADD_SKILL_EFFECT:
-					for _i in range(effect.amount):
-						emit_signal("add_opportunity", CardData.CardType.SKILL, opportunity.source, final_target)
-				EffectCalculator.DRAW_CARD_EFFECT:
-					emit_signal("draw_from_draw_pile", final_target, effect.amount)
-				EffectCalculator.GAIN_ENERGY_EFFECT:
-					emit_signal("apply_energy", final_target, effect.amount)
-				EffectCalculator.LOSE_ENERGY_EFFECT:
-					emit_signal("apply_energy", final_target, -(effect.amount))
-				EffectCalculator.ATTACK_EFFECT:
-					_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
-			if effect is StatusEffectData:
-				_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
-			if effect is DeckModEffectData:
-				_resolve_deck_mod(effect, final_target)
+			var final_targets = _resolve_opportunity_effect_targets(opportunity, effect)
+			for final_target in final_targets:
+				match(effect.type_tag):
+					EffectCalculator.ADD_ATTACK_EFFECT:
+						for _i in range(effect.amount):
+							emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, final_target)
+					EffectCalculator.ADD_DEFEND_EFFECT:
+						for _i in range(effect.amount):
+							emit_signal("add_opportunity", CardData.CardType.DEFEND, opportunity.source, final_target)
+					EffectCalculator.ADD_SKILL_EFFECT:
+						for _i in range(effect.amount):
+							emit_signal("add_opportunity", CardData.CardType.SKILL, opportunity.source, final_target)
+					EffectCalculator.DRAW_CARD_EFFECT:
+						emit_signal("draw_from_draw_pile", final_target, effect.amount)
+					EffectCalculator.GAIN_ENERGY_EFFECT:
+						emit_signal("apply_energy", final_target, effect.amount)
+					EffectCalculator.LOSE_ENERGY_EFFECT:
+						emit_signal("apply_energy", final_target, -(effect.amount))
+					EffectCalculator.ATTACK_EFFECT:
+						_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
+				if effect is StatusEffectData:
+					_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
+				if effect is DeckModEffectData:
+					_resolve_deck_mod(effect, final_target)
 
 func add_all_opportunities(type : int, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]

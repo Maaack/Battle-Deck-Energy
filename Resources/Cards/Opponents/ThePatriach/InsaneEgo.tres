@@ -7,7 +7,6 @@
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVenomous5.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" type="Resource" id=6]
 
-
 [resource]
 script = ExtResource( 1 )
 title = "Insane Ego"

@@ -6,7 +6,6 @@ class_name EffectCalculator
 const ATTACK_EFFECT = 'ATTACK'
 const DEFEND_EFFECT = 'DEFEND'
 const PARRY_EFFECT = 'PARRY'
-const RICOCHET_EFFECT = 'RICOCHET'
 const EXHAUST_EFFECT = 'EXHAUST'
 const RETAIN_EFFECT = 'RETAIN'
 const INNATE_EFFECT = 'INNATE'
