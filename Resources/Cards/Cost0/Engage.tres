@@ -1,15 +1,19 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AddAttackEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/pirate-flag.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Engage"
-description = "Add %ADD_ATTACK Attack space(s) on target."
+description = "Add %ADD_ATTACK Attack actions for this turn.
+Retain.
+Exhaust."
 energy_cost = 0
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
 type = 1
