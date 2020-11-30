@@ -12,6 +12,7 @@ const INNATE_EFFECT = 'INNATE'
 const DRAW_CARD_EFFECT = 'DRAW_CARD'
 const UNPLAYABLE_EFFECT = 'UNPLAYABLE'
 const MOMENTARY_EFFECT = 'MOMENTARY'
+const MARKED_DAMAGE_EFFECT = 'MARKED_DAMAGE'
 const ADD_ATTACK_EFFECT = 'ADD_ATTACK'
 const ADD_DEFEND_EFFECT = 'ADD_DEFEND'
 const ADD_SKILL_EFFECT = 'ADD_SKILL'
@@ -46,7 +47,7 @@ const ENERGY_STATUS = 'ENERGY'
 const MOD_UP_RATIO = 1.500
 const MOD_DOWN_RATIO = 0.667
 
-static func _get_source_status_types(type_tag:String, predict_all : bool = true):
+static func _get_source_status_types(type_tag:String):
 	match(type_tag):
 		ATTACK_EFFECT, PARRY_EFFECT:
 			return [ATTACK_UP_STATUS, STRONG_STATUS, WEAK_STATUS]

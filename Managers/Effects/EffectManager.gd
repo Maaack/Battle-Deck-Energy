@@ -3,9 +3,9 @@ extends Node
 
 class_name EffectsManager
 
-signal apply_health(character, health)
+signal apply_health(character, health, source)
 signal apply_status(character, status, origin)
-signal apply_energy(character, energy)
+signal apply_energy(character, energy, source)
 signal add_opportunity(type, source, target)
 signal add_card_to_hand(card, character)
 signal add_card_to_draw_pile(card, character)
@@ -69,7 +69,7 @@ func _apply_damage(source_battle_manager : CharacterBattleManager, target_battle
 			emit_signal("apply_status", target, modified_status, source)
 		amount -= defense_down
 	if amount > 0:
-		emit_signal("apply_health", target, -(amount))
+		emit_signal("apply_health", target, -(amount), source)
 	return amount
 
 func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
@@ -90,7 +90,15 @@ func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterDa
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, [], target_statuses)
-	emit_signal("apply_health", target, -(total_damage))
+	emit_signal("apply_health", target, -(total_damage), target)
+
+func _resolve_status_to_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var damaging_status : StatusData = target_battle_manager.get_status(status)
+	if damaging_status == null:
+		damaging_status = target_battle_manager.get_related_status(status, source)
+	if damaging_status != null:
+		emit_signal("apply_health", target, -(damaging_status.get_stack_value()), source)
 
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	for status in effect.statuses:
@@ -177,6 +185,8 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 						emit_signal("apply_energy", final_target, effect.amount)
 					EffectCalculator.LOSE_ENERGY_EFFECT:
 						emit_signal("apply_energy", final_target, -(effect.amount))
+					EffectCalculator.MARKED_DAMAGE_EFFECT:
+						_resolve_status_to_damage(EffectCalculator.MARKED_STATUS, opportunity.source, final_target, character_manager_map)
 					EffectCalculator.ATTACK_EFFECT:
 						_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 				if effect is StatusEffectData:
@@ -222,5 +232,5 @@ func set_starting_energy(character_battle_manager : CharacterBattleManager):
 	var charged_status : StatusData = character_battle_manager.get_status(EffectCalculator.CHARGED_STATUS)
 	if charged_status != null:
 		base_energy += charged_status.get_stack_value()
-	emit_signal("apply_energy", character, base_energy)
+	emit_signal("apply_energy", character, base_energy, character)
 	

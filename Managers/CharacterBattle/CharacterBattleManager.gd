@@ -223,12 +223,12 @@ func update_end_of_turn_statuses():
 
 func get_statuses():
 	var all_statuses : Array = status_manager.status_map.values()
-	for statuses in status_manager.related_status_source_map.values():
-		if statuses is Dictionary:
-			all_statuses += statuses.values()
-	for statuses in status_manager.related_status_target_map.values():
-		if statuses is Dictionary:
-			all_statuses += statuses.values()
+	for related_statuses in status_manager.related_status_source_map.values():
+		if related_statuses is Dictionary:
+			all_statuses += related_statuses.values()
+	for related_statuses in status_manager.related_status_target_map.values():
+		if related_statuses is Dictionary:
+			all_statuses += related_statuses.values()
 	return all_statuses
 
 func get_status(type_tag:String):

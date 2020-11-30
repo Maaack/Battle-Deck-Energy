@@ -281,7 +281,7 @@ func _on_CharacterStart_phase_entered():
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
 
-func _on_EffectManager_apply_health(character, health):
+func _on_EffectManager_apply_health(character, health, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	if health < 0:
 		var damage : int = -(health)
@@ -293,7 +293,7 @@ func _on_EffectManager_apply_status(character, status, origin):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_status(status, origin)
 
-func _on_EffectManager_apply_energy(character, energy):
+func _on_EffectManager_apply_energy(character, energy, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_energy(energy)
 
