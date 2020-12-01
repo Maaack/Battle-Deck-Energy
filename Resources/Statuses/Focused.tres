@@ -1,13 +1,15 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Mixed/GoodStats2/focused.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Focused"
-description = "Adds Skill spaces on the target's next turns."
+description = "Adds X Skill spaces on the target's next turn and depletes."
+icon = ExtResource( 2 )
 color = Color( 0.823529, 0.392157, 0.443137, 1 )
 intensity = 1
 duration = 1
 type_tag = "FOCUSED"
-stack_type = 1
+stack_type = 0

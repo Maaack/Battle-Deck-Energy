@@ -33,18 +33,19 @@ func setup_battle():
 
 func _active_character_draws():
 	var character_manager = _character_manager_map[active_character]
+	effects_manager.set_starting_energy(character_manager)
+	var draw_size = effects_manager.get_starting_draw_card_count(character_manager)
 	if character_manager.has_statuses():
 		character_manager.update_early_start_of_turn_statuses()
 		character_manager.update_late_start_of_turn_statuses()
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
-	effects_manager.set_starting_energy(character_manager)
 	if character_manager is EnemyAIBattleManager:
-		character_manager.draw_hand()
+		character_manager.draw_cards(draw_size)
 		advance_character_phase()
 	else:
 		emit_signal("before_hand_drawn", active_character)
-		character_manager.draw_hand()
+		character_manager.draw_cards(draw_size)
 
 func _end_character_turn(character_data : CharacterData):
 	var character_manager : CharacterBattleManager = _character_manager_map[character_data]

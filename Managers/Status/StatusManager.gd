@@ -70,6 +70,8 @@ func gain_status(status:StatusData, cycle_mode:int = CycleMode.NONE, is_target: 
 	var stack_delta = status.get_stack_value()
 	manager_status.add_to_stack(stack_delta)
 	emit_signal("status_updated", manager_status.duplicate(), stack_delta)
+	if manager_status.get_stack_value() == 0:
+		lose_status(status)
 
 func lose_status(status:StatusData):
 	if not status in status_cycle_map:
@@ -89,9 +91,10 @@ func decrement_duration(status:StatusData):
 		status.duration -= 1
 		if status.stacks_the_d():
 			emit_signal("status_updated", status.duplicate(), -1)
-		elif not status.has_the_d():
+		else:
 			var diff : int = -(status.get_stack_value())
 			status.reset_stack()
+			print("why are you here? %s %d" % [status, diff])
 			emit_signal("status_updated", status.duplicate(), diff)
 		if not status.has_the_d():
 			lose_status(status)
@@ -101,6 +104,8 @@ func decrement_durations(cycle_mode:int = CycleMode.START_1):
 	for status in local_status_cycle_map:
 		if local_status_cycle_map[status] != cycle_mode:
 			continue
-		if not is_instance_valid(status):
-			continue
-		decrement_duration(status)
+		if status is StatusData:
+			if status.get_stack_value() == 0:
+				lose_status(status)
+				continue
+			decrement_duration(status)

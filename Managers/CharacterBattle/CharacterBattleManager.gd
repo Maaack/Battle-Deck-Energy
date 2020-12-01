@@ -3,6 +3,8 @@ extends Node
 
 class_name CharacterBattleManager
 
+const MAX_HAND_SIZE = 12
+
 signal card_drawn(character, card)
 signal card_added_to_hand(character, card)
 signal card_removed_from_hand(character, card)
@@ -139,8 +141,8 @@ func draw_card(card = null):
 	emit_signal("card_drawn", character_data, drawn_card)
 	add_card_to_hand(drawn_card)
 
-func draw_hand():
-	for _i in range(character_data.hand_size):
+func draw_cards(count : int):
+	for _i in range(count):
 		draw_card()
 
 func has_innate_cards_in_draw_pile():
@@ -193,7 +195,7 @@ func gain_status(status:StatusData, origin:CharacterData):
 	match(status.type_tag):
 		EffectCalculator.DEFENSE_STATUS, EffectCalculator.VULNERABLE_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_2
-		EffectCalculator.TOXIN_STATUS, EffectCalculator.EN_GARDE_STATUS:
+		EffectCalculator.TOXIN_STATUS, EffectCalculator.BARRICADED_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_3
 	status_manager.gain_status(status, cycle_mode, is_target)
 
@@ -201,10 +203,10 @@ func _run_start_of_turn_statuses():
 	var toxin_status : StatusData = status_manager.get_status(EffectCalculator.TOXIN_STATUS)
 	if toxin_status:
 		lose_health(toxin_status.duration)
-	var en_garde_status : StatusData = status_manager.get_status(EffectCalculator.EN_GARDE_STATUS)
-	if en_garde_status:
+	var barricaded_status : StatusData = status_manager.get_status(EffectCalculator.BARRICADED_STATUS)
+	if barricaded_status:
 		var defense_status = defense_status_resource.duplicate()
-		defense_status.intensity = en_garde_status.intensity
+		defense_status.intensity = barricaded_status.intensity
 		gain_status(defense_status, character_data)
 
 func has_statuses():

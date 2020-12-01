@@ -1,10 +1,10 @@
 [gd_resource type="Resource" load_steps=15 format=2]
 
 [ext_resource path="res://Resources/Decks/DeckData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Cost1/EnGardeGrande.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/StartingSet/BasicEnGarde.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/StartingSet/BasicShield.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Cards/StartingSet/BasicSlash.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Cards/Cost1/EnGarde.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/StartingSet/LameEnGarde.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=7]
 [ext_resource path="res://Resources/Cards/Cost1/LethalNeedle.tres" type="Resource" id=8]
@@ -12,8 +12,16 @@
 [ext_resource path="res://Resources/Cards/Cost0/ToxicSpit.tres" type="Resource" id=10]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/death-juice.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Cards/Cost0/Engage.tres" type="Resource" id=12]
-[ext_resource path="res://Resources/Cards/Cost1/IronShield.tres" type="Resource" id=13]
+[ext_resource path="res://Resources/Cards/Cost1/StrongShield.tres" type="Resource" id=13]
 [ext_resource path="res://Resources/Cards/Cost1/ToxicSlash.tres" type="Resource" id=14]
+
+
+
+
+
+
+
+
 
 [resource]
 script = ExtResource( 1 )

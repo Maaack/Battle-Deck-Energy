@@ -92,13 +92,20 @@ func _resolve_self_damage(effect:EffectData, target:CharacterData, character_man
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, [], target_statuses)
 	emit_signal("apply_health", target, -(total_damage), target)
 
-func _resolve_status_to_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
+func _resolve_status_to_damage(status: StatusData, source:CharacterData,  target:CharacterData):
+	emit_signal("apply_health", target, -(status.get_stack_value()), source)
+
+func _resolve_related_status_type_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
-	var damaging_status : StatusData = target_battle_manager.get_status(status)
-	if damaging_status == null:
-		damaging_status = target_battle_manager.get_related_status(status, source)
+	var damaging_status : StatusData = target_battle_manager.get_related_status(status, source)
 	if damaging_status != null:
-		emit_signal("apply_health", target, -(damaging_status.get_stack_value()), source)
+		_resolve_status_to_damage(damaging_status, source, target)
+
+func _resolve_source_status_type_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
+	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
+	var damaging_status : StatusData = source_battle_manager.get_status(status)
+	if damaging_status != null:
+		_resolve_status_to_damage(damaging_status, source, target)
 
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	for status in effect.statuses:
@@ -182,11 +189,13 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 					EffectCalculator.DRAW_CARD_EFFECT:
 						emit_signal("draw_from_draw_pile", final_target, effect.amount)
 					EffectCalculator.GAIN_ENERGY_EFFECT:
-						emit_signal("apply_energy", final_target, effect.amount)
+						emit_signal("apply_energy", final_target, effect.amount, opportunity.source)
 					EffectCalculator.LOSE_ENERGY_EFFECT:
-						emit_signal("apply_energy", final_target, -(effect.amount))
+						emit_signal("apply_energy", final_target, -(effect.amount), opportunity.source)
 					EffectCalculator.MARKED_DAMAGE_EFFECT:
-						_resolve_status_to_damage(EffectCalculator.MARKED_STATUS, opportunity.source, final_target, character_manager_map)
+						_resolve_related_status_type_damage(EffectCalculator.MARKED_STATUS, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.SHIELD_ATTACK_EFFECT:
+						_resolve_source_status_type_damage(EffectCalculator.DEFENSE_STATUS, opportunity.source, final_target, character_manager_map)
 					EffectCalculator.ATTACK_EFFECT:
 						_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 				if effect is StatusEffectData:
@@ -222,8 +231,8 @@ func add_all_opportunities(type : int, source : CharacterData, target : Characte
 			if focused_status != null:
 				for _i in range(focused_status.get_stack_value()):
 					emit_signal("add_opportunity", CardData.CardType.SKILL, source, target)
-			var premeditated_status : StatusData = source_battle_manager.get_status(EffectCalculator.PREMEDITATED_STATUS)
-			if premeditated_status != null:
+			var planned_status : StatusData = source_battle_manager.get_status(EffectCalculator.PLANNED_STATUS)
+			if planned_status != null:
 				emit_signal("add_opportunity", CardData.CardType.SKILL, source, target)
 
 func set_starting_energy(character_battle_manager : CharacterBattleManager):
@@ -233,4 +242,19 @@ func set_starting_energy(character_battle_manager : CharacterBattleManager):
 	if charged_status != null:
 		base_energy += charged_status.get_stack_value()
 	emit_signal("apply_energy", character, base_energy, character)
-	
+
+func get_starting_draw_card_count(character_battle_manager : CharacterBattleManager):
+	var character : CharacterData = character_battle_manager.character_data
+	var draw_size : int = character.hand_size
+	var current_hand_size : int = character_battle_manager.hand.size()
+	var hastened_status : StatusData = character_battle_manager.get_status(EffectCalculator.HASTENED_STATUS)
+	if hastened_status != null:
+		draw_size += hastened_status.get_stack_value()
+	draw_size = min(character_battle_manager.MAX_HAND_SIZE - current_hand_size, draw_size)
+	return draw_size
+
+func draw_starting_hand(character_battle_manager : CharacterBattleManager):
+	var character = character_battle_manager.character_data
+	var draw_size : int = get_starting_draw_card_count(character_battle_manager)
+	if draw_size > 0:
+		emit_signal("draw_from_draw_pile", character, draw_size)

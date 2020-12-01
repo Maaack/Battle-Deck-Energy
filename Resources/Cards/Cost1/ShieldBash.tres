@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/ShieldAttackEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowNew/shield-bash.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFragile.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Shield Bash"
+description = "Deal Damage with current Defense and apply %APPLY_FRAGILE Fragile."
+energy_cost = 1
+icon = ExtResource( 3 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
+effects = [ ExtResource( 2 ), ExtResource( 4 ) ]
+type = 1
