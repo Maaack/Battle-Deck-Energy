@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/biohazard.png-516bcda238c6e7772c0071217d76c8ef.stex"
+path="res://.import/potion-ball.png-b6b44da5f32eba7e8c14dc25babca68d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Venom/biohazard.png"
-dest_files=[ "res://.import/biohazard.png-516bcda238c6e7772c0071217d76c8ef.stex" ]
+source_file="res://Assets/Mixed/CardIcons/AttackGlowNew/potion-ball.png"
+dest_files=[ "res://.import/potion-ball.png-b6b44da5f32eba7e8c14dc25babca68d.stex" ]
 
 [params]
 
