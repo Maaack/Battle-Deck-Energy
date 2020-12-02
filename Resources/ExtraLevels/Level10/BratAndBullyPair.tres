@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Levels/BattleLevelData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedCardList/Rank1CardList.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Weighted/WeightedCardList/DefaultCardList.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Characters/Opponents/Rank2/LilBrat.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Characters/Opponents/BigBully.tres" type="Resource" id=4]
 
