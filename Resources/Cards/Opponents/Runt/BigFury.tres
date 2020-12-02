@@ -11,7 +11,7 @@
 script = ExtResource( 1 )
 title = "Big Fury"
 description = "Deal %ATTACK Damage and add %ADD_INTIMIDATED Intimidated card(s). Receive %APPLY_WEAK Weak.
-Exhausts."
+Exhaust."
 energy_cost = 1
 icon = ExtResource( 6 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

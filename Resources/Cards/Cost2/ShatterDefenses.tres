@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Shatter Defenses"
 description = "Deal %ATTACK Damage over [b]3[/b] strikes and apply %APPLY_FRAGILE Fragile.
-Exhausts."
+Exhaust."
 energy_cost = 2
 icon = ExtResource( 4 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

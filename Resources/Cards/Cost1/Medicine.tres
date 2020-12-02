@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPoison2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/CureVulnerableEffect.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/medicine-pills.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Effects/CureFragileEffect.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Effects/CureWeakEffect.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+title = "Medicine"
+description = "Cure Vulnerable, Weak, and Fragile.
+Apply %APPLY_POISONED Poisoned."
+energy_cost = 1
+icon = ExtResource( 4 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
+effects = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 2 ) ]
+type = 3

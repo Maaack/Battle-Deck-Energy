@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Toxin"
+title = "Poisoned"
 description = "Deals [b]1[/b] damage at start of turn."
 icon = ExtResource( 2 )
 color = Color( 0.894118, 0.580392, 0.227451, 1 )
 intensity = 1
 duration = 1
-type_tag = "TOXIN"
+type_tag = "POISONED"
 stack_type = 1

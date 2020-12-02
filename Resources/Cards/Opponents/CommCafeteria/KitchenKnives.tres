@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Kitchen Knives"
 description = "Apply %APPLY_ATTACK_UP Attack Up and %APPLY_VENOMOUS Venomous.
-Exhausts."
+Exhaust."
 energy_cost = 3
 icon = ExtResource( 4 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )

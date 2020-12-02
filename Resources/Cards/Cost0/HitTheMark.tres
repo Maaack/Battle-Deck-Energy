@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Hit the Mark"
-description = "Do damage equal to target's Marked.
+description = "Deal damage to enemy equal to their Marked.
 Retain."
 energy_cost = 0
 icon = ExtResource( 3 )

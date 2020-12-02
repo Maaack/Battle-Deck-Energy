@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Tick, Tick..."
+title = "Tick Tick"
 description = "Apply %APPLY_CHARGED Charged.
 Momentary."
 energy_cost = 1

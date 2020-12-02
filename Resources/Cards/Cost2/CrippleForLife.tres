@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Cripple For Life"
 description = "Deal %ATTACK Damage and apply %APPLY_WEAK Weak.
-Exhausts."
+Exhaust."
 energy_cost = 2
 icon = ExtResource( 4 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

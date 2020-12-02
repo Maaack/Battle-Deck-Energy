@@ -12,6 +12,7 @@ onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
+onready var level_delay_timer = $LevelDelayTimer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
 var starting_deck_data : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
@@ -103,6 +104,8 @@ func _start_next_level():
 	tooltip_manager.reset()
 	shadow_panel.hide()
 	level_manager.advance()
+	level_delay_timer.start()
+	yield(level_delay_timer, "timeout")
 	start_level()
 
 func _ready():

@@ -94,7 +94,6 @@ func decrement_duration(status:StatusData):
 		else:
 			var diff : int = -(status.get_stack_value())
 			status.reset_stack()
-			print("why are you here? %s %d" % [status, diff])
 			emit_signal("status_updated", status.duplicate(), diff)
 		if not status.has_the_d():
 			lose_status(status)

@@ -137,4 +137,8 @@ easy_battle_song = ExtResource( 55 )
 hard_battle_song = ExtResource( 59 )
 shelter_song = ExtResource( 57 )
 victory_song = ExtResource( 56 )
+
+[node name="LevelDelayTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]

@@ -11,7 +11,7 @@
 script = ExtResource( 1 )
 title = "Restrained"
 description = "Takes any space.
-Exhausts."
+Exhaust."
 energy_cost = 1
 icon = ExtResource( 6 )
 base_color = Color( 0.345098, 0.270588, 0.388235, 1 )

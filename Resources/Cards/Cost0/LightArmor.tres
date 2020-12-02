@@ -11,9 +11,9 @@ script = ExtResource( 1 )
 title = "Light Armor"
 description = "Absorb %DEFEND Damage.
 Innate.
-Retained."
+Retain.."
 energy_cost = 0
 icon = ExtResource( 2 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
 effects = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
-type = 3
+type = 2

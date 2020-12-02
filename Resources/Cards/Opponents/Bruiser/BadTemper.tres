@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Bad Temper"
 description = "Apply %APPLY_STRONG Strong and %APPLY_VULNERABLE Vulnerable.
-Exhausts."
+Exhaust."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )

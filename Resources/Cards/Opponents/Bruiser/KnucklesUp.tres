@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Knuckles Up"
 description = "Absorb %DEFEND Damage over [b]2[/b] shields and apply %APPLY_DURABLE Durable.
-Exhausts."
+Exhaust."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

@@ -14,7 +14,7 @@ signal spawn_card(card, character)
 signal draw_from_draw_pile(character, count)
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
-var toxin_status_resource = preload("res://Resources/Statuses/Toxin.tres")
+var poisoned_status_resource = preload("res://Resources/Statuses/Poisoned.tres")
 var riposte_status_resource = preload("res://Resources/Statuses/Riposte.tres")
 var team_manager : TeamManager
 
@@ -72,20 +72,44 @@ func _apply_damage(source_battle_manager : CharacterBattleManager, target_battle
 		emit_signal("apply_health", target, -(amount), source)
 	return amount
 
-func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+func _resolve_venemous_status(health_loss : int, source_battle_manager : CharacterBattleManager, target : CharacterData):
+	if health_loss == 0:
+		return
+	var source : CharacterData = source_battle_manager.character_data
+	var venomous_status : StatusData = source_battle_manager.get_status(EffectCalculator.VENOMOUS_STATUS)
+	if venomous_status:
+		var poisoned_status : StatusData = poisoned_status_resource.duplicate()
+		poisoned_status.intensity = venomous_status.intensity
+		poisoned_status.duration = venomous_status.duration
+		emit_signal("apply_status", target, poisoned_status, source)
+
+func _get_modified_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	var source_statuses = source_battle_manager.get_statuses()
 	var target_statuses = target_battle_manager.get_statuses()
-	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
+	return effect_calculator.get_effect_total(effect.amount, effect.type_tag, source_statuses, target_statuses)
+
+func _resolve_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var total_damage = _get_modified_damage(effect, source, target, character_manager_map)
 	var health_damage = _apply_damage(source_battle_manager, target_battle_manager, total_damage)
 	if source_battle_manager:
-		var venomous_status : StatusData = source_battle_manager.get_status(EffectCalculator.VENOMOUS_STATUS)
-		if venomous_status and health_damage > 0:
-			var toxin_status : StatusData = toxin_status_resource.duplicate()
-			toxin_status.intensity = venomous_status.intensity
-			toxin_status.duration = venomous_status.duration
-			emit_signal("apply_status", target, toxin_status, source)
+		_resolve_venemous_status(health_damage, source_battle_manager, target)
+
+func _resolve_smash_damage(effect:EffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var total_damage = _get_modified_damage(effect, source, target, character_manager_map)
+	var defense_status : StatusData = target_battle_manager.get_status(EffectCalculator.DEFENSE_STATUS)
+	if defense_status:
+		var starting_damage = effect.amount
+		var defense_mod = defense_status.get_stack_value()
+		total_damage += min(defense_mod/2, starting_damage)
+	var health_damage = _apply_damage(source_battle_manager, target_battle_manager, total_damage)
+	if source_battle_manager:
+		_resolve_venemous_status(health_damage, source_battle_manager, target)
 
 func _resolve_self_damage(effect:EffectData, target:CharacterData, character_manager_map:Dictionary):
 	var target_statuses = _get_character_statuses(target, character_manager_map)
@@ -98,29 +122,51 @@ func _resolve_status_to_damage(status: StatusData, source:CharacterData,  target
 func _resolve_related_status_type_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	var damaging_status : StatusData = target_battle_manager.get_related_status(status, source)
-	if damaging_status != null:
+	if damaging_status:
 		_resolve_status_to_damage(damaging_status, source, target)
 
 func _resolve_source_status_type_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var damaging_status : StatusData = source_battle_manager.get_status(status)
-	if damaging_status != null:
+	if damaging_status:
 		_resolve_status_to_damage(damaging_status, source, target)
+
+func _resolve_status(status:StatusData, mod:float, effect_type:String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+	var modified_status : StatusData = status.duplicate()
+	var source_statuses = _get_character_statuses(source, character_manager_map)
+	var target_statuses = _get_character_statuses(target, character_manager_map)
+	var status_quantity : int = modified_status.get_stack_value()
+	status_quantity *= mod
+	status_quantity = effect_calculator.get_effect_total(status_quantity, effect_type, source_statuses, target_statuses)
+	modified_status.set_stack_value(status_quantity)
+	if modified_status is RelatedStatusData:
+		modified_status.source = source
+		modified_status.target = target
+		emit_signal("apply_status", source, modified_status, source)
+	emit_signal("apply_status", target, modified_status, source)
 
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	for status in effect.statuses:
-		var modified_status : StatusData = status.duplicate()
-		var source_statuses = _get_character_statuses(source, character_manager_map)
-		var target_statuses = _get_character_statuses(target, character_manager_map)
-		var status_quantity : int = modified_status.get_stack_value()
-		status_quantity *= effect.amount
-		status_quantity = effect_calculator.get_effect_total(status_quantity, effect.type_tag, source_statuses, target_statuses)
-		modified_status.set_stack_value(status_quantity)
-		if modified_status is RelatedStatusData:
-			modified_status.source = source
-			modified_status.target = target
-			emit_signal("apply_status", source, modified_status, source)
-		emit_signal("apply_status", target, modified_status, source)
+		_resolve_status(status, effect.amount, effect.type_tag, source, target, character_manager_map)
+
+func _resolve_modify_status(status : StatusData, mod : float, effect_type : String, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
+	var new_status : StatusData = status.duplicate()
+	var original_value : int = status.get_stack_value()
+	var delta : int = int(original_value * mod) - original_value
+	new_status.set_stack_value(delta)
+	_resolve_status(new_status, 1, effect_type, source, target, character_manager_map)
+
+func _resolve_modify_related_status_type(status : String, mod : float, effect_type : String, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var modifying_status : StatusData = target_battle_manager.get_related_status(status, source)
+	if modifying_status:
+		_resolve_modify_status(modifying_status, mod, effect_type, source, target, character_manager_map)
+
+func _resolve_modify_status_type(status : String, mod : float, effect_type : String, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var modifying_status : StatusData = target_battle_manager.get_status(status)
+	if modifying_status:
+		_resolve_modify_status(modifying_status, mod, effect_type, source, target, character_manager_map)
 
 func _resolve_deck_mod(effect:DeckModEffectData, character:CharacterData):
 	var new_card = effect.card.duplicate()
@@ -194,8 +240,20 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 						emit_signal("apply_energy", final_target, -(effect.amount), opportunity.source)
 					EffectCalculator.MARKED_DAMAGE_EFFECT:
 						_resolve_related_status_type_damage(EffectCalculator.MARKED_STATUS, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.DOUBLE_MARKED_EFFECT:
+						_resolve_modify_related_status_type(EffectCalculator.MARKED_STATUS, 2, effect.type_tag, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.CURE_POISONED_EFFECT:
+						_resolve_modify_status_type(EffectCalculator.POISONED_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.CURE_VULNERABLE_EFFECT:
+						_resolve_modify_status_type(EffectCalculator.VULNERABLE_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.CURE_FRAGILE_EFFECT:
+						_resolve_modify_status_type(EffectCalculator.FRAGILE_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.CURE_WEAK_EFFECT:
+						_resolve_modify_status_type(EffectCalculator.WEAK_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
 					EffectCalculator.SHIELD_ATTACK_EFFECT:
 						_resolve_source_status_type_damage(EffectCalculator.DEFENSE_STATUS, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.SMASH_ATTACK_EFFECT:
+						_resolve_smash_damage(effect, opportunity.source, final_target, character_manager_map)
 					EffectCalculator.ATTACK_EFFECT:
 						_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
 				if effect is StatusEffectData:

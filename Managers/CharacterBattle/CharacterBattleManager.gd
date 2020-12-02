@@ -195,14 +195,14 @@ func gain_status(status:StatusData, origin:CharacterData):
 	match(status.type_tag):
 		EffectCalculator.DEFENSE_STATUS, EffectCalculator.VULNERABLE_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_2
-		EffectCalculator.TOXIN_STATUS, EffectCalculator.BARRICADED_STATUS:
+		EffectCalculator.POISONED_STATUS, EffectCalculator.BARRICADED_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_3
 	status_manager.gain_status(status, cycle_mode, is_target)
 
 func _run_start_of_turn_statuses():
-	var toxin_status : StatusData = status_manager.get_status(EffectCalculator.TOXIN_STATUS)
-	if toxin_status:
-		lose_health(toxin_status.duration)
+	var poisoned_status : StatusData = status_manager.get_status(EffectCalculator.POISONED_STATUS)
+	if poisoned_status:
+		lose_health(poisoned_status.duration)
 	var barricaded_status : StatusData = status_manager.get_status(EffectCalculator.BARRICADED_STATUS)
 	if barricaded_status:
 		var defense_status = defense_status_resource.duplicate()
