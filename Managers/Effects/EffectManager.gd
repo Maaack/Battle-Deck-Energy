@@ -116,18 +116,24 @@ func _resolve_self_damage(effect:EffectData, target:CharacterData, character_man
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, [], target_statuses)
 	emit_signal("apply_health", target, -(total_damage), target)
 
-func _resolve_status_to_damage(status: StatusData, source:CharacterData,  target:CharacterData):
+func _resolve_status_to_damage(status: StatusData, source:CharacterData, target:CharacterData):
 	emit_signal("apply_health", target, -(status.get_stack_value()), source)
 
-func _resolve_related_status_type_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
+func _resolve_related_status_type_damage(status: String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	var damaging_status : StatusData = target_battle_manager.get_related_status(status, source)
 	if damaging_status:
 		_resolve_status_to_damage(damaging_status, source, target)
 
-func _resolve_source_status_type_damage(status: String, source:CharacterData,  target:CharacterData, character_manager_map:Dictionary):
+func _resolve_source_status_type_damage(status: String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var damaging_status : StatusData = source_battle_manager.get_status(status)
+	if damaging_status:
+		_resolve_status_to_damage(damaging_status, source, target)
+
+func _resolve_target_status_type_damage(status: String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var damaging_status : StatusData = target_battle_manager.get_status(status)
 	if damaging_status:
 		_resolve_status_to_damage(damaging_status, source, target)
 
