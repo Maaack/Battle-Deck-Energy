@@ -1,7 +1,6 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/DrawCardEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/bookmarklet.png" type="Texture" id=5]
@@ -10,10 +9,9 @@
 script = ExtResource( 1 )
 title = "Recall"
 description = "Draw %DRAW_CARD cards.
-Retain.
-Exhaust."
+Retain."
 energy_cost = 0
 icon = ExtResource( 5 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 3 ), ExtResource( 4 ) ]
 type = 3

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/DeathBlowWeight1.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/MiasmaWeight1.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/HyperfocusWeight1.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/ReforgeWeight1.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/TheWallWeight1.tres" type="Resource" id=16]
+
+[resource]
+script = ExtResource( 2 )
+starting_list = [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 16 ) ]
