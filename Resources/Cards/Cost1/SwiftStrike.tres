@@ -1,14 +1,14 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/AttackEffect3.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/AttackEffect6.tres" type="Resource" id=2]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/bat-blade.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Effects/DrawCardSourceEffect.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Swift Strike"
-description = "Deal %ATTACK Damage and draw [b]2[/b] card(s)."
+description = "Deal %ATTACK Damage and draw %DRAW_CARD card(s)."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

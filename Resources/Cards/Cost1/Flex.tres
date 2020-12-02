@@ -9,7 +9,7 @@
 script = ExtResource( 1 )
 title = "Flex"
 description = "Apply %APPLY_STRONG Strong.
-Retain.."
+Retain."
 energy_cost = 1
 icon = ExtResource( 2 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )

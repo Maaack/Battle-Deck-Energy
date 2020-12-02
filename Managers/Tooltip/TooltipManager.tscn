@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Managers/Tooltip/TooltipManager.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Definitions/MarkedDefinition.tres" type="Resource" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Resources/Definitions/PlannedDefinition.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Definitions/DrawCardDefinition.tres" type="Resource" id=7]
 [ext_resource path="res://Resources/Definitions/HastenedDefinition.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Definitions/ReinforcedDefinition.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Definitions/DefenseDefinition.tres" type="Resource" id=27]
 [ext_resource path="res://Resources/Definitions/BarricadedDefinition.tres" type="Resource" id=28]
 [ext_resource path="res://Resources/Definitions/PoisonedDefinition.tres" type="Resource" id=29]
@@ -36,4 +37,4 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-term_definitions = [ ExtResource( 31 ), ExtResource( 46 ), ExtResource( 27 ), ExtResource( 42 ), ExtResource( 28 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 33 ), ExtResource( 47 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 45 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 48 ), ExtResource( 29 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 40 ), ExtResource( 44 ), ExtResource( 49 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ) ]
+term_definitions = [ ExtResource( 31 ), ExtResource( 46 ), ExtResource( 27 ), ExtResource( 42 ), ExtResource( 28 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 33 ), ExtResource( 47 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 45 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 48 ), ExtResource( 29 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 40 ), ExtResource( 44 ), ExtResource( 49 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ) ]

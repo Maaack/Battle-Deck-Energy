@@ -9,7 +9,7 @@
 script = ExtResource( 1 )
 title = "Toxic Spit"
 description = "Apply %APPLY_POISONED Poisoned.
-Retain.."
+Retain."
 energy_cost = 0
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
