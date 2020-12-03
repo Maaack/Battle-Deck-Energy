@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPoisoned2.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/tongue.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Transmit"
+description = "Apply %APPLY_POISON Poison to draw pile.
+Exhaust."
+energy_cost = 0
+icon = ExtResource( 4 )
+base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
+effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
+type = 1

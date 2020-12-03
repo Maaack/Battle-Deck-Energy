@@ -1,11 +1,11 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://Resources/Weighted/WeightedCardList/Rank6CardList.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Weighted/WeightedCardList/Rank1CardList.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Levels/BattleLevelData.gd" type="Script" id=2]
-[ext_resource path="res://Resources/Characters/Opponents/CommanderCafeteria.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Characters/Opponents/Rank1/Freeloader.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 2 )
-mood_type = "HARD_BATTLE"
+mood_type = "EASY_BATTLE"
 opponents = [ ExtResource( 3 ) ]
 lootable_cards = ExtResource( 1 )

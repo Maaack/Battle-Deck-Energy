@@ -5,7 +5,6 @@
 [ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/nails.png" type="Texture" id=4]
 
-
 [resource]
 script = ExtResource( 1 )
 title = "Dirty Nails"

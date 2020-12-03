@@ -4,6 +4,8 @@
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
 [ext_resource path="res://Resources/Levels/StoryLevel/EndingLevel.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level02/Level02List.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level01/Level01List.tres" type="Resource" id=6]
 [ext_resource path="res://Scenes/DeadPanel/DeadPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Managers/Levels/LevelManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/Levels/StoryLevel/IntroLevel.tres" type="Resource" id=9]
@@ -11,9 +13,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level04/Level04List.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level14/Level14List.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Levels/ShelterLevel/ShelterLevel.tres" type="Resource" id=13]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level01/Level01List.tres" type="Resource" id=14]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level13/Level13List.tres" type="Resource" id=15]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level02/Level02List.tres" type="Resource" id=16]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level08/Level08List.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level11/Level11List.tres" type="Resource" id=18]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=19]
@@ -126,10 +126,10 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="LevelManager" parent="." instance=ExtResource( 8 )]
-levels = [ ExtResource( 9 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 13 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 53 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 60 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 52 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 51 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 50 ), ExtResource( 25 ), ExtResource( 13 ) ]
+levels = [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 13 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 53 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 60 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 52 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 51 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 50 ), ExtResource( 25 ), ExtResource( 13 ) ]
 
 [node name="TestLevelManager" parent="." instance=ExtResource( 8 )]
-levels = [ ExtResource( 13 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 4 ) ]
+levels = [ ExtResource( 13 ), ExtResource( 13 ), ExtResource( 4 ) ]
 
 [node name="MoodManager" parent="." instance=ExtResource( 54 )]
 intro_song = ExtResource( 58 )
