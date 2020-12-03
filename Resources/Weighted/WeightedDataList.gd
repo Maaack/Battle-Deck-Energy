@@ -1,3 +1,4 @@
+tool
 extends Resource
 
 
@@ -6,9 +7,6 @@ class_name WeightedDataList
 export(Array, Resource) var starting_list : Array = [] setget set_starting_list
 
 var list : Array = []
-
-func reset_list():
-	list = starting_list
 
 func append_data(value):
 	var weighted_data : WeightedData = WeightedData.new()
