@@ -59,7 +59,7 @@ func drag_to_position(position:Vector2):
 	if dragged_card is CardNode2D:
 		var transform_data = dragged_card.card_data.transform_data.duplicate()
 		transform_data.position = position
-		move_card(dragged_card.card_data, transform_data, 0.1)
+		move_card(dragged_card.card_data, transform_data, 0.05)
 		return dragged_card
 
 func _is_card_playable(card_node:CardNode2D):

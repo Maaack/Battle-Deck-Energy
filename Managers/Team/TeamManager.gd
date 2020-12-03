@@ -36,9 +36,12 @@ func remove_character(character : CharacterData):
 	characters.erase(character)
 	emit_signal("team_list_updated", teams[team])
 
-func get_allies(character : CharacterData):
+func get_entire_team(character : CharacterData):
 	var team = get_team(character)
-	var team_list = get_team_list(team).duplicate()
+	return get_team_list(team).duplicate()
+
+func get_allies(character : CharacterData):
+	var team_list = get_entire_team(character)
 	team_list.erase(character)
 	return team_list
 

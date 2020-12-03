@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Strong Grip"
 description = "Apply %APPLY_WEAK Weak and add %ADD_RESTRAINED Restrained card(s).
-Exhausts."
+Exhaust."
 energy_cost = 1
 icon = ExtResource( 5 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

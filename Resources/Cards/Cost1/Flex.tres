@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/flex.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength2.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong3.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Flex"
-description = "Apply %APPLY_STRENGTH Strength.
-Retained."
+description = "Apply %APPLY_STRONG Strong.
+Retain."
 energy_cost = 1
 icon = ExtResource( 2 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )

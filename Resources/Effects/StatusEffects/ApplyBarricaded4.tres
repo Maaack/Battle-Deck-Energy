@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Statuses/Barricaded.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+type_tag = "APPLY_BARRICADED"
+amount = 4
+apply_mode = 1
+aim_mode = 0
+team_aim_mode = 0
+starting_statuses = [ ExtResource( 2 ) ]

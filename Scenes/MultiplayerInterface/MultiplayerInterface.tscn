@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=2]
@@ -7,29 +7,6 @@
 [ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/WinPanel/WinPanel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Resources/Definitions/ToxinDefinition.tres" type="Resource" id=12]
-[ext_resource path="res://Resources/Definitions/DefenseDefinition.tres" type="Resource" id=26]
-[ext_resource path="res://Resources/Definitions/EnGardeDefinition.tres" type="Resource" id=28]
-[ext_resource path="res://Resources/Definitions/AttackDefinition.tres" type="Resource" id=29]
-[ext_resource path="res://Resources/Definitions/VenomousDefinition.tres" type="Resource" id=30]
-[ext_resource path="res://Resources/Definitions/FortitudeDefinition.tres" type="Resource" id=31]
-[ext_resource path="res://Resources/Definitions/GainEnergyDefinition.tres" type="Resource" id=32]
-[ext_resource path="res://Resources/Definitions/UnplayableDefinition.tres" type="Resource" id=33]
-[ext_resource path="res://Resources/Definitions/RetainDefinition.tres" type="Resource" id=34]
-[ext_resource path="res://Resources/Definitions/InnateDefinition.tres" type="Resource" id=35]
-[ext_resource path="res://Resources/Definitions/ExhaustDefinition.tres" type="Resource" id=36]
-[ext_resource path="res://Resources/Definitions/OpenerDefinition.tres" type="Resource" id=37]
-[ext_resource path="res://Resources/Definitions/VulnerableDefinition.tres" type="Resource" id=38]
-[ext_resource path="res://Resources/Definitions/FocusDefinition.tres" type="Resource" id=39]
-[ext_resource path="res://Resources/Definitions/FortifyDefinition.tres" type="Resource" id=40]
-[ext_resource path="res://Resources/Definitions/RicochetDefinition.tres" type="Resource" id=41]
-[ext_resource path="res://Resources/Definitions/DefenseUpDefinition.tres" type="Resource" id=42]
-[ext_resource path="res://Resources/Definitions/MomentaryDefinition.tres" type="Resource" id=43]
-[ext_resource path="res://Resources/Definitions/WeakDefinition.tres" type="Resource" id=44]
-[ext_resource path="res://Resources/Definitions/FragileDefinition.tres" type="Resource" id=45]
-[ext_resource path="res://Resources/Definitions/StrengthDefinition.tres" type="Resource" id=46]
-[ext_resource path="res://Resources/Definitions/AttackUpDefinition.tres" type="Resource" id=47]
-[ext_resource path="res://Resources/Definitions/LoseEnergyDefinition.tres" type="Resource" id=48]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" type="AudioStream" id=50]
 [ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=51]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" type="AudioStream" id=54]
@@ -123,7 +100,6 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-term_definitions = [ ExtResource( 29 ), ExtResource( 47 ), ExtResource( 26 ), ExtResource( 42 ), ExtResource( 28 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 31 ), ExtResource( 45 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 43 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 41 ), ExtResource( 46 ), ExtResource( 12 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 38 ), ExtResource( 44 ), ExtResource( 48 ) ]
 
 [node name="MoodManager" parent="." instance=ExtResource( 5 )]
 intro_song = ExtResource( 51 )

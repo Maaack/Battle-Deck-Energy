@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Definitions/DefenseDefinition.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+key = "BARRICADED"
+term = "Barricaded"
+definition = "At the start of the next turn, applies [b]Defense[/b] equal to value and depletes."
+related_definitions = [ ExtResource( 2 ) ]

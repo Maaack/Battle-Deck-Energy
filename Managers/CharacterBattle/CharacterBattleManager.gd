@@ -3,6 +3,8 @@ extends Node
 
 class_name CharacterBattleManager
 
+const MAX_HAND_SIZE = 12
+
 signal card_drawn(character, card)
 signal card_added_to_hand(character, card)
 signal card_removed_from_hand(character, card)
@@ -22,11 +24,21 @@ var health_status_base = preload("res://Resources/Statuses/Health.tres")
 var energy_status_base = preload("res://Resources/Statuses/Energy.tres")
 
 var character_data : CharacterData
+var starting_energy : int = 0
+var current_energy : int = 0
 var draw_pile : DeckData = DeckData.new()
 var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
 var statuses : Array = []
+onready var base_opportunities : Dictionary = {
+	CardData.CardType.ATTACK : 1,
+	CardData.CardType.DEFEND : 1,
+	CardData.CardType.SKILL : 1,
+}
+
+func _reset_energy():
+	starting_energy = character_data.energy
 
 func _reset_draw_pile():
 	for card in character_data.deck:
@@ -46,14 +58,14 @@ func get_health_status_snapshot():
 
 func get_energy_status_snapshot():
 	var energy_status_snapshot = energy_status_base.duplicate()
-	energy_status_snapshot.intensity = character_data.energy
+	energy_status_snapshot.intensity = current_energy
 	return energy_status_snapshot
 
 func reset():
-	character_data.energy = 0
 	_reset_draw_pile()
 	_reset_discard_pile()
 	_reset_exhaust_pile()
+	_reset_energy()
 
 func gain_health(amount: int = 1):
 	character_data.health += amount
@@ -69,19 +81,15 @@ func lose_health(amount: int = 1):
 		emit_signal("character_died", character_data)
 
 func gain_energy(amount:int = 1):
-	character_data.energy += amount
+	current_energy += amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, amount)
 
 func lose_energy(amount:int = 1):
-	amount = min(character_data.energy, amount)
-	character_data.energy -= amount
+	amount = min(current_energy, amount)
+	current_energy -= amount
 	var energy_status_snapshot = get_energy_status_snapshot()
 	emit_signal("status_updated", character_data, energy_status_snapshot, -(amount))
-
-func reset_energy():
-	var recharge_amount : int = character_data.max_energy - character_data.energy
-	gain_energy(recharge_amount)
 
 func reshuffle_card(card:CardData):
 	draw_pile.add_card(card)
@@ -133,8 +141,8 @@ func draw_card(card = null):
 	emit_signal("card_drawn", character_data, drawn_card)
 	add_card_to_hand(drawn_card)
 
-func draw_hand():
-	for _i in range(character_data.hand_size):
+func draw_cards(count : int):
+	for _i in range(count):
 		draw_card()
 
 func has_innate_cards_in_draw_pile():
@@ -174,26 +182,31 @@ func end_turn():
 
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE
+	var is_origin : bool = origin == character_data
+	var is_target : bool = true
+	if status is RelatedStatusData:
+		if status.target != character_data:
+			is_target = false
 	if status.has_the_d():
-		if origin == character_data:
+		if is_origin:
 			cycle_mode = StatusManager.CycleMode.START_1
 		else:
 			cycle_mode = StatusManager.CycleMode.END
 	match(status.type_tag):
 		EffectCalculator.DEFENSE_STATUS, EffectCalculator.VULNERABLE_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_2
-		EffectCalculator.TOXIN_STATUS, EffectCalculator.EN_GARDE_STATUS:
+		EffectCalculator.POISONED_STATUS, EffectCalculator.BARRICADED_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_3
-	status_manager.gain_status(status, cycle_mode)
+	status_manager.gain_status(status, cycle_mode, is_target)
 
 func _run_start_of_turn_statuses():
-	var toxin_status : StatusData = status_manager.get_status_by_type(EffectCalculator.TOXIN_STATUS)
-	if toxin_status:
-		lose_health(toxin_status.duration)
-	var en_garde_status : StatusData = status_manager.get_status_by_type(EffectCalculator.EN_GARDE_STATUS)
-	if en_garde_status:
+	var poisoned_status : StatusData = status_manager.get_status(EffectCalculator.POISONED_STATUS)
+	if poisoned_status:
+		lose_health(poisoned_status.duration)
+	var barricaded_status : StatusData = status_manager.get_status(EffectCalculator.BARRICADED_STATUS)
+	if barricaded_status:
 		var defense_status = defense_status_resource.duplicate()
-		defense_status.intensity = en_garde_status.intensity
+		defense_status.intensity = barricaded_status.intensity
 		gain_status(defense_status, character_data)
 
 func has_statuses():
@@ -211,13 +224,23 @@ func update_end_of_turn_statuses():
 	status_manager.decrement_durations(StatusManager.CycleMode.END)
 
 func get_statuses():
-	return status_manager.status_type_map.values()
+	var all_statuses : Array = status_manager.status_map.values()
+	for related_statuses in status_manager.related_status_source_map.values():
+		if related_statuses is Dictionary:
+			all_statuses += related_statuses.values()
+	for related_statuses in status_manager.related_status_target_map.values():
+		if related_statuses is Dictionary:
+			all_statuses += related_statuses.values()
+	return all_statuses
 
-func get_status_by_type(type_tag:String):
-	return status_manager.get_status_by_type(type_tag)
+func get_status(type_tag:String):
+	return status_manager.get_status(type_tag)
 
-func has_status_by_type(type_tag:String):
-	return get_status_by_type(type_tag) != null
+func get_related_status(type_tag:String, related:CharacterData, is_target : bool = true):
+	return status_manager.get_related_status(type_tag, related, is_target)
+
+func has_status(type_tag:String, source = null):
+	return get_status(type_tag) != null
 
 func _on_StatusManager_status_updated(status:StatusData, delta:int):
 	emit_signal("status_updated", character_data, status, delta)

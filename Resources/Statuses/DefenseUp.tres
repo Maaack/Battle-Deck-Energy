@@ -1,12 +1,12 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats/shield-up.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/GoodStats2/armor-upgrade.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Defense Up"
-description = "Increases damage shields absorb by [b]1[/b]."
+description = "Increases damage shields absorb by [b]X[/b]."
 icon = ExtResource( 2 )
 color = Color( 0.823529, 0.392157, 0.443137, 1 )
 intensity = 1

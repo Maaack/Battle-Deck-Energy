@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyAttackUp2.tres" type="Resource" id=4]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowEnemy/enrage.png" type="Texture" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "Jealousy"
+description = "Apply %APPLY_STRONG Strong and %APPLY_ATTACK_UP Attack Up.
+Exhaust."
+energy_cost = 0
+icon = ExtResource( 5 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
+effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+type = 3

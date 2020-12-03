@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Themes/Fonts/Labels/StatusIconDynamicText.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats/attack-up-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/GoodStats/parried.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd" type="Script" id=3]
+
 
 [node name="StatusIcon" type="Control"]
 margin_right = 28.0

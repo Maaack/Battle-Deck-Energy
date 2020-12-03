@@ -12,8 +12,10 @@ onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
+onready var level_delay_timer = $LevelDelayTimer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
+var starting_deck_data : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
 var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/Campaign/CampaignBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
@@ -99,6 +101,9 @@ func start_level():
 		mood_manager.set_mood(current_level.mood_type)
 
 func _start_next_level():
+	shadow_panel.show()
+	level_delay_timer.start()
+	yield(level_delay_timer, "timeout")
 	tooltip_manager.reset()
 	shadow_panel.hide()
 	level_manager.advance()
@@ -107,6 +112,8 @@ func _start_next_level():
 func _ready():
 	randomize()
 	player_data = starting_player_data.duplicate()
+	for card in starting_deck_data.cards:
+		player_data.deck.append(card.duplicate())
 	start_level()
 
 func _on_DeadPanel_retry_pressed():

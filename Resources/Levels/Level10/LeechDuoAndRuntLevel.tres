@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Resources/Levels/BattleLevelData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Weighted/WeightedCardList/Rank2CardList.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Characters/Opponents/Rank2/Runt.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Characters/Opponents/Rank1/BigLeech.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Characters/Opponents/Rank2/Pipsqueak.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Characters/Opponents/Rank1/Freeloader.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )

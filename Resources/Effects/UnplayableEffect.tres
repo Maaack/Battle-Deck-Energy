@@ -8,3 +8,4 @@ type_tag = "UNPLAYABLE"
 amount = 0
 apply_mode = 0
 aim_mode = 0
+team_aim_mode = 0

@@ -3,9 +3,9 @@ extends Resource
 
 class_name WeightedDataList
 
-export(Array, Resource) var starting_list = [] setget set_starting_list
+export(Array, Resource) var starting_list : Array = [] setget set_starting_list
 
-var list : Array
+var list : Array = []
 
 func append_data(value):
 	var weighted_data : WeightedData = WeightedData.new()

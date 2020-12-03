@@ -1,14 +1,14 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyToxin.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/nails.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Dirty Nails"
-description = "Deal %ATTACK Damage and apply %APPLY_TOXIN Toxin."
+description = "Deal %ATTACK Damage and apply %APPLY_POISONED Poisoned."
 energy_cost = 1
 icon = ExtResource( 4 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

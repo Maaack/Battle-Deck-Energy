@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Erupt"
-description = "Gain %GAIN_ENERGY Energy and draw [b]3[/b] card(s)."
+description = "Gain %GAIN_ENERGY Energy and draw %DRAW_CARD card(s)."
 energy_cost = 2
 icon = ExtResource( 4 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )

@@ -44,6 +44,9 @@ var teams_in_play : Array = []
 var active_character
 var active_team
 
+func _ready():
+	effects_manager.team_manager = team_manager
+
 func _new_character_manager_instance(character_data : CharacterData, team : String):
 	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instance()
 	_character_manager_map[character_data] = character_battle_manager
@@ -102,36 +105,37 @@ func _set_active_character(character_data : CharacterData):
 func start_battle():
 	battle_phase_manager.advance()
 
-func _setup_opportunities(character_data : CharacterData):
+func _setup_character_opportunities(character_data : CharacterData):
 	var enemies_list = team_manager.get_enemies(character_data)
 	for enemy in enemies_list: 
 		if not enemy.is_alive():
 			continue
-		opportunities_manager.add_opportunity(CardData.CardType.ATTACK, character_data, enemy)
-	opportunities_manager.add_opportunity(CardData.CardType.DEFEND, character_data, character_data)
-	opportunities_manager.add_opportunity(CardData.CardType.SKILL, character_data, character_data)
-
+		effects_manager.add_all_opportunities(CardData.CardType.ATTACK, character_data, enemy, _character_manager_map)
+	effects_manager.add_all_opportunities(CardData.CardType.DEFEND, character_data, character_data, _character_manager_map)
+	effects_manager.add_all_opportunities(CardData.CardType.SKILL, character_data, character_data, _character_manager_map)
+	
 func get_opportunities():
 	return opportunities_manager.opportunities
 
 func _start_character_turn(character_data : CharacterData):
 	_set_active_character(character_data)
 	opportunities_manager.reset()
-	_setup_opportunities(character_data)
+	_setup_character_opportunities(character_data)
 	advance_action_timer.start()
 	yield(advance_action_timer, "timeout")
 	advance_character_phase()
 
 func _active_character_draws():
-	var character_manager = _character_manager_map[active_character]
+	var character_manager : CharacterBattleManager = _character_manager_map[active_character]
+	effects_manager.set_starting_energy(character_manager)
+	var draw_size = effects_manager.get_starting_draw_card_count(character_manager)
 	if character_manager.has_statuses():
 		character_manager.update_early_start_of_turn_statuses()
 		character_manager.update_late_start_of_turn_statuses()
 		advance_action_timer.start()
 		yield(advance_action_timer, "timeout")
-	character_manager.reset_energy()
 	emit_signal("before_hand_drawn", active_character)
-	character_manager.draw_hand()
+	character_manager.draw_cards(draw_size)
 
 func _end_character_turn(character_data : CharacterData):
 	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
@@ -278,9 +282,7 @@ func _on_CharacterStart_phase_entered():
 func _on_AdvancePhaseTimer_timeout():
 	battle_phase_manager.advance()
 
-func _on_EffectManager_apply_health(character, health):
-	if not character in _character_manager_map:
-		return
+func _on_EffectManager_apply_health(character, health, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	if health < 0:
 		var damage : int = -(health)
@@ -289,14 +291,10 @@ func _on_EffectManager_apply_health(character, health):
 		character_manager.gain_health(health)
 
 func _on_EffectManager_apply_status(character, status, origin):
-	if not character in _character_manager_map:
-		return
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_status(status, origin)
 
-func _on_EffectManager_apply_energy(character, energy):
-	if not character in _character_manager_map:
-		return
+func _on_EffectManager_apply_energy(character, energy, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_energy(energy)
 

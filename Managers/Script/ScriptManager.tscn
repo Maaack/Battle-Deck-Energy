@@ -7,4 +7,4 @@
 script = ExtResource( 1 )
 script_to_run = ExtResource( 2 )
 source_path = "res://Resources/Levels/"
-destination_path = "res://Resources/Weighted/WeightedLevelList/"
+destination_path = "res://Resources/Weighted/WeightedLevelList2/"

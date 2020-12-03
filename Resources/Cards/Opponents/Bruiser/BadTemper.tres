@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength4.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong4.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowEnemy/enrage.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Bad Temper"
-description = "Apply %APPLY_STRENGTH Strength and %APPLY_VULNERABLE Vulnerable.
-Exhausts."
+description = "Apply %APPLY_STRONG Strong and %APPLY_VULNERABLE Vulnerable.
+Exhaust."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
