@@ -13,4 +13,4 @@
 script = ExtResource( 4 )
 title = "Lamest Starting Deck"
 icon = ExtResource( 5 )
-cards = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ]
+cards = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ]

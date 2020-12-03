@@ -30,32 +30,32 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 12 )
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 8 )
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 9 )
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 15 )
 
 [sub_resource type="Resource" id=5]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 11 )
 
 [sub_resource type="Resource" id=6]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 5 )
 
 [sub_resource type="Resource" id=7]
@@ -70,12 +70,12 @@ data = ExtResource( 7 )
 
 [sub_resource type="Resource" id=9]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 16 )
 
 [sub_resource type="Resource" id=10]
 script = ExtResource( 10 )
-weight = 4.0
+weight = 6.0
 data = ExtResource( 17 )
 
 [sub_resource type="Resource" id=11]
@@ -110,7 +110,7 @@ data = ExtResource( 25 )
 
 [sub_resource type="Resource" id=17]
 script = ExtResource( 10 )
-weight = 2.0
+weight = 4.0
 data = ExtResource( 18 )
 
 [sub_resource type="Resource" id=18]

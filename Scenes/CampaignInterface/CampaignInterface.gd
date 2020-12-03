@@ -101,11 +101,12 @@ func start_level():
 		mood_manager.set_mood(current_level.mood_type)
 
 func _start_next_level():
+	shadow_panel.show()
+	level_delay_timer.start()
+	yield(level_delay_timer, "timeout")
 	tooltip_manager.reset()
 	shadow_panel.hide()
 	level_manager.advance()
-	level_delay_timer.start()
-	yield(level_delay_timer, "timeout")
 	start_level()
 
 func _ready():

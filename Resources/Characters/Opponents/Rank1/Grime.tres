@@ -1,9 +1,8 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Opponents/Freeloader/Desperation.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Opponents/Freeloader/Mooch.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/Opponents/Freeloader/Jealousy.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Cards/Opponents/Grime/HomeCooked.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Opponents/Grime/Transmit.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Cards/Opponents/Grime/Breath.tres" type="Resource" id=5]
 
 [resource]
@@ -12,4 +11,4 @@ nickname = "Grime"
 starting_max_health = 9
 starting_max_energy = 0
 starting_hand_size = 2
-starting_deck = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ) ]
+starting_deck = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]

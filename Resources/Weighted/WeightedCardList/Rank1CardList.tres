@@ -72,7 +72,7 @@ data = ExtResource( 9 )
 
 [sub_resource type="Resource" id=11]
 script = ExtResource( 10 )
-weight = 2.0
+weight = 4.0
 data = ExtResource( 7 )
 
 [sub_resource type="Resource" id=12]

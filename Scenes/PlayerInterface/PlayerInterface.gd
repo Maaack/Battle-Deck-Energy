@@ -66,7 +66,7 @@ func set_draw_pile_count(count:int):
 func draw_card(card_data:CardData):
 	var hand_offset : Vector2 = hand_manager.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_transform : TransformData = TransformData.new(hand_offset)
-	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DRAWING_INTO_HAND)
+	animation_queue.animate_move(card_data, new_transform, 0.3, 0.15, AnimationType.DRAWING_INTO_HAND)
 
 func draw_card_from_draw_pile(card_data:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
@@ -84,7 +84,7 @@ func discard_card(card_data:CardData):
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = discard_pile_offset
 	new_transform.scale = Vector2(0.1, 0.1)
-	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DISCARDING)
+	animation_queue.animate_move(card_data, new_transform, 0.3, 0.15, AnimationType.DISCARDING)
 
 func exhaust_card(card_data:CardData):
 	if not card_data in _card_owner_map:
@@ -96,7 +96,7 @@ func exhaust_card(card_data:CardData):
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = exhaust_pile_offset
 	new_transform.scale = Vector2(0.1, 0.1)
-	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.EXHAUSTING)
+	animation_queue.animate_move(card_data, new_transform, 0.3, 0.15, AnimationType.EXHAUSTING)
 
 func reshuffle_card(card_data:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()

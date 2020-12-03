@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Hard to Hit"
-description = "Absorb %DEFEND Damage and apply %APPLY_EN_GARDE En Garde.
+description = "Absorb %DEFEND Damage and apply %APPLY_BARRICADED Barricaded.
 Exhaust."
 energy_cost = 1
 icon = ExtResource( 5 )

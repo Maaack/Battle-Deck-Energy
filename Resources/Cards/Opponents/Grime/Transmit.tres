@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Transmit"
-description = "Apply %APPLY_POISON Poison to draw pile.
+description = "Apply %APPLY_POISONED Poisoned.
 Exhaust."
 energy_cost = 0
 icon = ExtResource( 4 )
