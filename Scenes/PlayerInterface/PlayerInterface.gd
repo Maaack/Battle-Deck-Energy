@@ -238,7 +238,7 @@ func _on_card_animation_started(animation:CardAnimationData):
 func _on_status_animation_started(animation:StatusAnimationData):
 	_update_status(animation.character_data, animation.status_data, animation.delta)
 
-func _on_PlayerBoard_ending_turn():
+func _player_ends_turn():
 	emit_signal("ending_turn")
 	hand_manager.spread_from_mouse_flag = false
 	card_manager.active = false
@@ -309,6 +309,9 @@ func start_turn():
 	hand_manager.spread_from_mouse_flag = true
 	card_manager.active = true
 	reset_end_turn()
+
+func start_timer(time : int):
+	player_board.start_timer(time)
 	
 func start_round():
 	player_board.advance_round_count()
@@ -478,6 +481,9 @@ func update_status(character : CharacterData, status : StatusData, delta : int):
 			return
 	animation_queue.animate_status(character, status, delta)
 
+func _on_PlayerBoard_ending_turn():
+	_player_ends_turn()
+
 func _on_PlayerBoard_draw_pile_pressed():
 	emit_signal("draw_pile_pressed")
 
@@ -494,6 +500,9 @@ func _on_PlayerInterface_resized():
 func _on_ResizeTimer_timeout():
 	for opportunity in _opportunities_map:
 		_on_CardContainer_update_opportunity(opportunity, _opportunities_map[opportunity])
+
+func _on_EndTurnTimer_timeout():
+	_player_ends_turn()
 
 func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 	if animation_data is CardAnimationData:

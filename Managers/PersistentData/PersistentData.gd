@@ -88,6 +88,9 @@ func load_deck_file(filepath : String):
 	saved_deck.title = saved_dict[DECK_TITLE_KEY]
 	var saved_cards : Array = saved_dict[DECK_CARDS_KEY]
 	for saved_card_name in saved_cards:
+		if not saved_card_name in card_library.data:
+			print("Warning: Card `%s` not recognized." % saved_card_name)
+			continue
 		var card : CardData = card_library.data[saved_card_name]
 		if card != null:
 			saved_deck.cards.append(card)
