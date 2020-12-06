@@ -42,6 +42,7 @@ margin_top = -216.0
 margin_bottom = -152.0
 
 [node name="TurnTimer" parent="." instance=ExtResource( 2 )]
+visible = false
 margin_left = -70.0
 margin_top = -296.0
 margin_right = -6.0
