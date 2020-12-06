@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Managers/Cards/Focused/FocusedCardManager.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/CardNode2D/CardNode2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/CardNode2D/BDECard/CardNode2D.tscn" type="PackedScene" id=2]
+
 
 [node name="FocusedCardManager" type="Node2D"]
 script = ExtResource( 1 )

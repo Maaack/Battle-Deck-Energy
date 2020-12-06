@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/PlayerInterface/AnimationQueue/AnimationQueue.gd"
 }, {
+"base": "Node2D",
+"class": "BaseCardNode2D",
+"language": "GDScript",
+"path": "res://Scenes/CardNode2D/BaseCardNode2D.gd"
+}, {
 "base": "Control",
 "class": "BattleInterface",
 "language": "GDScript",
@@ -64,10 +69,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Managers/Cards/CardManager.gd"
 }, {
-"base": "Node2D",
+"base": "BaseCardNode2D",
 "class": "CardNode2D",
 "language": "GDScript",
-"path": "res://Scenes/CardNode2D/CardNode2D.gd"
+"path": "res://Scenes/CardNode2D/BDECard/CardNode2D.gd"
 }, {
 "base": "ActionsInterface",
 "class": "CharacterActionsInterface",
@@ -313,6 +318,7 @@ _global_script_class_icons={
 "ActionsInterface": "",
 "AnimationData": "",
 "AnimationQueue": "",
+"BaseCardNode2D": "",
 "BattleInterface": "",
 "BattleLevelData": "",
 "BattleManager": "",

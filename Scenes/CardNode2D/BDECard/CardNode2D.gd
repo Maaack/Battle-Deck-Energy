@@ -1,5 +1,5 @@
 tool
-extends Node2D
+extends BaseCardNode2D
 
 
 class_name CardNode2D
@@ -9,8 +9,6 @@ signal mouse_exited(card_node_2d)
 signal mouse_clicked(card_node_2d)
 signal mouse_double_clicked(card_node_2d)
 signal mouse_released(card_node_2d)
-signal tween_completed(card_node_2d)
-signal tween_started(card_node_2d)
 signal animation_completed(card_node_2d)
 
 const CARD_EFFECT_TAG = 'card_effect'
@@ -19,11 +17,9 @@ const COST_AFFORDABLE_COLOR = Color(1, 1, 1)
 
 enum MouseInputMode{NONE, GUI, PHYSICS}
 
-onready var tween_node = $Tween
 onready var area_2d_node = $Area2D
 onready var glow_node = $Card/GlowContainer/Control/GlowNode
 onready var pulse_animation = $Card/PulseAnimation
-onready var body_node = $Card/Body
 onready var energy_panel = $Card/Body/BDEPanel
 onready var energy_label = $Card/Body/BDEPanel/BDECostLabel
 onready var title_panel = $Card/Body/CardFront/TitlePanel
@@ -53,7 +49,6 @@ export(Color) var unafforadable_color : Color
 
 
 var card_data : CardData setget set_card_data
-var _last_animation_type : int = 0
 var base_values : Dictionary = {}
 var mouse_input_mode : int = MouseInputMode.GUI setget set_mouse_input_mode
 var locked_face : bool = false
@@ -197,15 +192,6 @@ func tween_to(new_transform:TransformData, tween_time:float = 0.0, animation_typ
 	card_data.transform_data = new_transform
 	_last_animation_type = animation_type
 
-func _finish_tween():
-	if tween_node.is_active():
-		tween_node.seek(tween_node.get_runtime())
-
-func _force_card_transform(transform:TransformData):
-	position = transform.position
-	rotation = transform.rotation
-	scale = transform.scale
-
 func set_card_data(value:CardData):
 	card_data = value
 	if is_instance_valid(card_data):
@@ -229,12 +215,6 @@ func play_card():
 	set_mouse_input_mode(MouseInputMode.NONE)
 	_finish_tween()
 	_animate_pulse()
-
-func _on_Tween_tween_started(object, key):
-	emit_signal("tween_started", self)
-
-func _on_Tween_tween_all_completed():
-	emit_signal("tween_completed", self)
 
 func _handle_input_event(event):
 	if event is InputEventMouseButton:
