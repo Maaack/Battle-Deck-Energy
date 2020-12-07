@@ -1,7 +1,7 @@
 extends BattleManager
 
 
-class_name MultiplayerBattleManager
+class_name NetworkedBattleManager
 
 var player_id_character_map : Dictionary = {}
 var character_player_id_map : Dictionary = {}
