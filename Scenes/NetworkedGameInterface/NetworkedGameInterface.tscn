@@ -2,18 +2,18 @@
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=2]
-[ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/MultiplayerInterface/MultiplayerInterface.gd" type="Script" id=4]
-[ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/WinPanel/WinPanel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" type="AudioStream" id=50]
-[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=51]
-[ext_resource path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" type="AudioStream" id=54]
-[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=55]
-[ext_resource path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" type="AudioStream" id=56]
-[ext_resource path="res://Scenes/DeadPanel/DeadPanel.tscn" type="PackedScene" id=57]
-[ext_resource path="res://Managers/Tooltip/TooltipManager.tscn" type="PackedScene" id=58]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/DeadPanel/DeadPanel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/NetworkedGameInterface/NetworkedGameInterface.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Managers/Tooltip/TooltipManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/WinPanel/WinPanel.tscn" type="PackedScene" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )
@@ -22,12 +22,12 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[node name="MultiplayerInterface" type="Control"]
+[node name="NetworkedGameInterface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 1 )
-script = ExtResource( 4 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,7 +54,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 expand = true
 stretch_mode = 7
 __meta__ = {
@@ -79,14 +79,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeadPanel" parent="." instance=ExtResource( 57 )]
+[node name="DeadPanel" parent="." instance=ExtResource( 6 )]
 visible = false
 mouse_filter = 2
 
-[node name="WinPanel" parent="." instance=ExtResource( 7 )]
+[node name="WinPanel" parent="." instance=ExtResource( 14 )]
 visible = false
 
-[node name="DeckSelectorInterface" parent="." instance=ExtResource( 6 )]
+[node name="DeckSelectorInterface" parent="." instance=ExtResource( 11 )]
 
 [node name="DeckViewContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -96,17 +96,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TooltipManager" parent="." instance=ExtResource( 58 )]
+[node name="TooltipManager" parent="." instance=ExtResource( 12 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="MoodManager" parent="." instance=ExtResource( 5 )]
-intro_song = ExtResource( 51 )
-easy_battle_song = ExtResource( 54 )
-hard_battle_song = ExtResource( 56 )
-shelter_song = ExtResource( 50 )
-victory_song = ExtResource( 55 )
+[node name="MoodManager" parent="." instance=ExtResource( 13 )]
+intro_song = ExtResource( 8 )
+easy_battle_song = ExtResource( 7 )
+hard_battle_song = ExtResource( 4 )
+shelter_song = ExtResource( 3 )
+victory_song = ExtResource( 5 )
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
 [connection signal="return_pressed" from="WinPanel" to="." method="_on_WinPanel_return_pressed"]
 [connection signal="deck_selected" from="DeckSelectorInterface" to="." method="_on_DeckSelectorInterface_deck_selected"]

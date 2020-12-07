@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/CardNode2D/BlankCard/CardBack.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scenes/CardNode2D/BlankCard/CardBackPanel.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/CardNode2D/BaseCardNode2D.gd" type="Script" id=2]
 
 [node name="BlankCardNode2D" type="Node2D"]

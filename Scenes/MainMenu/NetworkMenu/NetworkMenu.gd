@@ -75,7 +75,7 @@ func open_multiplayer_menu():
 	$MultiplayerPanel.show()
 
 remotesync func start_game():
-	get_tree().change_scene("res://Scenes/MultiplayerInterface/MultiplayerInterface.tscn")
+	get_tree().change_scene("res://Scenes/NetworkedGameInterface/NetworkedGameInterface.tscn")
 
 func _on_LeaveButton_pressed():
 	Network.leave_server()
