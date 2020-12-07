@@ -229,6 +229,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Players/PlayerDater.gd"
 }, {
+"base": "Control",
+"class": "PlayerInterface",
+"language": "GDScript",
+"path": "res://Scenes/PlayerInterface/PlayerInterface.gd"
+}, {
 "base": "StatusData",
 "class": "RelatedStatusData",
 "language": "GDScript",
@@ -359,6 +364,7 @@ _global_script_class_icons={
 "PhaseManager": "",
 "PlayerActionsInterface": "",
 "PlayerData": "",
+"PlayerInterface": "",
 "RelatedStatusData": "",
 "SaveDeckLevelData": "",
 "ScrollingTextPanel": "",

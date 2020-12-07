@@ -21,14 +21,14 @@ margin_right = 242.0
 margin_bottom = 444.0
 custom_constants/margin_right = 24
 custom_constants/margin_top = 80
-custom_constants/margin_left = 16
+custom_constants/margin_left = 24
 custom_constants/margin_bottom = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer" index="0"]
-margin_left = 16.0
+margin_left = 24.0
 margin_top = 80.0
 margin_right = 216.0
 margin_bottom = 428.0
@@ -43,6 +43,24 @@ margin_bottom = 336.0
 rect_scale = Vector2( 0.5, 0.5 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="OpponentHandContainer" type="CenterContainer" parent="MarginContainer/MarginContainer/Control" index="1"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -120.0
+margin_right = 1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer/Control/OpponentHandContainer" index="0"]
+margin_left = 96.0
+margin_top = 60.0
+margin_right = 96.0
+margin_bottom = 60.0
+
+[node name="Position2D" type="Position2D" parent="MarginContainer/MarginContainer/Control/OpponentHandContainer/Control" index="0"]
 
 [node name="DeadCover" parent="." index="4" instance=ExtResource( 2 )]
 [connection signal="update_opportunity" from="MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer" to="." method="_on_OpportunitiesContainter_update_opportunity"]

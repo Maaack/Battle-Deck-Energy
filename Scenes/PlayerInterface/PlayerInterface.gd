@@ -1,6 +1,8 @@
 extends Control
 
 
+class_name PlayerInterface
+
 signal ending_turn
 signal draw_pile_pressed
 signal discard_pile_pressed

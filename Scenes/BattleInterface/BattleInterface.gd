@@ -12,9 +12,9 @@ signal status_inspected(status_icon)
 signal status_forgotten(status_icon)
 
 onready var battle_end_timer = $BattleEndDelayTimer
-onready var player_interface = $PlayerInterface
 
 var battle_manager : BattleManager
+var player_interface : PlayerInterface
 var _battle_ended : bool = false
 var player_character setget set_player_character
 

@@ -3,6 +3,7 @@ extends BattleInterface
 
 func _ready():
 	battle_manager = $CampaignBattleManager
+	player_interface = $PlayerInterface
 
 func _on_BattleManager_turn_started(character : CharacterData):
 	if character == player_character:
