@@ -116,26 +116,28 @@ func _resolve_self_damage(effect:EffectData, target:CharacterData, character_man
 	var total_damage = effect_calculator.get_effect_total(effect.amount, effect.type_tag, [], target_statuses)
 	emit_signal("apply_health", target, -(total_damage), target)
 
-func _resolve_status_to_damage(status: StatusData, source:CharacterData, target:CharacterData):
-	emit_signal("apply_health", target, -(status.get_stack_value()), source)
+func _resolve_status_to_damage(status: StatusData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
+	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var health_damage = _apply_damage(source_battle_manager, target_battle_manager, status.get_stack_value())
 
 func _resolve_related_status_type_damage(status: String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	var damaging_status : StatusData = target_battle_manager.get_related_status(status, source)
 	if damaging_status:
-		_resolve_status_to_damage(damaging_status, source, target)
+		_resolve_status_to_damage(damaging_status, source, target, character_manager_map)
 
 func _resolve_source_status_type_damage(status: String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var damaging_status : StatusData = source_battle_manager.get_status(status)
 	if damaging_status:
-		_resolve_status_to_damage(damaging_status, source, target)
+		_resolve_status_to_damage(damaging_status, source, target, character_manager_map)
 
 func _resolve_target_status_type_damage(status: String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	var damaging_status : StatusData = target_battle_manager.get_status(status)
 	if damaging_status:
-		_resolve_status_to_damage(damaging_status, source, target)
+		_resolve_status_to_damage(damaging_status, source, target, character_manager_map)
 
 func _resolve_status(status:StatusData, mod:float, effect_type:String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var modified_status : StatusData = status.duplicate()
@@ -146,9 +148,16 @@ func _resolve_status(status:StatusData, mod:float, effect_type:String, source:Ch
 	status_quantity = effect_calculator.get_effect_total(status_quantity, effect_type, source_statuses, target_statuses)
 	modified_status.set_stack_value(status_quantity)
 	if modified_status is RelatedStatusData:
+		var modifying_status : RelatedStatusData = modified_status.relating_status.duplicate()
 		modified_status.source = source
 		modified_status.target = target
-		emit_signal("apply_status", source, modified_status, source)
+		if modifying_status:
+			modifying_status.source = source
+			modifying_status.target = target
+			modifying_status.set_stack_value(modified_status.get_stack_value())
+			emit_signal("apply_status", source, modifying_status, target)
+		else:
+			emit_signal("apply_status", source, modified_status, target)
 	emit_signal("apply_status", target, modified_status, source)
 
 func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
@@ -279,8 +288,8 @@ func add_all_opportunities(type : int, source : CharacterData, target : Characte
 			if riposte_status != null:
 				for _i in range(riposte_status.get_stack_value()):
 					emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
-			var marked_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.MARKED_STATUS, target, false)
-			if marked_status != null:
+			var marking_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.MARKING_STATUS, target, false)
+			if marking_status != null:
 				emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
 		CardData.CardType.DEFEND:
 			var reinforced_status : StatusData = source_battle_manager.get_status(EffectCalculator.REINFORCED_STATUS)

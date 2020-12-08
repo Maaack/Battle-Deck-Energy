@@ -85,7 +85,7 @@
 [ext_resource path="res://Resources/Cards/Cost1/TickTick.tres" type="Resource" id=83]
 [ext_resource path="res://Resources/Cards/Cost2/Miasma.tres" type="Resource" id=84]
 [ext_resource path="res://Resources/Cards/Cost1/Toxify.tres" type="Resource" id=85]
-[ext_resource path="res://Resources/Cards/Cost0/Lookup.tres" type="Resource" id=86]
+[ext_resource path="res://Resources/Cards/Cost0/Hustle.tres" type="Resource" id=86]
 [ext_resource path="res://Resources/Cards/Cost1/Initial.tres" type="Resource" id=87]
 [ext_resource path="res://Resources/Cards/Cost0/Subvert.tres" type="Resource" id=88]
 [ext_resource path="res://Resources/Cards/Cost1/Plot.tres" type="Resource" id=89]
@@ -130,6 +130,7 @@ data = {
 "Hit Nerve": ExtResource( 44 ),
 "Hit the Mark": ExtResource( 66 ),
 "Hocus Focus": ExtResource( 34 ),
+"Hustle": ExtResource( 86 ),
 "Hyperfocus": ExtResource( 33 ),
 "Impenetrable": ExtResource( 6 ),
 "Initial": ExtResource( 87 ),
@@ -144,7 +145,6 @@ data = {
 "Light Armor": ExtResource( 69 ),
 "Lightning Shield": ExtResource( 9 ),
 "Limp Muscle": ExtResource( 38 ),
-"Lookup": ExtResource( 86 ),
 "Medicine": ExtResource( 70 ),
 "Miasma": ExtResource( 84 ),
 "Misstep": ExtResource( 72 ),

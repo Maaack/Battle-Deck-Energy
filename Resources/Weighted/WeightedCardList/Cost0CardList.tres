@@ -10,7 +10,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/MisstepWeight1.tres" type="Resource" id=8]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/CallOutWeight1.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/ToxicSpitWeight1.tres" type="Resource" id=10]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/LookupWeight1.tres" type="Resource" id=11]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HustleWeight1.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/BurnOutWeight1.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/JabWeight1.tres" type="Resource" id=13]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/SecondWindCardWeight1.tres" type="Resource" id=14]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HitTheMarkWeight1.tres" type="Resource" id=19]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/BurstWeight1.tres" type="Resource" id=20]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/AlertWeight1.tres" type="Resource" id=21]
+
 
 [resource]
 script = ExtResource( 1 )

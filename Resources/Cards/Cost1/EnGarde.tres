@@ -1,17 +1,18 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/PlayAsSkillEffect.tres" type="Resource" id=2]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/En Garde/walking-boot.png" type="Texture" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyReinforced.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "En Garde"
-description = "Absorb %DEFEND Damage.
+description = "Absorb %DEFEND Damage and apply %APPLY_REINFORCED Reinforced.
 Can take Skill action."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
-effects = [ ExtResource( 4 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ]
 type = 2
