@@ -75,6 +75,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CustomDeckInfoLabel" type="Label" parent="DeckSelectPanel/MarginContainer/VBoxContainer/ItemList"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+custom_colors/font_color = Color( 1, 1, 1, 0.501961 )
+text = "Custom decks available by completing the campaign."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HBoxContainer" type="HBoxContainer" parent="DeckSelectPanel/MarginContainer/VBoxContainer"]
 margin_top = 324.0
 margin_right = 584.0
