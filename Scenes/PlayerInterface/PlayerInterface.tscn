@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/CardNode2D/BDECard/CardNode2D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Managers/Cards/Focused/Inspector/Battle/BattleCardManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.tscn" type="PackedScene" id=9]
 
@@ -80,7 +79,6 @@ hand_center_distance = 2048.0
 offset_nearest_card = Vector2( 0, -160 )
 
 [node name="BattleCardManager" parent="HandContainer/CardControl" instance=ExtResource( 8 )]
-base_card_scene = ExtResource( 7 )
 
 [node name="InspectorCardManager" parent="HandContainer/CardControl" instance=ExtResource( 1 )]
 scale_focused_card = Vector2( 1.1, 1.1 )
