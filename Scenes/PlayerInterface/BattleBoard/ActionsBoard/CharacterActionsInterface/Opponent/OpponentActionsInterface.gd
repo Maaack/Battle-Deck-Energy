@@ -5,7 +5,7 @@ class_name OpponentActionsInterface
 
 onready var dead_cover = $DeadCover
 onready var opponent_opportunities_container = $MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer
-onready var opponent_hand_container = $MarginContainer/MarginContainer/Control/OpponentHandContainer
+onready var opponent_hand_container = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control
 onready var opponent_hand_position = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control/Position2D
 
 func set_character_data(value:CharacterData):
@@ -49,7 +49,7 @@ func get_hand_position():
 	return opponent_hand_position.global_position
 
 func get_hand_scale():
-	return Vector2(1,1) * 0.125
+	return Vector2(1,1) * 0.375
 
 func get_hand_transform():
 	var hand_transform : TransformData = TransformData.new()
