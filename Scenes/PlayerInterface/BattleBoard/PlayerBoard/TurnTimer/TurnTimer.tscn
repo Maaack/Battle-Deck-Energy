@@ -3,7 +3,7 @@
 [ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimer.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutSlow.tres" type="Animation" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/Game-Icons.net/stopwatch (1).png" type="Texture" id=4]
+[ext_resource path="res://Assets/Mixed/UI/stopwatch2_128x128.png" type="Texture" id=4]
 [ext_resource path="res://Themes/Fonts/TurnTimer/TurnTimerPanelDynamicFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerLastSeconds.tres" type="Animation" id=6]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutFast.tres" type="Animation" id=7]
