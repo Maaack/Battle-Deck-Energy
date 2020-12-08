@@ -60,7 +60,7 @@ func _ready():
 		var desktop_path = OS.get_system_dir(0).replace("\\", "/").split("/")
 		new_player.name = desktop_path[desktop_path.size() - 2]
 	Network.local_player = new_player
-	player_name_line_edit.text = Network.local_player.name
+	player_name_line_edit.text = new_player.name
 	ip_line_edit.text = Network.server_ip
 	port_line_edit.text = str(Network.server_port)
 

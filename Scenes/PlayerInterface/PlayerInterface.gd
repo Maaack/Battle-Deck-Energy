@@ -22,8 +22,8 @@ enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DI
 export(float, 0, 512) var opportunity_snap_range = 200.0
 
 onready var animation_queue : Node = $BattleAnimationQueue
-onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
-onready var opponent_card_manager : Node2D = $HandContainer/CardControl/InspectorCardManager
+onready var card_manager : CardManager = $HandContainer/CardControl/BattleCardManager
+onready var opponent_card_manager : CardManager = $HandContainer/CardControl/InspectorCardManager
 onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
 onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
 onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
@@ -398,13 +398,16 @@ func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
 
+func _on_play_card_on_opportunity(card:CardData, opportunity: OpportunityData):
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	card_instance.locked_face = true
+	emit_signal("card_played_on_opportunity", card, opportunity)
+
 func _on_dropping_card(card:CardData):
 	var nearest_opportunity = get_nearest_card_opportunity(card)
 	_openings_glow_off(card)
 	if nearest_opportunity is OpportunityData:
-		var card_instance : CardNode2D = card_manager.get_card_instance(card)
-		card_instance.locked_face = true
-		emit_signal("card_played_on_opportunity", card, nearest_opportunity)
+		_on_play_card_on_opportunity(card, nearest_opportunity)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 

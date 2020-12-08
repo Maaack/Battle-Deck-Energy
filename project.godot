@@ -227,7 +227,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "PlayerData",
 "language": "GDScript",
-"path": "res://Resources/Players/PlayerDater.gd"
+"path": "res://Resources/Players/PlayerData.gd"
 }, {
 "base": "Control",
 "class": "PlayerInterface",

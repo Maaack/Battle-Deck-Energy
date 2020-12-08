@@ -29,6 +29,7 @@ remotesync func create_character_for_player(player_id : int):
 		return
 	var player : PlayerData = Network.players[player_id]
 	var player_character : CharacterData = starting_player_data.duplicate()
+	player.character_data = player_character
 	player_character.nickname = player.name
 	if player.name == Network.local_player.name:
 		local_player_character = player_character
