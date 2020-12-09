@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Managers/Tooltip/TooltipManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/WinPanel/WinPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Themes/Fonts/Credits/H4DynamicFont.tres" type="DynamicFont" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )
@@ -70,7 +71,6 @@ __meta__ = {
 }
 
 [node name="ShadowPanel" type="Panel" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -107,6 +107,21 @@ easy_battle_song = ExtResource( 7 )
 hard_battle_song = ExtResource( 4 )
 shelter_song = ExtResource( 3 )
 victory_song = ExtResource( 5 )
+
+[node name="WaitingLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.5
+margin_top = -21.5
+margin_right = 258.5
+margin_bottom = 21.5
+custom_fonts/font = ExtResource( 15 )
+text = "Waiting for other players to select their decks..."
+align = 1
+valign = 1
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
 [connection signal="return_pressed" from="WinPanel" to="." method="_on_WinPanel_return_pressed"]
 [connection signal="deck_selected" from="DeckSelectorInterface" to="." method="_on_DeckSelectorInterface_deck_selected"]

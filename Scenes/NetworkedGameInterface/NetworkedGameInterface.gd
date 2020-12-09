@@ -8,6 +8,7 @@ onready var shadow_panel = $ShadowPanel
 onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
 onready var deck_view_container = $DeckViewContainer
+onready var waiting_label = $WaitingLabel
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NetworkedPlayerData.tres")
 var default_lame_deck : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
@@ -54,6 +55,8 @@ remotesync func init_battle_scene():
 	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 
 remotesync func start_battle():
+	shadow_panel.hide()
+	waiting_label.hide()
 	battle_interface.player_character = local_player_character
 	battle_interface.start_battle()
 
@@ -63,6 +66,8 @@ func all_ready():
 	rpc('start_battle')
 
 func _on_deck_selected():
+	shadow_panel.show()
+	waiting_label.show()
 	if Network.is_server():
 		Network.connect('synced', self, 'all_ready')
 	Network.sync_up()
