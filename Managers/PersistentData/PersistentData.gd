@@ -92,7 +92,6 @@ func _get_progress_file_path():
 	for content in contents:
 		var regex_match = regex.search(content)
 		if regex_match:
-			print("Found progress file %s " % content)
 			return (directory_path + content)
 
 func has_progress():
@@ -147,9 +146,7 @@ func _load_or_start_progress():
 	var saved_dict : Dictionary
 	if file_handler.is_open():
 		var contents : String = file_handler.get_line()
-		print("contents of `%s` returned : %s " % [file_handler.get_path(), contents])
 		if contents != '':
-			print("parse_json: %s " % contents)
 			saved_dict = parse_json(contents)
 		else:
 			saved_dict = _new_progress_dictionary()
@@ -160,7 +157,6 @@ func _load_or_start_progress():
 
 func load_progress():
 	progress_data = _load_or_start_progress()
-	print(progress_data)
 
 func get_last_level():
 	if not progress_data:
