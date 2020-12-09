@@ -1,8 +1,8 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/Cards/EnergyDynamicFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Scenes/OpportunityContainer/GlowAnimation.tres" type="Animation" id=3]
+[ext_resource path="res://Scenes/CardNode2D/BDECardGlowAnimation.tres" type="Animation" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/spinning-sword.png" type="Texture" id=4]
 [ext_resource path="res://Themes/Fonts/Cards/DescriptionDynamicFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Themes/Fonts/Cards/TypeDynamicFont.tres" type="DynamicFont" id=6]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Themes/StyleBoxes/CardDescriptionStyleBox.tres" type="StyleBox" id=27]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleStressStyleBox.tres" type="StyleBox" id=28]
 [ext_resource path="res://Themes/StyleBoxes/Cards/TitleSkillStyleBox.tres" type="StyleBox" id=29]
+[ext_resource path="res://Scenes/CardNode2D/BDECardGlowNoLoopAnimation.tres" type="Animation" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 88, 128 )
@@ -71,8 +72,6 @@ mouse_filter = 2
 
 [node name="GlowNode" type="Node2D" parent="Card/GlowContainer/Control"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
-scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 13 )
 glow_on_style = ExtResource( 12 )
 glow_not_style = ExtResource( 26 )
@@ -93,6 +92,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Card/GlowContainer/Control/GlowNode"]
 anims/Glow = ExtResource( 3 )
+anims/GlowNoLoop = ExtResource( 30 )
 
 [node name="Body" type="Control" parent="Card"]
 anchor_left = 0.5

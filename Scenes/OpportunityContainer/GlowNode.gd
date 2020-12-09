@@ -24,6 +24,8 @@ func glow_special():
 	animation_node.play("Glow")
 
 func glow_off():
+	var current_position : float = animation_node.current_animation_position
+	animation_node.play("GlowNoLoop")
+	animation_node.seek(current_position)
+	yield(animation_node, "animation_finished")
 	hide()
-	animation_node.stop()
-

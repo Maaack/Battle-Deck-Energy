@@ -5,7 +5,7 @@
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=3]
 [ext_resource path="res://Themes/StyleBoxes/Cards/OpportunityOutlineStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Scenes/OpportunityContainer/GlowNode.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/OpportunityContainer/LayeredGlowNodes.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -85,5 +85,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GlowNode" parent="CenterContainer/Control" index="2" instance=ExtResource( 6 )]
-visible = false
+[node name="LayeredGlowNodes" parent="CenterContainer/Control" index="2" instance=ExtResource( 7 )]

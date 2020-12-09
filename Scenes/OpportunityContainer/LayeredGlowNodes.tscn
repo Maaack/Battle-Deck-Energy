@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/OpportunityContainer/GlowNode.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/OpportunityContainer/LayeredGlowNodes.gd" type="Script" id=2]
+
+[node name="LayeredGlowNodes" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="GlowNode" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="GlowNode2" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="GlowDelayTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true

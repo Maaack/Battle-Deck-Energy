@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/OpportunityContainer/GlowAnimation.tres" type="Animation" id=1]
 [ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" type="StyleBox" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" type="StyleBox" id=3]
 [ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Scenes/OpportunityContainer/GlowNode.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/OpportunityContainer/GlowNoLoopAnimation.tres" type="Animation" id=6]
 
 [node name="GlowNode" type="Node2D"]
 script = ExtResource( 5 )
@@ -29,3 +30,4 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Glow = ExtResource( 1 )
+anims/GlowNoLoop = ExtResource( 6 )
