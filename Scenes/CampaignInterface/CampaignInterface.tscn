@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level04/Level04List.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level14/Level14List.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Levels/ShelterLevel/ShelterLevel.tres" type="Resource" id=13]
+[ext_resource path="res://Scenes/CampaignInterface/GameMenu/CampaignGameMenu.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level13/Level13List.tres" type="Resource" id=15]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level08/Level08List.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level11/Level11List.tres" type="Resource" id=18]
@@ -44,6 +45,7 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [node name="CampaignInterface" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -83,6 +85,7 @@ __meta__ = {
 }
 
 [node name="BattleInterfaceContainer" type="Control" parent="."]
+pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -105,6 +108,7 @@ visible = false
 mouse_filter = 2
 
 [node name="CampaignInterfaceContainer" type="Control" parent="."]
+pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -141,4 +145,10 @@ victory_song = ExtResource( 56 )
 [node name="LevelDelayTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="CampaignGameMenu" parent="." instance=ExtResource( 14 )]
+visible = false
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
+[connection signal="restart_button_pressed" from="CampaignGameMenu" to="." method="_on_CampaignGameMenu_restart_button_pressed"]
+[connection signal="return_button_pressed" from="CampaignGameMenu" to="." method="_on_CampaignGameMenu_return_button_pressed"]
+[connection signal="save_and_exit_button_pressed" from="CampaignGameMenu" to="." method="_on_CampaignGameMenu_save_and_exit_button_pressed"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/CampaignInterface/GameMenu/CampaignGameMenu.gd" type="Script" id=2]
+
+[node name="CampaignGameMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -176.0
+margin_right = 182.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 364, 0 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 64
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 64
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 32.0
+margin_top = 64.0
+margin_right = 332.0
+margin_bottom = 288.0
+custom_constants/separation = 20
+
+[node name="ReturnButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 60.0
+text = "Return"
+
+[node name="RestartButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 300.0
+margin_bottom = 140.0
+text = "Restart"
+
+[node name="SaveAndExitButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 160.0
+margin_right = 300.0
+margin_bottom = 220.0
+text = "Save And Exit"
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SaveAndExitButton" to="." method="_on_SaveAndExitButton_pressed"]
