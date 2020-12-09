@@ -25,6 +25,7 @@ var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.ts
 var save_deck_panel_scene : PackedScene = preload("res://Scenes/SaveDeck/SaveDeckPanel.tscn")
 var player_data : CharacterData
 var battle_interface : BattleInterface
+var campaign_seed : int
 
 func _add_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
@@ -86,6 +87,7 @@ func save_deck():
 	save_deck_interface.connect("skip_pressed", self, "_start_next_level")
 
 func start_level():
+	seed(campaign_seed + level_manager.current_level)
 	var current_level : LevelData = level_manager.get_current_level()
 	if current_level is BattleLevelData:
 		start_battle(current_level)
@@ -107,13 +109,23 @@ func _start_next_level():
 	tooltip_manager.reset()
 	shadow_panel.hide()
 	level_manager.advance()
+	PersistentData.save_progress(campaign_seed, player_data, level_manager.current_level)
 	start_level()
 
 func _ready():
-	randomize()
 	player_data = starting_player_data.duplicate()
-	for card in starting_deck_data.cards:
-		player_data.deck.append(card.duplicate())
+	var last_seed : int = PersistentData.get_last_seed()
+	if last_seed != 0:
+		campaign_seed = last_seed
+		var last_deck : DeckData = PersistentData.get_last_deck()
+		player_data.deck = last_deck.cards
+		player_data.health = PersistentData.get_last_health()
+		level_manager.current_level = PersistentData.get_last_level()
+	else:
+		randomize()
+		campaign_seed = randi()
+		for card in starting_deck_data.cards:
+			player_data.deck.append(card.duplicate())
 	start_level()
 
 func _on_DeadPanel_retry_pressed():
