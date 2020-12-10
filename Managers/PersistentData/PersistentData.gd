@@ -13,7 +13,7 @@ const SAVE_PROGRESS_FILENAME_PREFIX = 'SaveProgress'
 
 onready var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 
-var progress_data : Dictionary
+var progress_data : Dictionary = {}
 
 static func list_contents(path:String):
 	var contents : Array = []
@@ -93,6 +93,7 @@ func _get_progress_file_path():
 		var regex_match = regex.search(content)
 		if regex_match:
 			return (directory_path + content)
+	return ''
 
 func has_progress():
 	return bool(_get_progress_file_path())
@@ -103,6 +104,10 @@ func _delete_progress_files():
 	while(existing_file_path):
 		dir.remove(existing_file_path)
 		existing_file_path = _get_progress_file_path()
+
+func reset_progress():
+	_delete_progress_files()
+	load_progress()
 
 func _new_progress_dictionary():
 	return {
@@ -159,22 +164,22 @@ func load_progress():
 	progress_data = _load_or_start_progress()
 
 func get_last_level():
-	if not progress_data:
+	if progress_data.empty():
 		load_progress()
 	return _load_level_from_data(progress_data)
 
 func get_last_health():
-	if not progress_data:
+	if progress_data.empty():
 		load_progress()
 	return _load_health_from_data(progress_data)
 
 func get_last_seed():
-	if not progress_data:
+	if progress_data.empty():
 		load_progress()
 	return _load_seed_from_data(progress_data)
 
 func get_last_deck():
-	if not progress_data:
+	if progress_data.empty():
 		load_progress()
 	return _load_deck_from_data(progress_data)
 

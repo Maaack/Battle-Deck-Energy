@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=2]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=5]
-[ext_resource path="res://Scenes/DeadPanel/DeadPanel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=8]
 [ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture" id=9]
@@ -13,8 +12,10 @@
 [ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Managers/Tooltip/TooltipManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/WinPanel/WinPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/NetworkedGameInterface/WinPanel/WinPanel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Themes/Fonts/Credits/H4DynamicFont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Scenes/NetworkedGameInterface/GameMenu/NetworkedGameMenu.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.tscn" type="PackedScene" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )
@@ -79,9 +80,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeadPanel" parent="." instance=ExtResource( 6 )]
+[node name="LosePanel" parent="." instance=ExtResource( 17 )]
 visible = false
-mouse_filter = 2
 
 [node name="WinPanel" parent="." instance=ExtResource( 14 )]
 visible = false
@@ -122,6 +122,15 @@ custom_fonts/font = ExtResource( 15 )
 text = "Waiting for other players to select their decks..."
 align = 1
 valign = 1
-[connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
+
+[node name="NetworkedGameMenu" parent="." instance=ExtResource( 16 )]
+visible = false
+
+[node name="DisconnectDelayTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="exit_pressed" from="LosePanel" to="." method="_on_LosePanel_exit_pressed"]
 [connection signal="return_pressed" from="WinPanel" to="." method="_on_WinPanel_return_pressed"]
 [connection signal="deck_selected" from="DeckSelectorInterface" to="." method="_on_DeckSelectorInterface_deck_selected"]
+[connection signal="forfeit_and_exit_button_pressed" from="NetworkedGameMenu" to="." method="_on_NetworkedGameMenu_forfeit_and_exit_button_pressed"]
+[connection signal="return_button_pressed" from="NetworkedGameMenu" to="." method="_on_NetworkedGameMenu_return_button_pressed"]

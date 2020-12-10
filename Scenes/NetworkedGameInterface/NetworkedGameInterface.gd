@@ -2,13 +2,15 @@ extends Control
 
 
 onready var battle_interface_container = $BattleInterfaceContainer
-onready var dead_panel = $DeadPanel
+onready var lose_panel = $LosePanel
 onready var win_panel = $WinPanel
 onready var shadow_panel = $ShadowPanel
 onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
 onready var deck_view_container = $DeckViewContainer
 onready var waiting_label = $WaitingLabel
+onready var game_menu = $NetworkedGameMenu
+onready var disconnect_delay_timer = $DisconnectDelayTimer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NetworkedPlayerData.tres")
 var default_lame_deck : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
@@ -17,6 +19,7 @@ var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.
 var battle_interface
 var local_player_character : CharacterData
 var local_player_deck : DeckData
+var ignore_player_disconnects : Array = []
 
 func _add_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
@@ -59,6 +62,16 @@ remotesync func start_battle():
 	waiting_label.hide()
 	battle_interface.player_character = local_player_character
 	battle_interface.start_battle()
+	mood_manager.set_mood(mood_manager.HARD_BATLE_MOOD)
+
+remote func _ignore_player_disconnect(player_id : int):
+	var character = Network.get_player_character(player_id)
+	battle_interface.kill_character(character)
+	ignore_player_disconnects.append(player_id)
+
+func _ignore_all_disconnects():
+	Network.disconnect("player_disconnected", self, "_on_player_disconnected")
+	Network.disconnect("server_disconnected", self, "_on_server_disconnected")
 
 func all_ready():
 	for player_id in Network.players:
@@ -73,6 +86,8 @@ func _on_deck_selected():
 	Network.sync_up()
 
 func _on_player_disconnected(player : PlayerData):
+	if player.unique_id in ignore_player_disconnects:
+		return
 	DialogWindows.report_error('Player `%s` Disconnected!' % player.name)
 	Network.leave_server()
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
@@ -101,16 +116,16 @@ func _on_WinPanel_return_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_BattleInterface_player_lost():
-	Network.disconnect("player_disconnected", self, "_on_player_disconnected")
-	Network.disconnect("server_disconnected", self, "_on_server_disconnected")
+	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
+	_ignore_all_disconnects()
 	battle_interface.queue_free()
 	tooltip_manager.reset()
 	shadow_panel.show()
-	dead_panel.show()
+	lose_panel.show()
 
 func _on_BattleInterface_player_won():
-	Network.disconnect("player_disconnected", self, "_on_player_disconnected")
-	Network.disconnect("server_disconnected", self, "_on_server_disconnected")
+	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
+	_ignore_all_disconnects()
 	battle_interface.queue_free()
 	tooltip_manager.reset()
 	shadow_panel.show()
@@ -133,3 +148,33 @@ func _on_StatusIcon_inspected(status_icon):
 func _on_StatusIcon_forgotten(_status_icon):
 	tooltip_manager.reset()
 
+func _close_menu():
+	game_menu.hide()
+	game_menu.reset()
+	shadow_panel.hide()
+
+func _open_menu():
+	shadow_panel.show()
+	game_menu.show()
+	
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		if not game_menu.visible:
+			_open_menu()
+		else:
+			_close_menu()
+
+func _on_NetworkedGameMenu_return_button_pressed():
+	_close_menu()
+
+func _on_NetworkedGameMenu_forfeit_and_exit_button_pressed():
+	_close_menu()
+	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
+	disconnect_delay_timer.start()
+	yield(disconnect_delay_timer, "timeout")
+	Network.leave_server()
+	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+
+func _on_LosePanel_exit_pressed():
+	Network.leave_server()
+	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")

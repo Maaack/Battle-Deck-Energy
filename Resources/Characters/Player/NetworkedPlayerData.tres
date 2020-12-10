@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 nickname = "You"
-starting_max_health = 48
+starting_max_health = 64
 starting_max_energy = 3
 starting_hand_size = 5
 starting_deck = [  ]

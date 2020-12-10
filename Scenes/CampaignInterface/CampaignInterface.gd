@@ -153,9 +153,18 @@ func _ready():
 func _on_DeadPanel_retry_pressed():
 	shadow_panel.hide()
 	dead_panel.hide()
-	level_manager.reset()
-	player_data = starting_player_data.duplicate()
-	start_level()
+	_restart_level()
+
+func _on_DeadPanel_forfeit_pressed():
+	shadow_panel.hide()
+	dead_panel.hide()
+	PersistentData.reset_progress()
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
+
+func _on_DeadPanel_exit_pressed():
+	shadow_panel.hide()
+	dead_panel.hide()
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
 
 func _on_BattleInterface_player_lost():
 	battle_interface.queue_free()
@@ -206,6 +215,7 @@ func _on_StatusIcon_forgotten(_status_icon):
 
 func _close_menu():
 	game_menu.hide()
+	game_menu.reset()
 	shadow_panel.hide()
 	get_tree().paused = false
 

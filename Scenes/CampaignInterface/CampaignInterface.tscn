@@ -6,7 +6,7 @@
 [ext_resource path="res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level02/Level02List.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level01/Level01List.tres" type="Resource" id=6]
-[ext_resource path="res://Scenes/DeadPanel/DeadPanel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/CampaignInterface/DeadPanel/DeadPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Managers/Levels/LevelManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/Levels/StoryLevel/IntroLevel.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Weighted/WeightedLevelList/Level10/Level10List.tres" type="Resource" id=10]
@@ -148,6 +148,8 @@ one_shot = true
 
 [node name="CampaignGameMenu" parent="." instance=ExtResource( 14 )]
 visible = false
+[connection signal="exit_pressed" from="DeadPanel" to="." method="_on_DeadPanel_exit_pressed"]
+[connection signal="forfeit_pressed" from="DeadPanel" to="." method="_on_DeadPanel_forfeit_pressed"]
 [connection signal="retry_pressed" from="DeadPanel" to="." method="_on_DeadPanel_retry_pressed"]
 [connection signal="restart_button_pressed" from="CampaignGameMenu" to="." method="_on_CampaignGameMenu_restart_button_pressed"]
 [connection signal="return_button_pressed" from="CampaignGameMenu" to="." method="_on_CampaignGameMenu_return_button_pressed"]

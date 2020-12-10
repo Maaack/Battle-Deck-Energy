@@ -90,6 +90,10 @@ func get_character_manager(character_data : CharacterData):
 func get_all_characters():
 	return _character_manager_map.keys()
 
+func kill_character(character_data : CharacterData):
+	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
+	character_manager.lose_health(character_data.health)
+
 func get_team(character_data : CharacterData):
 	return team_manager.get_team(character_data)
 
