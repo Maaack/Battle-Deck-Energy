@@ -214,13 +214,12 @@ func _open_menu():
 	shadow_panel.show()
 	game_menu.show()
 	
-func _input(event):
-	if event is InputEvent:
-		if event.is_action_pressed("ui_cancel"):
-			if not game_menu.visible:
-				_open_menu()
-			else:
-				_close_menu()
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		if not game_menu.visible:
+			_open_menu()
+		else:
+			_close_menu()
 
 func _on_CampaignGameMenu_restart_button_pressed():
 	_close_menu()

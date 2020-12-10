@@ -317,13 +317,16 @@ shape = SubResource( 1 )
 [node name="DrawAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 18 )
 volume_db = -5.0
+bus = "SFX"
 
 [node name="DropAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 22 )
 volume_db = -9.0
+bus = "SFX"
 
 [node name="SlideAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 16 )
+bus = "SFX"
 [connection signal="gui_input" from="Card/Body" to="." method="_on_Body_gui_input"]
 [connection signal="mouse_entered" from="Card/Body" to="." method="_on_Body_mouse_entered"]
 [connection signal="mouse_exited" from="Card/Body" to="." method="_on_Body_mouse_exited"]

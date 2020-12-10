@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" type="DynamicFont" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" type="Material" id=13]
 [ext_resource path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/AudioMenu/AudioMenu.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SlideInLeft"
@@ -255,6 +256,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioMenu" parent="MarginContainer/MainControl" instance=ExtResource( 15 )]
+visible = false
+
 [node name="NetworkMenu" parent="MarginContainer" instance=ExtResource( 14 )]
 visible = false
 anchor_right = 0.0
@@ -276,10 +280,13 @@ __meta__ = {
 stream = ExtResource( 10 )
 volume_db = -15.0
 autoplay = true
+bus = "Music"
 [connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/ContinueCampaignButton" to="." method="_on_ContinueCampaignButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/NewCampaignButton" to="." method="_on_NewCampaignButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/OnlineArenaButton" to="." method="_on_OnlineArenaButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="return_button_pressed" from="MarginContainer/MainControl/AudioMenu" to="." method="_on_AudioMenu_return_button_pressed"]
