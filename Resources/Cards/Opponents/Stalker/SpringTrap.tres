@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Spring Trap"
 description = "Deal %ATTACK Damage and add %ADD_RESTRAINED Restrained card(s).
-Exhausts."
+Exhaust."
 energy_cost = 2
 icon = ExtResource( 4 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

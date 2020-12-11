@@ -1,13 +1,16 @@
 # Battle Deck Energy
-Fifth project in Godot. A deck-building game.  
+A single-player deck-builder about battling waves of bullies and recovering your self-confidence.
 
-![alt text](./banner_320x320.png "Battle Deck Energy Logo")  
+Play at: https://maaack.itch.io/battle-deck-energy-premature-release
 
-## Screenshots (In-Progress)
-![alt text](./Assets/Originals/ProgressScreenshots/Screenshot%20from%202020-09-23%2014-23-49.png "2020-09-23 In-Progress")
-![alt text](./Assets/Originals/ProgressScreenshots/Screenshot%20from%202020-09-23%2014-16-49.png "2020-09-23 In-Progress")
-![alt text](./Assets/Originals/ProgressScreenshots/Screenshot%20from%202020-09-23%2014-18-03.png "2020-09-23 In-Progress")
-![alt text](./Assets/Originals/ProgressScreenshots/Screenshot%20from%202020-09-23%2014-26-58.png "2020-09-23 In-Progress")
+## Video
+[![Game Screenshot](https://img.youtube.com/vi/8KAgGzPRl50/0.jpg)](https://youtu.be/8KAgGzPRl50)
+
+## Screenshots
+![alt text](./Assets/Originals/FinalScreenshots/Screenshot%20from%202020-10-15%2023-20-18.png "2020-09-23 In-Progress")
+![alt text](./Assets/Originals/FinalScreenshots/Screenshot%20from%202020-10-15%2023-24-01.png "2020-09-23 In-Progress")
+![alt text](./Assets/Originals/FinalScreenshots/Screenshot%20from%202020-10-15%2023-26-54.png "2020-09-23 In-Progress")
+![alt text](./Assets/Originals/FinalScreenshots/Screenshot%20from%202020-10-15%2023-22-17.png "2020-09-23 In-Progress")
 
 ## Resources
 [MIT License](./LICENSE.md)  

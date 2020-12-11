@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = "POISONED"
+term = "Poisoned"
+definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+related_definitions = [  ]

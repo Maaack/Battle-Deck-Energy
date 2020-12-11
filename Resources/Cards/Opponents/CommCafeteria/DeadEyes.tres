@@ -1,15 +1,15 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFortitude2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyDurable2.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect12.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength2.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/evil-eyes.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Dead Eyes"
-description = "Absorb %DEFEND Damage, apply %APPLY_STRENGTH Strength, and %APPLY_FORTITUDE Fortitude."
+description = "Block %DEFEND Damage, apply %APPLY_STRONG Strong, and %APPLY_DURABLE Durable."
 energy_cost = 3
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

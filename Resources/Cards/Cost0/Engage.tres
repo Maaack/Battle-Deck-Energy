@@ -1,15 +1,15 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/OpenerEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyEngaged.tres" type="Resource" id=2]
 [ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/pirate-flag.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )
 title = "Engage"
-description = "Add [b]2[/b] Attack space(s) on target."
+description = "Apply %APPLY_ENGAGED Engaged."
 energy_cost = 0
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 2 ) ]
 type = 1

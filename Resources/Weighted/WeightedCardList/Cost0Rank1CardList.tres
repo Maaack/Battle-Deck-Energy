@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HustleWeight1.tres" type="Resource" id=11]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/KickoffWeight1.tres" type="Resource" id=13]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/LightArmorWeight1.tres" type="Resource" id=15]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/VigilanceWeight1.tres" type="Resource" id=17]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/BurstWeight1.tres" type="Resource" id=20]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/AlertWeight1.tres" type="Resource" id=21]
+
+[resource]
+script = ExtResource( 1 )
+starting_list = [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 20 ) ]

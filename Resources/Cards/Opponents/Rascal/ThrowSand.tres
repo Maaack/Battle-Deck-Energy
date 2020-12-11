@@ -11,7 +11,7 @@
 script = ExtResource( 1 )
 title = "Throw Sand"
 description = "Deal %ATTACK Damage, absorb %DEFEND Damage, and add %ADD_CONFUSED Confused card(s).
-Exhausts."
+Exhaust."
 energy_cost = 1
 icon = ExtResource( 6 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

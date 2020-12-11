@@ -11,7 +11,7 @@
 script = ExtResource( 1 )
 title = "Bruise"
 description = "Deal %ATTACK Damage, apply %APPLY_VULNERABLE Vulnerable, and add %ADD_SORENESS Soreness card(s).
-Exhausts."
+Exhaust."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

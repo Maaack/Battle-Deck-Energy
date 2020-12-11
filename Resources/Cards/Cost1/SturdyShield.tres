@@ -1,18 +1,16 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/PlayAsSkillEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyEnGarde5.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyBarricaded4.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/crenulated-shield.png" type="Texture" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Sturdy Shield"
-description = "Absorb %DEFEND Damage and apply %APPLY_EN_GARDE En Garde.
-Can take Skill space."
+description = "Block %DEFEND Damage and apply %APPLY_BARRICADED Barricaded."
 energy_cost = 1
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
 type = 2

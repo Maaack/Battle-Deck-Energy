@@ -1,17 +1,18 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/FortifyEffect2.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/RicochetEffect2.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/FocusEffect3.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFocused2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyHastened3.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyCharged.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/hyperfocus.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPlanned4.tres" type="Resource" id=6]
 
 [resource]
 script = ExtResource( 1 )
 title = "Hyperfocus"
-description = "Add %RICOCHET Attack space(s), %FORTIFY Defend space(s), and %FOCUS Skill space(s)."
+description = "Apply %APPLY_PLANNED Planned, %APPLY_HASTENED Hastened, %APPLY_FOCUSED Focused, and %APPLY_CHARGED Charged."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
+effects = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
 type = 3

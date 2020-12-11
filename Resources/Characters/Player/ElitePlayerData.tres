@@ -1,15 +1,24 @@
 [gd_resource type="Resource" load_steps=11 format=2]
 
-[ext_resource path="res://Resources/Cards/Cost1/HeavySlashCard.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Cards/Cost1/StrongSlash.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Cards/Cost1/QuickThinking.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Cost1/JabCombo.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/Cost1/DoubleStrike.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Cards/Cost0/Engage.tres" type="Resource" id=7]
-[ext_resource path="res://Resources/Cards/Cost1/EnGardeGrande.tres" type="Resource" id=8]
-[ext_resource path="res://Resources/Cards/Cost1/ChargeThrough.tres" type="Resource" id=9]
-[ext_resource path="res://Resources/Cards/Cost1/IronShield.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Cards/Cost1/Recoup.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Cards/Cost1/Charge.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Cards/Cost1/StrongShield.tres" type="Resource" id=10]
+
+
+
+
+
+
+
+
+
 
 [resource]
 script = ExtResource( 4 )

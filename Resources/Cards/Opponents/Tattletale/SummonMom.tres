@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource( 1 )
 title = "Summon Mom"
-description = "Absorb %DEFEND damage.
-Exhausts."
+description = "Block %DEFEND damage.
+Exhaust."
 energy_cost = 0
 icon = ExtResource( 4 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

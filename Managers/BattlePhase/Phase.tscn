@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Managers/BattlePhase/Phase.gd" type="Script" id=1]
+
+[node name="Phase" type="Node"]
+script = ExtResource( 1 )

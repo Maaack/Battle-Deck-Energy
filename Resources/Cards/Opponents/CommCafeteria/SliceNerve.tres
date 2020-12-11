@@ -10,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Slice Nerve"
 description = "Deal %ATTACK Damage and add %ADD_HIT_NERVE Hit Nerve card(s).
-Exhausts."
+Exhaust."
 energy_cost = 3
 icon = ExtResource( 5 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

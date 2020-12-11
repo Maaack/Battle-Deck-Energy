@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/CurePoisonedEffect.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/cut-palm.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "Bloodletting"
+description = "Deal %ATTACK Damage and apply %APPLY_WEAK Weak.
+Cure Poisoned."
+energy_cost = 1
+icon = ExtResource( 4 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
+effects = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ]
+type = 3

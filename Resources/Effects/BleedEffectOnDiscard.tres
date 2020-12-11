@@ -8,3 +8,4 @@ type_tag = "ATTACK"
 amount = 1
 apply_mode = 3
 aim_mode = 0
+team_aim_mode = 0

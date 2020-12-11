@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/SpyWeight1.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/CallOutWeight1.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/ToxicSpitWeight1.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/BurnOutWeight1.tres" type="Resource" id=12]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/VenomVialWeight1.tres" type="Resource" id=16]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HitTheMarkWeight1.tres" type="Resource" id=19]
+
+[resource]
+script = ExtResource( 1 )
+starting_list = [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 19 ) ]

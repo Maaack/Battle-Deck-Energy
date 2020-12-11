@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Managers/CharacterBattle/CharacterBattleManager.gd" type="Script" id=1]
 [ext_resource path="res://Managers/Status/StatusManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Managers/IFF/IFFManager.tscn" type="PackedScene" id=4]
 
 [node name="CharacterBattleManager" type="Node"]
 script = ExtResource( 1 )
 
 [node name="StatusManager" parent="." instance=ExtResource( 2 )]
-[connection signal="updated_status" from="StatusManager" to="." method="_on_StatusManager_updated_status"]
+
+[node name="IFFManager" parent="." instance=ExtResource( 4 )]
+[connection signal="status_updated" from="StatusManager" to="." method="_on_StatusManager_status_updated"]

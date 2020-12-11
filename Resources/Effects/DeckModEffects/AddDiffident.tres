@@ -9,5 +9,6 @@ type_tag = "ADD_DIFFIDENT"
 amount = 1
 apply_mode = 1
 aim_mode = 0
+team_aim_mode = 0
 starting_card = ExtResource( 2 )
 destination = 2

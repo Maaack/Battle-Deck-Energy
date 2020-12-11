@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/cloak-dagger.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/sword-array.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )
 title = "Stab to Death"
-description = "Deal %ATTACK Damage over [b]5[/b] strikes."
+description = "Deal %ATTACK Damage over [b]4[/b] strikes."
 energy_cost = 2
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
 type = 1

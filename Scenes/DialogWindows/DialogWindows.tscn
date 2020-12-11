@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/DialogWindows/ErrorDialog.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/DialogWindows/DialogWindows.gd" type="Script" id=2]
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=3]
+
+[node name="DialogWindows" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ErrorDialog" type="AcceptDialog" parent="CanvasLayer"]
+margin_right = 84.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 240, 160 )
+theme = ExtResource( 3 )
+window_title = "Error"
+script = ExtResource( 1 )

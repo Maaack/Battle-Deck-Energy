@@ -9,8 +9,8 @@
 
 [resource]
 script = ExtResource( 1 )
+nickname = "Comm. Cafeteria"
 starting_max_health = 72
 starting_max_energy = 3
 starting_hand_size = 4
 starting_deck = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ) ]
-nickname = "Comm. Cafeteria"

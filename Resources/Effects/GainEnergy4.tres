@@ -8,3 +8,4 @@ type_tag = "GAIN_ENERGY"
 amount = 4
 apply_mode = 1
 aim_mode = 0
+team_aim_mode = 0

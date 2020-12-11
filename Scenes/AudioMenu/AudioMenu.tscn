@@ -1,0 +1,167 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/AudioMenu/AudioMenu.gd" type="Script" id=2]
+[ext_resource path="res://Themes/Fonts/MainDynamicFont.tres" type="DynamicFont" id=3]
+
+[node name="AudioMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -215.5
+margin_right = 182.0
+margin_bottom = 215.5
+rect_min_size = Vector2( 364, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 64
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 64
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 32.0
+margin_top = 64.0
+margin_right = 332.0
+margin_bottom = 367.0
+custom_constants/separation = 20
+
+[node name="MasterControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 28.0
+
+[node name="MasterLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MasterControl"]
+margin_right = 96.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+text = "Master :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MasterHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MasterControl"]
+margin_left = 100.0
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 300.0
+margin_bottom = 76.0
+
+[node name="SFXLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXControl"]
+margin_right = 96.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+text = "SFX :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/SFXControl"]
+margin_left = 100.0
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 300.0
+margin_bottom = 124.0
+
+[node name="MusicLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicControl"]
+margin_right = 96.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+text = "Music :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MusicControl"]
+margin_left = 100.0
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 300.0
+margin_bottom = 208.0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+text = "Mute :"
+
+[node name="MuteButton" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 300.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 228.0
+margin_right = 300.0
+margin_bottom = 288.0
+text = "Return"
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/MasterControl/MasterHSlider" to="." method="_on_MasterHSlider_value_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/SFXControl/SFXHSlider" to="." method="_on_SFXHSlider_value_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/MusicControl/MusicHSlider" to="." method="_on_MusicHSlider_value_changed"]
+[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/MuteButton" to="." method="_on_MuteButton_toggled"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]

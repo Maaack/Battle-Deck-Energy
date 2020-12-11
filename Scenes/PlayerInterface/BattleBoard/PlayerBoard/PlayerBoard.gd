@@ -11,6 +11,7 @@ onready var discard_pile = $DiscardPile
 onready var exhaust_pile = $ExhaustPile
 onready var end_turn_button = $EndTurnButton
 onready var energy_meter = $BattleDeckEnergy
+onready var turn_timer = $TurnTimer
 
 func set_draw_pile_size(value:int):
 	draw_pile.count = value
@@ -42,14 +43,16 @@ func exhaust_card():
 func signal_ending_turn():
 	emit_signal("ending_turn")
 
+func start_timer(time : int):
+	turn_timer.show()
+	turn_timer.time = time
+
 func _on_EndTurnButton_pressed():
+	turn_timer.stop_timer()
 	signal_ending_turn()
 
 func reset_end_turn():
 	end_turn_button.reset()
-
-func advance_round_count():
-	pass
 
 func _on_DrawPile_button_pressed():
 	emit_signal("draw_pile_pressed")
@@ -59,3 +62,7 @@ func _on_DiscardPile_button_pressed():
 
 func _on_ExhaustPile_button_pressed():
 	emit_signal("exhaust_pile_pressed")
+
+func _on_TurnTimer_timeout():
+	end_turn_button.disable()
+	signal_ending_turn()

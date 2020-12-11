@@ -1,0 +1,194 @@
+[gd_resource type="Resource" load_steps=95 format=2]
+
+[ext_resource path="res://Resources/Common/CommonData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Cards/StressCards/Soreness.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Cost2/TheWall.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/StressCards/Intimidated.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Cards/Cost2/DeathBlow.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Cards/Cost2/Impenetrable.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Cards/Cost2/ChainLightning.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Cards/Cost2/Ironclad.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Cards/Cost2/LightningShield.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Cards/Cost0/ToxicSpit.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Cards/Cost0/LastStand.tres" type="Resource" id=11]
+[ext_resource path="res://Resources/Cards/Cost0/Kickoff.tres" type="Resource" id=12]
+[ext_resource path="res://Resources/Cards/Cost0/VenomVial.tres" type="Resource" id=13]
+[ext_resource path="res://Resources/Cards/Cost0/ThrowDagger.tres" type="Resource" id=14]
+[ext_resource path="res://Resources/Cards/StressCards/Drained.tres" type="Resource" id=15]
+[ext_resource path="res://Resources/Cards/Cost0/Engage.tres" type="Resource" id=16]
+[ext_resource path="res://Resources/Cards/Cost0/BurnOut.tres" type="Resource" id=17]
+[ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=18]
+[ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=19]
+[ext_resource path="res://Resources/Cards/StartingSet/LameRecoup.tres" type="Resource" id=20]
+[ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=21]
+[ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=22]
+[ext_resource path="res://Resources/Cards/StressCards/Diffident.tres" type="Resource" id=23]
+[ext_resource path="res://Resources/Cards/Cost2/Erupt.tres" type="Resource" id=24]
+[ext_resource path="res://Resources/Cards/Cost2/ShatterDefenses.tres" type="Resource" id=25]
+[ext_resource path="res://Resources/Cards/Cost2/DoubleDeal.tres" type="Resource" id=26]
+[ext_resource path="res://Resources/Cards/Cost2/Biohazard.tres" type="Resource" id=27]
+[ext_resource path="res://Resources/Cards/Cost2/SerpentsBlade.tres" type="Resource" id=28]
+[ext_resource path="res://Resources/Cards/Cost1/Sweep.tres" type="Resource" id=29]
+[ext_resource path="res://Resources/Cards/Cost1/Sharpen.tres" type="Resource" id=30]
+[ext_resource path="res://Resources/Cards/StressCards/Shocked.tres" type="Resource" id=31]
+[ext_resource path="res://Resources/Cards/StressCards/Restrained.tres" type="Resource" id=32]
+[ext_resource path="res://Resources/Cards/Cost2/Hyperfocus.tres" type="Resource" id=33]
+[ext_resource path="res://Resources/Cards/Cost1/HocusFocus.tres" type="Resource" id=34]
+[ext_resource path="res://Resources/Cards/Cost1/Charge.tres" type="Resource" id=35]
+[ext_resource path="res://Resources/Cards/Cost1/ToxicSlash.tres" type="Resource" id=36]
+[ext_resource path="res://Resources/Cards/Cost2/Cripple.tres" type="Resource" id=37]
+[ext_resource path="res://Resources/Cards/StressCards/LimpMuscle.tres" type="Resource" id=38]
+[ext_resource path="res://Resources/Cards/StressCards/Confused.tres" type="Resource" id=39]
+[ext_resource path="res://Resources/Cards/Cost1/ShieldBash.tres" type="Resource" id=40]
+[ext_resource path="res://Resources/Cards/Cost1/Buffer.tres" type="Resource" id=41]
+[ext_resource path="res://Resources/Cards/Cost2/StabToDeath.tres" type="Resource" id=42]
+[ext_resource path="res://Resources/Cards/Cost2/FlyingStrike.tres" type="Resource" id=43]
+[ext_resource path="res://Resources/Cards/StressCards/HitNerve.tres" type="Resource" id=44]
+[ext_resource path="res://Resources/Cards/StressCards/Bleeding.tres" type="Resource" id=45]
+[ext_resource path="res://Resources/Cards/Cost1/Taint.tres" type="Resource" id=46]
+[ext_resource path="res://Resources/Cards/Cost1/Flex.tres" type="Resource" id=47]
+[ext_resource path="res://Resources/Cards/Cost1/SturdyShield.tres" type="Resource" id=48]
+[ext_resource path="res://Resources/Cards/Cost1/StrongSlash.tres" type="Resource" id=49]
+[ext_resource path="res://Resources/Cards/Cost1/StrongShield.tres" type="Resource" id=50]
+[ext_resource path="res://Resources/Cards/Cost1/LethalNeedle.tres" type="Resource" id=51]
+[ext_resource path="res://Resources/Cards/Cost1/QuickCover.tres" type="Resource" id=52]
+[ext_resource path="res://Resources/Cards/Cost1/DoubleStrike.tres" type="Resource" id=53]
+[ext_resource path="res://Resources/Cards/Cost1/Wreck.tres" type="Resource" id=54]
+[ext_resource path="res://Resources/Cards/Cost1/QuickThinking.tres" type="Resource" id=55]
+[ext_resource path="res://Resources/Cards/Cost1/SwiftStrike.tres" type="Resource" id=56]
+[ext_resource path="res://Resources/Cards/Cost1/Cinder.tres" type="Resource" id=57]
+[ext_resource path="res://Resources/Cards/Cost1/Rush.tres" type="Resource" id=58]
+[ext_resource path="res://Resources/Cards/Cost1/FastFooted.tres" type="Resource" id=59]
+[ext_resource path="res://Resources/Cards/Cost1/Endure.tres" type="Resource" id=60]
+[ext_resource path="res://Resources/Cards/Cost1/Recoup.tres" type="Resource" id=61]
+[ext_resource path="res://Resources/Cards/Cost1/SmoothShields.tres" type="Resource" id=62]
+[ext_resource path="res://Resources/Cards/Cost1/Bloodletting.tres" type="Resource" id=63]
+[ext_resource path="res://Resources/Cards/Cost2/Reforge.tres" type="Resource" id=64]
+[ext_resource path="res://Resources/Cards/Cost0/Spy.tres" type="Resource" id=65]
+[ext_resource path="res://Resources/Cards/Cost0/HitTheMark.tres" type="Resource" id=66]
+[ext_resource path="res://Resources/Cards/Cost1/Execute.tres" type="Resource" id=67]
+[ext_resource path="res://Resources/Cards/Cost1/Break.tres" type="Resource" id=68]
+[ext_resource path="res://Resources/Cards/Cost0/LightArmor.tres" type="Resource" id=69]
+[ext_resource path="res://Resources/Cards/Cost1/Medicine.tres" type="Resource" id=70]
+[ext_resource path="res://Resources/Cards/Cost1/Discharge.tres" type="Resource" id=71]
+[ext_resource path="res://Resources/Cards/Cost0/Misstep.tres" type="Resource" id=72]
+[ext_resource path="res://Resources/Cards/Cost0/Recall.tres" type="Resource" id=73]
+[ext_resource path="res://Resources/Cards/Cost1/Entrench.tres" type="Resource" id=74]
+[ext_resource path="res://Resources/Cards/Cost0/Burst.tres" type="Resource" id=75]
+[ext_resource path="res://Resources/Cards/Cost0/Process.tres" type="Resource" id=76]
+[ext_resource path="res://Resources/Cards/Cost0/Vigilance.tres" type="Resource" id=77]
+[ext_resource path="res://Resources/Cards/Cost0/CallOut.tres" type="Resource" id=78]
+[ext_resource path="res://Resources/Cards/Cost1/Twofold.tres" type="Resource" id=79]
+[ext_resource path="res://Resources/Cards/Cost0/Alert.tres" type="Resource" id=80]
+[ext_resource path="res://Resources/Cards/Cost1/HeavyArmor.tres" type="Resource" id=81]
+[ext_resource path="res://Resources/Cards/Cost1/Scan.tres" type="Resource" id=82]
+[ext_resource path="res://Resources/Cards/Cost1/TickTick.tres" type="Resource" id=83]
+[ext_resource path="res://Resources/Cards/Cost2/Miasma.tres" type="Resource" id=84]
+[ext_resource path="res://Resources/Cards/Cost1/Toxify.tres" type="Resource" id=85]
+[ext_resource path="res://Resources/Cards/Cost0/Hustle.tres" type="Resource" id=86]
+[ext_resource path="res://Resources/Cards/Cost1/Initial.tres" type="Resource" id=87]
+[ext_resource path="res://Resources/Cards/Cost0/Subvert.tres" type="Resource" id=88]
+[ext_resource path="res://Resources/Cards/Cost1/Plot.tres" type="Resource" id=89]
+[ext_resource path="res://Resources/Cards/Cost1/Dissect.tres" type="Resource" id=90]
+[ext_resource path="res://Resources/Cards/Cost1/Passion.tres" type="Resource" id=91]
+[ext_resource path="res://Resources/Cards/Cost1/PullKnives.tres" type="Resource" id=92]
+[ext_resource path="res://Resources/Cards/Cost1/LookUp.tres" type="Resource" id=93]
+[ext_resource path="res://Resources/Cards/Cost1/Brew.tres" type="Resource" id=94]
+
+[resource]
+script = ExtResource( 1 )
+data = {
+"Alert": ExtResource( 80 ),
+"Biohazard": ExtResource( 27 ),
+"Bleeding": ExtResource( 45 ),
+"Bloodletting": ExtResource( 63 ),
+"Break": ExtResource( 68 ),
+"Brew": ExtResource( 94 ),
+"Buffer": ExtResource( 41 ),
+"Burn Out": ExtResource( 17 ),
+"Burst": ExtResource( 75 ),
+"Call Out": ExtResource( 78 ),
+"Chain Lightning": ExtResource( 7 ),
+"Charge": ExtResource( 35 ),
+"Cinder": ExtResource( 57 ),
+"Confused": ExtResource( 39 ),
+"Cripple": ExtResource( 37 ),
+"Critical Hit": ExtResource( 21 ),
+"Death Blow": ExtResource( 5 ),
+"Diffident": ExtResource( 23 ),
+"Discharge": ExtResource( 71 ),
+"Dissect": ExtResource( 90 ),
+"Double Deal": ExtResource( 26 ),
+"Double Strike": ExtResource( 53 ),
+"Drained": ExtResource( 15 ),
+"Endure": ExtResource( 60 ),
+"Engage": ExtResource( 16 ),
+"Entrench": ExtResource( 74 ),
+"Erupt": ExtResource( 24 ),
+"Execute": ExtResource( 67 ),
+"Fast Footed": ExtResource( 59 ),
+"Flex": ExtResource( 47 ),
+"Flying Strike": ExtResource( 43 ),
+"Heavy Armor": ExtResource( 81 ),
+"Hit Nerve": ExtResource( 44 ),
+"Hit the Mark": ExtResource( 66 ),
+"Hocus Focus": ExtResource( 34 ),
+"Hustle": ExtResource( 86 ),
+"Hyperfocus": ExtResource( 33 ),
+"Impenetrable": ExtResource( 6 ),
+"Initial": ExtResource( 87 ),
+"Intimidated": ExtResource( 4 ),
+"Ironclad": ExtResource( 8 ),
+"Kickoff": ExtResource( 12 ),
+"Lame Recoup": ExtResource( 20 ),
+"Lame Shield": ExtResource( 19 ),
+"Lame Slash": ExtResource( 18 ),
+"Last Stand": ExtResource( 11 ),
+"Lethal Needle": ExtResource( 51 ),
+"Light Armor": ExtResource( 69 ),
+"Lightning Shield": ExtResource( 9 ),
+"Limp Muscle": ExtResource( 38 ),
+"Look Up": ExtResource( 93 ),
+"Medicine": ExtResource( 70 ),
+"Miasma": ExtResource( 84 ),
+"Misstep": ExtResource( 72 ),
+"Passion": ExtResource( 91 ),
+"Plot": ExtResource( 89 ),
+"Process": ExtResource( 76 ),
+"Pull Knives": ExtResource( 92 ),
+"Quick Cover": ExtResource( 52 ),
+"Quick Thinking": ExtResource( 55 ),
+"Recall": ExtResource( 73 ),
+"Recoup": ExtResource( 61 ),
+"Reforge": ExtResource( 64 ),
+"Restrained": ExtResource( 32 ),
+"Rush": ExtResource( 58 ),
+"Scan": ExtResource( 82 ),
+"Second Wind": ExtResource( 22 ),
+"Serpent's Blade": ExtResource( 28 ),
+"Sharpen": ExtResource( 30 ),
+"Shatter": ExtResource( 25 ),
+"Shield Bash": ExtResource( 40 ),
+"Shocked": ExtResource( 31 ),
+"Smooth Shields": ExtResource( 62 ),
+"Soreness": ExtResource( 2 ),
+"Spy": ExtResource( 65 ),
+"Stab to Death": ExtResource( 42 ),
+"Strong Shield": ExtResource( 50 ),
+"Strong Slash": ExtResource( 49 ),
+"Sturdy Shield": ExtResource( 48 ),
+"Subvert": ExtResource( 88 ),
+"Sweep": ExtResource( 29 ),
+"Swift Strike": ExtResource( 56 ),
+"Taint": ExtResource( 46 ),
+"The Wall": ExtResource( 3 ),
+"Throw Dagger": ExtResource( 14 ),
+"Tick Tick": ExtResource( 83 ),
+"Toxic Slash": ExtResource( 36 ),
+"Toxic Spit": ExtResource( 10 ),
+"Toxify": ExtResource( 85 ),
+"Twofold": ExtResource( 79 ),
+"Venom Vial": ExtResource( 13 ),
+"Vigilance": ExtResource( 77 ),
+"Wreck": ExtResource( 54 )
+}

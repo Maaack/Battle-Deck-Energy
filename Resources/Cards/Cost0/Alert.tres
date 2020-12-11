@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyAttackUp.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/InnateEffect.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/awareness.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFocused.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "Alert"
+description = "Apply %APPLY_FOCUSED Focused and %APPLY_ATTACK_UP Attack Up.
+Innate."
+energy_cost = 0
+icon = ExtResource( 4 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
+effects = [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ) ]
+type = 3

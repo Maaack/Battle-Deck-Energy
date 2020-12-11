@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/DefendGlowNew/dig-hole.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFortified3.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Entrench"
+description = "Block %DEFEND Damage and apply %APPLY_FORTIFIED Fortified."
+energy_cost = 1
+icon = ExtResource( 3 )
+base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
+effects = [ ExtResource( 2 ), ExtResource( 4 ) ]
+type = 2

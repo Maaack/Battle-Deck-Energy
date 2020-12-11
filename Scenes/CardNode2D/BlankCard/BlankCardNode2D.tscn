@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/CardNode2D/BlankCard/CardBackPanel.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scenes/CardNode2D/BaseCardNode2D.gd" type="Script" id=2]
+
+[node name="BlankCardNode2D" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="Card" type="Node2D" parent="."]
+
+[node name="Body" type="Control" parent="Card"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -128.0
+margin_right = 88.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 176, 256 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardBack" type="Panel" parent="Card/Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="tween_started" from="Tween" to="." method="_on_Tween_tween_started"]

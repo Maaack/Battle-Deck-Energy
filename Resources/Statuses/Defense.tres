@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 2 )
 title = "Defense"
-description = "Defense cancels out an equal amount of incoming damage."
+description = "Blocks an equal amount of incoming damage."
 icon = ExtResource( 1 )
 color = Color( 0.392157, 0.490196, 0.203922, 1 )
 intensity = 1

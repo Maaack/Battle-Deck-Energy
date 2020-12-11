@@ -8,3 +8,4 @@ type_tag = "LOSE_ENERGY"
 amount = 1
 apply_mode = 2
 aim_mode = 0
+team_aim_mode = 0

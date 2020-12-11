@@ -1,6 +1,8 @@
 extends Control
 
 
+class_name PlayerInterface
+
 signal ending_turn
 signal draw_pile_pressed
 signal discard_pile_pressed
@@ -20,8 +22,8 @@ enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DI
 export(float, 0, 512) var opportunity_snap_range = 200.0
 
 onready var animation_queue : Node = $BattleAnimationQueue
-onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
-onready var opponent_card_manager : Node2D = $HandContainer/CardControl/InspectorCardManager
+onready var card_manager : CardManager = $HandContainer/CardControl/BattleCardManager
+onready var opponent_card_manager : CardManager = $HandContainer/CardControl/InspectorCardManager
 onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
 onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
 onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
@@ -40,6 +42,7 @@ var _opportunities_map : Dictionary = {}
 var _character_statuses_map : Dictionary = {}
 var _card_owner_map : Dictionary = {}
 var _nearest_opportunity = null
+var _revealed_card_opportunity_map = {}
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -65,7 +68,7 @@ func set_draw_pile_count(count:int):
 func draw_card(card_data:CardData):
 	var hand_offset : Vector2 = hand_manager.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_transform : TransformData = TransformData.new(hand_offset)
-	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DRAWING_INTO_HAND)
+	animation_queue.animate_move(card_data, new_transform, 0.3, 0.15, AnimationType.DRAWING_INTO_HAND)
 
 func draw_card_from_draw_pile(card_data:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
@@ -83,7 +86,7 @@ func discard_card(card_data:CardData):
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = discard_pile_offset
 	new_transform.scale = Vector2(0.1, 0.1)
-	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.DISCARDING)
+	animation_queue.animate_move(card_data, new_transform, 0.3, 0.15, AnimationType.DISCARDING)
 
 func exhaust_card(card_data:CardData):
 	if not card_data in _card_owner_map:
@@ -95,7 +98,7 @@ func exhaust_card(card_data:CardData):
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = exhaust_pile_offset
 	new_transform.scale = Vector2(0.1, 0.1)
-	animation_queue.animate_move(card_data, new_transform, 0.4, 0.2, AnimationType.EXHAUSTING)
+	animation_queue.animate_move(card_data, new_transform, 0.3, 0.15, AnimationType.EXHAUSTING)
 
 func reshuffle_card(card_data:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
@@ -156,14 +159,12 @@ func _recalculate_all_cards():
 			continue
 		_calculate_card_mod(card_instance, player_data)
 	# Opponent cards that are already played
-	for opportunity in _opportunities_map:
-		if opportunity is OpportunityData:
-			if opportunity.card_data == null or opportunity.source == player_data:
-				continue
-			var card_instance = opponent_card_manager.get_card_instance(opportunity.card_data)
-			if not is_instance_valid(card_instance):
-				continue
-			_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
+	for card in opponent_card_manager.card_map:
+		var card_instance = opponent_card_manager.card_map[card]
+		if not card in _revealed_card_opportunity_map:
+			continue
+		var opportunity : OpportunityData = _revealed_card_opportunity_map[card]
+		_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
 
 func new_character_card(character_data:CharacterData, card:CardData):
 	var center_offset : Vector2 = get_global_transform().get_origin() + (get_rect().size / 2)
@@ -239,7 +240,7 @@ func _on_card_animation_started(animation:CardAnimationData):
 func _on_status_animation_started(animation:StatusAnimationData):
 	_update_status(animation.character_data, animation.status_data, animation.delta)
 
-func _on_PlayerBoard_ending_turn():
+func _player_ends_turn():
 	emit_signal("ending_turn")
 	hand_manager.spread_from_mouse_flag = false
 	card_manager.active = false
@@ -310,6 +311,9 @@ func start_turn():
 	hand_manager.spread_from_mouse_flag = true
 	card_manager.active = true
 	reset_end_turn()
+
+func start_timer(time : int):
+	player_board.start_timer(time)
 	
 func start_round():
 	player_board.advance_round_count()
@@ -394,13 +398,16 @@ func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
 
+func _on_play_card_on_opportunity(card:CardData, opportunity: OpportunityData):
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	card_instance.locked_face = true
+	emit_signal("card_played_on_opportunity", card, opportunity)
+
 func _on_dropping_card(card:CardData):
 	var nearest_opportunity = get_nearest_card_opportunity(card)
 	_openings_glow_off(card)
 	if nearest_opportunity is OpportunityData:
-		var card_instance : CardNode2D = card_manager.get_card_instance(card)
-		card_instance.locked_face = true
-		emit_signal("card_played_on_opportunity", card, nearest_opportunity)
+		_on_play_card_on_opportunity(card, nearest_opportunity)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 
@@ -411,27 +418,50 @@ func _on_BattleCardManager_dropping_card(card_data:CardData):
 	_on_dropping_card(card_data)
 
 func animate_playing_card(card:CardData):
-	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	var card_instance : CardNode2D
+	if _card_owner_map[card] == player_data:
+		card_instance = card_manager.get_card_instance(card)
+	else:
+		card_instance = opponent_card_manager.get_card_instance(card)
 	card_instance.play_card()
 
-func play_card(character:CharacterData, card:CardData, opportunity = null):
+func play_card(character : CharacterData, card : CardData, opportunity = null):
 	var opening_transform : TransformData = card.transform_data.duplicate()
 	if opportunity is OpportunityData:
-		opportunity.card_data = card
 		opening_transform = opportunity.transform_data.duplicate()
 	if character == player_data:
 		hand_manager.discard_card(card)
 		card_manager.move_card(card, opening_transform)
-		animate_playing_card(card)
-	else:
-		card.transform_data = opening_transform
-		var card_instance : CardNode2D = _new_character_card(character, card)
-		_calculate_card_mod(card_instance, character, opportunity.target)
+	if card in _revealed_card_opportunity_map:
+		_revealed_card_opportunity_map.erase(card)
+	animate_playing_card(card)
+
+func reveal_card(character : CharacterData, card : CardData, opportunity : OpportunityData):
+	var manager_offset : Vector2 = opponent_card_manager.get_global_transform().get_origin()
+	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	if actions_interface is OpponentActionsInterface:
+		_revealed_card_opportunity_map[card] = opportunity
+		card.transform_data = actions_interface.get_reveal_transform()
+		card.transform_data.position -= manager_offset
+	var card_instance : CardNode2D = _new_character_card(character, card)
+	_calculate_card_mod(card_instance, opportunity.source, opportunity.target)
 
 func opponent_discards_card(card:CardData):
+	var card_instance : CardNode2D = opponent_card_manager.get_card_instance(card)
+	if not is_instance_valid(card_instance):
+		return
+	if card_instance.pulse_animation.is_playing():
+		yield(card_instance.pulse_animation, "animation_finished")
 	opponent_card_manager.remove_card(card)
 
-func _update_status(character:CharacterData, status:StatusData, delta:int):
+func _update_status(character : CharacterData, status : StatusData, delta : int):
+	if status is RelatedStatusData:
+		if character == player_data:
+			# Don't show related statuses on the player character
+			return
+		if status.source != player_data and status.target != player_data:
+			# Don't show related statuses of unrelated characters
+			return
 	if not character in _character_statuses_map:
 		_character_statuses_map[character] = {}
 	_character_statuses_map[character][status.type_tag] = status
@@ -445,7 +475,7 @@ func _update_status(character:CharacterData, status:StatusData, delta:int):
 		if status.type_tag == EffectCalculator.HEALTH_STATUS:
 			character_dies(character)
 
-func update_status(character:CharacterData, status:StatusData, delta:int):
+func update_status(character : CharacterData, status : StatusData, delta : int):
 	if status.type_tag == EffectCalculator.ENERGY_STATUS:
 		if character == player_data:
 			player_board.gain_energy(delta)
@@ -455,6 +485,9 @@ func update_status(character:CharacterData, status:StatusData, delta:int):
 		else:
 			return
 	animation_queue.animate_status(character, status, delta)
+
+func _on_PlayerBoard_ending_turn():
+	_player_ends_turn()
 
 func _on_PlayerBoard_draw_pile_pressed():
 	emit_signal("draw_pile_pressed")
@@ -472,6 +505,9 @@ func _on_PlayerInterface_resized():
 func _on_ResizeTimer_timeout():
 	for opportunity in _opportunities_map:
 		_on_CardContainer_update_opportunity(opportunity, _opportunities_map[opportunity])
+
+func _on_EndTurnTimer_timeout():
+	_player_ends_turn()
 
 func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 	if animation_data is CardAnimationData:

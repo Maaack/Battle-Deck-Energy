@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrength2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/take-abuse.png" type="Texture" id=5]
@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource( 1 )
 title = "Take Abuse"
-description = "Absorb %DEFEND Damage and apply %APPLY_STRENGTH Strength.
-Exhausts."
+description = "Block %DEFEND Damage and apply %APPLY_STRONG Strong.
+Exhaust."
 energy_cost = 1
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

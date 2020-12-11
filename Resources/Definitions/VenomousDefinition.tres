@@ -1,11 +1,17 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Definitions/ToxinDefinition.tres" type="Resource" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+key = "POISON"
+term = "Poison"
+definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+related_definitions = [  ]
 
 [resource]
 script = ExtResource( 1 )
 key = "VENOMOUS"
 term = "Venomous"
-definition = "Applies [b]Toxin[/b] equal to value on the target of a strike. Loses [b]1[/b] every turn."
-related_definitions = [ ExtResource( 2 ) ]
+definition = "Applies [b]Toxin[/b] equal to value on the target of a strike if undefended. Loses [b]1[/b] every turn."
+related_definitions = [ SubResource( 1 ) ]
