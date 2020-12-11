@@ -3,7 +3,6 @@
 [ext_resource path="res://Resources/Cards/Cost0/ThrowDagger.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=2]
 
-
 [resource]
 script = ExtResource( 2 )
 weight = 2.0
