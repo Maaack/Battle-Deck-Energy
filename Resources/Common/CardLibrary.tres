@@ -11,15 +11,15 @@
 [ext_resource path="res://Resources/Cards/Cost2/LightningShield.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Cards/Cost0/ToxicSpit.tres" type="Resource" id=10]
 [ext_resource path="res://Resources/Cards/Cost0/LastStand.tres" type="Resource" id=11]
-[ext_resource path="res://Resources/Cards/Cost0/Jab.tres" type="Resource" id=12]
+[ext_resource path="res://Resources/Cards/Cost0/Kickoff.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Cards/Cost0/VenomVial.tres" type="Resource" id=13]
-[ext_resource path="res://Resources/Cards/Cost0/Skip.tres" type="Resource" id=14]
+[ext_resource path="res://Resources/Cards/Cost0/ThrowDagger.tres" type="Resource" id=14]
 [ext_resource path="res://Resources/Cards/StressCards/Drained.tres" type="Resource" id=15]
 [ext_resource path="res://Resources/Cards/Cost0/Engage.tres" type="Resource" id=16]
 [ext_resource path="res://Resources/Cards/Cost0/BurnOut.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=18]
 [ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=19]
-[ext_resource path="res://Resources/Cards/StartingSet/LameEnGarde.tres" type="Resource" id=20]
+[ext_resource path="res://Resources/Cards/StartingSet/LameRecoup.tres" type="Resource" id=20]
 [ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=21]
 [ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=22]
 [ext_resource path="res://Resources/Cards/StressCards/Diffident.tres" type="Resource" id=23]
@@ -60,7 +60,7 @@
 [ext_resource path="res://Resources/Cards/Cost1/Rush.tres" type="Resource" id=58]
 [ext_resource path="res://Resources/Cards/Cost1/FastFooted.tres" type="Resource" id=59]
 [ext_resource path="res://Resources/Cards/Cost1/Endure.tres" type="Resource" id=60]
-[ext_resource path="res://Resources/Cards/Cost1/EnGarde.tres" type="Resource" id=61]
+[ext_resource path="res://Resources/Cards/Cost1/Recoup.tres" type="Resource" id=61]
 [ext_resource path="res://Resources/Cards/Cost1/SmoothShields.tres" type="Resource" id=62]
 [ext_resource path="res://Resources/Cards/Cost1/Bloodletting.tres" type="Resource" id=63]
 [ext_resource path="res://Resources/Cards/Cost2/Reforge.tres" type="Resource" id=64]
@@ -117,7 +117,6 @@ data = {
 "Double Deal": ExtResource( 26 ),
 "Double Strike": ExtResource( 53 ),
 "Drained": ExtResource( 15 ),
-"En Garde": ExtResource( 61 ),
 "Endure": ExtResource( 60 ),
 "Engage": ExtResource( 16 ),
 "Entrench": ExtResource( 74 ),
@@ -136,8 +135,8 @@ data = {
 "Initial": ExtResource( 87 ),
 "Intimidated": ExtResource( 4 ),
 "Ironclad": ExtResource( 8 ),
-"Jab": ExtResource( 12 ),
-"Lame En Garde": ExtResource( 20 ),
+"Kickoff": ExtResource( 12 ),
+"Lame Recoup": ExtResource( 20 ),
 "Lame Shield": ExtResource( 19 ),
 "Lame Slash": ExtResource( 18 ),
 "Last Stand": ExtResource( 11 ),
@@ -154,6 +153,7 @@ data = {
 "Quick Cover": ExtResource( 52 ),
 "Quick Thinking": ExtResource( 55 ),
 "Recall": ExtResource( 73 ),
+"Recoup": ExtResource( 61 ),
 "Reforge": ExtResource( 64 ),
 "Restrained": ExtResource( 32 ),
 "Rush": ExtResource( 58 ),
@@ -164,7 +164,6 @@ data = {
 "Shatter": ExtResource( 25 ),
 "Shield Bash": ExtResource( 40 ),
 "Shocked": ExtResource( 31 ),
-"Skip": ExtResource( 14 ),
 "Smooth Shields": ExtResource( 62 ),
 "Soreness": ExtResource( 2 ),
 "Spy": ExtResource( 65 ),
@@ -177,6 +176,7 @@ data = {
 "Swift Strike": ExtResource( 56 ),
 "Taint": ExtResource( 46 ),
 "The Wall": ExtResource( 3 ),
+"Throw Dagger": ExtResource( 14 ),
 "Tick Tick": ExtResource( 83 ),
 "Toxic Slash": ExtResource( 36 ),
 "Toxic Spit": ExtResource( 10 ),

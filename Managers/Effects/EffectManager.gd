@@ -16,6 +16,7 @@ signal draw_from_draw_pile(character, count)
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var poisoned_status_resource = preload("res://Resources/Statuses/Poisoned.tres")
 var riposte_status_resource = preload("res://Resources/Statuses/Riposte.tres")
+var barricaded_status_resource = preload("res://Resources/Statuses/Barricaded.tres")
 var team_manager : TeamManager
 
 func _resolve_opportunity_effect_targets(opportunity:OpportunityData, effect:EffectData):
@@ -164,6 +165,16 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 	for status in effect.statuses:
 		_resolve_status(status, effect.amount, effect.type_tag, source, target, character_manager_map)
 
+func _resolve_status_to_status(from_status_string : String, to_status : StatusData, source : CharacterData, target : CharacterData, character_manager_map : Dictionary, mod : float = 1.0):
+	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
+	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
+	var source_status : StatusData = target_battle_manager.get_status(from_status_string)
+	if source_status:
+		var new_status : StatusData = to_status.duplicate()
+		var new_value : int = int(float(source_status.get_stack_value()) * mod)
+		new_status.set_stack_value(new_value)
+		emit_signal("apply_status", target, new_status, source)
+
 func _resolve_modify_status(status : StatusData, mod : float, effect_type : String, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
 	var new_status : StatusData = status.duplicate()
 	var original_value : int = status.get_stack_value()
@@ -267,6 +278,10 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 						_resolve_modify_status_type(EffectCalculator.WEAK_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
 					EffectCalculator.SHIELD_ATTACK_EFFECT:
 						_resolve_source_status_type_damage(EffectCalculator.DEFENSE_STATUS, opportunity.source, final_target, character_manager_map)
+					EffectCalculator.HALF_DEFEND_TO_BARRICADED:
+						_resolve_status_to_status(EffectCalculator.DEFENSE_STATUS, barricaded_status_resource, opportunity.source, final_target, character_manager_map, 0.5)
+					EffectCalculator.DEFEND_TO_BARRICADED:
+						_resolve_status_to_status(EffectCalculator.DEFENSE_STATUS, barricaded_status_resource, opportunity.source, final_target, character_manager_map)
 					EffectCalculator.SMASH_ATTACK_EFFECT:
 						_resolve_smash_damage(effect, opportunity.source, final_target, character_manager_map)
 					EffectCalculator.ATTACK_EFFECT:
@@ -284,9 +299,9 @@ func add_all_opportunities(type : int, source : CharacterData, target : Characte
 				emit_signal("add_opportunity", type, source, target)
 	match(type):
 		CardData.CardType.ATTACK:
-			var riposte_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.RIPOSTE_STATUS, target, false)
-			if riposte_status != null:
-				for _i in range(riposte_status.get_stack_value()):
+			var engaging_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.ENGAGING_STATUS, target, false)
+			if engaging_status != null:
+				for _i in range(engaging_status.get_stack_value()):
 					emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
 			var marking_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.MARKING_STATUS, target, false)
 			if marking_status != null:

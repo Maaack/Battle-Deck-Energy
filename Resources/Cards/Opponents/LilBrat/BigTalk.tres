@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 2 )
 title = "Big Talk"
-description = "Absorb %DEFEND Damage and apply %APPLY_STRONG Strong."
+description = "Block %DEFEND Damage and apply %APPLY_STRONG Strong."
 energy_cost = 1
 icon = ExtResource( 4 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

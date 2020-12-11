@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Take Abuse"
-description = "Absorb %DEFEND Damage and apply %APPLY_STRONG Strong.
+description = "Block %DEFEND Damage and apply %APPLY_STRONG Strong.
 Exhaust."
 energy_cost = 1
 icon = ExtResource( 5 )

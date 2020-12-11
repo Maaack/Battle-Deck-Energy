@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Impenetrable"
-description = "Absorb %DEFEND Damage and apply %APPLY_DURABLE Durable."
+description = "Block %DEFEND Damage and apply %APPLY_DURABLE Durable."
 energy_cost = 2
 icon = ExtResource( 4 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

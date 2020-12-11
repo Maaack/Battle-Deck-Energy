@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Deflect Blame"
-description = "Absorb %DEFEND Damage and apply %APPLY_DURABLE Durable.
+description = "Block %DEFEND Damage and apply %APPLY_DURABLE Durable.
 Exhaust."
 energy_cost = 1
 icon = ExtResource( 5 )

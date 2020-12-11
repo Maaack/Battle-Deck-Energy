@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Reinforced"
-description = "Adds X Defend spaces on the target's next turn."
+description = "Adds X Defend actions on the target's next turn."
 icon = ExtResource( 2 )
 color = Color( 0.823529, 0.392157, 0.443137, 1 )
 intensity = 1

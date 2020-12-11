@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 key = "DEFENSE"
-term = "Defense"
-definition = "Absorbs damage equal to value. On the start of the next turn, it will deplete."
+term = "Block"
+definition = "Blocks damage equal to value. On the start of the next turn, it will deplete."
 related_definitions = [  ]

@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Knuckles Up"
-description = "Absorb %DEFEND Damage over [b]2[/b] shields and apply %APPLY_DURABLE Durable.
+description = "Block %DEFEND Damage over [b]2[/b] shields and apply %APPLY_DURABLE Durable.
 Exhaust."
 energy_cost = 2
 icon = ExtResource( 5 )

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "REINFORCED"
-term = "Reinforced"
-definition = "Adds [b]X[/b] Defend actions on the target and depletes on the next turn."
+key = "ENGAGED"
+term = "Engaged"
+definition = "Adds [b]X[/b] Attack actions on the target on the next turn and depletes."
 related_definitions = [  ]

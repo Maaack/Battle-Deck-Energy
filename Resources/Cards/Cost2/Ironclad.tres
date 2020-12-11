@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Ironclad"
-description = "Absorb %DEFEND Damage.
+description = "Block %DEFEND Damage.
 Innate.
 Retain."
 energy_cost = 2

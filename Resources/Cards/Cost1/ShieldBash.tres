@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Shield Bash"
-description = "Deal Damage with current Defense and apply %APPLY_FRAGILE Fragile."
+description = "Deal Damage with active Block and apply %APPLY_FRAGILE Fragile."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
