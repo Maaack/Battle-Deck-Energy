@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Cards/Cost0/ThrowDagger.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+type_tag = "ADD_THROW_DAGGER"
+amount = 1
+apply_mode = 1
+aim_mode = 0
+team_aim_mode = 0
+starting_card = ExtResource( 2 )
+destination = 1

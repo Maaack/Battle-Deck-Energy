@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=92 format=2]
+[gd_resource type="Resource" load_steps=95 format=2]
 
 [ext_resource path="res://Resources/Common/CommonData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Cards/StressCards/Soreness.tres" type="Resource" id=2]
@@ -91,6 +91,9 @@
 [ext_resource path="res://Resources/Cards/Cost1/Plot.tres" type="Resource" id=89]
 [ext_resource path="res://Resources/Cards/Cost1/Dissect.tres" type="Resource" id=90]
 [ext_resource path="res://Resources/Cards/Cost1/Passion.tres" type="Resource" id=91]
+[ext_resource path="res://Resources/Cards/Cost1/PullKnives.tres" type="Resource" id=92]
+[ext_resource path="res://Resources/Cards/Cost1/LookUp.tres" type="Resource" id=93]
+[ext_resource path="res://Resources/Cards/Cost1/Brew.tres" type="Resource" id=94]
 
 [resource]
 script = ExtResource( 1 )
@@ -100,6 +103,7 @@ data = {
 "Bleeding": ExtResource( 45 ),
 "Bloodletting": ExtResource( 63 ),
 "Break": ExtResource( 68 ),
+"Brew": ExtResource( 94 ),
 "Buffer": ExtResource( 41 ),
 "Burn Out": ExtResource( 17 ),
 "Burst": ExtResource( 75 ),
@@ -144,12 +148,14 @@ data = {
 "Light Armor": ExtResource( 69 ),
 "Lightning Shield": ExtResource( 9 ),
 "Limp Muscle": ExtResource( 38 ),
+"Look Up": ExtResource( 93 ),
 "Medicine": ExtResource( 70 ),
 "Miasma": ExtResource( 84 ),
 "Misstep": ExtResource( 72 ),
 "Passion": ExtResource( 91 ),
 "Plot": ExtResource( 89 ),
 "Process": ExtResource( 76 ),
+"Pull Knives": ExtResource( 92 ),
 "Quick Cover": ExtResource( 52 ),
 "Quick Thinking": ExtResource( 55 ),
 "Recall": ExtResource( 73 ),

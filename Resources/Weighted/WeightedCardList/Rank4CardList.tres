@@ -28,7 +28,6 @@
 [ext_resource path="res://Resources/Cards/Cost0/Process.tres" type="Resource" id=26]
 [ext_resource path="res://Resources/Cards/Cost0/Misstep.tres" type="Resource" id=27]
 
-
 [sub_resource type="Resource" id=1]
 script = ExtResource( 10 )
 weight = 6.0

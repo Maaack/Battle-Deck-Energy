@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=15 format=2]
+[gd_resource type="Resource" load_steps=16 format=2]
 
 [ext_resource path="res://Resources/Decks/DeckData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Cost1/QuickThinking.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Cost1/LookUp.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/StartingSet/LameRecoup.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=5]
@@ -13,11 +13,11 @@
 [ext_resource path="res://Resources/Cards/Cost0/Burst.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Cards/Cost0/Hustle.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Cards/Cost1/SwiftStrike.tres" type="Resource" id=13]
-[ext_resource path="res://Resources/Cards/Cost1/StrongShield.tres" type="Resource" id=14]
-
+[ext_resource path="res://Resources/Cards/Cost1/Brew.tres" type="Resource" id=14]
+[ext_resource path="res://Resources/Cards/Cost0/Recall.tres" type="Resource" id=15]
 
 [resource]
 script = ExtResource( 1 )
 title = "Lame Quick Deck"
 icon = ExtResource( 9 )
-cards = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 14 ) ]
+cards = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 10 ) ]
