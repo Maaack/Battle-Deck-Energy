@@ -44,7 +44,7 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 4950.0
+margin_bottom = 5709.0
 focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -71,35 +71,37 @@ bbcode_text = "
 
 
 
+
+
 [center]
-## Collaborators
-### Engineer and PM
+[font=res://Themes/Fonts/Credits/H2DynamicFont.tres]Collaborators[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Engineer and PM[/font]
 Author: [url=https://github.com/Maaack]Marek Belski[/url]  
 Source: [url=https://github.com/Maaack/Battle-Deck-Energy]Github : Battle-Deck-Energy[/url]  
 License: [url=./LICENSE.md]MIT License[/url]
 
-### UI Designer
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]UI Designer[/font]
 Author: Amy Stewart  
 
-## Art Assets
-### Fonts
-#### Titles
+[font=res://Themes/Fonts/Credits/H2DynamicFont.tres]Art Assets[/font]
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Fonts[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Titles[/font]
 Author: [url=http://defaulterror.za.net]Derek Clark[/url]  
 Source: [url=https://www.dafont.com/commando.font]dafont.com : commando.font[/url]  
 License: [url=./Assets/Sourced/Fonts/commando/ReadMe.txt]Custom Free License[/url]
 
-#### Headings
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Headings[/font]
 Author: [url=https://youssef-habchi.com/]Youssef Habchi[/url]  
 Source: [url=https://www.1001fonts.com/road-rage-font.html]1001Fonts : road-rage-font.html[/url]  
 License: [url=./Assets/Sourced/Fonts/road-rage/READ ME.txt]Custom Personal-Use-Only License[/url]
 
-#### UI Text
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]UI Text[/font]
 Author: [url=https://www.1001fonts.com/users/TipoType/]TipoType[/url]  
 Source: [url=https://www.1001fonts.com/economica-font.html]1001Fonts : economica-font.html[/url]  
 License: [url=./Assets/Sourced/Fonts/economica/SIL-Open-Font-License.txt]SIL Open Font License, Version 1.1[/url]
 
-### Audio
-#### Menu, Battle, and Shelter Music
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Audio[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Menu, Battle, and Shelter Music[/font]
 Author: [url=www.soundimage.org]Eric Matyas[/url]  
 Source: [url=https://soundimage.org/wp-content/uploads/2020/06/Comrades-Always.mp3]Soundimage.org : Comrades-Always.mp3[/url]  
 Source: [url=http://soundimage.org/wp-content/uploads/2016/07/Into-Battle_v001.mp3]Soundimage.org : Into-Battle_v001.mp3[/url]  
@@ -107,12 +109,12 @@ Source: [url=http://soundimage.org/wp-content/uploads/2014/07/RPG-Battle-Climax.
 Source: [url=http://soundimage.org/wp-content/uploads/2016/04/Analog-Nostalgia.mp3]Soundimage.org : Analog-Nostalgia.mp3[/url]   
 License: [url=https://soundimage.org/attribution-info/]Attribution License[/url]
 
-#### Intro and Victory Music
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Intro and Victory Music[/font]
 Author: [url=https://fardifferent.itch.io/]Of Far Different Nature[/url]  
 Source: [url=https://fardifferent.itch.io/loops]itch.io : loops[/url]  
 License: [url=https://creativecommons.org/licenses/by/4.0/]Attribution 4.0 International (CC BY 4.0)[/url]
 
-#### Card, Deck, and Shield Up Sounds
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Card, Deck, and Shield Up Sounds[/font]
 Author: [url=https://freesound.org/people/f4ngy/]f4ngy[/url]  
 Source: [url=https://freesound.org/people/f4ngy/sounds/240776/]freesound.org : 240776[/url]  
 Source: [url=https://freesound.org/people/f4ngy/sounds/240777/]freesound.org : 240777[/url]  
@@ -120,68 +122,76 @@ Source: [url=https://freesound.org/people/f4ngy/sounds/240778/]freesound.org : 2
 Source: [url=https://freesound.org/people/f4ngy/sounds/240787/]freesound.org : 240787[/url]  
 License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]
 
-#### Fire Sounds
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Fire Sounds[/font]
 Author: [url=https://freesound.org/people/daenerys/]daenerys[/url]  
 Source: [url=https://freesound.org/people/daenerys/sounds/260713/]freesound.org : 260713[/url]  
 License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]
 
-#### Slicing Flesh Sound
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Slicing Flesh Sound[/font]
 Author: [url=https://freesound.org/people/NeoSpica/]NeoSpica[/url]  
 Source: [url=https://freesound.org/people/NeoSpica/sounds/504615/]freesound.org : 504615[/url]  
 License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal (CC0 1.0) Public Domain Dedication[/url]
 
-#### Shield Hit Sound
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Shield Hit Sound[/font]
 Author: [url=https://freesound.org/people/igorzets/]daenerys[/url]  
 Source: [url=https://freesound.org/people/igorzets/sounds/333941/]freesound.org : 333941[/url]  
 License: [url=http://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]  
 
-### Images
-#### Title Screen Background
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Images[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Title Screen Background[/font]
 Author: [url=https://www.vecteezy.com/free-vector/fighter]Fighter Vectors by Vecteezy[/url]   
 Source: [url=https://www.vecteezy.com/vector-art/134426-wushu-fighter-with-sword]vecteezy.com : 134426-wushu-fighter-with-sword[/url]  
 License: [url=https://www.vecteezy.com/licensing-agreement]Custom Free Attribution License[/url]
 
-### Icons
-#### Card Icons and Status Effects
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Icons[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Card Icons and Status Effects[/font]
 Author: [url=https://game-icons.net/about.html#authors]Lorc, Delapouite, and contributors[/url]  
 Source: [url=https://game-icons.net/]Game-icons.net[/url]  
 License: [url=https://creativecommons.org/licenses/by/3.0/]Attribution 3.0 Unported (CC BY 3.0)[/url]  
 
-#### Fire Sprite Art
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Fire Sprite Art[/font]
 Author: [url=https://fontawesome.com/]Font Awesome[/url]  
 Source: [url=https://fontawesome.com/]fontawesome.com[/url]  
 License: [url=https://creativecommons.org/licenses/by/4.0/]Attribution 4.0 International (CC BY 4.0)[/url]  
 
-### Programmer Art
+[font=res://Themes/Fonts/Credits/H3DynamicFont.tres]Programmer Art[/font]
 Author: [url=https://github.com/Maaack]Maaack[/url]  
 Source: [url=https://github.com/Maaack/Battle-Deck-Energy]Github[/url]  
 License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal (CC0 1.0)
 Public Domain Dedication[/url]
 
-## Development Tools
-#### Godot
+[font=res://Themes/Fonts/Credits/H2DynamicFont.tres]Development Tools[/font]
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Godot[/font]
 Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
 Source: [url=https://godotengine.org/]godotengine.org[/url]  
 License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
 
-#### Git
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Git[/font]
 Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
 Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
 License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
 
-#### PyCharm
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]PyCharm[/font]
 Author: [url=https://www.jetbrains.com/]Jet Brains[/url]  
 Source: [url=https://www.jetbrains.com/pycharm/download/]jetbrains.com[/url]  
 License: [url=https://www.jetbrains.com/]Copyright © 2000-2020 JetBrains s.r.o[/url]
 
-#### GIMP
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]GIMP[/font]
 Author: [url=https://www.gimp.org/about/authors.html]Spencer Kimball, Peter Mattis, and contributors[/url]  
 Source: [url=https://www.gimp.org/downloads/]gimp.org[/url]  
 License: [url=https://www.gimp.org/about/COPYING]GNU General Public License version 3[/url]
 
-#### Inkscape
+[font=res://Themes/Fonts/Credits/H4DynamicFont.tres]Inkscape[/font]
 Source: [url=https://inkscape.org/release/]inkscape.org[/url]  
 License: [url=https://inkscape.org/about/license/]GNU General Public License[/url][/center]
+
+
+
+
+
+
+
+
 
 
 
@@ -237,34 +247,36 @@ text = "
 
 
 
-## Collaborators
-### Engineer and PM
+
+
+Collaborators
+Engineer and PM
 Author: Marek Belski  
 Source: Github : Battle-Deck-Energy  
 License: MIT License
 
-### UI Designer
+UI Designer
 Author: Amy Stewart  
 
-## Art Assets
-### Fonts
-#### Titles
+Art Assets
+Fonts
+Titles
 Author: Derek Clark  
 Source: dafont.com : commando.font  
 License: Custom Free License
 
-#### Headings
+Headings
 Author: Youssef Habchi  
 Source: 1001Fonts : road-rage-font.html  
 License: Custom Personal-Use-Only License
 
-#### UI Text
+UI Text
 Author: TipoType  
 Source: 1001Fonts : economica-font.html  
 License: SIL Open Font License, Version 1.1
 
-### Audio
-#### Menu, Battle, and Shelter Music
+Audio
+Menu, Battle, and Shelter Music
 Author: Eric Matyas  
 Source: Soundimage.org : Comrades-Always.mp3  
 Source: Soundimage.org : Into-Battle_v001.mp3  
@@ -272,12 +284,12 @@ Source: Soundimage.org : RPG-Battle-Climax.mp3
 Source: Soundimage.org : Analog-Nostalgia.mp3   
 License: Attribution License
 
-#### Intro and Victory Music
+Intro and Victory Music
 Author: Of Far Different Nature  
 Source: itch.io : loops  
 License: Attribution 4.0 International (CC BY 4.0)
 
-#### Card, Deck, and Shield Up Sounds
+Card, Deck, and Shield Up Sounds
 Author: f4ngy  
 Source: freesound.org : 240776  
 Source: freesound.org : 240777  
@@ -285,68 +297,76 @@ Source: freesound.org : 240778
 Source: freesound.org : 240787  
 License: Attribution 3.0 Unported (CC BY 3.0)
 
-#### Fire Sounds
+Fire Sounds
 Author: daenerys  
 Source: freesound.org : 260713  
 License: Attribution 3.0 Unported (CC BY 3.0)
 
-#### Slicing Flesh Sound
+Slicing Flesh Sound
 Author: NeoSpica  
 Source: freesound.org : 504615  
 License: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
 
-#### Shield Hit Sound
+Shield Hit Sound
 Author: daenerys  
 Source: freesound.org : 333941  
 License: Attribution 3.0 Unported (CC BY 3.0)  
 
-### Images
-#### Title Screen Background
+Images
+Title Screen Background
 Author: Fighter Vectors by Vecteezy   
 Source: vecteezy.com : 134426-wushu-fighter-with-sword  
 License: Custom Free Attribution License
 
-### Icons
-#### Card Icons and Status Effects
+Icons
+Card Icons and Status Effects
 Author: Lorc, Delapouite, and contributors  
 Source: Game-icons.net  
 License: Attribution 3.0 Unported (CC BY 3.0)  
 
-#### Fire Sprite Art
+Fire Sprite Art
 Author: Font Awesome  
 Source: fontawesome.com  
 License: Attribution 4.0 International (CC BY 4.0)  
 
-### Programmer Art
+Programmer Art
 Author: Maaack  
 Source: Github  
 License: CC0 1.0 Universal (CC0 1.0)
 Public Domain Dedication
 
-## Development Tools
-#### Godot
+Development Tools
+Godot
 Author: Juan Linietsky, Ariel Manzur, and contributors  
 Source: godotengine.org  
 License: MIT License 
 
-#### Git
+Git
 Author: Linus Torvalds  
 Source: git-scm.com  
 License: GNU General Public License version 2
 
-#### PyCharm
+PyCharm
 Author: Jet Brains  
 Source: jetbrains.com  
 License: Copyright © 2000-2020 JetBrains s.r.o
 
-#### GIMP
+GIMP
 Author: Spencer Kimball, Peter Mattis, and contributors  
 Source: gimp.org  
 License: GNU General Public License version 3
 
-#### Inkscape
+Inkscape
 Source: inkscape.org  
 License: GNU General Public License
+
+
+
+
+
+
+
+
 
 
 
