@@ -388,7 +388,7 @@ _global_script_class_icons={
 
 config/name="Battle Deck Energy"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
-boot_splash/image="res://Assets/Originals/FinalScreenshots/Screenshot from 2020-10-15 22-36-34.png"
+boot_splash/image="res://Assets/Originals/Title/LoadingScreen.png"
 config/icon="res://icon.png"
 
 [autoload]
