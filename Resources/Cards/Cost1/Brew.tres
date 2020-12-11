@@ -1,15 +1,16 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddBurst.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPlanned2.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/fire-bottle.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
 title = "Brew"
-description = "Add %ADD_BURST Bursts to your discard pile."
+description = "Add %ADD_BURST Bursts to your discard pile and apply %APPLY_PLANNED Planned."
 energy_cost = 1
 icon = ExtResource( 4 )
-base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 2 ) ]
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
+effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ) ]
 type = 3

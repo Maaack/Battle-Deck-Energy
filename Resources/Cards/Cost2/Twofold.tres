@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 title = "Twofold"
 description = "Double the amount of Marked on all enemies."
-energy_cost = 1
+energy_cost = 2
 icon = ExtResource( 3 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
 effects = [ ExtResource( 2 ) ]

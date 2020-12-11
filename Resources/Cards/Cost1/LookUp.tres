@@ -11,6 +11,6 @@ title = "Look Up"
 description = "Add %ADD_RECALL Recalls to your draw pile and apply %APPLY_PLANNED Planned."
 energy_cost = 1
 icon = ExtResource( 3 )
-base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
+base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
 effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ) ]
 type = 3

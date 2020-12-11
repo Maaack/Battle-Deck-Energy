@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/ThrowDaggerWeight1.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/SpyWeight1.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/ProcessWeight1.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/SentryWeight1.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HideAceWeight1.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/EngageWeight1.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/LastStandWeight1.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/RecallWeight1.tres" type="Resource" id=7]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HitTheMarkWeight1.tres" type="Resource" id=19]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/BurstWeight1.tres" type="Resource" id=20]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/AlertWeight1.tres" type="Resource" id=21]
+
+
 
 [resource]
 script = ExtResource( 1 )

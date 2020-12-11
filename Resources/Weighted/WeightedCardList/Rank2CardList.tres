@@ -12,7 +12,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=10]
 [ext_resource path="res://Resources/Cards/Cost1/Sharpen.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Cards/Cost1/HocusFocus.tres" type="Resource" id=12]
-[ext_resource path="res://Resources/Cards/Cost0/Spy.tres" type="Resource" id=13]
+[ext_resource path="res://Resources/Cards/Cost0/Sentry.tres" type="Resource" id=13]
 [ext_resource path="res://Resources/Cards/Cost0/CallOut.tres" type="Resource" id=14]
 [ext_resource path="res://Resources/Cards/Cost1/ToxicSlash.tres" type="Resource" id=15]
 [ext_resource path="res://Resources/Cards/Cost1/ShieldBash.tres" type="Resource" id=16]
@@ -37,10 +37,12 @@
 [ext_resource path="res://Resources/Cards/Cost1/Scan.tres" type="Resource" id=35]
 [ext_resource path="res://Resources/Cards/Cost1/Break.tres" type="Resource" id=36]
 [ext_resource path="res://Resources/Cards/Cost1/Entrench.tres" type="Resource" id=37]
-[ext_resource path="res://Resources/Cards/Cost1/Twofold.tres" type="Resource" id=38]
+[ext_resource path="res://Resources/Cards/Cost2/Twofold.tres" type="Resource" id=38]
 [ext_resource path="res://Resources/Cards/Cost1/Plot.tres" type="Resource" id=39]
 [ext_resource path="res://Resources/Cards/Cost1/Toxify.tres" type="Resource" id=40]
 [ext_resource path="res://Resources/Cards/Cost1/Dissect.tres" type="Resource" id=41]
+
+
 
 
 [sub_resource type="Resource" id=1]

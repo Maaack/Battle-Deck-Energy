@@ -12,13 +12,14 @@
 [ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=10]
 [ext_resource path="res://Resources/Cards/Cost0/Vigilance.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Cards/Cost0/Burst.tres" type="Resource" id=12]
-[ext_resource path="res://Resources/Cards/Cost0/Spy.tres" type="Resource" id=13]
+[ext_resource path="res://Resources/Cards/Cost0/Sentry.tres" type="Resource" id=13]
 [ext_resource path="res://Resources/Cards/Cost0/CallOut.tres" type="Resource" id=14]
 [ext_resource path="res://Resources/Cards/Cost0/LightArmor.tres" type="Resource" id=15]
 [ext_resource path="res://Resources/Cards/Cost0/Hustle.tres" type="Resource" id=16]
 [ext_resource path="res://Resources/Cards/Cost0/Recall.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Cards/Cost0/Alert.tres" type="Resource" id=18]
 [ext_resource path="res://Resources/Cards/Cost0/HitTheMark.tres" type="Resource" id=19]
+
 
 
 

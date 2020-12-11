@@ -1,16 +1,17 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Decks/LameQuickDeck.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Decks/LameFlashDeck.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Decks/LameAttackDeck.tres" type="Resource" id=3]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=4]
-[ext_resource path="res://Resources/Decks/LameDefendDeck.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Decks/LameShieldDeck.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Decks/LameCrippleDeck.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Decks/LameBuffDeck.tres" type="Resource" id=7]
 [ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Resources/Decks/LameVenomousDeck.tres" type="Resource" id=9]
-[ext_resource path="res://Resources/Decks/LamestStartingDeck.tres" type="Resource" id=10]
 [ext_resource path="res://Resources/Decks/LameStrikeDeck.tres" type="Resource" id=11]
-[ext_resource path="res://Resources/Decks/LameToxicDeck.tres" type="Resource" id=12]
+[ext_resource path="res://Resources/Decks/LamePoisonousDeck.tres" type="Resource" id=12]
+
 
 [node name="DeckSelectorInterface" type="Control"]
 anchor_right = 1.0
@@ -21,7 +22,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-decks = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ) ]
+decks = [ ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ) ]
 
 [node name="DeckSelectPanel" type="Panel" parent="."]
 anchor_left = 0.5

@@ -1,17 +1,16 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/GainEnergy2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/GainEnergy3.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/heartburn.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyCharged2.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
 title = "Passion"
-description = "Deal %ATTACK Damage, gain %GAIN_ENERGY Energy, and apply %APPLY_CHARGED Charged."
+description = "Deal %ATTACK Damage and gain %GAIN_ENERGY Energy."
 energy_cost = 1
 icon = ExtResource( 4 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ) ]
+effects = [ ExtResource( 3 ), ExtResource( 2 ) ]
 type = 3

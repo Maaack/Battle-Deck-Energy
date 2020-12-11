@@ -39,8 +39,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 9 )
 __meta__ = {
-"_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ -10.7229 ]
+"_edit_use_anchors_": false
 }
 
 [node name="BackgroundControl" type="Control" parent="."]

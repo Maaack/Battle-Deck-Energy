@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Cards/Cost2/Miasma.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Cards/Cost2/TheWall.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/Cost2/DeathBlow.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Cards/Cost3/DeathBlow.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Cards/Cost2/ChainLightning.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Cards/Cost2/LightningShield.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Cards/Cost2/Ironclad.tres" type="Resource" id=7]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Resources/Cards/Cost1/Discharge.tres" type="Resource" id=21]
 [ext_resource path="res://Resources/Cards/Cost1/Medicine.tres" type="Resource" id=22]
 [ext_resource path="res://Resources/Cards/Cost1/Passion.tres" type="Resource" id=23]
+
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 18 )

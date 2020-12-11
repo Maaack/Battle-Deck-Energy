@@ -25,8 +25,9 @@
 [ext_resource path="res://Resources/Cards/Cost1/Passion.tres" type="Resource" id=23]
 [ext_resource path="res://Resources/Cards/Cost2/Erupt.tres" type="Resource" id=24]
 [ext_resource path="res://Resources/Cards/Cost0/Subvert.tres" type="Resource" id=25]
-[ext_resource path="res://Resources/Cards/Cost0/Process.tres" type="Resource" id=26]
+[ext_resource path="res://Resources/Cards/Cost0/HideAce.tres" type="Resource" id=26]
 [ext_resource path="res://Resources/Cards/Cost0/Misstep.tres" type="Resource" id=27]
+
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 10 )
