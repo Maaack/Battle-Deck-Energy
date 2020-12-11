@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Sturdy Shield"
-description = "Absorb %DEFEND Damage and apply %APPLY_BARRICADED Barricaded."
+description = "Block %DEFEND Damage and apply %APPLY_BARRICADED Barricaded."
 energy_cost = 1
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

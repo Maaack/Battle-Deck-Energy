@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 key = "FORTIFIED"
 term = "Fortified"
-definition = "Adds [b]1[/b] Defend actions on the target for [b]X[/b] additional rounds. Loses [b]1[/b] every turn."
+definition = "Adds [b]1[/b] Defend actions on the target for [b]X[/b] additional turns. Loses [b]1[/b] every turn."
 related_definitions = [  ]

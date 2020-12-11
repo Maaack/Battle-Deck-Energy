@@ -1,6 +1,8 @@
 extends Control
 
 
+class_name PlayerInterface
+
 signal ending_turn
 signal draw_pile_pressed
 signal discard_pile_pressed
@@ -20,8 +22,8 @@ enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DI
 export(float, 0, 512) var opportunity_snap_range = 200.0
 
 onready var animation_queue : Node = $BattleAnimationQueue
-onready var card_manager : Node2D = $HandContainer/CardControl/BattleCardManager
-onready var opponent_card_manager : Node2D = $HandContainer/CardControl/InspectorCardManager
+onready var card_manager : CardManager = $HandContainer/CardControl/BattleCardManager
+onready var opponent_card_manager : CardManager = $HandContainer/CardControl/InspectorCardManager
 onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
 onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
 onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
@@ -238,7 +240,7 @@ func _on_card_animation_started(animation:CardAnimationData):
 func _on_status_animation_started(animation:StatusAnimationData):
 	_update_status(animation.character_data, animation.status_data, animation.delta)
 
-func _on_PlayerBoard_ending_turn():
+func _player_ends_turn():
 	emit_signal("ending_turn")
 	hand_manager.spread_from_mouse_flag = false
 	card_manager.active = false
@@ -309,6 +311,9 @@ func start_turn():
 	hand_manager.spread_from_mouse_flag = true
 	card_manager.active = true
 	reset_end_turn()
+
+func start_timer(time : int):
+	player_board.start_timer(time)
 	
 func start_round():
 	player_board.advance_round_count()
@@ -393,13 +398,16 @@ func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
 
+func _on_play_card_on_opportunity(card:CardData, opportunity: OpportunityData):
+	var card_instance : CardNode2D = card_manager.get_card_instance(card)
+	card_instance.locked_face = true
+	emit_signal("card_played_on_opportunity", card, opportunity)
+
 func _on_dropping_card(card:CardData):
 	var nearest_opportunity = get_nearest_card_opportunity(card)
 	_openings_glow_off(card)
 	if nearest_opportunity is OpportunityData:
-		var card_instance : CardNode2D = card_manager.get_card_instance(card)
-		card_instance.locked_face = true
-		emit_signal("card_played_on_opportunity", card, nearest_opportunity)
+		_on_play_card_on_opportunity(card, nearest_opportunity)
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 
@@ -478,6 +486,9 @@ func update_status(character : CharacterData, status : StatusData, delta : int):
 			return
 	animation_queue.animate_status(character, status, delta)
 
+func _on_PlayerBoard_ending_turn():
+	_player_ends_turn()
+
 func _on_PlayerBoard_draw_pile_pressed():
 	emit_signal("draw_pile_pressed")
 
@@ -494,6 +505,9 @@ func _on_PlayerInterface_resized():
 func _on_ResizeTimer_timeout():
 	for opportunity in _opportunities_map:
 		_on_CardContainer_update_opportunity(opportunity, _opportunities_map[opportunity])
+
+func _on_EndTurnTimer_timeout():
+	_player_ends_turn()
 
 func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 	if animation_data is CardAnimationData:

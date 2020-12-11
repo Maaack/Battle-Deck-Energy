@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" type="DynamicFont" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" type="Material" id=13]
 [ext_resource path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/AudioMenu/AudioMenu.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SlideInLeft"
@@ -28,16 +29,18 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 3.5, 6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -798, 119 ), Vector2( -798, 119 ), Vector2( -380, 119 ), Vector2( -240, 119 ) ]
+"values": [ Vector2( -798, 42 ), Vector2( -798, 42 ), Vector2( -380, 42 ), Vector2( -240, 42 ) ]
 }
 
 [node name="MainMenu" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 9 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ -10.7229 ]
 }
 
 [node name="BackgroundControl" type="Control" parent="."]
@@ -61,8 +64,8 @@ __meta__ = {
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = -798.0
-margin_top = -241.0
-margin_bottom = 565.0
+margin_top = -318.0
+margin_bottom = 488.0
 texture = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -89,47 +92,86 @@ margin_top = 64.0
 margin_right = 1152.0
 margin_bottom = 656.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainControl"]
+[node name="InitOptionsContainer" type="VBoxContainer" parent="MarginContainer/MainControl"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -151.0
-margin_top = -546.0
+margin_top = -254.0
 margin_right = 151.0
 margin_bottom = 46.0
 custom_constants/separation = 20
-alignment = 2
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CampaignGameButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
-margin_top = 292.0
+[node name="PlayButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
 margin_right = 302.0
-margin_bottom = 352.0
+margin_bottom = 60.0
 focus_mode = 0
-text = "Campaign"
+text = "Play"
 
-[node name="MultiplayerButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
-margin_top = 372.0
+[node name="OptionsButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
+margin_top = 80.0
 margin_right = 302.0
-margin_bottom = 432.0
-text = "Multiplayer"
+margin_bottom = 140.0
+text = "Options"
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
-margin_top = 452.0
+[node name="CreditsButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
+margin_top = 160.0
 margin_right = 302.0
-margin_bottom = 512.0
+margin_bottom = 220.0
 focus_mode = 0
 text = "Credits"
 
-[node name="ExitGameButton" type="Button" parent="MarginContainer/MainControl/VBoxContainer"]
-margin_top = 532.0
+[node name="ExitGameButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
+margin_top = 240.0
 margin_right = 302.0
-margin_bottom = 592.0
+margin_bottom = 300.0
 focus_mode = 0
 text = "Exit"
+
+[node name="PlayOptionsContainer" type="VBoxContainer" parent="MarginContainer/MainControl"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -151.0
+margin_top = -254.0
+margin_right = 151.0
+margin_bottom = 46.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueCampaignButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer"]
+visible = false
+margin_right = 302.0
+margin_bottom = 60.0
+text = "Continue Campaign"
+
+[node name="NewCampaignButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer"]
+margin_top = 40.0
+margin_right = 302.0
+margin_bottom = 100.0
+text = "New Campaign"
+
+[node name="OnlineArenaButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer"]
+margin_top = 120.0
+margin_right = 302.0
+margin_bottom = 180.0
+text = "Online Arena"
+
+[node name="BackButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer"]
+margin_top = 200.0
+margin_right = 302.0
+margin_bottom = 260.0
+text = "Back"
 
 [node name="TitleContainer" type="Control" parent="MarginContainer/MainControl"]
 anchor_left = 0.5
@@ -212,6 +254,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioMenu" parent="MarginContainer/MainControl" instance=ExtResource( 15 )]
+visible = false
+
 [node name="NetworkMenu" parent="MarginContainer" instance=ExtResource( 14 )]
 visible = false
 anchor_right = 0.0
@@ -233,7 +278,13 @@ __meta__ = {
 stream = ExtResource( 10 )
 volume_db = -15.0
 autoplay = true
-[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/CampaignGameButton" to="." method="_on_CampaignGameButton_pressed"]
-[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/MultiplayerButton" to="." method="_on_MultiplayerButton_pressed"]
-[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="MarginContainer/MainControl/VBoxContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
+bus = "Music"
+[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/ContinueCampaignButton" to="." method="_on_ContinueCampaignButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/NewCampaignButton" to="." method="_on_NewCampaignButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/OnlineArenaButton" to="." method="_on_OnlineArenaButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="return_button_pressed" from="MarginContainer/MainControl/AudioMenu" to="." method="_on_AudioMenu_return_button_pressed"]

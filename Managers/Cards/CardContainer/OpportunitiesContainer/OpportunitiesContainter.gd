@@ -10,7 +10,7 @@ const DEFEND_TYPE = 'DEFEND'
 const SKILL_TYPE = 'SKILL'
 
 onready var label_node = $CenterContainer/Control/Slot1/MarginContainer/Label
-onready var glow_node = $CenterContainer/Control/GlowNode
+onready var glow_nodes = $CenterContainer/Control/LayeredGlowNodes
 onready var slot_3_node = $CenterContainer/Control/Slot1/Slot3
 onready var slot_2_node = $CenterContainer/Control/Slot1/Slot2
 onready var slot_1_node = $CenterContainer/Control/Slot1
@@ -74,10 +74,10 @@ func remove_opportunity(opportunity:OpportunityData):
 	_update_slots()
 
 func glow_on():
-	glow_node.glow_on()
+	glow_nodes.glow_on()
 
 func glow_off():
-	glow_node.glow_off()
+	glow_nodes.glow_off()
 
 func glow_special():
-	glow_node.glow_special()
+	glow_nodes.glow_special()

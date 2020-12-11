@@ -1,0 +1,136 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
+[ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=2]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/NetworkedGameInterface/NetworkedGameInterface.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Managers/Tooltip/TooltipManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/NetworkedGameInterface/WinPanel/WinPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Themes/Fonts/Credits/H4DynamicFont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Scenes/NetworkedGameInterface/GameMenu/NetworkedGameMenu.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.tscn" type="PackedScene" id=17]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.533333, 0.364706, 0.513726, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="NetworkedGameInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleInterfaceContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShadowPanel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LosePanel" parent="." instance=ExtResource( 17 )]
+visible = false
+
+[node name="WinPanel" parent="." instance=ExtResource( 14 )]
+visible = false
+
+[node name="DeckSelectorInterface" parent="." instance=ExtResource( 11 )]
+
+[node name="DeckViewContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TooltipManager" parent="." instance=ExtResource( 12 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="MoodManager" parent="." instance=ExtResource( 13 )]
+intro_song = ExtResource( 8 )
+easy_battle_song = ExtResource( 7 )
+hard_battle_song = ExtResource( 4 )
+shelter_song = ExtResource( 3 )
+victory_song = ExtResource( 5 )
+
+[node name="WaitingLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.5
+margin_top = -21.5
+margin_right = 258.5
+margin_bottom = 21.5
+custom_fonts/font = ExtResource( 15 )
+text = "Waiting for other players to select their decks..."
+align = 1
+valign = 1
+
+[node name="NetworkedGameMenu" parent="." instance=ExtResource( 16 )]
+visible = false
+
+[node name="DisconnectDelayTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="exit_pressed" from="LosePanel" to="." method="_on_LosePanel_exit_pressed"]
+[connection signal="return_pressed" from="WinPanel" to="." method="_on_WinPanel_return_pressed"]
+[connection signal="deck_selected" from="DeckSelectorInterface" to="." method="_on_DeckSelectorInterface_deck_selected"]
+[connection signal="forfeit_and_exit_button_pressed" from="NetworkedGameMenu" to="." method="_on_NetworkedGameMenu_forfeit_and_exit_button_pressed"]
+[connection signal="return_button_pressed" from="NetworkedGameMenu" to="." method="_on_NetworkedGameMenu_return_button_pressed"]

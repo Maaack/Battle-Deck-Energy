@@ -34,7 +34,7 @@ func add_card(card_data:CardData):
 	return card_instance
 
 func remove_card(card_data:CardData):
-	var card_instance : CardNode2D = get_card_instance(card_data)
+	var card_instance : BaseCardNode2D = get_card_instance(card_data)
 	if not is_instance_valid(card_instance):
 		return
 	card_map.erase(card_data)
@@ -55,7 +55,7 @@ func move_card(card_data:CardData, new_transform:TransformData, tween_time:float
 	force_move_card(card_data, new_transform, tween_time)
 
 func force_move_card(card_data:CardData, new_transform:TransformData, tween_time:float = get_tween_time()):
-	var card: CardNode2D = get_card_instance(card_data)
+	var card: BaseCardNode2D = get_card_instance(card_data)
 	if is_instance_valid(card):
 		card.tween_to(new_transform, tween_time)
 		return

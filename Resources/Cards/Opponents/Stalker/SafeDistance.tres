@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Safe Distance"
-description = "Absorb %DEFEND Damage, apply %APPLY_EN_GARDE En Garde, and %APPLY_WEAK Weak."
+description = "Block %DEFEND Damage, apply %APPLY_BARRICADED Barricaded, and %APPLY_WEAK Weak."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

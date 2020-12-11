@@ -12,9 +12,9 @@ signal status_inspected(status_icon)
 signal status_forgotten(status_icon)
 
 onready var battle_end_timer = $BattleEndDelayTimer
-onready var player_interface = $PlayerInterface
 
 var battle_manager : BattleManager
+var player_interface : PlayerInterface
 var _battle_ended : bool = false
 var player_character setget set_player_character
 
@@ -26,6 +26,9 @@ func add_player(player_id : int, character : CharacterData, team : String):
 
 func add_character(character : CharacterData, team : String):
 	battle_manager.add_character(character, team)
+
+func kill_character(character : CharacterData):
+	battle_manager.kill_character(character)
 
 func set_player_character(value : CharacterData):
 	player_character = value
@@ -106,11 +109,16 @@ func _on_BattleManager_opportunities_reset():
 
 func _on_BattleManager_team_won(team):
 	var player_team = battle_manager.get_team(player_character)
-	battle_end_timer.start()
-	yield(battle_end_timer, "timeout")
 	if team == player_team:
+		battle_end_timer.start()
+		yield(battle_end_timer, "timeout")
 		emit_signal("player_won")
-	else:
+
+func _on_BattleManager_team_lost(team):
+	var player_team = battle_manager.get_team(player_character)
+	if team == player_team:
+		battle_end_timer.start()
+		yield(battle_end_timer, "timeout")
 		emit_signal("player_lost")
 
 func _duplicate_array_contents(values:Array):

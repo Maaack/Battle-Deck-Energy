@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Decks/LameQuickDeck.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Decks/LameAttackDeck.tres" type="Resource" id=3]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=4]
+[ext_resource path="res://Resources/Decks/LameDefendDeck.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Decks/LameCrippleDeck.tres" type="Resource" id=6]
 [ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Resources/Decks/LameVenomousDeck.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Decks/LamestStartingDeck.tres" type="Resource" id=10]
@@ -18,7 +21,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-decks = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 2 ) ]
+decks = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ) ]
 
 [node name="DeckSelectPanel" type="Panel" parent="."]
 anchor_left = 0.5
@@ -68,6 +71,19 @@ custom_constants/hseparation = 50
 max_columns = 2
 same_column_width = true
 icon_scale = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CustomDeckInfoLabel" type="Label" parent="DeckSelectPanel/MarginContainer/VBoxContainer/ItemList"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+custom_colors/font_color = Color( 1, 1, 1, 0.501961 )
+text = "Custom decks available by completing the campaign."
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

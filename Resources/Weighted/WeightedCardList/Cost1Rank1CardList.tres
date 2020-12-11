@@ -3,8 +3,9 @@
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/StrongShieldWeight1.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/CinderWeight1.tres" type="Resource" id=18]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/EnGardeWeight1.tres" type="Resource" id=29]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/RecoupWeight1.tres" type="Resource" id=29]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/StrongSlashWeight1.tres" type="Resource" id=33]
+
 
 [resource]
 script = ExtResource( 1 )

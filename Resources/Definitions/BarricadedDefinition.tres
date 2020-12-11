@@ -7,5 +7,5 @@
 script = ExtResource( 1 )
 key = "BARRICADED"
 term = "Barricaded"
-definition = "At the start of the next turn, applies [b]Defense[/b] equal to value and depletes."
+definition = "At the start of the next turn, applies [b]Block[/b] equal to value and depletes."
 related_definitions = [ ExtResource( 2 ) ]

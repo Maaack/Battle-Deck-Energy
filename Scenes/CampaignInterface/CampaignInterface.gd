@@ -13,6 +13,7 @@ onready var mood_manager = $MoodManager
 onready var campaign_interface_container = $CampaignInterfaceContainer
 onready var deck_view_container = $DeckViewContainer
 onready var level_delay_timer = $LevelDelayTimer
+onready var game_menu = $CampaignGameMenu
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
 var starting_deck_data : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
@@ -25,12 +26,14 @@ var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.ts
 var save_deck_panel_scene : PackedScene = preload("res://Scenes/SaveDeck/SaveDeckPanel.tscn")
 var player_data : CharacterData
 var battle_interface : BattleInterface
+var campaign_seed : int
 
 func _add_deck_view(deck_viewer:DeckViewer):
+	get_tree().paused = true
 	deck_view_container.add_child(deck_viewer)
 	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
 	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
-	deck_viewer.connect("tree_exited", tooltip_manager, "reset")
+	deck_viewer.connect("tree_exited", self, "_remove_deck_view")
 
 func start_battle(current_level:BattleLevelData):
 	if is_instance_valid(battle_interface):
@@ -86,6 +89,7 @@ func save_deck():
 	save_deck_interface.connect("skip_pressed", self, "_start_next_level")
 
 func start_level():
+	seed(campaign_seed + level_manager.current_level)
 	var current_level : LevelData = level_manager.get_current_level()
 	if current_level is BattleLevelData:
 		start_battle(current_level)
@@ -107,21 +111,60 @@ func _start_next_level():
 	tooltip_manager.reset()
 	shadow_panel.hide()
 	level_manager.advance()
+	PersistentData.save_progress(campaign_seed, player_data, level_manager.current_level)
+	start_level()
+
+func _clear_all_levels():
+	if is_instance_valid(battle_interface):
+		battle_interface.queue_free()
+		battle_interface = null
+	for child in campaign_interface_container.get_children():
+		child.queue_free()
+
+func _restart_level():
+	_clear_all_levels()
+	var last_seed = PersistentData.get_last_seed()
+	if last_seed != 0:
+		campaign_seed = last_seed
+		var last_deck : DeckData = PersistentData.get_last_deck()
+		player_data.deck = last_deck.cards
+		player_data.health = PersistentData.get_last_health()
+		level_manager.current_level = PersistentData.get_last_level()
 	start_level()
 
 func _ready():
-	randomize()
 	player_data = starting_player_data.duplicate()
-	for card in starting_deck_data.cards:
+	var last_seed : int = PersistentData.get_last_seed()
+	var last_cards : Array = []
+	if last_seed != 0:
+		campaign_seed = last_seed
+		var last_deck : DeckData = PersistentData.get_last_deck()
+		last_cards = last_deck.cards
+		player_data.health = PersistentData.get_last_health()
+		level_manager.current_level = PersistentData.get_last_level()
+	else:
+		randomize()
+		campaign_seed = randi()
+		last_cards = starting_deck_data.cards
+	for card in last_cards:
 		player_data.deck.append(card.duplicate())
 	start_level()
 
 func _on_DeadPanel_retry_pressed():
 	shadow_panel.hide()
 	dead_panel.hide()
-	level_manager.reset()
-	player_data = starting_player_data.duplicate()
-	start_level()
+	_restart_level()
+
+func _on_DeadPanel_forfeit_pressed():
+	shadow_panel.hide()
+	dead_panel.hide()
+	PersistentData.reset_progress()
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
+
+func _on_DeadPanel_exit_pressed():
+	shadow_panel.hide()
+	dead_panel.hide()
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
 
 func _on_BattleInterface_player_lost():
 	battle_interface.queue_free()
@@ -149,6 +192,10 @@ func _on_LootPanel_card_collected(card:CardData):
 	if player_data is CharacterData:
 		player_data.deck.append(card)
 
+func _remove_deck_view():
+	get_tree().paused = false
+	tooltip_manager.reset()
+
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
 	_add_deck_view(deck_view)
@@ -165,3 +212,35 @@ func _on_StatusIcon_inspected(status_icon):
 
 func _on_StatusIcon_forgotten(_status_icon):
 	tooltip_manager.reset()
+
+func _close_menu():
+	game_menu.hide()
+	game_menu.reset()
+	shadow_panel.hide()
+	get_tree().paused = false
+
+func _open_menu():
+	get_tree().paused = true
+	shadow_panel.show()
+	game_menu.show()
+	
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		if not game_menu.visible:
+			_open_menu()
+		else:
+			_close_menu()
+
+func _on_CampaignGameMenu_restart_button_pressed():
+	_close_menu()
+	_restart_level()
+
+func _on_CampaignGameMenu_return_button_pressed():
+	_close_menu()
+
+func _on_CampaignGameMenu_save_and_exit_button_pressed():
+	_close_menu()
+	if not PersistentData.has_progress():
+		print("Error: Progress recreated during level")
+		PersistentData.save_progress(campaign_seed, player_data, level_manager.current_level)
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")

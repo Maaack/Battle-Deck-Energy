@@ -2,23 +2,25 @@
 
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Cards/Cost0/ToxicSpit.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Cost0/Jab.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Cards/Cost0/Kickoff.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Cards/Cost0/VenomVial.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Cards/Cost0/BurnOut.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Cards/Cost1/StrongShield.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Cards/Cost1/StrongSlash.tres" type="Resource" id=7]
 [ext_resource path="res://Resources/Cards/Cost1/Cinder.tres" type="Resource" id=8]
-[ext_resource path="res://Resources/Cards/Cost1/EnGarde.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Cards/Cost1/Recoup.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=10]
 [ext_resource path="res://Resources/Cards/Cost0/Vigilance.tres" type="Resource" id=11]
 [ext_resource path="res://Resources/Cards/Cost0/Burst.tres" type="Resource" id=12]
 [ext_resource path="res://Resources/Cards/Cost0/Spy.tres" type="Resource" id=13]
 [ext_resource path="res://Resources/Cards/Cost0/CallOut.tres" type="Resource" id=14]
 [ext_resource path="res://Resources/Cards/Cost0/LightArmor.tres" type="Resource" id=15]
-[ext_resource path="res://Resources/Cards/Cost0/Lookup.tres" type="Resource" id=16]
+[ext_resource path="res://Resources/Cards/Cost0/Hustle.tres" type="Resource" id=16]
 [ext_resource path="res://Resources/Cards/Cost0/Recall.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Cards/Cost0/Alert.tres" type="Resource" id=18]
 [ext_resource path="res://Resources/Cards/Cost0/HitTheMark.tres" type="Resource" id=19]
+
+
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 10 )
@@ -87,7 +89,7 @@ data = ExtResource( 14 )
 
 [sub_resource type="Resource" id=14]
 script = ExtResource( 10 )
-weight = 1.0
+weight = 2.0
 data = ExtResource( 2 )
 
 [sub_resource type="Resource" id=15]

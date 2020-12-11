@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Years of Abuse"
-description = "Absorb %DEFEND Damage over [b]10[/b] shields."
+description = "Block %DEFEND Damage over [b]10[/b] shields."
 energy_cost = 3
 icon = ExtResource( 3 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

@@ -3,6 +3,8 @@ extends StatusData
 
 class_name RelatedStatusData
 
+export(Resource) var relating_status : Resource
+
 var target
 var source
 

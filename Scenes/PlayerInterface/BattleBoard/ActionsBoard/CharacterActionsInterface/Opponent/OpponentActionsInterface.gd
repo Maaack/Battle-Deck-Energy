@@ -5,6 +5,8 @@ class_name OpponentActionsInterface
 
 onready var dead_cover = $DeadCover
 onready var opponent_opportunities_container = $MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer
+onready var opponent_hand_container = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control
+onready var opponent_hand_position = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control/Position2D
 
 func set_character_data(value:CharacterData):
 	.set_character_data(value)
@@ -42,7 +44,19 @@ func get_reveal_transform():
 	reveal_transform.position = get_reveal_position()
 	reveal_transform.scale = get_reveal_scale()
 	return reveal_transform
-	
+
+func get_hand_position():
+	return opponent_hand_position.global_position
+
+func get_hand_scale():
+	return Vector2(1,1) * 0.375
+
+func get_hand_transform():
+	var hand_transform : TransformData = TransformData.new()
+	hand_transform.position = get_hand_position()
+	hand_transform.scale = get_hand_scale()
+	return hand_transform
+
 func defeat_character():
 	.defeat_character()
 	dead_cover.show()

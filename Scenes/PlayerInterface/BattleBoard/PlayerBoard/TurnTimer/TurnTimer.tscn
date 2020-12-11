@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimer.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutSlow.tres" type="Animation" id=3]
+[ext_resource path="res://Assets/Mixed/UI/stopwatch2_128x128.png" type="Texture" id=4]
+[ext_resource path="res://Themes/Fonts/TurnTimer/TurnTimerPanelDynamicFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerLastSeconds.tres" type="Animation" id=6]
+[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutFast.tres" type="Animation" id=7]
+
+[node name="TurnTimer" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -64.0
+rect_min_size = Vector2( 64, 64 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -50.0
+rect_min_size = Vector2( 150, 50 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = -66.0
+margin_right = 67.0
+margin_bottom = -2.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -80.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 5 )
+text = "00"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 30, 56 )
+volume_db = -26.0
+autoplay = true
+
+[node name="SecondTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeOutFast = ExtResource( 7 )
+anims/FadeOutSlow = ExtResource( 3 )
+anims/LastSeconds = ExtResource( 6 )
+[connection signal="timeout" from="SecondTimer" to="." method="_on_SecondTimer_timeout"]

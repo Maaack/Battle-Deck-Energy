@@ -28,7 +28,10 @@ func is_server():
 remotesync func _register_player(player_id : int, player_name : String):
 	var connected_player : PlayerData = PlayerData.new()
 	connected_player.name = player_name
+	connected_player.unique_id = player_id
 	players[player_id] = connected_player
+	if player_id == get_tree().get_network_unique_id():
+		local_player = connected_player
 	emit_signal("player_connected", connected_player)
 	emit_signal("player_list_changed")
 
@@ -95,3 +98,13 @@ func _ready():
 	get_tree().connect("connected_to_server", self, "_on_connected_to_server", [], CONNECT_DEFERRED)
 	get_tree().connect("connection_failed", self, "_on_connection_failed", [], CONNECT_DEFERRED)
 	get_tree().connect("server_disconnected", self, "_on_server_disconnected", [], CONNECT_DEFERRED)
+
+func get_player_character(player_id : int):
+	var player : PlayerData = players[player_id]
+	return player.character_data
+
+func get_character_player_id(character):
+	for player_id in players:
+		var player : PlayerData = players[player_id]
+		if player.character_data == character:
+			return player_id

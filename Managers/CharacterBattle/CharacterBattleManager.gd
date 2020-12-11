@@ -187,6 +187,8 @@ func gain_status(status:StatusData, origin:CharacterData):
 	if status is RelatedStatusData:
 		if status.target != character_data:
 			is_target = false
+		if status.source == character_data:
+			is_origin = true
 	if status.has_the_d():
 		if is_origin:
 			cycle_mode = StatusManager.CycleMode.START_1

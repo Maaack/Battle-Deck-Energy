@@ -28,7 +28,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/FastFootedWeight1.tres" type="Resource" id=26]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/LethalNeedleWeight1.tres" type="Resource" id=27]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/QuickCoverWeight1.tres" type="Resource" id=28]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/EnGardeWeight1.tres" type="Resource" id=29]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/RecoupWeight1.tres" type="Resource" id=29]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/PlotWeight1.tres" type="Resource" id=30]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/ShieldBashWeight1.tres" type="Resource" id=31]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/ToxifyWeight1.tres" type="Resource" id=32]
@@ -40,6 +40,7 @@
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/DissectWeight1.tres" type="Resource" id=38]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/TaintWeight1.tres" type="Resource" id=39]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/PassionWeight1.tres" type="Resource" id=40]
+
 
 [resource]
 script = ExtResource( 1 )

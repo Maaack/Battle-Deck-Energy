@@ -5,6 +5,7 @@ signal deck_selected(deck)
 
 onready var confirm_button = $DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ConfirmButton
 onready var item_list = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList
+onready var custom_deck_info_label = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList/CustomDeckInfoLabel
 
 export(Array, Resource) var decks : Array
 
@@ -12,6 +13,8 @@ var selected_index : int
 
 func _ready():
 	var saved_decks : Array = PersistentData.load_decks()
+	if saved_decks.size() > 0:
+		custom_deck_info_label.hide()
 	decks += saved_decks
 	for deck in decks:
 		if deck is DeckData:

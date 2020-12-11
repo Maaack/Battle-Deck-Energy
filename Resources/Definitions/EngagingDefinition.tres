@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = "ENGAGING"
+term = "Engaging"
+definition = "Adds [b]X[/b] Attack actions for the target on you on their next turn and depletes."
+related_definitions = [  ]

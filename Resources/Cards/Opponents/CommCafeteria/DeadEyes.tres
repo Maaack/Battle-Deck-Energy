@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Dead Eyes"
-description = "Absorb %DEFEND Damage, apply %APPLY_STRONG Strong, and %APPLY_DURABLE Durable."
+description = "Block %DEFEND Damage, apply %APPLY_STRONG Strong, and %APPLY_DURABLE Durable."
 energy_cost = 3
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
