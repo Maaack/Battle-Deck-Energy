@@ -40,7 +40,7 @@ func regex_replace_titles(credits:String):
 		if heading_font is DynamicFont:
 			iter += 1
 			var regex = RegEx.new()
-			var match_string : String = "([^#])#{%d} ([^\n]*)" % iter
+			var match_string : String = "([^#])#{%d}\\s([^\n]*)" % iter
 			var replace_string : String = "$1[font=%s]$2[/font]" % [heading_font.resource_path]
 			regex.compile(match_string)
 			credits = regex.sub(credits, replace_string, true)
