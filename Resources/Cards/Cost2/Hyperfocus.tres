@@ -3,14 +3,15 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyFocused2.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyHastened3.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyCharged.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/hyperfocus.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/extra-lucid.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyPlanned4.tres" type="Resource" id=6]
 
 [resource]
 script = ExtResource( 1 )
 title = "Hyperfocus"
-description = "Apply %APPLY_PLANNED Planned, %APPLY_HASTENED Hastened, %APPLY_FOCUSED Focused, and %APPLY_CHARGED Charged."
+description = "Apply %APPLY_PLANNED Planned, %APPLY_HASTENED Hastened, %APPLY_FOCUSED Focused.
+Retain."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )

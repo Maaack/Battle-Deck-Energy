@@ -1,11 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
 [ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Definitions/GainEnergyDefinition.tres" type="Resource" id=2]
 
 [resource]
 script = ExtResource( 1 )
 key = "DRAW_CARD"
 term = "Draw Card"
 definition = "Draw [b]X[/b] additional cards on the start of the next turn and depletes."
-related_definitions = [ ExtResource( 2 ) ]
+related_definitions = [  ]

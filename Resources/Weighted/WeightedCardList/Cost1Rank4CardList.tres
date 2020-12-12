@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=11 format=2]
+
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/TickTickWeight1.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/PullKnivesWeight1.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/MedicineWeight1.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/BloodlettingWeight1.tres" type="Resource" id=12]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/DischargeWeight1.tres" type="Resource" id=15]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/LookUpWeight1.tres" type="Resource" id=18]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/BrewWeight1.tres" type="Resource" id=39]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/RushWeight1.tres" type="Resource" id=40]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/PassionWeight1.tres" type="Resource" id=43]
+
+[resource]
+script = ExtResource( 3 )
+starting_list = [ ExtResource( 4 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 43 ) ]

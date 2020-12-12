@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Managers/Script/ScriptManager.gd" type="Script" id=1]
-[ext_resource path="res://Managers/Script/AutoGenerateLevels.gd" type="Script" id=2]
+[ext_resource path="res://Managers/Script/AutoGenerateCardWeights.gd" type="Script" id=2]
 
 [node name="ScriptManager" type="Node"]
 script = ExtResource( 1 )
 script_to_run = ExtResource( 2 )
-source_path = "res://Resources/Levels/"
-destination_path = "res://Resources/Weighted/WeightedLevelList2/"
+source_path = "res://Resources/Cards/"
+destination_path = "res://Resources/Weighted/WeightedCards/"

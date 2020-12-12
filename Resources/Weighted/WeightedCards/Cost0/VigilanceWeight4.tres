@@ -1,9 +1,9 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Cost0/Vigilance.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Cards/Cost0/Vigilance.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=2]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 weight = 4.0
-data = ExtResource( 2 )
+data = ExtResource( 1 )

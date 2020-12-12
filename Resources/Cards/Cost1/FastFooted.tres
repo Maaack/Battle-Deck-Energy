@@ -4,7 +4,7 @@
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/PlayAsSkillEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/En Garde/wingfoot.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyHastened.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyHastened2.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )

@@ -15,8 +15,9 @@ onready var deck_view_container = $DeckViewContainer
 onready var level_delay_timer = $LevelDelayTimer
 onready var game_menu = $CampaignGameMenu
 
-var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
-var starting_deck_data : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
+export(Resource) var starting_player_data : Resource = preload("res://Resources/Characters/Player/NewCampaignPlayerData.tres")
+export(Resource) var starting_deck_data : Resource = preload("res://Resources/Decks/LamestStartingDeck.tres")
+
 var battle_interface_scene : PackedScene = preload("res://Scenes/BattleInterface/Campaign/CampaignBattleInterface.tscn")
 var loot_interface_scene : PackedScene = preload("res://Scenes/LootPanel/LootPanel.tscn")
 var shelter_interface_scene : PackedScene = preload("res://Scenes/ShelterPanel/ShelterPanel.tscn")
@@ -89,6 +90,7 @@ func save_deck():
 	save_deck_interface.connect("skip_pressed", self, "_start_next_level")
 
 func start_level():
+	PersistentData.save_progress(campaign_seed, player_data, level_manager.current_level)
 	seed(campaign_seed + level_manager.current_level)
 	var current_level : LevelData = level_manager.get_current_level()
 	if current_level is BattleLevelData:
@@ -111,7 +113,6 @@ func _start_next_level():
 	tooltip_manager.reset()
 	shadow_panel.hide()
 	level_manager.advance()
-	PersistentData.save_progress(campaign_seed, player_data, level_manager.current_level)
 	start_level()
 
 func _clear_all_levels():
@@ -123,11 +124,13 @@ func _clear_all_levels():
 
 func _restart_level():
 	_clear_all_levels()
+	player_data = starting_player_data.duplicate()
 	var last_seed = PersistentData.get_last_seed()
 	if last_seed != 0:
 		campaign_seed = last_seed
 		var last_deck : DeckData = PersistentData.get_last_deck()
-		player_data.deck = last_deck.cards
+		for card in last_deck.cards:
+			player_data.deck.append(card.duplicate())
 		player_data.health = PersistentData.get_last_health()
 		level_manager.current_level = PersistentData.get_last_level()
 	start_level()

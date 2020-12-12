@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPoisoned2.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/CureVulnerableEffect.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/medicine-pills.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Effects/CureFragileEffect.tres" type="Resource" id=5]
