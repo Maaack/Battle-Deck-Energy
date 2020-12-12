@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Decks/LameFlashDeck.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Decks/LameAttackDeck.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Decks/LameMarkingDeck.tres" type="Resource" id=3]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=4]
 [ext_resource path="res://Resources/Decks/LameShieldDeck.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Decks/LameCrippleDeck.tres" type="Resource" id=6]

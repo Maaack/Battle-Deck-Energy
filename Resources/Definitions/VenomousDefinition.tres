@@ -6,12 +6,12 @@
 script = ExtResource( 1 )
 key = "POISON"
 term = "Poison"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+definition = "Applies [b]Poisoned[/b] status to target."
 related_definitions = [  ]
 
 [resource]
 script = ExtResource( 1 )
 key = "VENOMOUS"
 term = "Venomous"
-definition = "Applies [b]Toxin[/b] equal to value on the target of a strike if undefended. Loses [b]1[/b] every turn."
+definition = "Applies [b]Poison[/b] equal to value on the target of a strike if undefended. Loses [b]1[/b] every turn."
 related_definitions = [ SubResource( 1 ) ]
