@@ -41,7 +41,7 @@ func _on_ContinueCampaignButton_pressed():
 	get_tree().change_scene("res://Scenes/CampaignInterface/CampaignInterface.tscn")
 
 func _on_NewCampaignButton_pressed():
-	PersistentData._delete_progress_files()
+	PersistentData.reset_progress()
 	get_tree().change_scene("res://Scenes/CampaignInterface/CampaignInterface.tscn")
 
 func _unhandled_key_input(event):
