@@ -1,12 +1,13 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=2]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/DeathBlowWeight1.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/MiasmaWeight1.tres" type="Resource" id=8]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/HyperfocusWeight1.tres" type="Resource" id=9]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/ReforgeWeight1.tres" type="Resource" id=10]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/TheWallWeight1.tres" type="Resource" id=16]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/SerpentsBladeWeight1.tres" type="Resource" id=1]
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/HyperfocusWeight1.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/BiohazardWeight1.tres" type="Resource" id=13]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/TwofoldWeight1.tres" type="Resource" id=14]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/TheWallWeight1.tres" type="Resource" id=17]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/IroncladWeight1.tres" type="Resource" id=18]
 
 [resource]
-script = ExtResource( 2 )
-starting_list = [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 16 ) ]
+script = ExtResource( 4 )
+starting_list = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 18 ) ]

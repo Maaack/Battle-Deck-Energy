@@ -1,13 +1,15 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HideAceWeight1.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/EngageWeight1.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/LastStandWeight1.tres" type="Resource" id=6]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/MisstepWeight1.tres" type="Resource" id=8]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/SubvertWeight1.tres" type="Resource" id=18]
-
+[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/MisstepWeight1.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/CallOutWeight1.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/KickoffWeight1.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/LastStandWeight1.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/DodgeWeight1.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/BurnOutWeight1.tres" type="Resource" id=14]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/SubvertWeight1.tres" type="Resource" id=21]
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost0/HustleWeight1.tres" type="Resource" id=25]
 
 [resource]
-script = ExtResource( 1 )
-starting_list = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 18 ) ]
+script = ExtResource( 4 )
+starting_list = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 25 ) ]
