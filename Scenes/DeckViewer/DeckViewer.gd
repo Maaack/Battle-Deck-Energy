@@ -63,7 +63,6 @@ func _add_cards_to_containers():
 func _on_BackButton_pressed():
 	emit_signal("card_forgotten", null)
 	emit_signal("back_pressed")
-	queue_free()
 
 func _on_SelectorCardManager_inspected_on_card(card_node_2d):
 	emit_signal("card_inspected", card_node_2d)

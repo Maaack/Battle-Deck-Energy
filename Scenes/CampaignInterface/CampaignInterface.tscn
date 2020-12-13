@@ -93,7 +93,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShadowPanel" type="Panel" parent="."]
+[node name="BattleShadowPanel" type="Panel" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -145,6 +145,16 @@ victory_song = ExtResource( 56 )
 [node name="LevelDelayTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="MasterShadowPanel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CampaignGameMenu" parent="." instance=ExtResource( 14 )]
 visible = false

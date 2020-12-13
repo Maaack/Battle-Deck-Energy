@@ -4,7 +4,8 @@ extends Control
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var lose_panel = $LosePanel
 onready var win_panel = $WinPanel
-onready var shadow_panel = $ShadowPanel
+onready var battle_shadow_panel = $BattleShadowPanel
+onready var master_shadow_panel = $MasterShadowPanel
 onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
 onready var deck_view_container = $DeckViewContainer
@@ -25,7 +26,7 @@ func _add_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
 	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
 	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
-	deck_viewer.connect("tree_exited", tooltip_manager, "reset")
+	deck_viewer.connect("back_pressed", self, "_remove_deck_view", [deck_viewer])
 
 remotesync func create_character_for_player(player_id : int):
 	if not player_id in Network.players:
@@ -58,7 +59,7 @@ remotesync func init_battle_scene():
 	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 
 remotesync func start_battle():
-	shadow_panel.hide()
+	battle_shadow_panel.hide()
 	waiting_label.hide()
 	battle_interface.player_character = local_player_character
 	battle_interface.start_battle()
@@ -79,7 +80,7 @@ func all_ready():
 	rpc('start_battle')
 
 func _on_deck_selected():
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	waiting_label.show()
 	if Network.is_server():
 		Network.connect('synced', self, 'all_ready')
@@ -120,7 +121,7 @@ func _on_BattleInterface_player_lost():
 	_ignore_all_disconnects()
 	battle_interface.queue_free()
 	tooltip_manager.reset()
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	lose_panel.show()
 
 func _on_BattleInterface_player_won():
@@ -128,13 +129,17 @@ func _on_BattleInterface_player_won():
 	_ignore_all_disconnects()
 	battle_interface.queue_free()
 	tooltip_manager.reset()
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	win_panel.show()
 
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
 	_add_deck_view(deck_view)
 	deck_view.deck = deck
+
+func _remove_deck_view(deck_viewer:Node):
+	deck_viewer.queue_free()
+	tooltip_manager.reset()
 
 func _on_Card_inspected(card_node):
 	tooltip_manager.inspect_card(card_node)
@@ -151,10 +156,10 @@ func _on_StatusIcon_forgotten(_status_icon):
 func _close_menu():
 	game_menu.hide()
 	game_menu.reset()
-	shadow_panel.hide()
+	master_shadow_panel.hide()
 
 func _open_menu():
-	shadow_panel.show()
+	master_shadow_panel.show()
 	game_menu.show()
 	
 func _unhandled_key_input(event):
