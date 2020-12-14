@@ -30,7 +30,7 @@ var player_data : CharacterData
 var battle_interface : BattleInterface
 var campaign_seed : int
 
-func _add_deck_view(deck_viewer:DeckViewer):
+func _attach_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
 	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
 	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
@@ -63,7 +63,7 @@ func start_shelter():
 	campaign_interface_container.add_child(shelter_interface)
 	shelter_interface.player_data = player_data
 	shelter_interface.connect("level_completed", self, "_unload_levels_and_continue")
-	shelter_interface.connect("bath_pressed", self, "_add_deck_view")
+	shelter_interface.connect("bath_pressed", self, "_attach_deck_view")
 
 func start_story_level(current_level:StoryLevelData):
 	battle_shadow_panel.show()
@@ -209,7 +209,7 @@ func _remove_deck_view(deck_viewer:Node):
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
 	get_tree().paused = true
-	_add_deck_view(deck_view)
+	_attach_deck_view(deck_view)
 	deck_view.deck = deck
 
 func _on_Card_inspected(card_node):

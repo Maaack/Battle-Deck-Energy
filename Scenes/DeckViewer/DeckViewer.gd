@@ -14,12 +14,20 @@ const FINAL_ROTATION = 0
 onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
 onready var spawn_card_timer = $SpawnCardTimer
+onready var deck_label = $MarginContainer/VBoxContainer/DeckLabel
 
 export(float, 0.0, 2.0) var default_animate_in_time : float = 0.2
 
 var deck : Array = [] setget set_deck
 var card_container_map : Dictionary = {}
 var selected_card = null
+var title : String setget set_title
+
+func set_title(value : String):
+	title = value
+	if title.length() > 0:
+		deck_label.show()
+		deck_label.text = title
 
 func _get_animate_in_time():
 	return default_animate_in_time

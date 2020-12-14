@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=11 format=2]
+
+[ext_resource path="res://Resources/Common/CommonData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Decks/LameShieldDeck.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Decks/LamePoisonousDeck.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Decks/LameFlashDeck.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Decks/LameStrikeDeck.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Decks/LameMarkingDeck.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Decks/LameCrippleDeck.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Decks/LameVenomousDeck.tres" type="Resource" id=8]
+[ext_resource path="res://Resources/Decks/LamestStartingDeck.tres" type="Resource" id=9]
+[ext_resource path="res://Resources/Decks/LameBuffDeck.tres" type="Resource" id=10]
+
+[resource]
+script = ExtResource( 1 )
+data = {
+"Lame Buff Deck": ExtResource( 10 ),
+"Lame Cripple Deck": ExtResource( 7 ),
+"Lame Flash Deck": ExtResource( 4 ),
+"Lame Marking Deck": ExtResource( 6 ),
+"Lame Poisonous Deck": ExtResource( 3 ),
+"Lame Shield Deck": ExtResource( 2 ),
+"Lame Strike Deck": ExtResource( 5 ),
+"Lame Venomous Deck": ExtResource( 8 ),
+"Lamest Starting Deck": ExtResource( 9 )
+}

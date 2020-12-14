@@ -22,7 +22,7 @@ var local_player_character : CharacterData
 var local_player_deck : DeckData
 var ignore_player_disconnects : Array = []
 
-func _add_deck_view(deck_viewer:DeckViewer):
+func _attach_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
 	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
 	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
@@ -134,7 +134,7 @@ func _on_BattleInterface_player_won():
 
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
-	_add_deck_view(deck_view)
+	_attach_deck_view(deck_view)
 	deck_view.deck = deck
 
 func _remove_deck_view(deck_viewer:Node):

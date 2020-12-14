@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" type="DynamicFont" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://Assets/Mixed/Backgrounds/Deck-Fighter.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" type="Material" id=13]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/DeckList/DeckListInterface.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/AudioMenu/AudioMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Managers/Tooltip/TooltipManager.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "SlideInLeft"
@@ -112,18 +113,18 @@ margin_bottom = 60.0
 focus_mode = 0
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
+[node name="ExtrasButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
 margin_top = 80.0
 margin_right = 302.0
 margin_bottom = 140.0
-text = "Options"
+focus_mode = 0
+text = "Extras"
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
 margin_top = 160.0
 margin_right = 302.0
 margin_bottom = 220.0
-focus_mode = 0
-text = "Credits"
+text = "Settings"
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer"]
 margin_top = 240.0
@@ -167,6 +168,40 @@ margin_bottom = 180.0
 text = "Online Arena"
 
 [node name="BackButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer"]
+margin_top = 200.0
+margin_right = 302.0
+margin_bottom = 260.0
+text = "Back"
+
+[node name="ExtrasOptionsContainer" type="VBoxContainer" parent="MarginContainer/MainControl"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -151.0
+margin_top = -254.0
+margin_right = 151.0
+margin_bottom = 46.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewDecksButton" type="Button" parent="MarginContainer/MainControl/ExtrasOptionsContainer"]
+margin_top = 40.0
+margin_right = 302.0
+margin_bottom = 100.0
+text = "View Decks"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/MainControl/ExtrasOptionsContainer"]
+margin_top = 120.0
+margin_right = 302.0
+margin_bottom = 180.0
+text = "Credits"
+
+[node name="BackButton" type="Button" parent="MarginContainer/MainControl/ExtrasOptionsContainer"]
 margin_top = 200.0
 margin_right = 302.0
 margin_bottom = 260.0
@@ -256,14 +291,8 @@ __meta__ = {
 [node name="AudioMenu" parent="MarginContainer/MainControl" instance=ExtResource( 15 )]
 visible = false
 
-[node name="NetworkMenu" parent="MarginContainer" instance=ExtResource( 14 )]
+[node name="DeckListInterface" parent="MarginContainer/MainControl" instance=ExtResource( 14 )]
 visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 128.0
-margin_top = 64.0
-margin_right = 1152.0
-margin_bottom = 656.0
 
 [node name="WindowContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -273,17 +302,26 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="TooltipManager" parent="." instance=ExtResource( 16 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -15.0
 autoplay = true
 bus = "Music"
 [connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/SettingsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/InitOptionsContainer/ExitGameButton" to="." method="_on_ExitGameButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/ContinueCampaignButton" to="." method="_on_ContinueCampaignButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/NewCampaignButton" to="." method="_on_NewCampaignButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/OnlineArenaButton" to="." method="_on_OnlineArenaButton_pressed"]
 [connection signal="pressed" from="MarginContainer/MainControl/PlayOptionsContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/ExtrasOptionsContainer/ViewDecksButton" to="." method="_on_ViewDecksButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/ExtrasOptionsContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainControl/ExtrasOptionsContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="return_button_pressed" from="MarginContainer/MainControl/AudioMenu" to="." method="_on_AudioMenu_return_button_pressed"]
+[connection signal="back_pressed" from="MarginContainer/MainControl/DeckListInterface" to="." method="_on_DeckListInterface_back_pressed"]
+[connection signal="deck_selected" from="MarginContainer/MainControl/DeckListInterface" to="." method="_on_DeckListInterface_deck_selected"]
