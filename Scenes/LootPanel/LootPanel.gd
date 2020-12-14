@@ -13,12 +13,14 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 onready var loot_container = $MarginContainer/VBoxContainer/LootMargin/LootContainer
 onready var card_manager = $MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager
 onready var skip_loot_button = $SkipLootButton
+onready var add_card_button = $AddCardButton
 onready var spawn_card_timer = $SpawnCardTimer
 onready var reposition_timer = $RepositionTimer
 
 export(float, 0.0, 2.0) var default_animate_in_time : float = 0.2
 
-var card_options : Array = [] setget set_card_options
+export(Array, Resource) var card_options : Array = [] setget set_card_options
+
 var card_container_map : Dictionary = {}
 var player_data = null
 var selected_card = null
@@ -41,16 +43,11 @@ func set_card_options(values:Array):
 	card_options = []
 	for card in values:
 		card_options.append(card.duplicate())
+		
+func _ready():
 	_spawn_containers()
 	yield(loot_container, "sort_children")
 	_add_cards_to_containers()
-
-func _update_card_position(card:CardData):
-	var center_offset : Vector2 = card_manager.get_global_transform().get_origin()
-	var container : CardContainer = card_container_map[card]
-	var transform : TransformData = card.transform_data.duplicate()
-	transform.position = container.get_card_parent_position() - center_offset
-	card_manager.force_move_card(card, transform, 0.05)
 
 func _add_cards_to_containers():
 	for card in card_container_map:
@@ -76,15 +73,29 @@ func _on_SelectorCardManager_inspected_on_card(card_node_2d):
 func _on_SelectorCardManager_inspected_off_card(card_node_2d):
 	emit_signal("card_forgotten", card_node_2d)
 
-func _on_SelectorCardManager_double_clicked_card(card_node):
-	if is_instance_valid(selected_card):
-		return
+func _on_SelectorCardManager_clicked_card(card_node : CardNode2D):
 	selected_card = card_node
-	emit_signal("card_collected", card_node.card_data)
-	skip_loot_button.disabled = true
+	card_manager.hold_focus = false
 	card_manager.focus_on_card(card_node)
+	card_node.connect("mouse_exited", self, "_on_CardNode2D_mouse_exited")
 	card_manager.hold_focus = true
-	card_node.play_card()
-	yield(card_node, "animation_completed")
-	emit_signal("card_forgotten", card_node)
+	add_card_button.disabled = false
+
+func _on_AddCardButton_pressed():
+	if not is_instance_valid(selected_card):
+		return
+	add_card_button.disabled = true
+	emit_signal("card_collected", selected_card.card_data)
+	skip_loot_button.disabled = true
+	card_manager.focus_on_card(selected_card)
+	card_manager.hold_focus = true
+	selected_card.play_card()
+	yield(selected_card, "animation_completed")
+	emit_signal("card_forgotten", selected_card)
 	emit_signal("level_completed")
+
+func _on_CardNode2D_mouse_exited(card_node : CardNode2D):
+	if card_node.is_connected("mouse_exited", self, "_on_CardNode2D_mouse_exited"):
+		card_node.disconnect("mouse_exited", self, "_on_CardNode2D_mouse_exited")
+	card_manager.stop_inspecting()
+	

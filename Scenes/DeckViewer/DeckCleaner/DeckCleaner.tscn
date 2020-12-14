@@ -14,5 +14,21 @@ text = "Select a Card to Remove"
 margin_top = 72.0
 
 [node name="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" index="0"]
-margin_bottom = 616.0
-[connection signal="double_clicked_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_double_clicked_card"]
+margin_bottom = 578.0
+
+[node name="RemoveCardButton" type="Button" parent="." index="4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -108.0
+margin_right = 112.0
+margin_bottom = -48.0
+disabled = true
+text = "Remove Card"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="clicked_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_clicked_card"]
+[connection signal="pressed" from="RemoveCardButton" to="." method="_on_RemoveCardButton_pressed"]
