@@ -14,7 +14,7 @@ func _set_timer_text():
 	label.text = str(time)
 
 func _set_animations():
-	if time == round(float(starting_time) / 4.0):
+	if time == round(float(starting_time) / 6.0):
 		animation_player.play("LastSeconds")
 	elif time == round(float(starting_time) / 2.0):
 		animation_player.play("FadeOutSlow")

@@ -2,6 +2,7 @@ extends Control
 
 
 signal skip_loot_pressed
+signal level_completed
 signal view_deck_pressed(deck)
 signal card_collected(card_data)
 signal card_inspected(card_node)
@@ -63,7 +64,7 @@ func _add_cards_to_containers():
 
 func _on_SkipLootButton_pressed():
 	emit_signal("skip_loot_pressed")
-	queue_free()
+	emit_signal("level_completed")
 
 func _on_ViewDeckButton_pressed():
 	if player_data is CharacterData:
@@ -86,4 +87,4 @@ func _on_SelectorCardManager_double_clicked_card(card_node):
 	card_node.play_card()
 	yield(card_node, "animation_completed")
 	emit_signal("card_forgotten", card_node)
-	queue_free()
+	emit_signal("level_completed")

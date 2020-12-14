@@ -2,8 +2,8 @@ extends Control
 
 
 signal dine_pressed
+signal level_completed
 signal bath_pressed(deck_cleaner_instance)
-signal shelter_left
 
 const DINE_DESCRIPTION = "Heal %d%% (%d) of your Max Health\n%d/%d --> %d/%d"
 const BATH_DESCRIPTION = "Clean your Deck of %d Card"
@@ -113,8 +113,7 @@ func _on_ContinueDelayTimer_timeout():
 	continue_button.disabled = false
 
 func _on_ContinueButton_pressed():
-	emit_signal("shelter_left")
-	queue_free()
+	emit_signal("level_completed")
 
 func _on_SparksDelayTimer_timeout():
 	spark_particle_generator.emitting = false

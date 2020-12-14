@@ -6,7 +6,8 @@ const ENEMY_TEAM = "Enemy"
 
 onready var battle_interface_container = $BattleInterfaceContainer
 onready var dead_panel = $DeadPanel
-onready var shadow_panel = $ShadowPanel
+onready var battle_shadow_panel = $BattleShadowPanel
+onready var master_shadow_panel = $MasterShadowPanel
 onready var level_manager = $LevelManager
 onready var tooltip_manager = $TooltipManager
 onready var mood_manager = $MoodManager
@@ -29,12 +30,11 @@ var player_data : CharacterData
 var battle_interface : BattleInterface
 var campaign_seed : int
 
-func _add_deck_view(deck_viewer:DeckViewer):
-	get_tree().paused = true
+func _attach_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
 	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
 	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
-	deck_viewer.connect("tree_exited", self, "_remove_deck_view")
+	deck_viewer.connect("back_pressed", self, "_remove_deck_view", [deck_viewer])
 
 func start_battle(current_level:BattleLevelData):
 	if is_instance_valid(battle_interface):
@@ -54,25 +54,26 @@ func start_battle(current_level:BattleLevelData):
 	for opponent in current_level.opponents:
 		battle_interface.add_character(opponent.duplicate(), ENEMY_TEAM)
 	battle_interface.player_character = player_data
+	battle_shadow_panel.hide()
 	battle_interface.start_battle()
 
 func start_shelter():
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	var shelter_interface = shelter_interface_scene.instance()
 	campaign_interface_container.add_child(shelter_interface)
 	shelter_interface.player_data = player_data
-	shelter_interface.connect("shelter_left", self, "_start_next_level")
-	shelter_interface.connect("bath_pressed", self, "_add_deck_view")
+	shelter_interface.connect("level_completed", self, "_unload_levels_and_continue")
+	shelter_interface.connect("bath_pressed", self, "_attach_deck_view")
 
 func start_story_level(current_level:StoryLevelData):
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	var story_interface = story_panel_scene.instance()
 	campaign_interface_container.add_child(story_interface)
 	story_interface.set_text(current_level.bbcode_text)
 	story_interface.connect("continue_pressed", self, "_start_next_level")
 
 func start_credits():
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	var credits_interface = credits_panel_scene.instance()
 	campaign_interface_container.add_child(credits_interface)
 	credits_interface.connect("continue_pressed", self, "_start_next_level")
@@ -82,7 +83,7 @@ func _on_save_deck(cards : Array, title : String, icon : Texture):
 	_start_next_level()
 
 func save_deck():
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	var save_deck_interface = save_deck_panel_scene.instance()
 	campaign_interface_container.add_child(save_deck_interface)
 	save_deck_interface.cards = player_data.deck
@@ -107,11 +108,11 @@ func start_level():
 		mood_manager.set_mood(current_level.mood_type)
 
 func _start_next_level():
-	shadow_panel.show()
+	master_shadow_panel.show()
 	level_delay_timer.start()
 	yield(level_delay_timer, "timeout")
 	tooltip_manager.reset()
-	shadow_panel.hide()
+	master_shadow_panel.hide()
 	level_manager.advance()
 	start_level()
 
@@ -154,36 +155,41 @@ func _ready():
 	start_level()
 
 func _on_DeadPanel_retry_pressed():
-	shadow_panel.hide()
+	battle_shadow_panel.hide()
 	dead_panel.hide()
 	_restart_level()
 
 func _on_DeadPanel_forfeit_pressed():
-	shadow_panel.hide()
+	battle_shadow_panel.hide()
 	dead_panel.hide()
 	PersistentData.reset_progress()
 	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
 
 func _on_DeadPanel_exit_pressed():
-	shadow_panel.hide()
+	battle_shadow_panel.hide()
 	dead_panel.hide()
 	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
 
 func _on_BattleInterface_player_lost():
 	battle_interface.queue_free()
 	tooltip_manager.reset()
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	dead_panel.show()
+
+func _unload_levels_and_continue():
+	battle_shadow_panel.hide()
+	_clear_all_levels()
+	_start_next_level()
 
 func _on_BattleInterface_player_won():
 	battle_interface.queue_free()
 	tooltip_manager.reset()
-	shadow_panel.show()
+	battle_shadow_panel.show()
 	var level : LevelData = level_manager.get_current_level()
 	var loot_interface = loot_interface_scene.instance()
 	campaign_interface_container.add_child(loot_interface)
 	loot_interface.connect("card_collected", self, "_on_LootPanel_card_collected")
-	loot_interface.connect("tree_exiting", self, "_start_next_level")
+	loot_interface.connect("level_completed", self, "_unload_levels_and_continue")
 	loot_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 	loot_interface.connect("card_inspected", self, "_on_Card_inspected")
 	loot_interface.connect("card_forgotten", self, "_on_Card_forgotten")
@@ -195,13 +201,15 @@ func _on_LootPanel_card_collected(card:CardData):
 	if player_data is CharacterData:
 		player_data.deck.append(card)
 
-func _remove_deck_view():
+func _remove_deck_view(deck_viewer:Node):
+	deck_viewer.queue_free()
 	get_tree().paused = false
 	tooltip_manager.reset()
 
 func _on_ViewDeck_pressed(deck:Array):
 	var deck_view = deck_view_scene.instance()
-	_add_deck_view(deck_view)
+	get_tree().paused = true
+	_attach_deck_view(deck_view)
 	deck_view.deck = deck
 
 func _on_Card_inspected(card_node):
@@ -219,12 +227,12 @@ func _on_StatusIcon_forgotten(_status_icon):
 func _close_menu():
 	game_menu.hide()
 	game_menu.reset()
-	shadow_panel.hide()
+	master_shadow_panel.hide()
 	get_tree().paused = false
 
 func _open_menu():
 	get_tree().paused = true
-	shadow_panel.show()
+	master_shadow_panel.show()
 	game_menu.show()
 	
 func _unhandled_key_input(event):
