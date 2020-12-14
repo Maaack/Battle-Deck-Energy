@@ -42,11 +42,12 @@ func _on_server_disconnected():
 
 func refresh_lobby():
 	var players : Array = Network.players.values()
+	var is_server : bool = get_tree().is_network_server()
 	$LobbyPanel/ItemList.clear()
 	for player in players:
 		if player is PlayerData:
 			$LobbyPanel/ItemList.add_item(player.name)
-	$LobbyPanel/ButtonsMargin/ButtonsHBox/StartButton.disabled = not get_tree().is_network_server()
+	$LobbyPanel/ButtonsMargin/ButtonsHBox/StartButton.disabled = not (is_server and players.size() > 1)
 
 func _ready():
 	Network.connect("connection_failed", self, "_on_connection_failed")

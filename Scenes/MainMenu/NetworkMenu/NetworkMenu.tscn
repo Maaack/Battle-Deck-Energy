@@ -247,6 +247,7 @@ margin_left = 218.0
 margin_right = 404.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
+disabled = true
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false

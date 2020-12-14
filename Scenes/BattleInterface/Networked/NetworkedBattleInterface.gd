@@ -1,6 +1,8 @@
 extends BattleInterface
 
 
+const ROUND_TIME_LIMIT = 60
+
 func _ready():
 	battle_manager = $NetworkedBattleManager
 	player_interface = $NetworkedPlayerInterface
@@ -11,7 +13,7 @@ func _advance_character_phase():
 func _on_BattleManager_turn_started(character : CharacterData):
 	if character == player_character:
 		player_interface.start_turn()
-		player_interface.start_timer(40)
+		player_interface.start_timer(ROUND_TIME_LIMIT)
 
 func _on_BattleManager_card_discarded(character : CharacterData, card : CardData):
 	if character == player_character:
