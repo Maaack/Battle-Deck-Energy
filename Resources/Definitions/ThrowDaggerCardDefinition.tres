@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "ATTACK"
-term = "Attack"
-definition = "Deals damage to target(s) equal to value."
+key = "THROW_DAGGER_CARD"
+term = "Throw Dagger Card"
+definition = "Deal [b]2[/b] Damage.
+Retain.
+Exhaust."
 related_definitions = [  ]

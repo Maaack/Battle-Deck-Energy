@@ -187,15 +187,15 @@ func _on_BattleInterface_player_won():
 	battle_shadow_panel.show()
 	var level : LevelData = level_manager.get_current_level()
 	var loot_interface = loot_interface_scene.instance()
+	var card_list : WeightedDataList = level.lootable_cards.duplicate()
+	loot_interface.card_options = card_list.slice_random(3)
+	loot_interface.player_data = player_data
 	campaign_interface_container.add_child(loot_interface)
 	loot_interface.connect("card_collected", self, "_on_LootPanel_card_collected")
 	loot_interface.connect("level_completed", self, "_unload_levels_and_continue")
 	loot_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
 	loot_interface.connect("card_inspected", self, "_on_Card_inspected")
 	loot_interface.connect("card_forgotten", self, "_on_Card_forgotten")
-	var card_list : WeightedDataList = level.lootable_cards.duplicate()
-	loot_interface.card_options = card_list.slice_random(3)
-	loot_interface.player_data = player_data
 
 func _on_LootPanel_card_collected(card:CardData):
 	if player_data is CharacterData:

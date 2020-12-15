@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION = 'v0.1.1'
+const VERSION = 'v0.2.0'
 const PERSIST_PATH = 'user://'
 const DECK_TITLE_KEY = 'deckTitle'
 const DECK_CARDS_KEY = 'deckCards'
@@ -120,6 +120,7 @@ func _new_progress_dictionary():
 	}
 
 func _new_progress_file():
+	make_local_directory()
 	var file_handler = File.new()
 	var directory_path : String = get_local_path()
 	var date : Dictionary = OS.get_datetime()

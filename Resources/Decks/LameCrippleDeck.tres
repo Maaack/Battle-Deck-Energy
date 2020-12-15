@@ -17,6 +17,6 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Lame Cripple Deck"
+title = "Limp Crippling Deck"
 icon = ExtResource( 8 )
 cards = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ) ]

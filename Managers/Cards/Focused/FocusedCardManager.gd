@@ -15,6 +15,9 @@ var active : bool = true
 func get_focus_time():
 	return default_focus_time
 
+func get_focused_card():
+	return _focused_card
+
 func is_card_focused(card_node:CardNode2D):
 	return _focused_card == card_node
 

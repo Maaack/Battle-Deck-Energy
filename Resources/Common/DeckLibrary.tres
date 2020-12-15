@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=11 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Common/CommonData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Decks/LameShieldDeck.tres" type="Resource" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Resources/Decks/LameMarkingDeck.tres" type="Resource" id=6]
 [ext_resource path="res://Resources/Decks/LameCrippleDeck.tres" type="Resource" id=7]
 [ext_resource path="res://Resources/Decks/LameVenomousDeck.tres" type="Resource" id=8]
-[ext_resource path="res://Resources/Decks/LamestStartingDeck.tres" type="Resource" id=9]
 [ext_resource path="res://Resources/Decks/LameBuffDeck.tres" type="Resource" id=10]
 
 [resource]
@@ -21,6 +20,5 @@ data = {
 "Lame Poisonous Deck": ExtResource( 3 ),
 "Lame Shield Deck": ExtResource( 2 ),
 "Lame Strike Deck": ExtResource( 5 ),
-"Lame Venomous Deck": ExtResource( 8 ),
-"Lamest Starting Deck": ExtResource( 9 )
+"Lame Venomous Deck": ExtResource( 8 )
 }
