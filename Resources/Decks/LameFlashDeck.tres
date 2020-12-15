@@ -18,6 +18,6 @@
 
 [resource]
 script = ExtResource( 15 )
-title = "Lame Flash Deck"
+title = "Short Flash Deck"
 icon = ExtResource( 3 )
 cards = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 9 ) ]

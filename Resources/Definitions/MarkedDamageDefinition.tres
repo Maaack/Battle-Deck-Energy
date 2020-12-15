@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Definitions/MarkedDefinition.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+key = "MARKED_DAMAGE"
+term = "Marked Damage"
+definition = "Deals damage to the target(s) equal to the value of [b]Marked[/b] on the target(s)."
+related_definitions = [ ExtResource( 2 ) ]

@@ -236,7 +236,6 @@ wait_time = 0.6
 one_shot = true
 
 [node name="ContinueDelayTimer" type="Timer" parent="."]
-wait_time = 1.2
 
 [node name="SparksDelayTimer" type="Timer" parent="."]
 wait_time = 1.5

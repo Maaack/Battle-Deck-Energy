@@ -2,15 +2,15 @@ extends Control
 
 
 var tooltip_list_scene = preload("res://Scenes/TooltipList/TooltipList.tscn")
+var definition_library = preload("res://Resources/Common/DefinitionLibrary.tres")
 
-export(Array, Resource) var term_definitions : Array = [] setget set_term_definitions
 export(float) var list_position_margin : float = 132
 
 var key_definition_map : Dictionary = {}
 
 func _reset_key_definition_map():
 	key_definition_map.clear()
-	for definition_data in term_definitions:
+	for definition_data in definition_library.data.values():
 		if definition_data is DefinitionData:
 			key_definition_map[definition_data.key] = definition_data
 
@@ -21,8 +21,7 @@ func _reset_tooltips():
 func reset():
 	_reset_tooltips()
 
-func set_term_definitions(value:Array):
-	term_definitions = value
+func _ready():
 	_reset_key_definition_map()
 
 func define_key(key:String, list_instance:TooltipListNode2D):

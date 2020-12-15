@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "ATTACK"
-term = "Attack"
-definition = "Deals damage to target(s) equal to value."
+key = "RECALL_CARD"
+term = "Recall Card"
+definition = "Draw [b]2[/b] cards.
+Exhaust."
 related_definitions = [  ]
