@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/StatusEffects/ApplyDefenseUp4.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyAttackUp4.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Effects/StatusEffects/ApplyAttackUp3.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/CureFragileEffect.tres" type="Resource" id=4]
 [ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/anvil-impact.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Effects/CureWeakEffect.tres" type="Resource" id=6]
