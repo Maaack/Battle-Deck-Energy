@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "ATTACK"
-term = "Attack"
-definition = "Deals damage to target(s) equal to value."
+key = "SMASH_ATTACK"
+term = "Smash Attack"
+definition = "Deals double (2x) damage to active [b]Block[/b] on target(s), and then deals damage to target(s) equal to remaining value."
 related_definitions = [  ]

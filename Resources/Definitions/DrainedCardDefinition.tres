@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-key = "ATTACK"
-term = "Attack"
-definition = "Deals damage to target(s) equal to value."
+key = "DRAINED_CARD"
+term = "Drained Card"
+definition = "Loses [b]1[/b] Energy when drawn.
+Momentary.
+Unplayable."
 related_definitions = [  ]
