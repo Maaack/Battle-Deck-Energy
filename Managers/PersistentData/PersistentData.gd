@@ -10,6 +10,7 @@ const CAMPAIGN_HEALTH_KEY = 'campaignHealth'
 const CAMPAIGN_SEED_KEY = 'campaignSeed'
 const SAVE_DECK_FILENAME_PREFIX = 'SaveDeck'
 const SAVE_PROGRESS_FILENAME_PREFIX = 'SaveProgress'
+const SAVE_BATTLE_FILENAME_PREFIX = 'SaveBattle'
 
 onready var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 
@@ -44,7 +45,12 @@ func make_local_directory():
 	var dir = Directory.new()
 	var local_path : String = get_local_path()
 	if not dir.dir_exists(local_path):
-		dir.make_dir_recursive(local_path)
+		var err = dir.make_dir(local_path)
+		if err:
+			print("Error code %d making directory: %s" % [err, local_path])
+			err = OS.execute("CMD.exe", ["/C", "mkdir %s" % local_path])
+			if err:
+				print("Error code %d OS executing mkdir: %s" % [err, local_path])
 
 func _load_deck_from_data(saved_dict : Dictionary):
 	var loaded_deck : DeckData = DeckData.new()
@@ -87,7 +93,7 @@ func _get_progress_file_path():
 	var directory_path : String = get_local_path()
 	var contents : Array = list_contents(directory_path)
 	var match_string : String = SAVE_PROGRESS_FILENAME_PREFIX + \
-	"\\d{4}-\\d{2}-\\d{2}_\\d{2}:\\d{2}:\\d{2}\\.json"
+	"\\d{4}-\\d{2}-\\d{2}_\\d{2}-\\d{2}-\\d{2}\\.json"
 	regex.compile(match_string)
 	for content in contents:
 		var regex_match = regex.search(content)
@@ -119,15 +125,29 @@ func _new_progress_dictionary():
 		CAMPAIGN_SEED_KEY : 0,
 	}
 
-func _new_progress_file():
+func _get_datetime_string():
+	var date : Dictionary = OS.get_datetime()
+	return "%4d-%02d-%02d_%02d-%02d-%02d" % [date['year'], date['month'], date['day'], date['hour'], date['minute'], date['second']]
+
+func _new_file(filename_prefix : String):
 	make_local_directory()
 	var file_handler = File.new()
 	var directory_path : String = get_local_path()
-	var date : Dictionary = OS.get_datetime()
-	var date_string : String = "%4d-%02d-%02d_%02d:%02d:%02d" % [date['year'], date['month'], date['day'], date['hour'], date['minute'], date['second']]
-	var file_path : String = "%s%s%s.json" % [directory_path, SAVE_PROGRESS_FILENAME_PREFIX, date_string]
-	file_handler.open(file_path, File.WRITE)
+	var date_string : String = _get_datetime_string()
+	var file_path : String = "%s%s%s.json" % [directory_path, filename_prefix, date_string]
+	var err = file_handler.open(file_path, File.WRITE)
+	if err:
+		print("Error code %d opening file for writing: %s" % [err, file_path])
 	return file_handler
+
+func _new_progress_file():
+	return _new_file(SAVE_PROGRESS_FILENAME_PREFIX)
+
+func _new_battle_file():
+	return _new_file(SAVE_BATTLE_FILENAME_PREFIX)
+
+func _new_deck_file():
+	return _new_file(SAVE_DECK_FILENAME_PREFIX)
 
 func _open_progress_file():
 	var file_handler = File.new()
@@ -185,13 +205,7 @@ func get_last_deck():
 	return _load_deck_from_data(progress_data)
 
 func save_deck(deck : Array, name : String, icon : Texture):
-	make_local_directory()
-	var file_handler = File.new()
-	var date : Dictionary = OS.get_datetime()
-	var date_string : String = "%4d-%02d-%02d_%02d:%02d:%02d" % [date['year'], date['month'], date['day'], date['hour'], date['minute'], date['second']]
-	var directory_path : String = get_local_path()
-	var file_path : String = "%s%s%s.json" % [directory_path, SAVE_DECK_FILENAME_PREFIX, date_string]
-	file_handler.open(file_path, File.WRITE)
+	var file_handler = _new_deck_file()
 	var saved_dict : Dictionary = _save_deck_to_data(deck, name, icon)
 	file_handler.store_line(to_json(saved_dict))
 	file_handler.close()
@@ -203,7 +217,7 @@ func load_decks():
 	var contents : Array = list_contents(directory_path)
 	var regex = RegEx.new()
 	var match_string : String = SAVE_DECK_FILENAME_PREFIX + \
-	"\\d{4}-\\d{2}-\\d{2}_\\d{2}:\\d{2}:\\d{2}\\.json"
+	"\\d{4}-\\d{2}-\\d{2}_\\d{2}-\\d{2}-\\d{2}\\.json"
 	regex.compile(match_string)
 	for content in contents:
 		var regex_match = regex.search(content)
