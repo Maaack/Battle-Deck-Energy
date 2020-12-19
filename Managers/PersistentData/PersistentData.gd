@@ -2,6 +2,11 @@ extends Node
 
 const VERSION = 'v0.2.0'
 const PERSIST_PATH = 'user://'
+const BATTLE_TITLE_KEY = 'title'
+const BATTLE_DATA_KEY = 'data'
+const BATTLE_LOG_KEY = 'log'
+const BATTLE_LOG_DATE_KEY = 'logDate'
+const BATTLE_LOG_TEXT_KEY = 'logText'
 const DECK_TITLE_KEY = 'deckTitle'
 const DECK_CARDS_KEY = 'deckCards'
 const DECK_ICON_KEY = 'deckIcon'
@@ -15,6 +20,8 @@ const SAVE_BATTLE_FILENAME_PREFIX = 'SaveBattle'
 onready var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 
 var progress_data : Dictionary = {}
+var battle_data : Dictionary = {}
+var battle_file : File
 
 static func list_contents(path:String):
 	var contents : Array = []
@@ -115,6 +122,13 @@ func reset_progress():
 	_delete_progress_files()
 	load_progress()
 
+func _new_battle_dictionary():
+	return {
+		BATTLE_TITLE_KEY : '',
+		BATTLE_DATA_KEY : [],
+		BATTLE_LOG_KEY : [],
+	}
+
 func _new_progress_dictionary():
 	return {
 		DECK_CARDS_KEY : [],
@@ -204,6 +218,23 @@ func get_last_deck():
 		load_progress()
 	return _load_deck_from_data(progress_data)
 
+func start_battle(title : String, extra_data : Array = []):
+	finish_battle()
+	battle_file = _new_battle_file()
+	battle_data = _new_battle_dictionary()
+	battle_data[BATTLE_TITLE_KEY] = title
+	battle_data[BATTLE_DATA_KEY] = extra_data
+
+func log_battle_action(log_text : String):
+	if not BATTLE_LOG_KEY in battle_data:
+		print('Warning: Attempting to log battle action without `log` key in dict')
+		return
+	var battle_log_dict = {
+		BATTLE_LOG_DATE_KEY : _get_datetime_string(),
+		BATTLE_LOG_TEXT_KEY : log_text
+	}
+	battle_data[BATTLE_LOG_KEY].append(battle_log_dict)
+
 func save_deck(deck : Array, name : String, icon : Texture):
 	var file_handler = _new_deck_file()
 	var saved_dict : Dictionary = _save_deck_to_data(deck, name, icon)
@@ -236,3 +267,13 @@ func load_deck_file(filepath : String):
 	file_handler.close()
 	var saved_deck : DeckData = _load_deck_from_data(saved_dict)
 	return saved_deck
+
+func finish_battle():
+	if battle_file is File and battle_file.is_open():
+		log_battle_action("Battle Finished")
+		battle_file.store_line(to_json(battle_data))
+		battle_file.close()
+
+func _exit_tree():
+	finish_battle()
+		

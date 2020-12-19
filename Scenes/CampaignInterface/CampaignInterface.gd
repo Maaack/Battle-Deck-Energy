@@ -41,6 +41,7 @@ func start_battle(current_level:BattleLevelData):
 		print("Warning: Previous battle has not cleared.")
 		battle_interface.queue_free()
 		battle_interface = null
+	PersistentData.start_battle("Level %d" % level_manager.current_level)
 	battle_interface = battle_interface_scene.instance()
 	battle_interface_container.add_child(battle_interface)
 	battle_interface.connect("player_lost", self, "_on_BattleInterface_player_lost")
@@ -117,7 +118,9 @@ func _start_next_level():
 	start_level()
 
 func _clear_all_levels():
+	tooltip_manager.reset()
 	if is_instance_valid(battle_interface):
+		PersistentData.finish_battle()
 		battle_interface.queue_free()
 		battle_interface = null
 	for child in campaign_interface_container.get_children():
@@ -171,8 +174,7 @@ func _on_DeadPanel_exit_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
 
 func _on_BattleInterface_player_lost():
-	battle_interface.queue_free()
-	tooltip_manager.reset()
+	_clear_all_levels()
 	battle_shadow_panel.show()
 	dead_panel.show()
 
@@ -182,8 +184,7 @@ func _unload_levels_and_continue():
 	_start_next_level()
 
 func _on_BattleInterface_player_won():
-	battle_interface.queue_free()
-	tooltip_manager.reset()
+	_clear_all_levels()
 	battle_shadow_panel.show()
 	var level : LevelData = level_manager.get_current_level()
 	var loot_interface = loot_interface_scene.instance()
@@ -254,4 +255,5 @@ func _on_CampaignGameMenu_save_and_exit_button_pressed():
 	if not PersistentData.has_progress():
 		print("Error: Progress recreated during level")
 		PersistentData.save_progress(campaign_seed, player_data, level_manager.current_level)
+	_clear_all_levels()
 	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")

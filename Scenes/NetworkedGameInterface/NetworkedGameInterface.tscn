@@ -99,7 +99,6 @@ __meta__ = {
 [node name="TooltipManager" parent="." instance=ExtResource( 12 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
 
 [node name="MoodManager" parent="." instance=ExtResource( 13 )]
 intro_song = ExtResource( 8 )
