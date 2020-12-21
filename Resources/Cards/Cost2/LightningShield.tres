@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Lightning Shield"
-description = "Block %DEFEND Damage and draw %DRAW_CARD card(s)."
+description = "Block %DEFEND Damage and draw %DRAW_CARD cards."
 energy_cost = 2
 icon = ExtResource( 2 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

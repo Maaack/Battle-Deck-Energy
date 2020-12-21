@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Potty Mouth"
-description = "Deal %ATTACK Damage and add %ADD_SHOCKED Shock card(s).
+description = "Deal %ATTACK Damage and add %ADD_SHOCKED Shock card.
 Exhaust."
 energy_cost = 1
 icon = ExtResource( 5 )

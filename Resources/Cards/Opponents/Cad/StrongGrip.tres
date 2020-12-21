@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Strong Grip"
-description = "Apply %APPLY_WEAK Weak and add %ADD_RESTRAINED Restrained card(s).
+description = "Apply %APPLY_WEAK Weak and add %ADD_RESTRAINED Restrained card.
 Exhaust."
 energy_cost = 1
 icon = ExtResource( 5 )

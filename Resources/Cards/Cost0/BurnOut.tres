@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Burn Out"
-description = "Gain %GAIN_ENERGY Energy and add %ADD_DRAINED Drained card(s)."
+description = "Gain %GAIN_ENERGY Energy and add %ADD_DRAINED Drained card."
 energy_cost = 0
 icon = ExtResource( 3 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )

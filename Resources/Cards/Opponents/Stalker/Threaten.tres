@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Threaten"
-description = "Apply %APPLY_VULNERABLE Vulnerable, and add %ADD_RESTRAINED Restrained card(s).
+description = "Apply %APPLY_VULNERABLE Vulnerable, and add %ADD_RESTRAINED Restrained card.
 Exhaust."
 energy_cost = 2
 icon = ExtResource( 3 )

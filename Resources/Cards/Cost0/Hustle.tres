@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Hustle"
-description = "Apply %APPLY_HASTENED Hastened.
+description = "Next turn, draw %APPLY_HASTENED extra cards.
 Momentary."
 energy_cost = 0
 icon = ExtResource( 4 )

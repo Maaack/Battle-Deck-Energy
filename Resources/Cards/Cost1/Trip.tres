@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Trip"
-description = "Interrupts buffs activating on the next turn."
+description = "Interrupts enemy buffs from activating on the next turn."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
