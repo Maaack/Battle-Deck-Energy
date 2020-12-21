@@ -6,7 +6,7 @@ class_name StatusManager
 signal status_updated(status, delta)
 signal related_status_changed(character, status, delta)
 
-enum CycleMode{NONE, START_1, START_2, START_3, END}
+enum CycleMode{NONE, START_1, START_2, START_3, END, BUFFS, CURSES}
 
 var status_map : Dictionary = {}
 var status_cycle_map : Dictionary = {}
@@ -117,7 +117,6 @@ func decrement_duration(status:StatusData):
 			emit_signal("status_updated", status.duplicate(), diff)
 			if status is RelatedStatusData:
 				var related_character = related_status_character_map[status]
-				print(related_character)
 				var related_status : RelatedStatusData = _duplicate_relating_status(status)
 				related_status.set_stack_value(diff)
 				emit_signal("related_status_changed", related_character, related_status, diff)
@@ -127,9 +126,12 @@ func decrement_duration(status:StatusData):
 func decrement_durations(cycle_mode:int = CycleMode.START_1):
 	var local_status_cycle_map : Dictionary = status_cycle_map.duplicate()
 	for status in local_status_cycle_map:
-		if local_status_cycle_map[status] != cycle_mode:
-			continue
 		if status is StatusData:
+			if cycle_mode == CycleMode.BUFFS:
+				if status.status_type != StatusData.StatusType.BUFF:
+					continue
+			elif local_status_cycle_map[status] != cycle_mode:
+				continue
 			if status.get_stack_value() == 0:
 				lose_status(status)
 				continue

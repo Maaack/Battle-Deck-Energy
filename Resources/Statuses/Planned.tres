@@ -13,3 +13,4 @@ intensity = 1
 duration = 1
 type_tag = "PLANNED"
 stack_type = 1
+status_type = 1

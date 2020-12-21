@@ -1,15 +1,16 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Statuses/RelatedStatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats/parried.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/BadStats2/crossed-swords.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Parried"
 description = "Adds Riposte on opponent if they attack for the duration of the turn."
 icon = ExtResource( 2 )
-color = Color( 0.823529, 0.392157, 0.443137, 1 )
+color = Color( 0.54902, 0.560784, 0.682353, 1 )
 intensity = 1
 duration = 1
 type_tag = "PARRIED"
 stack_type = 0
+status_type = 2

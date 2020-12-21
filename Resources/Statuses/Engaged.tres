@@ -14,4 +14,5 @@ intensity = 1
 duration = 1
 type_tag = "ENGAGED"
 stack_type = 0
+status_type = 1
 relating_status = ExtResource( 3 )
