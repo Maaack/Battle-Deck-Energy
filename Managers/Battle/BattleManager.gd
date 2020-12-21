@@ -68,6 +68,7 @@ func _connect_character_battle_manager(character_battle_manager : CharacterBattl
 	character_battle_manager.connect("card_reshuffled", self, "_on_CharacterBattleManager_card_reshuffled")
 	character_battle_manager.connect("character_died", self, "_on_CharacterBattleManager_character_died")
 	character_battle_manager.connect("status_updated", self, "_on_CharacterBattleManager_status_updated")
+	character_battle_manager.connect("related_status_changed", self, "_on_CharacterBattleManager_related_status_changed")
 	character_battle_manager.connect("turn_ended", self, "_on_CharacterBattleManager_turn_ended")
 
 func add_character(character_data : CharacterData, team : String):
@@ -201,12 +202,14 @@ func on_card_played(character : CharacterData, card:CardData, opportunity:Opport
 	character_battle_manager.play_card_on_opportunity(card, opportunity)
 
 func _on_CharacterBattleManager_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
+	PersistentData.log_battle_action("`%s` plays `%s` on `%s` target `%s`" % [character.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	emit_signal("card_played", character, card, opportunity)
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 	opportunities_manager.remove_opportunity(opportunity)
 	_discard_or_exhaust_card(character, card)
 	
 func _on_CharacterBattleManager_card_revealed(character : CharacterData, card : CardData, opportunity : OpportunityData):
+	PersistentData.log_battle_action("`%s` reveals `%s` on `%s` target `%s`" % [character.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	emit_signal("card_revealed", character, card, opportunity)
 
 func on_ending_turn(character : CharacterData):
@@ -220,6 +223,9 @@ func _on_CharacterBattleManager_turn_ended(character : CharacterData):
 
 func _on_CharacterBattleManager_status_updated(character : CharacterData, status, delta):
 	emit_signal("status_updated", character, status, delta)
+
+func _on_CharacterBattleManager_related_status_changed(character : CharacterData, status, origin):
+	_on_EffectManager_apply_status(character, status, origin)
 
 func _on_CharacterBattleManager_character_died(character):
 	if _battle_ended:

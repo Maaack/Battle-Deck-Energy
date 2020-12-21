@@ -44,6 +44,7 @@ remotesync func create_character_for_player(player_id : int):
 	battle_interface.add_player(player_id, player_character, player.name)
 
 remotesync func init_battle_scene():
+	PersistentData.start_battle("Networked")
 	if is_instance_valid(battle_interface):
 		print("Warning: Previous battle has not cleared.")
 		battle_interface.queue_free()
@@ -86,17 +87,22 @@ func _on_deck_selected():
 		Network.connect('synced', self, 'all_ready')
 	Network.sync_up()
 
+func _leave_battle_to_menu():
+	if is_instance_valid(battle_interface):
+		battle_interface.queue_free()
+	PersistentData.finish_battle()
+	Network.leave_server()
+	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+
 func _on_player_disconnected(player : PlayerData):
 	if player.unique_id in ignore_player_disconnects:
 		return
 	DialogWindows.report_error('Player `%s` Disconnected!' % player.name)
-	Network.leave_server()
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	_leave_battle_to_menu()
 
 func _on_server_disconnected():
 	DialogWindows.report_error('Server Disconnected!')
-	Network.leave_server()
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	_leave_battle_to_menu()
 
 func _ready():
 	Network.connect("player_disconnected", self, "_on_player_disconnected")
@@ -108,17 +114,13 @@ func _on_DeckSelectorInterface_deck_selected(deck : DeckData):
 	local_player_deck = deck
 	_on_deck_selected()
 
-func _on_DeadPanel_retry_pressed():
-	Network.leave_server()
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
-
 func _on_WinPanel_return_pressed():
-	Network.leave_server()
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	_leave_battle_to_menu()
 
 func _on_BattleInterface_player_lost():
 	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
 	_ignore_all_disconnects()
+	PersistentData.finish_battle()
 	battle_interface.queue_free()
 	tooltip_manager.reset()
 	battle_shadow_panel.show()
@@ -127,6 +129,7 @@ func _on_BattleInterface_player_lost():
 func _on_BattleInterface_player_won():
 	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
 	_ignore_all_disconnects()
+	PersistentData.finish_battle()
 	battle_interface.queue_free()
 	tooltip_manager.reset()
 	battle_shadow_panel.show()
@@ -177,9 +180,7 @@ func _on_NetworkedGameMenu_forfeit_and_exit_button_pressed():
 	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
 	disconnect_delay_timer.start()
 	yield(disconnect_delay_timer, "timeout")
-	Network.leave_server()
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	_leave_battle_to_menu()
 
 func _on_LosePanel_exit_pressed():
-	Network.leave_server()
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	_leave_battle_to_menu()

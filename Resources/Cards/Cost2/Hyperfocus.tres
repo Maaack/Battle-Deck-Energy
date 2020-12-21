@@ -10,8 +10,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Hyperfocus"
-description = "Apply %APPLY_PLANNED Planned, %APPLY_HASTENED Hastened, %APPLY_FOCUSED Focused.
-Retain."
+description = "Next %APPLY_PLANNED turns, add [b]1[/b] Skill. Next turn, draw %APPLY_HASTENED extra cards and add %APPLY_FOCUSED Skill. Retain."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.54902, 0.560784, 0.682353, 1 )

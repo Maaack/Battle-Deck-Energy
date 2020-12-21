@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Engage"
-description = "Apply %APPLY_ENGAGED Engaged."
+description = "Next turn, add %APPLY_ENGAGED Attack on enemy."
 energy_cost = 0
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Mass Manipulation"
-description = "Adds %ADD_CONFUSED Confused, %ADD_DIFFIDENT Diffident, %ADD_INTIMIDATED Intimidated, and %ADD_DRAINED Drained card(s).
+description = "Adds %ADD_CONFUSED Confused, %ADD_DIFFIDENT Diffident, %ADD_INTIMIDATED Intimidated, and %ADD_DRAINED Drained card.
 Exhaust."
 energy_cost = 3
 icon = ExtResource( 4 )

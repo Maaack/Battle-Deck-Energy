@@ -13,10 +13,11 @@ signal card_exhausted(character, card)
 signal card_reshuffled(character, card)
 signal card_played(character, card, opportunity)
 signal status_updated(character, status, delta)
+signal related_status_changed(character, status, origin)
 signal character_died(character)
 signal turn_ended(character)
 
-onready var status_manager = $StatusManager
+onready var status_manager : StatusManager = $StatusManager
 onready var iff_manager = $IFFManager
 
 var defense_status_resource = preload("res://Resources/Statuses/Defense.tres")
@@ -199,6 +200,8 @@ func gain_status(status:StatusData, origin:CharacterData):
 			cycle_mode = StatusManager.CycleMode.START_2
 		EffectCalculator.POISONED_STATUS, EffectCalculator.BARRICADED_STATUS:
 			cycle_mode = StatusManager.CycleMode.START_3
+		EffectCalculator.MARKED_STATUS, EffectCalculator.ENGAGED_STATUS:
+			cycle_mode = StatusManager.CycleMode.NONE
 	status_manager.gain_status(status, cycle_mode, is_target)
 
 func _run_start_of_turn_statuses():
@@ -227,10 +230,10 @@ func update_end_of_turn_statuses():
 
 func get_statuses():
 	var all_statuses : Array = status_manager.status_map.values()
-	for related_statuses in status_manager.related_status_source_map.values():
+	for related_statuses in status_manager.source_related_status_map.values():
 		if related_statuses is Dictionary:
 			all_statuses += related_statuses.values()
-	for related_statuses in status_manager.related_status_target_map.values():
+	for related_statuses in status_manager.target_related_status_map.values():
 		if related_statuses is Dictionary:
 			all_statuses += related_statuses.values()
 	return all_statuses
@@ -246,3 +249,6 @@ func has_status(type_tag:String, source = null):
 
 func _on_StatusManager_status_updated(status:StatusData, delta:int):
 	emit_signal("status_updated", character_data, status, delta)
+
+func _on_StatusManager_related_status_changed(related_character, status, delta):
+	emit_signal("related_status_changed", related_character, status, character_data)

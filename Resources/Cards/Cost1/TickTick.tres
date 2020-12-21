@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Tick Tick"
-description = "Gain %GAIN_ENERGY Energy and apply %APPLY_CHARGED Charged.
+description = "Gain %GAIN_ENERGY Energy. Next turn, gain %APPLY_CHARGED Energy.
 Exhaust."
 energy_cost = 1
 icon = ExtResource( 4 )

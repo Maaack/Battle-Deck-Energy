@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Endure"
-description = "Apply %APPLY_REINFORCED Reinforced and %APPLY_FORTIFIED Fortified.
+description = "Next turn, add %APPLY_REINFORCED Defends. Next %APPLY_FORTIFIED turns, add [b]1[/b] Defend.
 Retain."
 energy_cost = 1
 icon = ExtResource( 3 )

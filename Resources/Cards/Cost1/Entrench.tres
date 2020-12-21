@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Entrench"
-description = "Block %DEFEND Damage and apply %APPLY_FORTIFIED Fortified."
+description = "Block %DEFEND Damage. Next %APPLY_FORTIFIED turns, add [b]1[/b] Defend."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

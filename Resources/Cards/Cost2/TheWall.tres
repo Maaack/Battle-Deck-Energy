@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Fourth Wall"
-description = "Block %DEFEND Damage over [b]4[/b] shields and apply %APPLY_FORTIFIED Fortified."
+description = "Block %DEFEND Damage over [b]4[/b] shields. Next %APPLY_FORTIFIED turns, add [b]1[/b] Defend."
 energy_cost = 2
 icon = ExtResource( 5 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )

@@ -77,7 +77,8 @@ func _on_SelectorCardManager_clicked_card(card_node : CardNode2D):
 	selected_card = card_node
 	card_manager.hold_focus = false
 	card_manager.focus_on_card(card_node)
-	card_node.connect("mouse_exited", self, "_on_CardNode2D_mouse_exited")
+	if not card_node.is_connected("mouse_exited", self, "_on_CardNode2D_mouse_exited"):
+		card_node.connect("mouse_exited", self, "_on_CardNode2D_mouse_exited")
 	card_manager.hold_focus = true
 	add_card_button.disabled = false
 

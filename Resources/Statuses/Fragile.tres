@@ -13,3 +13,4 @@ intensity = 1
 duration = 1
 type_tag = "FRAGILE"
 stack_type = 1
+status_type = 2

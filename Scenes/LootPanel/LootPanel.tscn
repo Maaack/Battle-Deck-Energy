@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/LootPanel/HBoxContainer.gd" type="Script" id=4]
 [ext_resource path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=6]
-[ext_resource path="res://Resources/Cards/StartingSet/LameRecoup.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Cards/Cost1/Trip.tres" type="Resource" id=7]
 [ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=8]
 
 [node name="LootPanel" type="Control"]

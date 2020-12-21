@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Quick Thinking"
-description = "Apply %APPLY_HASTENED Hastened."
+description = "Next turn, draw %APPLY_HASTENED extra cards."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )

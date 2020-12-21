@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Hide Ace"
-description = "Apply %APPLY_CHARGED Charged."
+description = "Next turn, gain %APPLY_CHARGED Energy."
 energy_cost = 0
 icon = ExtResource( 3 )
 base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
