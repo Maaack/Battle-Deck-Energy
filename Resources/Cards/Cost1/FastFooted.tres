@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Fast Footed"
-description = "Block %DEFEND Damage and apply %APPLY_HASTENED Hastened.
+description = "Block %DEFEND Damage. Next turn, draw %APPLY_HASTENED extra cards.
 Can take Skill action."
 energy_cost = 1
 icon = ExtResource( 4 )

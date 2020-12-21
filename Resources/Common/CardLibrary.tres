@@ -19,7 +19,7 @@
 [ext_resource path="res://Resources/Cards/Cost0/BurnOut.tres" type="Resource" id=17]
 [ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=18]
 [ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=19]
-[ext_resource path="res://Resources/Cards/StartingSet/LameRecoup.tres" type="Resource" id=20]
+[ext_resource path="res://Resources/Cards/Cost1/Trip.tres" type="Resource" id=20]
 [ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=21]
 [ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=22]
 [ext_resource path="res://Resources/Cards/StressCards/Diffident.tres" type="Resource" id=23]
@@ -154,7 +154,6 @@ data = {
 "Intimidated": ExtResource( 4 ),
 "Ironclad": ExtResource( 8 ),
 "Kickoff": ExtResource( 12 ),
-"Lame Recoup": ExtResource( 20 ),
 "Lame Shield": ExtResource( 19 ),
 "Lame Slash": ExtResource( 18 ),
 "Last Stand": ExtResource( 11 ),
@@ -200,6 +199,7 @@ data = {
 "Toxic Slash": ExtResource( 36 ),
 "Toxic Spit": ExtResource( 10 ),
 "Toxify": ExtResource( 85 ),
+"Trip": ExtResource( 20 ),
 "Twofold": ExtResource( 79 ),
 "Unlucky": ExtResource( 97 ),
 "Venom Vial": ExtResource( 13 ),

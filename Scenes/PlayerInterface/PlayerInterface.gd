@@ -46,9 +46,11 @@ var _revealed_card_opportunity_map = {}
 
 func set_player_data(value:CharacterData):
 	player_data = value
+	PersistentData.log_battle_action("Add player with %d health" % player_data.health)
 	if is_instance_valid(player_data):
 		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_draw_pile_size(player_data.deck_size())
+		PersistentData.log_battle_action("Starting at %d draw size" % player_data.deck_size())
 		actions_board.player_data = player_data
 		var interface : CharacterActionsInterface = actions_board.get_actions_instance(player_data)
 		interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
@@ -56,6 +58,7 @@ func set_player_data(value:CharacterData):
 		interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
 
 func add_opponent(opponent:CharacterData):
+	PersistentData.log_battle_action("Opponent added %s" % opponent.nickname)
 	var interface  : CharacterActionsInterface = actions_board.add_opponent(opponent)
 	interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
 	interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
@@ -66,6 +69,7 @@ func set_draw_pile_count(count:int):
 		player_board.set_draw_pile_size(count)
 
 func draw_card(card_data:CardData):
+	PersistentData.log_battle_action("Drew card `%s`" % card_data.title)
 	var hand_offset : Vector2 = hand_manager.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_transform : TransformData = TransformData.new(hand_offset)
 	animation_queue.animate_move(card_data, new_transform, 0.3, 0.15, AnimationType.DRAWING_INTO_HAND)
@@ -82,6 +86,7 @@ func discard_card(card_data:CardData):
 	if _card_owner_map[card_data] != player_data:
 		opponent_discards_card(card_data)
 		return
+	PersistentData.log_battle_action("Discarded card `%s`" % card_data.title)
 	var discard_pile_offset : Vector2 = discard_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = discard_pile_offset
@@ -94,6 +99,7 @@ func exhaust_card(card_data:CardData):
 	if _card_owner_map[card_data] != player_data:
 		opponent_discards_card(card_data)
 		return
+	PersistentData.log_battle_action("Exhausted card `%s`" % card_data.title)
 	var exhaust_pile_offset : Vector2 = exhaust_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var new_transform : TransformData = TransformData.new()
 	new_transform.position = exhaust_pile_offset

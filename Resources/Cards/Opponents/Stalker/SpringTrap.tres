@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Spring Trap"
-description = "Deal %ATTACK Damage and add %ADD_RESTRAINED Restrained card(s).
+description = "Deal %ATTACK Damage and add %ADD_RESTRAINED Restrained card.
 Exhaust."
 energy_cost = 2
 icon = ExtResource( 4 )

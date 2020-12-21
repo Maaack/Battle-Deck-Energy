@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Swift Strike"
-description = "Deal %ATTACK Damage and apply %APPLY_HASTENED Hastened on self."
+description = "Deal %ATTACK Damage. Next turn, draw %APPLY_HASTENED extra cards."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

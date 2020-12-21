@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 2 )
 title = "That Deep Cut"
-description = "Deal %ATTACK Damage and add %ADD_HIT_NERVE Hit Nerve card(s).
+description = "Deal %ATTACK Damage and add %ADD_HIT_NERVE Hit Nerve card.
 Exhaust."
 energy_cost = 3
 icon = ExtResource( 4 )

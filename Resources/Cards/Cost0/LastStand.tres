@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Last Stand"
-description = "Block %DEFEND Damage and apply %APPLY_BARRICADED Barricaded.
+description = "Block %DEFEND Damage. Next turn, block %APPLY_BARRICADED Damage.
 Exhaust."
 energy_cost = 0
 icon = ExtResource( 5 )

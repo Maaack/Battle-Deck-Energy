@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Mooch"
-description = "Deal %ATTACK Damage and gain %APPLY_STRONG Strong on self."
+description = "Deal %ATTACK Damage and apply %APPLY_STRONG Strong on self."
 energy_cost = 0
 icon = ExtResource( 5 )
 base_color = Color( 0.615686, 0.188235, 0.231373, 1 )

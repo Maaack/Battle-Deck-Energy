@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Alert"
-description = "Apply %APPLY_FOCUSED Focused.
+description = "Next turn, add %APPLY_FOCUSED Skill.
 Innate.
 Retain."
 energy_cost = 0

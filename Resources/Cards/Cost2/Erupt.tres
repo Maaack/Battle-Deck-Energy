@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Erupt"
-description = "Gain %GAIN_ENERGY Energy and draw %DRAW_CARD card(s).
+description = "Gain %GAIN_ENERGY Energy and draw %DRAW_CARD card.
 Exhaust."
 energy_cost = 2
 icon = ExtResource( 4 )

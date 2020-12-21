@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
+[ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/TripWeight1.tres" type="Resource" id=1]
 [ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/RecoupWeight1.tres" type="Resource" id=16]
 [ext_resource path="res://Resources/Weighted/WeightedCards/Cost1/StrongShieldWeight1.tres" type="Resource" id=24]
@@ -7,4 +8,4 @@
 
 [resource]
 script = ExtResource( 3 )
-starting_list = [ ExtResource( 24 ), ExtResource( 36 ), ExtResource( 16 ) ]
+starting_list = [ ExtResource( 24 ), ExtResource( 36 ), ExtResource( 16 ), ExtResource( 1 ) ]

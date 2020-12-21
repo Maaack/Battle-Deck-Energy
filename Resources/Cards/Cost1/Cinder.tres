@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Cinder"
-description = "Apply %APPLY_CHARGED Charged.
+description = "Next turn, gain %APPLY_CHARGED Energy.
 Retain."
 energy_cost = 1
 icon = ExtResource( 3 )

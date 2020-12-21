@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 title = "Quick Cover"
-description = "Block %DEFEND Damage and apply %APPLY_HASTENED Hastened."
+description = "Block %DEFEND Damage. Next turn, draw %APPLY_HASTENED extra cards."
 energy_cost = 1
 icon = ExtResource( 3 )
 base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
