@@ -44,6 +44,7 @@ remotesync func create_character_for_player(player_id : int):
 	battle_interface.add_player(player_id, player_character, player.name)
 
 remotesync func init_battle_scene():
+	PersistentData.start_battle("Networked")
 	if is_instance_valid(battle_interface):
 		print("Warning: Previous battle has not cleared.")
 		battle_interface.queue_free()
@@ -62,7 +63,6 @@ remotesync func start_battle():
 	battle_shadow_panel.hide()
 	waiting_label.hide()
 	battle_interface.player_character = local_player_character
-	PersistentData.start_battle("Networked")
 	battle_interface.start_battle()
 	mood_manager.set_mood(mood_manager.HARD_BATLE_MOOD)
 

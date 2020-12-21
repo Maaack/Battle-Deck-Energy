@@ -13,9 +13,9 @@ const DECK_ICON_KEY = 'deckIcon'
 const CAMPAIGN_LEVEL_KEY = 'campaignLevel'
 const CAMPAIGN_HEALTH_KEY = 'campaignHealth'
 const CAMPAIGN_SEED_KEY = 'campaignSeed'
-const SAVE_DECK_FILENAME_PREFIX = 'SaveDeck'
-const SAVE_PROGRESS_FILENAME_PREFIX = 'SaveProgress'
-const SAVE_BATTLE_FILENAME_PREFIX = 'SaveBattle'
+const SAVE_DECK_FILENAME_PREFIX = 'Deck'
+const SAVE_PROGRESS_FILENAME_PREFIX = 'Progress'
+const SAVE_BATTLE_FILENAME_PREFIX = 'BattleLog'
 
 onready var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 
@@ -227,7 +227,7 @@ func start_battle(title : String, extra_data : Array = []):
 
 func log_battle_action(log_text : String):
 	if not BATTLE_LOG_KEY in battle_data:
-		print('Warning: Attempting to log battle action without `log` key in dict')
+		print('Warning: Attempting to log battle action `%s` without `log` key in dict' % log_text)
 		return
 	var battle_log_dict = {
 		BATTLE_LOG_DATE_KEY : _get_datetime_string(),
