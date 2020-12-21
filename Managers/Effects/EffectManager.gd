@@ -155,6 +155,7 @@ func _resolve_status(status:StatusData, mod:float, effect_type:String, source:Ch
 		if modifying_status:
 			modifying_status.source = source
 			modifying_status.target = target
+			modifying_status.relating_status = modified_status
 			modifying_status.set_stack_value(modified_status.get_stack_value())
 			emit_signal("apply_status", source, modifying_status, target)
 		else:

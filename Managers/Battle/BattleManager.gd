@@ -68,6 +68,7 @@ func _connect_character_battle_manager(character_battle_manager : CharacterBattl
 	character_battle_manager.connect("card_reshuffled", self, "_on_CharacterBattleManager_card_reshuffled")
 	character_battle_manager.connect("character_died", self, "_on_CharacterBattleManager_character_died")
 	character_battle_manager.connect("status_updated", self, "_on_CharacterBattleManager_status_updated")
+	character_battle_manager.connect("related_status_changed", self, "_on_CharacterBattleManager_related_status_changed")
 	character_battle_manager.connect("turn_ended", self, "_on_CharacterBattleManager_turn_ended")
 
 func add_character(character_data : CharacterData, team : String):
@@ -222,6 +223,9 @@ func _on_CharacterBattleManager_turn_ended(character : CharacterData):
 
 func _on_CharacterBattleManager_status_updated(character : CharacterData, status, delta):
 	emit_signal("status_updated", character, status, delta)
+
+func _on_CharacterBattleManager_related_status_changed(character : CharacterData, status, origin):
+	_on_EffectManager_apply_status(character, status, origin)
 
 func _on_CharacterBattleManager_character_died(character):
 	if _battle_ended:
