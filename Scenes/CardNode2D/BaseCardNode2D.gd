@@ -27,7 +27,7 @@ func tween_to(new_transform:TransformData, tween_time:float = 0.0, animation_typ
 	tween_completed.emit(self)
 
 func _finish_tween():
-	if tween_node.is_running():
+	if tween_node and tween_node.is_running():
 		position = target_transform.position
 		rotation = target_transform.rotation
 		scale = target_transform.scale

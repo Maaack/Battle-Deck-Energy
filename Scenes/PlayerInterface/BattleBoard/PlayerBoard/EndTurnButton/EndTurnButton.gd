@@ -49,6 +49,6 @@ func _update_glow():
 		glow_node.hide()
 		animation_node.stop()
 
-func _on_Button_is_pressed():
+func _on_Button_pressed():
 	pressed.emit()
 	button_node.disabled = true
