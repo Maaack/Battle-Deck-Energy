@@ -19,8 +19,8 @@ func tween_to(new_transform:TransformData, tween_time:float = 0.0, animation_typ
 	tween_node = create_tween()
 	tween_started.emit(self)
 	tween_node.tween_property(self, "position", new_transform.position, tween_time)
-	tween_node.tween_property(self, "rotation", new_transform.rotation, tween_time)
-	tween_node.tween_property(self, "scale", new_transform.scale, tween_time)
+	tween_node.parallel().tween_property(self, "rotation", new_transform.rotation, tween_time)
+	tween_node.parallel().tween_property(self, "scale", new_transform.scale, tween_time)
 	_last_animation_type = animation_type
 	target_transform = new_transform
 	await tween_node.finished
