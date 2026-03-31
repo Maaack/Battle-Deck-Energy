@@ -1,15 +1,15 @@
 extends Control
 
 
-onready var player_name_line_edit = $MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer/PlayerNameLineEdit
-onready var ip_line_edit = $MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer/IPLineEdit
-onready var port_line_edit = $MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer/PortLineEdit
+@onready var player_name_line_edit = $MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer/PlayerNameLineEdit
+@onready var ip_line_edit = $MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer/IPLineEdit
+@onready var port_line_edit = $MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer/PortLineEdit
 
 signal back_button_pressed
 
 func _on_BackButton_pressed():
 	emit_signal("back_button_pressed")
-	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/MainMenu.tscn")
 
 func _on_HostButton_pressed():
 	var port : int = port_line_edit.text.to_int()
@@ -42,7 +42,7 @@ func _on_server_disconnected():
 
 func refresh_lobby():
 	var players : Array = Network.players.values()
-	var is_server : bool = get_tree().is_network_server()
+	var is_server : bool = get_tree().is_server()
 	$LobbyPanel/ItemList.clear()
 	for player in players:
 		if player is PlayerData:
@@ -50,10 +50,10 @@ func refresh_lobby():
 	$LobbyPanel/ButtonsMargin/ButtonsHBox/StartButton.disabled = not (is_server and players.size() > 1)
 
 func _ready():
-	Network.connect("connection_failed", self, "_on_connection_failed")
-	Network.connect("connection_succeeded", self, "_on_connection_succeeded")
-	Network.connect("player_list_changed", self, "refresh_lobby")
-	Network.connect("server_disconnected", self, "_on_server_disconnected")
+	Network.connect("connection_failed", Callable(self, "_on_connection_failed"))
+	Network.connect("connection_succeeded", Callable(self, "_on_connection_succeeded"))
+	Network.connect("player_list_changed", Callable(self, "refresh_lobby"))
+	Network.connect("server_disconnected", Callable(self, "_on_server_disconnected"))
 	var new_player : PlayerData = PlayerData.new()
 	if OS.has_environment("USERNAME"):
 		new_player.name = OS.get_environment("USERNAME")
@@ -75,8 +75,8 @@ func open_multiplayer_menu():
 	$LobbyPanel.hide()
 	$MultiplayerPanel.show()
 
-remotesync func start_game():
-	get_tree().change_scene("res://Scenes/NetworkedGameInterface/NetworkedGameInterface.tscn")
+@rpc("any_peer", "call_local") func start_game():
+	get_tree().change_scene_to_file("res://Scenes/NetworkedGameInterface/NetworkedGameInterface.tscn")
 
 func _on_LeaveButton_pressed():
 	Network.leave_server()

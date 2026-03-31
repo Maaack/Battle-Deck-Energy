@@ -3,7 +3,7 @@ extends Control
 
 class_name ActionsInterface
 
-var character_data : CharacterData setget set_character_data
+var character_data : CharacterData: set = set_character_data
 var opportunities_map : Dictionary = {}
 
 func set_character_data(value:CharacterData):

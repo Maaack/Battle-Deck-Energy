@@ -9,37 +9,37 @@ signal status_forgotten(status_icon)
 
 const ARMOR_STATUS = 'DEFENSE'
 
-onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/NicknameLabel
-onready var health_meter = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter
-onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
-onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
-onready var active_panel = $ActivePanel
+@onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/NicknameLabel
+@onready var health_meter = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter
+@onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
+@onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
+@onready var active_panel = $ActivePanel
 
-export(PackedScene) var stab_audio_scene : PackedScene
-export(PackedScene) var clank_audio_scene : PackedScene
-export(PackedScene) var shield_audio_scene : PackedScene
+@export var stab_audio_scene: PackedScene
+@export var clank_audio_scene: PackedScene
+@export var shield_audio_scene: PackedScene
 
 func _update_nickname(nickname:String = ""):
 	nickname_label.text = nickname
 
 func _get_random_pitch():
-	return rand_range(0.89090, 1.12246)
+	return randf_range(0.89090, 1.12246)
 
 func spawn_audio_stream(audio_stream_instance:AudioStreamPlayer2D):
 	health_meter.add_child(audio_stream_instance)
 	audio_stream_instance.pitch_scale = _get_random_pitch()
 	audio_stream_instance.play()
-	yield(audio_stream_instance, "finished")
+	await audio_stream_instance.finished
 	audio_stream_instance.queue_free()
 
 func play_stab_audio():
-	spawn_audio_stream(stab_audio_scene.instance())
+	spawn_audio_stream(stab_audio_scene.instantiate())
 
 func play_clank_audio():
-	spawn_audio_stream(clank_audio_scene.instance())
+	spawn_audio_stream(clank_audio_scene.instantiate())
 
 func play_shield_audio():
-	spawn_audio_stream(shield_audio_scene.instance())
+	spawn_audio_stream(shield_audio_scene.instantiate())
 	
 func update_health():
 	if not is_instance_valid(health_meter):
@@ -60,7 +60,7 @@ func update_meters():
 	update_health()
 
 func set_character_data(value:CharacterData):
-	.set_character_data(value)
+	super.set_character_data(value)
 	update_meters()
 	_update_nickname()
 

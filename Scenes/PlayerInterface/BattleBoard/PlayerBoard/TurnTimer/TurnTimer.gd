@@ -3,11 +3,11 @@ extends Control
 
 signal timeout
 
-onready var second_timer = $SecondTimer
-onready var label = $Panel/Label
-onready var animation_player = $AnimationPlayer
+@onready var second_timer = $SecondTimer
+@onready var label = $Panel/Label
+@onready var animation_player = $AnimationPlayer
 
-var time : int = 0 setget set_time
+var time : int = 0: set = set_time
 var starting_time : int = 0
 
 func _set_timer_text():

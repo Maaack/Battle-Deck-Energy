@@ -4,12 +4,12 @@ extends Control
 signal save_pressed(cards, title, icon)
 signal skip_pressed
 
-onready var title_line_edit = $Panel/OptionsMargin/OptionsVBox/DeckTitleHBox/TitleLineEdit
-onready var icon_item_list = $Panel/OptionsMargin/OptionsVBox/DeckIconHBox/IconItemList
-onready var save_button = $Panel/ButtonsMargin/HBoxContainer/SaveButton
+@onready var title_line_edit = $Panel/OptionsMargin/OptionsVBox/DeckTitleHBox/TitleLineEdit
+@onready var icon_item_list = $Panel/OptionsMargin/OptionsVBox/DeckIconHBox/IconItemList
+@onready var save_button = $Panel/ButtonsMargin/HBoxContainer/SaveButton
 
 var icons : Array
-var cards : Array setget set_cards
+var cards : Array: set = set_cards
 var selected_index = null
 
 func set_cards(value : Array):
@@ -40,7 +40,7 @@ func _on_IconItemList_item_selected(index):
 	_is_saveable()
 
 func _on_SaveButton_pressed():
-	var icon : Texture = icon_item_list.get_item_icon(selected_index)
+	var icon : Texture2D = icon_item_list.get_item_icon(selected_index)
 	var title : String = title_line_edit.text
 	emit_signal("save_pressed", cards, title, icon)
 	queue_free()

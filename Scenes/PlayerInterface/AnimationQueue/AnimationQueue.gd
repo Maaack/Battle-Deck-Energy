@@ -6,10 +6,10 @@ class_name AnimationQueue
 signal animation_started(animation_data)
 signal queue_empty
 
-onready var timer_node = $Timer
+@onready var timer_node = $Timer
 
-export(float, 0.0, 16.0) var default_tween_time : float = 0.5
-export(float, 0.0, 16.0) var default_wait_time : float = 0.25
+@export var default_tween_time : float = 0.5 # (float, 0.0, 16.0)
+@export var default_wait_time : float = 0.25 # (float, 0.0, 16.0)
 
 var animation_queue : Array = []
 

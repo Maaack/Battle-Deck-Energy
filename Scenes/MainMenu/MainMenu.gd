@@ -1,15 +1,15 @@
 extends Control
 
 
-onready var window_container = $WindowContainer
-onready var animation_player = $BackgroundControl/TextureRect2/AnimationPlayer
-onready var init_options = $MarginContainer/MainControl/InitOptionsContainer
-onready var play_options = $MarginContainer/MainControl/PlayOptionsContainer
-onready var extras_options = $MarginContainer/MainControl/ExtrasOptionsContainer
-onready var continue_campaign_button = $MarginContainer/MainControl/PlayOptionsContainer/ContinueCampaignButton
-onready var audio_menu = $MarginContainer/MainControl/AudioMenu
-onready var deck_list_menu = $MarginContainer/MainControl/DeckListInterface
-onready var tooltip_manager = $TooltipManager
+@onready var window_container = $WindowContainer
+@onready var animation_player = $BackgroundControl/TextureRect2/AnimationPlayer
+@onready var init_options = $MarginContainer/MainControl/InitOptionsContainer
+@onready var play_options = $MarginContainer/MainControl/PlayOptionsContainer
+@onready var extras_options = $MarginContainer/MainControl/ExtrasOptionsContainer
+@onready var continue_campaign_button = $MarginContainer/MainControl/PlayOptionsContainer/ContinueCampaignButton
+@onready var audio_menu = $MarginContainer/MainControl/AudioMenu
+@onready var deck_list_menu = $MarginContainer/MainControl/DeckListInterface
+@onready var tooltip_manager = $TooltipManager
 
 var credits_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
 var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.tscn")
@@ -31,18 +31,18 @@ func _remove_deck_view(deck_viewer:Node):
 
 func _attach_deck_view(deck_viewer:DeckViewer):
 	window_container.add_child(deck_viewer)
-	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
-	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
-	deck_viewer.connect("back_pressed", self, "_remove_deck_view", [deck_viewer])
+	deck_viewer.connect("card_inspected", Callable(self, "_on_Card_inspected"))
+	deck_viewer.connect("card_forgotten", Callable(self, "_on_Card_forgotten"))
+	deck_viewer.connect("back_pressed", Callable(self, "_remove_deck_view").bind(deck_viewer))
 
 func _on_ViewDeck_pressed(deck:Array):
-	var deck_view = deck_view_scene.instance()
+	var deck_view = deck_view_scene.instantiate()
 	get_tree().paused = true
 	_attach_deck_view(deck_view)
 	deck_view.deck = deck
 
 func _on_CreditsButton_pressed():
-	var credits_instance = credits_scene.instance()
+	var credits_instance = credits_scene.instantiate()
 	window_container.add_child(credits_instance)
 
 func _on_ExitGameButton_pressed():
@@ -63,14 +63,14 @@ func _on_BackButton_pressed():
 	init_options.show()
 
 func _on_OnlineArenaButton_pressed():
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_ContinueCampaignButton_pressed():
-	get_tree().change_scene("res://Scenes/CampaignInterface/CampaignInterface.tscn")
+	get_tree().change_scene_to_file("res://Scenes/CampaignInterface/CampaignInterface.tscn")
 
 func _on_NewCampaignButton_pressed():
 	PersistentData.reset_progress()
-	get_tree().change_scene("res://Scenes/CampaignInterface/CampaignInterface.tscn")
+	get_tree().change_scene_to_file("res://Scenes/CampaignInterface/CampaignInterface.tscn")
 
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -97,7 +97,7 @@ func _on_DeckListInterface_deck_selected(deck : DeckData):
 	var cards : Array = []
 	for card in deck.cards:
 		cards.append(card.duplicate())
-	var deck_view = deck_view_scene.instance()
+	var deck_view = deck_view_scene.instantiate()
 	_attach_deck_view(deck_view)
 	deck_view.deck = cards
 	deck_view.title = deck.title

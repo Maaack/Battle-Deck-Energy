@@ -3,4 +3,4 @@ extends LevelData
 
 class_name StoryLevelData
 
-export(String, MULTILINE) var bbcode_text : String
+@export var text : String # (String, MULTILINE)

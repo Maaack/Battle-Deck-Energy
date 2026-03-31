@@ -31,7 +31,7 @@ func add_opportunity(type:int, source:CharacterData, target:CharacterData):
 func remove_opportunity(opportunity:OpportunityData):
 	var remove_index = opportunities.find(opportunity)
 	if remove_index >= 0:
-		opportunities.remove(remove_index)
+		opportunities.remove_at(remove_index)
 		emit_signal("opportunity_removed", opportunity)
 
 func get_matching_opportunity(source:CharacterData, target:CharacterData, type : int):

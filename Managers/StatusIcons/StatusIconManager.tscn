@@ -3,9 +3,9 @@
 [ext_resource path="res://Managers/StatusIcons/StatusIconsManager.gd" type="Script" id=1]
 
 [node name="StatusIconManager" type="HBoxContainer"]
-margin_right = 295.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 0, 36 )
+offset_right = 295.0
+offset_bottom = 24.0
+custom_minimum_size = Vector2( 0, 36 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )

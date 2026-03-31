@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddDrained.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddDiffident.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/shouting.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/shouting.png" type="Texture2D" id=4]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" type="Resource" id=5]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddConfused.tres" type="Resource" id=6]
 

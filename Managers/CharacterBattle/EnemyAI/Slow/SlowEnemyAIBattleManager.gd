@@ -5,7 +5,7 @@ class_name SlowEnemyAIBattleManager
 
 signal card_revealed(character, card, opportunity)
 
-onready var slowed_cards_timer = $SlowedCardsTimer
+@onready var slowed_cards_timer = $SlowedCardsTimer
 
 var slowed_cards : Array = []
 
@@ -24,7 +24,7 @@ func take_turn(opportunities : Array):
 		var card_and_opp : Array = slowed_cards.pop_front()
 		emit_signal("card_played", character_data, card_and_opp[0], card_and_opp[1])
 		slowed_cards_timer.start()
-		yield(slowed_cards_timer, "timeout")
+		await slowed_cards_timer.timeout
 	for card in hand.cards:
 		if card is CardData:
 			var divide_weight = 1

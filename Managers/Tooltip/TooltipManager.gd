@@ -4,7 +4,7 @@ extends Control
 var tooltip_list_scene = preload("res://Scenes/TooltipList/TooltipList.tscn")
 var definition_library = preload("res://Resources/Common/DefinitionLibrary.tres")
 
-export(float) var list_position_margin : float = 132
+@export var list_position_margin: float = 132
 
 var key_definition_map : Dictionary = {}
 
@@ -32,12 +32,12 @@ func define_key(key:String, list_instance:TooltipListNode2D):
 
 func show_definitions(keys:Array, list_position:Vector2, list_upward:bool = false):
 	_reset_tooltips()
-	var tooltip_list_instance : TooltipListNode2D = tooltip_list_scene.instance()
+	var tooltip_list_instance : TooltipListNode2D = tooltip_list_scene.instantiate()
 	tooltip_list_instance.position = list_position
 	add_child(tooltip_list_instance)
 	if list_upward:
 		tooltip_list_instance.tooltip_container.grow_vertical = Control.GROW_DIRECTION_BEGIN
-		tooltip_list_instance.tooltip_container.rect_position.y -= tooltip_list_instance.tooltip_container.rect_size.y
+		tooltip_list_instance.tooltip_container.position.y -= tooltip_list_instance.tooltip_container.size.y
 	for key in keys:
 		define_key(key, tooltip_list_instance)
 

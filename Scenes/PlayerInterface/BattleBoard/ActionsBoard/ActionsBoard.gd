@@ -1,17 +1,17 @@
 extends HBoxContainer
 
 
-onready var player_actions_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.tscn")
-onready var opponent_actions_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.tscn")
+@onready var player_actions_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.tscn")
+@onready var opponent_actions_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.tscn")
 
-var player_data : CharacterData setget set_player_data
+var player_data : CharacterData: set = set_player_data
 var characters_map : Dictionary = {}
 var opportunity_owner_map : Dictionary = {}
 
 func add_character_actions(character:CharacterData, scene:PackedScene):
 	if character in characters_map:
 		return characters_map[character]
-	var instance = scene.instance()
+	var instance = scene.instantiate()
 	add_child(instance)
 	instance.character_data = character
 	characters_map[character] = instance

@@ -17,42 +17,22 @@ const SAVE_DECK_FILENAME_PREFIX = 'Deck'
 const SAVE_PROGRESS_FILENAME_PREFIX = 'Progress'
 const SAVE_BATTLE_FILENAME_PREFIX = 'BattleLog'
 
-onready var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
+@onready var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 
 var progress_data : Dictionary = {}
 var battle_data : Dictionary = {}
-var battle_file : File
+var battle_file : FileAccess
 
 static func list_contents(path:String):
-	var contents : Array = []
-	var directory = Directory.new()
-	var err = directory.open(path)
-	if err:
-		print("Error code %d opening directory: %s" % [err, path])
-		return
-	directory.list_dir_begin()
-		
-	while true:
-		var filename = directory.get_next()
-		if filename == "":
-			break
-		if filename.begins_with("."):
-			continue
-		if directory.current_is_dir():
-			contents.append(filename + "/")
-		else:
-			contents.append(filename)
-	directory.list_dir_end()
-	return contents
+	return DirAccess.get_files_at(path)
 
 func get_local_path():
 	return "%s%s/" % [PERSIST_PATH, VERSION]
 
 func make_local_directory():
-	var dir = Directory.new()
 	var local_path : String = get_local_path()
-	if not dir.dir_exists(local_path):
-		var err = dir.make_dir(local_path)
+	if not DirAccess.dir_exists_absolute(local_path):
+		var err = DirAccess.make_dir_absolute(local_path)
 		if err:
 			print("Error code %d making directory: %s" % [err, local_path])
 			err = OS.execute("CMD.exe", ["/C", "mkdir %s" % local_path])
@@ -74,7 +54,7 @@ func _load_deck_from_data(saved_dict : Dictionary):
 			loaded_deck.cards.append(card)
 	return loaded_deck
 
-func _save_deck_to_data(deck : Array, name : String, icon : Texture):
+func _save_deck_to_data(deck : Array, name : String, icon : Texture2D):
 	var saved_dict : Dictionary = {}
 	saved_dict[DECK_TITLE_KEY] = name
 	if icon != null:
@@ -109,13 +89,12 @@ func _get_progress_file_path():
 	return ''
 
 func has_progress():
-	return bool(_get_progress_file_path())
+	return not _get_progress_file_path().is_empty()
 
 func _delete_progress_files():
-	var dir = Directory.new()
 	var existing_file_path = _get_progress_file_path()
 	while(existing_file_path):
-		dir.remove(existing_file_path)
+		DirAccess.remove_absolute(existing_file_path)
 		existing_file_path = _get_progress_file_path()
 
 func reset_progress():
@@ -140,19 +119,18 @@ func _new_progress_dictionary():
 	}
 
 func _get_datetime_string():
-	var date : Dictionary = OS.get_datetime()
+	var date : Dictionary = Time.get_datetime_dict_from_system()
 	return "%4d-%02d-%02d_%02d-%02d-%02d" % [date['year'], date['month'], date['day'], date['hour'], date['minute'], date['second']]
 
 func _new_file(filename_prefix : String):
 	make_local_directory()
-	var file_handler = File.new()
 	var directory_path : String = get_local_path()
 	var date_string : String = _get_datetime_string()
 	var file_path : String = "%s%s%s.json" % [directory_path, filename_prefix, date_string]
-	var err = file_handler.open(file_path, File.WRITE)
-	if err:
-		print("Error code %d opening file for writing: %s" % [err, file_path])
-	return file_handler
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	if file == null:
+		print("Error code %d opening file for writing: %s" % [FileAccess.get_open_error(), file_path])
+	return file
 
 func _new_progress_file():
 	return _new_file(SAVE_PROGRESS_FILENAME_PREFIX)
@@ -164,11 +142,10 @@ func _new_deck_file():
 	return _new_file(SAVE_DECK_FILENAME_PREFIX)
 
 func _open_progress_file():
-	var file_handler = File.new()
 	var existing_file_path = _get_progress_file_path()
 	if existing_file_path:
-		file_handler.open(existing_file_path, File.READ)
-	return file_handler
+		return FileAccess.open(existing_file_path, FileAccess.READ)
+	return _new_progress_file()
 
 func save_progress(campaign_seed : int, character : CharacterData, level : int):
 	var new_progress_data : Dictionary = _save_deck_to_data(character.deck, '', null)
@@ -177,17 +154,19 @@ func save_progress(campaign_seed : int, character : CharacterData, level : int):
 	new_progress_data[CAMPAIGN_SEED_KEY] = campaign_seed
 	progress_data = new_progress_data
 	_delete_progress_files()
-	var file_handler : File = _new_progress_file()
-	file_handler.store_line(to_json(progress_data))
+	var file_handler : FileAccess = _new_progress_file()
+	file_handler.store_line(JSON.new().stringify(progress_data))
 	file_handler.close()
 
 func _load_or_start_progress():
-	var file_handler : File = _open_progress_file()
+	var file_handler : FileAccess = _open_progress_file()
 	var saved_dict : Dictionary
 	if file_handler.is_open():
 		var contents : String = file_handler.get_line()
 		if contents != '':
-			saved_dict = parse_json(contents)
+			var test_json_conv = JSON.new()
+			test_json_conv.parse(contents)
+			saved_dict = test_json_conv.get_data()
 		else:
 			saved_dict = _new_progress_dictionary()
 		file_handler.close()
@@ -199,22 +178,22 @@ func load_progress():
 	progress_data = _load_or_start_progress()
 
 func get_last_level():
-	if progress_data.empty():
+	if progress_data.is_empty():
 		load_progress()
 	return _load_level_from_data(progress_data)
 
 func get_last_health():
-	if progress_data.empty():
+	if progress_data.is_empty():
 		load_progress()
 	return _load_health_from_data(progress_data)
 
 func get_last_seed():
-	if progress_data.empty():
+	if progress_data.is_empty():
 		load_progress()
 	return _load_seed_from_data(progress_data)
 
 func get_last_deck():
-	if progress_data.empty():
+	if progress_data.is_empty():
 		load_progress()
 	return _load_deck_from_data(progress_data)
 
@@ -235,10 +214,10 @@ func log_battle_action(log_text : String):
 	}
 	battle_data[BATTLE_LOG_KEY].append(battle_log_dict)
 
-func save_deck(deck : Array, name : String, icon : Texture):
+func save_deck(deck : Array, name : String, icon : Texture2D):
 	var file_handler = _new_deck_file()
 	var saved_dict : Dictionary = _save_deck_to_data(deck, name, icon)
-	file_handler.store_line(to_json(saved_dict))
+	file_handler.store_line(JSON.new().stringify(saved_dict))
 	file_handler.close()
 
 func load_decks():
@@ -259,19 +238,20 @@ func load_decks():
 	return decks
 
 func load_deck_file(filepath : String):
-	var file_handler = File.new()
-	if not file_handler.file_exists(filepath):
+	var file = FileAccess.open(filepath, FileAccess.READ)
+	if file == null:
 		return
-	file_handler.open(filepath, File.READ)
-	var saved_dict : Dictionary = parse_json(file_handler.get_line())
-	file_handler.close()
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(file.get_line())
+	var saved_dict : Dictionary = test_json_conv.get_data()
+	file.close()
 	var saved_deck : DeckData = _load_deck_from_data(saved_dict)
 	return saved_deck
 
 func finish_battle():
-	if battle_file is File and battle_file.is_open():
+	if battle_file is FileAccess and battle_file.is_open():
 		log_battle_action("Battle Finished")
-		battle_file.store_line(to_json(battle_data))
+		battle_file.store_line(JSON.new().stringify(battle_data))
 		battle_file.close()
 
 func _exit_tree():

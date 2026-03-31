@@ -1,16 +1,16 @@
 extends DeckViewer
 
 
-export(String) var player_card_directory : String
+@export var player_card_directory: String
 
 func list_contents(path:String):
 	var contents = []
-	var directory = Directory.new()
+	var directory = DirAccess.new()
 	var err = directory.open(path)
 	if err:
 		print("Error code %d opening directory: %s" % [err, path])
 		return
-	directory.list_dir_begin()
+	directory.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 	
 	while true:
 		var filename = directory.get_next()

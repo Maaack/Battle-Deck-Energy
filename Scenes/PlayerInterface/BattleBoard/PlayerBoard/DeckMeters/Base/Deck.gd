@@ -1,12 +1,12 @@
-tool
+@tool
 extends Control
 
 
 signal button_pressed
 
-onready var count_label = $TextureRect/Panel/CountLabel
+@onready var count_label = $TextureRect/Panel/CountLabel
 
-var count : int = 0 setget set_count
+var count : int = 0: set = set_count
 
 func set_count(value:int):
 	count = value

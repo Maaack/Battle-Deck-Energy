@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/DeckList/DeckListInterface.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=4]
-[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="FontFile" id=8]
 
 [node name="DeckListInterface" type="Control"]
 anchor_right = 1.0
@@ -19,33 +19,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -312.0
-margin_top = -267.0
-margin_right = 312.0
-margin_bottom = 267.0
+offset_left = -312.0
+offset_top = -267.0
+offset_right = 312.0
+offset_bottom = 267.0
 
 [node name="MarginContainer" type="MarginContainer" parent="DeckSelectPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 16
-custom_constants/margin_top = 32
-custom_constants/margin_left = 16
-custom_constants/margin_bottom = 32
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 32
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DeckSelectPanel/MarginContainer"]
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 608.0
-margin_bottom = 502.0
-custom_constants/separation = 32
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 608.0
+offset_bottom = 502.0
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="DeckSelectPanel/MarginContainer/VBoxContainer"]
-margin_right = 592.0
-margin_bottom = 56.0
-custom_fonts/font = ExtResource( 8 )
+offset_right = 592.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource( 8 )
 text = "Select a Deck to Inspect"
 align = 1
 __meta__ = {
@@ -53,12 +53,12 @@ __meta__ = {
 }
 
 [node name="ItemList" type="ItemList" parent="DeckSelectPanel/MarginContainer/VBoxContainer"]
-margin_top = 88.0
-margin_right = 592.0
-margin_bottom = 378.0
+offset_top = 88.0
+offset_right = 592.0
+offset_bottom = 378.0
 size_flags_vertical = 3
-custom_constants/icon_margin = 10
-custom_constants/hseparation = 50
+theme_override_constants/icon_margin = 10
+theme_override_constants/h_separation = 50
 max_columns = 2
 same_column_width = true
 icon_scale = 0.5
@@ -70,8 +70,8 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -72.0
-custom_colors/font_color = Color( 1, 1, 1, 0.501961 )
+offset_top = -72.0
+theme_override_colors/font_color = Color( 1, 1, 1, 0.501961 )
 text = "Custom decks available by completing the campaign."
 align = 1
 valign = 1
@@ -80,21 +80,21 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DeckSelectPanel/MarginContainer/VBoxContainer"]
-margin_top = 410.0
-margin_right = 592.0
-margin_bottom = 470.0
-custom_constants/separation = 32
+offset_top = 410.0
+offset_right = 592.0
+offset_bottom = 470.0
+theme_override_constants/separation = 32
 
 [node name="BackButton" type="Button" parent="DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 280.0
-margin_bottom = 60.0
+offset_right = 280.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 text = "Back"
 
 [node name="ViewButton" type="Button" parent="DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 312.0
-margin_right = 592.0
-margin_bottom = 60.0
+offset_left = 312.0
+offset_right = 592.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 disabled = true
 text = "View"

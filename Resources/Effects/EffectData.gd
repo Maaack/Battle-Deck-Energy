@@ -7,11 +7,11 @@ enum ApplyMode{NONE, PLAY, DRAW, DISCARD, EXHAUST}
 enum AimMode{TARGET, SOURCE}
 enum TeamAimMode{SINGLE, TEAMMATES, ALL, ALL_ENEMIES}
 
-export(String) var type_tag : String = ''
-export(int) var amount : int = 0
-export(ApplyMode) var apply_mode : int = ApplyMode.PLAY
-export(AimMode) var aim_mode : int = AimMode.TARGET
-export(TeamAimMode) var team_aim_mode : int = TeamAimMode.SINGLE
+@export var type_tag: String = ''
+@export var amount: int = 0
+@export var apply_mode: ApplyMode = ApplyMode.PLAY
+@export var aim_mode: AimMode = AimMode.TARGET
+@export var team_aim_mode: TeamAimMode = TeamAimMode.SINGLE
 
 func _to_string():
 	return "EffectData:%d,%s" % [get_instance_id(), type_tag]

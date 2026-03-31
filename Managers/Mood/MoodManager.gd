@@ -9,13 +9,13 @@ const HARD_BATLE_MOOD = "HARD_BATTLE"
 const SHELTER_MOOD = "SHELTER"
 const VICTORY_MOOD = "VICTORY"
 
-onready var audio_player = $AudioStreamPlayer
+@onready var audio_player = $AudioStreamPlayer
 
-export(AudioStream) var intro_song : AudioStream
-export(AudioStream) var easy_battle_song : AudioStream
-export(AudioStream) var hard_battle_song : AudioStream
-export(AudioStream) var shelter_song : AudioStream
-export(AudioStream) var victory_song : AudioStream
+@export var intro_song: AudioStream
+@export var easy_battle_song: AudioStream
+@export var hard_battle_song: AudioStream
+@export var shelter_song: AudioStream
+@export var victory_song: AudioStream
 
 var current_mood : String
 

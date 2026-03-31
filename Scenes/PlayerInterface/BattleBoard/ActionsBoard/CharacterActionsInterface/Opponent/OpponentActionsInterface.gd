@@ -3,13 +3,13 @@ extends CharacterActionsInterface
 
 class_name OpponentActionsInterface
 
-onready var dead_cover = $DeadCover
-onready var opponent_opportunities_container = $MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer
-onready var opponent_hand_container = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control
-onready var opponent_hand_position = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control/Position2D
+@onready var dead_cover = $DeadCover
+@onready var opponent_opportunities_container = $MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer
+@onready var opponent_hand_container = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control
+@onready var opponent_hand_position = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control/Marker2D
 
 func set_character_data(value:CharacterData):
-	.set_character_data(value)
+	super.set_character_data(value)
 	_update_nickname(character_data.nickname)
 
 func add_opportunity(opportunity:OpportunityData):
@@ -37,7 +37,7 @@ func get_reveal_position():
 	return opponent_opportunities_container.get_card_parent_position()
 
 func get_reveal_scale():
-	return opponent_opportunities_container.rect_scale
+	return opponent_opportunities_container.scale
 
 func get_reveal_transform():
 	var reveal_transform : TransformData = TransformData.new()
@@ -58,5 +58,5 @@ func get_hand_transform():
 	return hand_transform
 
 func defeat_character():
-	.defeat_character()
+	super.defeat_character()
 	dead_cover.show()

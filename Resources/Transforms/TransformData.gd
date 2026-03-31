@@ -11,13 +11,6 @@ var position : Vector2 = DEFAULT_POSITION
 var rotation : float = DEFAULT_ROTATION
 var scale : Vector2 = DEFAULT_SCALE
 
-func duplicate(deep:bool = false):
-	var duplicate = .duplicate(deep)
-	duplicate.position = position
-	duplicate.rotation = rotation
-	duplicate.scale = scale
-	return duplicate
-
 func _to_string():
 	return "%s, %.2f, %s" % [position, rotation, scale]
 

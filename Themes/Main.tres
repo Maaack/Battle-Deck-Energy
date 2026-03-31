@@ -1,17 +1,17 @@
 [gd_resource type="Theme" load_steps=14 format=2]
 
-[ext_resource path="res://Themes/Fonts/MainDynamicFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/MainDynamicFont.tres" type="FontFile" id=1]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBoxTexture.tres" type="StyleBox" id=2]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/NormalStyleBoxTexture.tres" type="StyleBox" id=3]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/PressedStyleBoxTexture.tres" type="StyleBox" id=4]
 [ext_resource path="res://Themes/StyleBoxes/VioletStyleBox.tres" type="StyleBox" id=5]
 [ext_resource path="res://Themes/StyleBoxes/Buttons/DisabledStyleBoxTexture.tres" type="StyleBox" id=6]
-[ext_resource path="res://Themes/Fonts/Buttons/EndTurnDynamicFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Themes/Fonts/Buttons/EndTurnDynamicFont.tres" type="FontFile" id=7]
 [ext_resource path="res://Themes/StyleBoxes/Panels/TooltipStylebox.tres" type="StyleBox" id=8]
-[ext_resource path="res://Themes/Fonts/Labels/BoldDynamicFont.tres" type="DynamicFont" id=9]
-[ext_resource path="res://Themes/Fonts/Labels/NormalDynamicFont.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Themes/Fonts/Labels/ItalicsDynamicFont.tres" type="DynamicFont" id=11]
-[ext_resource path="res://Themes/Fonts/Labels/BoldItalicsDynamicFont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Themes/Fonts/Labels/BoldDynamicFont.tres" type="FontFile" id=9]
+[ext_resource path="res://Themes/Fonts/Labels/NormalDynamicFont.tres" type="FontFile" id=10]
+[ext_resource path="res://Themes/Fonts/Labels/ItalicsDynamicFont.tres" type="FontFile" id=11]
+[ext_resource path="res://Themes/Fonts/Labels/BoldItalicsDynamicFont.tres" type="FontFile" id=12]
 [ext_resource path="res://Themes/StyleBoxes/Popups/WindowDialogStyleBox.tres" type="StyleBox" id=13]
 
 [resource]
@@ -66,12 +66,12 @@ TooltipLabel/constants/shadow_offset_x = 1
 TooltipLabel/constants/shadow_offset_y = 1
 TooltipLabel/fonts/font = ExtResource( 1 )
 TooltipPanel/styles/panel = ExtResource( 5 )
-WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
-WindowDialog/constants/close_h_ofs = 18
-WindowDialog/constants/close_v_ofs = 18
-WindowDialog/constants/scaleborder_size = 4
-WindowDialog/constants/title_height = 20
-WindowDialog/fonts/title_font = null
-WindowDialog/icons/close = null
-WindowDialog/icons/close_highlight = null
-WindowDialog/styles/panel = ExtResource( 13 )
+Window/colors/title_color = Color( 0, 0, 0, 1 )
+Window/constants/close_h_ofs = 18
+Window/constants/close_v_ofs = 18
+Window/constants/scaleborder_size = 4
+Window/constants/title_height = 20
+Window/fonts/title_font = null
+Window/icons/close = null
+Window/icons/close_highlight = null
+Window/styles/panel = ExtResource( 13 )

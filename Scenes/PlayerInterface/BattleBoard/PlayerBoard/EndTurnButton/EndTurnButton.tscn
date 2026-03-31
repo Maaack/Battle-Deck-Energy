@@ -21,21 +21,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -50.0
-margin_right = 128.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 256, 100 )
+offset_left = -128.0
+offset_top = -50.0
+offset_right = 128.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 256, 100 )
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" type="Control" parent="CenterContainer"]
-margin_left = 128.0
-margin_top = 50.0
-margin_right = 128.0
-margin_bottom = 50.0
+offset_left = 128.0
+offset_top = 50.0
+offset_right = 128.0
+offset_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -48,11 +48,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -30.0
-margin_right = 64.0
-margin_bottom = 30.0
-custom_styles/panel = ExtResource( 1 )
+offset_left = -64.0
+offset_top = -30.0
+offset_right = 64.0
+offset_bottom = 30.0
+theme_override_styles/panel = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,11 +65,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -30.0
-margin_right = 64.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 128, 50 )
+offset_left = -64.0
+offset_top = -30.0
+offset_right = 64.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 128, 50 )
 focus_mode = 0
 disabled = true
 text = "End Turn"
@@ -82,27 +82,27 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 5
-custom_constants/margin_top = 5
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" type="Control" parent="Button/MarginContainer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 123.0
-margin_bottom = 55.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 123.0
+offset_bottom = 55.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="Button/MarginContainer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 1
-custom_constants/shadow_offset_y = 1
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 text = "End Turn"
 align = 1
 valign = 1

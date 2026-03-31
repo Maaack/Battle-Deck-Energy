@@ -5,12 +5,12 @@ class_name NetworkedBattleManager
 
 func add_player(player_id : int, character_data : CharacterData, team : String):
 	var battle_manager = add_character(character_data, team)
-	battle_manager.set_network_master(player_id)
+	battle_manager.set_multiplayer_authority(player_id)
 
-remotesync func advance_character_phase():
+@rpc("any_peer", "call_local") func advance_character_phase():
 	character_phase_manager.advance()
 
-remotesync func _remote_on_card_played(card_key : String, card_player_id : int, source_player_id : int, target_player_id : int , opportunity_type : int):
+@rpc("any_peer", "call_local") func _remote_on_card_played(card_key : String, card_player_id : int, source_player_id : int, target_player_id : int , opportunity_type : int):
 	var card_player : CharacterData = Network.get_player_character(card_player_id)
 	var opportunity_source : CharacterData = Network.get_player_character(source_player_id)
 	var opportunity_target : CharacterData = Network.get_player_character(target_player_id)
@@ -20,7 +20,7 @@ remotesync func _remote_on_card_played(card_key : String, card_player_id : int, 
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 	opportunities_manager.remove_opportunity(opportunity)
 
-remotesync func _remote_on_turn_ended(player_id : int):
+@rpc("any_peer", "call_local") func _remote_on_turn_ended(player_id : int):
 	var character : CharacterData = Network.get_player_character(player_id)
 	emit_signal("turn_ended", character)
 	
@@ -34,7 +34,7 @@ func _end_character_turn(character_data : CharacterData):
 		rpc('advance_character_phase')
 
 func on_card_played(character : CharacterData, card:CardData, opportunity:OpportunityData):
-	.on_card_played(character, card, opportunity)
+	super.on_card_played(character, card, opportunity)
 	emit_signal("card_played", character, card, opportunity)
 	_discard_or_exhaust_card(character, card)
 

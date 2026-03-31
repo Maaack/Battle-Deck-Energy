@@ -6,388 +6,13 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Control",
-"class": "ActionsInterface",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionInterface/ActionInterface.gd"
-}, {
-"base": "Resource",
-"class": "AnimationData",
-"language": "GDScript",
-"path": "res://Resources/Animations/AnimationData.gd"
-}, {
-"base": "Node",
-"class": "AnimationQueue",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/AnimationQueue/AnimationQueue.gd"
-}, {
-"base": "Node2D",
-"class": "BaseCardNode2D",
-"language": "GDScript",
-"path": "res://Scenes/CardNode2D/BaseCardNode2D.gd"
-}, {
-"base": "Control",
-"class": "BattleInterface",
-"language": "GDScript",
-"path": "res://Scenes/BattleInterface/BattleInterface.gd"
-}, {
-"base": "LevelData",
-"class": "BattleLevelData",
-"language": "GDScript",
-"path": "res://Resources/Levels/BattleLevelData.gd"
-}, {
-"base": "Node",
-"class": "BattleManager",
-"language": "GDScript",
-"path": "res://Managers/Battle/BattleManager.gd"
-}, {
-"base": "BattleManager",
-"class": "CampaignBattleManager",
-"language": "GDScript",
-"path": "res://Managers/Battle/Campaign/CampaignBattleManager.gd"
-}, {
-"base": "AnimationData",
-"class": "CardAnimationData",
-"language": "GDScript",
-"path": "res://Resources/Animations/CardAnimations/CardAnimationData.gd"
-}, {
-"base": "Control",
-"class": "CardContainer",
-"language": "GDScript",
-"path": "res://Managers/Cards/CardContainer/CardContainer.gd"
-}, {
-"base": "Resource",
-"class": "CardData",
-"language": "GDScript",
-"path": "res://Resources/Cards/CardData.gd"
-}, {
-"base": "Node2D",
-"class": "CardManager",
-"language": "GDScript",
-"path": "res://Managers/Cards/CardManager.gd"
-}, {
-"base": "BaseCardNode2D",
-"class": "CardNode2D",
-"language": "GDScript",
-"path": "res://Scenes/CardNode2D/BDECard/CardNode2D.gd"
-}, {
-"base": "ActionsInterface",
-"class": "CharacterActionsInterface",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.gd"
-}, {
-"base": "Node",
-"class": "CharacterBattleManager",
-"language": "GDScript",
-"path": "res://Managers/CharacterBattle/CharacterBattleManager.gd"
-}, {
-"base": "Resource",
-"class": "CharacterData",
-"language": "GDScript",
-"path": "res://Resources/Characters/CharacterData.gd"
-}, {
-"base": "Resource",
-"class": "CommonData",
-"language": "GDScript",
-"path": "res://Resources/Common/CommonData.gd"
-}, {
-"base": "LevelData",
-"class": "CreditsLevelData",
-"language": "GDScript",
-"path": "res://Resources/Levels/CreditsLevel/CreditsLevelData.gd"
-}, {
-"base": "DeckViewer",
-"class": "DeckCleaner",
-"language": "GDScript",
-"path": "res://Scenes/DeckViewer/DeckCleaner/DeckCleaner.gd"
-}, {
-"base": "Resource",
-"class": "DeckData",
-"language": "GDScript",
-"path": "res://Resources/Decks/DeckData.gd"
-}, {
-"base": "EffectData",
-"class": "DeckModEffectData",
-"language": "GDScript",
-"path": "res://Resources/Effects/DeckModEffects/DeckModEffectData.gd"
-}, {
-"base": "Control",
-"class": "DeckViewer",
-"language": "GDScript",
-"path": "res://Scenes/DeckViewer/DeckViewer.gd"
-}, {
-"base": "Resource",
-"class": "DefinitionData",
-"language": "GDScript",
-"path": "res://Resources/Definitions/DefinitionData.gd"
-}, {
-"base": "Object",
-"class": "EffectCalculator",
-"language": "GDScript",
-"path": "res://Managers/Effects/EffectCalculator.gd"
-}, {
-"base": "Object",
-"class": "EffectCardFilter",
-"language": "GDScript",
-"path": "res://Managers/Effects/EffectCardFilter.gd"
-}, {
-"base": "Resource",
-"class": "EffectData",
-"language": "GDScript",
-"path": "res://Resources/Effects/EffectData.gd"
-}, {
-"base": "Node",
-"class": "EffectsManager",
-"language": "GDScript",
-"path": "res://Managers/Effects/EffectManager.gd"
-}, {
-"base": "CharacterBattleManager",
-"class": "EnemyAIBattleManager",
-"language": "GDScript",
-"path": "res://Managers/CharacterBattle/EnemyAI/EnemyAIBattleManager.gd"
-}, {
-"base": "CardManager",
-"class": "FocusedCardManager",
-"language": "GDScript",
-"path": "res://Managers/Cards/Focused/FocusedCardManager.gd"
-}, {
-"base": "Resource",
-"class": "HandData",
-"language": "GDScript",
-"path": "res://Resources/Hand/HandData.gd"
-}, {
-"base": "FocusedCardManager",
-"class": "InspectorCardManager",
-"language": "GDScript",
-"path": "res://Managers/Cards/Focused/Inspector/InspectorCardManager.gd"
-}, {
-"base": "Resource",
-"class": "LevelData",
-"language": "GDScript",
-"path": "res://Resources/Levels/LevelData.gd"
-}, {
-"base": "Node",
-"class": "MoodManager",
-"language": "GDScript",
-"path": "res://Managers/Mood/MoodManager.gd"
-}, {
-"base": "Node",
-"class": "NetworkManager",
-"language": "GDScript",
-"path": "res://Managers/Network/NetworkManager.gd"
-}, {
-"base": "BattleManager",
-"class": "NetworkedBattleManager",
-"language": "GDScript",
-"path": "res://Managers/Battle/Networked/NetworkedBattleManager.gd"
-}, {
-"base": "CharacterActionsInterface",
-"class": "OpponentActionsInterface",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.gd"
-}, {
-"base": "CharacterData",
-"class": "OpponentCharacterData",
-"language": "GDScript",
-"path": "res://Resources/Characters/OpponentCharacterData.gd"
-}, {
-"base": "CardContainer",
-"class": "OpportunitiesContainer",
-"language": "GDScript",
-"path": "res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.gd"
-}, {
-"base": "Node",
-"class": "OpportunitiesManager",
-"language": "GDScript",
-"path": "res://Managers/Opportunities/OpportunitiesManager.gd"
-}, {
-"base": "Resource",
-"class": "OpportunityData",
-"language": "GDScript",
-"path": "res://Resources/Opportunity/OpportunityData.gd"
-}, {
-"base": "Node",
-"class": "Phase",
-"language": "GDScript",
-"path": "res://Managers/BattlePhase/Phase.gd"
-}, {
-"base": "Node",
-"class": "PhaseManager",
-"language": "GDScript",
-"path": "res://Managers/BattlePhase/PhaseManager.gd"
-}, {
-"base": "CharacterActionsInterface",
-"class": "PlayerActionsInterface",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.gd"
-}, {
-"base": "Resource",
-"class": "PlayerData",
-"language": "GDScript",
-"path": "res://Resources/Players/PlayerData.gd"
-}, {
-"base": "Control",
-"class": "PlayerInterface",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/PlayerInterface.gd"
-}, {
-"base": "StatusData",
-"class": "RelatedStatusData",
-"language": "GDScript",
-"path": "res://Resources/Statuses/RelatedStatusData.gd"
-}, {
-"base": "LevelData",
-"class": "SaveDeckLevelData",
-"language": "GDScript",
-"path": "res://Resources/Levels/SaveDeckLevel/SaveDeckLevelData.gd"
-}, {
-"base": "Control",
-"class": "ScrollingTextPanel",
-"language": "GDScript",
-"path": "res://Scenes/ScrollingTextPanel/ScrollingTextPanel.gd"
-}, {
-"base": "InspectorCardManager",
-"class": "SelectorCardManager",
-"language": "GDScript",
-"path": "res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.gd"
-}, {
-"base": "LevelData",
-"class": "ShelterLevelData",
-"language": "GDScript",
-"path": "res://Resources/Levels/ShelterLevel/ShelterLevelData.gd"
-}, {
-"base": "EnemyAIBattleManager",
-"class": "SlowEnemyAIBattleManager",
-"language": "GDScript",
-"path": "res://Managers/CharacterBattle/EnemyAI/Slow/SlowEnemyAIBattleManager.gd"
-}, {
-"base": "AnimationData",
-"class": "StatusAnimationData",
-"language": "GDScript",
-"path": "res://Resources/Animations/StatusAnimations/StatusAnimationData.gd"
-}, {
-"base": "Resource",
-"class": "StatusData",
-"language": "GDScript",
-"path": "res://Resources/Statuses/StatusData.gd"
-}, {
-"base": "EffectData",
-"class": "StatusEffectData",
-"language": "GDScript",
-"path": "res://Resources/Effects/StatusEffects/StatusEffectData.gd"
-}, {
-"base": "Control",
-"class": "StatusIcon",
-"language": "GDScript",
-"path": "res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd"
-}, {
-"base": "Node",
-"class": "StatusManager",
-"language": "GDScript",
-"path": "res://Managers/Status/StatusManager.gd"
-}, {
-"base": "LevelData",
-"class": "StoryLevelData",
-"language": "GDScript",
-"path": "res://Resources/Levels/StoryLevel/StoryLevelData.gd"
-}, {
-"base": "Node",
-"class": "TeamManager",
-"language": "GDScript",
-"path": "res://Managers/Team/TeamManager.gd"
-}, {
-"base": "Node2D",
-"class": "TooltipListNode2D",
-"language": "GDScript",
-"path": "res://Scenes/TooltipList/TooltipList.gd"
-}, {
-"base": "Resource",
-"class": "TransformData",
-"language": "GDScript",
-"path": "res://Resources/Transforms/TransformData.gd"
-}, {
-"base": "Resource",
-"class": "WeightedData",
-"language": "GDScript",
-"path": "res://Resources/Weighted/WeightedData.gd"
-}, {
-"base": "Resource",
-"class": "WeightedDataList",
-"language": "GDScript",
-"path": "res://Resources/Weighted/WeightedDataList.gd"
-} ]
-_global_script_class_icons={
-"ActionsInterface": "",
-"AnimationData": "",
-"AnimationQueue": "",
-"BaseCardNode2D": "",
-"BattleInterface": "",
-"BattleLevelData": "",
-"BattleManager": "",
-"CampaignBattleManager": "",
-"CardAnimationData": "",
-"CardContainer": "",
-"CardData": "",
-"CardManager": "",
-"CardNode2D": "",
-"CharacterActionsInterface": "",
-"CharacterBattleManager": "",
-"CharacterData": "",
-"CommonData": "",
-"CreditsLevelData": "",
-"DeckCleaner": "",
-"DeckData": "",
-"DeckModEffectData": "",
-"DeckViewer": "",
-"DefinitionData": "",
-"EffectCalculator": "",
-"EffectCardFilter": "",
-"EffectData": "",
-"EffectsManager": "",
-"EnemyAIBattleManager": "",
-"FocusedCardManager": "",
-"HandData": "",
-"InspectorCardManager": "",
-"LevelData": "",
-"MoodManager": "",
-"NetworkManager": "",
-"NetworkedBattleManager": "",
-"OpponentActionsInterface": "",
-"OpponentCharacterData": "",
-"OpportunitiesContainer": "",
-"OpportunitiesManager": "",
-"OpportunityData": "",
-"Phase": "",
-"PhaseManager": "",
-"PlayerActionsInterface": "",
-"PlayerData": "",
-"PlayerInterface": "",
-"RelatedStatusData": "",
-"SaveDeckLevelData": "",
-"ScrollingTextPanel": "",
-"SelectorCardManager": "",
-"ShelterLevelData": "",
-"SlowEnemyAIBattleManager": "",
-"StatusAnimationData": "",
-"StatusData": "",
-"StatusEffectData": "",
-"StatusIcon": "",
-"StatusManager": "",
-"StoryLevelData": "",
-"TeamManager": "",
-"TooltipListNode2D": "",
-"TransformData": "",
-"WeightedData": "",
-"WeightedDataList": ""
-}
+config_version=5
 
 [application]
 
 config/name="Battle Deck Energy"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
+config/features=PackedStringArray("4.6")
 boot_splash/image="res://Assets/Originals/Title/LoadingScreen.png"
 config/icon="res://icon.png"
 
@@ -399,49 +24,47 @@ DialogWindows="*res://Scenes/DialogWindows/DialogWindows.tscn"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
 
 [input]
 
 ui_left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194319,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":65,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
 }
 ui_right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194321,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":68,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
 }
 ui_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194320,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
 }
 ui_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194322,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
 }
 ui_mute={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":77,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":77,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
 }
 
 [rendering]
 
+environment/defaults/default_environment="res://default_env.tres"
 vram_compression/import_etc=true
-vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"

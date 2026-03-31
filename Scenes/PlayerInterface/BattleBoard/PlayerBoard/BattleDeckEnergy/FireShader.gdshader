@@ -1,8 +1,8 @@
 shader_type canvas_item;
 
-uniform vec4 transparent : hint_color;
-uniform vec4 inner_color : hint_color;
-uniform vec4 outer_color : hint_color;
+uniform vec4 transparent : source_color;
+uniform vec4 inner_color : source_color;
+uniform vec4 outer_color : source_color;
 
 uniform float inner_threshold = 0.36;
 uniform float outer_threshold = 0.1;

@@ -4,19 +4,19 @@ extends HBoxContainer
 signal status_inspected(status_icon)
 signal status_forgotten(status_icon)
 
-onready var status_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.tscn")
+@onready var status_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.tscn")
 
 var status_map : Dictionary = {}
 
 func get_status_icon(status:StatusData):
 	if status.type_tag in status_map:
 		return status_map[status.type_tag]
-	var status_instance = status_scene.instance()
+	var status_instance = status_scene.instantiate()
 	add_child(status_instance)
 	status_instance.status_data = status
-	status_instance.connect("mouse_entered", self, "_on_StatusIcon_mouse_entered", [status_instance])
-	status_instance.connect("mouse_exited", self, "_on_StatusIcon_mouse_exited", [status_instance])
-	status_instance.connect("tree_exited", self, "_on_StatusIcon_tree_exited", [status_instance])
+	status_instance.connect("mouse_entered", Callable(self, "_on_StatusIcon_mouse_entered").bind(status_instance))
+	status_instance.connect("mouse_exited", Callable(self, "_on_StatusIcon_mouse_exited").bind(status_instance))
+	status_instance.connect("tree_exited", Callable(self, "_on_StatusIcon_tree_exited").bind(status_instance))
 	status_map[status.type_tag] = status_instance
 	return status_instance
 

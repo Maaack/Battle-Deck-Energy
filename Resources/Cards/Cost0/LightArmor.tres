@@ -1,14 +1,14 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/CardIcons/DefendGlowNew/plastron.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/CardIcons/DefendGlowNew/plastron.png" type="Texture2D" id=2]
 [ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect2.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
 [ext_resource path="res://Resources/Effects/InnateEffect.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
-title = "Light Armor"
+title = "Light3D Armor"
 description = "Block %DEFEND Damage.
 Innate.
 Retain."

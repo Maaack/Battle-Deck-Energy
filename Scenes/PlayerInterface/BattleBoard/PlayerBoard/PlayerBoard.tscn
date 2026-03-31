@@ -20,33 +20,33 @@ __meta__ = {
 }
 
 [node name="DrawPile" parent="." instance=ExtResource( 6 )]
-margin_top = -128.0
-margin_bottom = -64.0
+offset_top = -128.0
+offset_bottom = -64.0
 
 [node name="DiscardPile" parent="." instance=ExtResource( 4 )]
-margin_top = -134.0
-margin_bottom = -70.0
+offset_top = -134.0
+offset_bottom = -70.0
 
 [node name="ExhaustPile" parent="." instance=ExtResource( 7 )]
-margin_top = -66.0
-margin_bottom = -2.0
+offset_top = -66.0
+offset_bottom = -2.0
 
 [node name="EndTurnButton" parent="." instance=ExtResource( 3 )]
-margin_left = -64.0
-margin_top = -178.0
-margin_right = -64.0
-margin_bottom = -178.0
+offset_left = -64.0
+offset_top = -178.0
+offset_right = -64.0
+offset_bottom = -178.0
 
 [node name="BattleDeckEnergy" parent="." instance=ExtResource( 1 )]
-margin_top = -216.0
-margin_bottom = -152.0
+offset_top = -216.0
+offset_bottom = -152.0
 
 [node name="TurnTimer" parent="." instance=ExtResource( 2 )]
 visible = false
-margin_left = -70.0
-margin_top = -296.0
-margin_right = -6.0
-margin_bottom = -232.0
+offset_left = -70.0
+offset_top = -296.0
+offset_right = -6.0
+offset_bottom = -232.0
 [connection signal="button_pressed" from="DrawPile" to="." method="_on_DrawPile_button_pressed"]
 [connection signal="button_pressed" from="DiscardPile" to="." method="_on_DiscardPile_button_pressed"]
 [connection signal="button_pressed" from="ExhaustPile" to="." method="_on_ExhaustPile_button_pressed"]

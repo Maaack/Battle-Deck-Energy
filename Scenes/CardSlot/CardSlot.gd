@@ -5,9 +5,9 @@ const ATTACK_TYPE = 'ATTACK'
 const DEFEND_TYPE = 'DEFEND'
 const SKILL_TYPE = 'SKILL'
 
-onready var label_node = $Panel/Label
+@onready var label_node = $Panel/Label
 
-var type : int = CardData.CardType.ATTACK setget set_type
+var type : int = CardData.CardType.ATTACK: set = set_type
 
 func _update_label():
 	var new_label : String = ""

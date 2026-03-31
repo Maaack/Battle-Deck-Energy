@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://dq4v2e5npupm4"]
 
-[ext_resource path="res://Managers/CharacterBattle/EnemyAI/EnemyAIBattleManager.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Managers/CharacterBattle/EnemyAI/Slow/SlowEnemyAIBattleManager.gd" type="Script" id=2]
+[ext_resource type="PackedScene" path="res://Managers/CharacterBattle/EnemyAI/EnemyAIBattleManager.tscn" id="1"]
+[ext_resource type="Script" uid="uid://d1ojdanbtje6v" path="res://Managers/CharacterBattle/EnemyAI/Slow/SlowEnemyAIBattleManager.gd" id="2"]
 
-[node name="SlowEnemyAIBattleManager" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="SlowEnemyAIBattleManager" unique_id=49233330 instance=ExtResource("1")]
+script = ExtResource("2")
 
-[node name="SlowedCardsTimer" type="Timer" parent="." index="2"]
+[node name="SlowedCardsTimer" type="Timer" parent="." index="2" unique_id=576692988]
 wait_time = 1.2
 one_shot = true

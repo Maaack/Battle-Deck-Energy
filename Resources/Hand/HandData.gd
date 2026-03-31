@@ -16,7 +16,7 @@ func add_card(card:CardData):
 func discard_card(card:CardData):
 	var card_index = cards.find(card)
 	if card_index >= 0:
-		cards.remove(card_index)
+		cards.remove_at(card_index)
 		return true
 
 func discard_all():

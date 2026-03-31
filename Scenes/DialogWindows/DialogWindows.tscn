@@ -15,9 +15,9 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ErrorDialog" type="AcceptDialog" parent="CanvasLayer"]
-margin_right = 84.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 240, 160 )
+offset_right = 84.0
+offset_bottom = 112.0
+custom_minimum_size = Vector2( 240, 160 )
 theme = ExtResource( 3 )
 window_title = "Error"
 script = ExtResource( 1 )

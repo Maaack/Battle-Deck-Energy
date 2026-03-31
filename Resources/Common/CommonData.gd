@@ -3,4 +3,4 @@ extends Resource
 
 class_name CommonData
 
-export(Dictionary) var data : Dictionary = {}
+@export var data: Dictionary = {}

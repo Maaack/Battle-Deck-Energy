@@ -11,20 +11,20 @@ visible = true
 text = "Select a Card to Remove"
 
 [node name="ScrollContainer" parent="MarginContainer/VBoxContainer" index="1"]
-margin_top = 72.0
+offset_top = 72.0
 
 [node name="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" index="0"]
-margin_bottom = 578.0
+offset_bottom = 578.0
 
 [node name="RemoveCardButton" type="Button" parent="." index="4"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -112.0
-margin_top = -108.0
-margin_right = 112.0
-margin_bottom = -48.0
+offset_left = -112.0
+offset_top = -108.0
+offset_right = 112.0
+offset_bottom = -48.0
 disabled = true
 text = "Remove Card"
 __meta__ = {

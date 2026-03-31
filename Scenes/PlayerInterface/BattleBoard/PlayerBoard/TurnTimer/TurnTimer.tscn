@@ -3,8 +3,8 @@
 [ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimer.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutSlow.tres" type="Animation" id=3]
-[ext_resource path="res://Assets/Mixed/UI/stopwatch2_128x128.png" type="Texture" id=4]
-[ext_resource path="res://Themes/Fonts/TurnTimer/TurnTimerPanelDynamicFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Mixed/UI/stopwatch2_128x128.png" type="Texture2D" id=4]
+[ext_resource path="res://Themes/Fonts/TurnTimer/TurnTimerPanelDynamicFont.tres" type="FontFile" id=5]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerLastSeconds.tres" type="Animation" id=6]
 [ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutFast.tres" type="Animation" id=7]
 
@@ -13,9 +13,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -64.0
-margin_top = -64.0
-rect_min_size = Vector2( 64, 64 )
+offset_left = -64.0
+offset_top = -64.0
+custom_minimum_size = Vector2( 64, 64 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -26,10 +26,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -150.0
-margin_top = -50.0
-rect_min_size = Vector2( 150, 50 )
-custom_styles/panel = ExtResource( 1 )
+offset_left = -150.0
+offset_top = -50.0
+custom_minimum_size = Vector2( 150, 50 )
+theme_override_styles/panel = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,10 +37,10 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = -66.0
-margin_right = 67.0
-margin_bottom = -2.0
+offset_left = 3.0
+offset_top = -66.0
+offset_right = 67.0
+offset_bottom = -2.0
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -50,9 +50,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="Panel"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -80.0
-margin_bottom = 48.0
-custom_fonts/font = ExtResource( 5 )
+offset_left = -80.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource( 5 )
 text = "00"
 align = 1
 valign = 2

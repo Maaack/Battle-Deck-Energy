@@ -3,9 +3,9 @@ extends Control
 
 signal deck_selected(deck)
 
-onready var confirm_button = $DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ConfirmButton
-onready var item_list = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList
-onready var custom_deck_info_label = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList/CustomDeckInfoLabel
+@onready var confirm_button = $DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ConfirmButton
+@onready var item_list = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList
+@onready var custom_deck_info_label = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList/CustomDeckInfoLabel
 
 var deck_library : CommonData = preload("res://Resources/Common/DeckLibrary.tres")
 

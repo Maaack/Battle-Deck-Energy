@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" type="FontFile" id=2]
+[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" type="FontFile" id=3]
 [ext_resource path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.gd" type="Script" id=4]
 
 [node name="NetworkMenu" type="Control"]
@@ -19,10 +19,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = -140.0
-margin_right = 320.0
-margin_bottom = 140.0
+offset_left = -320.0
+offset_top = -140.0
+offset_right = 320.0
+offset_bottom = 140.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,93 +32,93 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -312.0
-margin_top = -46.0
-margin_right = 312.0
-margin_bottom = 46.0
-custom_constants/margin_right = 32
-custom_constants/margin_left = 16
+offset_left = -312.0
+offset_top = -46.0
+offset_right = 312.0
+offset_bottom = 46.0
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_left = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OptionsVBox" type="VBoxContainer" parent="MultiplayerPanel/OptionsMargin"]
-margin_left = 16.0
-margin_right = 592.0
-margin_bottom = 92.0
-custom_constants/separation = 16
+offset_left = 16.0
+offset_right = 592.0
+offset_bottom = 92.0
+theme_override_constants/separation = 16
 
 [node name="PlayerNameContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox"]
-margin_right = 576.0
-margin_bottom = 38.0
+offset_right = 576.0
+offset_bottom = 38.0
 size_flags_horizontal = 3
-custom_constants/separation = 16
+theme_override_constants/separation = 16
 
 [node name="PlayerNameLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer"]
-margin_top = 2.0
-margin_right = 208.0
-margin_bottom = 35.0
-custom_fonts/font = ExtResource( 3 )
+offset_top = 2.0
+offset_right = 208.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource( 3 )
 text = "Player Name"
 align = 1
 
 [node name="PlayerNameLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer"]
-margin_left = 224.0
-margin_right = 576.0
-margin_bottom = 38.0
+offset_left = 224.0
+offset_right = 576.0
+offset_bottom = 38.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OptionsHBox" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox"]
-margin_top = 54.0
-margin_right = 576.0
-margin_bottom = 92.0
-custom_constants/separation = 64
+offset_top = 54.0
+offset_right = 576.0
+offset_bottom = 92.0
+theme_override_constants/separation = 64
 
 [node name="ServerIPContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox"]
-margin_right = 256.0
-margin_bottom = 38.0
+offset_right = 256.0
+offset_bottom = 38.0
 size_flags_horizontal = 3
-custom_constants/separation = 16
+theme_override_constants/separation = 16
 
 [node name="IPLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer"]
-margin_top = 2.0
-margin_right = 27.0
-margin_bottom = 35.0
-custom_fonts/font = ExtResource( 3 )
+offset_top = 2.0
+offset_right = 27.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource( 3 )
 text = "IP"
 align = 1
 
 [node name="IPLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer"]
-margin_left = 43.0
-margin_right = 256.0
-margin_bottom = 38.0
+offset_left = 43.0
+offset_right = 256.0
+offset_bottom = 38.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ServerPortContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox"]
-margin_left = 320.0
-margin_right = 576.0
-margin_bottom = 38.0
+offset_left = 320.0
+offset_right = 576.0
+offset_bottom = 38.0
 size_flags_horizontal = 3
-custom_constants/separation = 16
+theme_override_constants/separation = 16
 
 [node name="PortLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer"]
-margin_top = 2.0
-margin_right = 75.0
-margin_bottom = 35.0
-custom_fonts/font = ExtResource( 3 )
+offset_top = 2.0
+offset_right = 75.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource( 3 )
 text = "Port"
 align = 1
 
 [node name="PortLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer"]
-margin_left = 91.0
-margin_right = 256.0
-margin_bottom = 38.0
+offset_left = 91.0
+offset_right = 256.0
+offset_bottom = 38.0
 size_flags_horizontal = 3
 editable = false
 __meta__ = {
@@ -129,28 +129,28 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -76.0
-custom_constants/margin_right = 8
-custom_constants/margin_top = 8
-custom_constants/margin_left = 8
-custom_constants/margin_bottom = 8
+offset_top = -76.0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonsHBox" type="HBoxContainer" parent="MultiplayerPanel/ButtonsMargin"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 632.0
-margin_bottom = 68.0
-custom_constants/separation = 32
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 68.0
+theme_override_constants/separation = 32
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox"]
-margin_right = 186.0
-margin_bottom = 60.0
+offset_right = 186.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 text = "Back"
 __meta__ = {
@@ -158,9 +158,9 @@ __meta__ = {
 }
 
 [node name="HostButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox"]
-margin_left = 218.0
-margin_right = 405.0
-margin_bottom = 60.0
+offset_left = 218.0
+offset_right = 405.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 text = "Host"
 __meta__ = {
@@ -168,9 +168,9 @@ __meta__ = {
 }
 
 [node name="JoinButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox"]
-margin_left = 437.0
-margin_right = 624.0
-margin_bottom = 60.0
+offset_left = 437.0
+offset_right = 624.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 text = "Join"
 __meta__ = {
@@ -179,8 +179,8 @@ __meta__ = {
 
 [node name="HeadingLabel" type="Label" parent="MultiplayerPanel"]
 anchor_right = 1.0
-margin_bottom = 85.0
-custom_fonts/font = ExtResource( 2 )
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Multiplayer"
 align = 1
 valign = 1
@@ -194,15 +194,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -210.0
-margin_top = -240.0
-margin_right = 210.0
-margin_bottom = 240.0
+offset_left = -210.0
+offset_top = -240.0
+offset_right = 210.0
+offset_bottom = 240.0
 
 [node name="HeadingLabel" type="Label" parent="LobbyPanel"]
 anchor_right = 1.0
-margin_bottom = 109.0
-custom_fonts/font = ExtResource( 2 )
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Lobby"
 align = 1
 valign = 1
@@ -214,28 +214,28 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -76.0
-custom_constants/margin_right = 8
-custom_constants/margin_top = 8
-custom_constants/margin_left = 8
-custom_constants/margin_bottom = 8
+offset_top = -76.0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonsHBox" type="HBoxContainer" parent="LobbyPanel/ButtonsMargin"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 412.0
-margin_bottom = 68.0
-custom_constants/separation = 32
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 412.0
+offset_bottom = 68.0
+theme_override_constants/separation = 32
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LeaveButton" type="Button" parent="LobbyPanel/ButtonsMargin/ButtonsHBox"]
-margin_right = 186.0
-margin_bottom = 60.0
+offset_right = 186.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 text = "Leave"
 __meta__ = {
@@ -243,9 +243,9 @@ __meta__ = {
 }
 
 [node name="StartButton" type="Button" parent="LobbyPanel/ButtonsMargin/ButtonsHBox"]
-margin_left = 218.0
-margin_right = 404.0
-margin_bottom = 60.0
+offset_left = 218.0
+offset_right = 404.0
+offset_bottom = 60.0
 size_flags_horizontal = 3
 disabled = true
 text = "Start"
@@ -258,10 +258,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -170.0
-margin_top = -130.0
-margin_right = 170.0
-margin_bottom = 130.0
+offset_left = -170.0
+offset_top = -130.0
+offset_right = 170.0
+offset_bottom = 130.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

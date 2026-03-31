@@ -3,7 +3,7 @@ extends Resource
 
 class_name PlayerData
 
-export(String) var name : String
+@export var name: String
 
 var unique_id : int
 var character_data : CharacterData 

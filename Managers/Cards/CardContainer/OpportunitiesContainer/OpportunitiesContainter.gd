@@ -9,11 +9,11 @@ const ATTACK_TYPE = 'ATTACK'
 const DEFEND_TYPE = 'DEFEND'
 const SKILL_TYPE = 'SKILL'
 
-onready var label_node = $CenterContainer/Control/Slot1/MarginContainer/Label
-onready var glow_nodes = $CenterContainer/Control/LayeredGlowNodes
-onready var slot_3_node = $CenterContainer/Control/Slot1/Slot3
-onready var slot_2_node = $CenterContainer/Control/Slot1/Slot2
-onready var slot_1_node = $CenterContainer/Control/Slot1
+@onready var label_node = $CenterContainer/Control/Slot1/MarginContainer/Label
+@onready var glow_nodes = $CenterContainer/Control/LayeredGlowNodes
+@onready var slot_3_node = $CenterContainer/Control/Slot1/Slot3
+@onready var slot_2_node = $CenterContainer/Control/Slot1/Slot2
+@onready var slot_1_node = $CenterContainer/Control/Slot1
 
 var type_map : Dictionary = {}
 var opportunities_map : Dictionary = {}

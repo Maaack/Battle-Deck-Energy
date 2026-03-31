@@ -6,12 +6,12 @@ signal draw_pile_pressed
 signal discard_pile_pressed
 signal exhaust_pile_pressed
 
-onready var draw_pile = $DrawPile
-onready var discard_pile = $DiscardPile
-onready var exhaust_pile = $ExhaustPile
-onready var end_turn_button = $EndTurnButton
-onready var energy_meter = $BattleDeckEnergy
-onready var turn_timer = $TurnTimer
+@onready var draw_pile = $DrawPile
+@onready var discard_pile = $DiscardPile
+@onready var exhaust_pile = $ExhaustPile
+@onready var end_turn_button = $EndTurnButton
+@onready var energy_meter = $BattleDeckEnergy
+@onready var turn_timer = $TurnTimer
 
 func set_draw_pile_size(value:int):
 	draw_pile.count = value

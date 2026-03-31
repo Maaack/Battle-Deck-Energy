@@ -1,4 +1,4 @@
-tool
+@tool
 extends RichTextEffect
 
 # Syntax: [card_effect mod=0][/card_effect]

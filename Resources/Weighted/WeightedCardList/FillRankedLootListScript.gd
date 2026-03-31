@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorScript
 
 func add_weight_to_list(target_list: Array, source_list: WeightedDataList, weight : float = 1.0):

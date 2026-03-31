@@ -4,9 +4,9 @@ extends Control
 signal back_pressed
 signal deck_selected(deck)
 
-onready var view_button = $DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/ViewButton
-onready var item_list = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList
-onready var custom_deck_info_label = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList/CustomDeckInfoLabel
+@onready var view_button = $DeckSelectPanel/MarginContainer/VBoxContainer/HBoxContainer/ViewButton
+@onready var item_list = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList
+@onready var custom_deck_info_label = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList/CustomDeckInfoLabel
 
 var deck_library : CommonData = preload("res://Resources/Common/DeckLibrary.tres")
 

@@ -9,10 +9,10 @@ script = ExtResource( 1 )
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -128.0
-margin_right = 128.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 256, 50 )
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 256, 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
