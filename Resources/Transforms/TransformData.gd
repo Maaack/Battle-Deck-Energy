@@ -7,9 +7,9 @@ const DEFAULT_POSITION : Vector2 = Vector2()
 const DEFAULT_ROTATION : float = 0.0
 const DEFAULT_SCALE : Vector2 = Vector2(1.0, 1.0)
 
-var position : Vector2 = DEFAULT_POSITION
-var rotation : float = DEFAULT_ROTATION
-var scale : Vector2 = DEFAULT_SCALE
+@export var position : Vector2 = DEFAULT_POSITION
+@export var rotation : float = DEFAULT_ROTATION
+@export var scale : Vector2 = DEFAULT_SCALE
 
 func _to_string():
 	return "%s, %.2f, %s" % [position, rotation, scale]

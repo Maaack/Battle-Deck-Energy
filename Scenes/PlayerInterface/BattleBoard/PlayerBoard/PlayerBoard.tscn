@@ -1,52 +1,59 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene format=3 uid="uid://d3y74kae6ylg5"]
 
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/EndTurnButton/EndTurnButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/DiscardPile.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/DrawPile.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/ExhaustPile.tscn" type="PackedScene" id=7]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimer.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://darq7un5kdk62" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/EndTurnButton/EndTurnButton.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/DiscardPile.tscn" id="4"]
+[ext_resource type="Script" uid="uid://bm3bamsxy4x8m" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.gd" id="5"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/DrawPile.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/ExhaustPile.tscn" id="7"]
 
-[node name="PlayerBoard" type="Control"]
+[node name="PlayerBoard" type="Control" unique_id=1727754587]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
 size_flags_vertical = 3
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 516.403 ],
-"_edit_use_anchors_": false
-}
+mouse_filter = 2
+script = ExtResource("5")
 
-[node name="DrawPile" parent="." instance=ExtResource( 6 )]
+[node name="DrawPile" parent="." unique_id=1079531686 instance=ExtResource("6")]
+anchors_preset = 0
 offset_top = -128.0
 offset_bottom = -64.0
 
-[node name="DiscardPile" parent="." instance=ExtResource( 4 )]
+[node name="DiscardPile" parent="." unique_id=543393153 instance=ExtResource("4")]
+anchors_preset = 0
 offset_top = -134.0
 offset_bottom = -70.0
 
-[node name="ExhaustPile" parent="." instance=ExtResource( 7 )]
+[node name="ExhaustPile" parent="." unique_id=1242917186 instance=ExtResource("7")]
+anchors_preset = 0
 offset_top = -66.0
 offset_bottom = -2.0
 
-[node name="EndTurnButton" parent="." instance=ExtResource( 3 )]
+[node name="EndTurnButton" parent="." unique_id=144744809 instance=ExtResource("3")]
+layout_mode = 1
 offset_left = -64.0
 offset_top = -178.0
 offset_right = -64.0
 offset_bottom = -178.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="BattleDeckEnergy" parent="." instance=ExtResource( 1 )]
+[node name="BattleDeckEnergy" parent="." unique_id=717682018 instance=ExtResource("1")]
+anchors_preset = 0
 offset_top = -216.0
 offset_bottom = -152.0
 
-[node name="TurnTimer" parent="." instance=ExtResource( 2 )]
+[node name="TurnTimer" parent="." unique_id=1954761671 instance=ExtResource("2")]
 visible = false
+anchors_preset = 0
 offset_left = -70.0
 offset_top = -296.0
 offset_right = -6.0
 offset_bottom = -232.0
+
 [connection signal="button_pressed" from="DrawPile" to="." method="_on_DrawPile_button_pressed"]
 [connection signal="button_pressed" from="DiscardPile" to="." method="_on_DiscardPile_button_pressed"]
 [connection signal="button_pressed" from="ExhaustPile" to="." method="_on_ExhaustPile_button_pressed"]
