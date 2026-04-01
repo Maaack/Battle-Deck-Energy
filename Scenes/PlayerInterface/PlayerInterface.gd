@@ -202,7 +202,7 @@ func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	if not is_instance_valid(card_instance):
 		return
-	if card_instance.tween_node.is_active():
+	if card_instance.tween_node and card_instance.tween_node.is_running():
 		await card_instance.tween_completed
 	card_instance.connect("tween_started", _on_discard_card_started)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://coqhcsj662ack"]
 
-[ext_resource path="res://Assets/Mixed/DeckIcons/DiscardPile.png" type="Texture2D" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Themes/StyleBoxes/DiscardPileStyleBox.tres" type="StyleBox" id=3]
+[ext_resource type="Texture2D" uid="uid://dkwbqi4xe2urk" path="res://Assets/Mixed/DeckIcons/DiscardPile.png" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.tscn" id="2"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/DiscardPileStyleBox.tres" id="3"]
 
-[node name="DiscardPile" instance=ExtResource( 2 )]
+[node name="DiscardPile" unique_id=1603256810 instance=ExtResource("2")]
+layout_mode = 3
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 offset_left = -64.0
@@ -13,11 +15,22 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="TextureRect" parent="." index="0"]
-texture = ExtResource( 1 )
+layout_mode = 0
+texture = ExtResource("1")
 
 [node name="Panel" parent="TextureRect" index="0"]
+layout_mode = 0
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 0.0
 offset_right = 27.0
-theme_override_styles/panel = ExtResource( 3 )
+theme_override_styles/panel = ExtResource("3")
+
+[node name="CountLabel" parent="TextureRect/Panel" index="0"]
+layout_mode = 0
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureButton" parent="." index="1"]
+layout_mode = 0

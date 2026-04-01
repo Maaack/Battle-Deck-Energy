@@ -211,6 +211,7 @@ theme_override_fonts/normal_font = ExtResource("5")
 theme_override_fonts/bold_font = ExtResource("8")
 bbcode_enabled = true
 text = "Card Description will autowrap to the next line."
+fit_content = true
 scroll_active = false
 custom_effects = [ExtResource("10")]
 
@@ -257,6 +258,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 37.0
 theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 2
