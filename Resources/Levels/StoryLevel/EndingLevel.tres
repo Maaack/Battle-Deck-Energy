@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 mood_type = "VICTORY"
-bbcode_text = "[center]
+text = "[center]
 
 
 
