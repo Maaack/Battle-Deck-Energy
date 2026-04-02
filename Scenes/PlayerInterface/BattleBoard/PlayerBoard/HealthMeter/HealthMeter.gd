@@ -41,10 +41,10 @@ func set_armor(value:int):
 	armor = value
 	if armor > 0:
 		armor_icon.show()
-		health_bar.set("theme_override_styles/fg", fg_armored)
-		health_bar.set("theme_override_styles/bg", bg_armored)
+		health_bar.set("theme_override_styles/fill", fg_armored)
+		health_bar.set("theme_override_styles/background", bg_armored)
 	else:
 		armor_icon.hide()
-		health_bar.set("theme_override_styles/fg", fg_normal)
-		health_bar.set("theme_override_styles/bg", bg_normal)
+		health_bar.set("theme_override_styles/fill", fg_normal)
+		health_bar.set("theme_override_styles/background", bg_normal)
 	armor_label.text = ARMOR_LABEL_STR % armor

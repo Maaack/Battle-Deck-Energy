@@ -505,7 +505,7 @@ func _on_PlayerBoard_exhaust_pile_pressed():
 	emit_signal("exhaust_pile_pressed")
 
 func _on_PlayerInterface_resized():
-	if is_instance_valid($ResizeTimer):
+	if $ResizeTimer.is_inside_tree():
 		$ResizeTimer.start()
 
 func _on_ResizeTimer_timeout():
