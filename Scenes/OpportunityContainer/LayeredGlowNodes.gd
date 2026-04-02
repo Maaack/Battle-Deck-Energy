@@ -32,4 +32,3 @@ func glow_off():
 	glow_delay_timer.start()
 	await glow_delay_timer.timeout
 	glow_node_2.glow_off()
-

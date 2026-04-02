@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://62446gk1nn10"]
 
-[ext_resource path="res://Scenes/OpportunityContainer/GlowNode.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/OpportunityContainer/LayeredGlowNodes.gd" type="Script" id=2]
+[ext_resource type="PackedScene" path="res://Scenes/OpportunityContainer/GlowNode.tscn" id="1"]
+[ext_resource type="Script" uid="uid://chabcx8hekx8l" path="res://Scenes/OpportunityContainer/LayeredGlowNodes.gd" id="2"]
 
-[node name="LayeredGlowNodes" type="Node2D"]
-script = ExtResource( 2 )
+[node name="LayeredGlowNodes" type="Node2D" unique_id=1171842204]
+script = ExtResource("2")
 
-[node name="GlowNode" parent="." instance=ExtResource( 1 )]
+[node name="GlowNode" parent="." unique_id=185148322 instance=ExtResource("1")]
 visible = false
 
-[node name="GlowNode2" parent="." instance=ExtResource( 1 )]
+[node name="GlowNode2" parent="." unique_id=459297117 instance=ExtResource("1")]
 visible = false
 
-[node name="GlowDelayTimer" type="Timer" parent="."]
+[node name="GlowDelayTimer" type="Timer" parent="." unique_id=1523037106]
 wait_time = 0.4
 one_shot = true
