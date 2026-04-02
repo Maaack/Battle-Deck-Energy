@@ -1,13 +1,13 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dxlls1dg63rhj"]
 
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShader.gdshader" type="Shader" id=1]
+[ext_resource type="Shader" uid="uid://mc5vskqajrr" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShader.gdshader" id="1"]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/transparent = Color( 0.505882, 0.0470588, 0.0470588, 0 )
-shader_param/inner_color = Color( 0.960784, 0.929412, 0.729412, 1 )
-shader_param/outer_color = Color( 0.823529, 0.392157, 0.443137, 1 )
-shader_param/inner_threshold = 0.36
-shader_param/outer_threshold = 0.1
-shader_param/soft_edge = 0.08
-shader_param/center = Vector2( 0.5, 0.8 )
+shader = ExtResource("1")
+shader_parameter/transparent = Color(0.505882, 0.0470588, 0.0470588, 0)
+shader_parameter/inner_color = Color(0.960784, 0.929412, 0.729412, 1)
+shader_parameter/outer_color = Color(0.823529, 0.392157, 0.443137, 1)
+shader_parameter/inner_threshold = 0.36
+shader_parameter/outer_threshold = 0.1
+shader_parameter/soft_edge = 0.08
+shader_parameter/center = Vector2(0.5, 0.8)
