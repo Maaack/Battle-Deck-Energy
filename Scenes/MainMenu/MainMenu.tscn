@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://baufbrcjgb3ms" path="res://Assets/Sourced/Music/SoundImage/Analog-Nostalgia.ogg" id="10"]
 [ext_resource type="Texture2D" uid="uid://cq7a1ps1g2wkj" path="res://Assets/Mixed/Backgrounds/Deck-Fighter.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://dn8wpvgoo0wac" path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" id="12"]
-[ext_resource type="Material" path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" id="13"]
+[ext_resource type="Material" uid="uid://bdxvm8u1klphf" path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" id="13"]
 [ext_resource type="PackedScene" path="res://Scenes/DeckList/DeckListInterface.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://Scenes/AudioMenu/AudioMenu.tscn" id="15"]
 [ext_resource type="PackedScene" path="res://Managers/Tooltip/TooltipManager.tscn" id="16"]
@@ -58,7 +58,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("12")
 expand_mode = 1
-stretch_mode = 7
 
 [node name="TextureRect2" type="TextureRect" parent="BackgroundControl" unique_id=622681673]
 layout_mode = 0
@@ -192,7 +191,9 @@ offset_bottom = -222.0
 rotation = -0.024621
 theme_override_colors/font_color = Color(0.345098, 0.270588, 0.388235, 1)
 theme_override_colors/font_outline_color = Color(0.243137, 0.129412, 0.215686, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 106
 text = "Battle Deck"
 horizontal_alignment = 1
 
@@ -220,7 +221,9 @@ offset_right = 416.0
 offset_bottom = -6.0
 theme_override_colors/font_color = Color(0.615686, 0.188235, 0.231373, 1)
 theme_override_colors/font_outline_color = Color(0.243137, 0.129412, 0.215686, 1)
+theme_override_constants/outline_size = 24
 theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 192
 text = "Energy"
 horizontal_alignment = 1
 
