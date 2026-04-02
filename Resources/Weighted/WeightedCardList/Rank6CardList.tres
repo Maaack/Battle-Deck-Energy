@@ -1,74 +1,74 @@
-[gd_resource type="Resource" load_steps=25 format=2]
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cdkbn1ivbc3cq"]
 
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Cost2/Miasma.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Cost2/TheWall.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/Cost3/DeathBlow.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Cards/Cost2/Twofold.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Cards/Cost2/Unlucky.tres" type="Resource" id=6]
-[ext_resource path="res://Resources/Cards/Cost2/Ironclad.tres" type="Resource" id=7]
-[ext_resource path="res://Resources/Cards/Cost2/Erupt.tres" type="Resource" id=8]
-[ext_resource path="res://Resources/Cards/Cost2/Biohazard.tres" type="Resource" id=10]
-[ext_resource path="res://Resources/Cards/Cost2/SerpentsBlade.tres" type="Resource" id=11]
-[ext_resource path="res://Resources/Cards/Cost2/Hyperfocus.tres" type="Resource" id=12]
-[ext_resource path="res://Resources/Cards/Cost2/Reforge.tres" type="Resource" id=17]
-[ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=18]
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Miasma.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/TheWall.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost3/DeathBlow.tres" id="4"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Twofold.tres" id="5"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Unlucky.tres" id="6"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Ironclad.tres" id="7"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Erupt.tres" id="8"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Biohazard.tres" id="10"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/SerpentsBlade.tres" id="11"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Hyperfocus.tres" id="12"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost2/Reforge.tres" id="17"]
+[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="18"]
 
-[sub_resource type="Resource" id=1]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="1"]
+script = ExtResource("18")
 weight = 4.0
-data = ExtResource( 2 )
+data = ExtResource("2")
 
-[sub_resource type="Resource" id=2]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="2"]
+script = ExtResource("18")
 weight = 4.0
-data = ExtResource( 6 )
+data = ExtResource("6")
 
-[sub_resource type="Resource" id=3]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="3"]
+script = ExtResource("18")
 weight = 4.0
-data = ExtResource( 17 )
+data = ExtResource("17")
 
-[sub_resource type="Resource" id=4]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="4"]
+script = ExtResource("18")
 weight = 4.0
-data = ExtResource( 8 )
+data = ExtResource("8")
 
-[sub_resource type="Resource" id=5]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="5"]
+script = ExtResource("18")
 weight = 2.0
-data = ExtResource( 11 )
+data = ExtResource("11")
 
-[sub_resource type="Resource" id=6]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="6"]
+script = ExtResource("18")
 weight = 2.0
-data = ExtResource( 12 )
+data = ExtResource("12")
 
-[sub_resource type="Resource" id=7]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="7"]
+script = ExtResource("18")
 weight = 2.0
-data = ExtResource( 10 )
+data = ExtResource("10")
 
-[sub_resource type="Resource" id=8]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="8"]
+script = ExtResource("18")
 weight = 2.0
-data = ExtResource( 5 )
+data = ExtResource("5")
 
-[sub_resource type="Resource" id=9]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="9"]
+script = ExtResource("18")
 weight = 2.0
-data = ExtResource( 3 )
+data = ExtResource("3")
 
-[sub_resource type="Resource" id=10]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="10"]
+script = ExtResource("18")
 weight = 2.0
-data = ExtResource( 7 )
+data = ExtResource("7")
 
-[sub_resource type="Resource" id=11]
-script = ExtResource( 18 )
+[sub_resource type="Resource" id="11"]
+script = ExtResource("18")
 weight = 2.0
-data = ExtResource( 4 )
+data = ExtResource("4")
 
 [resource]
-script = ExtResource( 1 )
-starting_list = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ]
+script = ExtResource("1")
+starting_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11")]
