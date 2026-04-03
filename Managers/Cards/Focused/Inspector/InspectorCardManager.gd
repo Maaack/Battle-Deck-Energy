@@ -10,7 +10,7 @@ signal inspected_off_card(card_node_2d)
 
 var _inspected_card = null
 
-func _stop_inspecting_card(card_node:CardNode2D):
+func _stop_inspecting_card(_card_node:CardNode2D):
 	timer_node.stop()
 	if not is_instance_valid(_inspected_card):
 		return

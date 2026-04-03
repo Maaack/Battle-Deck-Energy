@@ -25,7 +25,7 @@ func _on_Card_inspected(card_node):
 func _on_Card_forgotten(_card_node):
 	tooltip_manager.reset()
 
-func _remove_deck_view(deck_viewer:Node):
+func _remove_deck_view(_deck_viewer:Node):
 	window_container.get_child(0).queue_free()
 	tooltip_manager.reset()
 

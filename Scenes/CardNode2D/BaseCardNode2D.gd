@@ -32,7 +32,7 @@ func _finish_tween():
 		rotation = target_transform.rotation
 		scale = target_transform.scale
 
-func _force_card_transform(transform:TransformData):
-	position = transform.position
-	rotation = transform.rotation
-	scale = transform.scale
+func _force_card_transform(transform_data:TransformData):
+	position = transform_data.position
+	rotation = transform_data.rotation
+	scale = transform_data.scale

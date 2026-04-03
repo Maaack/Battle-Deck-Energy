@@ -59,7 +59,7 @@ func set_file_path(value:String):
 func _ready():
 	set_file_path(attribution_file_path)
 
-func _process(delta):
+func _process(_delta):
 	current_speed += accel_down
 	if current_speed > max_speed_down:
 		current_speed = max_speed_down

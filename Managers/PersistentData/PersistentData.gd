@@ -35,9 +35,9 @@ func make_local_directory():
 		var err = DirAccess.make_dir_absolute(local_path)
 		if err:
 			print("Error code %d making directory: %s" % [err, local_path])
-			err = OS.execute("CMD.exe", ["/C", "mkdir %s" % local_path])
-			if err:
-				print("Error code %d OS executing mkdir: %s" % [err, local_path])
+			var err_num = OS.execute("CMD.exe", ["/C", "mkdir %s" % local_path])
+			if err_num:
+				print("Error code %d OS executing mkdir: %s" % [err_num, local_path])
 
 func _load_deck_from_data(saved_dict : Dictionary):
 	var loaded_deck : DeckData = DeckData.new()
@@ -54,11 +54,11 @@ func _load_deck_from_data(saved_dict : Dictionary):
 			loaded_deck.cards.append(card)
 	return loaded_deck
 
-func _save_deck_to_data(deck : Array, name : String, icon : Texture2D):
+func _save_deck_to_data(deck : Array, deck_name : String, deck_icon : Texture2D):
 	var saved_dict : Dictionary = {}
-	saved_dict[DECK_TITLE_KEY] = name
-	if icon != null:
-		saved_dict[DECK_ICON_KEY] = icon.resource_path
+	saved_dict[DECK_TITLE_KEY] = deck_name
+	if deck_icon != null:
+		saved_dict[DECK_ICON_KEY] = deck_icon.resource_path
 	var cards_array : Array = []
 	for card in deck:
 		if card is CardData:
@@ -155,7 +155,7 @@ func save_progress(campaign_seed : int, character : CharacterData, level : int):
 	progress_data = new_progress_data
 	_delete_progress_files()
 	var file_handler : FileAccess = _new_progress_file()
-	file_handler.store_line(JSON.new().stringify(progress_data))
+	file_handler.store_line(JSON.stringify(progress_data))
 	file_handler.close()
 
 func _load_or_start_progress():
@@ -214,10 +214,10 @@ func log_battle_action(log_text : String):
 	}
 	battle_data[BATTLE_LOG_KEY].append(battle_log_dict)
 
-func save_deck(deck : Array, name : String, icon : Texture2D):
+func save_deck(deck : Array, deck_name : String, deck_icon : Texture2D):
 	var file_handler = _new_deck_file()
-	var saved_dict : Dictionary = _save_deck_to_data(deck, name, icon)
-	file_handler.store_line(JSON.new().stringify(saved_dict))
+	var saved_dict : Dictionary = _save_deck_to_data(deck, deck_name, deck_icon)
+	file_handler.store_line(JSON.stringify(saved_dict))
 	file_handler.close()
 
 func load_decks():
@@ -251,7 +251,7 @@ func load_deck_file(filepath : String):
 func finish_battle():
 	if battle_file is FileAccess and battle_file.is_open():
 		log_battle_action("Battle Finished")
-		battle_file.store_line(JSON.new().stringify(battle_data))
+		battle_file.store_line(JSON.stringify(battle_data))
 		battle_file.close()
 
 func _exit_tree():

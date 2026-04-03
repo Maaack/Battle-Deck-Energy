@@ -94,11 +94,11 @@ func leave_server():
 
 func _ready():
 	var multiplayer_api := get_tree().get_multiplayer()
-	multiplayer_api.connect('peer_disconnected', Callable(self, '_on_player_disconnected').bind(), CONNECT_DEFERRED)
-	multiplayer_api.connect('peer_connected', Callable(self, '_on_player_connected').bind(), CONNECT_DEFERRED)
-	multiplayer_api.connect("connected_to_server", Callable(self, "_on_connected_to_server").bind(), CONNECT_DEFERRED)
-	multiplayer_api.connect("connection_failed", Callable(self, "_on_connection_failed").bind(), CONNECT_DEFERRED)
-	multiplayer_api.connect("server_disconnected", Callable(self, "_on_server_disconnected").bind(), CONNECT_DEFERRED)
+	multiplayer_api.connect("peer_disconnected", _on_player_disconnected, CONNECT_DEFERRED)
+	multiplayer_api.connect("peer_connected", _on_player_connected, CONNECT_DEFERRED)
+	multiplayer_api.connect("connected_to_server", _on_connected_to_server, CONNECT_DEFERRED)
+	multiplayer_api.connect("connection_failed", _on_connection_failed, CONNECT_DEFERRED)
+	multiplayer_api.connect("server_disconnected", _on_server_disconnected, CONNECT_DEFERRED)
 
 func get_player_character(player_id : int):
 	var player : PlayerData = players[player_id]

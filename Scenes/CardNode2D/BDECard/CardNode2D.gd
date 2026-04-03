@@ -218,7 +218,7 @@ func _on_Area2D_mouse_entered():
 func _on_Area2D_mouse_exited():
 	emit_signal("mouse_exited", self)
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	_handle_input_event(event)
 
 func _on_Body_mouse_entered():
@@ -230,5 +230,5 @@ func _on_Body_mouse_exited():
 func _on_Body_gui_input(event):
 	_handle_input_event(event)
 
-func _on_PulseAnimation_animation_finished(anim_name):
+func _on_PulseAnimation_animation_finished(_anim_name):
 	emit_signal("animation_completed", self)

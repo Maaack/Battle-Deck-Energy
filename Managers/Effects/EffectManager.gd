@@ -120,7 +120,7 @@ func _resolve_self_damage(effect:EffectData, target:CharacterData, character_man
 func _resolve_status_to_damage(status: StatusData, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
-	var health_damage = _apply_damage(source_battle_manager, target_battle_manager, status.get_stack_value())
+	_apply_damage(source_battle_manager, target_battle_manager, status.get_stack_value())
 
 func _resolve_related_status_type_damage(status: String, source:CharacterData, target:CharacterData, character_manager_map:Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
@@ -167,7 +167,6 @@ func _resolve_statuses(effect:StatusEffectData, source:CharacterData, target:Cha
 		_resolve_status(status, effect.amount, effect.type_tag, source, target, character_manager_map)
 
 func _resolve_status_to_status(from_status_string : String, to_status : StatusData, source : CharacterData, target : CharacterData, character_manager_map : Dictionary, mod : float = 1.0):
-	var source_battle_manager : CharacterBattleManager = character_manager_map[source]
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
 	var source_status : StatusData = target_battle_manager.get_status(from_status_string)
 	if source_status:

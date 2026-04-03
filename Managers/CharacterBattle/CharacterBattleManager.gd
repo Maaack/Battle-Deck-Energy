@@ -244,7 +244,7 @@ func get_status(type_tag:String):
 func get_related_status(type_tag:String, related:CharacterData, is_target : bool = true):
 	return status_manager.get_related_status(type_tag, related, is_target)
 
-func has_status(type_tag:String, source = null):
+func has_status(type_tag:String, _source = null):
 	return get_status(type_tag) != null
 
 func _on_StatusManager_status_updated(status:StatusData, delta:int):
