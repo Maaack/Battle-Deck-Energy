@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bun2xn8ibv0dp"]
 
-[ext_resource type="Theme" path="res://Themes/Main.tres" id="1"]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" id="2"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/TitleDynamicFont.tres" id="3"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/HeaderDynamicFont.tres" id="4"]
-[ext_resource type="Material" path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" id="5"]
+[ext_resource type="Material" uid="uid://cn42mv3fcsql7" path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" id="5"]
 [ext_resource type="Texture2D" uid="uid://fedd3ejjr8o1" path="res://Assets/Originals/Title/Deck_text.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://co4u5w6a5i7q6" path="res://Assets/Originals/Title/Energy_text.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://di7oup2s1epls" path="res://Assets/Originals/Title/Battle_text.png" id="8"]
@@ -44,6 +44,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("9")
 
@@ -98,21 +100,22 @@ alignment = 1
 
 [node name="PlayButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer" unique_id=1785129361]
 layout_mode = 2
-focus_mode = 0
+theme_override_font_sizes/font_size = 28
 text = "Play"
 
 [node name="ExtrasButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer" unique_id=402090063]
 layout_mode = 2
-focus_mode = 0
+theme_override_font_sizes/font_size = 28
 text = "Extras"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer" unique_id=39321100]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Settings"
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/MainControl/InitOptionsContainer" unique_id=1065931903]
 layout_mode = 2
-focus_mode = 0
+theme_override_font_sizes/font_size = 28
 text = "Exit"
 
 [node name="PlayOptionsContainer" type="VBoxContainer" parent="MarginContainer/MainControl" unique_id=1376283447]
@@ -132,18 +135,22 @@ alignment = 1
 [node name="ContinueCampaignButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer" unique_id=1846127143]
 visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Continue Campaign"
 
 [node name="NewCampaignButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer" unique_id=136015326]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "New Campaign"
 
 [node name="OnlineArenaButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer" unique_id=786435293]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Online Arena"
 
 [node name="BackButton" type="Button" parent="MarginContainer/MainControl/PlayOptionsContainer" unique_id=1592069057]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Back"
 
 [node name="ExtrasOptionsContainer" type="VBoxContainer" parent="MarginContainer/MainControl" unique_id=1695073027]
@@ -162,14 +169,17 @@ alignment = 1
 
 [node name="ViewDecksButton" type="Button" parent="MarginContainer/MainControl/ExtrasOptionsContainer" unique_id=1607729314]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "View Decks"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/MainControl/ExtrasOptionsContainer" unique_id=1384613087]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Credits"
 
 [node name="BackButton" type="Button" parent="MarginContainer/MainControl/ExtrasOptionsContainer" unique_id=357555873]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Back"
 
 [node name="TitleContainer" type="Control" parent="MarginContainer/MainControl" unique_id=952680744]
@@ -245,7 +255,8 @@ offset_bottom = 41.964
 theme_override_colors/font_color = Color(0.960784, 0.929412, 0.729412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4")
-text = "lame deck precedent"
+theme_override_font_sizes/font_size = 32
+text = "RE-RE-RELEASE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
