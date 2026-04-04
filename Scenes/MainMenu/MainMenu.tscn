@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" id="2"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/TitleDynamicFont.tres" id="3"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/HeaderDynamicFont.tres" id="4"]
 [ext_resource type="Material" uid="uid://cn42mv3fcsql7" path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" id="5"]
+[ext_resource type="FontFile" uid="uid://bw6kh50dlv6ew" path="res://Assets/Sourced/Fonts/road-rage/Road_Rage.otf" id="5_ee4eu"]
 [ext_resource type="Texture2D" uid="uid://fedd3ejjr8o1" path="res://Assets/Originals/Title/Deck_text.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://co4u5w6a5i7q6" path="res://Assets/Originals/Title/Energy_text.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://di7oup2s1epls" path="res://Assets/Originals/Title/Battle_text.png" id="8"]
@@ -202,38 +202,41 @@ rotation = -0.024621
 theme_override_colors/font_color = Color(0.345098, 0.270588, 0.388235, 1)
 theme_override_colors/font_outline_color = Color(0.243137, 0.129412, 0.215686, 1)
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("3")
-theme_override_font_sizes/font_size = 106
+theme_override_fonts/font = ExtResource("5_ee4eu")
+theme_override_font_sizes/font_size = 102
 text = "Battle Deck"
 horizontal_alignment = 1
 
 [node name="BattleSprite" type="Sprite2D" parent="MarginContainer/MainControl/TitleContainer/BattleDeckLabel" unique_id=2000945461]
 material = ExtResource("5")
-position = Vector2(249.966, 80.1074)
+position = Vector2(261.98697, 79.40313)
 rotation = 0.000429718
 texture = ExtResource("8")
 
 [node name="DeckSprite" type="Sprite2D" parent="MarginContainer/MainControl/TitleContainer/BattleDeckLabel" unique_id=156094520]
 material = ExtResource("5")
-position = Vector2(626.963, 86.2694)
+position = Vector2(615.9666, 85.998634)
 rotation = 0.000429718
 texture = ExtResource("6")
 
 [node name="EnergyLabel" type="Label" parent="MarginContainer/MainControl/TitleContainer" unique_id=1721292042]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -440.0
-offset_top = -270.0
+offset_top = -268.0
 offset_right = 416.0
-offset_bottom = -6.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.615686, 0.188235, 0.231373, 1)
 theme_override_colors/font_outline_color = Color(0.243137, 0.129412, 0.215686, 1)
 theme_override_constants/outline_size = 24
 theme_override_fonts/font = ExtResource("2")
-theme_override_font_sizes/font_size = 192
+theme_override_font_sizes/font_size = 190
 text = "Energy"
 horizontal_alignment = 1
 

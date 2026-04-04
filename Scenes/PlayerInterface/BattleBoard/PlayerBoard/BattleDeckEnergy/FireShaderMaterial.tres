@@ -2,11 +2,23 @@
 
 [ext_resource type="Shader" uid="uid://mc5vskqajrr" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShader.gdshader" id="1"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g64n1"]
+frequency = 0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e7ihv"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_g64n1")
+seamless = true
+seamless_blend_skirt = 0.265
+
 [resource]
 shader = ExtResource("1")
-shader_parameter/transparent = Color(0.505882, 0.0470588, 0.0470588, 0)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_e7ihv")
 shader_parameter/inner_color = Color(0.960784, 0.929412, 0.729412, 1)
 shader_parameter/outer_color = Color(0.823529, 0.392157, 0.443137, 1)
+shader_parameter/multiplier = 0.5
+shader_parameter/stretch = Vector2(1, 1)
 shader_parameter/inner_threshold = 0.36
 shader_parameter/outer_threshold = 0.1
 shader_parameter/soft_edge = 0.08
