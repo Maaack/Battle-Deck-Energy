@@ -6,13 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bee36ixn5r485" path="res://Assets/Mixed/Characters/silhouetteWithGlow.png" id="4"]
 
 [node name="PlayerActionsInterface" unique_id=1829578965 instance=ExtResource("1")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 244.0
-offset_bottom = 440.0
-grow_horizontal = 1
-grow_vertical = 1
 size_flags_horizontal = 7
 script = ExtResource("2")
 

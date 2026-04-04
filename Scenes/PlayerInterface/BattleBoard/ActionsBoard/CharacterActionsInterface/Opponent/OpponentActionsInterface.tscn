@@ -6,13 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dc23quifcih1x" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" id="4"]
 
 [node name="OpponentActionsInterface" unique_id=523037023 instance=ExtResource("1")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 244.0
-offset_bottom = 440.0
-grow_horizontal = 1
-grow_vertical = 1
 script = ExtResource("3")
 
 [node name="MarginContainer" parent="." index="1" unique_id=1554721171]
