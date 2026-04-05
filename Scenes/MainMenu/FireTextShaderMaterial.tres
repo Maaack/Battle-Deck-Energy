@@ -19,13 +19,12 @@ seamless_blend_skirt = 0.265
 
 [resource]
 shader = ExtResource("1")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_mqn1n")
-shader_parameter/gradient_texture = SubResource("GradientTexture2D_mqn1n")
-shader_parameter/transparent = Color(1, 1, 1, 0)
 shader_parameter/inner_color = Color(0.960784, 0.929412, 0.729412, 1)
 shader_parameter/outer_color = Color(0.54902, 0.560784, 0.682353, 1)
-shader_parameter/multiplier = 4.0
-shader_parameter/stretch = Vector2(2, 1)
 shader_parameter/inner_threshold = 0.55
 shader_parameter/outer_threshold = 0.3
 shader_parameter/soft_edge = 0.08
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_mqn1n")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_mqn1n")
+shader_parameter/multiplier = 4.0
+shader_parameter/stretch = Vector2(2, 1)

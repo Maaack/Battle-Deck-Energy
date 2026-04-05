@@ -14,12 +14,13 @@ seamless_blend_skirt = 0.265
 
 [resource]
 shader = ExtResource("1")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_e7ihv")
 shader_parameter/inner_color = Color(0.960784, 0.929412, 0.729412, 1)
 shader_parameter/outer_color = Color(0.823529, 0.392157, 0.443137, 1)
-shader_parameter/multiplier = 0.5
-shader_parameter/stretch = Vector2(1, 1)
 shader_parameter/inner_threshold = 0.36
 shader_parameter/outer_threshold = 0.1
 shader_parameter/soft_edge = 0.08
+shader_parameter/fire_radius = 0.4
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_e7ihv")
+shader_parameter/multiplier = 0.5
+shader_parameter/stretch = Vector2(1, 1)
 shader_parameter/center = Vector2(0.5, 0.8)

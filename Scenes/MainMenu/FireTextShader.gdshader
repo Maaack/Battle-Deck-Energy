@@ -1,15 +1,14 @@
 shader_type canvas_item;
 
-uniform sampler2D noise_texture : repeat_enable;
-uniform sampler2D gradient_texture : repeat_enable;
 uniform vec4 inner_color : source_color;
 uniform vec4 outer_color : source_color;
-uniform float multiplier = 1.0;
-
-uniform vec2 stretch = vec2(1.0, 1.0);
 uniform float inner_threshold = 0.36;
 uniform float outer_threshold = 0.1;
-uniform float soft_edge = 0.08;
+uniform float soft_edge = 0.0;
+uniform sampler2D noise_texture : repeat_enable;
+uniform sampler2D gradient_texture : repeat_enable;
+uniform float multiplier = 1.0;
+uniform vec2 stretch = vec2(1.0, 1.0);
 
 const vec4 transparent = vec4(1.0, 1.0, 1.0, 0.0);
 
