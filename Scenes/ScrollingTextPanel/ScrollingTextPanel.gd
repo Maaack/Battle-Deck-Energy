@@ -5,12 +5,12 @@ class_name ScrollingTextPanel
 
 signal continue_pressed
 
-onready var scroll_container = $MarginContainer/ScrollContainer
-onready var rich_text_label = $MarginContainer/ScrollContainer/RichTextLabel
-onready var scroll_timer = $ScrollResetTimer
+@onready var scroll_container = $MarginContainer/ScrollContainer
+@onready var rich_text_label = $MarginContainer/ScrollContainer/RichTextLabel
+@onready var scroll_timer = $ScrollResetTimer
 
-export(float) var max_speed_down : float = 2.0
-export(float) var accel_down : float = 0.01
+@export var max_speed_down: float = 2.0
+@export var accel_down: float = 0.01
 
 var current_speed : float = 1
 
@@ -25,7 +25,7 @@ func _process(delta):
 			set_process(false)
 
 func set_text(bbcode:String):
-	rich_text_label.bbcode_text = bbcode
+	rich_text_label.text = bbcode
 
 func _on_RichTextLabel_gui_input(event):
 	if event is InputEventMouseButton:

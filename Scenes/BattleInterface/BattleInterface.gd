@@ -11,12 +11,12 @@ signal card_forgotten(card_node)
 signal status_inspected(status_icon)
 signal status_forgotten(status_icon)
 
-onready var battle_end_timer = $BattleEndDelayTimer
+@onready var battle_end_timer = $BattleEndDelayTimer
 
 var battle_manager : BattleManager
 var player_interface : PlayerInterface
 var _battle_ended : bool = false
-var player_character setget set_player_character
+var player_character : set = set_player_character
 
 func _advance_character_phase():
 	battle_manager.advance_character_phase()
@@ -43,13 +43,13 @@ func start_battle():
 	battle_manager.start_battle()
 
 func _on_hand_drawn(character : CharacterData):
-	if player_interface.is_connected("drawing_completed", self, "_on_hand_drawn"):
-		player_interface.disconnect("drawing_completed", self, "_on_hand_drawn")
+	if player_interface.is_connected("drawing_completed", _on_hand_drawn):
+		player_interface.disconnect("drawing_completed", _on_hand_drawn)
 	_advance_character_phase()
 
 func _on_hand_discarded(character :  CharacterData):
-	if player_interface.is_connected("discard_completed", self, "_on_hand_discarded"):
-		player_interface.disconnect("discard_completed", self, "_on_hand_discarded")
+	if player_interface.is_connected("discard_completed", _on_hand_discarded):
+		player_interface.disconnect("discard_completed", _on_hand_discarded)
 	_advance_character_phase()
 
 func _on_BattleManager_active_character_updated(character : CharacterData):
@@ -64,11 +64,11 @@ func _on_BattleManager_turn_ended(character : CharacterData):
 
 func _on_BattleManager_before_hand_discarded(character : CharacterData):
 	if character == player_character:
-		player_interface.connect("discard_completed", self, "_on_hand_discarded", [character])
+		player_interface.connect("discard_completed", _on_hand_discarded.bind(character))
 
 func _on_BattleManager_before_hand_drawn(character : CharacterData):
 	if character == player_character:
-		player_interface.connect("drawing_completed", self, "_on_hand_drawn", [character])
+		player_interface.connect("drawing_completed", _on_hand_drawn.bind(character))
 
 func _on_BattleManager_card_drawn(character : CharacterData, card : CardData):
 	if character == player_character:
@@ -111,14 +111,14 @@ func _on_BattleManager_team_won(team):
 	var player_team = battle_manager.get_team(player_character)
 	if team == player_team:
 		battle_end_timer.start()
-		yield(battle_end_timer, "timeout")
+		await battle_end_timer.timeout
 		emit_signal("player_won")
 
 func _on_BattleManager_team_lost(team):
 	var player_team = battle_manager.get_team(player_character)
 	if team == player_team:
 		battle_end_timer.start()
-		yield(battle_end_timer, "timeout")
+		await battle_end_timer.timeout
 		emit_signal("player_lost")
 
 func _duplicate_array_contents(values:Array):

@@ -7,13 +7,13 @@
 [ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" type="AudioStream" id=8]
-[ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" type="Texture2D" id=9]
 [ext_resource path="res://Scenes/NetworkedGameInterface/NetworkedGameInterface.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Managers/Tooltip/TooltipManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Managers/Mood/MoodManager.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/NetworkedGameInterface/WinPanel/WinPanel.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Themes/Fonts/Credits/H4DynamicFont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Themes/Fonts/Credits/H4DynamicFont.tres" type="FontFile" id=15]
 [ext_resource path="res://Scenes/NetworkedGameInterface/GameMenu/NetworkedGameMenu.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.tscn" type="PackedScene" id=17]
 
@@ -47,7 +47,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+theme_override_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,7 +75,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -113,11 +113,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -258.5
-margin_top = -21.5
-margin_right = 258.5
-margin_bottom = 21.5
-custom_fonts/font = ExtResource( 15 )
+offset_left = -258.5
+offset_top = -21.5
+offset_right = 258.5
+offset_bottom = 21.5
+theme_override_fonts/font = ExtResource( 15 )
 text = "Waiting for other players to select their decks..."
 align = 1
 valign = 1
@@ -127,7 +127,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = ExtResource( 2 )
+theme_override_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

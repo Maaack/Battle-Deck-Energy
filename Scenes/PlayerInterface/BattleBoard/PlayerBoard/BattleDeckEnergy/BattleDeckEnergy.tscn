@@ -1,98 +1,93 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene format=3 uid="uid://dty7445pxv6cs"]
 
-[ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" type="Material" id=2]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" type="Texture" id=4]
-[ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelDynamicFont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/SparksParticlesMaterial.tres" type="Material" id=6]
-[ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Themes/Fonts/EnergyPanel/EnergyPanelDividerDynamicFont.tres" type="DynamicFont" id=8]
+[ext_resource type="StyleBox" path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" id="1"]
+[ext_resource type="Material" uid="uid://dxlls1dg63rhj" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" id="2"]
+[ext_resource type="Script" uid="uid://dua2rfx8yv8f8" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://dol1ul7ulhklk" path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" id="4"]
+[ext_resource type="FontFile" path="res://Themes/Fonts/EnergyPanel/EnergyPanelDynamicFont.tres" id="5"]
+[ext_resource type="Material" uid="uid://bw8eotbc3q7ox" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/SparksParticlesMaterial.tres" id="6"]
+[ext_resource type="AudioStream" uid="uid://ci2yywcw0im6v" path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" id="7"]
+[ext_resource type="FontFile" path="res://Themes/Fonts/EnergyPanel/EnergyPanelDividerDynamicFont.tres" id="8"]
 
-[node name="BattleDeckEnergy" type="Control"]
+[node name="BattleDeckEnergy" type="Control" unique_id=711466702]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -64.0
-margin_right = 64.0
-rect_min_size = Vector2( 64, 64 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+script = ExtResource("3")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=742610675]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -50.0
-margin_right = 150.0
-rect_min_size = Vector2( 150, 50 )
-custom_styles/panel = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_top = -50.0
+offset_right = 150.0
+theme_override_styles/panel = ExtResource("1")
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-material = ExtResource( 2 )
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=286029292]
+material = ExtResource("2")
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = -6.0
-margin_top = -96.0
-margin_right = 72.0
-margin_bottom = 7.62939e-06
-texture = ExtResource( 4 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -6.0
+offset_top = -96.0
+offset_right = 72.0
+texture = ExtResource("4")
+expand_mode = 1
 
-[node name="CurrentLabel" type="Label" parent="Panel"]
+[node name="CurrentLabel" type="Label" parent="Panel" unique_id=1570811426]
+layout_mode = 1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -96.0
-margin_right = -55.0
-margin_bottom = 48.0
-custom_fonts/font = ExtResource( 5 )
+offset_left = -96.0
+offset_right = -55.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 48
 text = "0"
-align = 2
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="DivideLabel" type="Label" parent="Panel"]
+[node name="DivideLabel" type="Label" parent="Panel" unique_id=202014763]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -56.0
-margin_top = -8.0
-margin_right = -33.0
-margin_bottom = 51.0
-custom_fonts/font = ExtResource( 8 )
+offset_left = -56.0
+offset_top = -8.0
+offset_right = -33.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("8")
+theme_override_font_sizes/font_size = 48
 text = "/"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="MaxLabel" type="Label" parent="Panel"]
+[node name="MaxLabel" type="Label" parent="Panel" unique_id=1755480917]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -34.0
-margin_right = -4.0
-margin_bottom = 48.0
-custom_fonts/font = ExtResource( 5 )
+offset_left = -34.0
+offset_right = -4.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 48
 text = "0"
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 2
 
-[node name="Particles2D" type="Particles2D" parent="Panel"]
-position = Vector2( 30, 42 )
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Panel" unique_id=134625871]
+position = Vector2(30, 42)
 amount = 2
-process_material = ExtResource( 6 )
+process_material = ExtResource("6")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 30, 56 )
-stream = ExtResource( 7 )
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1729291958]
+position = Vector2(30, 56)
+stream = ExtResource("7")
 volume_db = -26.0
 autoplay = true

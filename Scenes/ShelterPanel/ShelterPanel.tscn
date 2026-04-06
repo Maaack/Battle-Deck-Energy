@@ -1,243 +1,206 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene format=3 uid="uid://de3m0rstbgir5"]
 
-[ext_resource path="res://Scenes/ShelterPanel/ShetlerPanel.gd" type="Script" id=1]
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" type="Texture" id=3]
-[ext_resource path="res://Managers/Cards/CardManager.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" type="Texture" id=5]
-[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Scenes/ShelterPanel/FireShaderMaterial.tres" type="Material" id=7]
-[ext_resource path="res://Scenes/ShelterPanel/FlameParticles2D.tres" type="Material" id=8]
-[ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_blowing.ogg" type="AudioStream" id=10]
-[ext_resource path="res://Scenes/ShelterPanel/SparkParticles2D.tres" type="Material" id=11]
-[ext_resource path="res://Assets/Originals/Particles/spark_8x8.png" type="Texture" id=12]
+[ext_resource type="Script" uid="uid://nbfm7g6xoog8" path="res://Scenes/ShelterPanel/ShetlerPanel.gd" id="1"]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://dol1ul7ulhklk" path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" id="3"]
+[ext_resource type="PackedScene" path="res://Managers/Cards/CardManager.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://goqgq434dine" path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" id="5"]
+[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6"]
+[ext_resource type="Material" uid="uid://csp5cjypgm8jc" path="res://Scenes/ShelterPanel/FireShaderMaterial.tres" id="7"]
+[ext_resource type="Material" uid="uid://b35157g4q7qas" path="res://Scenes/ShelterPanel/FlameParticles2D.tres" id="8"]
+[ext_resource type="AudioStream" uid="uid://ci2yywcw0im6v" path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" id="9"]
+[ext_resource type="AudioStream" uid="uid://dfy5g03bpb1fp" path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_blowing.ogg" id="10"]
+[ext_resource type="Material" uid="uid://cin6o1b2blln1" path="res://Scenes/ShelterPanel/SparkParticlesBlast2D.tres" id="10_1xobe"]
+[ext_resource type="Material" uid="uid://b16lqd1jsx0ck" path="res://Scenes/ShelterPanel/SparkParticles2D.tres" id="11"]
+[ext_resource type="Texture2D" uid="uid://bfohgf2cvf7rc" path="res://Assets/Originals/Particles/spark_8x8.png" id="12"]
 
-[node name="ShelterPanel" type="Control"]
+[node name="ShelterPanel" type="Control" unique_id=1346010683]
+custom_minimum_size = Vector2(500, 360)
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 500, 360 )
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("2")
+script = ExtResource("1")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=776670800]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -392.5
-margin_top = -200.5
-margin_right = 392.5
-margin_bottom = -141.5
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+offset_left = -392.5
+offset_top = -200.5
+offset_right = 392.5
+offset_bottom = -141.5
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6")
 text = "A new friend offers you shelter..."
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-material = ExtResource( 7 )
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1291055464]
+material = ExtResource("7")
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.0
-margin_top = -128.0
-margin_right = 96.0
-margin_bottom = 128.0
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -96.0
+offset_top = -128.0
+offset_right = 96.0
+offset_bottom = 128.0
+texture = ExtResource("3")
+expand_mode = 1
 
-[node name="OptionsContainer" type="Control" parent="."]
+[node name="OptionsContainer" type="Control" parent="." unique_id=537623454]
+anchors_preset = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -85.0
-margin_bottom = 135.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_top = -85.0
+offset_bottom = 135.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="OptionsContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsContainer" unique_id=157541648]
+layout_mode = 0
 anchor_top = 0.00382219
 anchor_right = 1.0
 anchor_bottom = 1.00382
-margin_top = 0.840912
-margin_bottom = 0.840912
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_top = 0.840912
+offset_bottom = 0.840912
 
-[node name="DineControl" type="Control" parent="OptionsContainer/HBoxContainer"]
-margin_right = 638.0
-margin_bottom = 219.0
+[node name="DineControl" type="Control" parent="OptionsContainer/HBoxContainer" unique_id=705774185]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="DineButton" type="Button" parent="OptionsContainer/HBoxContainer/DineControl"]
+[node name="DineButton" type="Button" parent="OptionsContainer/HBoxContainer/DineControl" unique_id=1895784283]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -112.0
-margin_top = -19.0
-margin_right = 112.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 224, 38 )
+offset_left = -112.0
+offset_top = -19.0
+offset_right = 112.0
+offset_bottom = 19.0
 focus_mode = 0
-enabled_focus_mode = 0
 text = "Dine"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="OptionsContainer/HBoxContainer/DineControl"]
+[node name="Label" type="Label" parent="OptionsContainer/HBoxContainer/DineControl" unique_id=1901246416]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 40.5
-margin_bottom = 70.5
+offset_top = 40.5
+offset_bottom = 70.5
 text = "Heal 25% of your Max Health"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BatheControl" type="Control" parent="OptionsContainer/HBoxContainer"]
-margin_left = 642.0
-margin_right = 1280.0
-margin_bottom = 219.0
+[node name="BatheControl" type="Control" parent="OptionsContainer/HBoxContainer" unique_id=1103025360]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BatheButton" type="Button" parent="OptionsContainer/HBoxContainer/BatheControl"]
+[node name="BatheButton" type="Button" parent="OptionsContainer/HBoxContainer/BatheControl" unique_id=1731635877]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -112.0
-margin_top = -19.0
-margin_right = 112.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 224, 38 )
+offset_left = -112.0
+offset_top = -19.0
+offset_right = 112.0
+offset_bottom = 19.0
 focus_mode = 0
-enabled_focus_mode = 0
 text = "Bathe"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="OptionsContainer/HBoxContainer/BatheControl"]
+[node name="Label" type="Label" parent="OptionsContainer/HBoxContainer/BatheControl" unique_id=1468047967]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 40.5
-margin_bottom = 70.5
+offset_top = 40.5
+offset_bottom = 70.5
 text = "Clean your Deck of 1 Card"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
 
-[node name="CentralControl" type="Control" parent="."]
+[node name="CentralControl" type="Control" parent="." unique_id=1665463000]
+anchors_preset = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="BlowingParticles2D" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 60 )
+[node name="BlowingParticles2D" type="GPUParticles2D" parent="CentralControl" unique_id=965708523]
+position = Vector2(0, 60)
 emitting = false
-amount = 50
+amount = 16
+texture = ExtResource("5")
 lifetime = 1.8
-process_material = ExtResource( 8 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
+explosiveness = 0.8
+process_material = ExtResource("8")
 
-[node name="SparkParticles2D" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 100 )
-amount = 4
+[node name="SparkParticles2D" type="GPUParticles2D" parent="CentralControl" unique_id=2084195470]
+position = Vector2(0, 100)
+texture = ExtResource("12")
 lifetime = 1.7
-process_material = ExtResource( 11 )
-texture = ExtResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
+process_material = ExtResource("11")
 
-[node name="SparkParticles2D2" type="Particles2D" parent="CentralControl"]
-position = Vector2( 0, 100 )
+[node name="SparkParticles2D2" type="GPUParticles2D" parent="CentralControl" unique_id=44987957]
+position = Vector2(0, 100)
 emitting = false
-amount = 12
+amount = 64
+texture = ExtResource("12")
 lifetime = 1.7
-process_material = ExtResource( 11 )
-texture = ExtResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
+explosiveness = 0.8
+process_material = ExtResource("10_1xobe")
 
-[node name="CracklingAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CentralControl"]
-position = Vector2( 0, 60 )
-stream = ExtResource( 9 )
+[node name="CracklingAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CentralControl" unique_id=1446750297]
+position = Vector2(0, 60)
+stream = ExtResource("9")
 volume_db = -7.0
 autoplay = true
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="BlowingAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CentralControl"]
-position = Vector2( 0, 60 )
-stream = ExtResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="BlowingAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CentralControl" unique_id=505510348]
+position = Vector2(0, 60)
+stream = ExtResource("10")
 
-[node name="CardManager" parent="CentralControl" instance=ExtResource( 4 )]
-position = Vector2( 0, 60 )
+[node name="CardManager" parent="CentralControl" unique_id=815101539 instance=ExtResource("4")]
+position = Vector2(0, 60)
 
-[node name="AnimationDelayTimer" type="Timer" parent="."]
+[node name="AnimationDelayTimer" type="Timer" parent="." unique_id=588453552]
 wait_time = 0.6
 one_shot = true
 
-[node name="ContinueDelayTimer" type="Timer" parent="."]
+[node name="ContinueDelayTimer" type="Timer" parent="." unique_id=864659011]
 
-[node name="SparksDelayTimer" type="Timer" parent="."]
+[node name="SparksDelayTimer" type="Timer" parent="." unique_id=965576793]
 wait_time = 1.5
 
-[node name="BlowingDelayTimer" type="Timer" parent="."]
+[node name="BlowingDelayTimer" type="Timer" parent="." unique_id=504573505]
 wait_time = 0.8
 
-[node name="ContinueButton" type="Button" parent="."]
+[node name="ContinueButton" type="Button" parent="." unique_id=918398596]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -272.0
-margin_top = -108.0
-margin_right = -48.0
-margin_bottom = -48.0
-rect_min_size = Vector2( 224, 38 )
+offset_left = -272.0
+offset_top = -108.0
+offset_right = -48.0
+offset_bottom = -48.0
 focus_mode = 0
-enabled_focus_mode = 0
 text = "Continue"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="pressed" from="OptionsContainer/HBoxContainer/DineControl/DineButton" to="." method="_on_DineButton_pressed"]
 [connection signal="pressed" from="OptionsContainer/HBoxContainer/BatheControl/BatheButton" to="." method="_on_BathButton_pressed"]
 [connection signal="timeout" from="ContinueDelayTimer" to="." method="_on_ContinueDelayTimer_timeout"]

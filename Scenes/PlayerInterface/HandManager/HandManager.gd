@@ -6,15 +6,15 @@ signal card_updated(card)
 
 const NO_INDEX = -1
 
-export(float, 0, 4096) var starting_width : float = 512
-export(float, 0, 4096) var ending_width : float = 1024
-export(float, 0, 4096) var hand_center_distance : float = 1024
-export(int, 0, 32) var max_hand_size : int = 8
-export(float, 0, 1024) var ignore_mouse_range : float = 200
-export(float, 0, 1024) var fan_cards_from_center : float = 60
-export(float, 0.0, 2.0) var fan_speed : float = 0.2
-export(Vector2) var offset_nearest_card : Vector2 = Vector2(0.0, -80)
-export(Vector2) var scale_nearest_card : Vector2 = Vector2(1.25, 1.25)
+@export var starting_width : float = 512 # (float, 0, 4096)
+@export var ending_width : float = 1024 # (float, 0, 4096)
+@export var hand_center_distance : float = 1024 # (float, 0, 4096)
+@export var max_hand_size : int = 8 # (int, 0, 32)
+@export var ignore_mouse_range : float = 200 # (float, 0, 1024)
+@export var fan_cards_from_center : float = 60 # (float, 0, 1024)
+@export var fan_speed : float = 0.2 # (float, 0.0, 2.0)
+@export var offset_nearest_card: Vector2 = Vector2(0.0, -80)
+@export var scale_nearest_card: Vector2 = Vector2(1.25, 1.25)
 
 var cards : Dictionary = {}
 var spread_from_mouse_flag : bool = false

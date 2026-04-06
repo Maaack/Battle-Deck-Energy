@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/LootPanel/LootPanel.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="FontFile" id=3]
 [ext_resource path="res://Scenes/LootPanel/HBoxContainer.gd" type="Script" id=4]
 [ext_resource path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=6]
@@ -12,7 +12,7 @@
 [node name="LootPanel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 500, 360 )
+custom_minimum_size = Vector2( 500, 360 )
 mouse_filter = 2
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
@@ -25,24 +25,24 @@ card_options = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 16
-custom_constants/margin_top = 16
-custom_constants/margin_left = 16
-custom_constants/margin_bottom = 240
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 240
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 1264.0
-margin_bottom = 480.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 480.0
 mouse_filter = 2
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_right = 1248.0
-margin_bottom = 230.0
+offset_right = 1248.0
+offset_bottom = 230.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -51,12 +51,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -388.5
-margin_top = -29.0
-margin_right = 388.5
-margin_bottom = 29.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+offset_left = -388.5
+offset_top = -29.0
+offset_right = 388.5
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource( 3 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
 text = "You can add 1 card to your deck."
 align = 1
 valign = 1
@@ -65,36 +65,36 @@ __meta__ = {
 }
 
 [node name="LootMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 234.0
-margin_right = 1248.0
-margin_bottom = 464.0
+offset_top = 234.0
+offset_right = 1248.0
+offset_bottom = 464.0
 mouse_filter = 2
 size_flags_vertical = 3
-custom_constants/margin_right = 128
-custom_constants/margin_left = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_left = 128
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LootContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/LootMargin"]
-margin_left = 128.0
-margin_right = 1120.0
-margin_bottom = 230.0
+offset_left = 128.0
+offset_right = 1120.0
+offset_bottom = 230.0
 mouse_filter = 2
 alignment = 1
 script = ExtResource( 4 )
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/LootMargin"]
-margin_left = 128.0
-margin_right = 1120.0
-margin_bottom = 230.0
+offset_left = 128.0
+offset_right = 1120.0
+offset_bottom = 230.0
 mouse_filter = 2
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer"]
-margin_left = 496.0
-margin_top = 115.0
-margin_right = 496.0
-margin_bottom = 115.0
+offset_left = 496.0
+offset_top = 115.0
+offset_right = 496.0
+offset_bottom = 115.0
 mouse_filter = 2
 
 [node name="SelectorCardManager" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control" instance=ExtResource( 5 )]
@@ -112,11 +112,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -272.0
-margin_top = -108.0
-margin_right = -48.0
-margin_bottom = -48.0
-rect_min_size = Vector2( 224, 60 )
+offset_left = -272.0
+offset_top = -108.0
+offset_right = -48.0
+offset_bottom = -48.0
+custom_minimum_size = Vector2( 224, 60 )
 size_flags_vertical = 5
 text = "Skip Loot"
 __meta__ = {
@@ -128,11 +128,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -112.0
-margin_top = -108.0
-margin_right = 112.0
-margin_bottom = -48.0
-rect_min_size = Vector2( 224, 38 )
+offset_left = -112.0
+offset_top = -108.0
+offset_right = 112.0
+offset_bottom = -48.0
+custom_minimum_size = Vector2( 224, 38 )
 size_flags_vertical = 5
 text = "View Deck"
 __meta__ = {
@@ -144,11 +144,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -112.0
-margin_top = -208.0
-margin_right = 112.0
-margin_bottom = -148.0
-rect_min_size = Vector2( 224, 38 )
+offset_left = -112.0
+offset_top = -208.0
+offset_right = 112.0
+offset_bottom = -148.0
+custom_minimum_size = Vector2( 224, 38 )
 size_flags_vertical = 5
 disabled = true
 text = "Add Card"

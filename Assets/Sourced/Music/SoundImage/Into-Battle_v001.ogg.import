@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/Into-Battle_v001.ogg-858395ea9192a07609921da7d947b29f.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bnxjp0otksoh3"
+path="res://.godot/imported/Into-Battle_v001.ogg-858395ea9192a07609921da7d947b29f.oggvorbisstr"
 
 [deps]
 
 source_file="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg"
-dest_files=[ "res://.import/Into-Battle_v001.ogg-858395ea9192a07609921da7d947b29f.oggstr" ]
+dest_files=["res://.godot/imported/Into-Battle_v001.ogg-858395ea9192a07609921da7d947b29f.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Effects/DeckModEffects/AddDrained.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Energy/fire-silhouette.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Energy/fire-silhouette.png" type="Texture2D" id=3]
 [ext_resource path="res://Resources/Effects/GainEnergy.tres" type="Resource" id=4]
 
 [resource]

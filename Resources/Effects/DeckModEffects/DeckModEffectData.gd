@@ -5,8 +5,8 @@ class_name DeckModEffectData
 
 enum DestinationMode{HAND, DRAW, DISCARD}
 
-export(Resource) var starting_card : Resource setget set_starting_card
-export(DestinationMode) var destination : int = DestinationMode.HAND
+@export var starting_card: Resource: set = set_starting_card
+@export var destination: DestinationMode = DestinationMode.HAND
 
 var card : CardData
 

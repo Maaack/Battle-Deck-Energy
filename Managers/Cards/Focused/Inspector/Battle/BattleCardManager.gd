@@ -5,7 +5,7 @@ signal dragging_card(card_data)
 signal dropping_card(card_data)
 
 var locked_cards : Dictionary = {}
-var energy_available : int = 0 setget set_energy_available
+var energy_available : int = 0: set = set_energy_available
 var dragged_card = null
 
 func set_energy_available(value:int):
@@ -31,17 +31,17 @@ func unlock_card(card_data:CardData):
 
 func remove_card(card_data:CardData):
 	unlock_card(card_data)
-	.remove_card(card_data)
+	super.remove_card(card_data)
 
 func move_card(card_data:CardData, new_transform:TransformData, tween_time:float = get_tween_time()):
 	if card_data in locked_cards:
 		return
-	.move_card(card_data, new_transform, tween_time)
+	super.move_card(card_data, new_transform, tween_time)
 
 func focus_on_card(card_node:CardNode2D):
 	if not _can_change_focus():
 		return
-	.focus_on_card(card_node)
+	super.focus_on_card(card_node)
 	if card_node.is_playable() and _can_afford_card(card_node):
 		card_node.glow_on()
 	else:
@@ -50,7 +50,7 @@ func focus_on_card(card_node:CardNode2D):
 func focus_off_card(card_node:CardNode2D):
 	if not _can_change_focus() or not is_card_focused(card_node):
 		return
-	.focus_off_card(card_node)
+	super.focus_off_card(card_node)
 	card_node.glow_off()
 
 func drag_to_position(position:Vector2):
@@ -66,7 +66,7 @@ func _is_card_playable(card_node:CardNode2D):
 	return _can_change_focus() and card_node.is_playable() and not is_locked_card(card_node.card_data) and _can_afford_card(card_node)
 
 func _on_Card_mouse_clicked(card_node:CardNode2D):
-	._on_Card_mouse_clicked(card_node)
+	super._on_Card_mouse_clicked(card_node)
 	if not _is_card_playable(card_node):
 		return
 	dragged_card = card_node
@@ -75,7 +75,7 @@ func _on_Card_mouse_clicked(card_node:CardNode2D):
 	emit_signal("dragging_card", card_node.card_data)
 	
 func _on_Card_mouse_released(card_node:CardNode2D):
-	._on_Card_mouse_released(card_node)
+	super._on_Card_mouse_released(card_node)
 	card_node.play_drop_audio()
 	if dragged_card != card_node:
 		return

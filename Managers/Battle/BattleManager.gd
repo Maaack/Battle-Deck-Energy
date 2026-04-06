@@ -26,14 +26,14 @@ signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
 signal opportunities_reset
 
-onready var advance_phase_timer : Timer = $AdvancePhaseTimer
-onready var advance_action_timer : Timer = $AdvanceActionTimer
-onready var battle_phase_manager : PhaseManager = $BattlePhaseManager
-onready var team_phase_manager : PhaseManager = $TeamPhaseManager
-onready var character_phase_manager : PhaseManager = $CharacterPhaseManager
-onready var opportunities_manager : OpportunitiesManager = $OpportunitiesManager
-onready var effects_manager : EffectsManager = $EffectManager
-onready var team_manager : TeamManager = $TeamManager
+@onready var advance_phase_timer : Timer = $AdvancePhaseTimer
+@onready var advance_action_timer : Timer = $AdvanceActionTimer
+@onready var battle_phase_manager : PhaseManager = $BattlePhaseManager
+@onready var team_phase_manager : PhaseManager = $TeamPhaseManager
+@onready var character_phase_manager : PhaseManager = $CharacterPhaseManager
+@onready var opportunities_manager : OpportunitiesManager = $OpportunitiesManager
+@onready var effects_manager : EffectsManager = $EffectManager
+@onready var team_manager : TeamManager = $TeamManager
 
 var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 var character_battle_manager_scene = load("res://Managers/CharacterBattle/CharacterBattleManager.tscn")
@@ -48,7 +48,7 @@ func _ready():
 	effects_manager.team_manager = team_manager
 
 func _new_character_manager_instance(character_data : CharacterData, team : String):
-	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instance()
+	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instantiate()
 	_character_manager_map[character_data] = character_battle_manager
 	return character_battle_manager
 
@@ -56,20 +56,20 @@ func add_team(team : String):
 	if not team in teams_in_play:
 		teams_in_play.append(team)
 		var team_phase_instance : Phase = team_phase_manager.add_phase(team)
-		team_phase_instance.connect("phase_entered", self, "_on_Team_phase_entered", [team])
+		team_phase_instance.connect("phase_entered", _on_Team_phase_entered.bind(team))
 
 func _connect_character_battle_manager(character_battle_manager : CharacterBattleManager):
-	character_battle_manager.connect("card_added_to_hand", self, "_on_CharacterBattleManager_card_added_to_hand")
-	character_battle_manager.connect("card_discarded", self, "_on_CharacterBattleManager_card_discarded")
-	character_battle_manager.connect("card_drawn", self, "_on_CharacterBattleManager_card_drawn")
-	character_battle_manager.connect("card_exhausted", self, "_on_CharacterBattleManager_card_exhausted")
-	character_battle_manager.connect("card_played", self, "_on_CharacterBattleManager_card_played")
-	character_battle_manager.connect("card_removed_from_hand", self, "_on_CharacterBattleManager_card_removed_from_hand")
-	character_battle_manager.connect("card_reshuffled", self, "_on_CharacterBattleManager_card_reshuffled")
-	character_battle_manager.connect("character_died", self, "_on_CharacterBattleManager_character_died")
-	character_battle_manager.connect("status_updated", self, "_on_CharacterBattleManager_status_updated")
-	character_battle_manager.connect("related_status_changed", self, "_on_CharacterBattleManager_related_status_changed")
-	character_battle_manager.connect("turn_ended", self, "_on_CharacterBattleManager_turn_ended")
+	character_battle_manager.connect("card_added_to_hand", _on_CharacterBattleManager_card_added_to_hand)
+	character_battle_manager.connect("card_discarded", _on_CharacterBattleManager_card_discarded)
+	character_battle_manager.connect("card_drawn", _on_CharacterBattleManager_card_drawn)
+	character_battle_manager.connect("card_exhausted", _on_CharacterBattleManager_card_exhausted)
+	character_battle_manager.connect("card_played", _on_CharacterBattleManager_card_played)
+	character_battle_manager.connect("card_removed_from_hand", _on_CharacterBattleManager_card_removed_from_hand)
+	character_battle_manager.connect("card_reshuffled", _on_CharacterBattleManager_card_reshuffled)
+	character_battle_manager.connect("character_died", _on_CharacterBattleManager_character_died)
+	character_battle_manager.connect("status_updated", _on_CharacterBattleManager_status_updated)
+	character_battle_manager.connect("related_status_changed", _on_CharacterBattleManager_related_status_changed)
+	character_battle_manager.connect("turn_ended", _on_CharacterBattleManager_turn_ended)
 
 func add_character(character_data : CharacterData, team : String):
 	if character_data in _character_manager_map:
@@ -127,7 +127,7 @@ func _start_character_turn(character_data : CharacterData):
 	opportunities_manager.reset()
 	_setup_character_opportunities(character_data)
 	advance_action_timer.start()
-	yield(advance_action_timer, "timeout")
+	await advance_action_timer.timeout
 	advance_character_phase()
 
 func _active_character_draws():
@@ -138,7 +138,7 @@ func _active_character_draws():
 		character_manager.update_early_start_of_turn_statuses()
 		character_manager.update_late_start_of_turn_statuses()
 		advance_action_timer.start()
-		yield(advance_action_timer, "timeout")
+		await advance_action_timer.timeout
 	emit_signal("before_hand_drawn", active_character)
 	character_manager.draw_cards(draw_size)
 

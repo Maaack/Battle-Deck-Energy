@@ -1,53 +1,54 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene format=3 uid="uid://baudhevk8fu4j"]
 
-[ext_resource path="res://Managers/Battle/BattleManager.gd" type="Script" id=1]
-[ext_resource path="res://Managers/BattlePhase/PhaseManager.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Managers/Effects/EffectManager.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Managers/BattlePhase/Phase.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Managers/Team/TeamManager.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Managers/Opportunities/OpportunitiesManager.tscn" type="PackedScene" id=7]
+[ext_resource type="Script" uid="uid://bylxbj3wxemp8" path="res://Managers/Battle/BattleManager.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Managers/BattlePhase/PhaseManager.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Managers/Effects/EffectManager.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Managers/BattlePhase/Phase.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Managers/Team/TeamManager.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Managers/Opportunities/OpportunitiesManager.tscn" id="7"]
 
-[node name="BattleManager" type="Node"]
-script = ExtResource( 1 )
+[node name="BattleManager" type="Node" unique_id=729577552]
+script = ExtResource("1")
 
-[node name="AdvancePhaseTimer" type="Timer" parent="."]
+[node name="AdvancePhaseTimer" type="Timer" parent="." unique_id=1759118500]
 one_shot = true
 
-[node name="AdvanceActionTimer" type="Timer" parent="."]
+[node name="AdvanceActionTimer" type="Timer" parent="." unique_id=1072016402]
 wait_time = 0.5
 one_shot = true
 
-[node name="BattlePhaseManager" parent="." instance=ExtResource( 2 )]
+[node name="BattlePhaseManager" parent="." unique_id=490255734 instance=ExtResource("2")]
 
-[node name="BattleStart" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+[node name="BattleStart" parent="BattlePhaseManager" unique_id=1095541140 instance=ExtResource("5")]
 
-[node name="RoundStart" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+[node name="RoundStart" parent="BattlePhaseManager" unique_id=1465739290 instance=ExtResource("5")]
 
-[node name="TeamPhase" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+[node name="TeamPhase" parent="BattlePhaseManager" unique_id=590758616 instance=ExtResource("5")]
 
-[node name="RoundEnd" parent="BattlePhaseManager" instance=ExtResource( 5 )]
+[node name="RoundEnd" parent="BattlePhaseManager" unique_id=385581548 instance=ExtResource("5")]
 
-[node name="TeamPhaseManager" parent="." instance=ExtResource( 2 )]
+[node name="TeamPhaseManager" parent="." unique_id=123338307 instance=ExtResource("2")]
 starting_phase_tier = 0
 
-[node name="TeamStart" parent="TeamPhaseManager" instance=ExtResource( 5 )]
+[node name="TeamStart" parent="TeamPhaseManager" unique_id=1729565421 instance=ExtResource("5")]
 
-[node name="CharacterPhaseManager" parent="." instance=ExtResource( 2 )]
+[node name="CharacterPhaseManager" parent="." unique_id=1917670371 instance=ExtResource("2")]
 starting_phase_tier = 0
 
-[node name="CharacterStart" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+[node name="CharacterStart" parent="CharacterPhaseManager" unique_id=577154645 instance=ExtResource("5")]
 
-[node name="DrawingCards" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+[node name="DrawingCards" parent="CharacterPhaseManager" unique_id=1289856313 instance=ExtResource("5")]
 
-[node name="Playing" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+[node name="Playing" parent="CharacterPhaseManager" unique_id=852903231 instance=ExtResource("5")]
 
-[node name="DiscardingCards" parent="CharacterPhaseManager" instance=ExtResource( 5 )]
+[node name="DiscardingCards" parent="CharacterPhaseManager" unique_id=1986870074 instance=ExtResource("5")]
 
-[node name="EffectManager" parent="." instance=ExtResource( 3 )]
+[node name="EffectManager" parent="." unique_id=1282661800 instance=ExtResource("3")]
 
-[node name="TeamManager" parent="." instance=ExtResource( 6 )]
+[node name="TeamManager" parent="." unique_id=64973650 instance=ExtResource("6")]
 
-[node name="OpportunitiesManager" parent="." instance=ExtResource( 7 )]
+[node name="OpportunitiesManager" parent="." unique_id=1973592855 instance=ExtResource("7")]
+
 [connection signal="timeout" from="AdvancePhaseTimer" to="." method="_on_AdvancePhaseTimer_timeout"]
 [connection signal="phase_entered" from="BattlePhaseManager/BattleStart" to="." method="_on_BattleStart_phase_entered"]
 [connection signal="phase_entered" from="BattlePhaseManager/RoundStart" to="." method="_on_RoundStart_phase_entered"]

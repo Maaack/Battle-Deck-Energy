@@ -6,7 +6,7 @@ class_name OpportunityData
 var source : CharacterData
 var target : CharacterData
 var type : int = CardData.CardType.NONE
-var card_data = null setget set_card
+var card_data = null: set = set_card
 var transform_data = TransformData.new()
 
 func _to_string():

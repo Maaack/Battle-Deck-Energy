@@ -3,25 +3,24 @@ extends Control
 
 signal continue_pressed
 
-onready var scroll_container = $ScrollContainer
-onready var rich_text_label = $ScrollContainer/RichTextLabel
-onready var scroll_timer = $ScrollResetTimer
+@onready var scroll_container = $ScrollContainer
+@onready var rich_text_label = $ScrollContainer/RichTextLabel
+@onready var scroll_timer = $ScrollResetTimer
 
-export(String) var attribution_file_path : String = "res://ATTRIBUTION.md" setget set_file_path
-export(DynamicFont) var h1_font
-export(DynamicFont) var h2_font
-export(DynamicFont) var h3_font
-export(DynamicFont) var h4_font
-export(int) var lines_prefixed : int = 22
-export(int) var lines_suffixed : int = 32
-export(float) var max_speed_down : float = 5.0
-export(float) var accel_down : float = 0.01
+@export var attribution_file_path: String = "res://ATTRIBUTION.md": set = set_file_path
+@export var h1_font: FontFile
+@export var h2_font: FontFile
+@export var h3_font: FontFile
+@export var h4_font: FontFile
+@export var lines_prefixed: int = 22
+@export var lines_suffixed: int = 32
+@export var max_speed_down: float = 5.0
+@export var accel_down: float = 0.01
 
 var current_speed : float = 1
 
 func load_file(file_path):
-	var file : File = File.new()
-	file.open(file_path, File.READ)
+	var file = FileAccess.open(file_path, FileAccess.READ)
 	var text : String = file.get_as_text()
 	file.close()
 	return text
@@ -37,7 +36,7 @@ func regex_replace_titles(credits:String):
 	var iter = 0
 	var heading_fonts : Array = [h1_font, h2_font, h3_font, h4_font]
 	for heading_font in heading_fonts:
-		if heading_font is DynamicFont:
+		if heading_font is FontFile:
 			iter += 1
 			var regex = RegEx.new()
 			var match_string : String = "([^#])#{%d}\\s([^\n]*)" % iter
@@ -55,12 +54,12 @@ func set_file_path(value:String):
 	text = regex_replace_titles(text)
 	var prefix_lines = "\n".repeat(lines_prefixed)
 	var suffix_lines = "\n".repeat(lines_suffixed)
-	$ScrollContainer/RichTextLabel.bbcode_text = "%s[center]%s[/center]%s" % [prefix_lines, text, suffix_lines]
+	$ScrollContainer/RichTextLabel.text = "%s[center]%s[/center]%s" % [prefix_lines, text, suffix_lines]
 
 func _ready():
 	set_file_path(attribution_file_path)
 
-func _process(delta):
+func _process(_delta):
 	current_speed += accel_down
 	if current_speed > max_speed_down:
 		current_speed = max_speed_down

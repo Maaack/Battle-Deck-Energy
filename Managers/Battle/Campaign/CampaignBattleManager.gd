@@ -10,16 +10,16 @@ var enemy_ai_battle_manager_scene = load("res://Managers/CharacterBattle/EnemyAI
 func _new_character_manager_instance(character_data : CharacterData, team : String):
 	var character_battle_manager : CharacterBattleManager
 	if team == ENEMY_TEAM:
-		character_battle_manager = enemy_ai_battle_manager_scene.instance()
+		character_battle_manager = enemy_ai_battle_manager_scene.instantiate()
 	else:
-		character_battle_manager = character_battle_manager_scene.instance()
+		character_battle_manager = character_battle_manager_scene.instantiate()
 	_character_manager_map[character_data] = character_battle_manager
 	return character_battle_manager
 
 func _connect_character_battle_manager(character_battle_manager : CharacterBattleManager):
-	._connect_character_battle_manager(character_battle_manager)
+	super._connect_character_battle_manager(character_battle_manager)
 	if character_battle_manager is SlowEnemyAIBattleManager:
-		character_battle_manager.connect("card_revealed", self, "_on_CharacterBattleManager_card_revealed")
+		character_battle_manager.connect("card_revealed", Callable(self, "_on_CharacterBattleManager_card_revealed"))
 		pass
 
 func setup_battle():
@@ -29,7 +29,7 @@ func setup_battle():
 				var slow_team = team_manager.get_team(character_manager.character_data)
 				team_phase_manager.move_phase(slow_team, 1)
 				break
-	.setup_battle()
+	super.setup_battle()
 
 func _active_character_draws():
 	var character_manager = _character_manager_map[active_character]
@@ -39,7 +39,7 @@ func _active_character_draws():
 		character_manager.update_early_start_of_turn_statuses()
 		character_manager.update_late_start_of_turn_statuses()
 		advance_action_timer.start()
-		yield(advance_action_timer, "timeout")
+		await advance_action_timer.timeout
 	if character_manager is EnemyAIBattleManager:
 		character_manager.draw_cards(draw_size)
 		advance_character_phase()
@@ -53,11 +53,10 @@ func _end_character_turn(character_data : CharacterData):
 	if character_manager is EnemyAIBattleManager:
 		character_manager.discard_hand()
 		advance_action_timer.start()
-		yield(advance_action_timer, "timeout")
+		await advance_action_timer.timeout
 		advance_character_phase()
 	elif character_manager.has_discardable_cards_in_hand():
 		emit_signal("before_hand_discarded", character_data)
 		character_manager.discard_hand()
 	else:
 		character_phase_manager.advance()
-

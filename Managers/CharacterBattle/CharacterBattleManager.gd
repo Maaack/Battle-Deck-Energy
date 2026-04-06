@@ -17,8 +17,8 @@ signal related_status_changed(character, status, origin)
 signal character_died(character)
 signal turn_ended(character)
 
-onready var status_manager : StatusManager = $StatusManager
-onready var iff_manager = $IFFManager
+@onready var status_manager : StatusManager = $StatusManager
+@onready var iff_manager = $IFFManager
 
 var defense_status_resource = preload("res://Resources/Statuses/Defense.tres")
 var health_status_base = preload("res://Resources/Statuses/Health.tres")
@@ -32,7 +32,7 @@ var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
 var statuses : Array = []
-onready var base_opportunities : Dictionary = {
+@onready var base_opportunities : Dictionary = {
 	CardData.CardType.ATTACK : 1,
 	CardData.CardType.DEFEND : 1,
 	CardData.CardType.SKILL : 1,
@@ -244,7 +244,7 @@ func get_status(type_tag:String):
 func get_related_status(type_tag:String, related:CharacterData, is_target : bool = true):
 	return status_manager.get_related_status(type_tag, related, is_target)
 
-func has_status(type_tag:String, source = null):
+func has_status(type_tag:String, _source = null):
 	return get_status(type_tag) != null
 
 func _on_StatusManager_status_updated(status:StatusData, delta:int):

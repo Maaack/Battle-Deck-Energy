@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Resources/Statuses/RelatedStatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/BadStats2/marked_2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mixed/BadStats2/marked_2.png" type="Texture2D" id=2]
 [ext_resource path="res://Resources/Statuses/Marking.tres" type="Resource" id=3]
 
 [resource]

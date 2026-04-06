@@ -3,7 +3,7 @@ extends Resource
 
 class_name DefinitionData
 
-export(String) var key : String
-export(String) var term : String
-export(String, MULTILINE) var definition : String
-export(Array, Resource) var related_definitions : Array
+@export var key: String
+@export var term: String
+@export var definition : String # (String, MULTILINE)
+@export var related_definitions : Array # (Array, Resource)

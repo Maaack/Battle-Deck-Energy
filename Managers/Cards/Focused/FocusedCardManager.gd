@@ -3,8 +3,8 @@ extends CardManager
 
 class_name FocusedCardManager
 
-export(float, 0.0, 16.0) var default_focus_time : float = 0.15
-export(Vector2) var scale_focused_card : Vector2 = Vector2(1.25, 1.25)
+@export var default_focus_time : float = 0.15 # (float, 0.0, 16.0)
+@export var scale_focused_card: Vector2 = Vector2(1.25, 1.25)
 
 var _focused_card = null
 var _focused_card_parent_index = null
@@ -28,9 +28,9 @@ func remove_card(card_data:CardData):
 	var card_instance : CardNode2D = get_card_instance(card_data)
 	if not is_instance_valid(card_instance):
 		return
-	if _focused_card_parent_index != null and card_instance.get_position_in_parent() < _focused_card_parent_index:
+	if _focused_card_parent_index != null and card_instance.get_index() < _focused_card_parent_index:
 		_focused_card_parent_index -= 1
-	.remove_card(card_data)
+	super.remove_card(card_data)
 
 func focus_on_card(card_node:CardNode2D):
 	if not _can_change_focus():
@@ -38,7 +38,7 @@ func focus_on_card(card_node:CardNode2D):
 	if _focused_card != null:
 		focus_off_card(_focused_card)
 	_focused_card = card_node
-	_focused_card_parent_index = _focused_card.get_position_in_parent()
+	_focused_card_parent_index = _focused_card.get_index()
 	_focused_card_scale = _focused_card.card_data.transform_data.scale
 	move_child(_focused_card, get_child_count())
 	var new_transform : TransformData = _focused_card.card_data.transform_data.duplicate()
@@ -58,8 +58,8 @@ func focus_off_card(card_node:CardNode2D):
 
 func _on_Card_mouse_entered(card_node:CardNode2D):
 	focus_on_card(card_node)
-	._on_Card_mouse_entered(card_node)
+	super._on_Card_mouse_entered(card_node)
 
 func _on_Card_mouse_exited(card_node:CardNode2D):
 	focus_off_card(card_node)
-	._on_Card_mouse_exited(card_node)
+	super._on_Card_mouse_exited(card_node)

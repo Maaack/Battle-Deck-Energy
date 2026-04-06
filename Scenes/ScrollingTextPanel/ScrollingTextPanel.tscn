@@ -1,78 +1,73 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene format=3 uid="uid://tjbs6lshitv0"]
 
-[ext_resource path="res://Scenes/ScrollingTextPanel/ScrollingTextPanel.gd" type="Script" id=1]
-[ext_resource path="res://Themes/HiddenScrollBar.tres" type="Theme" id=6]
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=7]
-[ext_resource path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" type="StyleBox" id=8]
+[ext_resource type="Script" uid="uid://q33cic5undyy" path="res://Scenes/ScrollingTextPanel/ScrollingTextPanel.gd" id="1"]
+[ext_resource type="Theme" path="res://Themes/HiddenScrollBar.tres" id="6"]
+[ext_resource type="Theme" path="res://Themes/Main.tres" id="7"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" id="8"]
 
-[node name="ScrollingTextPanel" type="Control"]
+[node name="ScrollingTextPanel" type="Control" unique_id=644846202]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 7 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7")
+script = ExtResource("1")
 max_speed_down = 1.0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=746392967]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("8")
 
-[node name="ScrollResetTimer" type="Timer" parent="."]
+[node name="ScrollResetTimer" type="Timer" parent="." unique_id=832836141]
 one_shot = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=110382442]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 352
-custom_constants/margin_left = 352
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 352
+theme_override_constants/margin_right = 352
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
-margin_left = 352.0
-margin_right = 928.0
-margin_bottom = 720.0
-theme = ExtResource( 6 )
-scroll_horizontal_enabled = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=528920669]
+layout_mode = 2
+theme = ExtResource("6")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ScrollContainer"]
-margin_right = 576.0
-margin_bottom = 26.0
-focus_mode = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ScrollContainer" unique_id=1924543194]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
+focus_mode = 2
 bbcode_enabled = true
-fit_content_height = true
+fit_content = true
 scroll_active = false
 selection_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ContinueButton" type="Button" parent="."]
+[node name="ContinueButton" type="Button" parent="." unique_id=45003615]
+layout_mode = 1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -350.0
-margin_top = -86.0
-margin_right = -48.0
-margin_bottom = -48.0
+offset_left = -350.0
+offset_top = -86.0
+offset_right = -48.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
 focus_mode = 0
 text = "Continue"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="timeout" from="ScrollResetTimer" to="." method="_on_ScrollResetTimer_timeout"]
 [connection signal="scroll_ended" from="MarginContainer/ScrollContainer" to="." method="_on_ScrollContainer_scroll_ended"]
 [connection signal="gui_input" from="MarginContainer/ScrollContainer/RichTextLabel" to="." method="_on_RichTextLabel_gui_input"]

@@ -1,11 +1,11 @@
-tool
+@tool
 extends Node
 
 
-export(GDScript) var script_to_run : GDScript
-export(String) var source_path : String
-export(String) var destination_path : String
-export(bool) var run_toggle : bool = false setget set_run_toggle
+@export var script_to_run: GDScript
+@export var source_path: String
+@export var destination_path: String
+@export var run_toggle: bool = false: set = set_run_toggle
 
 func _run_script():
 	if not script_to_run:

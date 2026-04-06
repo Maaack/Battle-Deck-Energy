@@ -8,9 +8,9 @@ script/source = "tool
 extends Control
 
 
-onready var count_label = $TextureRect/Panel/CountLabel
+@onready var count_label = $TextureRect/Panel/CountLabel
 
-var battle_round : int = 0 setget set_battle_round
+var battle_round : int = 0: set = set_battle_round
 
 func _update_battle_round_count():
 	if battle_round >= 0:
@@ -33,9 +33,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -64.0
-margin_top = -64.0
-rect_min_size = Vector2( 64, 64 )
+offset_left = -64.0
+offset_top = -64.0
+custom_minimum_size = Vector2( 64, 64 )
 theme = ExtResource( 2 )
 script = SubResource( 1 )
 __meta__ = {
@@ -47,17 +47,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Panel" type="Panel" parent="TextureRect"]
-margin_right = 27.0
-margin_bottom = 27.0
-custom_styles/panel = ExtResource( 4 )
+offset_right = 27.0
+offset_bottom = 27.0
+theme_override_styles/panel = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CountLabel" type="Label" parent="TextureRect/Panel"]
-margin_top = -2.0
-margin_right = 27.0
-margin_bottom = 28.0
+offset_top = -2.0
+offset_right = 27.0
+offset_bottom = 28.0
 text = "0"
 align = 1
 valign = 1

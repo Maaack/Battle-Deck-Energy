@@ -1,8 +1,8 @@
 extends Node
 
 
-export(Array, Resource) var levels : Array = []
-export(int) var starting_level : int = 0
+@export var levels : Array = [] # (Array, Resource)
+@export var starting_level: int = 0
 
 var current_level : int = 0
 

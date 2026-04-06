@@ -6,15 +6,15 @@ class_name StatusData
 enum StackType{INTENSITY,DURATION}
 enum StatusType{NONE, BUFF, CURSE}
 
-export(String) var title : String = 'Status'
-export(String, MULTILINE) var description : String = 'Status description.'
-export(Texture) var icon : Texture
-export(Color) var color : Color = Color.white
-export(int) var intensity : int = 0
-export(int) var duration : int = 0
-export(String) var type_tag : String = 'TYPE'
-export(StackType) var stack_type = StackType.INTENSITY
-export(StatusType) var status_type = StatusType.BUFF
+@export var title: String = 'Status'
+@export var description : String = 'Status description.' # (String, MULTILINE)
+@export var icon: Texture2D
+@export var color: Color = Color.WHITE
+@export var intensity: int = 0
+@export var duration: int = 0
+@export var type_tag: String = 'TYPE'
+@export var stack_type: StackType = StackType.INTENSITY
+@export var status_type: StatusType = StatusType.BUFF
 
 func _to_string():
 	return "StatusData:%d[%s-%d]" % [get_instance_id(), title, get_stack_value()]

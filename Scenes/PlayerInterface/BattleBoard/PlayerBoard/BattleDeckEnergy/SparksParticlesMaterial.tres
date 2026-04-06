@@ -1,24 +1,14 @@
-[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://bw8eotbc3q7ox"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.075188, 0.08, 0.93, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 0.996078, 0.772549, 0.898039, 0, 0.816021, 0.752269, 0.759803, 1, 0.823529, 0.392157, 0.443137, 1, 0.823529, 0.392157, 0.443137, 0 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0, 0.075188, 0.08, 0.93, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.996078, 0.772549, 0.898039, 0, 0.816021, 0.752269, 0.759803, 1, 0.823529, 0.392157, 0.443137, 1, 0.823529, 0.392157, 0.443137, 0)
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
 
 [resource]
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
+direction = Vector3(0, -1, 0)
 spread = 90.0
-gravity = Vector3( 0, -196, 0 )
-initial_velocity = 114.0
-initial_velocity_random = 0.15
-angular_velocity = 256.0
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = -166.0
-radial_accel = -20.0
-angle_random = 1.0
-color_ramp = SubResource( 2 )
+gravity = Vector3(0, -196, 0)
+color_ramp = SubResource("2")

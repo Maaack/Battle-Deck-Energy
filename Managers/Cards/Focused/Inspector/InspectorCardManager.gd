@@ -6,11 +6,11 @@ class_name InspectorCardManager
 signal inspected_on_card(card_node_2d)
 signal inspected_off_card(card_node_2d)
 
-onready var timer_node = $InspectTimer
+@onready var timer_node = $InspectTimer
 
 var _inspected_card = null
 
-func _stop_inspecting_card(card_node:CardNode2D):
+func _stop_inspecting_card(_card_node:CardNode2D):
 	timer_node.stop()
 	if not is_instance_valid(_inspected_card):
 		return
@@ -20,13 +20,13 @@ func _stop_inspecting_card(card_node:CardNode2D):
 func focus_on_card(card_node:CardNode2D):
 	if not _can_change_focus():
 		return
-	.focus_on_card(card_node)
+	super.focus_on_card(card_node)
 	timer_node.start()
 
 func focus_off_card(card_node:CardNode2D):
 	if not _can_change_focus() or not is_card_focused(card_node):
 		return
-	.focus_off_card(card_node)
+	super.focus_off_card(card_node)
 	_stop_inspecting_card(card_node)
 
 func _on_InspectTimer_timeout():
@@ -38,4 +38,3 @@ func _on_InspectTimer_timeout():
 func stop_inspecting():
 	_stop_inspecting_card(get_focused_card())
 	timer_node.stop()
-

@@ -5,12 +5,12 @@
 [ext_resource path="res://Scenes/DeckViewer/GridContainer.gd" type="Script" id=3]
 [ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=4]
 [ext_resource path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="FontFile" id=6]
 
 [node name="DeckViewer" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 500, 360 )
+custom_minimum_size = Vector2( 500, 360 )
 mouse_filter = 2
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
@@ -22,7 +22,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
+theme_override_styles/panel = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -31,42 +31,42 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 16
-custom_constants/margin_top = 16
-custom_constants/margin_left = 16
-custom_constants/margin_bottom = 54
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 54
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 1264.0
-margin_bottom = 666.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 666.0
 mouse_filter = 2
-custom_constants/separation = 16
+theme_override_constants/separation = 16
 
 [node name="DeckLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 visible = false
-margin_right = 1248.0
-margin_bottom = 56.0
-custom_fonts/font = ExtResource( 6 )
+offset_right = 1248.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource( 6 )
 align = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 1248.0
-margin_bottom = 650.0
+offset_right = 1248.0
+offset_bottom = 650.0
 mouse_filter = 1
 size_flags_vertical = 3
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-margin_right = 1248.0
-margin_bottom = 650.0
+offset_right = 1248.0
+offset_bottom = 650.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/vseparation = 0
-custom_constants/hseparation = 20
+theme_override_constants/v_separation = 0
+theme_override_constants/h_separation = 20
 columns = 5
 script = ExtResource( 3 )
 
@@ -79,11 +79,11 @@ one_shot = true
 [node name="BackButton" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 48.0
-margin_top = -108.0
-margin_right = 272.0
-margin_bottom = -48.0
-rect_min_size = Vector2( 224, 38 )
+offset_left = 48.0
+offset_top = -108.0
+offset_right = 272.0
+offset_bottom = -48.0
+custom_minimum_size = Vector2( 224, 38 )
 size_flags_vertical = 5
 text = "Back"
 __meta__ = {

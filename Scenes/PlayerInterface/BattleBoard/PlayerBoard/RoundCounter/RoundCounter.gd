@@ -1,10 +1,10 @@
-tool
+@tool
 extends Control
 
 
-onready var count_label = $TextureRect/Panel/CountLabel
+@onready var count_label = $TextureRect/Panel/CountLabel
 
-var battle_round : int = 0 setget set_battle_round
+var battle_round : int = 0: set = set_battle_round
 
 func _update_battle_round_count():
 	if battle_round >= 0:

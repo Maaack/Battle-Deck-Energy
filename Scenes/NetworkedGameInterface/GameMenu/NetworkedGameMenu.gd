@@ -3,8 +3,8 @@ extends Control
 signal return_button_pressed
 signal forfeit_and_exit_button_pressed
 
-onready var main_menu = $MainPanel
-onready var audio_menu = $AudioMenu
+@onready var main_menu = $MainPanel
+@onready var audio_menu = $AudioMenu
 
 func _on_ReturnButton_pressed():
 	emit_signal("return_button_pressed")

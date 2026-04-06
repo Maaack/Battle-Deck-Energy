@@ -3,11 +3,11 @@ extends Control
 
 const LABEL_STR = "%d / %d"
 
-onready var current_energy_label = $Panel/CurrentLabel
-onready var max_energy_label = $Panel/MaxLabel
+@onready var current_energy_label = $Panel/CurrentLabel
+@onready var max_energy_label = $Panel/MaxLabel
 
-var energy : int = 3 setget set_energy
-var max_energy : int = 3 setget set_max_energy
+var energy : int = 3: set = set_energy
+var max_energy : int = 3: set = set_max_energy
 
 func _update_meter():
 	if energy >= 0 and max_energy >= 0:

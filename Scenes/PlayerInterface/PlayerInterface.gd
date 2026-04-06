@@ -19,23 +19,23 @@ signal status_forgotten(status_icon)
 
 enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
-export(float, 0, 512) var opportunity_snap_range = 200.0
+@export var opportunity_snap_range = 200.0 # (float, 0, 512)
 
-onready var animation_queue : Node = $BattleAnimationQueue
-onready var card_manager : CardManager = $HandContainer/CardControl/BattleCardManager
-onready var opponent_card_manager : CardManager = $HandContainer/CardControl/InspectorCardManager
-onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
-onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
-onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
-onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
-onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
-onready var exhaust_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/ExhaustPile
-onready var status_update_container : Control = $StatusUpdatesContainer
-onready var shuffle_audio_player = $ShuffleAudioStreamPlayer2D
+@onready var animation_queue : Node = $BattleAnimationQueue
+@onready var card_manager : CardManager = $HandContainer/CardControl/BattleCardManager
+@onready var opponent_card_manager : CardManager = $HandContainer/CardControl/InspectorCardManager
+@onready var hand_manager : Node2D = $HandContainer/CardControl/HandManager
+@onready var player_board : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard
+@onready var actions_board : Control = $BattleBoard/MarginContainer/VBoxContainer/ActionsBoard
+@onready var draw_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DrawPile
+@onready var discard_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/DiscardPile
+@onready var exhaust_pile : Control = $BattleBoard/MarginContainer/VBoxContainer/PlayerBoard/ExhaustPile
+@onready var status_update_container : Control = $StatusUpdatesContainer
+@onready var shuffle_audio_player = $ShuffleAudioStreamPlayer2D
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
-var player_data : CharacterData setget set_player_data
+var player_data : CharacterData: set = set_player_data
 var _drawing_cards_count : int = 0
 var _discarding_cards_count : int = 0
 var _opportunities_map : Dictionary = {}
@@ -53,16 +53,16 @@ func set_player_data(value:CharacterData):
 		PersistentData.log_battle_action("Starting at %d draw size" % player_data.deck_size())
 		actions_board.player_data = player_data
 		var interface : CharacterActionsInterface = actions_board.get_actions_instance(player_data)
-		interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
-		interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
-		interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
+		interface.connect("update_opportunity", _on_CardContainer_update_opportunity)
+		interface.connect("status_inspected", _on_StatusIcon_inspected)
+		interface.connect("status_forgotten", _on_StatusIcon_forgotten)
 
 func add_opponent(opponent:CharacterData):
 	PersistentData.log_battle_action("Opponent added %s" % opponent.nickname)
 	var interface  : CharacterActionsInterface = actions_board.add_opponent(opponent)
-	interface.connect("update_opportunity", self, "_on_CardContainer_update_opportunity")
-	interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
-	interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
+	interface.connect("update_opportunity", _on_CardContainer_update_opportunity)
+	interface.connect("status_inspected", _on_StatusIcon_inspected)
+	interface.connect("status_forgotten", _on_StatusIcon_forgotten)
 	return interface
 
 func set_draw_pile_count(count:int):
@@ -181,7 +181,7 @@ func new_character_card(character_data:CharacterData, card:CardData):
 func _drawing_animation(card:CardData, animation:AnimationData):
 	var card_instance = _new_character_card(player_data, card)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
-	card_instance.connect("tween_completed", self, "_on_draw_card_completed")
+	card_instance.connect("tween_completed", _on_draw_card_completed)
 	card_instance.play_draw_audio()
 	hand_manager.add_card(card)
 	_drawing_cards_count += 1
@@ -190,29 +190,29 @@ func _discarding_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	if not is_instance_valid(card_instance):
 		return
-	if card_instance.tween_node.is_active():
-		yield(card_instance, "tween_completed")
-	card_instance.connect("tween_started", self, "_on_discard_card_started")
+	if card_instance.tween_node and card_instance.tween_node.is_running():
+		await card_instance.tween_completed
+	card_instance.connect("tween_started", _on_discard_card_started)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
-	card_instance.connect("tween_completed", self, "_on_discard_card_completed")
+	card_instance.connect("tween_completed", _on_discard_card_completed)
 	_discarding_cards_count += 1
 
 func _exhausting_animation(card:CardData, animation:AnimationData):
 	var card_instance : CardNode2D = card_manager.get_card_instance(card)
 	if not is_instance_valid(card_instance):
 		return
-	if card_instance.tween_node.is_active():
-		yield(card_instance, "tween_completed")
-	card_instance.connect("tween_started", self, "_on_discard_card_started")
+	if card_instance.tween_node and card_instance.tween_node.is_running():
+		await card_instance.tween_completed
+	card_instance.connect("tween_started", _on_discard_card_started)
 	card_manager.move_card(card, animation.transform_data, animation.tween_time)
 	card_manager.lock_card(card)
-	card_instance.connect("tween_completed", self, "_on_exhaust_card_completed")
+	card_instance.connect("tween_completed", _on_exhaust_card_completed)
 	_discarding_cards_count += 1
 
 func play_shuffle_audio():
 	if not shuffle_audio_player.playing:
-		var random_pitch : float = rand_range(0.89090, 1.12246)
+		var random_pitch : float = randf_range(0.89090, 1.12246)
 		shuffle_audio_player.pitch_scale = random_pitch	
 		shuffle_audio_player.play()
 
@@ -221,7 +221,7 @@ func _reshuffling_animation(card:CardData, animation:AnimationData):
 	if is_instance_valid(card_instance):
 		card_manager.move_card(card, animation.transform_data, animation.tween_time)
 		card_manager.lock_card(card)
-		card_instance.connect("tween_completed", self, "_on_reshuffle_card_completed")
+		card_instance.connect("tween_completed", _on_reshuffle_card_completed)
 	else:
 		player_board.draw_discarded_card()
 		player_board.reshuffle_card()
@@ -292,18 +292,18 @@ func _on_reshuffle_card_completed(card_node:CardNode2D):
 	player_board.reshuffle_card()
 
 func _on_draw_card_completed(card_node:CardNode2D):
-	card_node.disconnect("tween_completed", self, "_on_draw_card_completed")
+	card_node.disconnect("tween_completed", _on_draw_card_completed)
 	_on_draw_complete()
 
 func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int):
-	var effect_text_instance = effect_text_animation_scene.instance()
+	var effect_text_instance = effect_text_animation_scene.instantiate()
 	status_update_container.add_child(effect_text_instance)
 	effect_text_instance.position = interface_offset
 	effect_text_instance.set_status_update(status, delta)
 
 func _show_status_update_over_interface(interface:ActionsInterface, status:StatusData, delta:int):
-	var interface_center = Vector2(interface.rect_size.x/2, interface.rect_size.y/2)
-	var interface_offset = interface.rect_position + interface_center
+	var interface_center = Vector2(interface.size.x/2, interface.size.y/2)
+	var interface_offset = interface.position + interface_center
 	return _show_status_update(interface_offset, status, delta)
 
 func character_dies(character:CharacterData):
@@ -457,7 +457,7 @@ func opponent_discards_card(card:CardData):
 	if not is_instance_valid(card_instance):
 		return
 	if card_instance.pulse_animation.is_playing():
-		yield(card_instance.pulse_animation, "animation_finished")
+		await card_instance.pulse_animation.animation_finished
 	opponent_card_manager.remove_card(card)
 
 func _update_status(character : CharacterData, status : StatusData, delta : int):
@@ -505,7 +505,7 @@ func _on_PlayerBoard_exhaust_pile_pressed():
 	emit_signal("exhaust_pile_pressed")
 
 func _on_PlayerInterface_resized():
-	if is_instance_valid($ResizeTimer):
+	if $ResizeTimer.is_inside_tree():
 		$ResizeTimer.start()
 
 func _on_ResizeTimer_timeout():

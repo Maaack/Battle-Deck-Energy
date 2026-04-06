@@ -1,0 +1,18 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cin6o1b2blln1"]
+
+[ext_resource type="Texture2D" path="res://Scenes/ShelterPanel/SparkGradientTexture.tres" id="1_6d22t"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+angle_min = -89.99999
+angle_max = 90.000015
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 150.0
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+gravity = Vector3(0, -196, 0)
+color_ramp = ExtResource("1_6d22t")

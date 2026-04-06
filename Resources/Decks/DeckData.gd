@@ -3,9 +3,9 @@ extends Resource
 
 class_name DeckData
 
-export(String) var title : String
-export(Texture) var icon : Texture
-export(Array, Resource) var cards : Array
+@export var title: String
+@export var icon: Texture2D
+@export var cards : Array # (Array, Resource)
 
 func size():
 	return cards.size()
@@ -33,5 +33,5 @@ func draw_specific_card(card:CardData):
 	var card_index : int = cards.find(card)
 	if card_index < 0:
 		return
-	cards.remove(card_index)
+	cards.remove_at(card_index)
 	return card

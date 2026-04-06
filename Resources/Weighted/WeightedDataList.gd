@@ -3,7 +3,7 @@ extends Resource
 
 class_name WeightedDataList
 
-export(Array, Resource) var starting_list : Array = [] setget set_starting_list
+@export var starting_list : Array = []: set = set_starting_list
 
 var list : Array = []
 
@@ -44,7 +44,7 @@ func slice_data_by_weight(weight_target:float):
 
 func get_random_weight():
 	var total_weight : float = get_total_weight()
-	return rand_range(0.0, total_weight)
+	return randf_range(0.0, total_weight)
 	
 func get_random_data():
 	var random_weight = get_random_weight()

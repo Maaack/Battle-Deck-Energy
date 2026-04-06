@@ -35,5 +35,5 @@ func remove_opportunity(opportunity:OpportunityData):
 		var opportunities : Array = character_map[character]
 		var remove_index = opportunities.find(opportunity)
 		if remove_index >= 0:
-			opportunities.remove(remove_index)
+			opportunities.remove_at(remove_index)
 			emit_signal("opportunity_removed", opportunity)

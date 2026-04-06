@@ -5,13 +5,13 @@ class_name PhaseManager
 
 const INIT_PHASE = -1
 
-export(int) var starting_phase_tier = INIT_PHASE
-onready var _phase_tier : int = starting_phase_tier
+@export var starting_phase_tier: int = INIT_PHASE
+@onready var _phase_tier : int = starting_phase_tier
 var phase_scene = preload("res://Managers/BattlePhase/Phase.tscn")
 var current_phase
 
 func add_phase(phase_name : String):
-	var phase_instance = phase_scene.instance()
+	var phase_instance = phase_scene.instantiate()
 	phase_instance.name = phase_name
 	add_child(phase_instance)
 	return phase_instance

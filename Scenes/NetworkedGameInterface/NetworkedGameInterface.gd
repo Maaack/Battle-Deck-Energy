@@ -1,17 +1,17 @@
 extends Control
 
 
-onready var battle_interface_container = $BattleInterfaceContainer
-onready var lose_panel = $LosePanel
-onready var win_panel = $WinPanel
-onready var battle_shadow_panel = $BattleShadowPanel
-onready var master_shadow_panel = $MasterShadowPanel
-onready var tooltip_manager = $TooltipManager
-onready var mood_manager = $MoodManager
-onready var deck_view_container = $DeckViewContainer
-onready var waiting_label = $WaitingLabel
-onready var game_menu = $NetworkedGameMenu
-onready var disconnect_delay_timer = $DisconnectDelayTimer
+@onready var battle_interface_container = $BattleInterfaceContainer
+@onready var lose_panel = $LosePanel
+@onready var win_panel = $WinPanel
+@onready var battle_shadow_panel = $BattleShadowPanel
+@onready var master_shadow_panel = $MasterShadowPanel
+@onready var tooltip_manager = $TooltipManager
+@onready var mood_manager = $MoodManager
+@onready var deck_view_container = $DeckViewContainer
+@onready var waiting_label = $WaitingLabel
+@onready var game_menu = $NetworkedGameMenu
+@onready var disconnect_delay_timer = $DisconnectDelayTimer
 
 var starting_player_data : CharacterData = preload("res://Resources/Characters/Player/NetworkedPlayerData.tres")
 var default_lame_deck : DeckData = preload("res://Resources/Decks/LamestStartingDeck.tres")
@@ -24,11 +24,11 @@ var ignore_player_disconnects : Array = []
 
 func _attach_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
-	deck_viewer.connect("card_inspected", self, "_on_Card_inspected")
-	deck_viewer.connect("card_forgotten", self, "_on_Card_forgotten")
-	deck_viewer.connect("back_pressed", self, "_remove_deck_view", [deck_viewer])
+	deck_viewer.connect("card_inspected", Callable(self, "_on_Card_inspected"))
+	deck_viewer.connect("card_forgotten", Callable(self, "_on_Card_forgotten"))
+	deck_viewer.connect("back_pressed", Callable(self, "_remove_deck_view").bind(deck_viewer))
 
-remotesync func create_character_for_player(player_id : int):
+@rpc("any_peer", "call_local") func create_character_for_player(player_id : int):
 	if not player_id in Network.players:
 		print("Warning: player_id %d does not exist in network players." % player_id)
 		return
@@ -43,37 +43,37 @@ remotesync func create_character_for_player(player_id : int):
 		player_character.deck = default_lame_deck.cards
 	battle_interface.add_player(player_id, player_character, player.name)
 
-remotesync func init_battle_scene():
+@rpc("any_peer", "call_local") func init_battle_scene():
 	PersistentData.start_battle("Networked")
 	if is_instance_valid(battle_interface):
 		print("Warning: Previous battle has not cleared.")
 		battle_interface.queue_free()
 		battle_interface = null
-	battle_interface = battle_interface_scene.instance()
+	battle_interface = battle_interface_scene.instantiate()
 	battle_interface_container.add_child(battle_interface)
-	battle_interface.connect("player_lost", self, "_on_BattleInterface_player_lost")
-	battle_interface.connect("player_won", self, "_on_BattleInterface_player_won")
-	battle_interface.connect("view_deck_pressed", self, "_on_ViewDeck_pressed")
-	battle_interface.connect("card_inspected", self, "_on_Card_inspected")
-	battle_interface.connect("card_forgotten", self, "_on_Card_forgotten")
-	battle_interface.connect("status_inspected", self, "_on_StatusIcon_inspected")
-	battle_interface.connect("status_forgotten", self, "_on_StatusIcon_forgotten")
+	battle_interface.connect("player_lost", Callable(self, "_on_BattleInterface_player_lost"))
+	battle_interface.connect("player_won", Callable(self, "_on_BattleInterface_player_won"))
+	battle_interface.connect("view_deck_pressed", Callable(self, "_on_ViewDeck_pressed"))
+	battle_interface.connect("card_inspected", Callable(self, "_on_Card_inspected"))
+	battle_interface.connect("card_forgotten", Callable(self, "_on_Card_forgotten"))
+	battle_interface.connect("status_inspected", Callable(self, "_on_StatusIcon_inspected"))
+	battle_interface.connect("status_forgotten", Callable(self, "_on_StatusIcon_forgotten"))
 
-remotesync func start_battle():
+@rpc("any_peer", "call_local") func start_battle():
 	battle_shadow_panel.hide()
 	waiting_label.hide()
 	battle_interface.player_character = local_player_character
 	battle_interface.start_battle()
 	mood_manager.set_mood(mood_manager.HARD_BATLE_MOOD)
 
-remote func _ignore_player_disconnect(player_id : int):
+@rpc("any_peer") func _ignore_player_disconnect(player_id : int):
 	var character = Network.get_player_character(player_id)
 	battle_interface.kill_character(character)
 	ignore_player_disconnects.append(player_id)
 
 func _ignore_all_disconnects():
-	Network.disconnect("player_disconnected", self, "_on_player_disconnected")
-	Network.disconnect("server_disconnected", self, "_on_server_disconnected")
+	Network.disconnect("player_disconnected", Callable(self, "_on_player_disconnected"))
+	Network.disconnect("server_disconnected", Callable(self, "_on_server_disconnected"))
 
 func all_ready():
 	for player_id in Network.players:
@@ -84,7 +84,7 @@ func _on_deck_selected():
 	battle_shadow_panel.show()
 	waiting_label.show()
 	if Network.is_server():
-		Network.connect('synced', self, 'all_ready')
+		Network.connect('synced', Callable(self, 'all_ready'))
 	Network.sync_up()
 
 func _leave_battle_to_menu():
@@ -92,7 +92,7 @@ func _leave_battle_to_menu():
 		battle_interface.queue_free()
 	PersistentData.finish_battle()
 	Network.leave_server()
-	get_tree().change_scene("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_player_disconnected(player : PlayerData):
 	if player.unique_id in ignore_player_disconnects:
@@ -105,8 +105,8 @@ func _on_server_disconnected():
 	_leave_battle_to_menu()
 
 func _ready():
-	Network.connect("player_disconnected", self, "_on_player_disconnected")
-	Network.connect("server_disconnected", self, "_on_server_disconnected")
+	Network.connect("player_disconnected", Callable(self, "_on_player_disconnected"))
+	Network.connect("server_disconnected", Callable(self, "_on_server_disconnected"))
 	randomize()
 	init_battle_scene()
 
@@ -136,7 +136,7 @@ func _on_BattleInterface_player_won():
 	win_panel.show()
 
 func _on_ViewDeck_pressed(deck:Array):
-	var deck_view = deck_view_scene.instance()
+	var deck_view = deck_view_scene.instantiate()
 	_attach_deck_view(deck_view)
 	deck_view.deck = deck
 
@@ -179,7 +179,7 @@ func _on_NetworkedGameMenu_forfeit_and_exit_button_pressed():
 	_close_menu()
 	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
 	disconnect_delay_timer.start()
-	yield(disconnect_delay_timer, "timeout")
+	await disconnect_delay_timer.timeout
 	_leave_battle_to_menu()
 
 func _on_LosePanel_exit_pressed():

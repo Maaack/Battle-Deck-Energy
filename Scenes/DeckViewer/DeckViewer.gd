@@ -11,17 +11,17 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 const FINAL_CARD_SCALE = Vector2(1.0, 1.0)
 const FINAL_ROTATION = 0
 
-onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
-onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
-onready var spawn_card_timer = $SpawnCardTimer
-onready var deck_label = $MarginContainer/VBoxContainer/DeckLabel
+@onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
+@onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
+@onready var spawn_card_timer = $SpawnCardTimer
+@onready var deck_label = $MarginContainer/VBoxContainer/DeckLabel
 
-export(float, 0.0, 2.0) var default_animate_in_time : float = 0.2
+@export var default_animate_in_time : float = 0.2 # (float, 0.0, 2.0)
 
-var deck : Array = [] setget set_deck
+var deck : Array = []: set = set_deck
 var card_container_map : Dictionary = {}
 var selected_card = null
-var title : String setget set_title
+var title : String: set = set_title
 
 func set_title(value : String):
 	title = value
@@ -49,7 +49,7 @@ func _add_cards_from_deck():
 	if not is_instance_valid(deck_container):
 		return
 	_spawn_containers()
-	yield(deck_container, "sort_children")
+	await deck_container.sort_children
 	_add_cards_to_containers()
 
 func set_deck(value:Array):
@@ -63,7 +63,7 @@ func _add_cards_to_containers():
 		var container : CardContainer = card_container_map[card]
 		if card is CardData:
 			spawn_card_timer.start()
-			yield(spawn_card_timer, "timeout")
+			await spawn_card_timer.timeout
 			var container_offset : Vector2 = deck_container.get_global_transform().get_origin()
 			card.transform_data.position = container.get_card_parent_position() - container_offset
 			_add_card_option(card)

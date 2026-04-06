@@ -1,4 +1,4 @@
-tool
+@tool
 extends BaseCardNode2D
 
 
@@ -17,47 +17,45 @@ const COST_AFFORDABLE_COLOR = Color(1, 1, 1)
 
 enum MouseInputMode{NONE, GUI, PHYSICS}
 
-onready var area_2d_node = $Area2D
-onready var glow_node = $Card/GlowContainer/Control/GlowNode
-onready var pulse_animation = $Card/PulseAnimation
-onready var energy_panel = $Card/Body/BDEPanel
-onready var energy_label = $Card/Body/BDEPanel/BDECostLabel
-onready var title_panel = $Card/Body/CardFront/TitlePanel
-onready var title_label = $Card/Body/CardFront/TitlePanel/TitleLabel
-onready var description_label = $Card/Body/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel
-onready var type_panel = $Card/Body/CardFront/Control/TypePanel
-onready var type_label = $Card/Body/CardFront/Control/TypePanel/TypeLabel
-onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
-onready var left_tooltip_target = $Card/LeftTooltip2D
-onready var right_tooltip_target = $Card/RightTooltip2D
-onready var bottom_left_tooltip_target = $Card/BottomLeftTooltip2D
-onready var bottom_right_tooltip_target = $Card/BottomRightTooltip2D
-onready var draw_audio_player = $DrawAudioStreamPlayer2D
-onready var drop_audio_player = $DropAudioStreamPlayer2D
-onready var slide_audio_player = $SlideAudioStreamPlayer2D
+@onready var area_2d_node = $Area2D
+@onready var glow_node = $Card/GlowContainer/Control/GlowNode
+@onready var pulse_animation = $Card/PulseAnimation
+@onready var energy_panel = $Card/Body/BDEPanel
+@onready var energy_label = $Card/Body/BDEPanel/BDECostLabel
+@onready var title_panel = $Card/Body/CardFront/TitlePanel
+@onready var title_label = $Card/Body/CardFront/TitlePanel/TitleLabel
+@onready var description_label = $Card/Body/CardFront/DescriptionPanel/MarginContainer/DescriptionLabel
+@onready var type_panel = $Card/Body/CardFront/Control/TypePanel
+@onready var type_label = $Card/Body/CardFront/Control/TypePanel/TypeLabel
+@onready var effect_texture = $Card/Body/CardFront/EffectContainer/TextureRect
+@onready var left_tooltip_target = $Card/LeftTooltip2D
+@onready var right_tooltip_target = $Card/RightTooltip2D
+@onready var bottom_left_tooltip_target = $Card/BottomLeftTooltip2D
+@onready var bottom_right_tooltip_target = $Card/BottomRightTooltip2D
+@onready var draw_audio_player = $DrawAudioStreamPlayer2D
+@onready var drop_audio_player = $DropAudioStreamPlayer2D
+@onready var slide_audio_player = $SlideAudioStreamPlayer2D
 
-export(Resource) var starting_card_data setget set_starting_card_data
-export(StyleBox) var title_attack_style_box : StyleBox
-export(StyleBox) var title_defend_style_box : StyleBox
-export(StyleBox) var title_skill_style_box : StyleBox
-export(StyleBox) var title_stress_style_box : StyleBox
-export(StyleBox) var type_attack_style_box : StyleBox
-export(StyleBox) var type_defend_style_box : StyleBox
-export(StyleBox) var type_skill_style_box : StyleBox
-export(StyleBox) var type_stress_style_box : StyleBox
-export(Color) var unafforadable_color : Color
+@export var starting_card_data: Resource: set = set_starting_card_data
+@export var title_attack_style_box: StyleBox
+@export var title_defend_style_box: StyleBox
+@export var title_skill_style_box: StyleBox
+@export var title_stress_style_box: StyleBox
+@export var type_attack_style_box: StyleBox
+@export var type_defend_style_box: StyleBox
+@export var type_skill_style_box: StyleBox
+@export var type_stress_style_box: StyleBox
+@export var unafforadable_color: Color
 
 
-var card_data : CardData setget set_card_data
+var card_data : CardData: set = set_card_data
 var base_values : Dictionary = {}
-var mouse_input_mode : int = MouseInputMode.GUI setget set_mouse_input_mode
+var mouse_input_mode : int = MouseInputMode.GUI: set = set_mouse_input_mode
 var locked_face : bool = false
 
 func _to_string():
 	if card_data is CardData:
 		return "%s" % card_data.title
-	else:
-		return ._to_string()
 
 func is_playable():
 	return !(card_data.has_effect(EffectCalculator.UNPLAYABLE_EFFECT))
@@ -65,20 +63,20 @@ func is_playable():
 func _reset_card_type():
 	match(card_data.type):
 		CardData.CardType.ATTACK:
-			title_panel.add_stylebox_override("panel", title_attack_style_box)
-			type_panel.add_stylebox_override("panel", type_attack_style_box)
+			title_panel.add_theme_stylebox_override("panel", title_attack_style_box)
+			type_panel.add_theme_stylebox_override("panel", type_attack_style_box)
 			type_label.text = 'ATTACK'
 		CardData.CardType.DEFEND:
-			title_panel.add_stylebox_override("panel", title_defend_style_box)
-			type_panel.add_stylebox_override("panel", type_defend_style_box)
+			title_panel.add_theme_stylebox_override("panel", title_defend_style_box)
+			type_panel.add_theme_stylebox_override("panel", type_defend_style_box)
 			type_label.text = 'DEFEND'
 		CardData.CardType.SKILL:
-			title_panel.add_stylebox_override("panel", title_skill_style_box)
-			type_panel.add_stylebox_override("panel", type_skill_style_box)
+			title_panel.add_theme_stylebox_override("panel", title_skill_style_box)
+			type_panel.add_theme_stylebox_override("panel", type_skill_style_box)
 			type_label.text = 'SKILL'
 		CardData.CardType.STRESS:
-			title_panel.add_stylebox_override("panel", title_stress_style_box)
-			type_panel.add_stylebox_override("panel", type_stress_style_box)
+			title_panel.add_theme_stylebox_override("panel", title_stress_style_box)
+			type_panel.add_theme_stylebox_override("panel", type_stress_style_box)
 			type_label.text = 'STRESS'
 
 func _reset_card_front():
@@ -99,9 +97,9 @@ func update_affordability(energy:int):
 	if locked_face:
 		return
 	if energy >= card_data.energy_cost:
-		energy_label.set("custom_colors/font_color", COST_AFFORDABLE_COLOR)
+		energy_label.set("theme_override_colors/font_color", COST_AFFORDABLE_COLOR)
 	else:
-		energy_label.set("custom_colors/font_color", unafforadable_color)
+		energy_label.set("theme_override_colors/font_color", unafforadable_color)
 
 func _get_effect_bbtag_string(base_value:int, total_value:int):
 	var modifier_delta = total_value - base_value
@@ -129,7 +127,7 @@ func _ready():
 	_reset_card_front()
 
 func _get_random_pitch():
-	return rand_range(0.88775, 1.12246)
+	return randf_range(0.88775, 1.12246)
 
 func play_draw_audio():
 	draw_audio_player.pitch_scale = _get_random_pitch()
@@ -156,7 +154,7 @@ func update_card_effects(total_values:Dictionary):
 		var tag_string = _get_effect_bbtag_string(base_values[type_tag], total_values[type_tag])
 		description = description.replace('%'+type_tag, tag_string)
 	description = "[center]%s[/center]" % description
-	description_label.bbcode_text = description
+	description_label.text = description
 
 func set_starting_card_data(value:CardData):
 	starting_card_data = value
@@ -176,21 +174,8 @@ func set_mouse_input_mode(value:int):
 			area_2d_node.hide()
 
 func tween_to(new_transform:TransformData, tween_time:float = 0.0, animation_type:int = -1):
-	if is_instance_valid(tween_node):
-		if pulse_animation.is_playing():
-			yield(pulse_animation, "animation_finished")
-		if tween_node.is_active():
-			if _last_animation_type != animation_type:
-				tween_time += tween_node.get_runtime()
-			else:
-				tween_time = tween_node.get_runtime()
-			tween_node.remove_all()
-		tween_node.interpolate_property(self, "position", position, new_transform.position, tween_time)
-		tween_node.interpolate_property(self, "rotation", rotation, new_transform.rotation, tween_time)
-		tween_node.interpolate_property(self, "scale", scale, new_transform.scale, tween_time)
-		tween_node.start()
+	super.tween_to(new_transform, tween_time, animation_type)
 	card_data.transform_data = new_transform
-	_last_animation_type = animation_type
 
 func set_card_data(value:CardData):
 	card_data = value
@@ -208,7 +193,7 @@ func glow_off():
 
 func _animate_pulse():
 	pulse_animation.play("CardPulse")
-	yield(pulse_animation, "animation_finished")
+	await pulse_animation.animation_finished
 	_force_card_transform(card_data.transform_data)
 
 func play_card():
@@ -219,8 +204,8 @@ func play_card():
 func _handle_input_event(event):
 	if event is InputEventMouseButton:
 		match event.button_index:
-			BUTTON_LEFT:
-				if event.doubleclick:
+			MOUSE_BUTTON_LEFT:
+				if event.double_click:
 					emit_signal("mouse_double_clicked", self)
 				elif event.pressed:
 					emit_signal("mouse_clicked", self)
@@ -233,7 +218,7 @@ func _on_Area2D_mouse_entered():
 func _on_Area2D_mouse_exited():
 	emit_signal("mouse_exited", self)
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	_handle_input_event(event)
 
 func _on_Body_mouse_entered():
@@ -245,5 +230,5 @@ func _on_Body_mouse_exited():
 func _on_Body_gui_input(event):
 	_handle_input_event(event)
 
-func _on_PulseAnimation_animation_finished(anim_name):
+func _on_PulseAnimation_animation_finished(_anim_name):
 	emit_signal("animation_completed", self)

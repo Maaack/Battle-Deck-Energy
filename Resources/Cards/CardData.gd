@@ -5,13 +5,13 @@ class_name CardData
 
 enum CardType{NONE, ATTACK, DEFEND, SKILL, STRESS}
 
-export(String) var title : String = 'CardData'
-export(String, MULTILINE) var description : String = ''
-export(int, 0, 9) var energy_cost : int = 1
-export(Texture) var icon : Texture
-export(Color) var base_color : Color
-export(Array, Resource) var effects : Array = []
-export(CardType) var type : int = CardType.ATTACK
+@export var title: String = 'CardData'
+@export var description : String = '' # (String, MULTILINE)
+@export var energy_cost : int = 1 # (int, 0, 9)
+@export var icon: Texture2D
+@export var base_color: Color
+@export var effects : Array = [] # (Array, Resource)
+@export var type: CardType = CardType.ATTACK
 
 var transform_data : TransformData = TransformData.new()
 
