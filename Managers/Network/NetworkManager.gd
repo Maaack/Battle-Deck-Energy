@@ -23,14 +23,14 @@ signal server_disconnected
 signal synced
 
 func is_server():
-	return get_tree().get_unique_id() == 1
+	return get_unique_id() == 1
 
 @rpc("any_peer", "call_local") func _register_player(player_id : int, player_name : String):
 	var connected_player : PlayerData = PlayerData.new()
 	connected_player.name = player_name
 	connected_player.unique_id = player_id
 	players[player_id] = connected_player
-	if player_id == get_tree().get_unique_id():
+	if player_id == get_unique_id():
 		local_player = connected_player
 	emit_signal("player_connected", connected_player)
 	emit_signal("player_list_changed")
@@ -48,18 +48,21 @@ func _unregister_player(player_id : int):
 		players_synced.clear()
 		emit_signal('synced')
 
+func get_unique_id():
+	return get_tree().get_multiplayer().get_unique_id()
+
 func sync_up():
-	rpc('_sync_player', get_tree().get_unique_id())
+	rpc('_sync_player', get_unique_id())
 
 func register_local_player():
-	var local_player_id : int = get_tree().get_unique_id()
+	var local_player_id : int = get_unique_id()
 	rpc('_register_player', local_player_id, local_player.name)
 
 func _on_player_disconnected(disconnected_player_id : int):
 	_unregister_player(disconnected_player_id)
 
 func _on_player_connected(connected_player_id : int):
-	var local_player_id : int = get_tree().get_unique_id()
+	var local_player_id : int = get_unique_id()
 	rpc_id(connected_player_id, '_register_player', local_player_id, local_player.name)
 
 func _on_connected_to_server():
@@ -78,7 +81,7 @@ func host_server(port : int = DEFAULT_SERVER_PORT, max_players : int = DEFAULT_M
 	server_port = port
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(port, max_players)
-	get_tree().set_multiplayer_peer(peer)
+	get_tree().get_multiplayer().set_multiplayer_peer(peer)
 	register_local_player()
 
 func join_server(ip : String = DEFAULT_SERVER_IP, port : int = DEFAULT_SERVER_PORT):
@@ -86,11 +89,11 @@ func join_server(ip : String = DEFAULT_SERVER_IP, port : int = DEFAULT_SERVER_PO
 	server_port = port
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip, port)
-	get_tree().set_multiplayer_peer(peer)
+	get_tree().get_multiplayer().set_multiplayer_peer(peer)
 
 func leave_server():
 	players.clear()
-	get_tree().set_multiplayer_peer(null)
+	get_tree().get_multiplayer().set_multiplayer_peer(null)
 
 func _ready():
 	var multiplayer_api := get_tree().get_multiplayer()

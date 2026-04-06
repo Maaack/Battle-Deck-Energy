@@ -42,7 +42,7 @@ func _on_server_disconnected():
 
 func refresh_lobby():
 	var players : Array = Network.players.values()
-	var is_server : bool = get_tree().is_server()
+	var is_server : bool = get_tree().get_multiplayer().is_server()
 	$LobbyPanel/ItemList.clear()
 	for player in players:
 		if player is PlayerData:

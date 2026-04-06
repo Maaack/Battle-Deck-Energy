@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dty7445pxv6cs"]
 
 [ext_resource type="StyleBox" path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" id="1"]
-[ext_resource type="Material" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" id="2"]
+[ext_resource type="Material" uid="uid://dxlls1dg63rhj" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" id="2"]
 [ext_resource type="Script" uid="uid://dua2rfx8yv8f8" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://dol1ul7ulhklk" path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" id="4"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/EnergyPanel/EnergyPanelDynamicFont.tres" id="5"]
