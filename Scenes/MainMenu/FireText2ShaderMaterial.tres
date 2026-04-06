@@ -2,12 +2,10 @@
 
 [ext_resource type="Shader" uid="uid://d0qtqamvo3mu" path="res://Scenes/MainMenu/FireTextShader.gdshader" id="1"]
 
-[sub_resource type="Gradient" id="Gradient_7hwkc"]
+[sub_resource type="Gradient" id="Gradient_p3ggb"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3ggb"]
-gradient = SubResource("Gradient_7hwkc")
-width = 1
-fill_to = Vector2(0, 1)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g86w8"]
+gradient = SubResource("Gradient_p3ggb")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7hwkc"]
 
@@ -25,6 +23,6 @@ shader_parameter/inner_threshold = 0.55
 shader_parameter/outer_threshold = 0.3
 shader_parameter/soft_edge = 0.08
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_mqn1n")
-shader_parameter/gradient_texture = SubResource("GradientTexture2D_p3ggb")
+shader_parameter/gradient_texture = SubResource("GradientTexture1D_g86w8")
 shader_parameter/multiplier = 4.0
 shader_parameter/stretch = Vector2(1, 1)

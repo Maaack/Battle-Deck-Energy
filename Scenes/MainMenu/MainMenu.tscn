@@ -209,7 +209,7 @@ horizontal_alignment = 1
 
 [node name="BattleSprite" type="Sprite2D" parent="MarginContainer/MainControl/TitleContainer/BattleDeckLabel" unique_id=2000945461]
 material = ExtResource("5")
-position = Vector2(261.98697, 79.40313)
+position = Vector2(262.12283, 79.47716)
 rotation = 0.000429718
 texture = ExtResource("8")
 
