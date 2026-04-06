@@ -92,7 +92,8 @@ func _leave_battle_to_menu():
 		battle_interface.queue_free()
 	PersistentData.finish_battle()
 	Network.leave_server()
-	get_tree().change_scene_to_file("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	if is_inside_tree():
+		get_tree().change_scene_to_file("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_player_disconnected(player : PlayerData):
 	if player.unique_id in ignore_player_disconnects:

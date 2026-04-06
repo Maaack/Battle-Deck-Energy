@@ -9,7 +9,7 @@ func add_card(card_data:CardData):
 		card_map[card_data] = card_instance
 		card_instance_map[card_instance] = card_data
 		add_child(card_instance)
-		card_instance.connect("tween_completed", Callable(self, "_on_Card_tween_completed"))
+		card_instance.connect("tween_completed", _on_Card_tween_completed)
 	return card_instance
 
 func remove_card(card_data:CardData):
