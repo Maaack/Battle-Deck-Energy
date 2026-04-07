@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dq4v2e5npupm4"]
 
-[ext_resource type="PackedScene" path="res://Managers/CharacterBattle/EnemyAI/EnemyAIBattleManager.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://b1u6e278vvh4u" path="res://Managers/CharacterBattle/EnemyAI/EnemyAIBattleManager.tscn" id="1"]
 [ext_resource type="Script" uid="uid://d1ojdanbtje6v" path="res://Managers/CharacterBattle/EnemyAI/Slow/SlowEnemyAIBattleManager.gd" id="2"]
 
 [node name="SlowEnemyAIBattleManager" unique_id=49233330 instance=ExtResource("1")]

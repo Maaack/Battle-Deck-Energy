@@ -1,11 +1,11 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://bwrdbtbcg7wkn"]
 
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level16/SpoiledShitPairLevelChance.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=2]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level16/BratRascalAndSpoiledShitLevelChance.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level16/BratPairAndSpoiledShitLevelChance.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level16/RascalPairAndSpoiledShitLevelChance.tres" type="Resource" id=5]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level16/SpoiledShitPairLevelChance.tres" id="1"]
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="2"]
+[ext_resource type="Resource" uid="uid://hek8ghv81fkp" path="res://Resources/Weighted/WeightedLevelList/Level16/BratRascalAndSpoiledShitLevelChance.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bw50eh7236c8e" path="res://Resources/Weighted/WeightedLevelList/Level16/BratPairAndSpoiledShitLevelChance.tres" id="4"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level16/RascalPairAndSpoiledShitLevelChance.tres" id="5"]
 
 [resource]
-script = ExtResource( 2 )
-starting_list = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ) ]
+script = ExtResource("2")
+starting_list = [ExtResource("3"), ExtResource("5"), ExtResource("1"), ExtResource("4")]

@@ -1,14 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://6v8pbe7hc20q"]
 
-[ext_resource path="res://Managers/StatusIcons/StatusIconsManager.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://1wsnff7vsld6" path="res://Managers/StatusIcons/StatusIconsManager.gd" id="1"]
 
-[node name="StatusIconManager" type="HBoxContainer"]
+[node name="StatusIconManager" type="HBoxContainer" unique_id=1662495674]
+custom_minimum_size = Vector2(0, 36)
 offset_right = 295.0
 offset_bottom = 24.0
-custom_minimum_size = Vector2( 0, 36 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")

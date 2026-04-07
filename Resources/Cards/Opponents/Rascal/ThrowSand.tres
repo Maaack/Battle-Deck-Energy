@@ -1,19 +1,17 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bpm7nhp6gurtx"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/AttackEffect1.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/DeckModEffects/AddConfused.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/RetreatDefendEffect2.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=5]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/sandstorm.png" type="Texture2D" id=6]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect1.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddConfused.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/RetreatDefendEffect2.tres" id="4"]
+[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://lyihaasfrhr1" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/sandstorm.png" id="6"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Throw Sand"
 description = "Deal %ATTACK Damage, absorb %DEFEND Damage, and add %ADD_CONFUSED Confused card(s).
 Exhaust."
-energy_cost = 1
-icon = ExtResource( 6 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ]
-type = 1
+icon = ExtResource("6")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("4"), ExtResource("3"), ExtResource("5")]

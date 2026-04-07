@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://oidj6l2clqkp"]
 
-[ext_resource path="res://Managers/Cards/Focused/FocusedCardManager.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/CardNode2D/BDECard/CardNode2D.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" uid="uid://cbf5qvvsw2jix" path="res://Managers/Cards/Focused/FocusedCardManager.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cbbgjbp7tlb4e" path="res://Scenes/CardNode2D/BDECard/CardNode2D.tscn" id="2"]
 
-
-[node name="FocusedCardManager" type="Node2D"]
-script = ExtResource( 1 )
-base_card_scene = ExtResource( 2 )
+[node name="FocusedCardManager" type="Node2D" unique_id=549689227]
+script = ExtResource("1")
+base_card_scene = ExtResource("2")

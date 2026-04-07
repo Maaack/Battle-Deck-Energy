@@ -1,9 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://fado3w3122i7"]
 
-[ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Levels/Level17/Cafeteria.tres" type="Resource" id=2]
+[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://bcotyscubxlnp" path="res://Resources/Levels/Level17/Cafeteria.tres" id="2"]
 
 [resource]
-script = ExtResource( 1 )
-weight = 1.0
-data = ExtResource( 2 )
+script = ExtResource("1")
+data = ExtResource("2")

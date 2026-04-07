@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cq7a1ps1g2wkj" path="res://Assets/Mixed/Backgrounds/Deck-Fighter.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://dn8wpvgoo0wac" path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" id="12"]
 [ext_resource type="Material" uid="uid://bdxvm8u1klphf" path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" id="13"]
-[ext_resource type="PackedScene" path="res://Scenes/DeckList/DeckListInterface.tscn" id="14"]
-[ext_resource type="PackedScene" path="res://Scenes/AudioMenu/AudioMenu.tscn" id="15"]
-[ext_resource type="PackedScene" path="res://Managers/Tooltip/TooltipManager.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://llying411134" path="res://Scenes/DeckList/DeckListInterface.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://d8s08o4mc178" path="res://Scenes/AudioMenu/AudioMenu.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://daus3rxf6smv1" path="res://Managers/Tooltip/TooltipManager.tscn" id="16"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "SlideInLeft"
@@ -265,11 +265,17 @@ vertical_alignment = 1
 
 [node name="AudioMenu" parent="MarginContainer/MainControl" unique_id=800970680 instance=ExtResource("15")]
 visible = false
+layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 
 [node name="DeckListInterface" parent="MarginContainer/MainControl" unique_id=416961077 instance=ExtResource("14")]
 visible = false
+layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 
 [node name="WindowContainer" type="Control" parent="." unique_id=1017996331]
 anchors_preset = 0
@@ -278,7 +284,8 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="TooltipManager" parent="." unique_id=2137213596 instance=ExtResource("16")]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 

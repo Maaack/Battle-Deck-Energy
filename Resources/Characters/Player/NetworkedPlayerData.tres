@@ -1,11 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://bxcslggoubl7i"]
 
-[ext_resource path="res://Resources/Characters/CharacterData.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
-nickname = "You"
+script = ExtResource("1")
 starting_max_health = 64
-starting_max_energy = 3
-starting_hand_size = 5
-starting_deck = [  ]

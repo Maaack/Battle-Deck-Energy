@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://cr6yplg5nfolx"]
 
-[ext_resource path="res://Managers/Mood/MoodManager.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://chsg4wamxav8r" path="res://Managers/Mood/MoodManager.gd" id="1"]
 
-[node name="MoodManager" type="Node"]
-script = ExtResource( 1 )
+[node name="MoodManager" type="Node" unique_id=1039283838]
+script = ExtResource("1")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1019855992]
 volume_db = -20.0
-bus = "Music"
+bus = &"Music"

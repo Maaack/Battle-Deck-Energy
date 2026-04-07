@@ -1,11 +1,8 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://dowqeiyjyplyk"]
 
-[ext_resource path="res://Resources/Effects/EffectData.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/EffectData.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 type_tag = "ATTACK"
 amount = 1
-apply_mode = 1
-aim_mode = 0
-team_aim_mode = 0

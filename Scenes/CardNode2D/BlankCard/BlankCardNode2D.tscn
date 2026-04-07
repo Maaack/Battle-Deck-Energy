@@ -21,6 +21,8 @@ offset_left = -88.0
 offset_top = -128.0
 offset_right = 88.0
 offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CardBack" type="Panel" parent="Card/Body" unique_id=1571172955]
 layout_mode = 0

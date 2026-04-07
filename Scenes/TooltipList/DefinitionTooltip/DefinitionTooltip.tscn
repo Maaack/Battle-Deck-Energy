@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dm7u8vdnvx0qy"]
 
-[ext_resource type="Theme" path="res://Themes/Main.tres" id="1"]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
 [ext_resource type="Script" uid="uid://bqmgfvb4nksuf" path="res://Scenes/TooltipList/DefinitionTooltip/DefinitionTooltip.gd" id="2"]
 
 [node name="DefinitionTooltip" type="PanelContainer" unique_id=39335616]

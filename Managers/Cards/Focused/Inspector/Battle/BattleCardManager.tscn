@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cuv82pk1fpnlr"]
 
 [ext_resource type="Script" uid="uid://dgmt3l8rp0xsm" path="res://Managers/Cards/Focused/Inspector/Battle/BattleCardManager.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dd3mp0krrm5dp" path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" id="2"]
 
 [node name="BattleCardManager" unique_id=20100069 instance=ExtResource("2")]
 script = ExtResource("1")

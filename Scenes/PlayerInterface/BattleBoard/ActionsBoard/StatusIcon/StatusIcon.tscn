@@ -1,72 +1,57 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://d31oof5f7b1s1"]
 
-[ext_resource path="res://Themes/Fonts/Labels/StatusIconDynamicText.tres" type="FontFile" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats/parried.png" type="Texture2D" id=2]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd" type="Script" id=3]
+[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/StatusIconDynamicText.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://dma61oe3u8a4u" path="res://Assets/Mixed/GoodStats/parried.png" id="2"]
+[ext_resource type="Script" uid="uid://cx4sflrnbpcvr" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd" id="3"]
 
-
-[node name="StatusIcon" type="Control"]
+[node name="StatusIcon" type="Control" unique_id=1313323250]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 28.0
 offset_bottom = 28.0
-custom_minimum_size = Vector2( 36, 36 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("3")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1831576213]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_top = 2
 theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 34.0
-offset_bottom = 34.0
-mouse_filter = 2
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=713984347]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="MarginContainer/CenterContainer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 16.0
-offset_bottom = 16.0
 mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/CenterContainer/Control"]
-texture = ExtResource( 2 )
-
-[node name="Tooltip2D" type="Marker2D" parent="MarginContainer/CenterContainer/Control"]
-position = Vector2( 0, 36 )
-
-[node name="Control" type="Control" parent="MarginContainer"]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 34.0
-offset_bottom = 34.0
+[node name="Control" type="Control" parent="MarginContainer/CenterContainer" unique_id=588253168]
+layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/CenterContainer/Control" unique_id=2058077428]
+texture = ExtResource("2")
+
+[node name="Tooltip2D" type="Marker2D" parent="MarginContainer/CenterContainer/Control" unique_id=22822526]
+position = Vector2(0, 36)
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=438042879]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control" unique_id=1252107017]
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -16.0
 offset_top = -14.0
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_outline_color = Color( 0.243137, 0.129412, 0.215686, 1 )
+theme_override_colors/font_outline_color = Color(0.243137, 0.129412, 0.215686, 1)
+theme_override_fonts/font = ExtResource("1")
 text = "2"
-align = 2
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": true
-}
+horizontal_alignment = 2
+vertical_alignment = 2

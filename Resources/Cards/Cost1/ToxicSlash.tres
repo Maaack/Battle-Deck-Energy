@@ -1,16 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ch0k47ms5hi6o"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/AttackEffect3.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPoisoned2.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/ragged-wound.png" type="Texture2D" id=4]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect3.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyPoisoned2.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://0wsurwuwqc65" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/ragged-wound.png" id="4"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Toxic Slash"
 description = "Deal %ATTACK Damage and apply %APPLY_POISONED Poisoned."
-energy_cost = 1
-icon = ExtResource( 4 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 3 ) ]
-type = 1
+icon = ExtResource("4")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("3")]

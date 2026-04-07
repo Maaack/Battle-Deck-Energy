@@ -1,6 +1,6 @@
-[gd_resource type="GradientTexture2D" load_steps=2 format=2]
+[gd_resource type="GradientTexture2D" format=3 uid="uid://jleqchpyoqi0"]
 
-[ext_resource path="res://Scenes/ShelterPanel/FlameGradient.tres" type="Gradient" id=1]
+[ext_resource type="Gradient" uid="uid://bhrjgmarfx7sb" path="res://Scenes/ShelterPanel/FlameGradient.tres" id="1"]
 
 [resource]
-gradient = ExtResource( 1 )
+gradient = ExtResource("1")

@@ -1,19 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://qjy3y8lxxqoc"]
 
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/NetworkedGameInterface/GameMenu/NetworkedGameMenu.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/AudioMenu/AudioMenu.tscn" type="PackedScene" id=3]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
+[ext_resource type="Script" uid="uid://btix1hldyrb2g" path="res://Scenes/NetworkedGameInterface/GameMenu/NetworkedGameMenu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://d8s08o4mc178" path="res://Scenes/AudioMenu/AudioMenu.tscn" id="3"]
 
-[node name="NetworkedGameMenu" type="Control"]
+[node name="NetworkedGameMenu" type="Control" unique_id=508028070]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("1")
+script = ExtResource("2")
 
-[node name="MainPanel" type="Panel" parent="."]
+[node name="MainPanel" type="Panel" parent="." unique_id=1519539066]
+custom_minimum_size = Vector2(364, 0)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -22,47 +23,39 @@ offset_left = -182.0
 offset_top = -215.5
 offset_right = 182.0
 offset_bottom = 215.5
-custom_minimum_size = Vector2( 364, 0 )
 
-[node name="MarginContainer" type="MarginContainer" parent="MainPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel" unique_id=419333324]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_top = 64
 theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 64
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/MarginContainer"]
-offset_left = 32.0
-offset_top = 64.0
-offset_right = 332.0
-offset_bottom = 367.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/MarginContainer" unique_id=1065069345]
+layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ReturnButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer"]
-offset_top = 41.0
-offset_right = 300.0
-offset_bottom = 101.0
+[node name="ReturnButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=526313770]
+layout_mode = 2
 text = "Return"
 
-[node name="OptionsButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer"]
-offset_top = 121.0
-offset_right = 300.0
-offset_bottom = 181.0
+[node name="OptionsButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=2012260597]
+layout_mode = 2
 text = "Options"
 
-[node name="ForfeitAndExitButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer"]
-offset_top = 201.0
-offset_right = 300.0
-offset_bottom = 261.0
+[node name="ForfeitAndExitButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=1455511982]
+layout_mode = 2
 text = "Forfeit and Exit"
 
-[node name="AudioMenu" parent="." instance=ExtResource( 3 )]
+[node name="AudioMenu" parent="." unique_id=1736168158 instance=ExtResource("3")]
 visible = false
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/ForfeitAndExitButton" to="." method="_on_ForfeitAndExitButton_pressed"]

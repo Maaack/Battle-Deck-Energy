@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://dd3mp0krrm5dp"]
 
-[ext_resource path="res://Managers/Cards/Focused/FocusedCardManager.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.gd" type="Script" id=2]
+[ext_resource type="PackedScene" uid="uid://oidj6l2clqkp" path="res://Managers/Cards/Focused/FocusedCardManager.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dy6n1mypoef6g" path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.gd" id="2"]
 
-[node name="InspectorCardManager" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="InspectorCardManager" unique_id=1770730632 instance=ExtResource("1")]
+script = ExtResource("2")
 
-[node name="InspectTimer" type="Timer" parent="." index="0"]
+[node name="InspectTimer" type="Timer" parent="." index="0" unique_id=771303706]
 wait_time = 0.4
 one_shot = true
+
 [connection signal="timeout" from="InspectTimer" to="." method="_on_InspectTimer_timeout"]

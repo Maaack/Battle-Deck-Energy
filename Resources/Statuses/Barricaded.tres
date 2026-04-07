@@ -1,16 +1,14 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://bta1cbbonlulj"]
 
-[ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats3/delayed-shield.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://da2slnwj2j2uj" path="res://Assets/Mixed/GoodStats3/delayed-shield.png" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Barricaded"
 description = "Converts to Block in the next round."
-icon = ExtResource( 2 )
-color = Color( 0.392157, 0.490196, 0.203922, 1 )
+icon = ExtResource("2")
+color = Color(0.392157, 0.490196, 0.203922, 1)
 intensity = 1
 duration = 1
 type_tag = "BARRICADED"
-stack_type = 0
-status_type = 1

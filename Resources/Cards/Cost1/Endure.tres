@@ -1,18 +1,17 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4wprnh7kf60y"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/defense-stance.png" type="Texture2D" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyReinforced2.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFortified2.tres" type="Resource" id=5]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/RetainEffect.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://dmuxcif03ej2e" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/defense-stance.png" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyReinforced2.tres" id="4"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyFortified2.tres" id="5"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Endure"
 description = "Next turn, add %APPLY_REINFORCED Defends. Next %APPLY_FORTIFIED turns, add [b]1[/b] Defend.
 Retain."
-energy_cost = 1
-icon = ExtResource( 3 )
-base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
-effects = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ]
+icon = ExtResource("3")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = [ExtResource("4"), ExtResource("5"), ExtResource("2")]
 type = 3

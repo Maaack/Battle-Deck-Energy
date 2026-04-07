@@ -1,52 +1,46 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene format=3 uid="uid://bwb6ei87sml7j"]
 
-[ext_resource path="res://Scenes/LootPanel/LootPanel.gd" type="Script" id=1]
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="FontFile" id=3]
-[ext_resource path="res://Scenes/LootPanel/HBoxContainer.gd" type="Script" id=4]
-[ext_resource path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=6]
-[ext_resource path="res://Resources/Cards/Cost1/Trip.tres" type="Resource" id=7]
-[ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=8]
+[ext_resource type="Script" uid="uid://ka4hjvph22vt" path="res://Scenes/LootPanel/LootPanel.gd" id="1"]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
+[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
+[ext_resource type="Script" uid="uid://btx1kj31mu7kg" path="res://Scenes/LootPanel/HBoxContainer.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://0qn12g8bvxee" path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" id="5"]
+[ext_resource type="Resource" path="res://Resources/Cards/StartingSet/LameSlash.tres" id="6"]
+[ext_resource type="Resource" path="res://Resources/Cards/Cost1/Trip.tres" id="7"]
+[ext_resource type="Resource" path="res://Resources/Cards/StartingSet/LameShield.tres" id="8"]
 
-[node name="LootPanel" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_minimum_size = Vector2( 500, 360 )
-mouse_filter = 2
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-card_options = [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ]
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="LootPanel" type="Control" unique_id=1661709140]
+custom_minimum_size = Vector2(500, 360)
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_top = 16
+theme = ExtResource("2")
+script = ExtResource("1")
+card_options = [ExtResource("8"), ExtResource("6"), ExtResource("7")]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=370278384]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
 theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 240
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 1264.0
-offset_bottom = 480.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=650447340]
+layout_mode = 2
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-offset_right = 1248.0
-offset_bottom = 230.0
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=282508444]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control" unique_id=210141940]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -55,59 +49,46 @@ offset_left = -388.5
 offset_top = -29.0
 offset_right = 388.5
 offset_bottom = 29.0
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3")
 text = "You can add 1 card to your deck."
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="LootMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-offset_top = 234.0
-offset_right = 1248.0
-offset_bottom = 464.0
-mouse_filter = 2
+[node name="LootMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1504151371]
+layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_right = 128
+mouse_filter = 2
 theme_override_constants/margin_left = 128
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_constants/margin_right = 128
 
-[node name="LootContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/LootMargin"]
-offset_left = 128.0
-offset_right = 1120.0
-offset_bottom = 230.0
+[node name="LootContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/LootMargin" unique_id=746738465]
+layout_mode = 2
 mouse_filter = 2
 alignment = 1
-script = ExtResource( 4 )
+script = ExtResource("4")
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/LootMargin"]
-offset_left = 128.0
-offset_right = 1120.0
-offset_bottom = 230.0
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/LootMargin" unique_id=2026060591]
+layout_mode = 2
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer"]
-offset_left = 496.0
-offset_top = 115.0
-offset_right = 496.0
-offset_bottom = 115.0
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer" unique_id=1553675933]
+layout_mode = 2
 mouse_filter = 2
 
-[node name="SelectorCardManager" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control" instance=ExtResource( 5 )]
+[node name="SelectorCardManager" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control" unique_id=1217685906 instance=ExtResource("5")]
 
-[node name="SpawnCardTimer" type="Timer" parent="."]
+[node name="SpawnCardTimer" type="Timer" parent="." unique_id=95619563]
 wait_time = 0.2
 one_shot = true
 
-[node name="RepositionTimer" type="Timer" parent="."]
+[node name="RepositionTimer" type="Timer" parent="." unique_id=1959767394]
 wait_time = 0.05
 one_shot = true
 
-[node name="SkipLootButton" type="Button" parent="."]
+[node name="SkipLootButton" type="Button" parent="." unique_id=1831594039]
+custom_minimum_size = Vector2(224, 60)
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -116,14 +97,12 @@ offset_left = -272.0
 offset_top = -108.0
 offset_right = -48.0
 offset_bottom = -48.0
-custom_minimum_size = Vector2( 224, 60 )
 size_flags_vertical = 5
 text = "Skip Loot"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ViewDeckButton" type="Button" parent="."]
+[node name="ViewDeckButton" type="Button" parent="." unique_id=893666112]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -132,14 +111,12 @@ offset_left = -112.0
 offset_top = -108.0
 offset_right = 112.0
 offset_bottom = -48.0
-custom_minimum_size = Vector2( 224, 38 )
 size_flags_vertical = 5
 text = "View Deck"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="AddCardButton" type="Button" parent="."]
+[node name="AddCardButton" type="Button" parent="." unique_id=1068195033]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -148,13 +125,10 @@ offset_left = -112.0
 offset_top = -208.0
 offset_right = 112.0
 offset_bottom = -148.0
-custom_minimum_size = Vector2( 224, 38 )
 size_flags_vertical = 5
 disabled = true
 text = "Add Card"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="clicked_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_clicked_card"]
 [connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
 [connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]

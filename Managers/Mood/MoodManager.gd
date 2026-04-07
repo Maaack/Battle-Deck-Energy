@@ -38,4 +38,3 @@ func set_mood(mood_type:String):
 		return
 	current_mood = mood_type
 	update_mood()
-

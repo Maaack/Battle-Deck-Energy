@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://bl57ylf3bwkwh"]
 
-[ext_resource path="res://Assets/Sourced/Sounds/240787_f4ngy_metal-clank.ogg" type="AudioStream" id=1]
+[ext_resource type="AudioStream" uid="uid://x3fylxjg5lc2" path="res://Assets/Sourced/Sounds/240787_f4ngy_metal-clank.ogg" id="1"]
 
-[node name="ShieldAudioStreamPlayer2D" type="AudioStreamPlayer2D"]
-stream = ExtResource( 1 )
+[node name="ShieldAudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=142279885]
+stream = ExtResource("1")
 volume_db = 5.0

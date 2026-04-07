@@ -1,19 +1,19 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ck61sj782qdon"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyDefenseUp4.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyAttackUp3.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/CureFragileEffect.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/anvil-impact.png" type="Texture2D" id=5]
-[ext_resource path="res://Resources/Effects/CureWeakEffect.tres" type="Resource" id=6]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyDefenseUp4.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyAttackUp3.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/CureFragileEffect.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://sl088837gtpj" path="res://Assets/Mixed/CardIcons/SkillGlowNew/anvil-impact.png" id="5"]
+[ext_resource type="Resource" path="res://Resources/Effects/CureWeakEffect.tres" id="6"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Reforge"
 description = "Apply %APPLY_ATTACK_UP Attack Up and %APPLY_DEFENSE_UP Defense Up.
 Cure Fragile and Weak."
 energy_cost = 2
-icon = ExtResource( 5 )
-base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ) ]
+icon = ExtResource("5")
+base_color = Color(0.54902, 0.560784, 0.682353, 1)
+effects = [ExtResource("3"), ExtResource("2"), ExtResource("4"), ExtResource("6")]
 type = 3

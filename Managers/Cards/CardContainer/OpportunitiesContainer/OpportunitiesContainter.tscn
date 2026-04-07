@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dc23quifcih1x"]
 
-[ext_resource type="PackedScene" path="res://Managers/Cards/CardContainer/CardContainer.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://daqurm0mdqlcq" path="res://Managers/Cards/CardContainer/CardContainer.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ckpmvi4j35bgl" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.gd" id="2"]
-[ext_resource type="Theme" path="res://Themes/Main.tres" id="3"]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="3"]
 [ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Cards/OpportunityOutlineStyleBox.tres" id="4"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" id="5"]
 [ext_resource type="PackedScene" uid="uid://62446gk1nn10" path="res://Scenes/OpportunityContainer/LayeredGlowNodes.tscn" id="7"]
@@ -17,7 +17,6 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 
 [node name="OpportunitiesContainter" unique_id=1559716444 instance=ExtResource("1")]
-layout_mode = 3
 anchors_preset = 15
 anchor_left = 0.0
 anchor_top = 0.0
@@ -32,16 +31,13 @@ grow_vertical = 2
 theme = ExtResource("3")
 script = ExtResource("2")
 
-[node name="CenterContainer" parent="." index="0"]
+[node name="CenterContainer" parent="." index="0" unique_id=1183389169]
 layout_mode = 1
 anchors_preset = 15
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" parent="CenterContainer" index="0"]
-layout_mode = 2
-
-[node name="Slot1" type="Panel" parent="CenterContainer/Control" index="1" unique_id=1902197665]
+[node name="Slot1" type="Panel" parent="CenterContainer/Control" parent_id_path=PackedInt32Array(2061532110) index="1" unique_id=1902197665]
 visible = false
 layout_mode = 0
 anchor_left = 0.5
@@ -97,4 +93,4 @@ offset_left = 187.0
 offset_right = 47.0
 theme_override_styles/panel = SubResource("1")
 
-[node name="LayeredGlowNodes" parent="CenterContainer/Control" index="2" unique_id=1809958906 instance=ExtResource("7")]
+[node name="LayeredGlowNodes" parent="CenterContainer/Control" parent_id_path=PackedInt32Array(2061532110) index="2" unique_id=1809958906 instance=ExtResource("7")]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://cwseih3dq2r61"]
 
-[ext_resource path="res://Scenes/PlayerInterface/AnimationQueue/AnimationQueue.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.gd" type="Script" id=2]
+[ext_resource type="PackedScene" uid="uid://bmy2fmb3r3sgu" path="res://Scenes/PlayerInterface/AnimationQueue/AnimationQueue.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cuog0db2tiy7s" path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.gd" id="2"]
 
-[node name="BattleAnimationQueue" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="BattleAnimationQueue" unique_id=1655565819 instance=ExtResource("1")]
+script = ExtResource("2")

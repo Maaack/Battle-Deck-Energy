@@ -1,19 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://d8s08o4mc178"]
 
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/AudioMenu/AudioMenu.gd" type="Script" id=2]
-[ext_resource path="res://Themes/Fonts/MainDynamicFont.tres" type="FontFile" id=3]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
+[ext_resource type="Script" uid="uid://buyjdna82wy1x" path="res://Scenes/AudioMenu/AudioMenu.gd" id="2"]
+[ext_resource type="FontFile" path="res://Themes/Fonts/MainDynamicFont.tres" id="3"]
 
-[node name="AudioMenu" type="Control"]
+[node name="AudioMenu" type="Control" unique_id=350868986]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("1")
+script = ExtResource("2")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=860746676]
+custom_minimum_size = Vector2(364, 0)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -22,144 +23,90 @@ offset_left = -182.0
 offset_top = -215.5
 offset_right = 182.0
 offset_bottom = 215.5
-custom_minimum_size = Vector2( 364, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1119435093]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_top = 64
 theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 64
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
-offset_left = 32.0
-offset_top = 64.0
-offset_right = 332.0
-offset_bottom = 367.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=712639198]
+layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="MasterControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
-offset_right = 300.0
-offset_bottom = 28.0
+[node name="MasterControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=62284860]
+layout_mode = 2
 
-[node name="MasterLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MasterControl"]
-offset_right = 96.0
-offset_bottom = 28.0
+[node name="MasterLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MasterControl" unique_id=922601713]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Master :"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="MasterHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MasterControl"]
-offset_left = 100.0
-offset_top = 6.0
-offset_right = 300.0
-offset_bottom = 22.0
-custom_minimum_size = Vector2( 200, 0 )
+[node name="MasterHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MasterControl" unique_id=1397705920]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 1.0
 tick_count = 11
 ticks_on_borders = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="SFXControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
-offset_top = 48.0
-offset_right = 300.0
-offset_bottom = 76.0
+[node name="SFXControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=625171867]
+layout_mode = 2
 
-[node name="SFXLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXControl"]
-offset_right = 96.0
-offset_bottom = 28.0
+[node name="SFXLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/SFXControl" unique_id=1414099228]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "SFX :"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="SFXHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/SFXControl"]
-offset_left = 100.0
-offset_top = 6.0
-offset_right = 300.0
-offset_bottom = 22.0
-custom_minimum_size = Vector2( 200, 0 )
+[node name="SFXHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/SFXControl" unique_id=116703575]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 1.0
 tick_count = 11
 ticks_on_borders = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="MusicControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
-offset_top = 96.0
-offset_right = 300.0
-offset_bottom = 124.0
+[node name="MusicControl" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1342836566]
+layout_mode = 2
 
-[node name="MusicLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicControl"]
-offset_right = 96.0
-offset_bottom = 28.0
+[node name="MusicLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/MusicControl" unique_id=852494691]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Music :"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="MusicHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MusicControl"]
-offset_left = 100.0
-offset_top = 6.0
-offset_right = 300.0
-offset_bottom = 22.0
-custom_minimum_size = Vector2( 200, 0 )
+[node name="MusicHSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/MusicControl" unique_id=1676948585]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 1.0
 tick_count = 11
 ticks_on_borders = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
-offset_top = 144.0
-offset_right = 300.0
-offset_bottom = 208.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=649929590]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-offset_top = 18.0
-offset_right = 200.0
-offset_bottom = 46.0
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=937179007]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Mute :"
 
-[node name="MuteButton" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
-offset_left = 204.0
-offset_right = 300.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MuteButton" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1140536078]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 
-[node name="ReturnButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-offset_top = 228.0
-offset_right = 300.0
-offset_bottom = 288.0
+[node name="ReturnButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1705247853]
+layout_mode = 2
 text = "Return"
+
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/MasterControl/MasterHSlider" to="." method="_on_MasterHSlider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/SFXControl/SFXHSlider" to="." method="_on_SFXHSlider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/MusicControl/MusicHSlider" to="." method="_on_MusicHSlider_value_changed"]

@@ -1,17 +1,16 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cquh66dg2w5s7"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/reaper-scythe.png" type="Texture2D" id=2]
-[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/AttackEffect24.tres" type="Resource" id=4]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ciqgkecyr7wug" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/reaper-scythe.png" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect24.tres" id="4"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Death Blow"
 description = "Deal %ATTACK Damage.
 Exhaust."
 energy_cost = 3
-icon = ExtResource( 2 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 4 ), ExtResource( 3 ) ]
-type = 1
+icon = ExtResource("2")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("4"), ExtResource("3")]

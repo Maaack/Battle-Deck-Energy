@@ -1,20 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene format=3 uid="uid://cuo7gu2h7ochr"]
 
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" type="FontFile" id=2]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" type="FontFile" id=3]
-[ext_resource path="res://Scenes/SaveDeck/SaveDeckPanel.gd" type="Script" id=7]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
+[ext_resource type="FontFile" path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" id="2"]
+[ext_resource type="FontFile" path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" id="3"]
+[ext_resource type="Script" uid="uid://d3tles5nchs3l" path="res://Scenes/SaveDeck/SaveDeckPanel.gd" id="7"]
 
-[node name="SaveDeckPanel" type="Control"]
+[node name="SaveDeckPanel" type="Control" unique_id=389743914]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("1")
+script = ExtResource("7")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=168053375]
+custom_minimum_size = Vector2(600, 420)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -23,121 +24,89 @@ offset_left = -310.0
 offset_top = -180.0
 offset_right = 290.0
 offset_bottom = 240.0
-custom_minimum_size = Vector2( 600, 420 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ButtonsMargin" type="MarginContainer" parent="Panel"]
+[node name="ButtonsMargin" type="MarginContainer" parent="Panel" unique_id=2085907944]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -76.0
 offset_bottom = -3.05176e-05
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_top = 8
 theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ButtonsMargin"]
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 584.0
-offset_bottom = 68.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ButtonsMargin" unique_id=1127348373]
+layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="SkipButton" type="Button" parent="Panel/ButtonsMargin/HBoxContainer"]
-offset_right = 268.0
-offset_bottom = 60.0
+[node name="SkipButton" type="Button" parent="Panel/ButtonsMargin/HBoxContainer" unique_id=949705385]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Skip"
 
-[node name="SaveButton" type="Button" parent="Panel/ButtonsMargin/HBoxContainer"]
-offset_left = 300.0
-offset_right = 568.0
-offset_bottom = 60.0
+[node name="SaveButton" type="Button" parent="Panel/ButtonsMargin/HBoxContainer" unique_id=159793865]
+layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
 text = "Save"
 
-[node name="OptionsMargin" type="MarginContainer" parent="Panel"]
+[node name="OptionsMargin" type="MarginContainer" parent="Panel" unique_id=880603310]
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -93.0
 offset_bottom = 67.0
-theme_override_constants/margin_right = 32
 theme_override_constants/margin_left = 32
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_constants/margin_right = 32
 
-[node name="OptionsVBox" type="VBoxContainer" parent="Panel/OptionsMargin"]
-offset_left = 32.0
-offset_right = 568.0
-offset_bottom = 214.0
+[node name="OptionsVBox" type="VBoxContainer" parent="Panel/OptionsMargin" unique_id=1924068547]
+layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="DeckTitleHBox" type="HBoxContainer" parent="Panel/OptionsMargin/OptionsVBox"]
-offset_right = 536.0
-offset_bottom = 38.0
+[node name="DeckTitleHBox" type="HBoxContainer" parent="Panel/OptionsMargin/OptionsVBox" unique_id=1576900680]
+layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="TitleLabel" type="Label" parent="Panel/OptionsMargin/OptionsVBox/DeckTitleHBox"]
-offset_top = 2.0
-offset_right = 81.0
-offset_bottom = 35.0
-theme_override_fonts/font = ExtResource( 3 )
+[node name="TitleLabel" type="Label" parent="Panel/OptionsMargin/OptionsVBox/DeckTitleHBox" unique_id=867818367]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "Title"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TitleLineEdit" type="LineEdit" parent="Panel/OptionsMargin/OptionsVBox/DeckTitleHBox"]
-offset_left = 97.0
-offset_right = 536.0
-offset_bottom = 38.0
+[node name="TitleLineEdit" type="LineEdit" parent="Panel/OptionsMargin/OptionsVBox/DeckTitleHBox" unique_id=348360419]
+layout_mode = 2
 size_flags_horizontal = 3
-align = 1
 
-[node name="DeckIconHBox" type="HBoxContainer" parent="Panel/OptionsMargin/OptionsVBox"]
-offset_top = 54.0
-offset_right = 536.0
-offset_bottom = 214.0
+[node name="DeckIconHBox" type="HBoxContainer" parent="Panel/OptionsMargin/OptionsVBox" unique_id=296136379]
+layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="IconLabel" type="Label" parent="Panel/OptionsMargin/OptionsVBox/DeckIconHBox"]
-offset_top = 63.0
-offset_right = 78.0
-offset_bottom = 96.0
-theme_override_fonts/font = ExtResource( 3 )
+[node name="IconLabel" type="Label" parent="Panel/OptionsMargin/OptionsVBox/DeckIconHBox" unique_id=661114301]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "Icon "
 
-[node name="IconItemList" type="ItemList" parent="Panel/OptionsMargin/OptionsVBox/DeckIconHBox"]
-offset_left = 94.0
-offset_right = 536.0
-offset_bottom = 160.0
-custom_minimum_size = Vector2( 0, 160 )
+[node name="IconItemList" type="ItemList" parent="Panel/OptionsMargin/OptionsVBox/DeckIconHBox" unique_id=234080820]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 allow_reselect = true
 max_columns = 6
 same_column_width = true
-fixed_icon_size = Vector2( 64, 64 )
+fixed_icon_size = Vector2i(64, 64)
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=515702852]
+layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 77.0
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Save your Deck"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Panel/ButtonsMargin/HBoxContainer/SkipButton" to="." method="_on_SkipButton_pressed"]
 [connection signal="pressed" from="Panel/ButtonsMargin/HBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="text_changed" from="Panel/OptionsMargin/OptionsVBox/DeckTitleHBox/TitleLineEdit" to="." method="_on_TitleLineEdit_text_changed"]

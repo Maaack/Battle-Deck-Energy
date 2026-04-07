@@ -1,18 +1,17 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c6phnnry8smo2"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/take-abuse.png" type="Texture2D" id=5]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://b0nloaupvm4t8" path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/take-abuse.png" id="5"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Take Abuse"
 description = "Block %DEFEND Damage and apply %APPLY_STRONG Strong.
 Exhaust."
-energy_cost = 1
-icon = ExtResource( 5 )
-base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
-effects = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ]
+icon = ExtResource("5")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = [ExtResource("4"), ExtResource("2"), ExtResource("3")]
 type = 2

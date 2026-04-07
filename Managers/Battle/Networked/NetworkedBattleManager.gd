@@ -49,4 +49,3 @@ func _on_CharacterBattleManager_turn_ended(character : CharacterData):
 	rpc('_remote_on_turn_ended', player_id)
 	if character == active_character:
 		rpc('advance_character_phase')
-

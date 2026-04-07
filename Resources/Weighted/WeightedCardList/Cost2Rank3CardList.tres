@@ -1,13 +1,13 @@
-[gd_resource type="Resource" load_steps=8 format=2]
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cmtkptgpfjoe2"]
 
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/SerpentsBladeWeight1.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/HyperfocusWeight1.tres" type="Resource" id=10]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/BiohazardWeight1.tres" type="Resource" id=13]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/TwofoldWeight1.tres" type="Resource" id=14]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/TheWallWeight1.tres" type="Resource" id=17]
-[ext_resource path="res://Resources/Weighted/WeightedCards/Cost2/IroncladWeight1.tres" type="Resource" id=18]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/SerpentsBladeWeight1.tres" id="1"]
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/HyperfocusWeight1.tres" id="10"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/BiohazardWeight1.tres" id="13"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/TwofoldWeight1.tres" id="14"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/TheWallWeight1.tres" id="17"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/IroncladWeight1.tres" id="18"]
 
 [resource]
-script = ExtResource( 4 )
-starting_list = [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 18 ) ]
+script = ExtResource("4")
+starting_list = [ExtResource("1"), ExtResource("10"), ExtResource("13"), ExtResource("14"), ExtResource("17"), ExtResource("18")]

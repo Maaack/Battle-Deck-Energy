@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://c5jqebvdb76yu"]
 
-[ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/Networked/NetworkedPlayerInterface.gd" type="Script" id=2]
+[ext_resource type="PackedScene" uid="uid://wea3jomdilwy" path="res://Scenes/PlayerInterface/PlayerInterface.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dpl7tg7qgmrvp" path="res://Scenes/PlayerInterface/Networked/NetworkedPlayerInterface.gd" id="2"]
 
-[node name="NetworkedPlayerInterface" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="NetworkedPlayerInterface" unique_id=1386319433 instance=ExtResource("1")]
+script = ExtResource("2")

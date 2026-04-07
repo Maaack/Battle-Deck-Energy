@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://dynyklngmjk0e"]
 
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Themes/StyleBoxes/Meters/RoundCounterPanel.tres" type="StyleBox" id=4]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Meters/RoundCounterPanel.tres" id="4"]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id="1"]
 script/source = "tool
 extends Control
 
@@ -28,39 +28,38 @@ func advance_round():
 	_update_battle_round_count()
 "
 
-[node name="RoundCounter" type="Control"]
+[node name="RoundCounter" type="Control" unique_id=496359991]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -64.0
 offset_top = -64.0
-custom_minimum_size = Vector2( 64, 64 )
-theme = ExtResource( 2 )
-script = SubResource( 1 )
+theme = ExtResource("2")
+script = SubResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=586929771]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Panel" type="Panel" parent="TextureRect"]
+[node name="Panel" type="Panel" parent="TextureRect" unique_id=573536423]
+layout_mode = 0
 offset_right = 27.0
 offset_bottom = 27.0
-theme_override_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_styles/panel = ExtResource("4")
 
-[node name="CountLabel" type="Label" parent="TextureRect/Panel"]
+[node name="CountLabel" type="Label" parent="TextureRect/Panel" unique_id=411565435]
+layout_mode = 0
 offset_top = -2.0
 offset_right = 27.0
 offset_bottom = 28.0
 text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1

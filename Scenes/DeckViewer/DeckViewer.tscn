@@ -1,94 +1,81 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene format=3 uid="uid://c6k1k874q6g3a"]
 
-[ext_resource path="res://Scenes/DeckViewer/DeckViewer.gd" type="Script" id=1]
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Scenes/DeckViewer/GridContainer.gd" type="Script" id=3]
-[ext_resource path="res://Themes/StyleBoxes/ShadowStyleBox.tres" type="StyleBox" id=4]
-[ext_resource path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="FontFile" id=6]
+[ext_resource type="Script" uid="uid://bxi0evb4jioac" path="res://Scenes/DeckViewer/DeckViewer.gd" id="1"]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
+[ext_resource type="Script" uid="uid://dxvpt26x7yygp" path="res://Scenes/DeckViewer/GridContainer.gd" id="3"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="4"]
+[ext_resource type="PackedScene" uid="uid://0qn12g8bvxee" path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" id="5"]
+[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6"]
 
-[node name="DeckViewer" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_minimum_size = Vector2( 500, 360 )
-mouse_filter = 2
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="."]
+[node name="DeckViewer" type="Control" unique_id=1152645195]
+custom_minimum_size = Vector2(500, 360)
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme_override_styles/panel = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("2")
+script = ExtResource("1")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=813965528]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_top = 16
+theme_override_styles/panel = ExtResource("4")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1498694872]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
 theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 54
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 1264.0
-offset_bottom = 666.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=941242124]
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 16
 
-[node name="DeckLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="DeckLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=750722807]
 visible = false
-offset_right = 1248.0
-offset_bottom = 56.0
-theme_override_fonts/font = ExtResource( 6 )
-align = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6")
+horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-offset_right = 1248.0
-offset_bottom = 650.0
-mouse_filter = 1
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=600294013]
+layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-offset_right = 1248.0
-offset_bottom = 650.0
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1723474496]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/v_separation = 0
 theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 0
 columns = 5
-script = ExtResource( 3 )
+script = ExtResource("3")
 
-[node name="SelectorCardManager" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource( 5 )]
+[node name="SelectorCardManager" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1384519014 instance=ExtResource("5")]
 
-[node name="SpawnCardTimer" type="Timer" parent="."]
+[node name="SpawnCardTimer" type="Timer" parent="." unique_id=473598347]
 wait_time = 0.05
 one_shot = true
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=1104879231]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 48.0
 offset_top = -108.0
 offset_right = 272.0
 offset_bottom = -48.0
-custom_minimum_size = Vector2( 224, 38 )
 size_flags_vertical = 5
 text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
 [connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

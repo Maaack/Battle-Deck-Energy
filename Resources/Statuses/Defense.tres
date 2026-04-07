@@ -1,16 +1,15 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://bxg4yn8in24ru"]
 
-[ext_resource path="res://Assets/Mixed/GoodStats/defense-status.png" type="Texture2D" id=1]
-[ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://chxuot77wlxoj" path="res://Assets/Mixed/GoodStats/defense-status.png" id="1"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2"]
 
 [resource]
-script = ExtResource( 2 )
+script = ExtResource("2")
 title = "Defense"
 description = "Blocks an equal amount of incoming damage."
-icon = ExtResource( 1 )
-color = Color( 0.392157, 0.490196, 0.203922, 1 )
+icon = ExtResource("1")
+color = Color(0.392157, 0.490196, 0.203922, 1)
 intensity = 1
 duration = 1
 type_tag = "DEFENSE"
-stack_type = 0
 status_type = 0

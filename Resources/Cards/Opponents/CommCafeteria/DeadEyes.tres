@@ -1,17 +1,17 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ceeu18etkoiy8"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyDurable2.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/DefendEffect12.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/evil-eyes.png" type="Texture2D" id=5]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyDurable2.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/DefendEffect12.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://dphyoov1y1xcu" path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/evil-eyes.png" id="5"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Dead Eyes"
 description = "Block %DEFEND Damage, apply %APPLY_STRONG Strong, and %APPLY_DURABLE Durable."
 energy_cost = 3
-icon = ExtResource( 5 )
-base_color = Color( 0.392157, 0.490196, 0.203922, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
+icon = ExtResource("5")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = [ExtResource("3"), ExtResource("4"), ExtResource("2")]
 type = 2

@@ -1,14 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://bgj6mu3o5d35"]
 
-[ext_resource path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/StressCards/HitNerve.tres" type="Resource" id=3]
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://cp3ftd85q81o3" path="res://Resources/Cards/StressCards/HitNerve.tres" id="3"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
+starting_card = ExtResource("3")
+destination = 2
 type_tag = "ADD_HIT_NERVE"
 amount = 1
-apply_mode = 1
-aim_mode = 0
-team_aim_mode = 0
-starting_card = ExtResource( 3 )
-destination = 2

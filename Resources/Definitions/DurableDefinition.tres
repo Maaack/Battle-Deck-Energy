@@ -1,10 +1,9 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" script_class="DefinitionData" format=3 uid="uid://bboc3a40bp0f5"]
 
-[ext_resource path="res://Resources/Definitions/DefinitionData.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://bb5rc5s78cwjd" path="res://Resources/Definitions/DefinitionData.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 key = "DURABLE"
 term = "Durable"
 definition = "Increases damage absorbed per shield by 50%. Loses [b]1[/b] every turn."
-related_definitions = [  ]

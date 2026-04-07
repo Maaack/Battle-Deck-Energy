@@ -1,12 +1,11 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://ds484echv4k0k"]
 
-[ext_resource path="res://Resources/Levels/BattleLevelData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Characters/Opponents/BigBully.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Characters/Opponents/Rank2/LilBrat.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Weighted/WeightedCardList/Rank3CardList.tres" type="Resource" id=4]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/BigBully.tres" id="2"]
+[ext_resource type="Resource" uid="uid://baq44jga2p37t" path="res://Resources/Characters/Opponents/Rank2/LilBrat.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cpa45o8ywwj4w" path="res://Resources/Weighted/WeightedCardList/Rank3CardList.tres" id="4"]
 
 [resource]
-script = ExtResource( 1 )
-mood_type = "EASY_BATTLE"
-opponents = [ ExtResource( 3 ), ExtResource( 2 ) ]
-lootable_cards = ExtResource( 4 )
+script = ExtResource("1")
+opponents = [ExtResource("3"), ExtResource("2")]
+lootable_cards = ExtResource("4")

@@ -1,18 +1,18 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dwpvj3elviu61"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFocused2.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyHastened3.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/RetainEffect.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/extra-lucid.png" type="Texture2D" id=5]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPlanned4.tres" type="Resource" id=6]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyFocused2.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyHastened3.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/RetainEffect.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://wuaoscgy6wgy" path="res://Assets/Mixed/CardIcons/SkillGlowNew/extra-lucid.png" id="5"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyPlanned4.tres" id="6"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Hyperfocus"
 description = "Next %APPLY_PLANNED turns, add [b]1[/b] Skill. Next turn, draw %APPLY_HASTENED extra cards and add %APPLY_FOCUSED Skill. Retain."
 energy_cost = 2
-icon = ExtResource( 5 )
-base_color = Color( 0.54902, 0.560784, 0.682353, 1 )
-effects = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
+icon = ExtResource("5")
+base_color = Color(0.54902, 0.560784, 0.682353, 1)
+effects = [ExtResource("6"), ExtResource("3"), ExtResource("2"), ExtResource("4")]
 type = 3

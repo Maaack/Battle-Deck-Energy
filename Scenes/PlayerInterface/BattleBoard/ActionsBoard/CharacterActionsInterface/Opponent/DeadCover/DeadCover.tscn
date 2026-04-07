@@ -1,33 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://ch4asah4tvyif"]
 
-[ext_resource path="res://Themes/Fonts/DarkPanel/DarkOutlineDynamicFont.tres" type="FontFile" id=1]
-[ext_resource path="res://Themes/StyleBoxes/DeadGrayStyleBox.tres" type="StyleBox" id=2]
+[ext_resource type="FontFile" path="res://Themes/Fonts/DarkPanel/DarkOutlineDynamicFont.tres" id="1"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/DeadGrayStyleBox.tres" id="2"]
 
-[node name="DeadCover" type="Control"]
+[node name="DeadCover" type="Control" unique_id=1181801223]
 visible = false
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=431606180]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_styles/panel = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_styles/panel = ExtResource("2")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=269084135]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_color = Color( 0.211765, 0.211765, 0.211765, 1 )
-theme_override_colors/font_outline_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1")
 text = "Defeated"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
