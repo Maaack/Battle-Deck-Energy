@@ -258,8 +258,8 @@ offset_bottom = 41.964
 theme_override_colors/font_color = Color(0.960784, 0.929412, 0.729412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 32
-text = "RE-RE-RELEASE"
+theme_override_font_sizes/font_size = 40
+text = "Glowing Up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
