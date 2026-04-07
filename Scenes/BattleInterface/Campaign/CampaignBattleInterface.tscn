@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dd3nlpuv0nbv1"]
 
 [ext_resource type="Script" uid="uid://d20kt67lreghb" path="res://Scenes/BattleInterface/Campaign/CampaignBattleInterface.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/PlayerInterface.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://wea3jomdilwy" path="res://Scenes/PlayerInterface/PlayerInterface.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://Managers/Battle/Campaign/CampaignBattleManager.tscn" id="3"]
 
 [node name="CampaignBattleInterface" type="Control" unique_id=2020756141]
@@ -9,6 +9,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1")
 
@@ -17,7 +19,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="PlayerInterface" parent="." unique_id=979174463 instance=ExtResource("2")]
-anchors_preset = 0
+layout_mode = 1
 
 [node name="CampaignBattleManager" parent="." unique_id=589832070 instance=ExtResource("3")]
 
