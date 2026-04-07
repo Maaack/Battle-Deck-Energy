@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Light3D Armor"
+title = "Light Armor"
 description = "Block %DEFEND Damage.
 Innate.
 Retain."

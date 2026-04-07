@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Light3D Shield"
+title = "Light Shield"
 description = "Block %DEFEND Damage."
 energy_cost = 0
 icon = ExtResource( 3 )
