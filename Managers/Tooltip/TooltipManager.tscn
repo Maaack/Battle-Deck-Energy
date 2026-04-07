@@ -1,10 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://daus3rxf6smv1"]
 
-[ext_resource path="res://Managers/Tooltip/TooltipManager.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://dv8h8ykmou6gx" path="res://Managers/Tooltip/TooltipManager.gd" id="1"]
 
-[node name="TooltipManager" type="Control"]
+[node name="TooltipManager" type="Control" unique_id=2047924666]
+layout_mode = 3
+anchors_preset = 0
 mouse_filter = 2
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")

@@ -1,18 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://yt7bfs04o4y"]
 
-[ext_resource path="res://Scenes/TooltipList/TooltipList.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://dhegyep022jsv" path="res://Scenes/TooltipList/TooltipList.gd" id="1"]
 
-[node name="TooltipList" type="Node2D"]
-script = ExtResource( 1 )
+[node name="TooltipList" type="Node2D" unique_id=1871236029]
+script = ExtResource("1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1606672422]
+custom_minimum_size = Vector2(256, 50)
+anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -128.0
 offset_right = 128.0
 offset_bottom = 50.0
-custom_minimum_size = Vector2( 256, 50 )
-__meta__ = {
-"_edit_use_anchors_": false
-}

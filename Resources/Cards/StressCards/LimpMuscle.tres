@@ -1,18 +1,17 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bn175gquplkir"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFragileOnDraw.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/UnplayableEffect.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeakOnDraw.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Mixed/CardIcons/StressGlowPlayer/limp-muscle.png" type="Texture2D" id=5]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyFragileOnDraw.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/UnplayableEffect.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyWeakOnDraw.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://dexjq1q8xol3g" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/limp-muscle.png" id="5"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Limp Muscle"
 description = "Applies %APPLY_WEAK Weak and %APPLY_FRAGILE Fragile when drawn.
 Unplayable."
-energy_cost = 1
-icon = ExtResource( 5 )
-base_color = Color( 0.345098, 0.270588, 0.388235, 1 )
-effects = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ]
+icon = ExtResource("5")
+base_color = Color(0.345098, 0.270588, 0.388235, 1)
+effects = [ExtResource("4"), ExtResource("2"), ExtResource("3")]
 type = 4

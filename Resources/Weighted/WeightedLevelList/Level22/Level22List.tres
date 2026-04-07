@@ -1,8 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://d2wlnsvl6j1qn"]
 
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level22/SpoiledShitAloneAgainLevelChance.tres" type="Resource" id=2]
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level22/SpoiledShitAloneAgainLevelChance.tres" id="2"]
 
 [resource]
-script = ExtResource( 1 )
-starting_list = [ ExtResource( 2 ) ]
+script = ExtResource("1")
+starting_list = [ExtResource("2")]

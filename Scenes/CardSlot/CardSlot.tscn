@@ -1,31 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://d2ty8e7kaq2sq"]
 
-[ext_resource path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" type="FontFile" id=1]
-[ext_resource path="res://Scenes/CardSlot/CardSlot.gd" type="Script" id=2]
+[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" id="1"]
+[ext_resource type="Script" uid="uid://biyb2d21dsx03" path="res://Scenes/CardSlot/CardSlot.gd" id="2"]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color( 0.8, 0.8, 0.8, 0.435294 )
+border_color = Color(0.8, 0.8, 0.8, 0.435294)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[node name="CardSlot" type="Control"]
+[node name="CardSlot" type="Control" unique_id=1330969846]
+layout_mode = 3
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("2")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=416081669]
+custom_minimum_size = Vector2(88, 128)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -34,21 +35,14 @@ offset_left = -44.0
 offset_top = -64.0
 offset_right = 44.0
 offset_bottom = 64.0
-custom_minimum_size = Vector2( 88, 128 )
-theme_override_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_styles/panel = SubResource("1")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=191903186]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_color = Color( 0.8, 0.8, 0.8, 0.435294 )
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 0.435294)
+theme_override_fonts/font = ExtResource("1")
 text = "Allowed Types"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1

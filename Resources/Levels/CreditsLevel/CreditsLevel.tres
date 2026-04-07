@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" script_class="CreditsLevelData" format=3 uid="uid://mu6gyqw7wx74"]
 
-[ext_resource path="res://Resources/Levels/CreditsLevel/CreditsLevelData.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://dmywp5lg5fpsd" path="res://Resources/Levels/CreditsLevel/CreditsLevelData.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 mood_type = "VICTORY"

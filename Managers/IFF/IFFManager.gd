@@ -41,4 +41,3 @@ func remove_foe(character : CharacterData):
 		return
 	foes.erase(character.get_instance_id())
 	emit_signal("foes_updated")
-

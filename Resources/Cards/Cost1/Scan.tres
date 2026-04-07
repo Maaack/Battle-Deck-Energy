@@ -1,15 +1,14 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://e7nm5b6mc1dq"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyMarkedEnemies2.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/multiple-targets.png" type="Texture2D" id=3]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyMarkedEnemies2.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://dcej8fs5mqan1" path="res://Assets/Mixed/CardIcons/SkillGlowNew/multiple-targets.png" id="3"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Scan"
 description = "Apply %APPLY_MARKED Marked to all enemies."
-energy_cost = 1
-icon = ExtResource( 3 )
-base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
-effects = [ ExtResource( 2 ) ]
+icon = ExtResource("3")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = [ExtResource("2")]
 type = 3

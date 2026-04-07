@@ -1,18 +1,17 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cha25g6w2lii3"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/AttackEffect3.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/sparkling-sabre.png" type="Texture2D" id=4]
-[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=5]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect3.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://dla7y6o7phe38" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/sparkling-sabre.png" id="4"]
+[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="5"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Daddy's Knives"
 description = "Deal %ATTACK Damage over [b]3[/b] strikes and add %ADD_INTIMIDATED Intimidated card(s).
 Exhaust."
 energy_cost = 2
-icon = ExtResource( 4 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ) ]
-type = 1
+icon = ExtResource("4")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("3"), ExtResource("5")]

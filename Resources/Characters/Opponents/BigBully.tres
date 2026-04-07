@@ -1,14 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://bt4mi66ru7qb4"]
 
-[ext_resource path="res://Resources/Cards/Opponents/BigBully/OneHardPunch.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Cards/Opponents/BigBully/BlackMark.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Opponents/BigBully/TakeAbuse.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=4]
+[ext_resource type="Resource" uid="uid://bmbfmrye8fglm" path="res://Resources/Cards/Opponents/BigBully/OneHardPunch.tres" id="1"]
+[ext_resource type="Resource" uid="uid://cccpn63bvo4p0" path="res://Resources/Cards/Opponents/BigBully/BlackMark.tres" id="2"]
+[ext_resource type="Resource" uid="uid://c6phnnry8smo2" path="res://Resources/Cards/Opponents/BigBully/TakeAbuse.tres" id="3"]
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="4"]
 
 [resource]
-script = ExtResource( 4 )
+script = ExtResource("4")
 nickname = "Big Bully"
 starting_max_health = 15
 starting_max_energy = 1
 starting_hand_size = 3
-starting_deck = [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
+starting_deck = [ExtResource("1"), ExtResource("1"), ExtResource("1"), ExtResource("1"), ExtResource("1"), ExtResource("1"), ExtResource("3"), ExtResource("3"), ExtResource("2"), ExtResource("2")]

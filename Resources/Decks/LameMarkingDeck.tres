@@ -1,23 +1,23 @@
-[gd_resource type="Resource" load_steps=16 format=2]
+[gd_resource type="Resource" script_class="DeckData" format=3 uid="uid://dfeb6eugkt3ku"]
 
-[ext_resource path="res://Resources/Decks/DeckData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Cost1/Execute.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Cost1/Trip.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=6]
-[ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=7]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowNew/bullseye.png" type="Texture2D" id=8]
-[ext_resource path="res://Resources/Cards/Cost0/Sentry.tres" type="Resource" id=9]
-[ext_resource path="res://Resources/Cards/Cost0/HitTheMark.tres" type="Resource" id=10]
-[ext_resource path="res://Resources/Cards/Cost2/Twofold.tres" type="Resource" id=11]
-[ext_resource path="res://Resources/Cards/Cost1/Initial.tres" type="Resource" id=12]
-[ext_resource path="res://Resources/Cards/Cost1/StrongShield.tres" type="Resource" id=13]
-[ext_resource path="res://Resources/Cards/Cost1/Dissect.tres" type="Resource" id=14]
-[ext_resource path="res://Resources/Cards/Cost1/Scan.tres" type="Resource" id=15]
+[ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dtoa2668k8ay" path="res://Resources/Cards/Cost1/Execute.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Cost1/Trip.tres" id="3"]
+[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/StartingSet/LameShield.tres" id="4"]
+[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/StartingSet/LameSlash.tres" id="5"]
+[ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Cost2/CriticalHit.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Cost0/SecondWindCard.tres" id="7"]
+[ext_resource type="Texture2D" uid="uid://doyy6fdk13ovv" path="res://Assets/Mixed/CardIcons/AttackGlowNew/bullseye.png" id="8"]
+[ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Cost0/Sentry.tres" id="9"]
+[ext_resource type="Resource" uid="uid://dmdt5b0uo124e" path="res://Resources/Cards/Cost0/HitTheMark.tres" id="10"]
+[ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Cost2/Twofold.tres" id="11"]
+[ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Cost1/Initial.tres" id="12"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Cost1/StrongShield.tres" id="13"]
+[ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Cost1/Dissect.tres" id="14"]
+[ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Cost1/Scan.tres" id="15"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Flimsy Marking Deck"
-icon = ExtResource( 8 )
-cards = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 2 ), ExtResource( 13 ) ]
+icon = ExtResource("8")
+cards = [ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("3"), ExtResource("3"), ExtResource("7"), ExtResource("6"), ExtResource("11"), ExtResource("9"), ExtResource("10"), ExtResource("10"), ExtResource("14"), ExtResource("12"), ExtResource("15"), ExtResource("2"), ExtResource("13")]

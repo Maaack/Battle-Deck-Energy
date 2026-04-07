@@ -216,9 +216,9 @@ func _resolve_self_effects(effect:EffectData, character:CharacterData, character
 		EffectCalculator.DRAW_CARD_EFFECT:
 			emit_signal("draw_from_draw_pile", character, effect.amount)
 		EffectCalculator.GAIN_ENERGY_EFFECT:
-			emit_signal("apply_energy", character, effect.amount)
+			emit_signal("apply_energy", character, effect.amount, character)
 		EffectCalculator.LOSE_ENERGY_EFFECT:
-			emit_signal("apply_energy", character, -(effect.amount))
+			emit_signal("apply_energy", character, -(effect.amount), character)
 	if effect is StatusEffectData:
 		_resolve_statuses(effect, character, character, character_manager_map)
 	if effect is DeckModEffectData:

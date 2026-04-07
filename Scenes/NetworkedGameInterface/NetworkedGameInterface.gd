@@ -92,7 +92,8 @@ func _leave_battle_to_menu():
 		battle_interface.queue_free()
 	PersistentData.finish_battle()
 	Network.leave_server()
-	get_tree().change_scene_to_file("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
+	if is_inside_tree():
+		get_tree().change_scene_to_file("res://Scenes/MainMenu/NetworkMenu/NetworkMenu.tscn")
 
 func _on_player_disconnected(player : PlayerData):
 	if player.unique_id in ignore_player_disconnects:
@@ -121,7 +122,6 @@ func _on_BattleInterface_player_lost():
 	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
 	_ignore_all_disconnects()
 	PersistentData.finish_battle()
-	battle_interface.queue_free()
 	tooltip_manager.reset()
 	battle_shadow_panel.show()
 	lose_panel.show()
@@ -130,7 +130,6 @@ func _on_BattleInterface_player_won():
 	rpc('_ignore_player_disconnect', Network.local_player.unique_id)
 	_ignore_all_disconnects()
 	PersistentData.finish_battle()
-	battle_interface.queue_free()
 	tooltip_manager.reset()
 	battle_shadow_panel.show()
 	win_panel.show()

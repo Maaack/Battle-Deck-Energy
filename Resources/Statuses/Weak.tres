@@ -1,14 +1,14 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://cy0ygdjb28y1x"]
 
-[ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/BadStats/weak.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bafvb10pya6fo" path="res://Assets/Mixed/BadStats/weak.png" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Weak"
 description = "Decreases damage of attacks by 33%."
-icon = ExtResource( 2 )
-color = Color( 0.54902, 0.560784, 0.682353, 1 )
+icon = ExtResource("2")
+color = Color(0.54902, 0.560784, 0.682353, 1)
 intensity = 1
 duration = 1
 type_tag = "WEAK"

@@ -1,12 +1,12 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://b8r2bqf8dm13b"]
 
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level05/BratPairLevelChance.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level05/BratAndRascalLevelChance.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level05/RascalPairLevelChance.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level05/CadAloneLevelChance.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level05/BullyAloneLevelChance.tres" type="Resource" id=6]
+[ext_resource type="Resource" uid="uid://13uk5x5vakmu" path="res://Resources/Weighted/WeightedLevelList/Level05/BratPairLevelChance.tres" id="1"]
+[ext_resource type="Resource" uid="uid://cyiaxn612aecj" path="res://Resources/Weighted/WeightedLevelList/Level05/BratAndRascalLevelChance.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level05/RascalPairLevelChance.tres" id="3"]
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
+[ext_resource type="Resource" uid="uid://xfcedxcg7wi2" path="res://Resources/Weighted/WeightedLevelList/Level05/CadAloneLevelChance.tres" id="5"]
+[ext_resource type="Resource" uid="uid://b8hg78m1irpcj" path="res://Resources/Weighted/WeightedLevelList/Level05/BullyAloneLevelChance.tres" id="6"]
 
 [resource]
-script = ExtResource( 4 )
-starting_list = [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ) ]
+script = ExtResource("4")
+starting_list = [ExtResource("1"), ExtResource("3"), ExtResource("5"), ExtResource("2"), ExtResource("6")]

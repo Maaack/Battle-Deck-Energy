@@ -1,14 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://3fiekefg00qt"]
 
-[ext_resource path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/StressCards/Soreness.tres" type="Resource" id=2]
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://8ck6x1stgvtv" path="res://Resources/Cards/StressCards/Soreness.tres" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
+starting_card = ExtResource("2")
+destination = 2
 type_tag = "ADD_SORENESS"
 amount = 1
-apply_mode = 1
-aim_mode = 0
-team_aim_mode = 0
-starting_card = ExtResource( 2 )
-destination = 2

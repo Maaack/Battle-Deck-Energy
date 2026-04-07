@@ -1,9 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://i61v5vxddup7"]
 
-[ext_resource path="res://Resources/Levels/Level07/TattletalePairLevel.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=2]
+[ext_resource type="Resource" uid="uid://dfk8ep65yjto6" path="res://Resources/Levels/Level07/TattletalePairLevel.tres" id="1"]
+[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="2"]
 
 [resource]
-script = ExtResource( 2 )
-weight = 1.0
-data = ExtResource( 1 )
+script = ExtResource("2")
+data = ExtResource("1")

@@ -1,7 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" script_class="SaveDeckLevelData" format=3 uid="uid://lt6gyfetg5ob"]
 
-[ext_resource path="res://Resources/Levels/SaveDeckLevel/SaveDeckLevelData.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://c5ufnr03pn7uv" path="res://Resources/Levels/SaveDeckLevel/SaveDeckLevelData.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
-mood_type = "EASY_BATTLE"
+script = ExtResource("1")

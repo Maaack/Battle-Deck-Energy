@@ -1,18 +1,18 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ckqvx4unbah12"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyVenomous2.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowNew/Venom/bubbling-bowl.png" type="Texture2D" id=4]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" type="Resource" id=5]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyVenomous2.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://cxn3t6nj0r1x7" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Venom/bubbling-bowl.png" id="4"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="5"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Home Cooked"
 description = "Apply %APPLY_VENOMOUS Venomous and %APPLY_POISONED Poisoned.
 Exhaust."
 energy_cost = 0
-icon = ExtResource( 4 )
-base_color = Color( 0.494118, 0.768627, 0.756863, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ]
+icon = ExtResource("4")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = [ExtResource("3"), ExtResource("5"), ExtResource("2")]
 type = 3

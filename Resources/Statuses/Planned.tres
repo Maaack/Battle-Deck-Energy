@@ -1,16 +1,15 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://ddop0ww60b0fu"]
 
-[ext_resource path="res://Resources/Statuses/StatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats2/planned_2.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dgaqlbrjca6vn" path="res://Assets/Mixed/GoodStats2/planned_2.png" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Planned"
 description = "Adds 1 Skill spaces on the target's next X turns."
-icon = ExtResource( 2 )
-color = Color( 0.823529, 0.392157, 0.443137, 1 )
+icon = ExtResource("2")
+color = Color(0.823529, 0.392157, 0.443137, 1)
 intensity = 1
 duration = 1
 type_tag = "PLANNED"
 stack_type = 1
-status_type = 1

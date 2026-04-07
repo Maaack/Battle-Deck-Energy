@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("5")
@@ -24,19 +25,14 @@ metadata/_edit_horizontal_guides_ = [718.0]
 layout_mode = 1
 offset_top = -128.0
 offset_bottom = -64.0
-grow_vertical = 0
 
 [node name="DiscardPile" parent="." unique_id=543393153 instance=ExtResource("4")]
 layout_mode = 1
 offset_top = -134.0
 offset_bottom = -70.0
-grow_horizontal = 0
-grow_vertical = 0
 
 [node name="ExhaustPile" parent="." unique_id=1242917186 instance=ExtResource("7")]
 layout_mode = 1
-grow_horizontal = 0
-grow_vertical = 0
 
 [node name="EndTurnButton" parent="." unique_id=144744809 instance=ExtResource("3")]
 layout_mode = 1

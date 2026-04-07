@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://bc6rd4o3aft18"]
 
-[ext_resource path="res://Managers/BattlePhase/PhaseManager.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://ymkaf0e8is0k" path="res://Managers/BattlePhase/PhaseManager.gd" id="1"]
 
-[node name="PhaseManager" type="Node"]
-script = ExtResource( 1 )
+[node name="PhaseManager" type="Node" unique_id=525515377]
+script = ExtResource("1")

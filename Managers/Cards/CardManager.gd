@@ -76,5 +76,5 @@ func _on_Card_mouse_double_clicked(card_node:CardNode2D):
 func _on_Card_mouse_released(card_node:CardNode2D):
 	emit_signal("released_card", card_node)
 
-func _on_Card_tween_completed(card_node:CardNode2D):
+func _on_Card_tween_completed(card_node:BaseCardNode2D):
 	emit_signal("tween_completed", card_node)

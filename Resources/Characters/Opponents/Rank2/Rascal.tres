@@ -1,14 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://c8uwoi73y87ap"]
 
-[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Opponents/Rascal/DeflectBlame.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Opponents/Rascal/DirtyNails.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/Opponents/Rascal/ThrowSand.tres" type="Resource" id=4]
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://l2e22cdtj776" path="res://Resources/Cards/Opponents/Rascal/DeflectBlame.tres" id="2"]
+[ext_resource type="Resource" uid="uid://duxlyu5iehbvo" path="res://Resources/Cards/Opponents/Rascal/DirtyNails.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bpm7nhp6gurtx" path="res://Resources/Cards/Opponents/Rascal/ThrowSand.tres" id="4"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 nickname = "Rascal"
 starting_max_health = 18
 starting_max_energy = 1
 starting_hand_size = 3
-starting_deck = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ) ]
+starting_deck = [ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("2"), ExtResource("2"), ExtResource("4"), ExtResource("4")]

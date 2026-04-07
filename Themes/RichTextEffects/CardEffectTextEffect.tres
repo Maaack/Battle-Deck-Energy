@@ -1,6 +1,6 @@
-[gd_resource type="RichTextEffect" load_steps=2 format=2]
+[gd_resource type="RichTextEffect" format=3 uid="uid://b6236am1fk4ht"]
 
-[ext_resource path="res://Themes/RichTextEffects/CardEffectTextEffect.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://cwqj2oy1bx3s5" path="res://Themes/RichTextEffects/CardEffectTextEffect.gd" id="1"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")

@@ -1,22 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://cd6qiq6mjhldb"]
 
-[ext_resource path="res://Scenes/DeckViewer/DeckViewer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/DeckViewer/DeckCleaner/DeckCleaner.gd" type="Script" id=3]
+[ext_resource type="PackedScene" uid="uid://c6k1k874q6g3a" path="res://Scenes/DeckViewer/DeckViewer.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cdf2mdgqaboj0" path="res://Scenes/DeckViewer/DeckCleaner/DeckCleaner.gd" id="3"]
 
-[node name="DeckCleaner" instance=ExtResource( 1 )]
-script = ExtResource( 3 )
+[node name="DeckCleaner" unique_id=236340221 instance=ExtResource("1")]
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
 
-[node name="DeckLabel" parent="MarginContainer/VBoxContainer" index="0"]
+[node name="DeckLabel" parent="MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(941242124) index="0" unique_id=750722807]
 visible = true
 text = "Select a Card to Remove"
 
-[node name="ScrollContainer" parent="MarginContainer/VBoxContainer" index="1"]
-offset_top = 72.0
-
-[node name="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" index="0"]
-offset_bottom = 578.0
-
-[node name="RemoveCardButton" type="Button" parent="." index="4"]
+[node name="RemoveCardButton" type="Button" parent="." index="4" unique_id=1910050045]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -27,8 +24,6 @@ offset_right = 112.0
 offset_bottom = -48.0
 disabled = true
 text = "Remove Card"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="clicked_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_clicked_card"]
 [connection signal="pressed" from="RemoveCardButton" to="." method="_on_RemoveCardButton_pressed"]

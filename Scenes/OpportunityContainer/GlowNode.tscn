@@ -1,19 +1,27 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene format=3 uid="uid://5ppwbcmdiwqw"]
 
-[ext_resource path="res://Scenes/OpportunityContainer/GlowAnimation.tres" type="Animation" id=1]
-[ext_resource path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" type="StyleBox" id=2]
-[ext_resource path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" type="StyleBox" id=3]
-[ext_resource path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" type="StyleBox" id=4]
-[ext_resource path="res://Scenes/OpportunityContainer/GlowNode.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/OpportunityContainer/GlowNoLoopAnimation.tres" type="Animation" id=6]
+[ext_resource type="Animation" path="res://Scenes/OpportunityContainer/GlowAnimation.tres" id="1"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" id="2"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" id="3"]
+[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" id="4"]
+[ext_resource type="Script" uid="uid://ce1svqda6mnmu" path="res://Scenes/OpportunityContainer/GlowNode.gd" id="5"]
+[ext_resource type="Animation" path="res://Scenes/OpportunityContainer/GlowNoLoopAnimation.tres" id="6"]
 
-[node name="GlowNode" type="Node2D"]
-script = ExtResource( 5 )
-glow_on_style = ExtResource( 3 )
-glow_not_style = ExtResource( 4 )
-glow_special_style = ExtResource( 2 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jksov"]
+_data = {
+&"Glow": ExtResource("1"),
+&"GlowNoLoop": ExtResource("6")
+}
 
-[node name="GlowPanel" type="Panel" parent="."]
+[node name="GlowNode" type="Node2D" unique_id=1807642025]
+script = ExtResource("5")
+glow_on_style = ExtResource("3")
+glow_not_style = ExtResource("4")
+glow_special_style = ExtResource("2")
+
+[node name="GlowPanel" type="Panel" parent="." unique_id=1298858607]
+custom_minimum_size = Vector2(176, 256)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -22,12 +30,7 @@ offset_left = -88.0
 offset_top = -128.0
 offset_right = 88.0
 offset_bottom = 128.0
-custom_minimum_size = Vector2( 176, 256 )
-theme_override_styles/panel = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_styles/panel = ExtResource("3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Glow = ExtResource( 1 )
-anims/GlowNoLoop = ExtResource( 6 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1775197703]
+libraries/ = SubResource("AnimationLibrary_jksov")

@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://muqv176ftkga"]
 
-[ext_resource path="res://Scenes/DeckViewer/DeckViewer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/DeckViewer/CardCompendium/CardCompendium.gd" type="Script" id=2]
+[ext_resource type="PackedScene" uid="uid://c6k1k874q6g3a" path="res://Scenes/DeckViewer/DeckViewer.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cyxvkeptwstgf" path="res://Scenes/DeckViewer/CardCompendium/CardCompendium.gd" id="2"]
 
-[node name="CardCompendium" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="CardCompendium" unique_id=1903296641 instance=ExtResource("1")]
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
 player_card_directory = "res://Resources/Cards/"
 
-[node name="SpawnCardTimer" parent="." index="2"]
+[node name="SpawnCardTimer" parent="." index="2" unique_id=473598347]
 wait_time = 0.04
 
-[node name="BackButton" parent="." index="3"]
+[node name="BackButton" parent="." index="3" unique_id=1104879231]
 visible = false

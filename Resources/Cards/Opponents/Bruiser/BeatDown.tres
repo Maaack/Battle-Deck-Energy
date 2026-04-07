@@ -1,15 +1,14 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c1u5hgrj1jkgo"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/AttackEffect3.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/saber-slash.png" type="Texture2D" id=3]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect3.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://3ht721vjuy1s" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/saber-slash.png" id="3"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Beat Down"
 description = "Deal %ATTACK Damage over [b]3[/b] strikes."
 energy_cost = 2
-icon = ExtResource( 3 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
-type = 1
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("2"), ExtResource("2")]

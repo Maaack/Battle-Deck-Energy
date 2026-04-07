@@ -1,16 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cccpn63bvo4p0"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/AttackEffect2.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/blade-drag.png" type="Texture2D" id=4]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect2.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://cskhojqt5jo52" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/blade-drag.png" id="4"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Black Mark"
 description = "Deal %ATTACK Damage over [b]2[/b] strikes and add %ADD_SORENESS Soreness card(s)."
-energy_cost = 1
-icon = ExtResource( 4 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ]
-type = 1
+icon = ExtResource("4")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("3"), ExtResource("3"), ExtResource("2")]

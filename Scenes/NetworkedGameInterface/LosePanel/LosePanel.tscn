@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://clu3y2vduhqpo"]
 
-[ext_resource path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.gd" type="Script" id=1]
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=2]
-[ext_resource path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" type="FontFile" id=3]
+[ext_resource type="Script" uid="uid://dadylu0o7sls2" path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.gd" id="1"]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
+[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
 
-[node name="LosePanel" type="Panel"]
+[node name="LosePanel" type="Panel" unique_id=49376661]
+custom_minimum_size = Vector2(480, 360)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -13,47 +15,36 @@ offset_left = -240.0
 offset_top = -180.0
 offset_right = 240.0
 offset_bottom = 180.0
-custom_minimum_size = Vector2( 480, 360 )
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("2")
+script = ExtResource("1")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=593272677]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_top = 16
 theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 464.0
-offset_bottom = 344.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1166228414]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-offset_right = 448.0
-offset_bottom = 162.0
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2008710097]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource( 3 )
-theme_override_colors/font_outline_color = Color( 0, 0, 0, 1 )
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3")
 text = "You lost..."
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
-offset_top = 217.0
-offset_right = 448.0
-offset_bottom = 277.0
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1888966425]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Exit"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

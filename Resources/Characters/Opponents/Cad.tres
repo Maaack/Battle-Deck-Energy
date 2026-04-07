@@ -1,14 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://d2gy6ffiikcw4"]
 
-[ext_resource path="res://Resources/Characters/OpponentCharacterData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Opponents/Cad/Demean.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Opponents/Cad/StrongGrip.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/Opponents/Cad/Chastise.tres" type="Resource" id=4]
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://d17lujg4kowcs" path="res://Resources/Cards/Opponents/Cad/Demean.tres" id="2"]
+[ext_resource type="Resource" uid="uid://c3yvrrlvbo02g" path="res://Resources/Cards/Opponents/Cad/StrongGrip.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bt8dck58ciuc8" path="res://Resources/Cards/Opponents/Cad/Chastise.tres" id="4"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 nickname = "Cad"
 starting_max_health = 15
 starting_max_energy = 2
 starting_hand_size = 3
-starting_deck = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ) ]
+starting_deck = [ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("4"), ExtResource("4"), ExtResource("3"), ExtResource("3")]

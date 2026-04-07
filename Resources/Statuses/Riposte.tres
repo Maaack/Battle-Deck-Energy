@@ -1,16 +1,14 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="RelatedStatusData" format=3 uid="uid://b83p4jnwu2a5s"]
 
-[ext_resource path="res://Resources/Statuses/RelatedStatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats/riposte.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://4f7awhvleakw" path="res://Resources/Statuses/RelatedStatusData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://wl0ypeuyothw" path="res://Assets/Mixed/GoodStats/riposte.png" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Riposte"
 description = "Adds Attack spaces for the target's opponent on their next turn."
-icon = ExtResource( 2 )
-color = Color( 0.54902, 0.560784, 0.682353, 1 )
+icon = ExtResource("2")
+color = Color(0.54902, 0.560784, 0.682353, 1)
 intensity = 1
 duration = 1
 type_tag = "RIPOSTE"
-stack_type = 0
-status_type = 1

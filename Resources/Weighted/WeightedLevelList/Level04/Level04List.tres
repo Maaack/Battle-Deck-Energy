@@ -1,10 +1,10 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cq5fo06sy3ob5"]
 
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level04/LeechAndWeaselLevelLevelChance.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level04/LeechAndTattletaleLevelLevelChance.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=3]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level04/LeechPartyLevelLevelChance.tres" type="Resource" id=4]
+[ext_resource type="Resource" uid="uid://cqv7acjxjuwek" path="res://Resources/Weighted/WeightedLevelList/Level04/LeechAndWeaselLevelLevelChance.tres" id="1"]
+[ext_resource type="Resource" uid="uid://bv1574p6l3lf5" path="res://Resources/Weighted/WeightedLevelList/Level04/LeechAndTattletaleLevelLevelChance.tres" id="2"]
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="3"]
+[ext_resource type="Resource" uid="uid://bkixdniyflilf" path="res://Resources/Weighted/WeightedLevelList/Level04/LeechPartyLevelLevelChance.tres" id="4"]
 
 [resource]
-script = ExtResource( 3 )
-starting_list = [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ) ]
+script = ExtResource("3")
+starting_list = [ExtResource("4"), ExtResource("1"), ExtResource("2")]

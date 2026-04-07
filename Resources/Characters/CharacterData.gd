@@ -27,6 +27,10 @@ func reset_health():
 		max_health = starting_max_health
 		health = max_health
 
+func reset_energy():
+	if max_energy > 0:
+		energy = max_energy
+
 func _reset_starting_energy():
 	if starting_max_energy > 0:
 		max_energy = starting_max_energy

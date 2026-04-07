@@ -1,11 +1,11 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://qhrprxso3dgg"]
 
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level11/BullyAndCadLevelChance.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level11/BullyPairLevelChance.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level11/BratsAndRascalsLevelChance.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Weighted/WeightedDataList.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Weighted/WeightedLevelList/Level11/CadPairLevelChance.tres" type="Resource" id=5]
+[ext_resource type="Resource" uid="uid://dq4l5fvtshmnl" path="res://Resources/Weighted/WeightedLevelList/Level11/BullyAndCadLevelChance.tres" id="1"]
+[ext_resource type="Resource" uid="uid://cfmt1omkpy1pm" path="res://Resources/Weighted/WeightedLevelList/Level11/BullyPairLevelChance.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cpo570hy75ppf" path="res://Resources/Weighted/WeightedLevelList/Level11/BratsAndRascalsLevelChance.tres" id="3"]
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
+[ext_resource type="Resource" uid="uid://cnwp8jer6j4qc" path="res://Resources/Weighted/WeightedLevelList/Level11/CadPairLevelChance.tres" id="5"]
 
 [resource]
-script = ExtResource( 4 )
-starting_list = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 1 ) ]
+script = ExtResource("4")
+starting_list = [ExtResource("3"), ExtResource("5"), ExtResource("2"), ExtResource("1")]

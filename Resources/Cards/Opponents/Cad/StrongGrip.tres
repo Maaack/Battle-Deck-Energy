@@ -1,18 +1,16 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c3yvrrlvbo02g"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/ExhaustEffect.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyWeak2.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" type="Resource" id=4]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/hand-grip.png" type="Texture2D" id=5]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyWeak2.tres" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://cci3y1p72m8hs" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/hand-grip.png" id="5"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Strong Grip"
 description = "Apply %APPLY_WEAK Weak and add %ADD_RESTRAINED Restrained card.
 Exhaust."
-energy_cost = 1
-icon = ExtResource( 5 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
-type = 1
+icon = ExtResource("5")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("3"), ExtResource("4"), ExtResource("2")]

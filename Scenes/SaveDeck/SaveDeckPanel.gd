@@ -48,5 +48,3 @@ func _on_SaveButton_pressed():
 func _on_SkipButton_pressed():
 	emit_signal("skip_pressed")
 	queue_free()
-
-

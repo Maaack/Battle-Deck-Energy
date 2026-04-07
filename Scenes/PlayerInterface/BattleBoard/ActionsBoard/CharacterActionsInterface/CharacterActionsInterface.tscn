@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b85umi73i5yhv" path="res://Assets/Mixed/Characters/silhouette.png" id="1"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/Labels/CharacterNicknameDynamicFont.tres" id="2"]
 [ext_resource type="StyleBox" path="res://Themes/StyleBoxes/CardFront.tres" id="3"]
-[ext_resource type="PackedScene" path="res://Managers/StatusIcons/StatusIconManager.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://6v8pbe7hc20q" path="res://Managers/StatusIcons/StatusIconManager.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://ddbk7f2mihkvv" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.tscn" id="5"]
 [ext_resource type="Script" uid="uid://rxw1jwy7hsup" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://dc23quifcih1x" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" id="7"]

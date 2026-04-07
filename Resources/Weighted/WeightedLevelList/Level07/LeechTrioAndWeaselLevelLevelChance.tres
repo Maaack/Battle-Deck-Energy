@@ -1,9 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://cvt6ga2vn1pqm"]
 
-[ext_resource path="res://Resources/Weighted/WeightedData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Levels/Level07/LeechTrioAndWeaselLevel.tres" type="Resource" id=2]
+[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://r22kqkvu2dmn" path="res://Resources/Levels/Level07/LeechTrioAndWeaselLevel.tres" id="2"]
 
 [resource]
-script = ExtResource( 1 )
-weight = 1.0
-data = ExtResource( 2 )
+script = ExtResource("1")
+data = ExtResource("2")

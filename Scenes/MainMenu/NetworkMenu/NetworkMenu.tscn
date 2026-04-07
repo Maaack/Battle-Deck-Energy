@@ -1,20 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene format=3 uid="uid://bjro32cge3c4x"]
 
-[ext_resource path="res://Themes/Main.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" type="FontFile" id=2]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" type="FontFile" id=3]
-[ext_resource path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.gd" type="Script" id=4]
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
+[ext_resource type="FontFile" path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" id="2"]
+[ext_resource type="FontFile" path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" id="3"]
+[ext_resource type="Script" uid="uid://cfkrtto3d48f2" path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.gd" id="4"]
 
-[node name="NetworkMenu" type="Control"]
+[node name="NetworkMenu" type="Control" unique_id=713513496]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("1")
+script = ExtResource("4")
 
-[node name="MultiplayerPanel" type="Panel" parent="."]
+[node name="MultiplayerPanel" type="Panel" parent="." unique_id=1933464567]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -23,11 +23,9 @@ offset_left = -320.0
 offset_top = -140.0
 offset_right = 320.0
 offset_bottom = 140.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="OptionsMargin" type="MarginContainer" parent="MultiplayerPanel"]
+[node name="OptionsMargin" type="MarginContainer" parent="MultiplayerPanel" unique_id=757221840]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -36,160 +34,105 @@ offset_left = -312.0
 offset_top = -46.0
 offset_right = 312.0
 offset_bottom = 46.0
-theme_override_constants/margin_right = 32
 theme_override_constants/margin_left = 16
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_constants/margin_right = 32
 
-[node name="OptionsVBox" type="VBoxContainer" parent="MultiplayerPanel/OptionsMargin"]
-offset_left = 16.0
-offset_right = 592.0
-offset_bottom = 92.0
+[node name="OptionsVBox" type="VBoxContainer" parent="MultiplayerPanel/OptionsMargin" unique_id=60329216]
+layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="PlayerNameContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox"]
-offset_right = 576.0
-offset_bottom = 38.0
+[node name="PlayerNameContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox" unique_id=368023423]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="PlayerNameLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer"]
-offset_top = 2.0
-offset_right = 208.0
-offset_bottom = 35.0
-theme_override_fonts/font = ExtResource( 3 )
+[node name="PlayerNameLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer" unique_id=887248061]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "Player Name"
-align = 1
+horizontal_alignment = 1
 
-[node name="PlayerNameLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer"]
-offset_left = 224.0
-offset_right = 576.0
-offset_bottom = 38.0
+[node name="PlayerNameLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer" unique_id=1327217118]
+layout_mode = 2
 size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="OptionsHBox" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox"]
-offset_top = 54.0
-offset_right = 576.0
-offset_bottom = 92.0
+[node name="OptionsHBox" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox" unique_id=444348621]
+layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="ServerIPContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox"]
-offset_right = 256.0
-offset_bottom = 38.0
+[node name="ServerIPContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox" unique_id=2064370912]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="IPLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer"]
-offset_top = 2.0
-offset_right = 27.0
-offset_bottom = 35.0
-theme_override_fonts/font = ExtResource( 3 )
+[node name="IPLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer" unique_id=1776097379]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "IP"
-align = 1
+horizontal_alignment = 1
 
-[node name="IPLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer"]
-offset_left = 43.0
-offset_right = 256.0
-offset_bottom = 38.0
+[node name="IPLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer" unique_id=650200968]
+layout_mode = 2
 size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ServerPortContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox"]
-offset_left = 320.0
-offset_right = 576.0
-offset_bottom = 38.0
+[node name="ServerPortContainer" type="HBoxContainer" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox" unique_id=1410165325]
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="PortLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer"]
-offset_top = 2.0
-offset_right = 75.0
-offset_bottom = 35.0
-theme_override_fonts/font = ExtResource( 3 )
+[node name="PortLabel" type="Label" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer" unique_id=1131654813]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "Port"
-align = 1
+horizontal_alignment = 1
 
-[node name="PortLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer"]
-offset_left = 91.0
-offset_right = 256.0
-offset_bottom = 38.0
+[node name="PortLineEdit" type="LineEdit" parent="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerPortContainer" unique_id=337381117]
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ButtonsMargin" type="MarginContainer" parent="MultiplayerPanel"]
+[node name="ButtonsMargin" type="MarginContainer" parent="MultiplayerPanel" unique_id=1994367119]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -76.0
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_top = 8
 theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ButtonsHBox" type="HBoxContainer" parent="MultiplayerPanel/ButtonsMargin"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 632.0
-offset_bottom = 68.0
+[node name="ButtonsHBox" type="HBoxContainer" parent="MultiplayerPanel/ButtonsMargin" unique_id=1935531892]
+layout_mode = 2
 theme_override_constants/separation = 32
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="BackButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox"]
-offset_right = 186.0
-offset_bottom = 60.0
+[node name="BackButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox" unique_id=2043450484]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HostButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox"]
-offset_left = 218.0
-offset_right = 405.0
-offset_bottom = 60.0
+[node name="HostButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox" unique_id=551545318]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Host"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="JoinButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox"]
-offset_left = 437.0
-offset_right = 624.0
-offset_bottom = 60.0
+[node name="JoinButton" type="Button" parent="MultiplayerPanel/ButtonsMargin/ButtonsHBox" unique_id=398521374]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Join"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HeadingLabel" type="Label" parent="MultiplayerPanel"]
+[node name="HeadingLabel" type="Label" parent="MultiplayerPanel" unique_id=265638640]
+layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 85.0
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Multiplayer"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="LobbyPanel" type="Panel" parent="."]
+[node name="LobbyPanel" type="Panel" parent="." unique_id=667154791]
 visible = false
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -199,61 +142,43 @@ offset_top = -240.0
 offset_right = 210.0
 offset_bottom = 240.0
 
-[node name="HeadingLabel" type="Label" parent="LobbyPanel"]
+[node name="HeadingLabel" type="Label" parent="LobbyPanel" unique_id=1343233758]
+layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 109.0
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Lobby"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ButtonsMargin" type="MarginContainer" parent="LobbyPanel"]
+[node name="ButtonsMargin" type="MarginContainer" parent="LobbyPanel" unique_id=2063930343]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -76.0
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_top = 8
 theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ButtonsHBox" type="HBoxContainer" parent="LobbyPanel/ButtonsMargin"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 412.0
-offset_bottom = 68.0
+[node name="ButtonsHBox" type="HBoxContainer" parent="LobbyPanel/ButtonsMargin" unique_id=852333764]
+layout_mode = 2
 theme_override_constants/separation = 32
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="LeaveButton" type="Button" parent="LobbyPanel/ButtonsMargin/ButtonsHBox"]
-offset_right = 186.0
-offset_bottom = 60.0
+[node name="LeaveButton" type="Button" parent="LobbyPanel/ButtonsMargin/ButtonsHBox" unique_id=403395931]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Leave"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="StartButton" type="Button" parent="LobbyPanel/ButtonsMargin/ButtonsHBox"]
-offset_left = 218.0
-offset_right = 404.0
-offset_bottom = 60.0
+[node name="StartButton" type="Button" parent="LobbyPanel/ButtonsMargin/ButtonsHBox" unique_id=1852602844]
+layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
 text = "Start"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ItemList" type="ItemList" parent="LobbyPanel"]
+[node name="ItemList" type="ItemList" parent="LobbyPanel" unique_id=253121443]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -262,9 +187,7 @@ offset_left = -170.0
 offset_top = -130.0
 offset_right = 170.0
 offset_bottom = 130.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="text_changed" from="MultiplayerPanel/OptionsMargin/OptionsVBox/PlayerNameContainer/PlayerNameLineEdit" to="." method="_on_PlayerNameLineEdit_text_changed"]
 [connection signal="text_changed" from="MultiplayerPanel/OptionsMargin/OptionsVBox/OptionsHBox/ServerIPContainer/IPLineEdit" to="." method="_on_IPLineEdit_text_changed"]
 [connection signal="pressed" from="MultiplayerPanel/ButtonsMargin/ButtonsHBox/BackButton" to="." method="_on_BackButton_pressed"]

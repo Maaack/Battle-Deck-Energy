@@ -6,6 +6,7 @@ class_name PhaseManager
 const INIT_PHASE = -1
 
 @export var starting_phase_tier: int = INIT_PHASE
+@export var debug_prints : bool = false
 @onready var _phase_tier : int = starting_phase_tier
 var phase_scene = preload("res://Managers/BattlePhase/Phase.tscn")
 var current_phase
@@ -41,8 +42,9 @@ func advance():
 		print("Error: Advancing battle phases without children.")
 		return
 	_phase_tier = next_phase % child_count
-	var phase_node = get_children()[_phase_tier]
-	print("Phase `%s`" % phase_node.name)
+	if debug_prints:
+		var phase_node = get_children()[_phase_tier]
+		print("Phase `%s`" % phase_node.name)
 	enter_phase()
 	return _phase_tier
 

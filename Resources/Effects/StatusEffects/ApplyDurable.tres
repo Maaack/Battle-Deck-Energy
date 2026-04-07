@@ -1,13 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://bktldnj2danh8"]
 
-[ext_resource path="res://Resources/Statuses/Durable.tres" type="Resource" id=1]
-[ext_resource path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" type="Script" id=2]
+[ext_resource type="Resource" path="res://Resources/Statuses/Durable.tres" id="1"]
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="2"]
 
 [resource]
-script = ExtResource( 2 )
+script = ExtResource("2")
+starting_statuses = [ExtResource("1")]
 type_tag = "APPLY_DURABLE"
 amount = 1
-apply_mode = 1
-aim_mode = 0
-team_aim_mode = 0
-starting_statuses = [ ExtResource( 1 ) ]

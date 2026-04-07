@@ -1,6 +1,6 @@
 [gd_resource type="ParticleProcessMaterial" format=3 uid="uid://b16lqd1jsx0ck"]
 
-[ext_resource type="Texture2D" path="res://Scenes/ShelterPanel/SparkGradientTexture.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://dd5wy1pjcw3w6" path="res://Scenes/ShelterPanel/SparkGradientTexture.tres" id="1"]
 
 [resource]
 particle_flag_disable_z = true

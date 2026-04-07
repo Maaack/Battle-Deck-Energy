@@ -19,7 +19,8 @@ signal continue_pressed
 
 var current_speed : float = 1
 
-func load_file(file_path):
+func load_file(file_path:String):
+	if file_path.is_empty(): return ""
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	var text : String = file.get_as_text()
 	file.close()
@@ -46,7 +47,8 @@ func regex_replace_titles(credits:String):
 	return credits
 
 func set_file_path(value:String):
-	var text : String = load_file(value)
+	attribution_file_path = value
+	var text : String = load_file(attribution_file_path)
 	if text == "":
 		return
 	text = text.right(text.find("\n")) # Trims first line "ATTRIBUTION"
@@ -54,10 +56,10 @@ func set_file_path(value:String):
 	text = regex_replace_titles(text)
 	var prefix_lines = "\n".repeat(lines_prefixed)
 	var suffix_lines = "\n".repeat(lines_suffixed)
-	$ScrollContainer/RichTextLabel.text = "%s[center]%s[/center]%s" % [prefix_lines, text, suffix_lines]
+	rich_text_label.text = "%s[center]%s[/center]%s" % [prefix_lines, text, suffix_lines]
 
 func _ready():
-	set_file_path(attribution_file_path)
+	attribution_file_path = attribution_file_path
 
 func _process(_delta):
 	current_speed += accel_down

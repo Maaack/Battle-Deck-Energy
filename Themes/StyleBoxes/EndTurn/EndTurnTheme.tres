@@ -1,21 +1,21 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" format=3 uid="uid://b3ogul1n34m4e"]
 
-[ext_resource path="res://Themes/StyleBoxes/Buttons/PressedStyleBox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Themes/StyleBoxes/Buttons/HoverStyleBox.tres" type="StyleBox" id=2]
-[ext_resource path="res://Themes/Fonts/Buttons/EndTurnDynamicFont.tres" type="FontFile" id=3]
-[ext_resource path="res://Themes/StyleBoxes/Buttons/DisabledStyleBox.tres" type="StyleBox" id=4]
-[ext_resource path="res://Themes/StyleBoxes/Buttons/NormalStyleBoxTexture.tres" type="StyleBox" id=5]
+[ext_resource type="StyleBox" uid="uid://dm2318e2s4qsm" path="res://Themes/StyleBoxes/Buttons/PressedStyleBox.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://jy6mtxn6yas5" path="res://Themes/StyleBoxes/Buttons/HoverStyleBox.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://c6n23n3dano6s" path="res://Themes/Fonts/Buttons/EndTurnDynamicFont.tres" id="3"]
+[ext_resource type="StyleBox" uid="uid://ckko5aycbf8dr" path="res://Themes/StyleBoxes/Buttons/DisabledStyleBox.tres" id="4"]
+[ext_resource type="StyleBox" uid="uid://bifwdtyv1vfml" path="res://Themes/StyleBoxes/Buttons/NormalStyleBoxTexture.tres" id="5"]
 
 [resource]
-default_font = ExtResource( 3 )
-Button/colors/font_color = Color( 0.992157, 0.992157, 0.992157, 1 )
-Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.2 )
-Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_pressed = Color( 0.901961, 0.901961, 0.901961, 0.443137 )
+default_font = ExtResource("3")
+Button/colors/font_color = Color(0.992157, 0.992157, 0.992157, 1)
+Button/colors/font_color_disabled = Color(0.901961, 0.901961, 0.901961, 0.2)
+Button/colors/font_color_hover = Color(0.94, 0.94, 0.94, 1)
+Button/colors/font_color_pressed = Color(0.901961, 0.901961, 0.901961, 0.443137)
 Button/constants/hseparation = 2
-Button/fonts/font = null
-Button/styles/disabled = ExtResource( 4 )
+Button/fonts/font = ExtResource("3")
+Button/styles/disabled = ExtResource("4")
 Button/styles/focus = null
-Button/styles/hover = ExtResource( 2 )
-Button/styles/normal = ExtResource( 5 )
-Button/styles/pressed = ExtResource( 1 )
+Button/styles/hover = ExtResource("2")
+Button/styles/normal = ExtResource("5")
+Button/styles/pressed = ExtResource("1")

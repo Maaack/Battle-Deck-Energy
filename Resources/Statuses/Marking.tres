@@ -1,16 +1,14 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="RelatedStatusData" format=3 uid="uid://bf3s50650x1d6"]
 
-[ext_resource path="res://Resources/Statuses/RelatedStatusData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mixed/GoodStats2/marked_2.png" type="Texture2D" id=2]
+[ext_resource type="Script" uid="uid://4f7awhvleakw" path="res://Resources/Statuses/RelatedStatusData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bop6ix6ynnqti" path="res://Assets/Mixed/GoodStats2/marked_2.png" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Marking"
-description = "Status description."
-icon = ExtResource( 2 )
-color = Color( 0.823529, 0.392157, 0.443137, 1 )
+icon = ExtResource("2")
+color = Color(0.823529, 0.392157, 0.443137, 1)
 intensity = 1
 duration = 1
 type_tag = "MARKING"
 stack_type = 1
-status_type = 1

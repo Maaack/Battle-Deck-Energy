@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://cn23w5j4cvi1f"]
 
-[ext_resource path="res://Managers/Cards/CardManager.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Managers/Cards/Puppet/PuppetCardManager.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/CardNode2D/BlankCard/BlankCardNode2D.tscn" type="PackedScene" id=3]
+[ext_resource type="PackedScene" uid="uid://mnxnb7csdeyi" path="res://Managers/Cards/CardManager.tscn" id="1"]
+[ext_resource type="Script" uid="uid://du64r5llbraum" path="res://Managers/Cards/Puppet/PuppetCardManager.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cq1shg6oawkk8" path="res://Scenes/CardNode2D/BlankCard/BlankCardNode2D.tscn" id="3"]
 
-[node name="PuppetCardManager" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-base_card_scene = ExtResource( 3 )
+[node name="PuppetCardManager" unique_id=271454254 instance=ExtResource("1")]
+script = ExtResource("2")
+base_card_scene = ExtResource("3")

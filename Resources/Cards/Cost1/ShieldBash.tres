@@ -1,16 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c6sko4fqksy14"]
 
-[ext_resource path="res://Resources/Cards/CardData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Effects/ShieldAttackEffect.tres" type="Resource" id=2]
-[ext_resource path="res://Assets/Mixed/CardIcons/AttackGlowNew/shield-bash.png" type="Texture2D" id=3]
-[ext_resource path="res://Resources/Effects/StatusEffects/ApplyFragile.tres" type="Resource" id=4]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" path="res://Resources/Effects/ShieldAttackEffect.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://coxf7qoxsn5qy" path="res://Assets/Mixed/CardIcons/AttackGlowNew/shield-bash.png" id="3"]
+[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyFragile.tres" id="4"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Shield Bash"
 description = "Deal Damage with active Block and apply %APPLY_FRAGILE Fragile."
-energy_cost = 1
-icon = ExtResource( 3 )
-base_color = Color( 0.615686, 0.188235, 0.231373, 1 )
-effects = [ ExtResource( 2 ), ExtResource( 4 ) ]
-type = 1
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("4")]

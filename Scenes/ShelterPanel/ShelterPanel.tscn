@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://nbfm7g6xoog8" path="res://Scenes/ShelterPanel/ShetlerPanel.gd" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://dol1ul7ulhklk" path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" id="3"]
-[ext_resource type="PackedScene" path="res://Managers/Cards/CardManager.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://mnxnb7csdeyi" path="res://Managers/Cards/CardManager.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://goqgq434dine" path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" id="5"]
 [ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6"]
 [ext_resource type="Material" uid="uid://csp5cjypgm8jc" path="res://Scenes/ShelterPanel/FireShaderMaterial.tres" id="7"]

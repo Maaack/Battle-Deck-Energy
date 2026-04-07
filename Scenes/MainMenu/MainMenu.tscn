@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bun2xn8ibv0dp"]
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" id="2"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/HeaderDynamicFont.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://yr7crgt1ns2" path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://c616ss8d7kync" path="res://Themes/Fonts/TitleScreen/HeaderDynamicFont.tres" id="4"]
 [ext_resource type="Material" uid="uid://cn42mv3fcsql7" path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" id="5"]
 [ext_resource type="FontFile" uid="uid://bw6kh50dlv6ew" path="res://Assets/Sourced/Fonts/road-rage/Road_Rage.otf" id="5_ee4eu"]
 [ext_resource type="Texture2D" uid="uid://fedd3ejjr8o1" path="res://Assets/Originals/Title/Deck_text.png" id="6"]
@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cq7a1ps1g2wkj" path="res://Assets/Mixed/Backgrounds/Deck-Fighter.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://dn8wpvgoo0wac" path="res://Assets/Mixed/Backgrounds/Mountain-Background.png" id="12"]
 [ext_resource type="Material" uid="uid://bdxvm8u1klphf" path="res://Scenes/MainMenu/FireText2ShaderMaterial.tres" id="13"]
-[ext_resource type="PackedScene" path="res://Scenes/DeckList/DeckListInterface.tscn" id="14"]
-[ext_resource type="PackedScene" path="res://Scenes/AudioMenu/AudioMenu.tscn" id="15"]
-[ext_resource type="PackedScene" path="res://Managers/Tooltip/TooltipManager.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://llying411134" path="res://Scenes/DeckList/DeckListInterface.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://d8s08o4mc178" path="res://Scenes/AudioMenu/AudioMenu.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://daus3rxf6smv1" path="res://Managers/Tooltip/TooltipManager.tscn" id="16"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "SlideInLeft"
@@ -258,18 +258,22 @@ offset_bottom = 41.964
 theme_override_colors/font_color = Color(0.960784, 0.929412, 0.729412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 32
-text = "RE-RE-RELEASE"
+theme_override_font_sizes/font_size = 40
+text = "Glowing Up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioMenu" parent="MarginContainer/MainControl" unique_id=800970680 instance=ExtResource("15")]
 visible = false
-anchors_preset = 0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DeckListInterface" parent="MarginContainer/MainControl" unique_id=416961077 instance=ExtResource("14")]
 visible = false
-anchors_preset = 0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WindowContainer" type="Control" parent="." unique_id=1017996331]
 anchors_preset = 0
@@ -278,9 +282,12 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="TooltipManager" parent="." unique_id=2137213596 instance=ExtResource("16")]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1033118229]
 stream = ExtResource("10")

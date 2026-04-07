@@ -1,23 +1,23 @@
-[gd_resource type="Resource" load_steps=16 format=2]
+[gd_resource type="Resource" script_class="DeckData" format=3 uid="uid://cca0n4w3xcdp"]
 
-[ext_resource path="res://Resources/Decks/DeckData.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Cards/Cost1/Charge.tres" type="Resource" id=2]
-[ext_resource path="res://Resources/Cards/Cost1/Trip.tres" type="Resource" id=3]
-[ext_resource path="res://Resources/Cards/StartingSet/LameShield.tres" type="Resource" id=4]
-[ext_resource path="res://Resources/Cards/StartingSet/LameSlash.tres" type="Resource" id=5]
-[ext_resource path="res://Resources/Cards/Cost2/CriticalHit.tres" type="Resource" id=6]
-[ext_resource path="res://Resources/Cards/Cost0/SecondWindCard.tres" type="Resource" id=7]
-[ext_resource path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/flex.png" type="Texture2D" id=8]
-[ext_resource path="res://Resources/Cards/Cost0/Alert.tres" type="Resource" id=9]
-[ext_resource path="res://Resources/Cards/Cost2/Reforge.tres" type="Resource" id=10]
-[ext_resource path="res://Resources/Cards/Cost0/Vigilance.tres" type="Resource" id=11]
-[ext_resource path="res://Resources/Cards/Cost1/Sharpen.tres" type="Resource" id=12]
-[ext_resource path="res://Resources/Cards/Cost1/StrongShield.tres" type="Resource" id=13]
-[ext_resource path="res://Resources/Cards/Cost1/Flex.tres" type="Resource" id=14]
-[ext_resource path="res://Resources/Cards/Cost0/Cut.tres" type="Resource" id=15]
+[ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Cost1/Charge.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Cost1/Trip.tres" id="3"]
+[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/StartingSet/LameShield.tres" id="4"]
+[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/StartingSet/LameSlash.tres" id="5"]
+[ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Cost2/CriticalHit.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Cost0/SecondWindCard.tres" id="7"]
+[ext_resource type="Texture2D" uid="uid://8bh5ne3wm2iy" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/flex.png" id="8"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Cost0/Alert.tres" id="9"]
+[ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Cost2/Reforge.tres" id="10"]
+[ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Cost0/Vigilance.tres" id="11"]
+[ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Cost1/Sharpen.tres" id="12"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Cost1/StrongShield.tres" id="13"]
+[ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Cost1/Flex.tres" id="14"]
+[ext_resource type="Resource" uid="uid://bhhsysump54kp" path="res://Resources/Cards/Cost0/Cut.tres" id="15"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 title = "Wimpy Buff Deck"
-icon = ExtResource( 8 )
-cards = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ) ]
+icon = ExtResource("8")
+cards = [ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("3"), ExtResource("3"), ExtResource("7"), ExtResource("6"), ExtResource("10"), ExtResource("9"), ExtResource("11"), ExtResource("15"), ExtResource("2"), ExtResource("2"), ExtResource("14"), ExtResource("12"), ExtResource("13")]

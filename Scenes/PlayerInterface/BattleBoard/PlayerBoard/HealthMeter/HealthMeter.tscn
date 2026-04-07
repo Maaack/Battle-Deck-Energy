@@ -14,6 +14,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -32.0
 offset_right = 124.0
+grow_vertical = 0
 size_flags_horizontal = 3
 script = ExtResource("5")
 
