@@ -1,106 +1,84 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene format=3 uid="uid://wea3jomdilwy"]
 
-[ext_resource path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Sourced/Sounds/240778__f4ngy__bridging-cards_1.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Scenes/PlayerInterface/PlayerInterface.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Managers/Cards/Focused/Inspector/Battle/BattleCardManager.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.tscn" type="PackedScene" id=9]
+[ext_resource type="PackedScene" path="res://Managers/Cards/Focused/Inspector/InspectorCardManager.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://d3y74kae6ylg5" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" id="2"]
+[ext_resource type="AudioStream" uid="uid://e4y1upc500fc" path="res://Assets/Sourced/Sounds/240778__f4ngy__bridging-cards_1.ogg" id="3"]
+[ext_resource type="Script" uid="uid://ddmdjeetwfcys" path="res://Scenes/PlayerInterface/PlayerInterface.gd" id="4"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Managers/Cards/Focused/Inspector/Battle/BattleCardManager.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.tscn" id="9"]
 
-[node name="PlayerInterface" type="Control"]
+[node name="PlayerInterface" type="Control" unique_id=1110540064]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 440.0, 352.0 ],
-"_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 32.0 ]
-}
+script = ExtResource("4")
 
-[node name="BattleBoard" type="Control" parent="."]
+[node name="BattleBoard" type="Control" parent="." unique_id=291725527]
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
 
-[node name="MarginContainer" type="MarginContainer" parent="BattleBoard"]
+[node name="MarginContainer" type="MarginContainer" parent="BattleBoard" unique_id=1118386732]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_top = 12
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 16
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleBoard/MarginContainer"]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1268.0
-offset_bottom = 704.0
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleBoard/MarginContainer" unique_id=1607301340]
+layout_mode = 2
 
-[node name="ActionsBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-offset_right = 1256.0
-offset_bottom = 344.0
+[node name="ActionsBoard" parent="BattleBoard/MarginContainer/VBoxContainer" unique_id=1633118518 instance=ExtResource("6")]
+layout_mode = 2
 
-[node name="PlayerBoard" parent="BattleBoard/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 348.0
-offset_right = 1256.0
-offset_bottom = 692.0
+[node name="PlayerBoard" parent="BattleBoard/MarginContainer/VBoxContainer" unique_id=1049940698 instance=ExtResource("2")]
+layout_mode = 2
 
-[node name="HandContainer" type="CenterContainer" parent="."]
+[node name="HandContainer" type="CenterContainer" parent="." unique_id=1553943555]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -180.0
 offset_bottom = 100.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="CardControl" type="Control" parent="HandContainer"]
-offset_left = 640.0
-offset_top = 140.0
-offset_right = 640.0
-offset_bottom = 140.0
+[node name="CardControl" type="Control" parent="HandContainer" unique_id=137830437]
+layout_mode = 2
 mouse_filter = 1
 
-[node name="HandManager" parent="HandContainer/CardControl" instance=ExtResource( 5 )]
+[node name="HandManager" parent="HandContainer/CardControl" unique_id=2114527211 instance=ExtResource("5")]
 hand_center_distance = 2048.0
-offset_nearest_card = Vector2( 0, -160 )
+offset_nearest_card = Vector2(0, -160)
 
-[node name="BattleCardManager" parent="HandContainer/CardControl" instance=ExtResource( 8 )]
+[node name="BattleCardManager" parent="HandContainer/CardControl" unique_id=44093508 instance=ExtResource("8")]
 
-[node name="InspectorCardManager" parent="HandContainer/CardControl" instance=ExtResource( 1 )]
-scale_focused_card = Vector2( 1.1, 1.1 )
+[node name="InspectorCardManager" parent="HandContainer/CardControl" unique_id=1266928900 instance=ExtResource("1")]
+scale_focused_card = Vector2(1.1, 1.1)
 
-[node name="StatusUpdatesContainer" type="Control" parent="."]
+[node name="StatusUpdatesContainer" type="Control" parent="." unique_id=850359669]
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="BattleAnimationQueue" parent="." instance=ExtResource( 9 )]
+[node name="BattleAnimationQueue" parent="." unique_id=430615807 instance=ExtResource("9")]
 
-[node name="ResizeTimer" type="Timer" parent="."]
+[node name="ResizeTimer" type="Timer" parent="." unique_id=1059691138]
 wait_time = 0.05
 one_shot = true
 
-[node name="ShuffleAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 38, 608 )
-stream = ExtResource( 3 )
+[node name="ShuffleAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=296715363]
+position = Vector2(38, 608)
+stream = ExtResource("3")
 volume_db = -7.0
+
 [connection signal="gui_input" from="." to="." method="_on_PlayerInterface_gui_input"]
 [connection signal="resized" from="." to="." method="_on_PlayerInterface_resized"]
 [connection signal="discard_pile_pressed" from="BattleBoard/MarginContainer/VBoxContainer/PlayerBoard" to="." method="_on_PlayerBoard_discard_pile_pressed"]
