@@ -1,21 +1,24 @@
 [gd_scene format=3 uid="uid://dxrmspa23uh6l"]
 
-[ext_resource type="FontFile" path="res://Themes/Fonts/Credits/H2DynamicFont.tres" id="1"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Credits/H3DynamicFont.tres" id="2"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Credits/H4DynamicFont.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://bkd4ufwf7u1ck" path="res://Themes/Fonts/Credits/H2DynamicFont.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://xj6wnmjeh0xb" path="res://Themes/Fonts/Credits/H3DynamicFont.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://4rnntupb2k3n" path="res://Themes/Fonts/Credits/H4DynamicFont.tres" id="3"]
 [ext_resource type="Script" uid="uid://dlyug8oryu4qc" path="res://Scenes/Credits/Credits.gd" id="4"]
-[ext_resource type="Theme" path="res://Themes/HiddenScrollBar.tres" id="6"]
+[ext_resource type="Theme" uid="uid://clhxa4f6p1qin" path="res://Themes/HiddenScrollBar.tres" id="6"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="7"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" id="8"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Credits/H1DynamicFont.tres" id="9"]
+[ext_resource type="StyleBox" uid="uid://cn3c6nxpdux22" path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" id="8"]
+[ext_resource type="FontFile" uid="uid://b1nk6a28754g" path="res://Themes/Fonts/Credits/H1DynamicFont.tres" id="9"]
 
 [node name="Credits" type="Control" unique_id=122202116]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("7")
 script = ExtResource("4")
+attribution_file_path = ""
 h1_font = ExtResource("9")
 h2_font = ExtResource("1")
 h3_font = ExtResource("2")
@@ -41,7 +44,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 focus_mode = 2
-bbcode_enabled = true
 text = "
 
 
@@ -217,7 +219,9 @@ License: GNU General Public License
 
 
 "
+fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 selection_enabled = true
 
 [node name="ScrollResetTimer" type="Timer" parent="." unique_id=22274681]

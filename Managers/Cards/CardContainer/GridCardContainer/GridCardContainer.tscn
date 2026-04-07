@@ -3,9 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://daqurm0mdqlcq" path="res://Managers/Cards/CardContainer/CardContainer.tscn" id="1"]
 
 [node name="GridCardContainer" unique_id=1812073439 instance=ExtResource("1")]
+custom_minimum_size = Vector2(200, 300)
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" parent="." index="0" unique_id=1183389169]
-offset_right = 41.0
-offset_bottom = 41.0
+layout_mode = 1
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2

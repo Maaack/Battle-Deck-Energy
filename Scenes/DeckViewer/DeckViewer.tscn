@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bxi0evb4jioac" path="res://Scenes/DeckViewer/DeckViewer.gd" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
 [ext_resource type="Script" uid="uid://dxvpt26x7yygp" path="res://Scenes/DeckViewer/GridContainer.gd" id="3"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="4"]
+[ext_resource type="StyleBox" uid="uid://rifosnxch4oc" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="4"]
 [ext_resource type="PackedScene" uid="uid://0qn12g8bvxee" path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" id="5"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6"]
 
 [node name="DeckViewer" type="Control" unique_id=1152645195]
 custom_minimum_size = Vector2(500, 360)
@@ -13,6 +13,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2")
 script = ExtResource("1")

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bun2xn8ibv0dp"]
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" id="2"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/TitleScreen/HeaderDynamicFont.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://yr7crgt1ns2" path="res://Themes/Fonts/TitleScreen/Title2DynamicFont.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://c616ss8d7kync" path="res://Themes/Fonts/TitleScreen/HeaderDynamicFont.tres" id="4"]
 [ext_resource type="Material" uid="uid://cn42mv3fcsql7" path="res://Scenes/MainMenu/FireTextShaderMaterial.tres" id="5"]
 [ext_resource type="FontFile" uid="uid://bw6kh50dlv6ew" path="res://Assets/Sourced/Fonts/road-rage/Road_Rage.otf" id="5_ee4eu"]
 [ext_resource type="Texture2D" uid="uid://fedd3ejjr8o1" path="res://Assets/Originals/Title/Deck_text.png" id="6"]
@@ -265,17 +265,15 @@ vertical_alignment = 1
 
 [node name="AudioMenu" parent="MarginContainer/MainControl" unique_id=800970680 instance=ExtResource("15")]
 visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DeckListInterface" parent="MarginContainer/MainControl" unique_id=416961077 instance=ExtResource("14")]
 visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WindowContainer" type="Control" parent="." unique_id=1017996331]
 anchors_preset = 0
@@ -288,6 +286,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1033118229]
 stream = ExtResource("10")
