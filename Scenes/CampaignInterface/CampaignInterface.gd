@@ -56,7 +56,7 @@ func start_battle(current_level:BattleLevelData):
 		battle_interface.add_character(opponent.duplicate(), ENEMY_TEAM)
 	battle_interface.player_character = player_data
 	battle_shadow_panel.hide()
-	battle_interface.start_battle()
+	battle_interface.start_battle.call_deferred()
 
 func start_shelter():
 	battle_shadow_panel.show()
