@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvcg0ltf3oy1o"]
 
 [ext_resource type="PackedScene" uid="uid://ujw8b1pdmqp0" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/DeadCover/DeadCover.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://ch4asah4tvyif" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/DeadCover/DeadCover.tscn" id="2"]
 [ext_resource type="Script" uid="uid://bc57dv67wdrkn" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://dc23quifcih1x" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" id="4"]
 
@@ -68,6 +68,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 
 [node name="DeadCover" parent="." index="3" unique_id=543232597 instance=ExtResource("2")]
-anchors_preset = 0
+layout_mode = 1
 
 [connection signal="update_opportunity" from="MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer" to="." method="_on_OpportunitiesContainter_update_opportunity"]

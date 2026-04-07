@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ch4asah4tvyif"]
 
-[ext_resource type="FontFile" path="res://Themes/Fonts/DarkPanel/DarkOutlineDynamicFont.tres" id="1"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/DeadGrayStyleBox.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://bdt3o5fowca7h" path="res://Themes/Fonts/DarkPanel/DarkOutlineDynamicFont.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://c26sr04u0eo0x" path="res://Themes/StyleBoxes/DeadGrayStyleBox.tres" id="2"]
 
 [node name="DeadCover" type="Control" unique_id=1181801223]
 visible = false
@@ -9,11 +9,18 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="." unique_id=431606180]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = ExtResource("2")
 
 [node name="Label" type="Label" parent="Panel" unique_id=269084135]
@@ -22,7 +29,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_colors/font_color = Color(0.211765, 0.211765, 0.211765, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 40
 text = "Defeated"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -2,32 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://dfrmrqpy6qh6l" path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Levels/StoryLevel/EndingLevel.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level02/Level02List.tres" id="5"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level01/Level01List.tres" id="6"]
-[ext_resource type="PackedScene" path="res://Scenes/CampaignInterface/DeadPanel/DeadPanel.tscn" id="7"]
+[ext_resource type="Resource" uid="uid://wequ7hoidxhr" path="res://Resources/Levels/StoryLevel/EndingLevel.tres" id="3"]
+[ext_resource type="Resource" uid="uid://lt6gyfetg5ob" path="res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bx4ocsc6a5klu" path="res://Resources/Weighted/WeightedLevelList/Level02/Level02List.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bhxaia00g2haj" path="res://Resources/Weighted/WeightedLevelList/Level01/Level01List.tres" id="6"]
+[ext_resource type="PackedScene" uid="uid://584kstjjci6j" path="res://Scenes/CampaignInterface/DeadPanel/DeadPanel.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://e67g00opyrkn" path="res://Managers/Levels/LevelManager.tscn" id="8"]
 [ext_resource type="Resource" uid="uid://cv0twdoivpmn8" path="res://Resources/Levels/StoryLevel/IntroLevel.tres" id="9"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level10/Level10List.tres" id="10"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level04/Level04List.tres" id="11"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level14/Level14List.tres" id="12"]
-[ext_resource type="Resource" path="res://Resources/Levels/ShelterLevel/ShelterLevel.tres" id="13"]
-[ext_resource type="PackedScene" path="res://Scenes/CampaignInterface/GameMenu/CampaignGameMenu.tscn" id="14"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level13/Level13List.tres" id="15"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level08/Level08List.tres" id="17"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level11/Level11List.tres" id="18"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="19"]
+[ext_resource type="Resource" uid="uid://d35r6mdf0i6fi" path="res://Resources/Weighted/WeightedLevelList/Level10/Level10List.tres" id="10"]
+[ext_resource type="Resource" uid="uid://cq5fo06sy3ob5" path="res://Resources/Weighted/WeightedLevelList/Level04/Level04List.tres" id="11"]
+[ext_resource type="Resource" uid="uid://d0krrxeeox1sm" path="res://Resources/Weighted/WeightedLevelList/Level14/Level14List.tres" id="12"]
+[ext_resource type="Resource" uid="uid://cyav4cel38o7l" path="res://Resources/Levels/ShelterLevel/ShelterLevel.tres" id="13"]
+[ext_resource type="PackedScene" uid="uid://brm2majdoosuu" path="res://Scenes/CampaignInterface/GameMenu/CampaignGameMenu.tscn" id="14"]
+[ext_resource type="Resource" uid="uid://cbwa14kbk54ry" path="res://Resources/Weighted/WeightedLevelList/Level13/Level13List.tres" id="15"]
+[ext_resource type="Resource" uid="uid://eq814x4ryab3" path="res://Resources/Weighted/WeightedLevelList/Level08/Level08List.tres" id="17"]
+[ext_resource type="Resource" uid="uid://qhrprxso3dgg" path="res://Resources/Weighted/WeightedLevelList/Level11/Level11List.tres" id="18"]
+[ext_resource type="StyleBox" uid="uid://rifosnxch4oc" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="19"]
 [ext_resource type="Script" uid="uid://01ka5have357" path="res://Scenes/CampaignInterface/CampaignInterface.gd" id="20"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level07/Level07List.tres" id="21"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level16/Level16List.tres" id="22"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level17/Level17List.tres" id="23"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level05/Level05List.tres" id="24"]
+[ext_resource type="Resource" uid="uid://ybjvpoep0gkg" path="res://Resources/Weighted/WeightedLevelList/Level07/Level07List.tres" id="21"]
+[ext_resource type="Resource" uid="uid://bwrdbtbcg7wkn" path="res://Resources/Weighted/WeightedLevelList/Level16/Level16List.tres" id="22"]
+[ext_resource type="Resource" uid="uid://scuekg50xt3u" path="res://Resources/Weighted/WeightedLevelList/Level17/Level17List.tres" id="23"]
+[ext_resource type="Resource" uid="uid://b8r2bqf8dm13b" path="res://Resources/Weighted/WeightedLevelList/Level05/Level05List.tres" id="24"]
 [ext_resource type="Resource" uid="uid://bxp5cdwagi1y7" path="res://Resources/Levels/StoryLevel/CongratsLevel.tres" id="25"]
 [ext_resource type="PackedScene" uid="uid://daus3rxf6smv1" path="res://Managers/Tooltip/TooltipManager.tscn" id="26"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level28/Level28List.tres" id="50"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level25/Level25List.tres" id="51"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level22/Level22List.tres" id="52"]
+[ext_resource type="Resource" uid="uid://ccur6w4lpykuo" path="res://Resources/Weighted/WeightedLevelList/Level28/Level28List.tres" id="50"]
+[ext_resource type="Resource" uid="uid://dmr85wu8s0eol" path="res://Resources/Weighted/WeightedLevelList/Level25/Level25List.tres" id="51"]
+[ext_resource type="Resource" uid="uid://d2wlnsvl6j1qn" path="res://Resources/Weighted/WeightedLevelList/Level22/Level22List.tres" id="52"]
 [ext_resource type="Resource" uid="uid://drqm8vbbbjs6r" path="res://Resources/Levels/StoryLevel/PreBossLevel.tres" id="53"]
 [ext_resource type="PackedScene" uid="uid://cr6yplg5nfolx" path="res://Managers/Mood/MoodManager.tscn" id="54"]
 [ext_resource type="AudioStream" uid="uid://2jrrs2ggudr2" path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" id="55"]
@@ -35,7 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://bm3f1y2hrgvb4" path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" id="57"]
 [ext_resource type="AudioStream" uid="uid://dxbu6q4o1ct52" path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" id="58"]
 [ext_resource type="AudioStream" uid="uid://bnxjp0otksoh3" path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" id="59"]
-[ext_resource type="Resource" path="res://Resources/Levels/CreditsLevel/CreditsLevel.tres" id="60"]
+[ext_resource type="Resource" uid="uid://mu6gyqw7wx74" path="res://Resources/Levels/CreditsLevel/CreditsLevel.tres" id="60"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0.533333, 0.364706, 0.513726, 1)
@@ -95,6 +95,7 @@ theme_override_styles/panel = ExtResource("19")
 [node name="DeadPanel" parent="." unique_id=898995244 instance=ExtResource("7")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -123,6 +124,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LevelManager" parent="." unique_id=495612350 instance=ExtResource("8")]
 levels = [ExtResource("9"), ExtResource("6"), ExtResource("5"), ExtResource("13"), ExtResource("11"), ExtResource("24"), ExtResource("13"), ExtResource("21"), ExtResource("17"), ExtResource("13"), ExtResource("10"), ExtResource("18"), ExtResource("13"), ExtResource("15"), ExtResource("12"), ExtResource("13"), ExtResource("22"), ExtResource("53"), ExtResource("13"), ExtResource("23"), ExtResource("4"), ExtResource("3"), ExtResource("60"), ExtResource("13"), ExtResource("13"), ExtResource("13"), ExtResource("52"), ExtResource("13"), ExtResource("13"), ExtResource("51"), ExtResource("13"), ExtResource("13"), ExtResource("50"), ExtResource("25"), ExtResource("13")]
@@ -151,7 +154,7 @@ theme_override_styles/panel = ExtResource("19")
 
 [node name="CampaignGameMenu" parent="." unique_id=908353935 instance=ExtResource("14")]
 visible = false
-anchors_preset = 0
+layout_mode = 1
 
 [connection signal="exit_pressed" from="DeadPanel" to="." method="_on_DeadPanel_exit_pressed"]
 [connection signal="forfeit_pressed" from="DeadPanel" to="." method="_on_DeadPanel_forfeit_pressed"]
