@@ -5,5 +5,5 @@ class_name RelatedStatusData
 
 @export var relating_status: Resource
 
-var target
-var source
+@export var target : CharacterData
+@export var source : CharacterData
