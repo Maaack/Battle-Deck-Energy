@@ -1,0 +1,651 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://byk41l4nrffk0"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_q6nog"]
+
+[resource]
+script = ExtResource("1_q6nog")
+_class_restriction = &"\"res://Resources/Cards/CardData.gd\""
+_scan_directory = "res://Resources/Cards/Players"
+_recursive_scan = true
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://0jpth2uj0eoj": &"LightningShield",
+&"uid://1us6b7b0hotk": &"Entrench",
+&"uid://24x2atk4od42": &"Discharge",
+&"uid://6ep1w4m0f2c0": &"SmoothShields",
+&"uid://85duo4xhe6d1": &"Flex",
+&"uid://88dykjuwa6u3": &"ThrowDagger",
+&"uid://8chaspth5l4n": &"Dissect",
+&"uid://8oj3iqg65huy": &"Castle",
+&"uid://b03lr3y7usljf": &"Rush",
+&"uid://b24ssfhyjmfma": &"HocusFocus",
+&"uid://b2wa7cj2lp2hq": &"Dodge",
+&"uid://b3dv2es5tjoyq": &"Sentry",
+&"uid://b417bkurpki5u": &"LookUp",
+&"uid://b6jljbo5qi0vj": &"Medicine",
+&"uid://b6yobwg43mbi2": &"Cinder",
+&"uid://b7qimkkuutefs": &"Recoup",
+&"uid://b8b05f81c4574": &"Break",
+&"uid://bajokdmlkvgmr": &"ChainLightning",
+&"uid://bd381tanlmxa7": &"Unlucky",
+&"uid://bdvhmsre4wp5v": &"SecondWindCard",
+&"uid://beq7rjyjlaiqr": &"ToxicSpit",
+&"uid://bhhsysump54kp": &"Cut",
+&"uid://bjldbikae88t4": &"Burst",
+&"uid://bk0m64s3gx8f7": &"Plot",
+&"uid://bkl1h7qdmu82j": &"ShatterDefenses",
+&"uid://bmjbhoioud1si": &"Charge",
+&"uid://bn42rf0mqstui": &"Toxify",
+&"uid://botsqhwm8pws1": &"Twofold",
+&"uid://c0og5x4s4kd1v": &"Ironclad",
+&"uid://c150qgj1xaapn": &"LightArmor",
+&"uid://c4pm3n350pv51": &"TheWall",
+&"uid://c4wprnh7kf60y": &"Endure",
+&"uid://c52gppuq8mf64": &"LightShield",
+&"uid://c5eubmfhnrmjb": &"QuickCover",
+&"uid://c6hk41ss3g8x8": &"SwiftStrike",
+&"uid://c6sko4fqksy14": &"ShieldBash",
+&"uid://c7rgaw5yc6gr6": &"FlyingStrike",
+&"uid://c8613kiadwfmo": &"Wreck",
+&"uid://c8d02dukvw74d": &"VenomVial",
+&"uid://c8mp5w6ubj0lb": &"CriticalHit",
+&"uid://cdiosqol8ia6g": &"Recall",
+&"uid://cgjxstiw4bfom": &"Biohazard",
+&"uid://ch0k47ms5hi6o": &"ToxicSlash",
+&"uid://cilv4un3umw3j": &"Alert",
+&"uid://cjmwklggcrdw7": &"StrongSlash",
+&"uid://ck61sj782qdon": &"Reforge",
+&"uid://cl0a4nm3tryte": &"Initial",
+&"uid://cmw8qxfre5qqs": &"CallOut",
+&"uid://cnmbl3y03bh1d": &"Brew",
+&"uid://cos0w4827pcwp": &"DoubleDeal",
+&"uid://cotfdl153c5d0": &"DoubleStrike",
+&"uid://cp6efuyrmw5w5": &"SturdyShield",
+&"uid://cquh66dg2w5s7": &"DeathBlow",
+&"uid://cvtwl0ikdl6n1": &"Buffer",
+&"uid://d1ora0u5cbm8x": &"Sweep",
+&"uid://d2leuujlccej6": &"Misstep",
+&"uid://d3b4x1x8s6xry": &"FastFooted",
+&"uid://da0h4uxm1rrdm": &"StabToDeath",
+&"uid://db61er2r63u1q": &"Discover",
+&"uid://dbl5yqqm03t7y": &"Kickoff",
+&"uid://de4d874ynexmp": &"StrongShield",
+&"uid://dgjkhtpb581jm": &"BurnOut",
+&"uid://dleokjkiyfp06": &"LastStand",
+&"uid://dmdt5b0uo124e": &"HitTheMark",
+&"uid://dn7paiefl78h8": &"SerpentsBlade",
+&"uid://dppkf3awgrqoc": &"Hustle",
+&"uid://dt12y50rrnqpi": &"LethalNeedle",
+&"uid://dtnqnpml4lvfq": &"Passion",
+&"uid://dtoa2668k8ay": &"Execute",
+&"uid://dv0amt38r456f": &"Trip",
+&"uid://dv3qfo2jc7top": &"HeavyArmor",
+&"uid://dvaixqt84i0at": &"Miasma",
+&"uid://dwdy7sf6qg77l": &"Disarm",
+&"uid://dwfbf7n2u2x0x": &"Sharpen",
+&"uid://dwpvj3elviu61": &"Hyperfocus",
+&"uid://dydtg77tfm8e1": &"Subvert",
+&"uid://dyq7drd2s0t7l": &"Cripple",
+&"uid://e7nm5b6mc1dq": &"Scan",
+&"uid://exaat02tip24": &"Taint",
+&"uid://iwajgypi5cye": &"TickTick",
+&"uid://lis5bdkc23ra": &"Engage",
+&"uid://nlnlu7eguwa3": &"Impenetrable",
+&"uid://noe2r133srjq": &"QuickThinking",
+&"uid://sww1ott8nx6m": &"HideAce",
+&"uid://tmlagkvdcr62": &"PullKnives",
+&"uid://ui8qm0nmabkm": &"Erupt",
+&"uid://uxub2rnlohfq": &"Bloodletting",
+&"uid://wsfj7bcpa1w5": &"Vigilance"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"Alert": &"uid://cilv4un3umw3j",
+&"Biohazard": &"uid://cgjxstiw4bfom",
+&"Bloodletting": &"uid://uxub2rnlohfq",
+&"Break": &"uid://b8b05f81c4574",
+&"Brew": &"uid://cnmbl3y03bh1d",
+&"Buffer": &"uid://cvtwl0ikdl6n1",
+&"BurnOut": &"uid://dgjkhtpb581jm",
+&"Burst": &"uid://bjldbikae88t4",
+&"CallOut": &"uid://cmw8qxfre5qqs",
+&"Castle": &"uid://8oj3iqg65huy",
+&"ChainLightning": &"uid://bajokdmlkvgmr",
+&"Charge": &"uid://bmjbhoioud1si",
+&"Cinder": &"uid://b6yobwg43mbi2",
+&"Cripple": &"uid://dyq7drd2s0t7l",
+&"CriticalHit": &"uid://c8mp5w6ubj0lb",
+&"Cut": &"uid://bhhsysump54kp",
+&"DeathBlow": &"uid://cquh66dg2w5s7",
+&"Disarm": &"uid://dwdy7sf6qg77l",
+&"Discharge": &"uid://24x2atk4od42",
+&"Discover": &"uid://db61er2r63u1q",
+&"Dissect": &"uid://8chaspth5l4n",
+&"Dodge": &"uid://b2wa7cj2lp2hq",
+&"DoubleDeal": &"uid://cos0w4827pcwp",
+&"DoubleStrike": &"uid://cotfdl153c5d0",
+&"Endure": &"uid://c4wprnh7kf60y",
+&"Engage": &"uid://lis5bdkc23ra",
+&"Entrench": &"uid://1us6b7b0hotk",
+&"Erupt": &"uid://ui8qm0nmabkm",
+&"Execute": &"uid://dtoa2668k8ay",
+&"FastFooted": &"uid://d3b4x1x8s6xry",
+&"Flex": &"uid://85duo4xhe6d1",
+&"FlyingStrike": &"uid://c7rgaw5yc6gr6",
+&"HeavyArmor": &"uid://dv3qfo2jc7top",
+&"HideAce": &"uid://sww1ott8nx6m",
+&"HitTheMark": &"uid://dmdt5b0uo124e",
+&"HocusFocus": &"uid://b24ssfhyjmfma",
+&"Hustle": &"uid://dppkf3awgrqoc",
+&"Hyperfocus": &"uid://dwpvj3elviu61",
+&"Impenetrable": &"uid://nlnlu7eguwa3",
+&"Initial": &"uid://cl0a4nm3tryte",
+&"Ironclad": &"uid://c0og5x4s4kd1v",
+&"Kickoff": &"uid://dbl5yqqm03t7y",
+&"LastStand": &"uid://dleokjkiyfp06",
+&"LethalNeedle": &"uid://dt12y50rrnqpi",
+&"LightArmor": &"uid://c150qgj1xaapn",
+&"LightShield": &"uid://c52gppuq8mf64",
+&"LightningShield": &"uid://0jpth2uj0eoj",
+&"LookUp": &"uid://b417bkurpki5u",
+&"Medicine": &"uid://b6jljbo5qi0vj",
+&"Miasma": &"uid://dvaixqt84i0at",
+&"Misstep": &"uid://d2leuujlccej6",
+&"Passion": &"uid://dtnqnpml4lvfq",
+&"Plot": &"uid://bk0m64s3gx8f7",
+&"PullKnives": &"uid://tmlagkvdcr62",
+&"QuickCover": &"uid://c5eubmfhnrmjb",
+&"QuickThinking": &"uid://noe2r133srjq",
+&"Recall": &"uid://cdiosqol8ia6g",
+&"Recoup": &"uid://b7qimkkuutefs",
+&"Reforge": &"uid://ck61sj782qdon",
+&"Rush": &"uid://b03lr3y7usljf",
+&"Scan": &"uid://e7nm5b6mc1dq",
+&"SecondWindCard": &"uid://bdvhmsre4wp5v",
+&"Sentry": &"uid://b3dv2es5tjoyq",
+&"SerpentsBlade": &"uid://dn7paiefl78h8",
+&"Sharpen": &"uid://dwfbf7n2u2x0x",
+&"ShatterDefenses": &"uid://bkl1h7qdmu82j",
+&"ShieldBash": &"uid://c6sko4fqksy14",
+&"SmoothShields": &"uid://6ep1w4m0f2c0",
+&"StabToDeath": &"uid://da0h4uxm1rrdm",
+&"StrongShield": &"uid://de4d874ynexmp",
+&"StrongSlash": &"uid://cjmwklggcrdw7",
+&"SturdyShield": &"uid://cp6efuyrmw5w5",
+&"Subvert": &"uid://dydtg77tfm8e1",
+&"Sweep": &"uid://d1ora0u5cbm8x",
+&"SwiftStrike": &"uid://c6hk41ss3g8x8",
+&"Taint": &"uid://exaat02tip24",
+&"TheWall": &"uid://c4pm3n350pv51",
+&"ThrowDagger": &"uid://88dykjuwa6u3",
+&"TickTick": &"uid://iwajgypi5cye",
+&"ToxicSlash": &"uid://ch0k47ms5hi6o",
+&"ToxicSpit": &"uid://beq7rjyjlaiqr",
+&"Toxify": &"uid://bn42rf0mqstui",
+&"Trip": &"uid://dv0amt38r456f",
+&"Twofold": &"uid://botsqhwm8pws1",
+&"Unlucky": &"uid://bd381tanlmxa7",
+&"VenomVial": &"uid://c8d02dukvw74d",
+&"Vigilance": &"uid://wsfj7bcpa1w5",
+&"Wreck": &"uid://c8613kiadwfmo"
+})
+_property_index = Dictionary[StringName, Dictionary]({
+&"energy_cost": {
+0: {
+&"Alert": true,
+&"BurnOut": true,
+&"Burst": true,
+&"CallOut": true,
+&"Cut": true,
+&"Disarm": true,
+&"Dodge": true,
+&"Engage": true,
+&"HideAce": true,
+&"HitTheMark": true,
+&"Hustle": true,
+&"Kickoff": true,
+&"LightArmor": true,
+&"LightShield": true,
+&"Misstep": true,
+&"Recall": true,
+&"SecondWindCard": true,
+&"Sentry": true,
+&"Subvert": true,
+&"ThrowDagger": true,
+&"ToxicSpit": true,
+&"VenomVial": true,
+&"Vigilance": true
+},
+1: {
+&"Bloodletting": true,
+&"Break": true,
+&"Brew": true,
+&"Buffer": true,
+&"Charge": true,
+&"Cinder": true,
+&"Discharge": true,
+&"Discover": true,
+&"Dissect": true,
+&"DoubleStrike": true,
+&"Endure": true,
+&"Entrench": true,
+&"Execute": true,
+&"FastFooted": true,
+&"Flex": true,
+&"HeavyArmor": true,
+&"HocusFocus": true,
+&"Initial": true,
+&"LastStand": true,
+&"LethalNeedle": true,
+&"LookUp": true,
+&"Medicine": true,
+&"Passion": true,
+&"Plot": true,
+&"PullKnives": true,
+&"QuickCover": true,
+&"QuickThinking": true,
+&"Recoup": true,
+&"Rush": true,
+&"Scan": true,
+&"Sharpen": true,
+&"ShieldBash": true,
+&"SmoothShields": true,
+&"StrongShield": true,
+&"StrongSlash": true,
+&"SturdyShield": true,
+&"Sweep": true,
+&"SwiftStrike": true,
+&"Taint": true,
+&"TickTick": true,
+&"ToxicSlash": true,
+&"Toxify": true,
+&"Trip": true,
+&"Wreck": true
+},
+2: {
+&"Biohazard": true,
+&"Castle": true,
+&"ChainLightning": true,
+&"Cripple": true,
+&"CriticalHit": true,
+&"DoubleDeal": true,
+&"Erupt": true,
+&"FlyingStrike": true,
+&"Hyperfocus": true,
+&"Impenetrable": true,
+&"Ironclad": true,
+&"LightningShield": true,
+&"Miasma": true,
+&"Reforge": true,
+&"SerpentsBlade": true,
+&"ShatterDefenses": true,
+&"StabToDeath": true,
+&"TheWall": true,
+&"Twofold": true,
+&"Unlucky": true
+},
+3: {
+&"DeathBlow": true
+}
+},
+&"title": {
+"Alert": {
+&"Alert": true
+},
+"Biohazard": {
+&"Biohazard": true
+},
+"Bloodletting": {
+&"Bloodletting": true
+},
+"Break": {
+&"Break": true
+},
+"Brew": {
+&"Brew": true
+},
+"Buffer": {
+&"Buffer": true
+},
+"Burn Out": {
+&"BurnOut": true
+},
+"Burst": {
+&"Burst": true
+},
+"Call Out": {
+&"CallOut": true
+},
+"Castle": {
+&"Castle": true
+},
+"Chain Lightning": {
+&"ChainLightning": true
+},
+"Charge": {
+&"Charge": true
+},
+"Cinder": {
+&"Cinder": true
+},
+"Cripple": {
+&"Cripple": true
+},
+"Critical Hit": {
+&"CriticalHit": true
+},
+"Cut": {
+&"Cut": true
+},
+"Death Blow": {
+&"DeathBlow": true
+},
+"Disarm": {
+&"Disarm": true
+},
+"Discharge": {
+&"Discharge": true
+},
+"Discover": {
+&"Discover": true
+},
+"Dissect": {
+&"Dissect": true
+},
+"Dodge": {
+&"Dodge": true
+},
+"Double Deal": {
+&"DoubleDeal": true
+},
+"Double Strike": {
+&"DoubleStrike": true
+},
+"Endure": {
+&"Endure": true
+},
+"Engage": {
+&"Engage": true
+},
+"Entrench": {
+&"Entrench": true
+},
+"Erupt": {
+&"Erupt": true
+},
+"Execute": {
+&"Execute": true
+},
+"Fast Footed": {
+&"FastFooted": true
+},
+"Flex": {
+&"Flex": true
+},
+"Flying Strike": {
+&"FlyingStrike": true
+},
+"Fourth Wall": {
+&"TheWall": true
+},
+"Heavy Armor": {
+&"HeavyArmor": true
+},
+"Hide Ace": {
+&"HideAce": true
+},
+"Hit the Mark": {
+&"HitTheMark": true
+},
+"Hocus Focus": {
+&"HocusFocus": true
+},
+"Hustle": {
+&"Hustle": true
+},
+"Hyperfocus": {
+&"Hyperfocus": true
+},
+"Impenetrable": {
+&"Impenetrable": true
+},
+"Initial": {
+&"Initial": true
+},
+"Ironclad": {
+&"Ironclad": true
+},
+"Kickoff": {
+&"Kickoff": true
+},
+"Last Stand": {
+&"LastStand": true
+},
+"Lethal Needle": {
+&"LethalNeedle": true
+},
+"Light Armor": {
+&"LightArmor": true
+},
+"Light Shield": {
+&"LightShield": true
+},
+"Lightning Shield": {
+&"LightningShield": true
+},
+"Look Up": {
+&"LookUp": true
+},
+"Medicine": {
+&"Medicine": true
+},
+"Miasma": {
+&"Miasma": true
+},
+"Misstep": {
+&"Misstep": true
+},
+"Passion": {
+&"Passion": true
+},
+"Plot": {
+&"Plot": true
+},
+"Pull Knives": {
+&"PullKnives": true
+},
+"Quick Cover": {
+&"QuickCover": true
+},
+"Quick Thinking": {
+&"QuickThinking": true
+},
+"Recall": {
+&"Recall": true
+},
+"Recoup": {
+&"Recoup": true
+},
+"Reforge": {
+&"Reforge": true
+},
+"Rush": {
+&"Rush": true
+},
+"Scan": {
+&"Scan": true
+},
+"Second Wind": {
+&"SecondWindCard": true
+},
+"Sentry": {
+&"Sentry": true
+},
+"Serpent's Blade": {
+&"SerpentsBlade": true
+},
+"Sharpen": {
+&"Sharpen": true
+},
+"Shatter": {
+&"ShatterDefenses": true
+},
+"Shield Bash": {
+&"ShieldBash": true
+},
+"Smooth Shields": {
+&"SmoothShields": true
+},
+"Stab to Death": {
+&"StabToDeath": true
+},
+"Strong Shield": {
+&"StrongShield": true
+},
+"Strong Slash": {
+&"StrongSlash": true
+},
+"Sturdy Shield": {
+&"SturdyShield": true
+},
+"Subvert": {
+&"Subvert": true
+},
+"Sweep": {
+&"Sweep": true
+},
+"Swift Strike": {
+&"SwiftStrike": true
+},
+"Taint": {
+&"Taint": true
+},
+"Throw Dagger": {
+&"ThrowDagger": true
+},
+"Tick Tick": {
+&"TickTick": true
+},
+"Toxic Slash": {
+&"ToxicSlash": true
+},
+"Toxic Spit": {
+&"ToxicSpit": true
+},
+"Toxify": {
+&"Toxify": true
+},
+"Trip": {
+&"Trip": true
+},
+"Twofold": {
+&"Twofold": true
+},
+"Unlucky": {
+&"Unlucky": true
+},
+"Venom Vial": {
+&"VenomVial": true
+},
+"Vigilance": {
+&"Vigilance": true
+},
+"Wreck": {
+&"Wreck": true
+}
+},
+&"type": {
+1: {
+&"Break": true,
+&"CallOut": true,
+&"ChainLightning": true,
+&"Charge": true,
+&"Cripple": true,
+&"CriticalHit": true,
+&"Cut": true,
+&"DeathBlow": true,
+&"Disarm": true,
+&"Discharge": true,
+&"Dissect": true,
+&"DoubleDeal": true,
+&"DoubleStrike": true,
+&"Engage": true,
+&"Execute": true,
+&"FlyingStrike": true,
+&"HitTheMark": true,
+&"Initial": true,
+&"Kickoff": true,
+&"LethalNeedle": true,
+&"Miasma": true,
+&"Misstep": true,
+&"Sentry": true,
+&"SerpentsBlade": true,
+&"ShatterDefenses": true,
+&"ShieldBash": true,
+&"StabToDeath": true,
+&"StrongSlash": true,
+&"Subvert": true,
+&"Sweep": true,
+&"SwiftStrike": true,
+&"ThrowDagger": true,
+&"ToxicSlash": true,
+&"ToxicSpit": true,
+&"Toxify": true,
+&"Trip": true,
+&"Unlucky": true,
+&"Wreck": true
+},
+2: {
+&"Castle": true,
+&"Dodge": true,
+&"Entrench": true,
+&"FastFooted": true,
+&"HeavyArmor": true,
+&"Impenetrable": true,
+&"Ironclad": true,
+&"LastStand": true,
+&"LightArmor": true,
+&"LightShield": true,
+&"LightningShield": true,
+&"QuickCover": true,
+&"Recoup": true,
+&"StrongShield": true,
+&"SturdyShield": true,
+&"TheWall": true
+},
+3: {
+&"Alert": true,
+&"Biohazard": true,
+&"Bloodletting": true,
+&"Brew": true,
+&"Buffer": true,
+&"BurnOut": true,
+&"Burst": true,
+&"Cinder": true,
+&"Discover": true,
+&"Endure": true,
+&"Erupt": true,
+&"Flex": true,
+&"HideAce": true,
+&"HocusFocus": true,
+&"Hustle": true,
+&"Hyperfocus": true,
+&"LookUp": true,
+&"Medicine": true,
+&"Passion": true,
+&"Plot": true,
+&"PullKnives": true,
+&"QuickThinking": true,
+&"Recall": true,
+&"Reforge": true,
+&"Rush": true,
+&"Scan": true,
+&"SecondWindCard": true,
+&"Sharpen": true,
+&"SmoothShields": true,
+&"Taint": true,
+&"TickTick": true,
+&"Twofold": true,
+&"VenomVial": true,
+&"Vigilance": true
+}
+}
+})
