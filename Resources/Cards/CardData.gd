@@ -6,7 +6,7 @@ class_name CardData
 enum CardType{NONE, ATTACK, DEFEND, SKILL, STRESS}
 
 @export var title: String = 'CardData'
-@export var description : String = '' # (String, MULTILINE)
+@export_multiline var description : String = '' # (String, MULTILINE)
 @export var energy_cost : int = 1 # (int, 0, 9)
 @export var icon: Texture2D
 @export var base_color: Color
