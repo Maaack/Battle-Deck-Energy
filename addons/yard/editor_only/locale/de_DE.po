@@ -1,0 +1,376 @@
+# LANGUAGE translation for Yet Another Resource Database for the following files:
+# res://addons/yard/editor_only/ui_scenes/main_view.gd
+# res://addons/yard/editor_only/ui_scenes/main_view.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Yet Another Resource Database\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.gd
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.gd
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Delete Entry"
+msgstr "Eintrag löschen"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Copy String ID"
+msgstr "Text-ID kopieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Copy UID"
+msgstr "UID kopieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Show in FileSystem"
+msgstr "Im Dateisystem anzeigen"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+msgid "Edit Resource"
+msgstr "Ressource bearbeiten"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Cut Cell Value"
+msgstr "Wert ausschneiden"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Copy Cell Value"
+msgstr "Wert kopieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Paste to Cell"
+msgstr "In Zelle einfügen"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Select All"
+msgstr "Alles auswählen"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Invert Selection"
+msgstr "Auswahl umkehren"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Unselect"
+msgstr "Auswahl aufheben"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+msgid "Please Confirm"
+msgstr "Bestätigen"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+msgid "Yes"
+msgstr "Ja"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+msgid "Drop resource files here to add them to the registry."
+msgstr "Ressourcendateien hier ablegen, um sie zur Registrierung hinzuzufügen."
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+msgid "Toggle Files Panel"
+msgstr "Dateibereich ein-/ausblenden"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+msgid "String ID"
+msgstr "Text-ID"
+
+#: addons/yard/editor_only/ui_scenes/registry_table_view.tscn
+msgid "Add Entry"
+msgstr "Hinzufügen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Class/script is a Resource subclass."
+msgstr "Die Klasse/das Skript ist eine Unterklasse von Resource."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid ""
+"Invalid class/script. Expected a Resource subclass (built-in, class_name, or "
+"[u]quoted[/u] script path)."
+msgstr ""
+"Ungültige Klasse/Skript. Eine Unterklasse von Resource wird erwartet (integriert, class_name oder "
+"[u]zitierter[/u] Skriptpfad)."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "No class filter, all Resource files will be accepted to the registry."
+msgstr "Kein Klassenfilter, alle Resource-Dateien werden in die Registrierung aufgenommen."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Scan directory valid. Will watch for new Resources…"
+msgstr "Verzeichnis gültig. Neue Ressourcen werden automatisch erkannt…"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Scan directory invalid. Pick an existing directory."
+msgstr "Ungültiges Verzeichnis. Wählen Sie ein vorhandenes Verzeichnis."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "No scan directory, resources auto-discovery is disabled."
+msgstr "Kein Verzeichnis definiert, die automatische Erkennung ist deaktiviert."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Indexed properties are optional. Separate multiple properties with commas."
+msgstr "Indizierte Eigenschaften sind optional. Mehrere Eigenschaften mit Komma trennen."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "All properties found on the specified resource class."
+msgstr "Alle Eigenschaften der Ressourcenklasse wurden gefunden."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Empty property name detected. Remove extra commas."
+msgstr "Leerer Eigenschaftsname erkannt. Überflüssige Kommas entfernen."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Property '{prop}' may not exist on the resource class."
+msgstr "Die Eigenschaft '{prop}' existiert möglicherweise nicht in der Ressourcenklasse."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Will create a new registry file."
+msgstr "Eine neue Registrierungsdatei wird erstellt."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Filename is invalid."
+msgstr "Ungültiger Dateiname."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Invalid extension."
+msgstr "Ungültige Erweiterung."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Filename is empty."
+msgstr "Der Dateiname ist leer."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Registry file already exists."
+msgstr "An diesem Speicherort existiert bereits eine Registrierungsdatei."
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Choose Custom Resource Script"
+msgstr "Benutzerdefiniertes Ressourcenskript wählen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Choose Directory to Scan"
+msgstr "Zu scannendes Verzeichnis wählen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Choose Registry Location"
+msgstr "Speicherort der Registrierung wählen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.gd
+msgid "Choose Class Restriction"
+msgstr "Klasseneinschränkung wählen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Create Registry"
+msgstr "Registrierung erstellen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Create"
+msgstr "Erstellen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Remove"
+msgstr "Entfernen"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid ""
+"Some of the entries in the registry do not match the\n"
+"new class restriction and would be removed.\n"
+"\n"
+"Do you want to proceed ?"
+msgstr ""
+"Einige Einträge der Registrierung stimmen nicht mit der\n"
+"neuen Klasseneinschränkung überein und würden entfernt.\n"
+"\n"
+"Möchten Sie fortfahren?"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Class Restriction:"
+msgstr "Klasseneinschränkung:"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Resource"
+msgstr "Ressource"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Scan Directory:"
+msgstr "Zu scannendes Verzeichnis:"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Recursive Scan:"
+msgstr "Rekursiver Scan:"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "On"
+msgstr "An"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Indexed Properties:"
+msgstr "Indizierte Eigenschaften:"
+
+#: addons/yard/editor_only/ui_scenes/components/new_registry_dialog.tscn
+msgid "Path:"
+msgstr "Pfad:"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.gd
+msgid "Clear Recent Registries"
+msgstr "Liste der zuletzt verwendeten Registrierungen leeren"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.gd
+msgid "Open Registry"
+msgstr "Registrierung öffnen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.gd
+msgid "None of the closed resources exist anymore"
+msgstr "Keine der zuletzt geschlossenen Registrierungen existiert noch"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.gd
+msgid "Select a registry first"
+msgstr "Zuerst eine Registrierung auswählen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.gd
+msgid "Freeze ID Columns"
+msgstr "ID-Spalten fixieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "File"
+msgstr "Datei"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "New Registry..."
+msgstr "Neue Registrierung…"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Open..."
+msgstr "Öffnen…"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Reopen Closed Registry"
+msgstr "Geschlossene Registrierung erneut öffnen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Open Recent"
+msgstr "Zuletzt verwendet"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Copy Registry Path"
+msgstr "Pfad der Registrierung kopieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Copy Registry UID"
+msgstr "UID der Registrierung kopieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Close"
+msgstr "Schließen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Close All"
+msgstr "Alle schließen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Close Other Tabs"
+msgstr "Andere Tabs schließen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Close Tabs Below"
+msgstr "Tabs darunter schließen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Edit Registry Settings"
+msgstr "Einstellungen der Registrierung bearbeiten"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Registry Settings"
+msgstr "Einstellungen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Select shown columns."
+msgstr "Angezeigte Spalten auswählen."
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Columns"
+msgstr "Spalten"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Refresh table view from the underlying registry."
+msgstr "Ansicht aus der Registrierung aktualisieren."
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Rebuild Property Index"
+msgstr "Eigenschaftsindex neu erstellen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Reindex"
+msgstr "Neu indizieren"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Open project's issues in your browser."
+msgstr "Fehler-Tracker des Projekts im Browser öffnen."
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Report Issue"
+msgstr "Problem melden"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Open the Registry class documentation."
+msgstr "Dokumentation der Klasse Registry öffnen."
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Open Docs"
+msgstr "Dokumentation öffnen"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Open the README.md popup."
+msgstr "Hilfe anzeigen."
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Make the registry editor floating."
+msgstr "Editor als schwebendes Fenster öffnen."
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Filter Registries"
+msgstr "Registrierungen filtern"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Move Up"
+msgstr "Nach oben"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Move Down"
+msgstr "Nach unten"
+
+#: addons/yard/editor_only/ui_scenes/registry_editor.tscn
+msgid "Sort"
+msgstr "Sortieren"
+
+#: addons/yard/plugin.gd
+msgid "Registry"
+msgstr "Registrierung"
