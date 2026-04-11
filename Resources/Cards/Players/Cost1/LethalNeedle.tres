@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dt12y50rrnqpi"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b4urmtn5xjo2t" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/hypodermic-test.png" id="2"]
+[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cilvbwrn43o6b" path="res://Resources/Effects/StatusEffects/ApplyPoisoned3.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Lethal Needle"
+description = "Deal %ATTACK Damage and apply %APPLY_POISONED Poisoned."
+icon = ExtResource("2")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("3"), ExtResource("4")]

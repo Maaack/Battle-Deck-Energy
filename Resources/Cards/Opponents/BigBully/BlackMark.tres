@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cccpn63bvo4p0"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect2.tres" id="3"]
+[ext_resource type="Resource" uid="uid://3fiekefg00qt" path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://cskhojqt5jo52" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/blade-drag.png" id="4"]
 
 [resource]

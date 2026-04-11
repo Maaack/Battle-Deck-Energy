@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c8613kiadwfmo"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://d3g8vprmi5vaj" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/pointy-sword.png" id="3"]
+[ext_resource type="Resource" uid="uid://b30aysyg11yn1" path="res://Resources/Effects/StatusEffects/ApplyWeak2.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Wreck"
+description = "Deal %ATTACK Damage and apply %APPLY_WEAK Weak."
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("4")]

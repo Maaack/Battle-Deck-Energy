@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bpm7nhp6gurtx"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect1.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddConfused.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/RetreatDefendEffect2.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="5"]
+[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dlccofjtognvb" path="res://Resources/Effects/DeckModEffects/AddConfused.tres" id="3"]
+[ext_resource type="Resource" uid="uid://t0b12oaw18hn" path="res://Resources/Effects/StatusEffects/RetreatDefendEffect2.tres" id="4"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="5"]
 [ext_resource type="Texture2D" uid="uid://lyihaasfrhr1" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/sandstorm.png" id="6"]
 
 [resource]

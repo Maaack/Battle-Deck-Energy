@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cotfdl153c5d0"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://6gdfj4i6bfap" path="res://Assets/Mixed/CardIcons/AttackGlowNew/crossed-slashes.png" id="3"]
+
+[resource]
+script = ExtResource("1")
+title = "Double Strike"
+description = "Deal %ATTACK Damage over [b]2[/b] strikes."
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("2")]

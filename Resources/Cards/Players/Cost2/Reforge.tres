@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ck61sj782qdon"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dnh3c0r4bo6fb" path="res://Resources/Effects/StatusEffects/ApplyDefenseUp4.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dr5d166bb4g1c" path="res://Resources/Effects/StatusEffects/ApplyAttackUp3.tres" id="3"]
+[ext_resource type="Resource" uid="uid://t175p7ypgqmh" path="res://Resources/Effects/CardEffects/CureFragileEffect.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://sl088837gtpj" path="res://Assets/Mixed/CardIcons/SkillGlowNew/anvil-impact.png" id="5"]
+[ext_resource type="Resource" uid="uid://oy66hatrl7kl" path="res://Resources/Effects/CardEffects/CureWeakEffect.tres" id="6"]
+
+[resource]
+script = ExtResource("1")
+title = "Reforge"
+description = "Apply %APPLY_ATTACK_UP Attack Up and %APPLY_DEFENSE_UP Defense Up.
+Cure Fragile and Weak."
+energy_cost = 2
+icon = ExtResource("5")
+base_color = Color(0.54902, 0.560784, 0.682353, 1)
+effects = [ExtResource("3"), ExtResource("2"), ExtResource("4"), ExtResource("6")]
+type = 3

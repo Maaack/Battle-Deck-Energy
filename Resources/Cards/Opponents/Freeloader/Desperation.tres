@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cehnv5po6dwhs"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect4.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://cskhojqt5jo52" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/blade-drag.png" id="4"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/SourceApplyVulnerable.tres" id="5"]
+[ext_resource type="Resource" uid="uid://dc1joqdxfle28" path="res://Resources/Effects/StatusEffects/SourceApplyVulnerable.tres" id="5"]
 
 [resource]
 script = ExtResource("1")

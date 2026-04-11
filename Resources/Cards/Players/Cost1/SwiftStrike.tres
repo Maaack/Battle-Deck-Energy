@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c6hk41ss3g8x8"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://euy7bgflxouh" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/bat-blade.png" id="3"]
+[ext_resource type="Resource" uid="uid://b7u5w6hlx0onm" path="res://Resources/Effects/StatusEffects/SourceApplyHastened.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Swift Strike"
+description = "Deal %ATTACK Damage. Next turn, draw %APPLY_HASTENED extra cards."
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("4")]

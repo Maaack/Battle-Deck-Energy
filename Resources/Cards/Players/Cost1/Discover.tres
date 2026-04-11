@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://db61er2r63u1q"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://d2t1dsqjvgco5" path="res://Assets/Mixed/CardIcons/SkillGlowNew/enlightenment.png" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Discover"
+description = "Draw %DRAW_CARD cards.
+Retain."
+icon = ExtResource("4")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = [ExtResource("3"), ExtResource("3"), ExtResource("2")]
+type = 3

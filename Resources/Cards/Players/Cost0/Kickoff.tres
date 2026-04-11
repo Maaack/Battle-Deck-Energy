@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dbl5yqqm03t7y"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://dbye72e7u35jh" path="res://Assets/Mixed/CardIcons/AttackGlowNew/high-kick.png" id="4"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="6"]
+
+[resource]
+script = ExtResource("1")
+title = "Kickoff"
+description = "Deal %ATTACK Damage.
+Innate.
+Momentary."
+energy_cost = 0
+icon = ExtResource("4")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("3"), ExtResource("2"), ExtResource("6")]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://85duo4xhe6d1"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://8bh5ne3wm2iy" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/flex.png" id="2"]
+[ext_resource type="Resource" uid="uid://c6iubc2meoelp" path="res://Resources/Effects/StatusEffects/ApplyStrong2.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Flex"
+description = "Apply %APPLY_STRONG Strong.
+Retain."
+icon = ExtResource("2")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = [ExtResource("3"), ExtResource("4")]
+type = 3

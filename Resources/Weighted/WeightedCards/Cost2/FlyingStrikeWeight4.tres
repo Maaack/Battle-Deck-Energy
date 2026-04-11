@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://8j5p2crxgiwb"]
 
-[ext_resource type="Resource" uid="uid://c7rgaw5yc6gr6" path="res://Resources/Cards/Cost2/FlyingStrike.tres" id="1"]
+[ext_resource type="Resource" uid="uid://c7rgaw5yc6gr6" path="res://Resources/Cards/Players/Cost2/FlyingStrike.tres" id="1"]
 [ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="2"]
 
 [resource]

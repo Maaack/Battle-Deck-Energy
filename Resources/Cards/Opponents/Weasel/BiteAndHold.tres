@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cq2ssg2t3rdmw"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect3.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" id="4"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bp2tp6qx0vskt" path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://cx2k4qdx2oy5k" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/lizard-tongue.png" id="5"]
 
 [resource]

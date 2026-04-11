@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp3ftd85q81o3"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyVulnerableOnDraw.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/UnplayableEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://0khv7x57pdl4" path="res://Resources/Effects/StatusEffects/ApplyVulnerableOnDraw.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dhqqksowvyfkq" path="res://Resources/Effects/CardEffects/UnplayableEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://dc53ur0cv2ibg" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/hit-nerve.png" id="4"]
 
 [resource]

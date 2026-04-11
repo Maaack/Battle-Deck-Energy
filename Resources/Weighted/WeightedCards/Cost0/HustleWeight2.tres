@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://cjip5fo0uaqyw"]
 
-[ext_resource type="Resource" uid="uid://dppkf3awgrqoc" path="res://Resources/Cards/Cost0/Hustle.tres" id="1"]
+[ext_resource type="Resource" uid="uid://dppkf3awgrqoc" path="res://Resources/Cards/Players/Cost0/Hustle.tres" id="1"]
 [ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="2"]
 
 [resource]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bn42rf0mqstui"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://eyrmtsgck0l5" path="res://Assets/Mixed/CardIcons/AttackGlowNew/poison-bottle.png" id="2"]
+[ext_resource type="Resource" uid="uid://d2so55w0b6dyl" path="res://Resources/Effects/StatusEffects/ApplyPoisoned5.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Toxify"
+description = "Apply %APPLY_POISONED Poisoned.
+Exhaust."
+icon = ExtResource("2")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("3"), ExtResource("4")]

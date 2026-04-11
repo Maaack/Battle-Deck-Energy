@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://rtag3xkufvtd"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/PlayAsSkillEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cwc7gm7ahcw8n" path="res://Resources/Effects/CardEffects/PlayAsSkillEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://bib2sgi8a7pdb" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/diffident.png" id="4"]
 
 [resource]

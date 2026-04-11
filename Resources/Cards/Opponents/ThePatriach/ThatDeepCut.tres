@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://s1866hgaxxjx"]
 
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect15.tres" id="1"]
+[ext_resource type="Resource" uid="uid://rk55o6xqnde" path="res://Resources/Effects/CardEffects/AttackEffect15.tres" id="1"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://b3t2p6gte0jj7" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/razor-blade.png" id="4"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddHitNerve.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bgj6mu3o5d35" path="res://Resources/Effects/DeckModEffects/AddHitNerve.tres" id="5"]
 
 [resource]
 script = ExtResource("2")

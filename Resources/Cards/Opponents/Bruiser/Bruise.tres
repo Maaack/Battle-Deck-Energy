@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d1fsr1rtwl8gs"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect6.tres" id="4"]
+[ext_resource type="Resource" uid="uid://3fiekefg00qt" path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://dl5ohf6tif425" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/pointy-sword.png" id="5"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" id="6"]
+[ext_resource type="Resource" uid="uid://ccguxk7pvo414" path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" id="6"]
 
 [resource]
 script = ExtResource("1")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://dssvrxokm1hyd"]
 
 [ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Cost1/Recoup.tres" id="2"]
+[ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="2"]
 
 [resource]
 script = ExtResource("1")

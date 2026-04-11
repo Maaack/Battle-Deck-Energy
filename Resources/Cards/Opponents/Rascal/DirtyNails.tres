@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://duxlyu5iehbvo"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect2.tres" id="3"]
+[ext_resource type="Resource" uid="uid://ufto0tg786h1" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://bt4rtfghgy371" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/nails.png" id="4"]
 
 [resource]

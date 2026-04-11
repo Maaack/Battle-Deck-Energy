@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8chaspth5l4n"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://bipjca4pjqj2u" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/scalpel.png" id="3"]
+[ext_resource type="Resource" uid="uid://cmw1236brhi5l" path="res://Resources/Effects/StatusEffects/ApplyMarked3.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Dissect"
+description = "Deal %ATTACK Damage and apply %APPLY_MARKED Marked."
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("2"), ExtResource("4")]

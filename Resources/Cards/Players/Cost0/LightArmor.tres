@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c150qgj1xaapn"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bcrwlykvpwpt" path="res://Assets/Mixed/CardIcons/DefendGlowNew/plastron.png" id="2"]
+[ext_resource type="Resource" uid="uid://signo6m41cj7" path="res://Resources/Effects/StatusEffects/DefendEffect2.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="4"]
+[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="5"]
+
+[resource]
+script = ExtResource("1")
+title = "Light Armor"
+description = "Block %DEFEND Damage.
+Innate.
+Retain."
+energy_cost = 0
+icon = ExtResource("2")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = [ExtResource("3"), ExtResource("5"), ExtResource("4")]
+type = 2

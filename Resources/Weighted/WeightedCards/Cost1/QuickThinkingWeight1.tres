@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://bhfa6pm4j0up1"]
 
-[ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Cost1/QuickThinking.tres" id="1"]
+[ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="1"]
 [ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="2"]
 
 [resource]

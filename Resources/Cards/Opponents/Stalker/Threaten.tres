@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dwmwriu2hhy01"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dvdtwgh5pjisj" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://c3fm68ysvspjb" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/dig-hole.png" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" id="5"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bp2tp6qx0vskt" path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" id="5"]
 
 [resource]
 script = ExtResource("1")

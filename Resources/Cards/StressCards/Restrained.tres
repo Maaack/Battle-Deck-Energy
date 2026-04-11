@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ygycd50chfgd"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/PlayAsDefendEffect.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/PlayAsSkillEffect.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Effects/PlayAsAttackEffect.tres" id="5"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://be8vvx3mqagfc" path="res://Resources/Effects/CardEffects/PlayAsDefendEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cwc7gm7ahcw8n" path="res://Resources/Effects/CardEffects/PlayAsSkillEffect.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bixmmo8563y71" path="res://Resources/Effects/CardEffects/PlayAsAttackEffect.tres" id="5"]
 [ext_resource type="Texture2D" uid="uid://cvbe5bgay1cpo" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/restrained.png" id="6"]
 
 [resource]

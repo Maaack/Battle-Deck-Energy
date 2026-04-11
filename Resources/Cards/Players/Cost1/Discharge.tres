@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://24x2atk4od42"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bb2rf01ocovxb" path="res://Resources/Effects/CardEffects/AttackEffect12.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://2h25fhjawe13" path="res://Assets/Mixed/CardIcons/AttackGlowNew/lightning-trio.png" id="5"]
+
+[resource]
+script = ExtResource("1")
+title = "Discharge"
+description = "Deal %ATTACK Damage.
+Momentary.
+Exhaust."
+icon = ExtResource("5")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = [ExtResource("4"), ExtResource("3"), ExtResource("2")]

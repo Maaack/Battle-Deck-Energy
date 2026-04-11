@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://vt10wlslmep1"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/BleedEffectOnDiscard.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/UnplayableEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://b4wgd7ud2v5td" path="res://Resources/Effects/CardEffects/BleedEffectOnDiscard.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dhqqksowvyfkq" path="res://Resources/Effects/CardEffects/UnplayableEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://rhq2xhoovvam" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/bleeding.png" id="4"]
 
 [resource]
