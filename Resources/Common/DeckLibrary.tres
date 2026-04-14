@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="CommonData" format=3 uid="uid://brlsba86n34qs"]
+[gd_resource type="Resource" script_class="DeckCollection" format=3 uid="uid://deb2xf76txv07"]
 
-[ext_resource type="Script" uid="uid://ds8dvodm74c0k" path="res://Resources/Common/CommonData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameShieldDeck.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Decks/LamePoisonousDeck.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameFlashDeck.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameStrikeDeck.tres" id="5"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameMarkingDeck.tres" id="6"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameCrippleDeck.tres" id="7"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameVenomousDeck.tres" id="8"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameBuffDeck.tres" id="10"]
+[ext_resource type="Script" uid="uid://deb2xf76txv07" path="res://Resources/Decks/DeckCollection.gd" id="1"]
+[ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1_fxb6i"]
+[ext_resource type="Resource" uid="uid://dpj2w0rbslp3n" path="res://Resources/Decks/LameShieldDeck.tres" id="2"]
+[ext_resource type="Resource" uid="uid://digl15e3l65bu" path="res://Resources/Decks/LamePoisonousDeck.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bu0qj71cgd0tl" path="res://Resources/Decks/LameFlashDeck.tres" id="4"]
+[ext_resource type="Resource" uid="uid://d1x2y7xgp4ed3" path="res://Resources/Decks/LameStrikeDeck.tres" id="5"]
+[ext_resource type="Resource" uid="uid://dfeb6eugkt3ku" path="res://Resources/Decks/LameMarkingDeck.tres" id="6"]
+[ext_resource type="Resource" uid="uid://dhnseqji38886" path="res://Resources/Decks/LameCrippleDeck.tres" id="7"]
+[ext_resource type="Resource" uid="uid://bdplfxiflslbj" path="res://Resources/Decks/LameVenomousDeck.tres" id="8"]
+[ext_resource type="Resource" uid="uid://cca0n4w3xcdp" path="res://Resources/Decks/LameBuffDeck.tres" id="10"]
 
 [resource]
 script = ExtResource("1")
-data = {
+data = Dictionary[String, ExtResource("1_fxb6i")]({
 "Lame Buff Deck": ExtResource("10"),
 "Lame Cripple Deck": ExtResource("7"),
 "Lame Flash Deck": ExtResource("4"),
@@ -21,4 +22,4 @@ data = {
 "Lame Shield Deck": ExtResource("2"),
 "Lame Strike Deck": ExtResource("5"),
 "Lame Venomous Deck": ExtResource("8")
-}
+})

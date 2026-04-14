@@ -5,7 +5,7 @@ class_name DeckData
 
 @export var title: String
 @export var icon: Texture2D
-@export var cards : Array # (Array, Resource)
+@export var cards : Array[CardData]
 
 func size():
 	return cards.size()

@@ -8,13 +8,13 @@ signal deck_selected(deck)
 @onready var item_list = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList
 @onready var custom_deck_info_label = $DeckSelectPanel/MarginContainer/VBoxContainer/ItemList/CustomDeckInfoLabel
 
-var deck_library : CommonData = preload("res://Resources/Common/DeckLibrary.tres")
+var deck_library : DeckCollection = preload("res://Resources/Common/DeckLibrary.tres")
 
 var decks : Array
 var selected_index : int
 
 func _ready():
-	decks = deck_library.data.values()
+	decks = deck_library.data
 	var saved_decks : Array = PersistentData.load_decks()
 	if saved_decks.size() > 0:
 		custom_deck_info_label.hide()
