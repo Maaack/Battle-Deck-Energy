@@ -6,4 +6,4 @@
 script = ExtResource("1")
 key = "POISONED"
 term = "Poisoned"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+definition = "Applies damage equal to value at start of the next turn. Loses [b]1[/b] every turn."
