@@ -14,12 +14,9 @@ signal card_played(character, card, opportunity)
 signal card_spawned(character, card)
 signal status_updated(character, status, delta)
 signal character_died(character)
-signal active_character_updated(character)
-signal active_team_updated(team)
 signal before_hand_discarded(character)
 signal before_hand_drawn(character)
 signal turn_started(character)
-signal turn_ended(character)
 signal team_lost(team)
 signal team_won(team)
 signal opportunity_added(opportunity)
@@ -102,12 +99,10 @@ func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
 		active_character = character_data
 		EventBus.active_character_updated.emit(active_character)
-		emit_signal("active_character_updated", character_data)
 	var team : String = team_manager.get_team(character_data)
 	if active_team != team:
 		active_team = team
 		EventBus.active_team_updated.emit(active_team)
-		emit_signal("active_team_updated", active_team)
 
 func start_battle():
 	battle_phase_manager.advance()
@@ -220,7 +215,6 @@ func on_ending_turn(character : CharacterData):
 
 func _on_CharacterBattleManager_turn_ended(character : CharacterData):
 	EventBus.turn_ended.emit(character)
-	emit_signal("turn_ended", character)
 	if character == active_character:
 		advance_character_phase()
 
@@ -268,7 +262,7 @@ func start_next_member_or_team():
 
 func _on_Team_phase_entered(team : String):
 	active_team = team
-	emit_signal("active_team_updated", active_team)
+	EventBus.active_team_updated.emit(active_team)
 	start_next_member_or_team()
 
 func _on_DrawingCards_phase_entered():

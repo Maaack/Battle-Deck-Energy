@@ -32,11 +32,12 @@ var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
 var statuses : Array = []
-@onready var base_opportunities : Dictionary = {
+var base_opportunities : Dictionary[CardData.CardType, int] = {
 	CardData.CardType.ATTACK : 3,
 	CardData.CardType.DEFEND : 3,
 	CardData.CardType.SKILL : 3,
 }
+var opportunities : Dictionary[CardData.CardType, int]
 
 func _reset_energy():
 	starting_energy = character_data.energy

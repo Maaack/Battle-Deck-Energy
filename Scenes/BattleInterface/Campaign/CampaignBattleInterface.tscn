@@ -33,7 +33,6 @@ layout_mode = 1
 [connection signal="exhaust_pile_pressed" from="PlayerInterface" to="." method="_on_PlayerInterface_exhaust_pile_pressed"]
 [connection signal="status_forgotten" from="PlayerInterface" to="." method="_on_PlayerInterface_status_forgotten"]
 [connection signal="status_inspected" from="PlayerInterface" to="." method="_on_PlayerInterface_status_inspected"]
-[connection signal="active_character_updated" from="CampaignBattleManager" to="." method="_on_BattleManager_active_character_updated"]
 [connection signal="before_hand_discarded" from="CampaignBattleManager" to="." method="_on_BattleManager_before_hand_discarded"]
 [connection signal="before_hand_drawn" from="CampaignBattleManager" to="." method="_on_BattleManager_before_hand_drawn"]
 [connection signal="card_added_to_hand" from="CampaignBattleManager" to="." method="_on_BattleManager_card_added_to_hand"]
@@ -50,5 +49,4 @@ layout_mode = 1
 [connection signal="status_updated" from="CampaignBattleManager" to="." method="_on_BattleManager_status_updated"]
 [connection signal="team_lost" from="CampaignBattleManager" to="." method="_on_BattleManager_team_lost"]
 [connection signal="team_won" from="CampaignBattleManager" to="." method="_on_BattleManager_team_won"]
-[connection signal="turn_ended" from="CampaignBattleManager" to="." method="_on_BattleManager_turn_ended"]
 [connection signal="turn_started" from="CampaignBattleManager" to="." method="_on_BattleManager_turn_started"]
