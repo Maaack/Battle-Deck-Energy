@@ -118,6 +118,7 @@ func reset_end_turn():
 
 func _ready():
 	animation_queue.delay_timer()
+	EventBus.opportunity_removed.connect(_on_opportunity_removed)
 
 func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card_manager.move_card(card_data, transform, 0.1)
@@ -324,25 +325,9 @@ func start_timer(time : int):
 func start_round():
 	player_board.advance_round_count()
 
-func clear_opportunities():
-	_opportunities_map.clear()
-
-func add_opportunity(opportunity:OpportunityData):
-	var container = actions_board.add_opportunity(opportunity)
-	if is_instance_valid(container):
-		_opportunities_map[opportunity] = container
-
-func remove_opportunity(opportunity:OpportunityData):
-	if not opportunity in _opportunities_map:
-		return
-	actions_board.remove_opportunity(opportunity)
+func _on_opportunity_removed(opportunity:OpportunityData):
 	if _nearest_opportunity == opportunity:
 		_nearest_opportunity = null
-	_opportunities_map.erase(opportunity)
-
-func remove_all_opportunities():
-	actions_board.remove_all_opportunities()
-	clear_opportunities()
 
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:
@@ -357,13 +342,13 @@ func _on_PlayerInterface_gui_input(event):
 			if nearest_opportunity == _nearest_opportunity:
 				return
 			if _nearest_opportunity != null and nearest_opportunity != _nearest_opportunity:
-				var container : OpportunitiesContainer = _opportunities_map[_nearest_opportunity]
+				var container : OpportunitiesContainer = actions_board.get_opportunity_container(_nearest_opportunity)
 				container.glow_on()
 			_nearest_opportunity = nearest_opportunity
 			var card_owner = _card_owner_map[card_node.card_data]
 			var target = null
 			if nearest_opportunity is OpportunityData:
-				var container : OpportunitiesContainer = _opportunities_map[nearest_opportunity]
+				var container : OpportunitiesContainer = actions_board.get_opportunity_container(nearest_opportunity)
 				container.glow_special()
 				target = nearest_opportunity.target
 			_calculate_card_mod(card_node, card_owner, target)
@@ -371,10 +356,10 @@ func _on_PlayerInterface_gui_input(event):
 func get_player_card_opportunities(card:CardData):
 	var filtered_opportunities : Dictionary = {}
 	var playable_types : Array = effect_calculator.get_playable_types(card)
-	for opportunity in _opportunities_map:
-		if opportunity is OpportunityData:
-			if opportunity.type in playable_types and player_data == opportunity.source:
-				filtered_opportunities[opportunity] = _opportunities_map[opportunity]
+	var character_opportunities = actions_board.get_character_sourced_opportunities(player_data)
+	for opportunity in character_opportunities:
+		if opportunity.type in playable_types:
+			filtered_opportunities[opportunity] = actions_board.get_opportunity_container(opportunity)
 	return filtered_opportunities
 
 func _openings_glow_on(card:CardData):
@@ -509,8 +494,9 @@ func _on_PlayerInterface_resized():
 		$ResizeTimer.start()
 
 func _on_ResizeTimer_timeout():
-	for opportunity in _opportunities_map:
-		_on_CardContainer_update_opportunity(opportunity, _opportunities_map[opportunity])
+	var all_opportunities = actions_board.get_all_opportunities()
+	for opportunity in all_opportunities:
+		_on_CardContainer_update_opportunity(opportunity, actions_board.get_opportunity_container(opportunity))
 
 func _on_EndTurnTimer_timeout():
 	_player_ends_turn()

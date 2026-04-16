@@ -90,17 +90,8 @@ func _on_BattleManager_card_spawned(character, card):
 	player_interface.new_character_card(character, card)
 	player_interface.animate_playing_card(card)
 
-func _on_BattleManager_opportunity_added(opportunity : OpportunityData):
-	player_interface.add_opportunity(opportunity)
-
-func _on_BattleManager_opportunity_removed(opportunity : OpportunityData):
-	player_interface.remove_opportunity(opportunity)
-
 func _on_BattleManager_status_updated(character : CharacterData, status : StatusData, delta : int):
 	player_interface.update_status(character, status, delta)
-
-func _on_BattleManager_opportunities_reset():
-	player_interface.remove_all_opportunities()
 
 func _on_BattleManager_team_won(team):
 	var player_team = battle_manager.get_team(player_character)

@@ -328,15 +328,6 @@ func _on_EffectManager_draw_from_draw_pile(character, count):
 func _on_EffectManager_spawn_card(card, character):
 	emit_signal("card_spawned", character, card)
 
-func _on_OpportunitiesManager_opportunity_added(opportunity):
-	emit_signal("opportunity_added", opportunity)
-
-func _on_OpportunitiesManager_opportunity_removed(opportunity):
-	emit_signal("opportunity_removed", opportunity)
-
-func _on_OpportunitiesManager_opportunities_reset():
-	emit_signal("opportunities_reset")
-
 func _on_Playing_phase_entered():
 	emit_signal("turn_started", active_character)
 

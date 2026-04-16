@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://d3y74kae6ylg5" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/PlayerBoard.tscn" id="2"]
 [ext_resource type="AudioStream" uid="uid://e4y1upc500fc" path="res://Assets/Sourced/Sounds/240778__f4ngy__bridging-cards_1.ogg" id="3"]
 [ext_resource type="Script" uid="uid://ddmdjeetwfcys" path="res://Scenes/PlayerInterface/PlayerInterface.gd" id="4"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://i8pseg7ylxs7" path="res://Scenes/PlayerInterface/HandManager/HandManager.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://4f2lvifkln5c" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://cuv82pk1fpnlr" path="res://Managers/Cards/Focused/Inspector/Battle/BattleCardManager.tscn" id="8"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://cwseih3dq2r61" path="res://Scenes/PlayerInterface/AnimationQueue/BattleAnimationQueue/BattleAnimationQueue.tscn" id="9"]
 
 [node name="PlayerInterface" type="Control" unique_id=1110540064]
 layout_mode = 3
