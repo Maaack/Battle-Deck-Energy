@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://ck75l1vpothe3" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/ActionsBoard.gd" id="1"]
 
 [node name="ActionsBoard" type="HBoxContainer" unique_id=1842314183]
-offset_right = 1216.0
-offset_bottom = 326.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1")
