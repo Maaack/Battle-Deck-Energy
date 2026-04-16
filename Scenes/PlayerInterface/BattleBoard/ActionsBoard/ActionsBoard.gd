@@ -91,3 +91,13 @@ func mark_character_inactive(character:CharacterData):
 	if actions_interface == null:
 		return
 	actions_interface.mark_inactive()
+
+func _on_active_character_updated(character:CharacterData):
+	mark_character_active(character)
+
+func _on_turn_ended(character:CharacterData):
+	mark_character_inactive(character)
+
+func _ready():
+	EventBus.active_character_updated.connect(_on_active_character_updated)
+	EventBus.turn_ended.connect(_on_turn_ended)

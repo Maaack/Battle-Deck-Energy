@@ -101,10 +101,12 @@ func get_team(character_data : CharacterData):
 func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
 		active_character = character_data
+		EventBus.active_character_updated.emit(active_character)
 		emit_signal("active_character_updated", character_data)
 	var team : String = team_manager.get_team(character_data)
 	if active_team != team:
 		active_team = team
+		EventBus.active_team_updated.emit(active_team)
 		emit_signal("active_team_updated", active_team)
 
 func start_battle():
@@ -217,6 +219,7 @@ func on_ending_turn(character : CharacterData):
 	character_battle_manager.end_turn()
 
 func _on_CharacterBattleManager_turn_ended(character : CharacterData):
+	EventBus.turn_ended.emit(character)
 	emit_signal("turn_ended", character)
 	if character == active_character:
 		advance_character_phase()

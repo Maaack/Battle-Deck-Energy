@@ -52,15 +52,10 @@ func _on_hand_discarded(character :  CharacterData):
 		player_interface.disconnect("discard_completed", _on_hand_discarded)
 	_advance_character_phase()
 
-func _on_BattleManager_active_character_updated(character : CharacterData):
-	player_interface.mark_character_active(character)
 
 func _on_BattleManager_turn_started(character : CharacterData):
 	if character == player_character:
 		player_interface.start_turn()
-
-func _on_BattleManager_turn_ended(character : CharacterData):
-	player_interface.mark_character_inactive(character)
 
 func _on_BattleManager_before_hand_discarded(character : CharacterData):
 	if character == player_character:
