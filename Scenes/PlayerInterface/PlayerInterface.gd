@@ -302,7 +302,7 @@ func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int)
 	effect_text_instance.position = interface_offset
 	effect_text_instance.set_status_update(status, delta)
 
-func _show_status_update_over_interface(interface:ActionsInterface, status:StatusData, delta:int):
+func _show_status_update_over_interface(interface:CharacterActionsInterface, status:StatusData, delta:int):
 	var interface_center = Vector2(interface.size.x/2, interface.size.y/2)
 	var interface_offset = interface.position + interface_center
 	return _show_status_update(interface_offset, status, delta)
@@ -429,7 +429,7 @@ func play_card(character : CharacterData, card : CardData, opportunity = null):
 
 func reveal_card(character : CharacterData, card : CardData, opportunity : OpportunityData):
 	var manager_offset : Vector2 = opponent_card_manager.get_global_transform().get_origin()
-	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	var actions_interface : CharacterActionsInterface = actions_board.get_actions_instance(character)
 	if actions_interface is OpponentActionsInterface:
 		_revealed_card_opportunity_map[card] = opportunity
 		card.transform_data = actions_interface.get_reveal_transform()
@@ -457,7 +457,7 @@ func _update_status(character : CharacterData, status : StatusData, delta : int)
 		_character_statuses_map[character] = {}
 	_character_statuses_map[character][status.type_tag] = status
 	var interface = actions_board.update_status(character, status)
-	if not interface is ActionsInterface:
+	if not interface is CharacterActionsInterface:
 		return
 	_show_status_update_over_interface(interface, status, delta)
 	_recalculate_all_cards()

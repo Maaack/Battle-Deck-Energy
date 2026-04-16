@@ -27,7 +27,7 @@ func add_opponent(opponent:CharacterData):
 	return add_character_actions(opponent, opponent_actions_scene)
 
 func defeat_opponent(opponent:CharacterData):
-	var interface : ActionsInterface = get_actions_instance(opponent)
+	var interface : CharacterActionsInterface = get_actions_instance(opponent)
 	if not interface:
 		return
 	interface.defeat_character()
@@ -39,7 +39,7 @@ func get_actions_instance(character:CharacterData):
 func add_opportunity_by_character(opportunity:OpportunityData, character:CharacterData):
 	if not character in characters_map:
 		return
-	var interface : ActionsInterface = get_actions_instance(character)
+	var interface : CharacterActionsInterface = get_actions_instance(character)
 	if not interface:
 		return
 	return interface.add_opportunity(opportunity)
@@ -48,7 +48,7 @@ func remove_opportunity_by_character(opportunity:OpportunityData, character:Char
 	if not character in characters_map:
 		return
 	var actions_interface = characters_map[character]
-	if actions_interface is ActionsInterface:
+	if actions_interface is CharacterActionsInterface:
 		actions_interface.remove_opportunity(opportunity)
 
 func add_opportunity(opportunity:OpportunityData):
@@ -81,7 +81,7 @@ func remove_all_opportunities():
 	opportunities.clear()
 
 func update_status(character:CharacterData, status:StatusData):
-	var interface : ActionsInterface = get_actions_instance(character)
+	var interface : CharacterActionsInterface = get_actions_instance(character)
 	if not is_instance_valid(interface):
 		return
 	interface.update_status(status)
