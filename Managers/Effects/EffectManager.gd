@@ -325,6 +325,10 @@ func add_all_opportunities(type : int, source : CharacterData, target : Characte
 			opportunities_manager.add_opportunity(type, source, target)
 	match(type):
 		CardData.CardType.ATTACK:
+			var enraged_status : StatusData = source_battle_manager.get_status(EffectCalculator.ENRAGED_STATUS)
+			if enraged_status != null:
+				for _i in range(enraged_status.get_stack_value()):
+					opportunities_manager.add_opportunity(CardData.CardType.ATTACK, source, target)
 			var engaging_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.ENGAGING_STATUS, target, false)
 			if engaging_status != null:
 				for _i in range(engaging_status.get_stack_value()):
@@ -352,6 +356,9 @@ func add_all_opportunities(type : int, source : CharacterData, target : Characte
 func set_starting_energy(character_battle_manager : CharacterBattleManager):
 	var base_energy = character_battle_manager.starting_energy - character_battle_manager.current_energy
 	var character = character_battle_manager.character_data
+	var cindering_status : StatusData = character_battle_manager.get_status(EffectCalculator.CINDERING_STATUS)
+	if cindering_status != null:
+		base_energy += 1
 	var charged_status : StatusData = character_battle_manager.get_status(EffectCalculator.CHARGED_STATUS)
 	if charged_status != null:
 		base_energy += charged_status.get_stack_value()

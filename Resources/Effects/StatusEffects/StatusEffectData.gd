@@ -3,7 +3,7 @@ extends EffectData
 
 class_name StatusEffectData
 
-@export var starting_statuses : Array = []: set = set_starting_statuses
+@export var starting_statuses : Array[StatusData] = []: set = set_starting_statuses
 
 var statuses = []
 

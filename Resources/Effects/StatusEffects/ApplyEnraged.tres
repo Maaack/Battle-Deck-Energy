@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://drf2hhli0m0uw"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_adnv2"]
+[ext_resource type="Resource" uid="uid://dovx7sbt4o7wm" path="res://Resources/Statuses/Enraged.tres" id="2_adnv2"]
+
+[resource]
+script = ExtResource("1_adnv2")
+starting_statuses = [ExtResource("2_adnv2")]
+type_tag = "APPLY_ENRAGED"
+amount = 1

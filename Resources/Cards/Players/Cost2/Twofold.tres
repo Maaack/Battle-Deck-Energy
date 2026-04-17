@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://botsqhwm8pws1"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_c1y4m"]
 [ext_resource type="Resource" uid="uid://b4le0k7isfqy5" path="res://Resources/Effects/CardEffects/DoubleMarkedEnemiesEffect.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://dd323be0fl7e1" path="res://Assets/Mixed/CardIcons/SkillGlowNew/target-arrows.png" id="3"]
 
@@ -11,5 +12,5 @@ description = "Double the amount of Marked on all enemies."
 energy_cost = 2
 icon = ExtResource("3")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("2")]
+effects = Array[ExtResource("1_c1y4m")]([ExtResource("2")])
 type = 3
