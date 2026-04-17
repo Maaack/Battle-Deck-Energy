@@ -141,18 +141,6 @@ func _on_exhaust_pile_pressed():
 	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
-func _on_PlayerInterface_card_inspected(card):
-	emit_signal("card_inspected", card)
-
-func _on_PlayerInterface_card_forgotten(card):
-	emit_signal("card_forgotten", card)
-
-func _on_PlayerInterface_status_inspected(status_icon):
-	emit_signal("status_inspected", status_icon)
-
-func _on_PlayerInterface_status_forgotten(status_icon):
-	emit_signal("status_forgotten", status_icon)
-
 func _ready():
 	EventBus.draw_pile_pressed.connect(_on_draw_pile_pressed)
 	EventBus.discard_pile_pressed.connect(_on_discard_pile_pressed)

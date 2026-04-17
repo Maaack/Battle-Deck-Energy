@@ -8,10 +8,6 @@ signal drawing_completed
 signal discard_completed
 signal card_played(card)
 signal card_played_on_opportunity(card, opportunity)
-signal card_inspected(card)
-signal card_forgotten(card)
-signal status_inspected(status_icon)
-signal status_forgotten(status_icon)
 
 enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
@@ -51,15 +47,11 @@ func set_player_data(value:CharacterData):
 		actions_board.player_data = player_data
 		var interface : CharacterActionsInterface = actions_board.get_actions_instance(player_data)
 		interface.connect("update_opportunity", _on_CardContainer_update_opportunity)
-		interface.connect("status_inspected", _on_StatusIcon_inspected)
-		interface.connect("status_forgotten", _on_StatusIcon_forgotten)
 
 func add_opponent(opponent:CharacterData):
 	PersistentData.log_battle_action("Opponent added %s" % opponent.nickname)
 	var interface  : CharacterActionsInterface = actions_board.add_opponent(opponent)
 	interface.connect("update_opportunity", _on_CardContainer_update_opportunity)
-	interface.connect("status_inspected", _on_StatusIcon_inspected)
-	interface.connect("status_forgotten", _on_StatusIcon_forgotten)
 	return interface
 
 func set_draw_pile_count(count:int):
@@ -491,15 +483,3 @@ func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 
 func _on_BattleAnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
-
-func _on_inspected_on_card(card_node:CardNode2D):
-	emit_signal("card_inspected", card_node)
-
-func _on_inspected_off_card(card_node:CardNode2D):
-	emit_signal("card_forgotten", card_node)
-
-func _on_StatusIcon_inspected(status_icon:StatusIcon):
-	emit_signal("status_inspected", status_icon)
-
-func _on_StatusIcon_forgotten(status_icon:StatusIcon):
-	emit_signal("status_forgotten", status_icon)

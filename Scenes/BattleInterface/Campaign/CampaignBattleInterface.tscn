@@ -23,12 +23,8 @@ layout_mode = 1
 
 [node name="CampaignBattleManager" parent="." unique_id=589832070 instance=ExtResource("3")]
 
-[connection signal="card_forgotten" from="PlayerInterface" to="." method="_on_PlayerInterface_card_forgotten"]
-[connection signal="card_inspected" from="PlayerInterface" to="." method="_on_PlayerInterface_card_inspected"]
 [connection signal="card_played" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played"]
 [connection signal="card_played_on_opportunity" from="PlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
-[connection signal="status_forgotten" from="PlayerInterface" to="." method="_on_PlayerInterface_status_forgotten"]
-[connection signal="status_inspected" from="PlayerInterface" to="." method="_on_PlayerInterface_status_inspected"]
 [connection signal="before_hand_discarded" from="CampaignBattleManager" to="." method="_on_BattleManager_before_hand_discarded"]
 [connection signal="before_hand_drawn" from="CampaignBattleManager" to="." method="_on_BattleManager_before_hand_drawn"]
 [connection signal="card_added_to_hand" from="CampaignBattleManager" to="." method="_on_BattleManager_card_added_to_hand"]

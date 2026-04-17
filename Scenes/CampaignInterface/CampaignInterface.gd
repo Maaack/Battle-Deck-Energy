@@ -32,8 +32,6 @@ var campaign_seed : int
 
 func _attach_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
-	deck_viewer.connect("card_inspected", Callable(self, "_on_Card_inspected"))
-	deck_viewer.connect("card_forgotten", Callable(self, "_on_Card_forgotten"))
 	deck_viewer.connect("back_pressed", Callable(self, "_remove_deck_view").bind(deck_viewer))
 
 func start_battle(current_level:BattleLevelData):
@@ -47,10 +45,6 @@ func start_battle(current_level:BattleLevelData):
 	battle_interface.connect("player_lost", Callable(self, "_on_BattleInterface_player_lost"))
 	battle_interface.connect("player_won", Callable(self, "_on_BattleInterface_player_won"))
 	battle_interface.connect("view_deck_pressed", Callable(self, "_on_ViewDeck_pressed"))
-	battle_interface.connect("card_inspected", Callable(self, "_on_Card_inspected"))
-	battle_interface.connect("card_forgotten", Callable(self, "_on_Card_forgotten"))
-	battle_interface.connect("status_inspected", Callable(self, "_on_StatusIcon_inspected"))
-	battle_interface.connect("status_forgotten", Callable(self, "_on_StatusIcon_forgotten"))
 	battle_interface.add_character(player_data, PLAYER_TEAM)
 	for opponent in current_level.opponents:
 		battle_interface.add_character(opponent.duplicate(), ENEMY_TEAM)
@@ -212,12 +206,6 @@ func _on_ViewDeck_pressed(deck:Array):
 	get_tree().paused = true
 	_attach_deck_view(deck_view)
 	deck_view.deck = deck
-
-func _on_Card_inspected(card_node):
-	tooltip_manager.inspect_card(card_node)
-
-func _on_Card_forgotten(_card_node):
-	tooltip_manager.reset()
 
 func _on_StatusIcon_inspected(status_icon):
 	tooltip_manager.inspect_status(status_icon)
