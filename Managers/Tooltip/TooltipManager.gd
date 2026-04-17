@@ -2,15 +2,16 @@ extends Control
 
 
 var tooltip_list_scene = preload("res://Scenes/TooltipList/TooltipList.tscn")
-var definition_library = preload("res://Resources/Common/DefinitionLibrary.tres")
 
 @export var list_position_margin: float = 132
+@onready var file_lister = $FileLister
 
 var key_definition_map : Dictionary = {}
 
 func _reset_key_definition_map():
 	key_definition_map.clear()
-	for definition_data in definition_library.data.values():
+	for path in file_lister.files:
+		var definition_data = load(path)
 		if definition_data is DefinitionData:
 			key_definition_map[definition_data.key] = definition_data
 
