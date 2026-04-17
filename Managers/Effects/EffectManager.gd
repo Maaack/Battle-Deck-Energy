@@ -246,57 +246,76 @@ func resolve_on_play(card:CardData, character:CharacterData, character_manager_m
 				continue
 			_resolve_self_effects(effect, character, character_manager_map)
 
-func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
+func _get_matching_opportunities(opportunity:OpportunityData) -> Array[OpportunityData]:
+	return opportunities_manager.get_matching_opportunities(opportunity.type, opportunity.source, opportunity.target)
+
+func _resolve_card_effect(effect:EffectData, opportunity:OpportunityData, final_target:CharacterData, character_manager_map:Dictionary) -> void:
+	match(effect.type_tag):
+		EffectCalculator.ADD_ATTACK_EFFECT:
+			for _i in range(effect.amount):
+				opportunities_manager.add_opportunity(CardData.CardType.ATTACK, opportunity.source, final_target)
+		EffectCalculator.ADD_DEFEND_EFFECT:
+			for _i in range(effect.amount):
+				opportunities_manager.add_opportunity(CardData.CardType.DEFEND, opportunity.source, final_target)
+		EffectCalculator.ADD_SKILL_EFFECT:
+			for _i in range(effect.amount):
+				opportunities_manager.add_opportunity(CardData.CardType.SKILL, opportunity.source, final_target)
+		EffectCalculator.DRAW_CARD_EFFECT:
+			emit_signal("draw_from_draw_pile", final_target, effect.amount)
+		EffectCalculator.GAIN_ENERGY_EFFECT:
+			emit_signal("apply_energy", final_target, effect.amount, opportunity.source)
+		EffectCalculator.LOSE_ENERGY_EFFECT:
+			emit_signal("apply_energy", final_target, -(effect.amount), opportunity.source)
+		EffectCalculator.INTERRUPT_EFFECT:
+			_resolve_interrupt_statuses(StatusManager.CycleMode.BUFFS, final_target, character_manager_map)
+		EffectCalculator.MARKED_DAMAGE_EFFECT:
+			_resolve_related_status_type_damage(EffectCalculator.MARKED_STATUS, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.DOUBLE_MARKED_EFFECT:
+			_resolve_modify_related_status_type(EffectCalculator.MARKED_STATUS, 2, effect.type_tag, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.CURE_POISONED_EFFECT:
+			_resolve_modify_status_type(EffectCalculator.POISONED_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.CURE_VULNERABLE_EFFECT:
+			_resolve_modify_status_type(EffectCalculator.VULNERABLE_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.CURE_FRAGILE_EFFECT:
+			_resolve_modify_status_type(EffectCalculator.FRAGILE_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.CURE_WEAK_EFFECT:
+			_resolve_modify_status_type(EffectCalculator.WEAK_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.SHIELD_ATTACK_EFFECT:
+			_resolve_source_status_type_damage(EffectCalculator.DEFENSE_STATUS, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.HALF_DEFEND_TO_BARRICADED:
+			_resolve_status_to_status(EffectCalculator.DEFENSE_STATUS, barricaded_status_resource, opportunity.source, final_target, character_manager_map, 0.5)
+		EffectCalculator.DEFEND_TO_BARRICADED:
+			_resolve_status_to_status(EffectCalculator.DEFENSE_STATUS, barricaded_status_resource, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.SMASH_ATTACK_EFFECT:
+			_resolve_smash_damage(effect, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.ATTACK_EFFECT:
+			_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
+	if effect is StatusEffectData:
+		_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
+	if effect is DeckModEffectData:
+		_resolve_deck_mod(effect, final_target)
+
+func _resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
 	for effect in card.effects:
-		if effect is EffectData:
-			if not effect.applies_on_play():
-				continue
-			var final_targets = _resolve_opportunity_effect_targets(opportunity, effect)
-			for final_target in final_targets:
-				match(effect.type_tag):
-					EffectCalculator.ADD_ATTACK_EFFECT:
-						for _i in range(effect.amount):
-							opportunities_manager.add_opportunity(CardData.CardType.ATTACK, opportunity.source, final_target)
-					EffectCalculator.ADD_DEFEND_EFFECT:
-						for _i in range(effect.amount):
-							opportunities_manager.add_opportunity(CardData.CardType.DEFEND, opportunity.source, final_target)
-					EffectCalculator.ADD_SKILL_EFFECT:
-						for _i in range(effect.amount):
-							opportunities_manager.add_opportunity(CardData.CardType.SKILL, opportunity.source, final_target)
-					EffectCalculator.DRAW_CARD_EFFECT:
-						emit_signal("draw_from_draw_pile", final_target, effect.amount)
-					EffectCalculator.GAIN_ENERGY_EFFECT:
-						emit_signal("apply_energy", final_target, effect.amount, opportunity.source)
-					EffectCalculator.LOSE_ENERGY_EFFECT:
-						emit_signal("apply_energy", final_target, -(effect.amount), opportunity.source)
-					EffectCalculator.INTERRUPT_EFFECT:
-						_resolve_interrupt_statuses(StatusManager.CycleMode.BUFFS, final_target, character_manager_map)
-					EffectCalculator.MARKED_DAMAGE_EFFECT:
-						_resolve_related_status_type_damage(EffectCalculator.MARKED_STATUS, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.DOUBLE_MARKED_EFFECT:
-						_resolve_modify_related_status_type(EffectCalculator.MARKED_STATUS, 2, effect.type_tag, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.CURE_POISONED_EFFECT:
-						_resolve_modify_status_type(EffectCalculator.POISONED_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.CURE_VULNERABLE_EFFECT:
-						_resolve_modify_status_type(EffectCalculator.VULNERABLE_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.CURE_FRAGILE_EFFECT:
-						_resolve_modify_status_type(EffectCalculator.FRAGILE_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.CURE_WEAK_EFFECT:
-						_resolve_modify_status_type(EffectCalculator.WEAK_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.SHIELD_ATTACK_EFFECT:
-						_resolve_source_status_type_damage(EffectCalculator.DEFENSE_STATUS, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.HALF_DEFEND_TO_BARRICADED:
-						_resolve_status_to_status(EffectCalculator.DEFENSE_STATUS, barricaded_status_resource, opportunity.source, final_target, character_manager_map, 0.5)
-					EffectCalculator.DEFEND_TO_BARRICADED:
-						_resolve_status_to_status(EffectCalculator.DEFENSE_STATUS, barricaded_status_resource, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.SMASH_ATTACK_EFFECT:
-						_resolve_smash_damage(effect, opportunity.source, final_target, character_manager_map)
-					EffectCalculator.ATTACK_EFFECT:
-						_resolve_damage(effect, opportunity.source, final_target, character_manager_map)
-				if effect is StatusEffectData:
-					_resolve_statuses(effect, opportunity.source, final_target, character_manager_map)
-				if effect is DeckModEffectData:
-					_resolve_deck_mod(effect, final_target)
+		if not effect.applies_on_play():
+			continue
+		var final_targets = _resolve_opportunity_effect_targets(opportunity, effect)
+		for final_target in final_targets:
+			_resolve_card_effect(effect, opportunity, final_target, character_manager_map)
+	opportunities_manager.remove_opportunity_instance(opportunity)
+
+func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
+	var matching_opportuntities := _get_matching_opportunities(opportunity)
+	var max_combo := matching_opportuntities.size()
+	var final_combo := 1
+	for effect in card.effects:
+		if effect.type_tag == EffectCalculator.MAX_COMBO_EFFECT:
+			final_combo = max_combo
+		elif effect.type_tag == EffectCalculator.COMBO_EFFECT:
+			final_combo = min(max_combo, effect.amount)
+	for i in range(final_combo):
+		var next_opportunity:OpportunityData = matching_opportuntities.pop_back()
+		_resolve_on_play_opportunity(card, next_opportunity, character_manager_map)
 
 func add_all_opportunities(type : int, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
 	var source_battle_manager : CharacterBattleManager = character_manager_map[source]

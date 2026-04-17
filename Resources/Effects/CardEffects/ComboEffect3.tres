@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://cg8r3gh65a3fu"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_y2cfa"]
+
+[resource]
+script = ExtResource("1_y2cfa")
+type_tag = "COMBO_EFFECT"
+amount = 3

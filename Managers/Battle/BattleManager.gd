@@ -198,7 +198,6 @@ func _on_CharacterBattleManager_card_played(character : CharacterData, card:Card
 	PersistentData.log_battle_action("`%s` plays `%s` on `%s` target `%s`" % [character.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	emit_signal("card_played", character, card, opportunity)
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
-	opportunities_manager.remove_opportunity_instance(opportunity)
 	_discard_or_exhaust_card(character, card)
 	
 func _on_CharacterBattleManager_card_revealed(character : CharacterData, card : CardData, opportunity : OpportunityData):

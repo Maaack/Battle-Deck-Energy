@@ -18,7 +18,6 @@ func add_player(player_id : int, character_data : CharacterData, team : String):
 	var card = card_library.data[card_key]
 	PersistentData.log_battle_action("`%s` plays `%s` on `%s` target `%s`" % [card_player.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
-	opportunities_manager.remove_opportunity_instance(opportunity)
 
 @rpc("any_peer", "call_local") func _remote_on_turn_ended(player_id : int):
 	var character : CharacterData = Network.get_player_character(player_id)
