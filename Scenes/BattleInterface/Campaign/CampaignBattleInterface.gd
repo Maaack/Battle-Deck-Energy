@@ -4,8 +4,9 @@ extends BattleInterface
 func _ready():
 	battle_manager = $CampaignBattleManager
 	player_interface = $PlayerInterface
+	EventBus.turn_started.connect(_on_turn_started)
 
-func _on_BattleManager_turn_started(character : CharacterData):
+func _on_turn_started(character : CharacterData):
 	if character == player_character:
 		player_interface.start_turn()
 	else:

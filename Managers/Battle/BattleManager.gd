@@ -16,7 +16,6 @@ signal status_updated(character, status, delta)
 signal character_died(character)
 signal before_hand_discarded(character)
 signal before_hand_drawn(character)
-signal turn_started(character)
 signal team_lost(team)
 signal team_won(team)
 
@@ -323,7 +322,7 @@ func _on_EffectManager_spawn_card(card, character):
 	emit_signal("card_spawned", character, card)
 
 func _on_Playing_phase_entered():
-	emit_signal("turn_started", active_character)
+	EventBus.turn_started.emit(active_character)
 
 func _on_DiscardingCards_phase_entered():
 	_end_character_turn(active_character)
