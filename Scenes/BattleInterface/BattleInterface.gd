@@ -6,10 +6,6 @@ class_name BattleInterface
 signal player_won
 signal player_lost
 signal view_deck_pressed(deck)
-signal card_inspected(card_node)
-signal card_forgotten(card_node)
-signal status_inspected(status_icon)
-signal status_forgotten(status_icon)
 
 @onready var battle_end_timer = $BattleEndDelayTimer
 
