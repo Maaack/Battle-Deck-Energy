@@ -108,6 +108,7 @@ func reset_end_turn():
 func _ready():
 	animation_queue.delay_timer()
 	EventBus.opportunity_removed.connect(_on_opportunity_removed)
+	EventBus.opportunities_reset.connect(_on_opportunities_reset)
 	EventBus.turn_ended.connect(_on_turn_ended)
 
 func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
@@ -317,6 +318,9 @@ func start_round():
 func _on_opportunity_removed(opportunity:OpportunityData):
 	if _nearest_opportunity == opportunity:
 		_nearest_opportunity = null
+
+func _on_opportunities_reset():
+	_nearest_opportunity = null
 
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:
