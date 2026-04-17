@@ -3,7 +3,6 @@ extends Control
 
 class_name PlayerInterface
 
-signal ending_turn
 signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
@@ -45,6 +44,7 @@ func set_player_data(value:CharacterData):
 	player_data = value
 	PersistentData.log_battle_action("Add player with %d health" % player_data.health)
 	if is_instance_valid(player_data):
+		player_board.player_data = player_data
 		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_draw_pile_size(player_data.deck_size())
 		PersistentData.log_battle_action("Starting at %d draw size" % player_data.deck_size())
@@ -116,6 +116,7 @@ func reset_end_turn():
 func _ready():
 	animation_queue.delay_timer()
 	EventBus.opportunity_removed.connect(_on_opportunity_removed)
+	EventBus.turn_ended.connect(_on_turn_ended)
 
 func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card_manager.move_card(card_data, transform, 0.1)
@@ -244,8 +245,7 @@ func _on_card_animation_started(animation:CardAnimationData):
 func _on_status_animation_started(animation:StatusAnimationData):
 	_update_status(animation.character_data, animation.status_data, animation.delta)
 
-func _player_ends_turn():
-	emit_signal("ending_turn")
+func _on_turn_ended(_character_data:CharacterData):
 	hand_manager.spread_from_mouse_flag = false
 	card_manager.active = false
 
@@ -474,9 +474,6 @@ func update_status(character : CharacterData, status : StatusData, delta : int):
 			return
 	animation_queue.animate_status(character, status, delta)
 
-func _on_PlayerBoard_ending_turn():
-	_player_ends_turn()
-
 func _on_PlayerInterface_resized():
 	if $ResizeTimer.is_inside_tree():
 		$ResizeTimer.start()
@@ -485,9 +482,6 @@ func _on_ResizeTimer_timeout():
 	var all_opportunities = actions_board.get_all_opportunities()
 	for opportunity in all_opportunities:
 		_on_CardContainer_update_opportunity(opportunity, actions_board.get_opportunity_container(opportunity))
-
-func _on_EndTurnTimer_timeout():
-	_player_ends_turn()
 
 func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 	if animation_data is CardAnimationData:

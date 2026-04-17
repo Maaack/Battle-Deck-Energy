@@ -116,9 +116,6 @@ func _duplicate_array_contents(values:Array):
 func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
 	battle_manager.on_card_played(player_character, card, opportunity)
 
-func _on_PlayerInterface_ending_turn():
-	battle_manager.on_ending_turn(player_character)
-
 func _on_draw_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.draw_pile.cards.duplicate()

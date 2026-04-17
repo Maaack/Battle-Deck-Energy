@@ -39,6 +39,7 @@ var active_team
 
 func _ready():
 	effects_manager.team_manager = team_manager
+	EventBus.turn_ended.connect(_on_turn_ended)
 
 func _new_character_manager_instance(character_data : CharacterData, team : String):
 	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instantiate()
@@ -62,7 +63,6 @@ func _connect_character_battle_manager(character_battle_manager : CharacterBattl
 	character_battle_manager.connect("character_died", _on_CharacterBattleManager_character_died)
 	character_battle_manager.connect("status_updated", _on_CharacterBattleManager_status_updated)
 	character_battle_manager.connect("related_status_changed", _on_CharacterBattleManager_related_status_changed)
-	character_battle_manager.connect("turn_ended", _on_CharacterBattleManager_turn_ended)
 
 func add_character(character_data : CharacterData, team : String):
 	if character_data in _character_manager_map:
@@ -205,12 +205,7 @@ func _on_CharacterBattleManager_card_revealed(character : CharacterData, card : 
 	PersistentData.log_battle_action("`%s` reveals `%s` on `%s` target `%s`" % [character.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	emit_signal("card_revealed", character, card, opportunity)
 
-func on_ending_turn(character : CharacterData):
-	var character_battle_manager : CharacterBattleManager = _character_manager_map[character]
-	character_battle_manager.end_turn()
-
-func _on_CharacterBattleManager_turn_ended(character : CharacterData):
-	EventBus.turn_ended.emit(character)
+func _on_turn_ended(character : CharacterData):
 	if character == active_character:
 		advance_character_phase()
 
