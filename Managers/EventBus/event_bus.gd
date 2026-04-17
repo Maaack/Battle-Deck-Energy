@@ -23,3 +23,6 @@ signal team_won(team)
 signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
 signal opportunities_reset
+signal draw_pile_pressed
+signal discard_pile_pressed
+signal exhaust_pile_pressed

@@ -55,13 +55,13 @@ func reset_end_turn():
 	end_turn_button.reset()
 
 func _on_DrawPile_button_pressed():
-	emit_signal("draw_pile_pressed")
+	EventBus.draw_pile_pressed.emit()
 
 func _on_DiscardPile_button_pressed():
-	emit_signal("discard_pile_pressed")
+	EventBus.discard_pile_pressed.emit()
 
 func _on_ExhaustPile_button_pressed():
-	emit_signal("exhaust_pile_pressed")
+	EventBus.exhaust_pile_pressed.emit()
 
 func _on_TurnTimer_timeout():
 	end_turn_button.disable()

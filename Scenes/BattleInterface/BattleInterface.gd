@@ -119,7 +119,7 @@ func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:O
 func _on_PlayerInterface_ending_turn():
 	battle_manager.on_ending_turn(player_character)
 
-func _on_PlayerInterface_draw_pile_pressed():
+func _on_draw_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.draw_pile.cards.duplicate()
 	if deck.size() == 0:
@@ -128,7 +128,7 @@ func _on_PlayerInterface_draw_pile_pressed():
 	deck.sort()
 	emit_signal("view_deck_pressed", deck)
 
-func _on_PlayerInterface_discard_pile_pressed():
+func _on_discard_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.discard_pile.cards.duplicate()
 	if deck.size() == 0:
@@ -136,7 +136,7 @@ func _on_PlayerInterface_discard_pile_pressed():
 	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
-func _on_PlayerInterface_exhaust_pile_pressed():
+func _on_exhaust_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.exhaust_pile.cards.duplicate()
 	if deck.size() == 0:
@@ -155,3 +155,8 @@ func _on_PlayerInterface_status_inspected(status_icon):
 
 func _on_PlayerInterface_status_forgotten(status_icon):
 	emit_signal("status_forgotten", status_icon)
+
+func _ready():
+	EventBus.draw_pile_pressed.connect(_on_draw_pile_pressed)
+	EventBus.discard_pile_pressed.connect(_on_discard_pile_pressed)
+	EventBus.exhaust_pile_pressed.connect(_on_exhaust_pile_pressed)

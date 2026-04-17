@@ -4,9 +4,6 @@ extends Control
 class_name PlayerInterface
 
 signal ending_turn
-signal draw_pile_pressed
-signal discard_pile_pressed
-signal exhaust_pile_pressed
 signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
@@ -479,15 +476,6 @@ func update_status(character : CharacterData, status : StatusData, delta : int):
 
 func _on_PlayerBoard_ending_turn():
 	_player_ends_turn()
-
-func _on_PlayerBoard_draw_pile_pressed():
-	emit_signal("draw_pile_pressed")
-
-func _on_PlayerBoard_discard_pile_pressed():
-	emit_signal("discard_pile_pressed")
-
-func _on_PlayerBoard_exhaust_pile_pressed():
-	emit_signal("exhaust_pile_pressed")
 
 func _on_PlayerInterface_resized():
 	if $ResizeTimer.is_inside_tree():
