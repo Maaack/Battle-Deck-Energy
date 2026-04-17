@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cvahdk315iyqj" path="res://Scenes/DeckList/DeckListInterface.gd" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="4"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="8"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="8"]
 
 [node name="DeckListInterface" type="Control" unique_id=381688606]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("4")
 script = ExtResource("1")

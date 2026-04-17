@@ -13,4 +13,4 @@ script = ExtResource("1")
 key = "VENOMOUS"
 term = "Venomous"
 definition = "Applies [b]Poison[/b] equal to value on the target of a strike if undefended. Loses [b]1[/b] every turn."
-related_definitions = [SubResource("1")]
+related_definitions = Array[ExtResource("1")]([SubResource("1")])
