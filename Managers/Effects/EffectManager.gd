@@ -6,7 +6,6 @@ class_name EffectsManager
 signal apply_health(character, health, source)
 signal apply_status(character, status, origin)
 signal apply_energy(character, energy, source)
-signal add_opportunity(type, source, target)
 signal add_card_to_hand(card, character)
 signal add_card_to_draw_pile(card, character)
 signal add_card_to_discard_pile(card, character)
@@ -18,6 +17,8 @@ var poisoned_status_resource = preload("res://Resources/Statuses/Poisoned.tres")
 var riposte_status_resource = preload("res://Resources/Statuses/Riposte.tres")
 var barricaded_status_resource = preload("res://Resources/Statuses/Barricaded.tres")
 var team_manager : TeamManager
+
+@export var opportunities_manager : OpportunitiesManager
 
 func _resolve_opportunity_effect_targets(opportunity:OpportunityData, effect:EffectData):
 	var targets : Array = []
@@ -255,13 +256,13 @@ func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, cha
 				match(effect.type_tag):
 					EffectCalculator.ADD_ATTACK_EFFECT:
 						for _i in range(effect.amount):
-							emit_signal("add_opportunity", CardData.CardType.ATTACK, opportunity.source, final_target)
+							opportunities_manager.add_opportunity(CardData.CardType.ATTACK, opportunity.source, final_target)
 					EffectCalculator.ADD_DEFEND_EFFECT:
 						for _i in range(effect.amount):
-							emit_signal("add_opportunity", CardData.CardType.DEFEND, opportunity.source, final_target)
+							opportunities_manager.add_opportunity(CardData.CardType.DEFEND, opportunity.source, final_target)
 					EffectCalculator.ADD_SKILL_EFFECT:
 						for _i in range(effect.amount):
-							emit_signal("add_opportunity", CardData.CardType.SKILL, opportunity.source, final_target)
+							opportunities_manager.add_opportunity(CardData.CardType.SKILL, opportunity.source, final_target)
 					EffectCalculator.DRAW_CARD_EFFECT:
 						emit_signal("draw_from_draw_pile", final_target, effect.amount)
 					EffectCalculator.GAIN_ENERGY_EFFECT:
@@ -302,32 +303,32 @@ func add_all_opportunities(type : int, source : CharacterData, target : Characte
 	var base_opportunities : int = source_battle_manager.base_opportunities[type]
 	if base_opportunities != null:
 		for _i in range(base_opportunities):
-				emit_signal("add_opportunity", type, source, target)
+			opportunities_manager.add_opportunity(type, source, target)
 	match(type):
 		CardData.CardType.ATTACK:
 			var engaging_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.ENGAGING_STATUS, target, false)
 			if engaging_status != null:
 				for _i in range(engaging_status.get_stack_value()):
-					emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
+					opportunities_manager.add_opportunity(CardData.CardType.ATTACK, source, target)
 			var marking_status : StatusData = source_battle_manager.get_related_status(EffectCalculator.MARKING_STATUS, target, false)
 			if marking_status != null:
-				emit_signal("add_opportunity", CardData.CardType.ATTACK, source, target)
+				opportunities_manager.modify_opportunities(CardData.CardType.ATTACK, source, target, 2.0)
 		CardData.CardType.DEFEND:
 			var reinforced_status : StatusData = source_battle_manager.get_status(EffectCalculator.REINFORCED_STATUS)
 			if reinforced_status != null:
 				for _i in range(reinforced_status.get_stack_value()):
-					emit_signal("add_opportunity", CardData.CardType.DEFEND, source, target)
+					opportunities_manager.add_opportunity(CardData.CardType.DEFEND, source, target)
 			var fortified_status : StatusData = source_battle_manager.get_status(EffectCalculator.FORTIFIED_STATUS)
 			if fortified_status != null:
-				emit_signal("add_opportunity", CardData.CardType.DEFEND, source, target)
+				opportunities_manager.modify_opportunities(CardData.CardType.DEFEND, source, target, 2.0)
 		CardData.CardType.SKILL:
 			var focused_status : StatusData = source_battle_manager.get_status(EffectCalculator.FOCUSED_STATUS)
 			if focused_status != null:
 				for _i in range(focused_status.get_stack_value()):
-					emit_signal("add_opportunity", CardData.CardType.SKILL, source, target)
+					opportunities_manager.add_opportunity(CardData.CardType.SKILL, source, target)
 			var planned_status : StatusData = source_battle_manager.get_status(EffectCalculator.PLANNED_STATUS)
 			if planned_status != null:
-				emit_signal("add_opportunity", CardData.CardType.SKILL, source, target)
+				opportunities_manager.modify_opportunities(CardData.CardType.SKILL, source, target, 2.0)
 
 func set_starting_energy(character_battle_manager : CharacterBattleManager):
 	var base_energy = character_battle_manager.starting_energy - character_battle_manager.current_energy

@@ -19,9 +19,6 @@ signal before_hand_drawn(character)
 signal turn_started(character)
 signal team_lost(team)
 signal team_won(team)
-signal opportunity_added(opportunity)
-signal opportunity_removed(opportunity)
-signal opportunities_reset
 
 @onready var advance_phase_timer : Timer = $AdvancePhaseTimer
 @onready var advance_action_timer : Timer = $AdvanceActionTimer
@@ -202,7 +199,7 @@ func _on_CharacterBattleManager_card_played(character : CharacterData, card:Card
 	PersistentData.log_battle_action("`%s` plays `%s` on `%s` target `%s`" % [character.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	emit_signal("card_played", character, card, opportunity)
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
-	opportunities_manager.remove_opportunity(opportunity)
+	opportunities_manager.remove_opportunity_instance(opportunity)
 	_discard_or_exhaust_card(character, card)
 	
 func _on_CharacterBattleManager_card_revealed(character : CharacterData, card : CardData, opportunity : OpportunityData):
@@ -304,9 +301,6 @@ func _on_EffectManager_apply_status(character, status, origin):
 func _on_EffectManager_apply_energy(character, energy, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_energy(energy)
-
-func _on_EffectManager_add_opportunity(type, source, target):
-	opportunities_manager.add_opportunity(type, source, target)
 
 func _on_EffectManager_add_card_to_hand(card, character):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
