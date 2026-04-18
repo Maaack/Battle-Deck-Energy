@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ds8dvodm74c0k" path="res://Resources/Common/CommonData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://8ck6x1stgvtv" path="res://Resources/Cards/StressCards/Soreness.tres" id="2"]
-[ext_resource type="Resource" uid="uid://c4pm3n350pv51" path="res://Resources/Cards/Players/Cost2/TheWall.tres" id="3"]
+[ext_resource type="Resource" uid="uid://c4pm3n350pv51" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="3"]
 [ext_resource type="Resource" uid="uid://d3pvn0c7lyfal" path="res://Resources/Cards/StressCards/Intimidated.tres" id="4"]
 [ext_resource type="Resource" uid="uid://cquh66dg2w5s7" path="res://Resources/Cards/Players/Cost3/DeathBlow.tres" id="5"]
-[ext_resource type="Resource" uid="uid://nlnlu7eguwa3" path="res://Resources/Cards/Players/Cost2/Impenetrable.tres" id="6"]
+[ext_resource type="Resource" uid="uid://nlnlu7eguwa3" path="res://Resources/Cards/Players/Cost3/Impenetrable.tres" id="6"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="7"]
 [ext_resource type="Resource" uid="uid://c0og5x4s4kd1v" path="res://Resources/Cards/Players/Cost2/Ironclad.tres" id="8"]
 [ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="9"]
@@ -100,7 +100,7 @@
 [ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="98"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="99"]
 [ext_resource type="Resource" uid="uid://bhhsysump54kp" path="res://Resources/Cards/Players/Cost0/Cut.tres" id="100"]
-[ext_resource type="Resource" uid="uid://8oj3iqg65huy" path="res://Resources/Cards/Players/Cost2/Castle.tres" id="101"]
+[ext_resource type="Resource" uid="uid://8oj3iqg65huy" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="101"]
 
 [resource]
 script = ExtResource("1")

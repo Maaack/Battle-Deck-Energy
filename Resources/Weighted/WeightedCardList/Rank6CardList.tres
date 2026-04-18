@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
 [ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="2"]
-[ext_resource type="Resource" uid="uid://c4pm3n350pv51" path="res://Resources/Cards/Players/Cost2/TheWall.tres" id="3"]
+[ext_resource type="Resource" uid="uid://c4pm3n350pv51" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="3"]
 [ext_resource type="Resource" uid="uid://cquh66dg2w5s7" path="res://Resources/Cards/Players/Cost3/DeathBlow.tres" id="4"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="5"]
 [ext_resource type="Resource" uid="uid://bd381tanlmxa7" path="res://Resources/Cards/Players/Cost2/Unlucky.tres" id="6"]

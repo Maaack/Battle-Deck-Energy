@@ -1,16 +1,21 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://0jpth2uj0eoj"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_4fjhc"]
 [ext_resource type="Texture2D" uid="uid://7uyvrxegcwa5" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/lightning-shield.png" id="2"]
 [ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://dbc20n07ruln2" path="res://Resources/Effects/DeckModEffects/AddBurst.tres" id="3_y5jkj"]
 [ext_resource type="Resource" uid="uid://5n1l08mgscd2" path="res://Resources/Effects/StatusEffects/DefendEffect12.tres" id="4"]
 
 [resource]
 script = ExtResource("1")
 title = "Lightning Shield"
-description = "Block %DEFEND Damage and draw %DRAW_CARD cards."
+description = "Block %DEFEND Damage.
+Add %ADD_BURST Burst to draw pile.
+Draw %DRAW_CARD cards.
+"
 energy_cost = 2
 icon = ExtResource("2")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = [ExtResource("4"), ExtResource("3"), ExtResource("3")]
+effects = Array[ExtResource("1_4fjhc")]([ExtResource("4"), ExtResource("3_y5jkj"), ExtResource("3_y5jkj"), ExtResource("3")])
 type = 2

@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b7qimkkuutefs"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_36c4u"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_87w8w"]
 [ext_resource type="Resource" uid="uid://le2c7cmsvoog" path="res://Resources/Effects/CardEffects/DefendToBarricadedEffect.tres" id="3"]
 [ext_resource type="Resource" uid="uid://cwc7gm7ahcw8n" path="res://Resources/Effects/CardEffects/PlayAsSkillEffect.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://djl1ayrodtw8j" path="res://Assets/Mixed/CardIcons/DefendGlowNew/shield-bounces.png" id="5"]
@@ -8,9 +10,10 @@
 [resource]
 script = ExtResource("1")
 title = "Recoup"
-description = "Apply Barricaded equal to active Block.
-Can take Skill action."
+description = "Block %DEFEND Damage.
+Apply Barricaded equal to active Block.
+Can take a Skill action."
 icon = ExtResource("5")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = [ExtResource("3"), ExtResource("4")]
+effects = Array[ExtResource("1_36c4u")]([ExtResource("2_87w8w"), ExtResource("3"), ExtResource("4")])
 type = 2

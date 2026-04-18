@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d3b4x1x8s6xry"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2"]
-[ext_resource type="Resource" uid="uid://cwc7gm7ahcw8n" path="res://Resources/Effects/CardEffects/PlayAsSkillEffect.tres" id="3"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_x6q5w"]
+[ext_resource type="Resource" uid="uid://cnovhlhiapq2k" path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" id="2_x6q5w"]
 [ext_resource type="Texture2D" uid="uid://1tc14kfne0bk" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/En Garde/wingfoot.png" id="4"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="4_lp1ac"]
 [ext_resource type="Resource" uid="uid://c7wcgfunolojh" path="res://Resources/Effects/StatusEffects/ApplyHastened2.tres" id="5"]
 
 [resource]
 script = ExtResource("1")
 title = "Fast Footed"
-description = "Block %DEFEND Damage. Next turn, draw %APPLY_HASTENED extra cards.
-Can take Skill action."
+description = "Block %DEFEND Damage.
+Next turn, draw %APPLY_HASTENED extra cards.
+Momentary."
 icon = ExtResource("4")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = [ExtResource("2"), ExtResource("5"), ExtResource("3")]
+effects = Array[ExtResource("1_x6q5w")]([ExtResource("2_x6q5w"), ExtResource("5"), ExtResource("4_lp1ac")])
 type = 2

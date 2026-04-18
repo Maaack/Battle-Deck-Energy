@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bvyobrww3ksrf"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_isskn"]
+[ext_resource type="Resource" uid="uid://cnovhlhiapq2k" path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" id="2_dh005"]
+[ext_resource type="Resource" uid="uid://e2t36u3sw12p" path="res://Resources/Effects/StatusEffects/ApplyCharged2.tres" id="3_nl805"]
+[ext_resource type="Texture2D" uid="uid://cquebs3tkvd8i" path="res://Assets/Mixed/CardIcons/DefendGlowNew/fire-shield.png" id="4_isskn"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_5hg8q"]
+
+[resource]
+script = ExtResource("6_5hg8q")
+title = "Fire Shield"
+description = "Block %DEFEND Damage.
+Next turn, gain %APPLY_CHARGED Energy."
+energy_cost = 2
+icon = ExtResource("4_isskn")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_isskn")]([ExtResource("2_dh005"), ExtResource("3_nl805")])
+type = 2

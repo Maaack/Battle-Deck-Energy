@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4pm3n350pv51"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_i6xtr"]
+[ext_resource type="Resource" uid="uid://signo6m41cj7" path="res://Resources/Effects/StatusEffects/DefendEffect2.tres" id="2_cctd7"]
+[ext_resource type="Resource" uid="uid://14lom2q5h17q" path="res://Resources/Effects/StatusEffects/ApplyFortified3.tres" id="3_i6xtr"]
+[ext_resource type="Texture2D" uid="uid://sjlwqpbst5dt" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/brick-wall.png" id="4_o4euh"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_ulawn"]
+
+[resource]
+script = ExtResource("5_ulawn")
+title = "Fourth Wall"
+description = "Block %DEFEND Damage over [b]4[/b] shields.
+Next %APPLY_FORTIFIED turns, double Defend actions."
+energy_cost = 2
+icon = ExtResource("4_o4euh")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_i6xtr")]([ExtResource("2_cctd7"), ExtResource("2_cctd7"), ExtResource("2_cctd7"), ExtResource("2_cctd7"), ExtResource("3_i6xtr")])
+type = 2

@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c0og5x4s4kd1v"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_32msq"]
 [ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://5n1l08mgscd2" path="res://Resources/Effects/StatusEffects/DefendEffect12.tres" id="2_2yn78"]
 [ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3"]
-[ext_resource type="Resource" uid="uid://cnovhlhiapq2k" path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://dr5cq78igabrc" path="res://Assets/Mixed/CardIcons/DefendGlowNew/lamellar.png" id="5"]
 
 [resource]
@@ -15,5 +16,5 @@ Retain."
 energy_cost = 2
 icon = ExtResource("5")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = [ExtResource("4"), ExtResource("3"), ExtResource("2")]
+effects = Array[ExtResource("1_32msq")]([ExtResource("2_2yn78"), ExtResource("3"), ExtResource("2")])
 type = 2

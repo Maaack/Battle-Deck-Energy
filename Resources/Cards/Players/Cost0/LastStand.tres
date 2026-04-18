@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dleokjkiyfp06"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_wvmbh"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="3"]
-[ext_resource type="Resource" uid="uid://be3auf72dc73y" path="res://Resources/Effects/StatusEffects/ApplyBarricaded4.tres" id="4"]
+[ext_resource type="Resource" uid="uid://cnovhlhiapq2k" path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" id="2_1e6y6"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_wvmbh"]
 [ext_resource type="Texture2D" uid="uid://vpupd16gde3p" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/En Garde/leg-armor.png" id="5"]
 
 [resource]
 script = ExtResource("1")
 title = "Last Stand"
-description = "Block %DEFEND Damage. Next turn, block %APPLY_BARRICADED Damage.
-Exhaust."
+description = "Block %DEFEND Damage.
+Exhaust.
+Combo 2x."
 energy_cost = 0
 icon = ExtResource("5")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = [ExtResource("3"), ExtResource("4"), ExtResource("2")]
+effects = Array[ExtResource("1_wvmbh")]([ExtResource("2_1e6y6"), ExtResource("2"), ExtResource("4_wvmbh")])
 type = 2
