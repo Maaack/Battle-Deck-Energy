@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://b0kon6vqeerym"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_smqw6"]
+
+[resource]
+script = ExtResource("1_smqw6")
+type_tag = "DOUBLE_ATTACKS"
+amount = 1

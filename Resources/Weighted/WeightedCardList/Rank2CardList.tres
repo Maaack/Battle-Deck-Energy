@@ -23,7 +23,7 @@
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="25"]
 [ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="26"]
 [ext_resource type="Resource" uid="uid://c6hk41ss3g8x8" path="res://Resources/Cards/Players/Cost1/SwiftStrike.tres" id="29"]
-[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/SmoothShields.tres" id="31"]
+[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="31"]
 [ext_resource type="Resource" uid="uid://b8b05f81c4574" path="res://Resources/Cards/Players/Cost1/Break.tres" id="36"]
 
 [sub_resource type="Resource" id="1"]

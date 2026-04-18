@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://tmlagkvdcr62"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_1okxb"]
+[ext_resource type="Resource" uid="uid://dxawo0yjcf6fv" path="res://Resources/Effects/DeckModEffects/AddThrowKnife.tres" id="2_yilhl"]
+[ext_resource type="Texture2D" uid="uid://blbt3fv2iopey" path="res://Assets/Mixed/CardIcons/SkillGlowNew/thrown-daggers.png" id="3_sltcj"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_rmyir"]
+
+[resource]
+script = ExtResource("4_rmyir")
+title = "Knives Out"
+description = "Add %ADD_THROW_KNIFE Throw Knife cards to your hand."
+icon = ExtResource("3_sltcj")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_1okxb")]([ExtResource("2_yilhl"), ExtResource("2_yilhl"), ExtResource("2_yilhl")])
+type = 3

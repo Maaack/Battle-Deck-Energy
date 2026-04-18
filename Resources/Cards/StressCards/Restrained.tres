@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ygycd50chfgd"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_474hh"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
 [ext_resource type="Resource" uid="uid://be8vvx3mqagfc" path="res://Resources/Effects/CardEffects/PlayAsDefendEffect.tres" id="3"]
 [ext_resource type="Resource" uid="uid://cwc7gm7ahcw8n" path="res://Resources/Effects/CardEffects/PlayAsSkillEffect.tres" id="4"]
@@ -10,9 +11,9 @@
 [resource]
 script = ExtResource("1")
 title = "Restrained"
-description = "Takes any space.
+description = "Takes any action.
 Exhaust."
 icon = ExtResource("6")
 base_color = Color(0.345098, 0.270588, 0.388235, 1)
-effects = [ExtResource("5"), ExtResource("3"), ExtResource("4"), ExtResource("2")]
+effects = Array[ExtResource("1_474hh")]([ExtResource("5"), ExtResource("3"), ExtResource("4"), ExtResource("2")])
 type = 4

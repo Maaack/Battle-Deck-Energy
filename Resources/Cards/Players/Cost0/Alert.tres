@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cilv4un3umw3j"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_o6byf"]
 [ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="2"]
 [ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://q1avod6ob7xf" path="res://Assets/Mixed/CardIcons/SkillGlowNew/awareness.png" id="4"]
@@ -11,9 +12,10 @@ script = ExtResource("1")
 title = "Alert"
 description = "Next turn, add %APPLY_FOCUSED Skill.
 Innate.
-Retain."
+Retain. (Deprecate?)
+"
 energy_cost = 0
 icon = ExtResource("4")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("5"), ExtResource("3"), ExtResource("2")]
+effects = Array[ExtResource("1_o6byf")]([ExtResource("5"), ExtResource("3"), ExtResource("2")])
 type = 3

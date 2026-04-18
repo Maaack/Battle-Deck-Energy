@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://c6sko4fqksy14" path="res://Resources/Cards/Players/Cost1/ShieldBash.tres" id="11"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="12"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="13"]
-[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/SmoothShields.tres" id="14"]
+[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="14"]
 [ext_resource type="Resource" uid="uid://8oj3iqg65huy" path="res://Resources/Cards/Players/Cost2/Castle.tres" id="15"]
 
 [resource]

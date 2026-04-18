@@ -260,6 +260,12 @@ func _resolve_card_effect(effect:EffectData, opportunity:OpportunityData, final_
 		EffectCalculator.ADD_SKILL_EFFECT:
 			for _i in range(effect.amount):
 				opportunities_manager.add_opportunity(CardData.CardType.SKILL, opportunity.source, final_target)
+		EffectCalculator.DOUBLE_ATTACKS_EFFECT:
+			opportunities_manager.modify_opportunities(CardData.CardType.ATTACK, opportunity.source, final_target, 2.0)
+		EffectCalculator.DOUBLE_DEFENDS_EFFECT:
+			opportunities_manager.modify_opportunities(CardData.CardType.DEFEND, opportunity.source, final_target, 2.0)
+		EffectCalculator.DOUBLE_SKILLS_EFFECT:
+			opportunities_manager.modify_opportunities(CardData.CardType.SKILL, opportunity.source, final_target, 2.0)
 		EffectCalculator.DRAW_CARD_EFFECT:
 			emit_signal("draw_from_draw_pile", final_target, effect.amount)
 		EffectCalculator.GAIN_ENERGY_EFFECT:

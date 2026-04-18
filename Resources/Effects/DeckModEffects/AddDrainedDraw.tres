@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://d05dhkykipbym"]
+
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1_eq4s1"]
+[ext_resource type="Resource" uid="uid://chx18k0mvf730" path="res://Resources/Cards/StressCards/Drained.tres" id="2_7dj8c"]
+
+[resource]
+script = ExtResource("1_eq4s1")
+starting_card = ExtResource("2_7dj8c")
+destination = 1
+type_tag = "ADD_DRAINED"
+amount = 1
