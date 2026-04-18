@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1")
 starting_card = ExtResource("2")
-destination = 2
+destination = 1
 type_tag = "ADD_BURST"
 amount = 1

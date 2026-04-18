@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://ddjw3vic6k7u2"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_6vcxc"]
+
+[resource]
+script = ExtResource("1_6vcxc")
+_class_restriction = &"\"res://Resources/Statuses/StatusData.gd\""
+_scan_directory = "res://Resources/Statuses"
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://7dht25bmb3ni": &"DefenseUp",
+&"uid://b4gkpi2vqraki": &"Fortified",
+&"uid://b66lu8sr2oek3": &"Marked",
+&"uid://b83p4jnwu2a5s": &"Riposte",
+&"uid://bf3s50650x1d6": &"Marking",
+&"uid://br24khlsag28w": &"Charged",
+&"uid://bta1cbbonlulj": &"Barricaded",
+&"uid://bxg4yn8in24ru": &"Defense",
+&"uid://cclklk55mmjfj": &"Energy",
+&"uid://ccuue2kxx4vuu": &"Engaging",
+&"uid://cm74fy0x22hto": &"Poisoned",
+&"uid://cvjqqtueyjo10": &"Engaged",
+&"uid://cy0ygdjb28y1x": &"Weak",
+&"uid://cyg7dc5eavwnf": &"Durable",
+&"uid://d04atos33xxh1": &"Fragile",
+&"uid://ddop0ww60b0fu": &"Planned",
+&"uid://dkdinav1y627": &"Focused",
+&"uid://dl8jcmwd5k5o4": &"Vulnerable",
+&"uid://dovx7sbt4o7wm": &"Enraged",
+&"uid://dv2xscpjcsiwj": &"Reinforced",
+&"uid://dwwdepjhepbm8": &"Cindering",
+&"uid://eyoywnepx5ah": &"Health",
+&"uid://ognljrrnn4t5": &"Parried",
+&"uid://pjugyv7gy1u": &"Venomous",
+&"uid://plwpexs88ned": &"Strong",
+&"uid://rokmojrbs8e7": &"AttackUp",
+&"uid://teq0r2dxh3uu": &"Hastened"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"AttackUp": &"uid://rokmojrbs8e7",
+&"Barricaded": &"uid://bta1cbbonlulj",
+&"Charged": &"uid://br24khlsag28w",
+&"Cindering": &"uid://dwwdepjhepbm8",
+&"Defense": &"uid://bxg4yn8in24ru",
+&"DefenseUp": &"uid://7dht25bmb3ni",
+&"Durable": &"uid://cyg7dc5eavwnf",
+&"Energy": &"uid://cclklk55mmjfj",
+&"Engaged": &"uid://cvjqqtueyjo10",
+&"Engaging": &"uid://ccuue2kxx4vuu",
+&"Enraged": &"uid://dovx7sbt4o7wm",
+&"Focused": &"uid://dkdinav1y627",
+&"Fortified": &"uid://b4gkpi2vqraki",
+&"Fragile": &"uid://d04atos33xxh1",
+&"Hastened": &"uid://teq0r2dxh3uu",
+&"Health": &"uid://eyoywnepx5ah",
+&"Marked": &"uid://b66lu8sr2oek3",
+&"Marking": &"uid://bf3s50650x1d6",
+&"Parried": &"uid://ognljrrnn4t5",
+&"Planned": &"uid://ddop0ww60b0fu",
+&"Poisoned": &"uid://cm74fy0x22hto",
+&"Reinforced": &"uid://dv2xscpjcsiwj",
+&"Riposte": &"uid://b83p4jnwu2a5s",
+&"Strong": &"uid://plwpexs88ned",
+&"Venomous": &"uid://pjugyv7gy1u",
+&"Vulnerable": &"uid://dl8jcmwd5k5o4",
+&"Weak": &"uid://cy0ygdjb28y1x"
+})

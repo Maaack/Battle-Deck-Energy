@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DefinitionData" format=3 uid="uid://c35q4ufiy2hua"]
+
+[ext_resource type="Script" uid="uid://bb5rc5s78cwjd" path="res://Resources/Common/DefinitionData.gd" id="1_mnvkh"]
+[ext_resource type="Resource" uid="uid://dvjxmwwq12bwg" path="res://Resources/Definitions/GainEnergyDefinition.tres" id="2_v8vvv"]
+
+[resource]
+script = ExtResource("1_mnvkh")
+key = "CINDERING"
+term = "Cindering"
+definition = "Gain [b]1[/b] additional Energy on the start of the next turn.  Loses [b]1[/b] every turn."
+related_definitions = Array[ExtResource("1_mnvkh")]([ExtResource("2_v8vvv")])

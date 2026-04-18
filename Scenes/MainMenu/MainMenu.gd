@@ -31,8 +31,6 @@ func _remove_deck_view(_deck_viewer:Node):
 
 func _attach_deck_view(deck_viewer:DeckViewer):
 	window_container.add_child(deck_viewer)
-	deck_viewer.connect("card_inspected", Callable(self, "_on_Card_inspected"))
-	deck_viewer.connect("card_forgotten", Callable(self, "_on_Card_forgotten"))
 	deck_viewer.connect("back_pressed", Callable(self, "_remove_deck_view").bind(deck_viewer))
 
 func _on_ViewDeck_pressed(deck:Array):

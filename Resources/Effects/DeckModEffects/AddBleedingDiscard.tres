@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://w3d7heeeuwf7"]
+
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1_r3kvt"]
+[ext_resource type="Resource" uid="uid://vt10wlslmep1" path="res://Resources/Cards/StressCards/Bleeding.tres" id="2_fjxxn"]
+
+[resource]
+script = ExtResource("1_r3kvt")
+starting_card = ExtResource("2_fjxxn")
+destination = 2
+type_tag = "ADD_BLEEDING"
+amount = 1

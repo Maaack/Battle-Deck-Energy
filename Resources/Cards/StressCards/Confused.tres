@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bmkgwo2ib35v6"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_8vwg2"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
 [ext_resource type="Resource" uid="uid://be8vvx3mqagfc" path="res://Resources/Effects/CardEffects/PlayAsDefendEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://de06sli825pdl" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/confused.png" id="4"]
@@ -8,9 +9,9 @@
 [resource]
 script = ExtResource("1")
 title = "Confused"
-description = "Takes Defend space.
+description = "Takes a Defend action.
 Exhaust."
 icon = ExtResource("4")
 base_color = Color(0.345098, 0.270588, 0.388235, 1)
-effects = [ExtResource("3"), ExtResource("2")]
+effects = Array[ExtResource("1_8vwg2")]([ExtResource("3"), ExtResource("2")])
 type = 4

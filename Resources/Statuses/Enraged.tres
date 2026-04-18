@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://dovx7sbt4o7wm"]
+
+[ext_resource type="Texture2D" uid="uid://cdln1dovg0b35" path="res://Assets/Mixed/GoodStats/attack-up-4.png" id="1_14qno"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_nxkkn"]
+
+[resource]
+script = ExtResource("2_nxkkn")
+title = "Enraged"
+description = "Adds [b]X[/b] Attack actions to all targets next turn and depletes."
+icon = ExtResource("1_14qno")
+color = Color(0.8235294, 0.39215687, 0.44313726, 1)
+intensity = 1
+duration = 1
+type_tag = "ENRAGED"

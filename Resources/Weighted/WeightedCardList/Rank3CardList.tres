@@ -26,7 +26,7 @@
 [ext_resource type="Resource" uid="uid://c4wprnh7kf60y" path="res://Resources/Cards/Players/Cost1/Endure.tres" id="24"]
 [ext_resource type="Resource" uid="uid://c6hk41ss3g8x8" path="res://Resources/Cards/Players/Cost1/SwiftStrike.tres" id="25"]
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="26"]
-[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/SmoothShields.tres" id="27"]
+[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="27"]
 [ext_resource type="Resource" uid="uid://dydtg77tfm8e1" path="res://Resources/Cards/Players/Cost0/Subvert.tres" id="28"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="29"]
 [ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Players/Cost1/Initial.tres" id="30"]
@@ -48,7 +48,7 @@
 [ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="46"]
 [ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="47"]
 [ext_resource type="Resource" uid="uid://bkl1h7qdmu82j" path="res://Resources/Cards/Players/Cost2/ShatterDefenses.tres" id="48"]
-[ext_resource type="Resource" uid="uid://db61er2r63u1q" path="res://Resources/Cards/Players/Cost1/Discover.tres" id="49"]
+[ext_resource type="Resource" uid="uid://db61er2r63u1q" path="res://Resources/Cards/Players/Cost0/Discover.tres" id="49"]
 [ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="50"]
 
 [sub_resource type="Resource" id="1"]

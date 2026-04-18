@@ -9,9 +9,12 @@ func _play_card(card : CardData, opportunity : OpportunityData):
 	opportunity.card_data = card
 	emit_signal("card_played", character_data, card, opportunity)
 
+func _end_turn():
+	EventBus.turn_ended.emit(character_data)
+
 func take_turn(opportunities : Array):
 	if not character_data.is_alive():
-		end_turn()
+		_end_turn()
 		return
 	var weighted_hand : WeightedDataList = WeightedDataList.new()
 	for card in hand.cards:
@@ -28,5 +31,5 @@ func take_turn(opportunities : Array):
 	for opportunity in opportunities:
 		if random_card.type == opportunity.type:
 			_play_card(random_card, opportunity)
-			end_turn()
+			_end_turn()
 			return

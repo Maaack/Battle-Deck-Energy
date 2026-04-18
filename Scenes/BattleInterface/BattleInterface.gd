@@ -6,10 +6,6 @@ class_name BattleInterface
 signal player_won
 signal player_lost
 signal view_deck_pressed(deck)
-signal card_inspected(card_node)
-signal card_forgotten(card_node)
-signal status_inspected(status_icon)
-signal status_forgotten(status_icon)
 
 @onready var battle_end_timer = $BattleEndDelayTimer
 
@@ -52,15 +48,10 @@ func _on_hand_discarded(character :  CharacterData):
 		player_interface.disconnect("discard_completed", _on_hand_discarded)
 	_advance_character_phase()
 
-func _on_BattleManager_active_character_updated(character : CharacterData):
-	player_interface.mark_character_active(character)
 
 func _on_BattleManager_turn_started(character : CharacterData):
 	if character == player_character:
 		player_interface.start_turn()
-
-func _on_BattleManager_turn_ended(character : CharacterData):
-	player_interface.mark_character_inactive(character)
 
 func _on_BattleManager_before_hand_discarded(character : CharacterData):
 	if character == player_character:
@@ -95,17 +86,8 @@ func _on_BattleManager_card_spawned(character, card):
 	player_interface.new_character_card(character, card)
 	player_interface.animate_playing_card(card)
 
-func _on_BattleManager_opportunity_added(opportunity : OpportunityData):
-	player_interface.add_opportunity(opportunity)
-
-func _on_BattleManager_opportunity_removed(opportunity : OpportunityData):
-	player_interface.remove_opportunity(opportunity)
-
 func _on_BattleManager_status_updated(character : CharacterData, status : StatusData, delta : int):
 	player_interface.update_status(character, status, delta)
-
-func _on_BattleManager_opportunities_reset():
-	player_interface.remove_all_opportunities()
 
 func _on_BattleManager_team_won(team):
 	var player_team = battle_manager.get_team(player_character)
@@ -130,10 +112,7 @@ func _duplicate_array_contents(values:Array):
 func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:OpportunityData):
 	battle_manager.on_card_played(player_character, card, opportunity)
 
-func _on_PlayerInterface_ending_turn():
-	battle_manager.on_ending_turn(player_character)
-
-func _on_PlayerInterface_draw_pile_pressed():
+func _on_draw_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.draw_pile.cards.duplicate()
 	if deck.size() == 0:
@@ -142,7 +121,7 @@ func _on_PlayerInterface_draw_pile_pressed():
 	deck.sort()
 	emit_signal("view_deck_pressed", deck)
 
-func _on_PlayerInterface_discard_pile_pressed():
+func _on_discard_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.discard_pile.cards.duplicate()
 	if deck.size() == 0:
@@ -150,7 +129,7 @@ func _on_PlayerInterface_discard_pile_pressed():
 	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
-func _on_PlayerInterface_exhaust_pile_pressed():
+func _on_exhaust_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
 	var deck : Array = character_manager.exhaust_pile.cards.duplicate()
 	if deck.size() == 0:
@@ -158,14 +137,7 @@ func _on_PlayerInterface_exhaust_pile_pressed():
 	deck = _duplicate_array_contents(deck)
 	emit_signal("view_deck_pressed", deck)
 
-func _on_PlayerInterface_card_inspected(card):
-	emit_signal("card_inspected", card)
-
-func _on_PlayerInterface_card_forgotten(card):
-	emit_signal("card_forgotten", card)
-
-func _on_PlayerInterface_status_inspected(status_icon):
-	emit_signal("status_inspected", status_icon)
-
-func _on_PlayerInterface_status_forgotten(status_icon):
-	emit_signal("status_forgotten", status_icon)
+func _ready():
+	EventBus.draw_pile_pressed.connect(_on_draw_pile_pressed)
+	EventBus.discard_pile_pressed.connect(_on_discard_pile_pressed)
+	EventBus.exhaust_pile_pressed.connect(_on_exhaust_pile_pressed)

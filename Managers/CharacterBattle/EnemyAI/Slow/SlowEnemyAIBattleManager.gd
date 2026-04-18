@@ -17,7 +17,7 @@ func _play_card(card : CardData, opportunity : OpportunityData):
 
 func take_turn(opportunities : Array):
 	if not character_data.is_alive():
-		end_turn()
+		_end_turn()
 		return
 	var weighted_hand : WeightedDataList = WeightedDataList.new()
 	while (slowed_cards.size() > 0):
@@ -39,5 +39,5 @@ func take_turn(opportunities : Array):
 	for opportunity in opportunities:
 		if random_card.type == opportunity.type:
 			_play_card(random_card, opportunity)
-			end_turn()
+			_end_turn()
 			return

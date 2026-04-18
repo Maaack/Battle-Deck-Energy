@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dj47nhh2om4x"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_mp702"]
+[ext_resource type="Resource" uid="uid://bbq6njx64lo85" path="res://Resources/Effects/DeckModEffects/AddHitTheMark.tres" id="2_5ieht"]
+[ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="3_8oebv"]
+[ext_resource type="Texture2D" uid="uid://blhdxr7xu50d8" path="res://Assets/Mixed/CardIcons/SkillGlowNew/crosshair-arrow.png" id="3_mp702"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_ym511"]
+
+[resource]
+script = ExtResource("4_ym511")
+title = "Draw Arrows"
+description = "Add %ADD_HIT_THE_MARK Hit the Mark to your draw pile.
+Draw %DRAW_CARD card."
+icon = ExtResource("3_mp702")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_mp702")]([ExtResource("2_5ieht"), ExtResource("2_5ieht"), ExtResource("2_5ieht"), ExtResource("3_8oebv")])
+type = 3

@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cnmbl3y03bh1d"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddBurst.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyPlanned2.tres" id="3"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_nv2op"]
+[ext_resource type="Resource" uid="uid://dbc20n07ruln2" path="res://Resources/Effects/DeckModEffects/AddBurst.tres" id="2"]
+[ext_resource type="Resource" uid="uid://d1tnbgnnqga5w" path="res://Resources/Effects/StatusEffects/ApplyFocused2.tres" id="3_nv2op"]
 [ext_resource type="Texture2D" uid="uid://dmtwimvabl1ie" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/fire-bottle.png" id="4"]
 
 [resource]
 script = ExtResource("1")
 title = "Brew"
-description = "Add %ADD_BURST Bursts to your discard pile. Next %APPLY_PLANNED turns, add [b]1[/b] Skill."
+description = "Add %ADD_BURST Bursts to your draw pile. Next turn, add %APPLY_FOCUSED Skill actions."
 icon = ExtResource("4")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("2"), ExtResource("2"), ExtResource("3")]
+effects = Array[ExtResource("1_nv2op")]([ExtResource("2"), ExtResource("2"), ExtResource("3_nv2op")])
 type = 3

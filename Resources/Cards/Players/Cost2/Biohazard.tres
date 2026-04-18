@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cgjxstiw4bfom"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyVenomous5.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyPoisoned2.tres" id="3"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_p1wf1"]
+[ext_resource type="Resource" uid="uid://dpqt13fp5dnk5" path="res://Resources/Effects/StatusEffects/ApplyVenomous5.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cn487jiyc4u15" path="res://Resources/Effects/StatusEffects/ApplyPoisoned2.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://dknh64v8xj0p0" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Venom/biohazard.png" id="4"]
 
 [resource]
@@ -12,5 +13,5 @@ description = "Apply %APPLY_VENOMOUS Venomous and %APPLY_POISONED Poisoned."
 energy_cost = 2
 icon = ExtResource("4")
 base_color = Color(0.894118, 0.580392, 0.227451, 1)
-effects = [ExtResource("2"), ExtResource("3")]
+effects = Array[ExtResource("1_p1wf1")]([ExtResource("2"), ExtResource("3")])
 type = 3

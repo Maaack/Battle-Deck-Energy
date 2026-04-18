@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 PersistentData="*res://Managers/PersistentData/PersistentData.gd"
 Network="*res://Managers/Network/NetworkManager.gd"
 DialogWindows="*res://Scenes/DialogWindows/DialogWindows.tscn"
+EventBus="*uid://dnmavaftglimn"
 
 [display]
 

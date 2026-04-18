@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DefinitionData" format=3 uid="uid://cu1k320usa3pc"]
+
+[ext_resource type="Script" uid="uid://bb5rc5s78cwjd" path="res://Resources/Common/DefinitionData.gd" id="1_q54q2"]
+
+[resource]
+script = ExtResource("1_q54q2")
+key = "HIT_THE_MARK_CARD"
+term = "Hit The Mark Card"
+definition = "Apply [b]1[/b] Marked and deal damage equal to enemy's Marked.
+Exhaust."

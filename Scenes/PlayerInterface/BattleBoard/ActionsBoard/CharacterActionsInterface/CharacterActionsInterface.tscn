@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://ujw8b1pdmqp0"]
 
 [ext_resource type="Texture2D" uid="uid://b85umi73i5yhv" path="res://Assets/Mixed/Characters/silhouette.png" id="1"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/CharacterNicknameDynamicFont.tres" id="2"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/CardFront.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://dk8b8tp8qc3n3" path="res://Themes/Fonts/Labels/CharacterNicknameDynamicFont.tres" id="2"]
+[ext_resource type="StyleBox" uid="uid://b48p7rraigewa" path="res://Themes/StyleBoxes/CardFront.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://6v8pbe7hc20q" path="res://Managers/StatusIcons/StatusIconManager.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://ddbk7f2mihkvv" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.tscn" id="5"]
 [ext_resource type="Script" uid="uid://rxw1jwy7hsup" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://dc23quifcih1x" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.tscn" id="7"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Glows/WhiteGlowOutlineStyleBox.tres" id="8"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/StabAudioStreamPlayer2D.tscn" id="9"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ClankAudioStreamPlayer2D.tscn" id="10"]
-[ext_resource type="PackedScene" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ShieldAudioStreamPlayer2D.tscn" id="11"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/CharacterBar/CharacterBarStyleBox.tres" id="12"]
+[ext_resource type="StyleBox" uid="uid://c62mgy7kk3sd7" path="res://Themes/StyleBoxes/Glows/WhiteGlowOutlineStyleBox.tres" id="8"]
+[ext_resource type="PackedScene" uid="uid://d1vdetsw4ynm7" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/StabAudioStreamPlayer2D.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://bsn112gblkfsv" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ClankAudioStreamPlayer2D.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bl57ylf3bwkwh" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ShieldAudioStreamPlayer2D.tscn" id="11"]
+[ext_resource type="StyleBox" uid="uid://bpsiasqrktkip" path="res://Themes/StyleBoxes/CharacterBar/CharacterBarStyleBox.tres" id="12"]
 
 [node name="CharacterActionsInterface" type="Control" unique_id=331985014]
-custom_minimum_size = Vector2(244, 440)
+custom_minimum_size = Vector2(244, 445)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,11 +44,15 @@ layout_mode = 2
 texture = ExtResource("1")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1554721171]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=643537425]
@@ -130,14 +134,15 @@ theme_override_constants/margin_right = 8
 [node name="OpportunitiesContainter" parent="MarginContainer/VBoxContainer/OpeningsMargin" unique_id=1648844116 instance=ExtResource("7")]
 layout_mode = 2
 
-[node name="ActivePanel" type="Panel" parent="." unique_id=2132963861]
+[node name="ActivePanel" type="PanelContainer" parent="." unique_id=1859036958]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("8")
 
-[connection signal="status_forgotten" from="MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager" to="." method="_on_StatusIconManager_status_forgotten"]
-[connection signal="status_inspected" from="MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager" to="." method="_on_StatusIconManager_status_inspected"]
 [connection signal="update_opportunity" from="MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter" to="." method="_on_OpportunitiesContainter_update_opportunity"]

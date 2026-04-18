@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://dwwdepjhepbm8"]
+
+[ext_resource type="Texture2D" uid="uid://k1v7etm2to4b" path="res://Assets/Mixed/GoodStats2/charged_1.png" id="1_766y6"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_5k4f0"]
+
+[resource]
+script = ExtResource("2_5k4f0")
+title = "Cindering"
+description = "Adds 1 additional energy on the target's next turn."
+icon = ExtResource("1_766y6")
+color = Color(0.823529, 0.392157, 0.443137, 1)
+intensity = 1
+duration = 1
+type_tag = "CINDERING"
+stack_type = 1

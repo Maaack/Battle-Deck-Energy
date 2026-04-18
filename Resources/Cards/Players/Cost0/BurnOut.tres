@@ -1,16 +1,18 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dgjkhtpb581jm"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_bmptb"]
 [ext_resource type="Resource" uid="uid://b48j08vkxs6hu" path="res://Resources/Effects/DeckModEffects/AddDrained.tres" id="2"]
+[ext_resource type="Resource" uid="uid://e2cidplg47aq" path="res://Resources/Effects/CardEffects/GainEnergy2.tres" id="2_bmptb"]
 [ext_resource type="Texture2D" uid="uid://bsrkp4rs5qto0" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Energy/fire-silhouette.png" id="3"]
-[ext_resource type="Resource" uid="uid://cb1p6eqigmjhk" path="res://Resources/Effects/CardEffects/GainEnergy.tres" id="4"]
 
 [resource]
 script = ExtResource("1")
 title = "Burn Out"
-description = "Gain %GAIN_ENERGY Energy and add %ADD_DRAINED Drained card."
+description = "Gain %GAIN_ENERGY Energy.
+Add %ADD_DRAINED Drained to draw pile."
 energy_cost = 0
 icon = ExtResource("3")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("4"), ExtResource("2")]
+effects = Array[ExtResource("1_bmptb")]([ExtResource("2_bmptb"), ExtResource("2")])
 type = 3

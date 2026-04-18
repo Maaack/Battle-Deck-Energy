@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp3ftd85q81o3"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ktuei"]
 [ext_resource type="Resource" uid="uid://0khv7x57pdl4" path="res://Resources/Effects/StatusEffects/ApplyVulnerableOnDraw.tres" id="2"]
 [ext_resource type="Resource" uid="uid://dhqqksowvyfkq" path="res://Resources/Effects/CardEffects/UnplayableEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://dc53ur0cv2ibg" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/hit-nerve.png" id="4"]
@@ -12,5 +13,5 @@ description = "Applies %APPLY_VULNERABLE Vulnerable when drawn.
 Unplayable."
 icon = ExtResource("4")
 base_color = Color(0.345098, 0.270588, 0.388235, 1)
-effects = [ExtResource("2"), ExtResource("3")]
+effects = Array[ExtResource("1_ktuei")]([ExtResource("2"), ExtResource("3")])
 type = 4

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://byi8mktsj2j6l"]
-
-[ext_resource type="Script" uid="uid://d1g0w7mkcphct" path="res://Managers/BattleOpportunities/BattleOpportunitiesManager.gd" id="1"]
-
-[node name="BattleOpportunitiesManager" type="Node" unique_id=1622867205]
-script = ExtResource("1")

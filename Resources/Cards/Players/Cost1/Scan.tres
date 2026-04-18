@@ -1,14 +1,17 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://e7nm5b6mc1dq"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyMarkedEnemies2.tres" id="2"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_v64nx"]
+[ext_resource type="Resource" uid="uid://bv4uwi4lor7ai" path="res://Resources/Effects/StatusEffects/ApplyMarkedEnemies2.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://dcej8fs5mqan1" path="res://Assets/Mixed/CardIcons/SkillGlowNew/multiple-targets.png" id="3"]
+[ext_resource type="Resource" uid="uid://bq2vf7gq4q8mc" path="res://Resources/Effects/CardEffects/MaxComboEffect.tres" id="3_xxyw7"]
 
 [resource]
 script = ExtResource("1")
 title = "Scan"
-description = "Apply %APPLY_MARKED Marked to all enemies."
+description = "Apply %APPLY_MARKED Marked to all enemies.
+Max Combo."
 icon = ExtResource("3")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("2")]
+effects = Array[ExtResource("1_v64nx")]([ExtResource("2"), ExtResource("3_xxyw7")])
 type = 3

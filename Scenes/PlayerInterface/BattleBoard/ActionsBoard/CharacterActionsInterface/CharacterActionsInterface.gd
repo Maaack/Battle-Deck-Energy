@@ -1,4 +1,4 @@
-extends ActionsInterface
+extends Control
 
 
 class_name CharacterActionsInterface
@@ -18,6 +18,9 @@ const ARMOR_STATUS = 'DEFENSE'
 @export var stab_audio_scene: PackedScene
 @export var clank_audio_scene: PackedScene
 @export var shield_audio_scene: PackedScene
+
+var character_data : CharacterData: set = set_character_data
+var opportunities_map : Dictionary = {}
 
 func _update_nickname(nickname:String = ""):
 	nickname_label.text = nickname
@@ -60,7 +63,7 @@ func update_meters():
 	update_health()
 
 func set_character_data(value:CharacterData):
-	super.set_character_data(value)
+	character_data = value
 	update_meters()
 	_update_nickname()
 
@@ -106,12 +109,6 @@ func defeat_character():
 
 func _on_OpportunitiesContainter_update_opportunity(opportunity, container):
 	emit_signal("update_opportunity", opportunity, container)
-
-func _on_StatusIconManager_status_forgotten(status_icon):
-	emit_signal("status_forgotten", status_icon)
-
-func _on_StatusIconManager_status_inspected(status_icon):
-	emit_signal("status_inspected", status_icon)
 
 func mark_active():
 	active_panel.show()

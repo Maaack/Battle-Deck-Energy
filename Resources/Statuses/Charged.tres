@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="StatusData" format=3 uid="uid://br24khlsag28w"]
 
 [ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://k1v7etm2to4b" path="res://Assets/Mixed/GoodStats2/charged_1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c1xkkp2vx5gur" path="res://Assets/Mixed/GoodStats2/fire-ace.png" id="1_cgw4y"]
 
 [resource]
 script = ExtResource("1")
 title = "Charged"
 description = "Adds [b]X[/b] additional Energy on the next turn and depletes."
-icon = ExtResource("2")
+icon = ExtResource("1_cgw4y")
 color = Color(0.823529, 0.392157, 0.443137, 1)
 intensity = 1
 duration = 1

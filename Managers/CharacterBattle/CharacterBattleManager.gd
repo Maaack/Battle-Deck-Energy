@@ -15,7 +15,6 @@ signal card_played(character, card, opportunity)
 signal status_updated(character, status, delta)
 signal related_status_changed(character, status, origin)
 signal character_died(character)
-signal turn_ended(character)
 
 @onready var status_manager : StatusManager = $StatusManager
 @onready var iff_manager = $IFFManager
@@ -32,11 +31,12 @@ var discard_pile : DeckData = DeckData.new()
 var exhaust_pile : DeckData = DeckData.new()
 var hand : HandData = HandData.new()
 var statuses : Array = []
-@onready var base_opportunities : Dictionary = {
+var base_opportunities : Dictionary[CardData.CardType, int] = {
 	CardData.CardType.ATTACK : 3,
 	CardData.CardType.DEFEND : 3,
 	CardData.CardType.SKILL : 3,
 }
+var opportunities : Dictionary[CardData.CardType, int]
 
 func _reset_energy():
 	starting_energy = character_data.energy
@@ -177,9 +177,6 @@ func play_card(card:CardData):
 func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
 	lose_energy(card.energy_cost)
 	emit_signal("card_played", character_data, card, opportunity)
-
-func end_turn():
-	emit_signal("turn_ended", character_data)
 
 func gain_status(status:StatusData, origin:CharacterData):
 	var cycle_mode : int = StatusManager.CycleMode.NONE

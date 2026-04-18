@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4wprnh7kf60y"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="2"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_rfy58"]
+[ext_resource type="Resource" uid="uid://vyyr5tkdwbrm" path="res://Resources/Effects/StatusEffects/ApplyDurable2.tres" id="2_t4h6v"]
 [ext_resource type="Texture2D" uid="uid://dmuxcif03ej2e" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/defense-stance.png" id="3"]
-[ext_resource type="Resource" uid="uid://vhqlgwv7qdyx" path="res://Resources/Effects/StatusEffects/ApplyReinforced2.tres" id="4"]
-[ext_resource type="Resource" uid="uid://bu6qlk5qo5b0j" path="res://Resources/Effects/StatusEffects/ApplyFortified2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://il7pxs60ov42" path="res://Resources/Effects/StatusEffects/ApplyFortified.tres" id="3_kwhby"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="5_4oa48"]
 
 [resource]
 script = ExtResource("1")
 title = "Endure"
-description = "Next turn, add %APPLY_REINFORCED Defends. Next %APPLY_FORTIFIED turns, add [b]1[/b] Defend.
-Retain."
+description = "Apply %APPLY_DURABLE Durable.
+Next %APPLY_FORTIFIED turns, double Defend actions.
+Combo 2x."
 icon = ExtResource("3")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("4"), ExtResource("5"), ExtResource("2")]
+effects = Array[ExtResource("1_rfy58")]([ExtResource("2_t4h6v"), ExtResource("3_kwhby"), ExtResource("5_4oa48")])
 type = 3

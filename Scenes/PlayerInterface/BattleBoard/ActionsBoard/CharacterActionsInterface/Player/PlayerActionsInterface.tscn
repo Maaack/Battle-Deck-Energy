@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ujw8b1pdmqp0" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.tscn" id="1"]
 [ext_resource type="Script" uid="uid://7ilmcp2jcgm3" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.gd" id="2"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/CharacterBar/PlayerBarStyleBox.tres" id="3"]
+[ext_resource type="StyleBox" uid="uid://1e8yxx7y14us" path="res://Themes/StyleBoxes/CharacterBar/PlayerBarStyleBox.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://bee36ixn5r485" path="res://Assets/Mixed/Characters/silhouetteWithGlow.png" id="4"]
 
 [node name="PlayerActionsInterface" unique_id=1829578965 instance=ExtResource("1")]
@@ -36,7 +36,3 @@ grow_vertical = 2
 [node name="OpportunitiesContainter" parent="MarginContainer/VBoxContainer/OpeningsMargin" parent_id_path=PackedInt32Array(340584643) index="0" unique_id=1648844116]
 size_flags_horizontal = 6
 size_flags_vertical = 4
-
-[node name="ActivePanel" parent="." index="2" unique_id=2132963861]
-anchor_right = 0.0
-anchor_bottom = 0.0

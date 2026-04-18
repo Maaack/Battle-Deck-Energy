@@ -1,17 +1,13 @@
 extends Control
 
-
-signal ending_turn
-signal draw_pile_pressed
-signal discard_pile_pressed
-signal exhaust_pile_pressed
-
 @onready var draw_pile = $DrawPile
 @onready var discard_pile = $DiscardPile
 @onready var exhaust_pile = $ExhaustPile
 @onready var end_turn_button = $EndTurnButton
 @onready var energy_meter = $BattleDeckEnergy
 @onready var turn_timer = $TurnTimer
+
+var player_data : CharacterData
 
 func set_draw_pile_size(value:int):
 	draw_pile.count = value
@@ -40,29 +36,29 @@ func discard_card():
 func exhaust_card():
 	exhaust_pile.add_card()
 
-func signal_ending_turn():
-	emit_signal("ending_turn")
-
 func start_timer(time : int):
 	turn_timer.show()
 	turn_timer.time = time
 
-func _on_EndTurnButton_pressed():
+func end_turn():
+	end_turn_button.disable()
 	turn_timer.stop_timer()
-	signal_ending_turn()
+	EventBus.turn_ended.emit(player_data)
+
+func _on_EndTurnButton_pressed():
+	end_turn()
 
 func reset_end_turn():
 	end_turn_button.reset()
 
 func _on_DrawPile_button_pressed():
-	emit_signal("draw_pile_pressed")
+	EventBus.draw_pile_pressed.emit()
 
 func _on_DiscardPile_button_pressed():
-	emit_signal("discard_pile_pressed")
+	EventBus.discard_pile_pressed.emit()
 
 func _on_ExhaustPile_button_pressed():
-	emit_signal("exhaust_pile_pressed")
+	EventBus.exhaust_pile_pressed.emit()
 
 func _on_TurnTimer_timeout():
-	end_turn_button.disable()
-	signal_ending_turn()
+	end_turn()
