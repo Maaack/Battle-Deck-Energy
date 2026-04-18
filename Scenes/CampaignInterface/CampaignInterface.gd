@@ -189,8 +189,6 @@ func _on_BattleInterface_player_won():
 	loot_interface.connect("card_collected", Callable(self, "_on_LootPanel_card_collected"))
 	loot_interface.connect("level_completed", Callable(self, "_unload_levels_and_continue"))
 	loot_interface.connect("view_deck_pressed", Callable(self, "_on_ViewDeck_pressed"))
-	loot_interface.connect("card_inspected", Callable(self, "_on_Card_inspected"))
-	loot_interface.connect("card_forgotten", Callable(self, "_on_Card_forgotten"))
 
 func _on_LootPanel_card_collected(card:CardData):
 	if player_data is CharacterData:
