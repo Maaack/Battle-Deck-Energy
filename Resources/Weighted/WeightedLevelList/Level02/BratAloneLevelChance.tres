@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://cc1ug6kqvaxme"]
-
-[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://c8q78awfiecwn" path="res://Resources/Levels/Level02/BratAlone.tres" id="2"]
-
-[resource]
-script = ExtResource("1")
-data = ExtResource("2")

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://dc3xftr2clphu"]
-
-[ext_resource type="Resource" uid="uid://c7rgaw5yc6gr6" path="res://Resources/Cards/Players/Cost2/FlyingStrike.tres" id="1"]
-[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="2"]
-
-[resource]
-script = ExtResource("2")
-weight = 2.0
-data = ExtResource("1")

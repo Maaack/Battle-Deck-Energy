@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://bm514ijqajtvd"]
-
-[ext_resource type="Resource" uid="uid://bk0m64s3gx8f7" path="res://Resources/Cards/Players/Cost1/SpinalTap.tres" id="1"]
-[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="2"]
-
-[resource]
-script = ExtResource("2")
-weight = 4.0
-data = ExtResource("1")

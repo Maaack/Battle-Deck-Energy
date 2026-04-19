@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WeightedData" format=3 uid="uid://hm30e15moxy6"]
-
-[ext_resource type="Resource" uid="uid://cdiosqol8ia6g" path="res://Resources/Cards/Players/Cost1/Recall.tres" id="1"]
-[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="2"]
-
-[resource]
-script = ExtResource("2")
-weight = 2.0
-data = ExtResource("1")
