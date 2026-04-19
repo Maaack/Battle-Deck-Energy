@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d6e1dnrxlkdl"]
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_7yppm"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/DefendEffect32.tres" id="2_abe56"]
+[ext_resource type="Resource" uid="uid://cy6mx46fvqy8v" path="res://Resources/Effects/StatusEffects/DefendEffect32.tres" id="2_abe56"]
 [ext_resource type="Resource" uid="uid://le2c7cmsvoog" path="res://Resources/Effects/CardEffects/DefendToBarricadedEffect.tres" id="3_jwy40"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_hmbqp"]
 [ext_resource type="Texture2D" uid="uid://bfiak8ow67fdf" path="res://Assets/Mixed/CardIcons/DefendGlowNew/locked-fortress.png" id="5_cpdoc"]

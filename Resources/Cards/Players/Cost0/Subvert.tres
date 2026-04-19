@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dydtg77tfm8e1"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddShockedAll.tres" id="2"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_mbo6x"]
+[ext_resource type="Resource" uid="uid://6866f8rxfe4" path="res://Resources/Effects/DeckModEffects/AddShockedAll.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://cli3p7ppig46k" path="res://Assets/Mixed/CardIcons/AttackGlowNew/thunder-skull.png" id="3"]
 
 [resource]
@@ -11,4 +12,4 @@ description = "Add %ADD_SHOCKED Shocked to all enemy draw piles."
 energy_cost = 0
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2")]
+effects = Array[ExtResource("1_mbo6x")]([ExtResource("2")])

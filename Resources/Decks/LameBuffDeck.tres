@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="DeckData" format=3 uid="uid://cca0n4w3xcdp"]
 
 [ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1_gofa1"]
 [ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="2"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="3"]
 [ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="4"]
@@ -20,4 +21,4 @@
 script = ExtResource("1")
 title = "Wimpy Buff Deck"
 icon = ExtResource("8")
-cards = [ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("3"), ExtResource("3"), ExtResource("7"), ExtResource("6"), ExtResource("10"), ExtResource("9"), ExtResource("11"), ExtResource("15"), ExtResource("2"), ExtResource("2"), ExtResource("14"), ExtResource("12"), ExtResource("13")]
+cards = Array[ExtResource("1_gofa1")]([ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("3"), ExtResource("3"), ExtResource("7"), ExtResource("6"), ExtResource("10"), ExtResource("9"), ExtResource("11"), ExtResource("15"), ExtResource("2"), ExtResource("2"), ExtResource("14"), ExtResource("12"), ExtResource("13")])

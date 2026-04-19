@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmr1oswtwwr2n"]
 
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/DrawPileStyleBox.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://dwr5efrvkl8dl" path="res://Themes/StyleBoxes/DrawPileStyleBox.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://cim1h6c7ncu7j" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.tscn" id="2"]
 
 [node name="DrawPile" unique_id=1946238311 instance=ExtResource("2")]
@@ -10,6 +10,7 @@ anchor_right = 0.0
 offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 0.0
+grow_horizontal = 1
 grow_vertical = 0
 
 [node name="TextureRect" parent="." index="0" unique_id=652856111]

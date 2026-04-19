@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d1fsr1rtwl8gs"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_hl7fu"]
 [ext_resource type="Resource" uid="uid://3fiekefg00qt" path="res://Resources/Effects/DeckModEffects/AddSoreness.tres" id="2"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3"]
 [ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="4"]
@@ -15,4 +16,4 @@ Exhaust."
 energy_cost = 2
 icon = ExtResource("5")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("4"), ExtResource("6"), ExtResource("2"), ExtResource("3")]
+effects = Array[ExtResource("1_hl7fu")]([ExtResource("4"), ExtResource("6"), ExtResource("2"), ExtResource("3")])

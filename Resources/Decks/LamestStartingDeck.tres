@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="DeckData" format=3 uid="uid://di0wphja1u37"]
 
 [ext_resource type="Resource" uid="uid://rtag3xkufvtd" path="res://Resources/Cards/StressCards/Diffident.tres" id="1"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1_rsxo3"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="2"]
 [ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="3"]
 [ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="4"]
@@ -13,4 +14,4 @@
 script = ExtResource("4")
 title = "Lamest Starting Deck"
 icon = ExtResource("5")
-cards = [ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("2"), ExtResource("7"), ExtResource("8"), ExtResource("1"), ExtResource("1"), ExtResource("1")]
+cards = Array[ExtResource("1_rsxo3")]([ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("2"), ExtResource("7"), ExtResource("8"), ExtResource("1"), ExtResource("1"), ExtResource("1")])

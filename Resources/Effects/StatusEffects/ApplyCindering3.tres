@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_b5sig"]
 [ext_resource type="Resource" uid="uid://dwwdepjhepbm8" path="res://Resources/Statuses/Cindering.tres" id="2_6kvtu"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_hblu7"]
 
 [resource]
 script = ExtResource("1_b5sig")
-starting_statuses = [ExtResource("2_6kvtu")]
+starting_statuses = Array[ExtResource("2_hblu7")]([ExtResource("2_6kvtu")])
 type_tag = "APPLY_CINDERING"
 amount = 3

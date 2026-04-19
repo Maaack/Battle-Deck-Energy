@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dadylu0o7sls2" path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.gd" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
 
 [node name="LosePanel" type="Panel" unique_id=49376661]
 custom_minimum_size = Vector2(480, 360)

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ddbk7f2mihkvv"]
 
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Meters/HealthMeterBGStyleBox.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://boce0xrkxw2fk" path="res://Themes/StyleBoxes/Meters/HealthMeterBGStyleBox.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://chxuot77wlxoj" path="res://Assets/Mixed/GoodStats/defense-status.png" id="2"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Meters/HealthMeterStyleBox.tres" id="3"]
+[ext_resource type="StyleBox" uid="uid://dkjwhkyqctrt" path="res://Themes/StyleBoxes/Meters/HealthMeterStyleBox.tres" id="3"]
 [ext_resource type="Script" uid="uid://cabg3n8ylwyef" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.gd" id="5"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/HealthDynamicFont.tres" id="6"]
+[ext_resource type="FontFile" uid="uid://cmmqd3rw3ohec" path="res://Themes/Fonts/Labels/HealthDynamicFont.tres" id="6"]
 
 [node name="HealthMeter" type="Control" unique_id=1235231894]
 custom_minimum_size = Vector2(124, 32)

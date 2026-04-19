@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d31oof5f7b1s1"]
 
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/StatusIconDynamicText.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://cowo27m0yrtqc" path="res://Themes/Fonts/Labels/StatusIconDynamicText.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://dma61oe3u8a4u" path="res://Assets/Mixed/GoodStats/parried.png" id="2"]
 [ext_resource type="Script" uid="uid://cx4sflrnbpcvr" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.gd" id="3"]
 

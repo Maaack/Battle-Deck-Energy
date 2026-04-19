@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cl3a5d3v2gvgp"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_6d3ud"]
 [ext_resource type="Texture2D" uid="uid://4ct1345vkmgy" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/sonic-shout.png" id="2"]
 [ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="3"]
 
@@ -11,4 +12,4 @@ description = "Deal %ATTACK Damage."
 energy_cost = 0
 icon = ExtResource("2")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("3")]
+effects = Array[ExtResource("1_6d3ud")]([ExtResource("3")])

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dkwbqi4xe2urk" path="res://Assets/Mixed/DeckIcons/DiscardPile.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://cim1h6c7ncu7j" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.tscn" id="2"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/DiscardPileStyleBox.tres" id="3"]
+[ext_resource type="StyleBox" uid="uid://bllhrotpie7ku" path="res://Themes/StyleBoxes/DiscardPileStyleBox.tres" id="3"]
 
 [node name="DiscardPile" unique_id=1603256810 instance=ExtResource("2")]
 anchors_preset = 3

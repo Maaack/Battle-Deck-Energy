@@ -12,12 +12,6 @@ script = ExtResource("2")
 [node name="TextureRect" parent="MarginContainer2/CenterContainer" parent_id_path=PackedInt32Array(178578872) index="0" unique_id=1315148053]
 texture = ExtResource("4")
 
-[node name="MarginContainer" parent="." index="1" unique_id=1554721171]
-layout_mode = 1
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="MarginContainer" parent="MarginContainer/VBoxContainer/Panel" parent_id_path=PackedInt32Array(402996919) index="0" unique_id=973768258]
 layout_mode = 1
 anchors_preset = 15

@@ -9,4 +9,4 @@ script = ExtResource("1")
 key = "DEFEND_TO_BARRICADED"
 term = "Block to Barricaded"
 definition = "Requires active [b]Blocking[/b] status. Applies an equal value of [b]Barricaded[/b]."
-related_definitions = [ExtResource("3"), ExtResource("2")]
+related_definitions = Array[ExtResource("1")]([ExtResource("3"), ExtResource("2")])

@@ -266,14 +266,10 @@ vertical_alignment = 1
 [node name="AudioMenu" parent="MarginContainer/MainControl" unique_id=800970680 instance=ExtResource("15")]
 visible = false
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="DeckListInterface" parent="MarginContainer/MainControl" unique_id=416961077 instance=ExtResource("14")]
 visible = false
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="WindowContainer" type="Control" parent="." unique_id=1017996331]
 anchors_preset = 0

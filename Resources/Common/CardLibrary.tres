@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ds8dvodm74c0k" path="res://Resources/Common/CommonData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://8ck6x1stgvtv" path="res://Resources/Cards/StressCards/Soreness.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/TheWall.tres" id="3"]
 [ext_resource type="Resource" uid="uid://d3pvn0c7lyfal" path="res://Resources/Cards/StressCards/Intimidated.tres" id="4"]
 [ext_resource type="Resource" uid="uid://cquh66dg2w5s7" path="res://Resources/Cards/Players/Cost3/DeathBlow.tres" id="5"]
-[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/Impenetrable.tres" id="6"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="7"]
 [ext_resource type="Resource" uid="uid://c0og5x4s4kd1v" path="res://Resources/Cards/Players/Cost2/Ironclad.tres" id="8"]
 [ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="9"]
@@ -100,7 +98,15 @@
 [ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="98"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="99"]
 [ext_resource type="Resource" uid="uid://bhhsysump54kp" path="res://Resources/Cards/Players/Cost0/Cut.tres" id="100"]
-[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/Castle.tres" id="101"]
+
+[sub_resource type="Resource" id="Resource_whu3p"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/Castle.tres"
+
+[sub_resource type="Resource" id="Resource_x34mb"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/TheWall.tres"
+
+[sub_resource type="Resource" id="Resource_ks5dc"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/Impenetrable.tres"
 
 [resource]
 script = ExtResource("1")
@@ -115,7 +121,7 @@ data = {
 "Burn Out": ExtResource("17"),
 "Burst": ExtResource("75"),
 "Call Out": ExtResource("78"),
-"Castle": ExtResource("101"),
+"Castle": SubResource("Resource_whu3p"),
 "Chain Lightning": ExtResource("7"),
 "Charge": ExtResource("35"),
 "Cinder": ExtResource("57"),
@@ -141,7 +147,7 @@ data = {
 "Fast Footed": ExtResource("59"),
 "Flex": ExtResource("47"),
 "Flying Strike": ExtResource("43"),
-"Fourth Wall": ExtResource("3"),
+"Fourth Wall": SubResource("Resource_x34mb"),
 "Heavy Armor": ExtResource("81"),
 "Hide Ace": ExtResource("76"),
 "Hit Nerve": ExtResource("44"),
@@ -149,7 +155,7 @@ data = {
 "Hocus Focus": ExtResource("34"),
 "Hustle": ExtResource("86"),
 "Hyperfocus": ExtResource("33"),
-"Impenetrable": ExtResource("6"),
+"Impenetrable": SubResource("Resource_ks5dc"),
 "Initial": ExtResource("87"),
 "Intimidated": ExtResource("4"),
 "Ironclad": ExtResource("8"),

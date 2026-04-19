@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c18l1ivcjgbs6"]
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="2"]
+[ext_resource type="StyleBox" uid="uid://rifosnxch4oc" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="2"]
 [ext_resource type="AudioStream" uid="uid://bm3f1y2hrgvb4" path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" id="3"]
 [ext_resource type="AudioStream" uid="uid://bnxjp0otksoh3" path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" id="4"]
 [ext_resource type="AudioStream" uid="uid://cmilwh31j0k0j" path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" id="5"]
@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://dxc7k6offi8gr" path="res://Scenes/DeckSelector/DeckSelectorInterface.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://daus3rxf6smv1" path="res://Managers/Tooltip/TooltipManager.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://cr6yplg5nfolx" path="res://Managers/Mood/MoodManager.tscn" id="13"]
-[ext_resource type="PackedScene" path="res://Scenes/NetworkedGameInterface/WinPanel/WinPanel.tscn" id="14"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Credits/H4DynamicFont.tres" id="15"]
-[ext_resource type="PackedScene" path="res://Scenes/NetworkedGameInterface/GameMenu/NetworkedGameMenu.tscn" id="16"]
-[ext_resource type="PackedScene" path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://bwxeugwjkp4m7" path="res://Scenes/NetworkedGameInterface/WinPanel/WinPanel.tscn" id="14"]
+[ext_resource type="FontFile" uid="uid://4rnntupb2k3n" path="res://Themes/Fonts/Credits/H4DynamicFont.tres" id="15"]
+[ext_resource type="PackedScene" uid="uid://qjy3y8lxxqoc" path="res://Scenes/NetworkedGameInterface/GameMenu/NetworkedGameMenu.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://clu3y2vduhqpo" path="res://Scenes/NetworkedGameInterface/LosePanel/LosePanel.tscn" id="17"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0.533333, 0.364706, 0.513726, 1)
@@ -29,6 +29,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1")
 script = ExtResource("10")
@@ -71,15 +73,31 @@ theme_override_styles/panel = ExtResource("2")
 [node name="LosePanel" parent="." unique_id=2143336282 instance=ExtResource("17")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 480.0
+offset_bottom = 360.0
 
 [node name="WinPanel" parent="." unique_id=1245940497 instance=ExtResource("14")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 480.0
+offset_bottom = 360.0
 
 [node name="DeckSelectorInterface" parent="." unique_id=15098849 instance=ExtResource("11")]
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="DeckViewContainer" type="Control" parent="." unique_id=1173066616]
 anchors_preset = 0
@@ -92,6 +110,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MoodManager" parent="." unique_id=525261949 instance=ExtResource("13")]
 intro_song = ExtResource("8")
@@ -126,7 +146,12 @@ theme_override_styles/panel = ExtResource("2")
 
 [node name="NetworkedGameMenu" parent="." unique_id=1344849352 instance=ExtResource("16")]
 visible = false
+layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="DisconnectDelayTimer" type="Timer" parent="." unique_id=615065912]
 wait_time = 0.5
@@ -134,6 +159,5 @@ one_shot = true
 
 [connection signal="exit_pressed" from="LosePanel" to="." method="_on_LosePanel_exit_pressed"]
 [connection signal="return_pressed" from="WinPanel" to="." method="_on_WinPanel_return_pressed"]
-[connection signal="deck_selected" from="DeckSelectorInterface" to="." method="_on_DeckSelectorInterface_deck_selected"]
 [connection signal="forfeit_and_exit_button_pressed" from="NetworkedGameMenu" to="." method="_on_NetworkedGameMenu_forfeit_and_exit_button_pressed"]
 [connection signal="return_button_pressed" from="NetworkedGameMenu" to="." method="_on_NetworkedGameMenu_return_button_pressed"]

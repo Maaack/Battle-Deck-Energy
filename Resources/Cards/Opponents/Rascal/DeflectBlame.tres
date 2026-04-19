@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://l2e22cdtj776"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_w5nbw"]
 [ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3"]
 [ext_resource type="Resource" uid="uid://do34xqq5lnj2i" path="res://Resources/Effects/StatusEffects/ApplyDurable4.tres" id="4"]
@@ -13,5 +14,5 @@ description = "Block %DEFEND Damage and apply %APPLY_DURABLE Durable.
 Exhaust."
 icon = ExtResource("5")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = [ExtResource("2"), ExtResource("4"), ExtResource("3")]
+effects = Array[ExtResource("1_w5nbw")]([ExtResource("2"), ExtResource("4"), ExtResource("3")])
 type = 2

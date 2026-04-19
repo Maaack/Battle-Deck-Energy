@@ -8,4 +8,4 @@ script = ExtResource("1")
 key = "ADD_DRAINED"
 term = "Add Drained Card"
 definition = "Adds a Drained card to the target deck for remainder of the battle."
-related_definitions = [ExtResource("2")]
+related_definitions = Array[ExtResource("1")]([ExtResource("2")])

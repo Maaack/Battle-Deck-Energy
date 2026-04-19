@@ -8,4 +8,4 @@ script = ExtResource("1")
 key = "MARKED_DAMAGE"
 term = "Marked Damage"
 definition = "Deals damage to the target(s) equal to the value of [b]Marked[/b] on the target(s)."
-related_definitions = [ExtResource("2")]
+related_definitions = Array[ExtResource("1")]([ExtResource("2")])

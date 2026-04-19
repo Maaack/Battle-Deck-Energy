@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c6sko4fqksy14"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_dm8y4"]
 [ext_resource type="Resource" uid="uid://u547vsmcwj07" path="res://Resources/Effects/CardEffects/ShieldAttackEffect.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://coxf7qoxsn5qy" path="res://Assets/Mixed/CardIcons/AttackGlowNew/shield-bash.png" id="3"]
 [ext_resource type="Resource" uid="uid://dj66myyoxbyrr" path="res://Resources/Effects/StatusEffects/ApplyFragile.tres" id="4"]
@@ -11,4 +12,4 @@ title = "Shield Bash"
 description = "Deal Damage with active Block and apply %APPLY_FRAGILE Fragile."
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2"), ExtResource("4")]
+effects = Array[ExtResource("1_dm8y4")]([ExtResource("2"), ExtResource("4")])

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c7rgaw5yc6gr6"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_j7ry3"]
 [ext_resource type="Resource" uid="uid://cx02sktjo3l3n" path="res://Resources/Effects/CardEffects/AttackEffect9.tres" id="2"]
 [ext_resource type="Resource" uid="uid://bc0n7aavmxan4" path="res://Resources/Effects/CardEffects/DrawCardSourceEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://cdepsl6fb6vj5" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/winged-sword.png" id="5"]
@@ -12,4 +13,4 @@ description = "Deal %ATTACK Damage and draw %DRAW_CARD cards."
 energy_cost = 2
 icon = ExtResource("5")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2"), ExtResource("3"), ExtResource("3"), ExtResource("3")]
+effects = Array[ExtResource("1_j7ry3")]([ExtResource("2"), ExtResource("3"), ExtResource("3"), ExtResource("3")])

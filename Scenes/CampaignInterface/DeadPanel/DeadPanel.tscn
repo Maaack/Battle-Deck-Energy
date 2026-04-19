@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfccmecmnjsj" path="res://Scenes/CampaignInterface/DeadPanel/DeadPanel.gd" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
 
 [node name="DeadPanel" type="Panel" unique_id=566465249]
 custom_minimum_size = Vector2(680, 360)

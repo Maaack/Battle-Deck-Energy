@@ -8,4 +8,4 @@ script = ExtResource("1")
 key = "SHIELD_ATTACK"
 term = "Shield Attack"
 definition = "Deals damage to target(s) equal to the value of your active [b]Block[/b]."
-related_definitions = [ExtResource("2")]
+related_definitions = Array[ExtResource("1")]([ExtResource("2")])

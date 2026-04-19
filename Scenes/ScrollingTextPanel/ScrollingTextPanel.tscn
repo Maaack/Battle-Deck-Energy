@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://tjbs6lshitv0"]
 
 [ext_resource type="Script" uid="uid://q33cic5undyy" path="res://Scenes/ScrollingTextPanel/ScrollingTextPanel.gd" id="1"]
-[ext_resource type="Theme" path="res://Themes/HiddenScrollBar.tres" id="6"]
+[ext_resource type="Theme" uid="uid://clhxa4f6p1qin" path="res://Themes/HiddenScrollBar.tres" id="6"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="7"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" id="8"]
+[ext_resource type="StyleBox" uid="uid://cn3c6nxpdux22" path="res://Themes/StyleBoxes/GraySquareStyleBox.tres" id="8"]
 
 [node name="ScrollingTextPanel" type="Control" unique_id=644846202]
 layout_mode = 3

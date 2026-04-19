@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://hnnsc2di8qtc"]
 
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyStrong.tres" id="1"]
+[ext_resource type="Resource" uid="uid://bk5x5q321i2uo" path="res://Resources/Effects/StatusEffects/ApplyStrong.tres" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_1we1v"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://chlgqvnq4u7v4" path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/angry-eyes.png" id="4"]
 
 [resource]
@@ -11,5 +12,5 @@ title = "Big Talk"
 description = "Block %DEFEND Damage and apply %APPLY_STRONG Strong."
 icon = ExtResource("4")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = [ExtResource("3"), ExtResource("1")]
+effects = Array[ExtResource("1_1we1v")]([ExtResource("3"), ExtResource("1")])
 type = 2

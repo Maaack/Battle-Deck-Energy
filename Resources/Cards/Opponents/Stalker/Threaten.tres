@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dwmwriu2hhy01"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ei6l6"]
 [ext_resource type="Resource" uid="uid://dvdtwgh5pjisj" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://c3fm68ysvspjb" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/dig-hole.png" id="3"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4"]
@@ -14,4 +15,4 @@ Exhaust."
 energy_cost = 2
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2"), ExtResource("5"), ExtResource("4")]
+effects = Array[ExtResource("1_ei6l6")]([ExtResource("2"), ExtResource("5"), ExtResource("4")])

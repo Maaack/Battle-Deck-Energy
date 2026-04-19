@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ca7hsotwquqpr"]
 
-[ext_resource type="FontFile" path="res://Themes/Fonts/StatusTextAnimation/StatusTextAnimationDynamicFont.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://d0s48mpvjn7xm" path="res://Themes/Fonts/StatusTextAnimation/StatusTextAnimationDynamicFont.tres" id="1"]
 [ext_resource type="Script" uid="uid://b5ldg2yu7xcuj" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.gd" id="2"]
 
 [sub_resource type="Animation" id="1"]

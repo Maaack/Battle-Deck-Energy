@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dv0amt38r456f"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_rkbkq"]
 [ext_resource type="Resource" uid="uid://x4hvb5hadiqx" path="res://Resources/Effects/CardEffects/InterruptEffect.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://21uyj2xbj2db" path="res://Assets/Mixed/CardIcons/AttackGlowNew/tripwire.png" id="3"]
 
@@ -10,4 +11,4 @@ title = "Trip"
 description = "Interrupts enemy buffs from activating on the next turn."
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2")]
+effects = Array[ExtResource("1_rkbkq")]([ExtResource("2")])

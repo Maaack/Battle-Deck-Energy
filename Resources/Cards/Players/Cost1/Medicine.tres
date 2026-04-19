@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b6jljbo5qi0vj"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ihg62"]
 [ext_resource type="Resource" uid="uid://ufto0tg786h1" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="2"]
 [ext_resource type="Resource" uid="uid://72n883nrrd21" path="res://Resources/Effects/CardEffects/CureVulnerableEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://b76gcomf65cyn" path="res://Assets/Mixed/CardIcons/SkillGlowNew/medicine-pills.png" id="4"]
@@ -14,5 +15,5 @@ description = "Cure Vulnerable, Weak, and Fragile.
 Apply %APPLY_POISONED Poisoned."
 icon = ExtResource("4")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("5"), ExtResource("3"), ExtResource("6"), ExtResource("2")]
+effects = Array[ExtResource("1_ihg62")]([ExtResource("5"), ExtResource("3"), ExtResource("6"), ExtResource("2")])
 type = 3

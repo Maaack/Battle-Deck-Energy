@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://dnh3c0r4bo6fb"]
 
 [ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="2"]
-[ext_resource type="Resource" path="res://Resources/Statuses/DefenseUp.tres" id="3"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_appyu"]
+[ext_resource type="Resource" uid="uid://7dht25bmb3ni" path="res://Resources/Statuses/DefenseUp.tres" id="3"]
 
 [resource]
 script = ExtResource("2")
-starting_statuses = [ExtResource("3")]
+starting_statuses = Array[ExtResource("2_appyu")]([ExtResource("3")])
 type_tag = "APPLY_DEFENSE_UP"
 amount = 4

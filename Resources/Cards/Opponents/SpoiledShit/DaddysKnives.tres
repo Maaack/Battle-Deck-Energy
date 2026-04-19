@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cha25g6w2lii3"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_0g0mc"]
 [ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2"]
 [ext_resource type="Resource" uid="uid://crqh7cvpxxgdr" path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://dla7y6o7phe38" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/sparkling-sabre.png" id="4"]
@@ -14,4 +15,4 @@ Exhaust."
 energy_cost = 2
 icon = ExtResource("4")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("3"), ExtResource("5")]
+effects = Array[ExtResource("1_0g0mc")]([ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("3"), ExtResource("5")])

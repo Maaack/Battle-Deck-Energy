@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bhhsysump54kp"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_5liub"]
 [ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://5oruxn56mej5" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/switchblade.png" id="3"]
 
@@ -11,4 +12,4 @@ description = "Deal %ATTACK Damage."
 energy_cost = 0
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2")]
+effects = Array[ExtResource("1_5liub")]([ExtResource("2")])

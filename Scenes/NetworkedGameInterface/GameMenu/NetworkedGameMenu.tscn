@@ -9,6 +9,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("2")
 
@@ -53,8 +55,6 @@ text = "Forfeit and Exit"
 [node name="AudioMenu" parent="." unique_id=1736168158 instance=ExtResource("3")]
 visible = false
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]

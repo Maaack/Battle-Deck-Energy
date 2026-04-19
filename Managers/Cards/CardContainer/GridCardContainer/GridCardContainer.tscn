@@ -8,8 +8,6 @@ offset_left = -100.0
 offset_top = -150.0
 offset_right = 100.0
 offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="CenterContainer" parent="." index="0" unique_id=1183389169]
 layout_mode = 1

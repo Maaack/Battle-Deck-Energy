@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://duxlyu5iehbvo"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_rmhte"]
 [ext_resource type="Resource" uid="uid://ufto0tg786h1" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="2"]
 [ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://bt4rtfghgy371" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/nails.png" id="4"]
@@ -11,4 +12,4 @@ title = "Dirty Nails"
 description = "Deal %ATTACK Damage and apply %APPLY_POISONED Poisoned."
 icon = ExtResource("4")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("3"), ExtResource("2")]
+effects = Array[ExtResource("1_rmhte")]([ExtResource("3"), ExtResource("2")])

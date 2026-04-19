@@ -25,7 +25,6 @@ metadata/_edit_horizontal_guides_ = [718.0]
 layout_mode = 1
 offset_top = -128.0
 offset_bottom = -64.0
-grow_horizontal = 1
 
 [node name="DiscardPile" parent="." unique_id=543393153 instance=ExtResource("4")]
 layout_mode = 1
@@ -59,6 +58,8 @@ offset_left = -70.0
 offset_top = -296.0
 offset_right = -6.0
 offset_bottom = -232.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="button_pressed" from="DrawPile" to="." method="_on_DrawPile_button_pressed"]
 [connection signal="button_pressed" from="DiscardPile" to="." method="_on_DiscardPile_button_pressed"]
