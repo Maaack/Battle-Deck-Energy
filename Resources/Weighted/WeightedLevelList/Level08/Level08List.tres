@@ -1,11 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://eq814x4ryab3"]
 
-[ext_resource type="Resource" uid="uid://chx8nl5b43tdf" path="res://Resources/Weighted/WeightedLevelList/Level08/SpoiledShitAloneLevelChance.tres" id="1"]
-[ext_resource type="Resource" uid="uid://c2iwutrqkot0u" path="res://Resources/Weighted/WeightedLevelList/Level08/RascalAndCadLevelChance.tres" id="2"]
-[ext_resource type="Resource" uid="uid://djcbm24pxb8y" path="res://Resources/Weighted/WeightedLevelList/Level08/RascalTrioLevelChance.tres" id="3"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://cxoxlijf722k3" path="res://Resources/Weighted/WeightedLevelList/Level08/BratTrioLevelChance.tres" id="5"]
-[ext_resource type="Resource" uid="uid://646wnutaqskb" path="res://Resources/Weighted/WeightedLevelList/Level08/BratAndBullyLevelChance.tres" id="6"]
 [ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Level08/RascalAndCad.tres" id="7_k71d5"]
 [ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Level08/RascalTrio.tres" id="8_kqwsu"]
 [ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Level08/BratTrio.tres" id="9_nf1e7"]
@@ -14,8 +9,6 @@
 
 [resource]
 script = ExtResource("4")
-starting_list = [ExtResource("2"), ExtResource("3"), ExtResource("5"), ExtResource("1"), ExtResource("6")]
-weighted_list = [ExtResource("2"), ExtResource("3"), ExtResource("5"), ExtResource("1"), ExtResource("6")]
 weighted_map = Dictionary[Resource, float]({
 ExtResource("7_k71d5"): 1.0,
 ExtResource("8_kqwsu"): 1.0,

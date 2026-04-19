@@ -1,19 +1,13 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://dpqkxq55wui78"]
 
-[ext_resource type="Resource" uid="uid://dqys4y0pqp6f1" path="res://Resources/Weighted/WeightedCards/Cost2/MiasmaWeight1.tres" id="3"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://bbo8wikeoxnh4" path="res://Resources/Weighted/WeightedCards/Cost2/UnluckyWeight1.tres" id="5"]
 [ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="6_hxnlk"]
 [ext_resource type="Resource" uid="uid://bd381tanlmxa7" path="res://Resources/Cards/Players/Cost2/Unlucky.tres" id="7_dtxh0"]
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="8_x0m3u"]
-[ext_resource type="Resource" uid="uid://pxe11d33xba8" path="res://Resources/Weighted/WeightedCards/Cost2/ReforgeWeight1.tres" id="9"]
 [ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="9_t7ly3"]
-[ext_resource type="Resource" uid="uid://bekrqoi76g1vd" path="res://Resources/Weighted/WeightedCards/Cost2/EruptWeight1.tres" id="11"]
 
 [resource]
 script = ExtResource("4")
-starting_list = [ExtResource("3"), ExtResource("5"), ExtResource("9"), ExtResource("11")]
-weighted_list = [ExtResource("3"), ExtResource("5"), ExtResource("9"), ExtResource("11")]
 weighted_map = Dictionary[Resource, float]({
 ExtResource("6_hxnlk"): 1.0,
 ExtResource("7_dtxh0"): 1.0,

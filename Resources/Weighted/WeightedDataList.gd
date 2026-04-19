@@ -4,32 +4,12 @@ extends Resource
 
 class_name WeightedDataList
 
-@export var starting_list : Array = []: set = set_starting_list
-@export var weighted_list : Array
 @export var weighted_map : Dictionary[Resource, float]
-@export_tool_button("Set other vars") var set_other_vars_action = set_other_vars
-
-var list : Array = []
-
-func _init():
-	set_other_vars()
-
-func set_other_vars():
-	weighted_list = starting_list.duplicate()
-	for thing in weighted_list:
-		if thing is WeightedData:
-			weighted_map[thing.data] = thing.weight
 
 func append_data(value):
-	var weighted_data : WeightedData = WeightedData.new()
-	weighted_data.data = value
-	weighted_data.weight = 1
-	list.append(weighted_data)
-	return weighted_data
-
-func set_starting_list(value:Array):
-	starting_list = value
-	list = starting_list
+	if value in weighted_map: return
+	weighted_map[value] = 1.0
+	return value
 
 func get_total_weight():
 	var total_weight : float = 0.0

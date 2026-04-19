@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://cjmwklggcrdw7" path="res://Resources/Cards/Players/Cost1/StrongSlash.tres" id="7"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="8"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="9"]
-[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="10"]
 [ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Players/Cost1/Sharpen.tres" id="11"]
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="12"]
 [ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="13"]
@@ -26,135 +25,30 @@
 [ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="31"]
 [ext_resource type="Resource" uid="uid://b8b05f81c4574" path="res://Resources/Cards/Players/Cost1/Warhammer.tres" id="36"]
 
-[sub_resource type="Resource" id="1"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("14")
-
-[sub_resource type="Resource" id="2"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("2")
-
-[sub_resource type="Resource" id="3"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("13")
-
-[sub_resource type="Resource" id="4"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("8")
-
-[sub_resource type="Resource" id="5"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("12")
-
-[sub_resource type="Resource" id="6"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("4")
-
-[sub_resource type="Resource" id="7"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("19")
-
-[sub_resource type="Resource" id="8"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("15")
-
-[sub_resource type="Resource" id="9"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("6")
-
-[sub_resource type="Resource" id="10"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("7")
-
-[sub_resource type="Resource" id="11"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("9")
-
-[sub_resource type="Resource" id="12"]
-script = ExtResource("10")
-data = ExtResource("36")
-
-[sub_resource type="Resource" id="13"]
-script = ExtResource("10")
-data = ExtResource("3")
-
-[sub_resource type="Resource" id="14"]
-script = ExtResource("10")
-data = ExtResource("24")
-
-[sub_resource type="Resource" id="15"]
-script = ExtResource("10")
-data = ExtResource("23")
-
-[sub_resource type="Resource" id="16"]
-script = ExtResource("10")
-data = ExtResource("21")
-
-[sub_resource type="Resource" id="17"]
-script = ExtResource("10")
-data = ExtResource("29")
-
-[sub_resource type="Resource" id="18"]
-script = ExtResource("10")
-data = ExtResource("25")
-
-[sub_resource type="Resource" id="19"]
-script = ExtResource("10")
-data = ExtResource("11")
-
-[sub_resource type="Resource" id="20"]
-script = ExtResource("10")
-data = ExtResource("31")
-
-[sub_resource type="Resource" id="21"]
-script = ExtResource("10")
-data = ExtResource("26")
-
-[sub_resource type="Resource" id="22"]
-script = ExtResource("10")
-data = ExtResource("16")
-
-[sub_resource type="Resource" id="23"]
-script = ExtResource("10")
-data = ExtResource("5")
-
 [resource]
 script = ExtResource("1")
-starting_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23")]
-weighted_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23")]
 weighted_map = Dictionary[Resource, float]({
-ExtResource("5"): 1.0,
-ExtResource("16"): 1.0,
-ExtResource("26"): 1.0,
-ExtResource("31"): 1.0,
-ExtResource("11"): 1.0,
-ExtResource("25"): 1.0,
-ExtResource("29"): 1.0,
-ExtResource("21"): 1.0,
-ExtResource("23"): 1.0,
-ExtResource("24"): 1.0,
-ExtResource("3"): 1.0,
-ExtResource("36"): 1.0,
-ExtResource("9"): 2.0,
-ExtResource("7"): 2.0,
-ExtResource("6"): 2.0,
-ExtResource("15"): 4.0,
-ExtResource("19"): 4.0,
-ExtResource("4"): 4.0,
-ExtResource("12"): 4.0,
-ExtResource("8"): 4.0,
-ExtResource("13"): 4.0,
+ExtResource("14"): 4.0,
 ExtResource("2"): 4.0,
-ExtResource("14"): 4.0
+ExtResource("13"): 4.0,
+ExtResource("8"): 4.0,
+ExtResource("12"): 4.0,
+ExtResource("4"): 4.0,
+ExtResource("19"): 4.0,
+ExtResource("15"): 4.0,
+ExtResource("6"): 2.0,
+ExtResource("7"): 2.0,
+ExtResource("9"): 2.0,
+ExtResource("36"): 1.0,
+ExtResource("3"): 1.0,
+ExtResource("24"): 1.0,
+ExtResource("23"): 1.0,
+ExtResource("21"): 1.0,
+ExtResource("29"): 1.0,
+ExtResource("25"): 1.0,
+ExtResource("11"): 1.0,
+ExtResource("31"): 1.0,
+ExtResource("26"): 1.0,
+ExtResource("16"): 1.0,
+ExtResource("5"): 1.0
 })

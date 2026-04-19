@@ -1,17 +1,12 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://bx4ocsc6a5klu"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
-[ext_resource type="Resource" uid="uid://cc1ug6kqvaxme" path="res://Resources/Weighted/WeightedLevelList/Level02/BratAloneLevelChance.tres" id="2"]
-[ext_resource type="Resource" uid="uid://ccydu0fdylruq" path="res://Resources/Weighted/WeightedLevelList/Level02/RascalAloneLevelChance.tres" id="3"]
-[ext_resource type="Resource" uid="uid://bsfys3ykc323o" path="res://Resources/Weighted/WeightedLevelList/Level02/PipsqueekPairLevelChance.tres" id="4"]
 [ext_resource type="Resource" uid="uid://c8q78awfiecwn" path="res://Resources/Levels/Level02/BratAlone.tres" id="5_ky3sn"]
 [ext_resource type="Resource" uid="uid://bicuqmdnpcsyc" path="res://Resources/Levels/Level02/PipsqueekPair.tres" id="6_qhqhg"]
 [ext_resource type="Resource" uid="uid://de2ehv2mbuyte" path="res://Resources/Levels/Level02/RascalAlone.tres" id="7_dnvad"]
 
 [resource]
 script = ExtResource("1")
-starting_list = [ExtResource("2"), ExtResource("4"), ExtResource("3")]
-weighted_list = [ExtResource("2"), ExtResource("4"), ExtResource("3")]
 weighted_map = Dictionary[Resource, float]({
 ExtResource("5_ky3sn"): 1.0,
 ExtResource("6_qhqhg"): 1.0,

@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://c0og5x4s4kd1v" path="res://Resources/Cards/Players/Cost2/Ironclad.tres" id="7"]
 [ext_resource type="Resource" uid="uid://bkl1h7qdmu82j" path="res://Resources/Cards/Players/Cost2/Shatter.tres" id="8"]
 [ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="9"]
-[ext_resource type="Script" uid="uid://c0rc8a7il41yr" path="res://Resources/Weighted/WeightedData.gd" id="10"]
 [ext_resource type="Resource" uid="uid://cgjxstiw4bfom" path="res://Resources/Cards/Players/Cost2/Biohazard.tres" id="11"]
 [ext_resource type="Resource" uid="uid://dn7paiefl78h8" path="res://Resources/Cards/Players/Cost2/SerpentsBlade.tres" id="12"]
 [ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="13"]
@@ -51,247 +50,9 @@
 [ext_resource type="Resource" uid="uid://bn42rf0mqstui" path="res://Resources/Cards/Players/Cost1/Toxify.tres" id="49"]
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="50"]
 
-[sub_resource type="Resource" id="1"]
-script = ExtResource("10")
-weight = 8.0
-data = ExtResource("12")
-
-[sub_resource type="Resource" id="2"]
-script = ExtResource("10")
-weight = 8.0
-data = ExtResource("37")
-
-[sub_resource type="Resource" id="3"]
-script = ExtResource("10")
-weight = 8.0
-data = ExtResource("11")
-
-[sub_resource type="Resource" id="4"]
-script = ExtResource("10")
-weight = 8.0
-data = ExtResource("30")
-
-[sub_resource type="Resource" id="5"]
-script = ExtResource("10")
-weight = 8.0
-data = ExtResource("28")
-
-[sub_resource type="Resource" id="6"]
-script = ExtResource("10")
-weight = 8.0
-data = ExtResource("7")
-
-[sub_resource type="Resource" id="7"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("39")
-
-[sub_resource type="Resource" id="8"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("40")
-
-[sub_resource type="Resource" id="9"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("27")
-
-[sub_resource type="Resource" id="10"]
-script = ExtResource("10")
-weight = 4.0
-data = ExtResource("4")
-
-[sub_resource type="Resource" id="11"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("19")
-
-[sub_resource type="Resource" id="12"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("20")
-
-[sub_resource type="Resource" id="13"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("21")
-
-[sub_resource type="Resource" id="14"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("34")
-
-[sub_resource type="Resource" id="15"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("22")
-
-[sub_resource type="Resource" id="16"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("45")
-
-[sub_resource type="Resource" id="17"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("35")
-
-[sub_resource type="Resource" id="18"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("43")
-
-[sub_resource type="Resource" id="19"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("23")
-
-[sub_resource type="Resource" id="20"]
-script = ExtResource("10")
-weight = 2.0
-data = ExtResource("48")
-
-[sub_resource type="Resource" id="21"]
-script = ExtResource("10")
-data = ExtResource("31")
-
-[sub_resource type="Resource" id="22"]
-script = ExtResource("10")
-data = ExtResource("2")
-
-[sub_resource type="Resource" id="23"]
-script = ExtResource("10")
-data = ExtResource("29")
-
-[sub_resource type="Resource" id="24"]
-script = ExtResource("10")
-data = ExtResource("38")
-
-[sub_resource type="Resource" id="25"]
-script = ExtResource("10")
-data = ExtResource("50")
-
-[sub_resource type="Resource" id="26"]
-script = ExtResource("10")
-data = ExtResource("41")
-
-[sub_resource type="Resource" id="27"]
-script = ExtResource("10")
-data = ExtResource("46")
-
-[sub_resource type="Resource" id="28"]
-script = ExtResource("10")
-data = ExtResource("13")
-
-[sub_resource type="Resource" id="29"]
-script = ExtResource("10")
-data = ExtResource("32")
-
-[sub_resource type="Resource" id="30"]
-script = ExtResource("10")
-data = ExtResource("26")
-
-[sub_resource type="Resource" id="31"]
-script = ExtResource("10")
-data = ExtResource("42")
-
-[sub_resource type="Resource" id="32"]
-script = ExtResource("10")
-data = ExtResource("44")
-
-[sub_resource type="Resource" id="33"]
-script = ExtResource("10")
-data = ExtResource("14")
-
-[sub_resource type="Resource" id="34"]
-script = ExtResource("10")
-data = ExtResource("47")
-
-[sub_resource type="Resource" id="35"]
-script = ExtResource("10")
-data = ExtResource("24")
-
-[sub_resource type="Resource" id="36"]
-script = ExtResource("10")
-data = ExtResource("18")
-
-[sub_resource type="Resource" id="37"]
-script = ExtResource("10")
-data = ExtResource("49")
-
-[sub_resource type="Resource" id="38"]
-script = ExtResource("10")
-data = ExtResource("3")
-
-[sub_resource type="Resource" id="39"]
-script = ExtResource("10")
-data = ExtResource("33")
-
-[sub_resource type="Resource" id="40"]
-script = ExtResource("10")
-data = ExtResource("25")
-
-[sub_resource type="Resource" id="41"]
-script = ExtResource("10")
-data = ExtResource("8")
-
-[sub_resource type="Resource" id="42"]
-script = ExtResource("10")
-data = ExtResource("9")
-
-[sub_resource type="Resource" id="43"]
-script = ExtResource("10")
-data = ExtResource("15")
-
-[sub_resource type="Resource" id="44"]
-script = ExtResource("10")
-data = ExtResource("5")
-
-[sub_resource type="Resource" id="45"]
-script = ExtResource("10")
-data = ExtResource("6")
-
-[sub_resource type="Resource" id="46"]
-script = ExtResource("10")
-data = ExtResource("16")
-
-[sub_resource type="Resource" id="47"]
-script = ExtResource("10")
-data = ExtResource("17")
-
-[sub_resource type="Resource" id="48"]
-script = ExtResource("10")
-data = ExtResource("36")
-
 [resource]
 script = ExtResource("1")
-starting_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23"), SubResource("24"), SubResource("25"), SubResource("26"), SubResource("27"), SubResource("28"), SubResource("29"), SubResource("30"), SubResource("31"), SubResource("32"), SubResource("33"), SubResource("34"), SubResource("35"), SubResource("36"), SubResource("37"), SubResource("38"), SubResource("39"), SubResource("40"), SubResource("41"), SubResource("42"), SubResource("43"), SubResource("44"), SubResource("45"), SubResource("46"), SubResource("47"), SubResource("48")]
-weighted_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23"), SubResource("24"), SubResource("25"), SubResource("26"), SubResource("27"), SubResource("28"), SubResource("29"), SubResource("30"), SubResource("31"), SubResource("32"), SubResource("33"), SubResource("34"), SubResource("35"), SubResource("36"), SubResource("37"), SubResource("38"), SubResource("39"), SubResource("40"), SubResource("41"), SubResource("42"), SubResource("43"), SubResource("44"), SubResource("45"), SubResource("46"), SubResource("47"), SubResource("48")]
 weighted_map = Dictionary[Resource, float]({
-ExtResource("50"): 1.0,
-ExtResource("41"): 1.0,
-ExtResource("46"): 1.0,
-ExtResource("13"): 1.0,
-ExtResource("32"): 1.0,
-ExtResource("26"): 1.0,
-ExtResource("42"): 1.0,
-ExtResource("44"): 1.0,
-ExtResource("14"): 1.0,
-ExtResource("47"): 1.0,
-ExtResource("24"): 1.0,
-ExtResource("18"): 1.0,
-ExtResource("49"): 1.0,
-ExtResource("3"): 1.0,
-ExtResource("33"): 1.0,
-ExtResource("25"): 1.0,
-ExtResource("8"): 1.0,
-ExtResource("9"): 1.0,
-ExtResource("15"): 1.0,
-ExtResource("5"): 1.0,
-ExtResource("6"): 1.0,
-ExtResource("16"): 1.0,
-ExtResource("17"): 1.0,
-ExtResource("36"): 1.0,
 ExtResource("12"): 8.0,
 ExtResource("37"): 8.0,
 ExtResource("11"): 8.0,
@@ -315,5 +76,29 @@ ExtResource("48"): 2.0,
 ExtResource("31"): 1.0,
 ExtResource("2"): 1.0,
 ExtResource("29"): 1.0,
-ExtResource("38"): 1.0
+ExtResource("38"): 1.0,
+ExtResource("50"): 1.0,
+ExtResource("41"): 1.0,
+ExtResource("46"): 1.0,
+ExtResource("13"): 1.0,
+ExtResource("32"): 1.0,
+ExtResource("26"): 1.0,
+ExtResource("42"): 1.0,
+ExtResource("44"): 1.0,
+ExtResource("14"): 1.0,
+ExtResource("47"): 1.0,
+ExtResource("24"): 1.0,
+ExtResource("18"): 1.0,
+ExtResource("49"): 1.0,
+ExtResource("3"): 1.0,
+ExtResource("33"): 1.0,
+ExtResource("25"): 1.0,
+ExtResource("8"): 1.0,
+ExtResource("9"): 1.0,
+ExtResource("15"): 1.0,
+ExtResource("5"): 1.0,
+ExtResource("6"): 1.0,
+ExtResource("16"): 1.0,
+ExtResource("17"): 1.0,
+ExtResource("36"): 1.0
 })

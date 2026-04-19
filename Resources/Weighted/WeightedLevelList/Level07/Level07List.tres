@@ -1,10 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://ybjvpoep0gkg"]
 
-[ext_resource type="Resource" uid="uid://cy6pifb5p8ciu" path="res://Resources/Weighted/WeightedLevelList/Level07/WeaselPairLevelLevelChance.tres" id="1"]
-[ext_resource type="Resource" uid="uid://i61v5vxddup7" path="res://Resources/Weighted/WeightedLevelList/Level07/TattletalePairLevelLevelChance.tres" id="2"]
-[ext_resource type="Resource" uid="uid://bpwk8d5m5n8ri" path="res://Resources/Weighted/WeightedLevelList/Level07/LeechTrioAndTattletaleLevelLevelChance.tres" id="3"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://cvt6ga2vn1pqm" path="res://Resources/Weighted/WeightedLevelList/Level07/LeechTrioAndWeaselLevelLevelChance.tres" id="5"]
 [ext_resource type="Resource" uid="uid://ch1qbla1eyxsu" path="res://Resources/Levels/Level07/LeechTrioAndTattletaleLevel.tres" id="6_d8i1m"]
 [ext_resource type="Resource" uid="uid://r22kqkvu2dmn" path="res://Resources/Levels/Level07/LeechTrioAndWeaselLevel.tres" id="7_1ra78"]
 [ext_resource type="Resource" uid="uid://3mpqnnv3454l" path="res://Resources/Levels/Level07/WeaselPairLevel.tres" id="8_3rlci"]
@@ -12,8 +8,6 @@
 
 [resource]
 script = ExtResource("4")
-starting_list = [ExtResource("3"), ExtResource("5"), ExtResource("1"), ExtResource("2")]
-weighted_list = [ExtResource("3"), ExtResource("5"), ExtResource("1"), ExtResource("2")]
 weighted_map = Dictionary[Resource, float]({
 ExtResource("6_d8i1m"): 1.0,
 ExtResource("7_1ra78"): 1.0,

@@ -1,13 +1,10 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://ccur6w4lpykuo"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
-[ext_resource type="Resource" uid="uid://yu2bumgg30ch" path="res://Resources/Weighted/WeightedLevelList/Level28/ThePatriarchsMountainLevelChance.tres" id="2"]
 [ext_resource type="Resource" uid="uid://cl1dhfn8p7lxl" path="res://Resources/Levels/Level28/ThePatriarchsMountain.tres" id="3_kcquk"]
 
 [resource]
 script = ExtResource("1")
-starting_list = [ExtResource("2")]
-weighted_list = [ExtResource("2")]
 weighted_map = Dictionary[Resource, float]({
 ExtResource("3_kcquk"): 1.0
 })

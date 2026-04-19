@@ -1,10 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://dogrvqfo5nl5g"]
 
-[ext_resource type="Resource" uid="uid://c87ifwj575k4l" path="res://Resources/Weighted/WeightedCards/Cost0/HideAceWeight1.tres" id="1"]
-[ext_resource type="Resource" uid="uid://cctk4jelue0rw" path="res://Resources/Weighted/WeightedCards/Cost0/DisarmWeight1.tres" id="2"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="3"]
-[ext_resource type="Resource" uid="uid://cnpy1x88sb1m4" path="res://Resources/Weighted/WeightedCards/Cost0/CutWeight1.tres" id="4"]
-[ext_resource type="Resource" uid="uid://cb5hmpbj6ulfl" path="res://Resources/Weighted/WeightedCards/Cost0/LightShieldWeight1.tres" id="5"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="6_crati"]
 [ext_resource type="Resource" uid="uid://dwdy7sf6qg77l" path="res://Resources/Cards/Players/Cost0/Disarm.tres" id="7_sg1vm"]
 [ext_resource type="Resource" uid="uid://bhhsysump54kp" path="res://Resources/Cards/Players/Cost0/Cut.tres" id="8_4ru3m"]
@@ -12,8 +8,6 @@
 
 [resource]
 script = ExtResource("3")
-starting_list = [ExtResource("5"), ExtResource("2"), ExtResource("4"), ExtResource("1")]
-weighted_list = [ExtResource("5"), ExtResource("2"), ExtResource("4"), ExtResource("1")]
 weighted_map = Dictionary[Resource, float]({
 ExtResource("6_crati"): 1.0,
 ExtResource("7_sg1vm"): 1.0,

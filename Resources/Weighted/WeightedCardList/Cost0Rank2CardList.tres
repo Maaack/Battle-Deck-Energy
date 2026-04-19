@@ -1,27 +1,17 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://ck802njqodnxs"]
 
-[ext_resource type="Resource" uid="uid://bptuno04rhvl8" path="res://Resources/Weighted/WeightedCards/Cost0/EngageWeight1.tres" id="1"]
-[ext_resource type="Resource" uid="uid://riq0f6lwotkg" path="res://Resources/Weighted/WeightedCards/Cost0/HitTheMarkWeight1.tres" id="3"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
 [ext_resource type="Resource" uid="uid://lis5bdkc23ra" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="10_wgnen"]
-[ext_resource type="Resource" uid="uid://dnpyri2oheig1" path="res://Resources/Weighted/WeightedCards/Cost0/ToxicSpitWeight1.tres" id="11"]
 [ext_resource type="Resource" uid="uid://beq7rjyjlaiqr" path="res://Resources/Cards/Players/Cost0/ToxicSpit.tres" id="11_3uoxg"]
 [ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="12_vrhmn"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="13_6047i"]
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="14_qoi35"]
-[ext_resource type="Resource" uid="uid://byn2d16fd2nvp" path="res://Resources/Weighted/WeightedCards/Cost0/SentryWeight1.tres" id="15"]
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="15_kxqll"]
 [ext_resource type="Resource" uid="uid://dmdt5b0uo124e" path="res://Resources/Cards/Players/Cost0/HitTheMark.tres" id="16_1eueb"]
-[ext_resource type="Resource" uid="uid://bvfftrok3s3qm" path="res://Resources/Weighted/WeightedCards/Cost0/LightArmorWeight1.tres" id="17"]
 [ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Alert.tres" id="17_8ijtn"]
-[ext_resource type="Resource" uid="uid://ctdxn3hgal4ag" path="res://Resources/Weighted/WeightedCards/Cost0/VigilanceWeight1.tres" id="18"]
-[ext_resource type="Resource" uid="uid://dt002d4upddty" path="res://Resources/Weighted/WeightedCards/Cost0/VenomVialWeight1.tres" id="19"]
-[ext_resource type="Resource" uid="uid://bu8qrdh5yyrtb" path="res://Resources/Weighted/WeightedCards/Cost0/AlertWeight1.tres" id="23"]
 
 [resource]
 script = ExtResource("4")
-starting_list = [ExtResource("1"), ExtResource("11"), ExtResource("15"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("3"), ExtResource("23")]
-weighted_list = [ExtResource("1"), ExtResource("11"), ExtResource("15"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("3"), ExtResource("23")]
 weighted_map = Dictionary[Resource, float]({
 ExtResource("10_wgnen"): 1.0,
 ExtResource("11_3uoxg"): 1.0,

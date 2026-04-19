@@ -1,30 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://dtdypkvw0ghqu"]
 
-[ext_resource type="Resource" uid="uid://bptuno04rhvl8" path="res://Resources/Weighted/WeightedCards/Cost0/EngageWeight1.tres" id="1"]
-[ext_resource type="Resource" uid="uid://dgsdbgnmlq5bg" path="res://Resources/Weighted/WeightedCards/Cost0/RecallWeight1.tres" id="2"]
-[ext_resource type="Resource" uid="uid://riq0f6lwotkg" path="res://Resources/Weighted/WeightedCards/Cost0/HitTheMarkWeight1.tres" id="3"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://c87ifwj575k4l" path="res://Resources/Weighted/WeightedCards/Cost0/HideAceWeight1.tres" id="5"]
-[ext_resource type="Resource" uid="uid://c8wrcdr3dytwp" path="res://Resources/Weighted/WeightedCards/Cost0/MisstepWeight1.tres" id="6"]
-[ext_resource type="Resource" uid="uid://uajduoux7efw" path="res://Resources/Weighted/WeightedCards/Cost0/CallOutWeight1.tres" id="7"]
-[ext_resource type="Resource" uid="uid://bpq1miodi61j0" path="res://Resources/Weighted/WeightedCards/Cost0/KickoffWeight1.tres" id="8"]
-[ext_resource type="Resource" uid="uid://csnyqo6rn45px" path="res://Resources/Weighted/WeightedCards/Cost0/LastStandWeight1.tres" id="9"]
-[ext_resource type="Resource" uid="uid://cmvtdc6sw67d6" path="res://Resources/Weighted/WeightedCards/Cost0/DodgeWeight1.tres" id="10"]
-[ext_resource type="Resource" uid="uid://dnpyri2oheig1" path="res://Resources/Weighted/WeightedCards/Cost0/ToxicSpitWeight1.tres" id="11"]
-[ext_resource type="Resource" uid="uid://cfg113bmujgh" path="res://Resources/Weighted/WeightedCards/Cost0/ThrowDaggerWeight1.tres" id="12"]
-[ext_resource type="Resource" uid="uid://cb5hmpbj6ulfl" path="res://Resources/Weighted/WeightedCards/Cost0/LightShieldWeight1.tres" id="13"]
-[ext_resource type="Resource" uid="uid://56kbd3n7eetl" path="res://Resources/Weighted/WeightedCards/Cost0/BurnOutWeight1.tres" id="14"]
-[ext_resource type="Resource" uid="uid://byn2d16fd2nvp" path="res://Resources/Weighted/WeightedCards/Cost0/SentryWeight1.tres" id="15"]
-[ext_resource type="Resource" uid="uid://0v6menb0fppp" path="res://Resources/Weighted/WeightedCards/Cost0/SecondWindCardWeight1.tres" id="16"]
-[ext_resource type="Resource" uid="uid://bvfftrok3s3qm" path="res://Resources/Weighted/WeightedCards/Cost0/LightArmorWeight1.tres" id="17"]
-[ext_resource type="Resource" uid="uid://ctdxn3hgal4ag" path="res://Resources/Weighted/WeightedCards/Cost0/VigilanceWeight1.tres" id="18"]
-[ext_resource type="Resource" uid="uid://dt002d4upddty" path="res://Resources/Weighted/WeightedCards/Cost0/VenomVialWeight1.tres" id="19"]
-[ext_resource type="Resource" uid="uid://cctk4jelue0rw" path="res://Resources/Weighted/WeightedCards/Cost0/DisarmWeight1.tres" id="20"]
-[ext_resource type="Resource" uid="uid://b4iqgnndvwk5a" path="res://Resources/Weighted/WeightedCards/Cost0/SubvertWeight1.tres" id="21"]
-[ext_resource type="Resource" uid="uid://cnpy1x88sb1m4" path="res://Resources/Weighted/WeightedCards/Cost0/CutWeight1.tres" id="22"]
-[ext_resource type="Resource" uid="uid://bu8qrdh5yyrtb" path="res://Resources/Weighted/WeightedCards/Cost0/AlertWeight1.tres" id="23"]
-[ext_resource type="Resource" uid="uid://bec87n0gysy3a" path="res://Resources/Weighted/WeightedCards/Cost0/BurstWeight1.tres" id="24"]
-[ext_resource type="Resource" uid="uid://cruh045n0jk5e" path="res://Resources/Weighted/WeightedCards/Cost0/HustleWeight1.tres" id="25"]
 [ext_resource type="Resource" uid="uid://lis5bdkc23ra" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="26_uvn5m"]
 [ext_resource type="Resource" uid="uid://dleokjkiyfp06" path="res://Resources/Cards/Players/Cost0/LastStand.tres" id="27_nmyog"]
 [ext_resource type="Resource" uid="uid://cdiosqol8ia6g" path="res://Resources/Cards/Players/Cost1/Recall.tres" id="28_2t3qo"]
@@ -52,31 +28,29 @@
 
 [resource]
 script = ExtResource("4")
-starting_list = [ExtResource("1"), ExtResource("9"), ExtResource("2"), ExtResource("5"), ExtResource("10"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("3"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25")]
-weighted_list = [ExtResource("1"), ExtResource("9"), ExtResource("2"), ExtResource("5"), ExtResource("10"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("3"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25")]
 weighted_map = Dictionary[Resource, float]({
-ExtResource("26_uvn5m"): 1.0,
-ExtResource("27_nmyog"): 1.0,
-ExtResource("28_2t3qo"): 1.0,
-ExtResource("29_wgs7p"): 1.0,
-ExtResource("30_7f5jf"): 1.0,
-ExtResource("31_bqdyf"): 1.0,
-ExtResource("32_xqux0"): 1.0,
-ExtResource("33_kfd7d"): 1.0,
-ExtResource("34_ctniv"): 1.0,
-ExtResource("35_n264m"): 1.0,
-ExtResource("36_3lswl"): 1.0,
-ExtResource("37_tqukt"): 1.0,
-ExtResource("38_yr2s1"): 1.0,
-ExtResource("39_7k5k2"): 1.0,
-ExtResource("40_bao0f"): 1.0,
-ExtResource("41_j5vni"): 1.0,
-ExtResource("42_bxe11"): 1.0,
-ExtResource("43_x0ewo"): 1.0,
-ExtResource("44_yiaki"): 1.0,
-ExtResource("45_a5l4k"): 1.0,
-ExtResource("46_0ov0y"): 1.0,
-ExtResource("47_dfh2y"): 1.0,
+ExtResource("49_dfqtn"): 1.0,
 ExtResource("48_ms3d5"): 1.0,
-ExtResource("49_dfqtn"): 1.0
+ExtResource("47_dfh2y"): 1.0,
+ExtResource("46_0ov0y"): 1.0,
+ExtResource("45_a5l4k"): 1.0,
+ExtResource("44_yiaki"): 1.0,
+ExtResource("43_x0ewo"): 1.0,
+ExtResource("42_bxe11"): 1.0,
+ExtResource("41_j5vni"): 1.0,
+ExtResource("40_bao0f"): 1.0,
+ExtResource("39_7k5k2"): 1.0,
+ExtResource("38_yr2s1"): 1.0,
+ExtResource("37_tqukt"): 1.0,
+ExtResource("36_3lswl"): 1.0,
+ExtResource("35_n264m"): 1.0,
+ExtResource("34_ctniv"): 1.0,
+ExtResource("33_kfd7d"): 1.0,
+ExtResource("32_xqux0"): 1.0,
+ExtResource("31_bqdyf"): 1.0,
+ExtResource("30_7f5jf"): 1.0,
+ExtResource("29_wgs7p"): 1.0,
+ExtResource("28_2t3qo"): 1.0,
+ExtResource("27_nmyog"): 1.0,
+ExtResource("26_uvn5m"): 1.0
 })
