@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b8b05f81c4574"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_bgml1"]
+[ext_resource type="Resource" uid="uid://sqfobooyn1q3" path="res://Resources/Effects/CardEffects/SmashAttackEffect6.tres" id="2_gl4jr"]
+[ext_resource type="Resource" uid="uid://bs4dmwfeycuf5" path="res://Resources/Effects/StatusEffects/ApplyFragile2.tres" id="3_yr2on"]
+[ext_resource type="Texture2D" uid="uid://jlpxi5txxu21" path="res://Assets/Mixed/CardIcons/AttackGlowNew/flat-hammer.png" id="4_4kqgb"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_ki8re"]
+
+[resource]
+script = ExtResource("5_ki8re")
+title = "Warhammer"
+description = "Deal %SMASH_ATTACK Damage (double to shields).
+Apply %APPLY_FRAGILE Fragile."
+icon = ExtResource("4_4kqgb")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_bgml1")]([ExtResource("2_gl4jr"), ExtResource("3_yr2on")])

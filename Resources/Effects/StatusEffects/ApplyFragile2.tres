@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://bs4dmwfeycuf5"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_qtltc"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_fqpip"]
+[ext_resource type="Resource" uid="uid://d04atos33xxh1" path="res://Resources/Statuses/Fragile.tres" id="3_15kqx"]
+
+[resource]
+script = ExtResource("1_qtltc")
+starting_statuses = Array[ExtResource("2_fqpip")]([ExtResource("3_15kqx")])
+type_tag = "APPLY_FRAGILE"
+amount = 2

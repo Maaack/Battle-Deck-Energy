@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://dumku7vu3xwnv"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_kwgki"]
+
+[resource]
+script = ExtResource("1_kwgki")
+type_tag = "ATTACK"
+amount = 36

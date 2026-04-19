@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b3dv2es5tjoyq"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="2"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_dcetc"]
+[ext_resource type="Resource" uid="uid://mgllc51i1ebi" path="res://Resources/Effects/StatusEffects/ApplyMarked2.tres" id="2_8kdo0"]
 [ext_resource type="Texture2D" uid="uid://ckxf1ny7u2wrs" path="res://Assets/Mixed/CardIcons/AttackGlowNew/binoculars.png" id="3"]
-[ext_resource type="Resource" uid="uid://clv1o63ate5tq" path="res://Resources/Effects/StatusEffects/ApplyMarked.tres" id="4"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="3_dcetc"]
 
 [resource]
 script = ExtResource("1")
 title = "Sentry"
 description = "Add %APPLY_MARKED Marked.
-Innate."
+Momentary."
 energy_cost = 0
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("4"), ExtResource("2")]
+effects = Array[ExtResource("1_dcetc")]([ExtResource("2_8kdo0"), ExtResource("3_dcetc")])

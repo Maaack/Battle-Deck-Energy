@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://dleokjkiyfp06" path="res://Resources/Cards/Players/Cost0/LastStand.tres" id="2"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="3"]
-[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/StartingSet/LameShield.tres" id="4"]
-[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/StartingSet/LameSlash.tres" id="5"]
+[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="4"]
+[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="5"]
 [ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="6"]
 [ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="7"]
 [ext_resource type="Texture2D" uid="uid://mhbqk4g4lhdf" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/round-shield.png" id="8"]
@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="12"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="13"]
 [ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="14"]
-[ext_resource type="Resource" uid="uid://8oj3iqg65huy" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="15"]
+[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="15"]
 
 [resource]
 script = ExtResource("1")

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://hb02fyrtde14"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_4dbuw"]
+[ext_resource type="Resource" uid="uid://drc1oeu1rtsu5" path="res://Resources/Effects/StatusEffects/ApplyEnraged2.tres" id="2_4dbuw"]
+[ext_resource type="Resource" uid="uid://p7xedefbpsfi" path="res://Resources/Effects/StatusEffects/ApplyStrong3.tres" id="3_4dbuw"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="4_c581h"]
+[ext_resource type="Texture2D" uid="uid://bd1v4ewt34ns" path="res://Assets/Mixed/CardIcons/SkillGlowNew/heartburn.png" id="5_4dbuw"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_ric2s"]
+
+[resource]
+script = ExtResource("6_ric2s")
+title = "Heartburn"
+description = "Gain %APPLY_ENRAGED Enraged and %APPLY_STRONG Strong.
+Momentary."
+energy_cost = 2
+icon = ExtResource("5_4dbuw")
+base_color = Color(0.54902, 0.560784, 0.682353, 1)
+effects = Array[ExtResource("1_4dbuw")]([ExtResource("2_4dbuw"), ExtResource("3_4dbuw"), ExtResource("4_c581h")])
+type = 3

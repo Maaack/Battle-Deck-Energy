@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b17bvjxh6ybt7"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_n8ywq"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_iymbd"]
+[ext_resource type="Texture2D" uid="uid://c0qptgolsr01e" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/spinning-sword.png" id="3_vyydl"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_o0jni"]
+
+[resource]
+script = ExtResource("4_o0jni")
+title = "Slash"
+description = "Deal %ATTACK Damage."
+icon = ExtResource("3_vyydl")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_n8ywq")]([ExtResource("2_iymbd")])

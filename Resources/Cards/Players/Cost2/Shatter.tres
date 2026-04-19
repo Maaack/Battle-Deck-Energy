@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bkl1h7qdmu82j"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_45143"]
+[ext_resource type="Resource" uid="uid://88moyii8lt4y" path="res://Resources/Effects/CardEffects/SmashAttackEffect9.tres" id="2_1ni6m"]
+[ext_resource type="Resource" uid="uid://c6w4et53mmy2o" path="res://Resources/Effects/StatusEffects/ApplyFragile3.tres" id="3_j58cp"]
+[ext_resource type="Resource" uid="uid://of2h1wwbjf8p" path="res://Resources/Effects/StatusEffects/ApplyWeak.tres" id="4_mcqa1"]
+[ext_resource type="Texture2D" uid="uid://bnkhmlyxgnhmf" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/hammer-drop.png" id="5_1a2ff"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_a4po7"]
+
+[resource]
+script = ExtResource("6_a4po7")
+title = "Shatter"
+description = "Deal %SMASH_ATTACK Damage (double to shields).
+Apply %APPLY_FRAGILE Fragile.
+Apply %APPLY_WEAK Weak."
+energy_cost = 2
+icon = ExtResource("5_1a2ff")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_45143")]([ExtResource("2_1ni6m"), ExtResource("3_j58cp"), ExtResource("4_mcqa1")])

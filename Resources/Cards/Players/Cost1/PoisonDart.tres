@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://3u48infoufau"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_cytw5"]
+[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="2_dqhcf"]
+[ext_resource type="Resource" uid="uid://cilvbwrn43o6b" path="res://Resources/Effects/StatusEffects/ApplyPoisoned3.tres" id="3_vqtuo"]
+[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="4_grxc7"]
+[ext_resource type="Texture2D" uid="uid://gt6ri1ch7cjs" path="res://Assets/Mixed/CardIcons/AttackGlowNew/dart.png" id="5_cytw5"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_wja3t"]
+
+[resource]
+script = ExtResource("6_wja3t")
+title = "Poison Dart"
+description = "Deal %ATTACK Damage.
+Apply %APPLY_POISONED Poisoned."
+icon = ExtResource("5_cytw5")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_cytw5")]([ExtResource("2_dqhcf"), ExtResource("3_vqtuo"), ExtResource("4_grxc7")])

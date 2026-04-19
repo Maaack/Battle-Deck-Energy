@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d231gt886cl5t"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_2j6do"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_05j0b"]
+[ext_resource type="Texture2D" uid="uid://cmc8thn5acb56" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/viking-shield.png" id="3_njepa"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_elw2m"]
+
+[resource]
+script = ExtResource("4_elw2m")
+title = "Shield"
+description = "Block %DEFEND Damage."
+icon = ExtResource("3_njepa")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_2j6do")]([ExtResource("2_05j0b")])
+type = 2

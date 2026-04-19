@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DeckData" format=3 uid="uid://bu0qj71cgd0tl"]
 
-[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/StartingSet/LameShield.tres" id="1"]
+[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="1"]
 [ext_resource type="Resource" uid="uid://dgjkhtpb581jm" path="res://Resources/Cards/Players/Cost0/BurnOut.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://bsrkp4rs5qto0" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Energy/fire-silhouette.png" id="3"]
-[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/StartingSet/LameSlash.tres" id="4"]
+[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="4"]
 [ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="5"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="6"]
 [ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="7"]

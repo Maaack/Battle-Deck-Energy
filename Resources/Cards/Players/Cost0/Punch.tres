@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dgpdkq004wvun"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_rjuy0"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_rjuy0"]
+[ext_resource type="Resource" uid="uid://bvpdlvc6w80bq" path="res://Resources/Effects/StatusEffects/ApplyEngaged.tres" id="3_32oeu"]
+[ext_resource type="Texture2D" uid="uid://s8v2ut5dhc1b" path="res://Assets/Mixed/CardIcons/AttackGlowNew/punch.png" id="4_suu0b"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_geqoj"]
+
+[resource]
+script = ExtResource("5_geqoj")
+title = "Punch"
+description = "Deal %ATTACK Damage.
+Apply %APPLY_ENGAGED Engaged."
+energy_cost = 0
+icon = ExtResource("4_suu0b")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_rjuy0")]([ExtResource("2_rjuy0"), ExtResource("3_32oeu")])

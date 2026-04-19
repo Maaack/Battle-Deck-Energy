@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c8613kiadwfmo"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_6grsc"]
+[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="2_msnj1"]
+[ext_resource type="Resource" uid="uid://chy5p0e86xxpu" path="res://Resources/Effects/StatusEffects/ApplyWeak3.tres" id="3_pdt50"]
+[ext_resource type="Texture2D" uid="uid://b2vjdhlkb0xti" path="res://Assets/Mixed/CardIcons/AttackGlowNew/sword-break.png" id="4_7n1yk"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_5w0xw"]
+
+[resource]
+script = ExtResource("5_5w0xw")
+title = "Sword Break"
+description = "Deal %ATTACK Damage.
+Apply %APPLY_WEAK Weak."
+icon = ExtResource("4_7n1yk")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_6grsc")]([ExtResource("2_msnj1"), ExtResource("3_pdt50")])

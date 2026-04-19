@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bk0m64s3gx8f7"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_blgde"]
+[ext_resource type="Resource" uid="uid://b6sepcwymwbd0" path="res://Resources/Effects/StatusEffects/ApplyPlanned3.tres" id="2_0u8hl"]
+[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3_kwxmw"]
+[ext_resource type="Texture2D" uid="uid://b0sisfwxjfqmt" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/hocus-focus.png" id="4_u2ard"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_se1hw"]
+
+[resource]
+script = ExtResource("5_se1hw")
+title = "Spinal Tap"
+description = "Next %APPLY_PLANNED turns, add [b]1[/b] Skill.
+Innate."
+icon = ExtResource("4_u2ard")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_blgde")]([ExtResource("2_0u8hl"), ExtResource("3_kwxmw")])
+type = 3

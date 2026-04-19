@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dl7qtxhwymhv0"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_2j5ro"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_ppev5"]
+[ext_resource type="Resource" uid="uid://ccguxk7pvo414" path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" id="3_ppev5"]
+[ext_resource type="Texture2D" uid="uid://u8i77h4jh6wn" path="res://Assets/Mixed/CardIcons/AttackGlowNew/shard-sword.png" id="4_2j5ro"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_s4oio"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_fjy51"]
+
+[resource]
+script = ExtResource("5_fjy51")
+title = "Double-Edged Sword"
+description = "Deal %ATTACK Damage over [b]2[/b] strikes.
+Apply %APPLY_VULNERABLE Vulnerable.
+Combo 2x."
+energy_cost = 2
+icon = ExtResource("4_2j5ro")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_2j5ro")]([ExtResource("2_ppev5"), ExtResource("2_ppev5"), ExtResource("3_ppev5"), ExtResource("4_s4oio")])

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://pxlnb6d1u6fk"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ajjwg"]
+[ext_resource type="Resource" uid="uid://b06x22umsykfy" path="res://Resources/Effects/StatusEffects/ApplyMarkedAll4.tres" id="2_ajjwg"]
+[ext_resource type="Resource" uid="uid://dk42s6mosaeg0" path="res://Resources/Effects/CardEffects/MarkedDamageAllEffect.tres" id="3_b1wex"]
+[ext_resource type="Texture2D" uid="uid://1v4jppnxa0sc" path="res://Assets/Mixed/CardIcons/AttackGlowNew/arrow-flights.png" id="4_ajjwg"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_mc0qj"]
+
+[resource]
+script = ExtResource("5_mc0qj")
+title = "Volley"
+description = "Apply %APPLY_MARKED Marked to all enemies.
+Deal damage to all equal to Marked, twice."
+energy_cost = 3
+icon = ExtResource("4_ajjwg")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_ajjwg")]([ExtResource("2_ajjwg"), ExtResource("3_b1wex"), ExtResource("3_b1wex")])

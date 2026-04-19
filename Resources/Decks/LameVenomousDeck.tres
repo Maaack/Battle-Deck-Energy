@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://d1ora0u5cbm8x" path="res://Resources/Cards/Players/Cost1/Sweep.tres" id="2"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="3"]
-[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/StartingSet/LameShield.tres" id="4"]
-[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/StartingSet/LameSlash.tres" id="5"]
+[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="4"]
+[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="5"]
 [ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="6"]
 [ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="7"]
 [ext_resource type="Texture2D" uid="uid://d4f4imd42anmn" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Venom/poison-blades.png" id="8"]
@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="11"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="12"]
 [ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="13"]
-[ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleStrike.tres" id="14"]
+[ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="14"]
 
 [resource]
 script = ExtResource("1")

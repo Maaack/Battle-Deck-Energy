@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d1ora0u5cbm8x"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ufl4r"]
 [ext_resource type="Texture2D" uid="uid://du8dfq0hxsbba" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/sword-spin.png" id="2"]
 [ext_resource type="Resource" uid="uid://ca8p36aicxusy" path="res://Resources/Effects/CardEffects/AttackAllEffect4.tres" id="3"]
 
@@ -10,4 +11,4 @@ title = "Sweep"
 description = "Deal %ATTACK Damage to all enemies."
 icon = ExtResource("2")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("3")]
+effects = Array[ExtResource("1_ufl4r")]([ExtResource("3")])

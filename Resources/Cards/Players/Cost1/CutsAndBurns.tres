@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://diagju74vu8g"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_t7kxh"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_t7kxh"]
+[ext_resource type="Resource" uid="uid://tb05nestp8rm" path="res://Resources/Effects/StatusEffects/ApplyCharged.tres" id="3_t7kxh"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_3a28o"]
+[ext_resource type="Texture2D" uid="uid://ckfmqhnfr2h76" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/saber-slash.png" id="5_67pie"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_pcp7q"]
+
+[resource]
+script = ExtResource("6_pcp7q")
+title = "Cuts and Burns"
+description = "Deal %ATTACK Damage.
+Next turn, gain %APPLY_CHARGED Energy.
+Combo 2x."
+icon = ExtResource("5_67pie")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_t7kxh")]([ExtResource("2_t7kxh"), ExtResource("3_t7kxh"), ExtResource("4_3a28o")])

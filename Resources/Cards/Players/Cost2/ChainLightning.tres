@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bajokdmlkvgmr"]
 
 [ext_resource type="Resource" uid="uid://bpxwgpdannixx" path="res://Resources/Effects/StatusEffects/ApplyVulnerableAll.tres" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_0mdi3"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://bxepi045ycgyj" path="res://Assets/Mixed/CardIcons/AttackGlowNew/chain-lightning.png" id="3"]
 [ext_resource type="Resource" uid="uid://dehrcue41uu2c" path="res://Resources/Effects/CardEffects/AttackAllEffect6.tres" id="4"]
@@ -12,4 +13,4 @@ description = "Deal %ATTACK Damage and apply %APPLY_VULNERABLE Vulnerable to all
 energy_cost = 2
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("4"), ExtResource("1")]
+effects = Array[ExtResource("1_0mdi3")]([ExtResource("4"), ExtResource("1")])

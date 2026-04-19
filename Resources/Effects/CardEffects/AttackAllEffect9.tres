@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1")
 type_tag = "ATTACK"
-amount = 8
+amount = 9
 team_aim_mode = 2

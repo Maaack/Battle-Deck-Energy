@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://c351gglvbw0fl"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_qfvns"]
+
+[resource]
+script = ExtResource("1_qfvns")
+type_tag = "SMASH_ATTACK"
+amount = 12

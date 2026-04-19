@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d363jhfyg0upq"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_v4bsm"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_63lx4"]
+[ext_resource type="Resource" uid="uid://cmw1236brhi5l" path="res://Resources/Effects/StatusEffects/ApplyMarked3.tres" id="3_vqkn6"]
+[ext_resource type="Texture2D" uid="uid://fnekmhxfvwtg" path="res://Assets/Mixed/CardIcons/AttackGlowNew/arrow-cluster.png" id="4_v4bsm"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_rylrb"]
+
+[resource]
+script = ExtResource("5_rylrb")
+title = "Three Way"
+description = "Deal %ATTACK Damage.
+Apply %APPLY_MARKED Marked."
+icon = ExtResource("4_v4bsm")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_v4bsm")]([ExtResource("2_63lx4"), ExtResource("3_vqkn6")])

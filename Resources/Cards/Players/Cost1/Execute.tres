@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dtoa2668k8ay"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_if3t3"]
 [ext_resource type="Resource" uid="uid://dk42s6mosaeg0" path="res://Resources/Effects/CardEffects/MarkedDamageAllEffect.tres" id="2"]
-[ext_resource type="Texture2D" uid="uid://1v4jppnxa0sc" path="res://Assets/Mixed/CardIcons/AttackGlowNew/arrow-flights.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dl7fayyt4u37w" path="res://Assets/Mixed/CardIcons/AttackGlowNew/target-shot.png" id="3_if3t3"]
 
 [resource]
 script = ExtResource("1")
 title = "Execute"
 description = "Deal damage to all enemies equal to their Marked."
-icon = ExtResource("3")
+icon = ExtResource("3_if3t3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2")]
+effects = Array[ExtResource("1_if3t3")]([ExtResource("2")])

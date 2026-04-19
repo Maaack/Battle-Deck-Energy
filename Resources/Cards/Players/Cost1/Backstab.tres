@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c466hpb37s1y"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_cpqot"]
+[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2_5e1a0"]
+[ext_resource type="Resource" uid="uid://b2ke5f7ancsi7" path="res://Resources/Effects/DeckModEffects/AddThrowKnifeDraw.tres" id="3_mpawk"]
+[ext_resource type="Texture2D" uid="uid://de1usrj1xu88x" path="res://Assets/Mixed/CardIcons/AttackGlowNew/backstab.png" id="4_y055d"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_x423g"]
+
+[resource]
+script = ExtResource("5_x423g")
+title = "Backstab"
+description = "Deal %ATTACK Damage.
+Add %ADD_THROW_KNIFE Throw Knife to draw pile."
+icon = ExtResource("4_y055d")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_cpqot")]([ExtResource("2_5e1a0"), ExtResource("3_mpawk")])

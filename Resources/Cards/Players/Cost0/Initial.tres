@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cl0a4nm3tryte"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ynlh5"]
+[ext_resource type="Resource" uid="uid://clv1o63ate5tq" path="res://Resources/Effects/StatusEffects/ApplyMarked.tres" id="2_id4ov"]
+[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3_oongw"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_wg6o1"]
+[ext_resource type="Texture2D" uid="uid://blogytrql64ib" path="res://Assets/Mixed/CardIcons/AttackGlowNew/cross-mark.png" id="5_oncgh"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_3n1vg"]
+
+[resource]
+script = ExtResource("6_3n1vg")
+title = "Initial"
+description = "Apply %APPLY_MARKED Marked.
+Innate.
+Combo 2x."
+energy_cost = 0
+icon = ExtResource("5_oncgh")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_ynlh5")]([ExtResource("2_id4ov"), ExtResource("3_oongw"), ExtResource("4_wg6o1")])

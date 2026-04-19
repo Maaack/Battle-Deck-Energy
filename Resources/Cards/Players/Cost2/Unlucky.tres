@@ -1,16 +1,21 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bd381tanlmxa7"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_1rhj8"]
 [ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="2"]
 [ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="3"]
+[ext_resource type="Resource" uid="uid://tb05nestp8rm" path="res://Resources/Effects/StatusEffects/ApplyCharged.tres" id="3_7ee8w"]
 [ext_resource type="Texture2D" uid="uid://bohtqs7cub7do" path="res://Assets/Mixed/CardIcons/AttackGlowNew/lightning-helix.png" id="4"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="5_frkp1"]
 
 [resource]
 script = ExtResource("1")
 title = "Unlucky"
-description = "Deal %ATTACK Damage over [b]2[/b] strikes.
-Momentary."
+description = "Deal %ATTACK Damage.
+Next turn, gain %APPLY_CHARGED Energy.
+Momentary.
+Combo 2x."
 energy_cost = 2
 icon = ExtResource("4")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("3"), ExtResource("3"), ExtResource("2")]
+effects = Array[ExtResource("1_1rhj8")]([ExtResource("3"), ExtResource("3_7ee8w"), ExtResource("2"), ExtResource("5_frkp1")])

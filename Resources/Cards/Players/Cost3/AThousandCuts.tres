@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ceoynp0ejeppy"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_caeel"]
+[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="2_c6sba"]
+[ext_resource type="Resource" uid="uid://bq2vf7gq4q8mc" path="res://Resources/Effects/CardEffects/MaxComboEffect.tres" id="3_4bbye"]
+[ext_resource type="Texture2D" uid="uid://dwha6fn6giwr0" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/sword-array.png" id="4_51lgk"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_e0xtg"]
+
+[resource]
+script = ExtResource("5_e0xtg")
+title = "A Thousand Cuts"
+description = "Deal %ATTACK Damage over [b]6[/b] strikes.
+Max Combo."
+energy_cost = 3
+icon = ExtResource("4_51lgk")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_caeel")]([ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("3_4bbye")])
