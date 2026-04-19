@@ -11,8 +11,7 @@
 script = ExtResource("1")
 title = "Deep Cut"
 description = "Deal %ATTACK Damage.
-Apply %APPLY_VULNERABLE Vulnerable.
-Apply %APPLY_WEAK Weak."
+Apply %APPLY_VULNERABLE Vulnerable and %APPLY_WEAK Weak."
 energy_cost = 2
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

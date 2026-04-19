@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://wsfj7bcpa1w5"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_18cuh"]
+[ext_resource type="Resource" uid="uid://bwwhgyueo6fkb" path="res://Resources/Effects/StatusEffects/ApplyDefenseUp.tres" id="2_18cuh"]
+[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3_x07wi"]
+[ext_resource type="Texture2D" uid="uid://cp7uiiymxk08t" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/defensive-trade.png" id="4_1hhuh"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_tew4s"]
+
+[resource]
+script = ExtResource("5_tew4s")
+title = "Fresh Coat"
+description = "Apply %APPLY_DEFENSE_UP Defense Up.
+Innate."
+energy_cost = 0
+icon = ExtResource("4_1hhuh")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_18cuh")]([ExtResource("2_18cuh"), ExtResource("3_x07wi")])
+type = 3

@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="8"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="9"]
 [ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Players/Cost1/Sharpen.tres" id="11"]
-[ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="12"]
+[ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/FreshCoat.tres" id="12"]
 [ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="13"]
 [ext_resource type="Resource" uid="uid://lis5bdkc23ra" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="14"]
 [ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="15"]

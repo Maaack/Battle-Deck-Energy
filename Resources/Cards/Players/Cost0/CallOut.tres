@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1")
 title = "Call Out"
-description = "Add %APPLY_MARKED Marked on all enemies.
+description = "Apply %APPLY_MARKED Marked on all enemies.
 Exhaust."
 energy_cost = 0
 icon = ExtResource("4")
