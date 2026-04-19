@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="14_qoi35"]
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="15_kxqll"]
 [ext_resource type="Resource" uid="uid://dmdt5b0uo124e" path="res://Resources/Cards/Players/Cost0/HitTheMark.tres" id="16_1eueb"]
-[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Alert.tres" id="17_8ijtn"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="17_8ijtn"]
 
 [resource]
 script = ExtResource("4")

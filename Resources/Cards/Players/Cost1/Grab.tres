@@ -3,16 +3,14 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_clw5m"]
 [ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_clw5m"]
 [ext_resource type="Resource" uid="uid://b0kon6vqeerym" path="res://Resources/Effects/CardEffects/DoubleAttacksEffect.tres" id="3_clw5m"]
-[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_4qei6"]
-[ext_resource type="Texture2D" uid="uid://tiijptg3rr18" path="res://Assets/Mixed/CardIcons/AttackGlowNew/grab.png" id="4_idemf"]
+[ext_resource type="Texture2D" uid="uid://bpytx2vrks5uf" path="res://Assets/Mixed/CardIcons/AttackGlowNew/crossed-chains.png" id="4_clw5m"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_nmdjb"]
 
 [resource]
 script = ExtResource("5_nmdjb")
-title = "Grab"
+title = "Chain Up"
 description = "Deal %ATTACK Damage.
-Double Attack actions.
-Exhaust."
-icon = ExtResource("4_idemf")
+Double Attack actions."
+icon = ExtResource("4_clw5m")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_clw5m")]([ExtResource("2_clw5m"), ExtResource("3_clw5m"), ExtResource("4_4qei6")])
+effects = Array[ExtResource("1_clw5m")]([ExtResource("2_clw5m"), ExtResource("3_clw5m")])

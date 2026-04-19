@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="7_hskno"]
 [ext_resource type="Resource" uid="uid://dwdy7sf6qg77l" path="res://Resources/Cards/Players/Cost0/Disarm.tres" id="7_xmli6"]
 [ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="8_ny5f3"]
-[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Alert.tres" id="8_ytyec"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="8_ytyec"]
 [ext_resource type="Resource" uid="uid://lis5bdkc23ra" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="9_37838"]
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="9_pd8ba"]
 [ext_resource type="Resource" uid="uid://sww1ott8nx6m" path="res://Resources/Cards/Players/Cost0/HideAce.tres" id="10_4225w"]

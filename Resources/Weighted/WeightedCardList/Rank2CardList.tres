@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="12"]
 [ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="13"]
 [ext_resource type="Resource" uid="uid://lis5bdkc23ra" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="14"]
-[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Alert.tres" id="15"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="15"]
 [ext_resource type="Resource" uid="uid://dqoxvpfgs1i7g" path="res://Resources/Cards/Players/Cost3/Impenetrable.tres" id="16"]
 [ext_resource type="Resource" uid="uid://dmdt5b0uo124e" path="res://Resources/Cards/Players/Cost0/HitTheMark.tres" id="19"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="21"]

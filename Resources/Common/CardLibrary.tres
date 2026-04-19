@@ -77,7 +77,7 @@
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="77"]
 [ext_resource type="Resource" uid="uid://cmw8qxfre5qqs" path="res://Resources/Cards/Players/Cost0/CallOut.tres" id="78"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="79"]
-[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Alert.tres" id="80"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="80"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="81"]
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="82"]
 [ext_resource type="Resource" uid="uid://iwajgypi5cye" path="res://Resources/Cards/Players/Cost1/TickTick.tres" id="83"]

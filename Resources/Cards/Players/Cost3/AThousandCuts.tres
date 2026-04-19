@@ -9,9 +9,9 @@
 [resource]
 script = ExtResource("5_e0xtg")
 title = "A Thousand Cuts"
-description = "Deal %ATTACK Damage over [b]6[/b] strikes.
+description = "Deal %ATTACK Damage over [b]10[/b] strikes.
 Max Combo."
 energy_cost = 3
 icon = ExtResource("4_51lgk")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_caeel")]([ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("3_4bbye")])
+effects = Array[ExtResource("1_caeel")]([ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("2_c6sba"), ExtResource("3_4bbye")])

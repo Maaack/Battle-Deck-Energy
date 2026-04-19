@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_pk2op"]
 [ext_resource type="Texture2D" uid="uid://dxy4i4lsopf1r" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/dripping-sword.png" id="3"]
-[ext_resource type="Resource" uid="uid://b14sjchg60njc" path="res://Resources/Effects/StatusEffects/ApplyVulnerable3.tres" id="3_eucw4"]
+[ext_resource type="Resource" uid="uid://dvdtwgh5pjisj" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="3_eucw4"]
 [ext_resource type="Resource" uid="uid://cx02sktjo3l3n" path="res://Resources/Effects/CardEffects/AttackEffect9.tres" id="4"]
-[ext_resource type="Resource" uid="uid://chy5p0e86xxpu" path="res://Resources/Effects/StatusEffects/ApplyWeak3.tres" id="4_fnthu"]
+[ext_resource type="Resource" uid="uid://of2h1wwbjf8p" path="res://Resources/Effects/StatusEffects/ApplyWeak.tres" id="4_fnthu"]
 
 [resource]
 script = ExtResource("1")
-title = "Cripple"
+title = "Deep Cut"
 description = "Deal %ATTACK Damage.
 Apply %APPLY_VULNERABLE Vulnerable.
 Apply %APPLY_WEAK Weak."

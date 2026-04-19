@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="6"]
 [ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="7"]
 [ext_resource type="Texture2D" uid="uid://8bh5ne3wm2iy" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/flex.png" id="8"]
-[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Alert.tres" id="9"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="9"]
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="10"]
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/Vigilance.tres" id="11"]
 [ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Players/Cost1/Sharpen.tres" id="12"]

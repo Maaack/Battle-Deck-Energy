@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_h7rqb"]
 [ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2"]
-[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="3_h7rqb"]
+[ext_resource type="Resource" uid="uid://bq2vf7gq4q8mc" path="res://Resources/Effects/CardEffects/MaxComboEffect.tres" id="3_h7rqb"]
 [ext_resource type="Texture2D" uid="uid://cdv5l8o6563j" path="res://Assets/Mixed/CardIcons/AttackGlowNew/kitchen-knives.png" id="4_euamq"]
 
 [resource]
 script = ExtResource("1")
 title = "Stab to Death"
 description = "Deal %ATTACK Damage over [b]3[/b] strikes.
-Combo 3x."
+Max Combo."
 energy_cost = 2
 icon = ExtResource("4_euamq")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

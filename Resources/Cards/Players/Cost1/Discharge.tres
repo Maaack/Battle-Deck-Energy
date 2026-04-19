@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_e6tdl"]
-[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_tq02y"]
+[ext_resource type="Resource" uid="uid://bb2rf01ocovxb" path="res://Resources/Effects/CardEffects/AttackEffect12.tres" id="2_e6tdl"]
 [ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="3"]
-[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_hbuyk"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_tq02y"]
 [ext_resource type="Texture2D" uid="uid://2h25fhjawe13" path="res://Assets/Mixed/CardIcons/AttackGlowNew/lightning-trio.png" id="5"]
 
 [resource]
@@ -12,7 +12,7 @@ script = ExtResource("1")
 title = "Discharge"
 description = "Deal %ATTACK Damage.
 Momentary.
-Combo 3x."
+Exhaust."
 icon = ExtResource("5")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_e6tdl")]([ExtResource("2_tq02y"), ExtResource("3"), ExtResource("4_hbuyk")])
+effects = Array[ExtResource("1_e6tdl")]([ExtResource("2_e6tdl"), ExtResource("3"), ExtResource("4_tq02y")])

@@ -61,7 +61,7 @@ _uids_to_string_ids = Dictionary[StringName, StringName]({
 &"uid://ceoynp0ejeppy": &"AThousandCuts",
 &"uid://cgjxstiw4bfom": &"Biohazard",
 &"uid://ch0k47ms5hi6o": &"ToxicSlash",
-&"uid://cilv4un3umw3j": &"Alert",
+&"uid://cilv4un3umw3j": &"ThinkAhead",
 &"uid://ciqwvwbl2yhj6": &"PowerUp",
 &"uid://cjmwklggcrdw7": &"StrongSlash",
 &"uid://ck61sj782qdon": &"Reforge",
@@ -106,6 +106,7 @@ _uids_to_string_ids = Dictionary[StringName, StringName]({
 &"uid://dv0amt38r456f": &"Trip",
 &"uid://dv3qfo2jc7top": &"HeavyArmor",
 &"uid://dvaixqt84i0at": &"Miasma",
+&"uid://dvqip0qpmvtgl": &"PunchCombo",
 &"uid://dwdy7sf6qg77l": &"Disarm",
 &"uid://dwfbf7n2u2x0x": &"Sharpen",
 &"uid://dwluljbd50p1": &"DoubleLayer",
@@ -130,7 +131,6 @@ _uids_to_string_ids = Dictionary[StringName, StringName]({
 })
 _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"AThousandCuts": &"uid://ceoynp0ejeppy",
-&"Alert": &"uid://cilv4un3umw3j",
 &"Biohazard": &"uid://cgjxstiw4bfom",
 &"Bloodletting": &"uid://uxub2rnlohfq",
 &"Break": &"uid://b8b05f81c4574",
@@ -204,6 +204,7 @@ _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"PoisonDart": &"uid://3u48infoufau",
 &"PolishShields": &"uid://6ep1w4m0f2c0",
 &"PowerUp": &"uid://ciqwvwbl2yhj6",
+&"PunchCombo": &"uid://dvqip0qpmvtgl",
 &"QuickCover": &"uid://c5eubmfhnrmjb",
 &"QuickStrike": &"uid://dlrcgghckjd0p",
 &"QuickThinking": &"uid://noe2r133srjq",
@@ -233,6 +234,7 @@ _string_ids_to_uids = Dictionary[StringName, StringName]({
 &"Sweep": &"uid://d1ora0u5cbm8x",
 &"SwiftStrike": &"uid://c6hk41ss3g8x8",
 &"Taint": &"uid://exaat02tip24",
+&"ThinkAhead": &"uid://cilv4un3umw3j",
 &"ThreeWay": &"uid://d363jhfyg0upq",
 &"ThrowDagger": &"uid://88dykjuwa6u3",
 &"TickTick": &"uid://iwajgypi5cye",
@@ -252,11 +254,11 @@ _string_ids_to_uids = Dictionary[StringName, StringName]({
 _property_index = Dictionary[StringName, Dictionary]({
 &"energy_cost": {
 0: {
-&"Alert": true,
 &"Bloodletting": true,
 &"BurnOut": true,
 &"Burst": true,
 &"CallOut": true,
+&"CheapProtection": true,
 &"Cut": true,
 &"Disarm": true,
 &"Dodge": true,
@@ -276,6 +278,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"SecondWindCard": true,
 &"Sentry": true,
 &"Subvert": true,
+&"ThinkAhead": true,
 &"ThrowDagger": true,
 &"ToxicSpit": true,
 &"VenomVial": true,
@@ -286,8 +289,10 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"Break": true,
 &"Brew": true,
 &"Buffer": true,
+&"Castle": true,
 &"Charge": true,
 &"Cinder": true,
+&"CloakAndDagger": true,
 &"CutsAndBurns": true,
 &"Discharge": true,
 &"Discover": true,
@@ -310,9 +315,11 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"Medicine": true,
 &"OldPlot": true,
 &"Passion": true,
+&"PillowFort": true,
 &"PoisonDart": true,
 &"PolishShields": true,
 &"PowerUp": true,
+&"PunchCombo": true,
 &"QuickCover": true,
 &"QuickStrike": true,
 &"QuickThinking": true,
@@ -340,13 +347,17 @@ _property_index = Dictionary[StringName, Dictionary]({
 },
 2: {
 &"Biohazard": true,
+&"BrickByBrick": true,
 &"ChainLightning": true,
 &"Cripple": true,
 &"CriticalHit": true,
 &"DoubleDeal": true,
 &"DoubleEdgedSword": true,
+&"DoubleLayer": true,
 &"Erupt": true,
+&"FireShield": true,
 &"FlyingStrike": true,
+&"FourthWall": true,
 &"Heartburn": true,
 &"Hyperfocus": true,
 &"Ironclad": true,
@@ -356,6 +367,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"Scorch": true,
 &"SerpentsBlade": true,
 &"ShatterDefenses": true,
+&"ShieldWall": true,
 &"Skysword": true,
 &"StabToDeath": true,
 &"Twofold": true,
@@ -365,6 +377,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 3: {
 &"AThousandCuts": true,
 &"DeathBlow": true,
+&"Impenetrable": true,
 &"NotNowNotEver": true,
 &"Volley": true
 }
@@ -372,9 +385,6 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"title": {
 "A Thousand Cuts": {
 &"AThousandCuts": true
-},
-"Alert": {
-&"Alert": true
 },
 "Backstab": {
 &"HitAndRun": true
@@ -388,6 +398,9 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Brew": {
 &"Brew": true
 },
+"Brick By Brick": {
+&"BrickByBrick": true
+},
 "Buffer": {
 &"Buffer": true
 },
@@ -400,14 +413,26 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Call Out": {
 &"CallOut": true
 },
+"Castle": {
+&"Castle": true
+},
 "Chain Lightning": {
 &"ChainLightning": true
+},
+"Chain Up": {
+&"WindUp": true
 },
 "Charge": {
 &"Charge": true
 },
+"Cheap Protection": {
+&"CheapProtection": true
+},
 "Cinder": {
 &"Cinder": true
+},
+"Cloak And Dagger": {
+&"CloakAndDagger": true
 },
 "Cripple": {
 &"Cripple": true
@@ -442,6 +467,9 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Double Deal": {
 &"DoubleDeal": true
 },
+"Double Layer": {
+&"DoubleLayer": true
+},
 "Double Tap": {
 &"DoubleStrike": true
 },
@@ -469,11 +497,17 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Fast Footed": {
 &"FastFooted": true
 },
+"Fire Shield": {
+&"FireShield": true
+},
 "Flex": {
 &"Flex": true
 },
 "Flying Strike": {
 &"FlyingStrike": true
+},
+"Fourth Wall": {
+&"FourthWall": true
 },
 "Grab": {
 &"Grab": true
@@ -498,6 +532,9 @@ _property_index = Dictionary[StringName, Dictionary]({
 },
 "Hyperfocus": {
 &"Hyperfocus": true
+},
+"Impenetrable": {
+&"Impenetrable": true
 },
 "Initial": {
 &"Initial": true
@@ -547,6 +584,9 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Passion": {
 &"Passion": true
 },
+"Pillow Fort": {
+&"PillowFort": true
+},
 "Plot": {
 &"Plot": true
 },
@@ -558,9 +598,6 @@ _property_index = Dictionary[StringName, Dictionary]({
 },
 "Power Up": {
 &"PowerUp": true
-},
-"Punch": {
-&"WindUp": true
 },
 "Quick Cover": {
 &"QuickCover": true
@@ -613,6 +650,9 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Shield Bash": {
 &"ShieldBash": true
 },
+"Shield Wall": {
+&"ShieldWall": true
+},
 "Slash": {
 &"Slash": true
 },
@@ -651,6 +691,12 @@ _property_index = Dictionary[StringName, Dictionary]({
 },
 "Taint": {
 &"Taint": true
+},
+"The One-Two": {
+&"PunchCombo": true
+},
+"Think Ahead": {
+&"ThinkAhead": true
 },
 "Three Way": {
 &"ThreeWay": true
@@ -728,6 +774,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"Miasma": true,
 &"Misstep": true,
 &"PoisonDart": true,
+&"PunchCombo": true,
 &"QuickStrike": true,
 &"Scorch": true,
 &"Sentry": true,
@@ -755,24 +802,33 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"Wreck_2": true
 },
 2: {
+&"BrickByBrick": true,
+&"Castle": true,
+&"CheapProtection": true,
+&"CloakAndDagger": true,
 &"Dodge": true,
+&"DoubleLayer": true,
 &"Entrench": true,
 &"FastFooted": true,
+&"FireShield": true,
+&"FourthWall": true,
 &"HeavyArmor": true,
+&"Impenetrable": true,
 &"Ironclad": true,
 &"LastStand": true,
 &"LightArmor": true,
 &"LightShield": true,
 &"LightningShield": true,
 &"NotNowNotEver": true,
+&"PillowFort": true,
 &"QuickCover": true,
 &"Recoup": true,
 &"Shield": true,
+&"ShieldWall": true,
 &"StrongShield": true,
 &"SturdyShield": true
 },
 3: {
-&"Alert": true,
 &"Biohazard": true,
 &"Bloodletting": true,
 &"Brew": true,
@@ -809,6 +865,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"SecondWindCard": true,
 &"Sharpen": true,
 &"Taint": true,
+&"ThinkAhead": true,
 &"TickTick": true,
 &"Twofold": true,
 &"VenomVial": true,
