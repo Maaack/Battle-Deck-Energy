@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
 [ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/TheWall.tres" id="3"]
+[ext_resource type="Resource" uid="uid://pfky413n0rsu" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="3"]
 [ext_resource type="Resource" uid="uid://cquh66dg2w5s7" path="res://Resources/Cards/Players/Cost3/DeathBlow.tres" id="4"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="5"]
 [ext_resource type="Resource" uid="uid://bd381tanlmxa7" path="res://Resources/Cards/Players/Cost2/Unlucky.tres" id="6"]
@@ -72,3 +72,17 @@ data = ExtResource("4")
 [resource]
 script = ExtResource("1")
 starting_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11")]
+weighted_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2"): 4.0,
+ExtResource("6"): 4.0,
+ExtResource("17"): 4.0,
+ExtResource("8"): 4.0,
+ExtResource("11"): 2.0,
+ExtResource("12"): 2.0,
+ExtResource("10"): 2.0,
+ExtResource("5"): 2.0,
+ExtResource("3"): 2.0,
+ExtResource("7"): 2.0,
+ExtResource("4"): 2.0
+})

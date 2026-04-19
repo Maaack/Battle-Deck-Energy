@@ -1,11 +1,22 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://bwrdbtbcg7wkn"]
 
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level16/SpoiledShitPairLevelChance.tres" id="1"]
+[ext_resource type="Resource" uid="uid://cxscjppriej7r" path="res://Resources/Weighted/WeightedLevelList/Level16/SpoiledShitPairLevelChance.tres" id="1"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="2"]
 [ext_resource type="Resource" uid="uid://hek8ghv81fkp" path="res://Resources/Weighted/WeightedLevelList/Level16/BratRascalAndSpoiledShitLevelChance.tres" id="3"]
 [ext_resource type="Resource" uid="uid://bw50eh7236c8e" path="res://Resources/Weighted/WeightedLevelList/Level16/BratPairAndSpoiledShitLevelChance.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level16/RascalPairAndSpoiledShitLevelChance.tres" id="5"]
+[ext_resource type="Resource" uid="uid://crna2fykkajsf" path="res://Resources/Weighted/WeightedLevelList/Level16/RascalPairAndSpoiledShitLevelChance.tres" id="5"]
+[ext_resource type="Resource" uid="uid://8v1tf6x4ooyy" path="res://Resources/Levels/Level16/BratRascalAndSpoiledShit.tres" id="6_8c5r0"]
+[ext_resource type="Resource" uid="uid://bq75lvhdbyrwk" path="res://Resources/Levels/Level16/RascalPairAndSpoiledShit.tres" id="7_112e7"]
+[ext_resource type="Resource" uid="uid://caglj2fcn0ugq" path="res://Resources/Levels/Level16/SpoiledShitPair.tres" id="8_l2ndp"]
+[ext_resource type="Resource" uid="uid://qy0jfghbk0ve" path="res://Resources/Levels/Level16/BratPairAndSpoiledShit.tres" id="9_qvsfn"]
 
 [resource]
 script = ExtResource("2")
 starting_list = [ExtResource("3"), ExtResource("5"), ExtResource("1"), ExtResource("4")]
+weighted_list = [ExtResource("3"), ExtResource("5"), ExtResource("1"), ExtResource("4")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("6_8c5r0"): 1.0,
+ExtResource("7_112e7"): 1.0,
+ExtResource("8_l2ndp"): 1.0,
+ExtResource("9_qvsfn"): 1.0
+})

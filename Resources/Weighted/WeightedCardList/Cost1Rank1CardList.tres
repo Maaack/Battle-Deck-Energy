@@ -1,11 +1,22 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cslq5dd5vwfej"]
 
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/TripWeight1.tres" id="1"]
+[ext_resource type="Resource" uid="uid://b3y22dkx34eh5" path="res://Resources/Weighted/WeightedCards/Cost1/TripWeight1.tres" id="1"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="3"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/RecoupWeight1.tres" id="16"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/StrongShieldWeight1.tres" id="24"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/StrongSlashWeight1.tres" id="36"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="6_8nrf7"]
+[ext_resource type="Resource" uid="uid://cjmwklggcrdw7" path="res://Resources/Cards/Players/Cost1/StrongSlash.tres" id="7_fue6r"]
+[ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="8_ih6um"]
+[ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="9_akghx"]
+[ext_resource type="Resource" uid="uid://dssvrxokm1hyd" path="res://Resources/Weighted/WeightedCards/Cost1/RecoupWeight1.tres" id="16"]
+[ext_resource type="Resource" uid="uid://h53h6nn7x2fx" path="res://Resources/Weighted/WeightedCards/Cost1/StrongShieldWeight1.tres" id="24"]
+[ext_resource type="Resource" uid="uid://dotpn2m75y3y3" path="res://Resources/Weighted/WeightedCards/Cost1/StrongSlashWeight1.tres" id="36"]
 
 [resource]
 script = ExtResource("3")
 starting_list = [ExtResource("24"), ExtResource("36"), ExtResource("16"), ExtResource("1")]
+weighted_list = [ExtResource("24"), ExtResource("36"), ExtResource("16"), ExtResource("1")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("6_8nrf7"): 1.0,
+ExtResource("7_fue6r"): 1.0,
+ExtResource("8_ih6um"): 1.0,
+ExtResource("9_akghx"): 1.0
+})

@@ -1,8 +1,13 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://icgwfw6pt3me"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost3/DeathBlowWeight1.tres" id="2"]
+[ext_resource type="Resource" uid="uid://chn1k6fx8c772" path="res://Resources/Weighted/WeightedCards/Cost3/DeathBlowWeight1.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cquh66dg2w5s7" path="res://Resources/Cards/Players/Cost3/DeathBlow.tres" id="3_55boc"]
 
 [resource]
 script = ExtResource("1")
 starting_list = [ExtResource("2")]
+weighted_list = [ExtResource("2")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("3_55boc"): 1.0
+})

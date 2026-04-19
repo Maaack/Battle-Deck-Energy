@@ -1,49 +1,136 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cii4jiwuxlp61"]
 
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/BufferWeight1.tres" id="1"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/SharpenWeight1.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bx4lwcxlnkxvp" path="res://Resources/Weighted/WeightedCards/Cost1/BufferWeight1.tres" id="1"]
+[ext_resource type="Resource" uid="uid://xl3lmtgu8rfi" path="res://Resources/Weighted/WeightedCards/Cost1/SharpenWeight1.tres" id="2"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="3"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/TickTickWeight1.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/HeavyArmorWeight1.tres" id="5"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/PullKnivesWeight1.tres" id="6"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/MedicineWeight1.tres" id="7"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/DoubleStrikeWeight1.tres" id="8"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/HocusFocusWeight1.tres" id="9"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/PlotWeight1.tres" id="10"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/ToxicSlashWeight1.tres" id="11"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/BloodlettingWeight1.tres" id="12"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/ScanWeight1.tres" id="13"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/DiscoverWeight1.tres" id="14"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/DischargeWeight1.tres" id="15"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/RecoupWeight1.tres" id="16"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/ExecuteWeight1.tres" id="17"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/LookUpWeight1.tres" id="18"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/FlexWeight1.tres" id="19"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/InitialWeight1.tres" id="20"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/EndureWeight1.tres" id="21"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/SturdyShieldWeight1.tres" id="22"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/BreakWeight1.tres" id="23"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/StrongShieldWeight1.tres" id="24"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/EntrenchWeight1.tres" id="25"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/CinderWeight1.tres" id="26"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/SweepWeight1.tres" id="27"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/ChargeWeight1.tres" id="28"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/WreckWeight1.tres" id="29"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/FastFootedWeight1.tres" id="30"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/LethalNeedleWeight1.tres" id="31"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/QuickCoverWeight1.tres" id="32"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/QuickThinkingWeight1.tres" id="33"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/ToxifyWeight1.tres" id="34"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/ShieldBashWeight1.tres" id="35"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/StrongSlashWeight1.tres" id="36"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/SwiftStrikeWeight1.tres" id="37"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/TaintWeight1.tres" id="38"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/BrewWeight1.tres" id="39"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/RushWeight1.tres" id="40"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/SmoothShieldsWeight1.tres" id="41"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/DissectWeight1.tres" id="42"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/PassionWeight1.tres" id="43"]
+[ext_resource type="Resource" uid="uid://v4nrtyd0yhfs" path="res://Resources/Weighted/WeightedCards/Cost1/TickTickWeight1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://c8qx5wqu4ocom" path="res://Resources/Weighted/WeightedCards/Cost1/HeavyArmorWeight1.tres" id="5"]
+[ext_resource type="Resource" uid="uid://celoo8vrbbk5" path="res://Resources/Weighted/WeightedCards/Cost1/PullKnivesWeight1.tres" id="6"]
+[ext_resource type="Resource" uid="uid://cvmnh44fexysm" path="res://Resources/Weighted/WeightedCards/Cost1/MedicineWeight1.tres" id="7"]
+[ext_resource type="Resource" uid="uid://b3gdqx124gmfp" path="res://Resources/Weighted/WeightedCards/Cost1/DoubleStrikeWeight1.tres" id="8"]
+[ext_resource type="Resource" uid="uid://bkdtmwrptanxl" path="res://Resources/Weighted/WeightedCards/Cost1/HocusFocusWeight1.tres" id="9"]
+[ext_resource type="Resource" uid="uid://dkiekii1e7txk" path="res://Resources/Weighted/WeightedCards/Cost1/PlotWeight1.tres" id="10"]
+[ext_resource type="Resource" uid="uid://cef5d25yj3poh" path="res://Resources/Weighted/WeightedCards/Cost1/ToxicSlashWeight1.tres" id="11"]
+[ext_resource type="Resource" uid="uid://ch45corhngkfc" path="res://Resources/Weighted/WeightedCards/Cost1/BloodlettingWeight1.tres" id="12"]
+[ext_resource type="Resource" uid="uid://srqrfg5pxhgh" path="res://Resources/Weighted/WeightedCards/Cost1/ScanWeight1.tres" id="13"]
+[ext_resource type="Resource" uid="uid://dolfom32ovkr7" path="res://Resources/Weighted/WeightedCards/Cost1/DiscoverWeight1.tres" id="14"]
+[ext_resource type="Resource" uid="uid://r41pfwiadk1u" path="res://Resources/Weighted/WeightedCards/Cost1/DischargeWeight1.tres" id="15"]
+[ext_resource type="Resource" uid="uid://dssvrxokm1hyd" path="res://Resources/Weighted/WeightedCards/Cost1/RecoupWeight1.tres" id="16"]
+[ext_resource type="Resource" uid="uid://dk4eono1f1h8i" path="res://Resources/Weighted/WeightedCards/Cost1/ExecuteWeight1.tres" id="17"]
+[ext_resource type="Resource" uid="uid://brnq73luutkjs" path="res://Resources/Weighted/WeightedCards/Cost1/LookUpWeight1.tres" id="18"]
+[ext_resource type="Resource" uid="uid://s07xxttevv1a" path="res://Resources/Weighted/WeightedCards/Cost1/FlexWeight1.tres" id="19"]
+[ext_resource type="Resource" uid="uid://bt6bxm58iqb7h" path="res://Resources/Weighted/WeightedCards/Cost1/InitialWeight1.tres" id="20"]
+[ext_resource type="Resource" uid="uid://datlkh3pmbdx8" path="res://Resources/Weighted/WeightedCards/Cost1/EndureWeight1.tres" id="21"]
+[ext_resource type="Resource" uid="uid://bbh7yntgx8j16" path="res://Resources/Weighted/WeightedCards/Cost1/SturdyShieldWeight1.tres" id="22"]
+[ext_resource type="Resource" uid="uid://brae4hmkgcoou" path="res://Resources/Weighted/WeightedCards/Cost1/BreakWeight1.tres" id="23"]
+[ext_resource type="Resource" uid="uid://h53h6nn7x2fx" path="res://Resources/Weighted/WeightedCards/Cost1/StrongShieldWeight1.tres" id="24"]
+[ext_resource type="Resource" uid="uid://bta66lj7pqo1b" path="res://Resources/Weighted/WeightedCards/Cost1/EntrenchWeight1.tres" id="25"]
+[ext_resource type="Resource" uid="uid://dleb08iho1gkd" path="res://Resources/Weighted/WeightedCards/Cost1/CinderWeight1.tres" id="26"]
+[ext_resource type="Resource" uid="uid://d15judfhjh7pc" path="res://Resources/Weighted/WeightedCards/Cost1/SweepWeight1.tres" id="27"]
+[ext_resource type="Resource" uid="uid://iete1gsgmkwi" path="res://Resources/Weighted/WeightedCards/Cost1/ChargeWeight1.tres" id="28"]
+[ext_resource type="Resource" uid="uid://bjsko3k58d8nj" path="res://Resources/Weighted/WeightedCards/Cost1/WreckWeight1.tres" id="29"]
+[ext_resource type="Resource" uid="uid://244ltrfccljb" path="res://Resources/Weighted/WeightedCards/Cost1/FastFootedWeight1.tres" id="30"]
+[ext_resource type="Resource" uid="uid://c8qojaipuw6u1" path="res://Resources/Weighted/WeightedCards/Cost1/LethalNeedleWeight1.tres" id="31"]
+[ext_resource type="Resource" uid="uid://blmcw041bhyyh" path="res://Resources/Weighted/WeightedCards/Cost1/QuickCoverWeight1.tres" id="32"]
+[ext_resource type="Resource" uid="uid://bhfa6pm4j0up1" path="res://Resources/Weighted/WeightedCards/Cost1/QuickThinkingWeight1.tres" id="33"]
+[ext_resource type="Resource" uid="uid://dwx17sr73tp62" path="res://Resources/Weighted/WeightedCards/Cost1/ToxifyWeight1.tres" id="34"]
+[ext_resource type="Resource" uid="uid://v18acki833y7" path="res://Resources/Weighted/WeightedCards/Cost1/ShieldBashWeight1.tres" id="35"]
+[ext_resource type="Resource" uid="uid://dotpn2m75y3y3" path="res://Resources/Weighted/WeightedCards/Cost1/StrongSlashWeight1.tres" id="36"]
+[ext_resource type="Resource" uid="uid://c752f35xhplgj" path="res://Resources/Weighted/WeightedCards/Cost1/SwiftStrikeWeight1.tres" id="37"]
+[ext_resource type="Resource" uid="uid://cdde20nkgkaan" path="res://Resources/Weighted/WeightedCards/Cost1/TaintWeight1.tres" id="38"]
+[ext_resource type="Resource" uid="uid://d22cp0b8ch5ap" path="res://Resources/Weighted/WeightedCards/Cost1/BrewWeight1.tres" id="39"]
+[ext_resource type="Resource" uid="uid://rnpq7lbvmiml" path="res://Resources/Weighted/WeightedCards/Cost1/RushWeight1.tres" id="40"]
+[ext_resource type="Resource" uid="uid://bmpvyewrmvmp2" path="res://Resources/Weighted/WeightedCards/Cost1/SmoothShieldsWeight1.tres" id="41"]
+[ext_resource type="Resource" uid="uid://djwu8c3sm4skv" path="res://Resources/Weighted/WeightedCards/Cost1/DissectWeight1.tres" id="42"]
+[ext_resource type="Resource" uid="uid://w73lmcn64lsw" path="res://Resources/Weighted/WeightedCards/Cost1/PassionWeight1.tres" id="43"]
+[ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Players/Cost1/Sharpen.tres" id="44_5p4pd"]
+[ext_resource type="Resource" uid="uid://iwajgypi5cye" path="res://Resources/Cards/Players/Cost1/TickTick.tres" id="45_6dsfm"]
+[ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="46_4hoce"]
+[ext_resource type="Resource" uid="uid://cvtwl0ikdl6n1" path="res://Resources/Cards/Players/Cost1/Buffer.tres" id="47_n2kcj"]
+[ext_resource type="Resource" uid="uid://b24ssfhyjmfma" path="res://Resources/Cards/Players/Cost1/HocusFocus.tres" id="48_xxsov"]
+[ext_resource type="Resource" uid="uid://ch0k47ms5hi6o" path="res://Resources/Cards/Players/Cost1/ToxicSlash.tres" id="49_cneys"]
+[ext_resource type="Resource" uid="uid://uxub2rnlohfq" path="res://Resources/Cards/Players/Cost0/Bloodletting.tres" id="50_fsti8"]
+[ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="51_bqap2"]
+[ext_resource type="Resource" uid="uid://db61er2r63u1q" path="res://Resources/Cards/Players/Cost1/Discover.tres" id="52_gkw7c"]
+[ext_resource type="Resource" uid="uid://24x2atk4od42" path="res://Resources/Cards/Players/Cost1/Discharge.tres" id="53_q0ejp"]
+[ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="54_ki0n2"]
+[ext_resource type="Resource" uid="uid://dtoa2668k8ay" path="res://Resources/Cards/Players/Cost1/Execute.tres" id="55_23da3"]
+[ext_resource type="Resource" uid="uid://b417bkurpki5u" path="res://Resources/Cards/Players/Cost1/LookUp.tres" id="56_8o1bb"]
+[ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="57_nip1u"]
+[ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Players/Cost0/Initial.tres" id="58_6c66c"]
+[ext_resource type="Resource" uid="uid://c4wprnh7kf60y" path="res://Resources/Cards/Players/Cost1/Endure.tres" id="59_qkarj"]
+[ext_resource type="Resource" uid="uid://b8b05f81c4574" path="res://Resources/Cards/Players/Cost1/Warhammer.tres" id="60_aiyje"]
+[ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="61_b7p68"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="62_kvh8o"]
+[ext_resource type="Resource" uid="uid://1us6b7b0hotk" path="res://Resources/Cards/Players/Cost1/Entrench.tres" id="63_1h57c"]
+[ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="64_nreu8"]
+[ext_resource type="Resource" uid="uid://d1ora0u5cbm8x" path="res://Resources/Cards/Players/Cost1/Sweep.tres" id="65_xduxo"]
+[ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="66_wtms8"]
+[ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="67_clqdu"]
+[ext_resource type="Resource" uid="uid://b6jljbo5qi0vj" path="res://Resources/Cards/Players/Cost1/Medicine.tres" id="68_7n6r1"]
+[ext_resource type="Resource" uid="uid://tmlagkvdcr62" path="res://Resources/Cards/Players/Cost1/KnivesOut.tres" id="69_oxoqu"]
+[ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="70_wtads"]
+[ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="71_8d47l"]
+[ext_resource type="Resource" uid="uid://dt12y50rrnqpi" path="res://Resources/Cards/Players/Cost1/LethalNeedle.tres" id="72_56dbb"]
+[ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="73_88a8a"]
+[ext_resource type="Resource" uid="uid://bk0m64s3gx8f7" path="res://Resources/Cards/Players/Cost1/SpinalTap.tres" id="74_r7gug"]
+[ext_resource type="Resource" uid="uid://bn42rf0mqstui" path="res://Resources/Cards/Players/Cost1/Toxify.tres" id="75_ybbeh"]
+[ext_resource type="Resource" uid="uid://c6sko4fqksy14" path="res://Resources/Cards/Players/Cost1/ShieldBash.tres" id="76_wb8kl"]
+[ext_resource type="Resource" uid="uid://cjmwklggcrdw7" path="res://Resources/Cards/Players/Cost1/StrongSlash.tres" id="77_uqtlc"]
+[ext_resource type="Resource" uid="uid://c6hk41ss3g8x8" path="res://Resources/Cards/Players/Cost1/SwiftStrike.tres" id="78_dkd7e"]
+[ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="79_edmpr"]
+[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Brew.tres" id="80_5nu5n"]
+[ext_resource type="Resource" uid="uid://b03lr3y7usljf" path="res://Resources/Cards/Players/Cost1/Rush.tres" id="81_018h7"]
+[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="82_ihyjl"]
+[ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Players/Cost1/Dissect.tres" id="83_jlmoj"]
+[ext_resource type="Resource" uid="uid://exaat02tip24" path="res://Resources/Cards/Players/Cost1/Taint.tres" id="84_e8868"]
+[ext_resource type="Resource" uid="uid://dtnqnpml4lvfq" path="res://Resources/Cards/Players/Cost1/Passion.tres" id="85_6b2qb"]
 
 [resource]
 script = ExtResource("3")
 starting_list = [ExtResource("2"), ExtResource("4"), ExtResource("5"), ExtResource("1"), ExtResource("9"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("23"), ExtResource("22"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("7"), ExtResource("6"), ExtResource("8"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("10"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("37"), ExtResource("33"), ExtResource("39"), ExtResource("40"), ExtResource("41"), ExtResource("42"), ExtResource("38"), ExtResource("43")]
+weighted_list = [ExtResource("2"), ExtResource("4"), ExtResource("5"), ExtResource("1"), ExtResource("9"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("23"), ExtResource("22"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("7"), ExtResource("6"), ExtResource("8"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("10"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("37"), ExtResource("33"), ExtResource("39"), ExtResource("40"), ExtResource("41"), ExtResource("42"), ExtResource("38"), ExtResource("43")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("65_xduxo"): 1.0,
+ExtResource("66_wtms8"): 1.0,
+ExtResource("67_clqdu"): 1.0,
+ExtResource("68_7n6r1"): 1.0,
+ExtResource("69_oxoqu"): 1.0,
+ExtResource("70_wtads"): 1.0,
+ExtResource("71_8d47l"): 1.0,
+ExtResource("72_56dbb"): 1.0,
+ExtResource("73_88a8a"): 1.0,
+ExtResource("74_r7gug"): 1.0,
+ExtResource("75_ybbeh"): 1.0,
+ExtResource("76_wb8kl"): 1.0,
+ExtResource("77_uqtlc"): 1.0,
+ExtResource("78_dkd7e"): 1.0,
+ExtResource("79_edmpr"): 1.0,
+ExtResource("80_5nu5n"): 1.0,
+ExtResource("81_018h7"): 1.0,
+ExtResource("82_ihyjl"): 1.0,
+ExtResource("83_jlmoj"): 1.0,
+ExtResource("84_e8868"): 1.0,
+ExtResource("85_6b2qb"): 1.0,
+ExtResource("44_5p4pd"): 1.0,
+ExtResource("45_6dsfm"): 1.0,
+ExtResource("46_4hoce"): 1.0,
+ExtResource("47_n2kcj"): 1.0,
+ExtResource("48_xxsov"): 1.0,
+ExtResource("49_cneys"): 1.0,
+ExtResource("50_fsti8"): 1.0,
+ExtResource("51_bqap2"): 1.0,
+ExtResource("52_gkw7c"): 1.0,
+ExtResource("53_q0ejp"): 1.0,
+ExtResource("54_ki0n2"): 1.0,
+ExtResource("55_23da3"): 1.0,
+ExtResource("56_8o1bb"): 1.0,
+ExtResource("57_nip1u"): 1.0,
+ExtResource("58_6c66c"): 1.0,
+ExtResource("59_qkarj"): 1.0,
+ExtResource("60_aiyje"): 1.0,
+ExtResource("61_b7p68"): 1.0,
+ExtResource("62_kvh8o"): 1.0,
+ExtResource("63_1h57c"): 1.0,
+ExtResource("64_nreu8"): 1.0
+})

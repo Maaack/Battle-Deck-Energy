@@ -34,7 +34,7 @@
 [ext_resource type="Resource" uid="uid://c4wprnh7kf60y" path="res://Resources/Cards/Players/Cost1/Endure.tres" id="32"]
 [ext_resource type="Resource" uid="uid://cmw8qxfre5qqs" path="res://Resources/Cards/Players/Cost0/CallOut.tres" id="33"]
 [ext_resource type="Resource" uid="uid://b8b05f81c4574" path="res://Resources/Cards/Players/Cost1/Warhammer.tres" id="34"]
-[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/TheWall.tres" id="35"]
+[ext_resource type="Resource" uid="uid://pfky413n0rsu" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="35"]
 [ext_resource type="Resource" uid="uid://b24ssfhyjmfma" path="res://Resources/Cards/Players/Cost1/HocusFocus.tres" id="36"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="37"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="38"]
@@ -43,7 +43,7 @@
 [ext_resource type="Resource" uid="uid://dbl5yqqm03t7y" path="res://Resources/Cards/Players/Cost0/Kickoff.tres" id="41"]
 [ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Players/Cost1/Dissect.tres" id="42"]
 [ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="43"]
-[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/Castle.tres" id="44"]
+[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="44"]
 [ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="45"]
 [ext_resource type="Resource" uid="uid://ch0k47ms5hi6o" path="res://Resources/Cards/Players/Cost1/ToxicSlash.tres" id="46"]
 [ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="47"]
@@ -300,3 +300,58 @@ data = ExtResource("39")
 [resource]
 script = ExtResource("1")
 starting_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23"), SubResource("24"), SubResource("25"), SubResource("26"), SubResource("27"), SubResource("28"), SubResource("29"), SubResource("30"), SubResource("31"), SubResource("32"), SubResource("33"), SubResource("34"), SubResource("35"), SubResource("36"), SubResource("37"), SubResource("38"), SubResource("39"), SubResource("40"), SubResource("41"), SubResource("42"), SubResource("43"), SubResource("44"), SubResource("45"), SubResource("46"), SubResource("47"), SubResource("48"), SubResource("49"), SubResource("50"), SubResource("51"), SubResource("52")]
+weighted_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23"), SubResource("24"), SubResource("25"), SubResource("26"), SubResource("27"), SubResource("28"), SubResource("29"), SubResource("30"), SubResource("31"), SubResource("32"), SubResource("33"), SubResource("34"), SubResource("35"), SubResource("36"), SubResource("37"), SubResource("38"), SubResource("39"), SubResource("40"), SubResource("41"), SubResource("42"), SubResource("43"), SubResource("44"), SubResource("45"), SubResource("46"), SubResource("47"), SubResource("48"), SubResource("49"), SubResource("50"), SubResource("51"), SubResource("52")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("14"): 2.0,
+ExtResource("52"): 2.0,
+ExtResource("30"): 2.0,
+ExtResource("26"): 2.0,
+ExtResource("53"): 2.0,
+ExtResource("20"): 2.0,
+ExtResource("42"): 2.0,
+ExtResource("31"): 2.0,
+ExtResource("34"): 1.0,
+ExtResource("2"): 1.0,
+ExtResource("47"): 1.0,
+ExtResource("24"): 1.0,
+ExtResource("23"): 1.0,
+ExtResource("29"): 1.0,
+ExtResource("28"): 1.0,
+ExtResource("18"): 1.0,
+ExtResource("19"): 1.0,
+ExtResource("21"): 1.0,
+ExtResource("3"): 1.0,
+ExtResource("43"): 1.0,
+ExtResource("27"): 1.0,
+ExtResource("33"): 1.0,
+ExtResource("41"): 1.0,
+ExtResource("13"): 1.0,
+ExtResource("25"): 1.0,
+ExtResource("39"): 1.0,
+ExtResource("8"): 6.0,
+ExtResource("9"): 6.0,
+ExtResource("15"): 6.0,
+ExtResource("5"): 6.0,
+ExtResource("6"): 6.0,
+ExtResource("16"): 6.0,
+ExtResource("17"): 6.0,
+ExtResource("44"): 6.0,
+ExtResource("12"): 4.0,
+ExtResource("45"): 4.0,
+ExtResource("11"): 4.0,
+ExtResource("37"): 4.0,
+ExtResource("35"): 4.0,
+ExtResource("7"): 4.0,
+ExtResource("38"): 2.0,
+ExtResource("4"): 2.0,
+ExtResource("36"): 2.0,
+ExtResource("46"): 2.0,
+ExtResource("54"): 2.0,
+ExtResource("48"): 2.0,
+ExtResource("51"): 2.0,
+ExtResource("22"): 2.0,
+ExtResource("40"): 2.0,
+ExtResource("32"): 2.0,
+ExtResource("49"): 2.0,
+ExtResource("50"): 2.0
+})

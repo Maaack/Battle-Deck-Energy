@@ -1,27 +1,70 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://bg1xvvd8fm44"]
 
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/SerpentsBladeWeight1.tres" id="1"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/ImpenetrableWeight1.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/MiasmaWeight1.tres" id="3"]
+[ext_resource type="Resource" uid="uid://culs263yec7j3" path="res://Resources/Weighted/WeightedCards/Cost2/SerpentsBladeWeight1.tres" id="1"]
+[ext_resource type="Resource" uid="uid://dntlksjvyybuk" path="res://Resources/Weighted/WeightedCards/Cost2/ImpenetrableWeight1.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dqys4y0pqp6f1" path="res://Resources/Weighted/WeightedCards/Cost2/MiasmaWeight1.tres" id="3"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/UnluckyWeight1.tres" id="5"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/ShatterDefensesWeight1.tres" id="6"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/CriticalHitWeight1.tres" id="7"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/DoubleDealWeight1.tres" id="8"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/ReforgeWeight1.tres" id="9"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/HyperfocusWeight1.tres" id="10"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/EruptWeight1.tres" id="11"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/CrippleWeight1.tres" id="12"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/BiohazardWeight1.tres" id="13"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/TwofoldWeight1.tres" id="14"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/ChainLightningWeight1.tres" id="15"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/LightningShieldWeight1.tres" id="16"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/TheWallWeight1.tres" id="17"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/IroncladWeight1.tres" id="18"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/StabToDeathWeight1.tres" id="19"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/FlyingStrikeWeight1.tres" id="20"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/CastleWeight1.tres" id="21"]
+[ext_resource type="Resource" uid="uid://bbo8wikeoxnh4" path="res://Resources/Weighted/WeightedCards/Cost2/UnluckyWeight1.tres" id="5"]
+[ext_resource type="Resource" uid="uid://diqnrqe6s0eub" path="res://Resources/Weighted/WeightedCards/Cost2/ShatterDefensesWeight1.tres" id="6"]
+[ext_resource type="Resource" uid="uid://cey5vwjt4udnv" path="res://Resources/Weighted/WeightedCards/Cost2/CriticalHitWeight1.tres" id="7"]
+[ext_resource type="Resource" uid="uid://bgnc474dg8c51" path="res://Resources/Weighted/WeightedCards/Cost2/DoubleDealWeight1.tres" id="8"]
+[ext_resource type="Resource" uid="uid://pxe11d33xba8" path="res://Resources/Weighted/WeightedCards/Cost2/ReforgeWeight1.tres" id="9"]
+[ext_resource type="Resource" uid="uid://bgbnkbp5kicja" path="res://Resources/Weighted/WeightedCards/Cost2/HyperfocusWeight1.tres" id="10"]
+[ext_resource type="Resource" uid="uid://bekrqoi76g1vd" path="res://Resources/Weighted/WeightedCards/Cost2/EruptWeight1.tres" id="11"]
+[ext_resource type="Resource" uid="uid://b4fsd7w6jlrus" path="res://Resources/Weighted/WeightedCards/Cost2/CrippleWeight1.tres" id="12"]
+[ext_resource type="Resource" uid="uid://uq4725xuirjj" path="res://Resources/Weighted/WeightedCards/Cost2/BiohazardWeight1.tres" id="13"]
+[ext_resource type="Resource" uid="uid://bvaae5mklb4v0" path="res://Resources/Weighted/WeightedCards/Cost2/TwofoldWeight1.tres" id="14"]
+[ext_resource type="Resource" uid="uid://c7dtkpmcum8qx" path="res://Resources/Weighted/WeightedCards/Cost2/ChainLightningWeight1.tres" id="15"]
+[ext_resource type="Resource" uid="uid://dxtrnlvnrhoyd" path="res://Resources/Weighted/WeightedCards/Cost2/LightningShieldWeight1.tres" id="16"]
+[ext_resource type="Resource" uid="uid://bov75pveyqjp7" path="res://Resources/Weighted/WeightedCards/Cost2/TheWallWeight1.tres" id="17"]
+[ext_resource type="Resource" uid="uid://bwj18cwkpl8q3" path="res://Resources/Weighted/WeightedCards/Cost2/IroncladWeight1.tres" id="18"]
+[ext_resource type="Resource" uid="uid://kc3muotegwkq" path="res://Resources/Weighted/WeightedCards/Cost2/StabToDeathWeight1.tres" id="19"]
+[ext_resource type="Resource" uid="uid://38cycotoirfh" path="res://Resources/Weighted/WeightedCards/Cost2/FlyingStrikeWeight1.tres" id="20"]
+[ext_resource type="Resource" uid="uid://ctddgo82s1m0k" path="res://Resources/Weighted/WeightedCards/Cost2/CastleWeight1.tres" id="21"]
+[ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="22_1euar"]
+[ext_resource type="Resource" uid="uid://dn7paiefl78h8" path="res://Resources/Cards/Players/Cost2/SerpentsBlade.tres" id="23_e68xb"]
+[ext_resource type="Resource" uid="uid://bd381tanlmxa7" path="res://Resources/Cards/Players/Cost2/Unlucky.tres" id="24_hrgvs"]
+[ext_resource type="Resource" uid="uid://dqoxvpfgs1i7g" path="res://Resources/Cards/Players/Cost3/Impenetrable.tres" id="25_70noe"]
+[ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="26_8vu8t"]
+[ext_resource type="Resource" uid="uid://bkl1h7qdmu82j" path="res://Resources/Cards/Players/Cost2/Shatter.tres" id="27_jakhk"]
+[ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="28_0tqer"]
+[ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="29_jqyiq"]
+[ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="30_kr8a2"]
+[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="31_x5ytw"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Cripple.tres" id="32_oftvt"]
+[ext_resource type="Resource" uid="uid://cgjxstiw4bfom" path="res://Resources/Cards/Players/Cost2/Biohazard.tres" id="33_coivn"]
+[ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="34_fgc20"]
+[ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="35_t001s"]
+[ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="36_rmdc8"]
+[ext_resource type="Resource" uid="uid://pfky413n0rsu" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="37_4kmpj"]
+[ext_resource type="Resource" uid="uid://c0og5x4s4kd1v" path="res://Resources/Cards/Players/Cost2/Ironclad.tres" id="38_mcq4s"]
+[ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="39_3jucj"]
+[ext_resource type="Resource" uid="uid://c7rgaw5yc6gr6" path="res://Resources/Cards/Players/Cost2/FlyingStrike.tres" id="40_rdk1a"]
+[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="41_oykjn"]
 
 [resource]
 script = ExtResource("4")
 starting_list = [ExtResource("3"), ExtResource("1"), ExtResource("5"), ExtResource("2"), ExtResource("7"), ExtResource("6"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21")]
+weighted_list = [ExtResource("3"), ExtResource("1"), ExtResource("5"), ExtResource("2"), ExtResource("7"), ExtResource("6"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("41_oykjn"): 1.0,
+ExtResource("40_rdk1a"): 1.0,
+ExtResource("39_3jucj"): 1.0,
+ExtResource("38_mcq4s"): 1.0,
+ExtResource("37_4kmpj"): 1.0,
+ExtResource("36_rmdc8"): 1.0,
+ExtResource("35_t001s"): 1.0,
+ExtResource("34_fgc20"): 1.0,
+ExtResource("33_coivn"): 1.0,
+ExtResource("32_oftvt"): 1.0,
+ExtResource("31_x5ytw"): 1.0,
+ExtResource("30_kr8a2"): 1.0,
+ExtResource("29_jqyiq"): 1.0,
+ExtResource("28_0tqer"): 1.0,
+ExtResource("27_jakhk"): 1.0,
+ExtResource("26_8vu8t"): 1.0,
+ExtResource("25_70noe"): 1.0,
+ExtResource("24_hrgvs"): 1.0,
+ExtResource("23_e68xb"): 1.0,
+ExtResource("22_1euar"): 1.0
+})

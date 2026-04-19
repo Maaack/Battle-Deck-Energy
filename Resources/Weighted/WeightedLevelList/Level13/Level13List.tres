@@ -2,11 +2,24 @@
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
 [ext_resource type="Resource" uid="uid://bmrdlysxxrjn6" path="res://Resources/Weighted/WeightedLevelList/Level13/BratAndBullyLevelChance.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level13/RascalAndCadLevelChance.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level13/RascalTrioLevelChance.tres" id="4"]
+[ext_resource type="Resource" uid="uid://b5jhrwsuqsey3" path="res://Resources/Weighted/WeightedLevelList/Level13/RascalAndCadLevelChance.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bpgb0626glky8" path="res://Resources/Weighted/WeightedLevelList/Level13/RascalTrioLevelChance.tres" id="4"]
 [ext_resource type="Resource" uid="uid://c8po1oe3nc78i" path="res://Resources/Weighted/WeightedLevelList/Level13/BratTrioLevelChance.tres" id="5"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level13/SpoiledShitAloneLevelChance.tres" id="6"]
+[ext_resource type="Resource" uid="uid://cn5oa53k4pm67" path="res://Resources/Weighted/WeightedLevelList/Level13/SpoiledShitAloneLevelChance.tres" id="6"]
+[ext_resource type="Resource" uid="uid://c5s30qrnherpn" path="res://Resources/Levels/Level13/RascalAndCad.tres" id="7_xyp0j"]
+[ext_resource type="Resource" uid="uid://c4s284rklgvmq" path="res://Resources/Levels/Level13/RascalTrio.tres" id="8_wnsiy"]
+[ext_resource type="Resource" uid="uid://dd35c8ltyeaad" path="res://Resources/Levels/Level13/BratTrio.tres" id="9_ugbxc"]
+[ext_resource type="Resource" uid="uid://bw184ennuu7t4" path="res://Resources/Levels/Level13/SpoiledShitAlone.tres" id="10_88n3s"]
+[ext_resource type="Resource" uid="uid://ds484echv4k0k" path="res://Resources/Levels/Level13/BratAndBully.tres" id="11_ym8g0"]
 
 [resource]
 script = ExtResource("1")
 starting_list = [ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("2")]
+weighted_list = [ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("2")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("7_xyp0j"): 1.0,
+ExtResource("8_wnsiy"): 1.0,
+ExtResource("9_ugbxc"): 1.0,
+ExtResource("10_88n3s"): 1.0,
+ExtResource("11_ym8g0"): 1.0
+})

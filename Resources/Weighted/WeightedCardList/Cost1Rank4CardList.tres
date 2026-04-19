@@ -1,16 +1,37 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://brsd6iy8fq8l5"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="3"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/TickTickWeight1.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/PullKnivesWeight1.tres" id="6"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/MedicineWeight1.tres" id="7"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/BloodlettingWeight1.tres" id="12"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/DischargeWeight1.tres" id="15"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/LookUpWeight1.tres" id="18"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/BrewWeight1.tres" id="39"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/RushWeight1.tres" id="40"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost1/PassionWeight1.tres" id="43"]
+[ext_resource type="Resource" uid="uid://v4nrtyd0yhfs" path="res://Resources/Weighted/WeightedCards/Cost1/TickTickWeight1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://celoo8vrbbk5" path="res://Resources/Weighted/WeightedCards/Cost1/PullKnivesWeight1.tres" id="6"]
+[ext_resource type="Resource" uid="uid://cvmnh44fexysm" path="res://Resources/Weighted/WeightedCards/Cost1/MedicineWeight1.tres" id="7"]
+[ext_resource type="Resource" uid="uid://iwajgypi5cye" path="res://Resources/Cards/Players/Cost1/TickTick.tres" id="11_jkpjd"]
+[ext_resource type="Resource" uid="uid://ch45corhngkfc" path="res://Resources/Weighted/WeightedCards/Cost1/BloodlettingWeight1.tres" id="12"]
+[ext_resource type="Resource" uid="uid://uxub2rnlohfq" path="res://Resources/Cards/Players/Cost0/Bloodletting.tres" id="12_xotml"]
+[ext_resource type="Resource" uid="uid://24x2atk4od42" path="res://Resources/Cards/Players/Cost1/Discharge.tres" id="13_10hj5"]
+[ext_resource type="Resource" uid="uid://b417bkurpki5u" path="res://Resources/Cards/Players/Cost1/LookUp.tres" id="14_qfcr7"]
+[ext_resource type="Resource" uid="uid://r41pfwiadk1u" path="res://Resources/Weighted/WeightedCards/Cost1/DischargeWeight1.tres" id="15"]
+[ext_resource type="Resource" uid="uid://b6jljbo5qi0vj" path="res://Resources/Cards/Players/Cost1/Medicine.tres" id="15_05p6o"]
+[ext_resource type="Resource" uid="uid://tmlagkvdcr62" path="res://Resources/Cards/Players/Cost1/KnivesOut.tres" id="16_ixt3a"]
+[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Brew.tres" id="17_fbh58"]
+[ext_resource type="Resource" uid="uid://brnq73luutkjs" path="res://Resources/Weighted/WeightedCards/Cost1/LookUpWeight1.tres" id="18"]
+[ext_resource type="Resource" uid="uid://b03lr3y7usljf" path="res://Resources/Cards/Players/Cost1/Rush.tres" id="18_jny12"]
+[ext_resource type="Resource" uid="uid://dtnqnpml4lvfq" path="res://Resources/Cards/Players/Cost1/Passion.tres" id="19_hol4k"]
+[ext_resource type="Resource" uid="uid://d22cp0b8ch5ap" path="res://Resources/Weighted/WeightedCards/Cost1/BrewWeight1.tres" id="39"]
+[ext_resource type="Resource" uid="uid://rnpq7lbvmiml" path="res://Resources/Weighted/WeightedCards/Cost1/RushWeight1.tres" id="40"]
+[ext_resource type="Resource" uid="uid://w73lmcn64lsw" path="res://Resources/Weighted/WeightedCards/Cost1/PassionWeight1.tres" id="43"]
 
 [resource]
 script = ExtResource("3")
 starting_list = [ExtResource("4"), ExtResource("12"), ExtResource("15"), ExtResource("18"), ExtResource("7"), ExtResource("6"), ExtResource("39"), ExtResource("40"), ExtResource("43")]
+weighted_list = [ExtResource("4"), ExtResource("12"), ExtResource("15"), ExtResource("18"), ExtResource("7"), ExtResource("6"), ExtResource("39"), ExtResource("40"), ExtResource("43")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("11_jkpjd"): 1.0,
+ExtResource("12_xotml"): 1.0,
+ExtResource("13_10hj5"): 1.0,
+ExtResource("14_qfcr7"): 1.0,
+ExtResource("15_05p6o"): 1.0,
+ExtResource("16_ixt3a"): 1.0,
+ExtResource("17_fbh58"): 1.0,
+ExtResource("18_jny12"): 1.0,
+ExtResource("19_hol4k"): 1.0
+})

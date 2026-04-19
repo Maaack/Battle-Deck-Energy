@@ -1,11 +1,24 @@
+@tool
 extends Resource
 
 
 class_name WeightedDataList
 
 @export var starting_list : Array = []: set = set_starting_list
+@export var weighted_list : Array
+@export var weighted_map : Dictionary[Resource, float]
+@export_tool_button("Set other vars") var set_other_vars_action = set_other_vars
 
 var list : Array = []
+
+func _init():
+	set_other_vars()
+
+func set_other_vars():
+	weighted_list = starting_list.duplicate()
+	for thing in weighted_list:
+		if thing is WeightedData:
+			weighted_map[thing.data] = thing.weight
 
 func append_data(value):
 	var weighted_data : WeightedData = WeightedData.new()
@@ -20,27 +33,24 @@ func set_starting_list(value:Array):
 
 func get_total_weight():
 	var total_weight : float = 0.0
-	for data in list:
-		if data is WeightedData:
-			total_weight += data.weight
+	for data in weighted_map:
+		total_weight += weighted_map[data]
 	return total_weight
 
 func get_data_by_weight(weight_target:float):
 	var total_weight : float = 0.0
-	for weighted_data in list:
-		if weighted_data is WeightedData:
-			total_weight += weighted_data.weight
-			if total_weight >= weight_target:
-				return weighted_data.data
+	var last_data : Resource
+	for data in weighted_map:
+		total_weight += weighted_map[data]
+		if total_weight >= weight_target:
+			return data
+		last_data = data
+	return last_data
 
-func slice_data_by_weight(weight_target:float):
-	var total_weight : float = 0.0
-	for weighted_data in list:
-		if weighted_data is WeightedData:
-			total_weight += weighted_data.weight
-			if total_weight >= weight_target:
-				list.erase(weighted_data)
-				return weighted_data.data
+func slice_data_by_weight(weight_target:float) -> Resource:
+	var data = get_data_by_weight(weight_target)
+	weighted_map.erase(data)
+	return data
 
 func get_random_weight():
 	var total_weight : float = get_total_weight()

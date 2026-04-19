@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="13"]
 [ext_resource type="Resource" uid="uid://lis5bdkc23ra" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="14"]
 [ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Alert.tres" id="15"]
-[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/Impenetrable.tres" id="16"]
+[ext_resource type="Resource" uid="uid://dqoxvpfgs1i7g" path="res://Resources/Cards/Players/Cost3/Impenetrable.tres" id="16"]
 [ext_resource type="Resource" uid="uid://dmdt5b0uo124e" path="res://Resources/Cards/Players/Cost0/HitTheMark.tres" id="19"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="21"]
 [ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="23"]
@@ -132,3 +132,29 @@ data = ExtResource("5")
 [resource]
 script = ExtResource("1")
 starting_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23")]
+weighted_list = [SubResource("1"), SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5"), SubResource("6"), SubResource("7"), SubResource("8"), SubResource("9"), SubResource("10"), SubResource("11"), SubResource("12"), SubResource("13"), SubResource("14"), SubResource("15"), SubResource("16"), SubResource("17"), SubResource("18"), SubResource("19"), SubResource("20"), SubResource("21"), SubResource("22"), SubResource("23")]
+weighted_map = Dictionary[Resource, float]({
+ExtResource("5"): 1.0,
+ExtResource("16"): 1.0,
+ExtResource("26"): 1.0,
+ExtResource("31"): 1.0,
+ExtResource("11"): 1.0,
+ExtResource("25"): 1.0,
+ExtResource("29"): 1.0,
+ExtResource("21"): 1.0,
+ExtResource("23"): 1.0,
+ExtResource("24"): 1.0,
+ExtResource("3"): 1.0,
+ExtResource("36"): 1.0,
+ExtResource("9"): 2.0,
+ExtResource("7"): 2.0,
+ExtResource("6"): 2.0,
+ExtResource("15"): 4.0,
+ExtResource("19"): 4.0,
+ExtResource("4"): 4.0,
+ExtResource("12"): 4.0,
+ExtResource("8"): 4.0,
+ExtResource("13"): 4.0,
+ExtResource("2"): 4.0,
+ExtResource("14"): 4.0
+})
