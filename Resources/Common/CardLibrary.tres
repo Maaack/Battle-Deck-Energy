@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="CommonData" format=3 uid="uid://b2pn7jmka2y33"]
-
-[ext_resource type="Script" uid="uid://ds8dvodm74c0k" path="res://Resources/Common/CommonData.gd" id="1"]
-
-[resource]
-script = ExtResource("1")

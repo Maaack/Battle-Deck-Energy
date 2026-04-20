@@ -17,7 +17,8 @@ const SAVE_DECK_FILENAME_PREFIX = 'Deck'
 const SAVE_PROGRESS_FILENAME_PREFIX = 'Progress'
 const SAVE_BATTLE_FILENAME_PREFIX = 'BattleLog'
 
-@onready var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
+@onready var all_card_deck : DeckData = preload("res://Resources/Decks/AllCardsDeck.tres")
+var card_map : Dictionary[String, CardData]
 
 var progress_data : Dictionary = {}
 var battle_data : Dictionary = {}
@@ -46,13 +47,21 @@ func _load_deck_from_data(saved_dict : Dictionary):
 	if DECK_ICON_KEY in saved_dict and saved_dict[DECK_ICON_KEY]:
 		loaded_deck.icon = load(saved_dict[DECK_ICON_KEY])
 	for card_name in deck_array:
-		if not card_name in card_library.data:
+		if not card_name in card_map:
 			print("Warning: Card `%s` not recognized." % card_name)
 			continue
-		var card : CardData = card_library.data[card_name]
+		var card : CardData = card_map[card_name]
 		if card != null:
 			loaded_deck.cards.append(card)
 	return loaded_deck
+
+func refresh_cards() -> void:
+	card_map.clear()
+	for card in all_card_deck.cards:
+		card_map[card.title] = card
+
+func _ready() -> void:
+	refresh_cards()
 
 func _save_deck_to_data(deck : Array, deck_name : String, deck_icon : Texture2D):
 	var saved_dict : Dictionary = {}

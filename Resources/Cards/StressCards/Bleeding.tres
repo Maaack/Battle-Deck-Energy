@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_exutk"]
-[ext_resource type="Resource" uid="uid://b4wgd7ud2v5td" path="res://Resources/Effects/CardEffects/BleedEffectOnDiscard.tres" id="2"]
 [ext_resource type="Resource" uid="uid://cwc7gm7ahcw8n" path="res://Resources/Effects/CardEffects/PlayAsSkillEffect.tres" id="2_msfgc"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_msfgc"]
+[ext_resource type="Resource" uid="uid://d12nj5i4amucp" path="res://Resources/Effects/CardEffects/BleedEffectOnDraw.tres" id="3_rkghk"]
 [ext_resource type="Texture2D" uid="uid://rhq2xhoovvam" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/bleeding.png" id="4"]
 
 [resource]
 script = ExtResource("1")
 title = "Bleeding"
 description = "Takes a Skill action.
-Deals %ATTACK Damage on discard.
+Deals %ATTACK Damage on draw.
 Exhaust."
 icon = ExtResource("4")
 base_color = Color(0.345098, 0.270588, 0.388235, 1)
-effects = Array[ExtResource("1_exutk")]([ExtResource("2_msfgc"), ExtResource("2"), ExtResource("3_msfgc")])
+effects = Array[ExtResource("1_exutk")]([ExtResource("2_msfgc"), ExtResource("3_rkghk"), ExtResource("3_msfgc")])
 type = 4

@@ -20,10 +20,10 @@ func take_turn(opportunities : Array):
 	for card in hand.cards:
 		if card is CardData:
 			var divide_weight = 1
-			var weighted_data = weighted_hand.append_data(card)
+			weighted_hand.append_data(card)
 			if card.title in played_cards:
 				divide_weight += played_cards[card.title]
-			weighted_data.weight /= divide_weight
+			weighted_hand.weighted_map[card] = weighted_hand.weighted_map[card] / divide_weight
 	var random_card : CardData = weighted_hand.get_random_data()
 	if not random_card.title in played_cards:
 		played_cards[random_card.title] = 0

@@ -24,7 +24,7 @@ func _on_RemoveCardButton_pressed():
 	if not is_instance_valid(selected_card):
 		return
 	emit_signal("card_cleaned", selected_card.card_data)
-	emit_signal("card_forgotten", null)
+	EventBus.card_restored.emit(selected_card)
 	emit_signal("back_pressed")
 
 func _on_CardNode2D_mouse_exited(card_node : CardNode2D):

@@ -84,7 +84,7 @@ func _on_AddCardButton_pressed():
 	card_manager.hold_focus = true
 	selected_card.play_card()
 	await selected_card.animation_completed
-	emit_signal("card_forgotten", selected_card)
+	EventBus.card_restored.emit(selected_card)
 	emit_signal("level_completed")
 
 func _on_CardNode2D_mouse_exited(card_node : CardNode2D):

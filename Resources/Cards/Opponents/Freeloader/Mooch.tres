@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1")
 title = "Mooch"
-description = "Deal %ATTACK Damage over [b]2[\\b] strikes.
+description = "Deal %ATTACK Damage over [b]2[/b] strikes.
 Apply %APPLY_STRONG Strong on self."
 energy_cost = 0
 icon = ExtResource("5")

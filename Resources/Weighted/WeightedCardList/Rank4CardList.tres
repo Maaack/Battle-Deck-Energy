@@ -15,17 +15,12 @@
 [ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="14"]
 [ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="15"]
 [ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="16"]
-[ext_resource type="Resource" uid="uid://c7rgaw5yc6gr6" path="res://Resources/Cards/Players/Cost2/FlyingStrike.tres" id="17"]
 [ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Players/Cost1/Sharpen.tres" id="18"]
 [ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="19"]
 [ext_resource type="Resource" uid="uid://c6sko4fqksy14" path="res://Resources/Cards/Players/Cost1/ShieldBash.tres" id="20"]
-[ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="21"]
 [ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="22"]
-[ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="23"]
+[ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="23"]
 [ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="24"]
-[ext_resource type="Resource" uid="uid://dydtg77tfm8e1" path="res://Resources/Cards/Players/Cost0/Subvert.tres" id="25"]
-[ext_resource type="Resource" uid="uid://bk0m64s3gx8f7" path="res://Resources/Cards/Players/Cost1/SpinalTap.tres" id="26"]
-[ext_resource type="Resource" uid="uid://d2leuujlccej6" path="res://Resources/Cards/Players/Cost0/Misstep.tres" id="27"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="28"]
 [ext_resource type="Resource" uid="uid://c6hk41ss3g8x8" path="res://Resources/Cards/Players/Cost1/SwiftStrike.tres" id="29"]
 [ext_resource type="Resource" uid="uid://dt12y50rrnqpi" path="res://Resources/Cards/Players/Cost1/LethalNeedle.tres" id="30"]
@@ -34,7 +29,6 @@
 [ext_resource type="Resource" uid="uid://cmw8qxfre5qqs" path="res://Resources/Cards/Players/Cost0/CallOut.tres" id="33"]
 [ext_resource type="Resource" uid="uid://b8b05f81c4574" path="res://Resources/Cards/Players/Cost1/Warhammer.tres" id="34"]
 [ext_resource type="Resource" uid="uid://pfky413n0rsu" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="35"]
-[ext_resource type="Resource" uid="uid://b24ssfhyjmfma" path="res://Resources/Cards/Players/Cost1/HocusFocus.tres" id="36"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="37"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="38"]
 [ext_resource type="Resource" uid="uid://dppkf3awgrqoc" path="res://Resources/Cards/Players/Cost0/Hustle.tres" id="39"]
@@ -44,50 +38,18 @@
 [ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="43"]
 [ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="44"]
 [ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="45"]
-[ext_resource type="Resource" uid="uid://ch0k47ms5hi6o" path="res://Resources/Cards/Players/Cost1/ToxicSlash.tres" id="46"]
 [ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="47"]
-[ext_resource type="Resource" uid="uid://db61er2r63u1q" path="res://Resources/Cards/Players/Cost1/Discover.tres" id="48"]
-[ext_resource type="Resource" uid="uid://1us6b7b0hotk" path="res://Resources/Cards/Players/Cost1/Entrench.tres" id="49"]
 [ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="50"]
 [ext_resource type="Resource" uid="uid://dtoa2668k8ay" path="res://Resources/Cards/Players/Cost1/Execute.tres" id="51"]
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="52"]
-[ext_resource type="Resource" uid="uid://bn42rf0mqstui" path="res://Resources/Cards/Players/Cost1/Toxify.tres" id="53"]
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="54"]
 
 [resource]
 script = ExtResource("1")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("8"): 6.0,
-ExtResource("9"): 6.0,
-ExtResource("15"): 6.0,
-ExtResource("5"): 6.0,
-ExtResource("6"): 6.0,
-ExtResource("16"): 6.0,
-ExtResource("17"): 6.0,
-ExtResource("44"): 6.0,
-ExtResource("12"): 4.0,
-ExtResource("45"): 4.0,
-ExtResource("11"): 4.0,
-ExtResource("37"): 4.0,
-ExtResource("35"): 4.0,
-ExtResource("7"): 4.0,
-ExtResource("38"): 2.0,
-ExtResource("4"): 2.0,
-ExtResource("36"): 2.0,
-ExtResource("46"): 2.0,
-ExtResource("54"): 2.0,
-ExtResource("48"): 2.0,
-ExtResource("51"): 2.0,
-ExtResource("22"): 2.0,
-ExtResource("40"): 2.0,
-ExtResource("32"): 2.0,
-ExtResource("49"): 2.0,
-ExtResource("50"): 2.0,
 ExtResource("14"): 2.0,
 ExtResource("52"): 2.0,
 ExtResource("30"): 2.0,
-ExtResource("26"): 2.0,
-ExtResource("53"): 2.0,
 ExtResource("20"): 2.0,
 ExtResource("42"): 2.0,
 ExtResource("31"): 2.0,
@@ -100,13 +62,31 @@ ExtResource("29"): 1.0,
 ExtResource("28"): 1.0,
 ExtResource("18"): 1.0,
 ExtResource("19"): 1.0,
-ExtResource("21"): 1.0,
 ExtResource("3"): 1.0,
 ExtResource("43"): 1.0,
-ExtResource("27"): 1.0,
 ExtResource("33"): 1.0,
 ExtResource("41"): 1.0,
 ExtResource("13"): 1.0,
-ExtResource("25"): 1.0,
-ExtResource("39"): 1.0
+ExtResource("39"): 1.0,
+ExtResource("8"): 6.0,
+ExtResource("9"): 6.0,
+ExtResource("15"): 6.0,
+ExtResource("5"): 6.0,
+ExtResource("6"): 6.0,
+ExtResource("16"): 6.0,
+ExtResource("44"): 6.0,
+ExtResource("12"): 4.0,
+ExtResource("45"): 4.0,
+ExtResource("11"): 4.0,
+ExtResource("37"): 4.0,
+ExtResource("35"): 4.0,
+ExtResource("7"): 4.0,
+ExtResource("38"): 2.0,
+ExtResource("4"): 2.0,
+ExtResource("54"): 2.0,
+ExtResource("51"): 2.0,
+ExtResource("22"): 2.0,
+ExtResource("40"): 2.0,
+ExtResource("32"): 2.0,
+ExtResource("50"): 2.0
 })
