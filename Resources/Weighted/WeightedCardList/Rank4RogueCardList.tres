@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://1y2tetxe7s1r"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_vu8gq"]
+[ext_resource type="Resource" uid="uid://cmw8qxfre5qqs" path="res://Resources/Cards/Players/Cost0/CallOut.tres" id="2_d57u0"]
+[ext_resource type="Resource" uid="uid://dwdy7sf6qg77l" path="res://Resources/Cards/Players/Cost0/Disarm.tres" id="3_jogjm"]
+[ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Players/Cost0/Initial.tres" id="4_vnrwp"]
+[ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="5_bmoim"]
+[ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="6_2xwqm"]
+[ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="7_6d4gn"]
+[ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="8_d14gb"]
+[ext_resource type="Resource" uid="uid://sww1ott8nx6m" path="res://Resources/Cards/Players/Cost0/HideAce.tres" id="9_qlx3n"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="10_ukkjq"]
+[ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/FreshCoat.tres" id="11_liumi"]
+[ext_resource type="Resource" uid="uid://8tuj6ahhsp5r" path="res://Resources/Cards/Players/Cost0/Plot.tres" id="12_lrw0t"]
+[ext_resource type="Resource" uid="uid://c466hpb37s1y" path="res://Resources/Cards/Players/Cost1/Backstab.tres" id="13_oeota"]
+[ext_resource type="Resource" uid="uid://diagju74vu8g" path="res://Resources/Cards/Players/Cost1/CutsAndBurns.tres" id="14_uctsq"]
+[ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Players/Cost1/Dissect.tres" id="15_n0a7x"]
+[ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="16_rsprt"]
+[ext_resource type="Resource" uid="uid://dtoa2668k8ay" path="res://Resources/Cards/Players/Cost1/Execute.tres" id="17_8oks7"]
+[ext_resource type="Resource" uid="uid://dlrcgghckjd0p" path="res://Resources/Cards/Players/Cost1/QuickStrike.tres" id="18_2bchx"]
+[ext_resource type="Resource" uid="uid://cki1hobydmc0w" path="res://Resources/Cards/Players/Cost1/Snipe.tres" id="19_bu0or"]
+[ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="20_srgs0"]
+[ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="21_55v8t"]
+[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="22_y0t3n"]
+[ext_resource type="Resource" uid="uid://n65f1sfd042f" path="res://Resources/Cards/Players/Cost1/CloakAndDagger.tres" id="23_d44v3"]
+[ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="24_layqo"]
+[ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="25_0gsf6"]
+[ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="26_vrg2f"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="27_6hffm"]
+[ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="28_1jmw7"]
+[ext_resource type="Resource" uid="uid://ccjbifsg2251x" path="res://Resources/Cards/Players/Cost2/LinedUp.tres" id="29_qneni"]
+[ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="30_8emdd"]
+[ext_resource type="Resource" uid="uid://bpmu5uje6jxt2" path="res://Resources/Cards/Players/Cost2/SwissArmyKnife.tres" id="31_nv0n0"]
+[ext_resource type="Resource" uid="uid://d363jhfyg0upq" path="res://Resources/Cards/Players/Cost2/ThreeWay.tres" id="32_smaxv"]
+[ext_resource type="Resource" uid="uid://dwluljbd50p1" path="res://Resources/Cards/Players/Cost2/DoubleLayer.tres" id="33_vosgk"]
+[ext_resource type="Resource" uid="uid://dn0118bn617nm" path="res://Resources/Cards/Players/Cost2/FireShield.tres" id="34_dyufy"]
+[ext_resource type="Resource" uid="uid://pfky413n0rsu" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="35_pt1ym"]
+[ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="36_vnrwp"]
+[ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="37_bmoim"]
+[ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="38_2xwqm"]
+
+[resource]
+script = ExtResource("1_vu8gq")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("21_55v8t"): 1.0,
+ExtResource("22_y0t3n"): 1.0,
+ExtResource("23_d44v3"): 1.0,
+ExtResource("24_layqo"): 1.0,
+ExtResource("25_0gsf6"): 1.0,
+ExtResource("26_vrg2f"): 1.0,
+ExtResource("27_6hffm"): 1.0,
+ExtResource("28_1jmw7"): 1.0,
+ExtResource("29_qneni"): 1.0,
+ExtResource("30_8emdd"): 1.0,
+ExtResource("31_nv0n0"): 1.0,
+ExtResource("32_smaxv"): 1.0,
+ExtResource("33_vosgk"): 1.0,
+ExtResource("34_dyufy"): 1.0,
+ExtResource("35_pt1ym"): 1.0,
+ExtResource("36_vnrwp"): 1.0,
+ExtResource("37_bmoim"): 1.0,
+ExtResource("38_2xwqm"): 1.0,
+ExtResource("2_d57u0"): 1.0,
+ExtResource("3_jogjm"): 1.0,
+ExtResource("4_vnrwp"): 1.0,
+ExtResource("5_bmoim"): 1.0,
+ExtResource("6_2xwqm"): 1.0,
+ExtResource("7_6d4gn"): 1.0,
+ExtResource("8_d14gb"): 1.0,
+ExtResource("9_qlx3n"): 1.0,
+ExtResource("10_ukkjq"): 1.0,
+ExtResource("11_liumi"): 1.0,
+ExtResource("12_lrw0t"): 1.0,
+ExtResource("13_oeota"): 1.0,
+ExtResource("14_uctsq"): 1.0,
+ExtResource("15_n0a7x"): 1.0,
+ExtResource("16_rsprt"): 1.0,
+ExtResource("17_8oks7"): 1.0,
+ExtResource("18_2bchx"): 1.0,
+ExtResource("19_bu0or"): 1.0,
+ExtResource("20_srgs0"): 1.0
+})
