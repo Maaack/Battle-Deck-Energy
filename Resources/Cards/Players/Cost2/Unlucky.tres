@@ -14,7 +14,7 @@ title = "Unlucky"
 description = "Deal %ATTACK Damage.
 Next turn, gain %APPLY_CHARGED Energy.
 Momentary.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 2
 icon = ExtResource("4")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

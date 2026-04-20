@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("4_rmyir")
 title = "Knives Out"
-description = "Add %ADD_THROW_KNIFE Throw Knife cards to your hand."
+description = "Add %ADD_THROW_KNIFE Throw Knife to your hand."
 icon = ExtResource("3_sltcj")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
 effects = Array[ExtResource("1_1okxb")]([ExtResource("2_yilhl"), ExtResource("2_yilhl"), ExtResource("2_yilhl")])

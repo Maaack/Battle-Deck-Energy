@@ -12,7 +12,7 @@ script = ExtResource("5_b5n5s")
 title = "Cheap Protection"
 description = "Block %DEFEND Damage.
 Retain.
-Combo 3x."
+Combo %COMBO_EFFECTx."
 energy_cost = 0
 icon = ExtResource("5_a1fuk")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)

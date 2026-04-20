@@ -12,7 +12,7 @@ script = ExtResource("5_tew4s")
 title = "Fresh Coat"
 description = "Apply %APPLY_DEFENSE_UP Defense Up.
 Innate.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 0
 icon = ExtResource("4_1hhuh")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)

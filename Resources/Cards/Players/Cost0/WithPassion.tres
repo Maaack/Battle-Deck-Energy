@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("5_va8pp")
 title = "With Passion"
-description = "Gain %GAIN_ENRAGED Enraged.
+description = "Apply %APPLY_ENRAGED Enraged.
 Momentary."
 energy_cost = 0
 icon = ExtResource("4_fduvr")

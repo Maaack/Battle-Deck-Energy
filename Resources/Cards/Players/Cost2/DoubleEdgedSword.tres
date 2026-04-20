@@ -12,7 +12,7 @@ script = ExtResource("5_fjy51")
 title = "Double-Edged Sword"
 description = "Deal %ATTACK Damage over [b]2[/b] strikes.
 Apply %APPLY_VULNERABLE Vulnerable.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 2
 icon = ExtResource("4_2j5ro")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_dp850"]
 [ext_resource type="Resource" uid="uid://cnovhlhiapq2k" path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://dslou6e2qcict" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/checked-shield.png" id="3"]
-[ext_resource type="Resource" uid="uid://vyyr5tkdwbrm" path="res://Resources/Effects/StatusEffects/ApplyDurable2.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bktldnj2danh8" path="res://Resources/Effects/StatusEffects/ApplyDurable.tres" id="3_dp850"]
 
 [resource]
 script = ExtResource("1")
@@ -13,5 +13,5 @@ description = "Block %DEFEND Damage.
 Apply %APPLY_DURABLE Durable."
 icon = ExtResource("3")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_dp850")]([ExtResource("2"), ExtResource("4")])
+effects = Array[ExtResource("1_dp850")]([ExtResource("2"), ExtResource("3_dp850")])
 type = 2

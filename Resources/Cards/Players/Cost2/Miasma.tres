@@ -13,7 +13,7 @@ script = ExtResource("1")
 title = "Miasma"
 description = "Apply %APPLY_POISONED Poisoned and %APPLY_WEAK Weak to all enemies.
 Exhaust.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 2
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

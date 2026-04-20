@@ -10,7 +10,7 @@
 script = ExtResource("1")
 title = "Trip"
 description = "Interrupts enemy buffs from activating on the next turn.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
 effects = Array[ExtResource("1_rkbkq")]([ExtResource("2"), ExtResource("3_7h4lc")])

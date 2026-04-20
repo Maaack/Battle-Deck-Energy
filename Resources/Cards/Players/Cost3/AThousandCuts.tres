@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("5_e0xtg")
 title = "A Thousand Cuts"
-description = "Deal %ATTACK Damage over [b]10[/b] strikes.
+description = "Deal %ATTACK Damage over [b]5[/b] strikes.
 Max Combo."
 energy_cost = 3
 icon = ExtResource("4_51lgk")

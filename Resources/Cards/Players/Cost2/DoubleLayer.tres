@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dwluljbd50p1"]
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_8usxw"]
-[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_7e0y8"]
-[ext_resource type="Resource" uid="uid://vyyr5tkdwbrm" path="res://Resources/Effects/StatusEffects/ApplyDurable2.tres" id="3_krdau"]
+[ext_resource type="Resource" uid="uid://cv0hrjf5dlx7f" path="res://Resources/Effects/StatusEffects/DefendEffect3.tres" id="2_8usxw"]
+[ext_resource type="Resource" uid="uid://bktldnj2danh8" path="res://Resources/Effects/StatusEffects/ApplyDurable.tres" id="3_8usxw"]
 [ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_wpkpq"]
 [ext_resource type="Texture2D" uid="uid://c2umbstqy3s77" path="res://Assets/Mixed/CardIcons/DefendGlowNew/layered-armor.png" id="5_tge8q"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_bbg16"]
@@ -12,9 +12,9 @@ script = ExtResource("6_bbg16")
 title = "Double Layer"
 description = "Block %DEFEND Damage over [b]2[/b] shields.
 Apply %APPLY_DURABLE Durable.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 2
 icon = ExtResource("5_tge8q")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_8usxw")]([ExtResource("2_7e0y8"), ExtResource("2_7e0y8"), ExtResource("3_krdau"), ExtResource("4_wpkpq")])
+effects = Array[ExtResource("1_8usxw")]([ExtResource("2_8usxw"), ExtResource("2_8usxw"), ExtResource("3_8usxw"), ExtResource("4_wpkpq")])
 type = 2

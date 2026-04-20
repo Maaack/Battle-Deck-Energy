@@ -9,7 +9,8 @@
 [resource]
 script = ExtResource("1")
 title = "Venom Vial"
-description = "Applies %APPLY_VENOMOUS Venomous.
+description = "Apply
+ %APPLY_VENOMOUS Venomous.
 Exhaust."
 energy_cost = 0
 icon = ExtResource("5")

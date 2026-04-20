@@ -12,7 +12,7 @@ script = ExtResource("6_3n1vg")
 title = "Initial"
 description = "Apply %APPLY_MARKED Marked.
 Innate.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 0
 icon = ExtResource("5_oncgh")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

@@ -12,7 +12,7 @@ script = ExtResource("6_m8jmp")
 title = "Swiss Army Knife"
 description = "Deal %ATTACK Damage.
 Next turn, draw %APPLY_HASTENED extra cards.
-Combo 4x."
+Combo %COMBO_EFFECTx."
 energy_cost = 2
 icon = ExtResource("5_s0mvr")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

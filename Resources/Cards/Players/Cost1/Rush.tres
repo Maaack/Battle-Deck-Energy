@@ -13,7 +13,7 @@ script = ExtResource("1")
 title = "Rush"
 description = "Gain %GAIN_ENERGY Energy and draw %DRAW_CARD card.
 Momentary.
-Combo 3x."
+Combo %COMBO_EFFECTx."
 icon = ExtResource("4")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
 effects = Array[ExtResource("1_34frb")]([ExtResource("2_2dtyd"), ExtResource("2"), ExtResource("5"), ExtResource("5_rlqsr")])

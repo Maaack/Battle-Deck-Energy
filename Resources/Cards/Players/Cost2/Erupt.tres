@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("1")
 title = "Erupt"
-description = "Next turn, gain %GAIN_ENERGY Energy.
-Add %ADD_BURST Burst and %ADD_DRAINED Drained to draw pile."
+description = "Next turn, gain %APPLY_CHARGED Energy.
+Add %ADD_BURST Burst and %ADD_DRAINED Drained to your draw pile."
 energy_cost = 2
 icon = ExtResource("4")
 base_color = Color(0.54902, 0.560784, 0.682353, 1)

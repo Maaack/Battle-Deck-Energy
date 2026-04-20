@@ -12,7 +12,7 @@ script = ExtResource("6_pcp7q")
 title = "Cuts and Burns"
 description = "Deal %ATTACK Damage.
 Next turn, gain %APPLY_CHARGED Energy.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 icon = ExtResource("5_67pie")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
 effects = Array[ExtResource("1_t7kxh")]([ExtResource("2_t7kxh"), ExtResource("3_t7kxh"), ExtResource("4_3a28o")])

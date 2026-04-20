@@ -14,7 +14,7 @@ title = "Home Brew"
 description = "Applies %APPLY_VENOMOUS Venomous.
 Applies %APPLY_POISONED Poisoned.
 Innate.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 0
 icon = ExtResource("5_utolq")
 base_color = Color(0.894118, 0.580392, 0.227451, 1)

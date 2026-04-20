@@ -10,7 +10,7 @@
 script = ExtResource("5_gxqwg")
 title = "Impenetrable"
 description = "Block %DEFEND Damage over [b]3[/b] shields.
-Combo 3x."
+Combo %COMBO_EFFECTx."
 energy_cost = 3
 icon = ExtResource("4_msxwl")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)

@@ -10,7 +10,7 @@
 script = ExtResource("1")
 title = "Sharpen"
 description = "Apply %APPLY_ATTACK_UP Attack Up.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 icon = ExtResource("3")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
 effects = Array[ExtResource("1_ek5u2")]([ExtResource("2_ek5u2"), ExtResource("3_67rbi")])

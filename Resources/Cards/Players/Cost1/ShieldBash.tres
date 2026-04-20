@@ -9,7 +9,8 @@
 [resource]
 script = ExtResource("1")
 title = "Shield Bash"
-description = "Deal Damage with active Block and apply %APPLY_FRAGILE Fragile."
+description = "Deal Damage with active Block.
+Apply %APPLY_FRAGILE Fragile."
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
 effects = Array[ExtResource("1_dm8y4")]([ExtResource("2"), ExtResource("4")])

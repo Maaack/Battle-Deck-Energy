@@ -10,7 +10,7 @@
 script = ExtResource("1")
 title = "Disarm"
 description = "Apply %APPLY_WEAK Weak.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 energy_cost = 0
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

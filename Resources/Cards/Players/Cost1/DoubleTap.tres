@@ -10,7 +10,7 @@
 script = ExtResource("4_njd2h")
 title = "Double Tap"
 description = "Deal %ATTACK Damage over [b]2[/b] strikes.
-Combo 2x."
+Combo %COMBO_EFFECTx."
 icon = ExtResource("3_bbywy")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
 effects = Array[ExtResource("1_et3ys")]([ExtResource("2_xepi4"), ExtResource("2_xepi4"), ExtResource("3_xepi4")])
