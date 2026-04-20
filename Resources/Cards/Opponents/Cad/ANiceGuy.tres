@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://diin7nlrcx1y7"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_j2aba"]
+[ext_resource type="Resource" uid="uid://cnovhlhiapq2k" path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" id="2_5oa64"]
+[ext_resource type="Resource" uid="uid://dvdtwgh5pjisj" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="3_teesw"]
+[ext_resource type="Texture2D" uid="uid://chlgqvnq4u7v4" path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/angry-eyes.png" id="4_7h1er"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_18ruf"]
+
+[resource]
+script = ExtResource("5_18ruf")
+title = "A Nice Guy"
+description = "Block %DEFEND Damage and %APPLY_VULNERABLE Vulnerable."
+energy_cost = 2
+icon = ExtResource("4_7h1er")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_j2aba")]([ExtResource("2_5oa64"), ExtResource("3_teesw")])
+type = 2

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c2hb4uip5wvrj"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_pierp"]
+[ext_resource type="Resource" uid="uid://cioem7dswktli" path="res://Resources/Effects/StatusEffects/ApplyVenomous2.tres" id="2_hsjlt"]
+[ext_resource type="Texture2D" uid="uid://girf5pipoqy" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Venom/potion-of-madness.png" id="3_cr3fx"]
+[ext_resource type="Resource" uid="uid://ufto0tg786h1" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="3_hsjlt"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_kprbi"]
+
+[resource]
+script = ExtResource("4_kprbi")
+title = "Narcacism"
+description = "Apply %APPLY_VENOMOUS Venomous and %APPLY_POISONED Poisoined."
+energy_cost = 2
+icon = ExtResource("3_cr3fx")
+base_color = Color(0.89411765, 0.5803922, 0.22745098, 1)
+effects = Array[ExtResource("1_pierp")]([ExtResource("2_hsjlt"), ExtResource("3_hsjlt")])
+type = 3

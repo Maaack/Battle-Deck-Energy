@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://b8r2bqf8dm13b"]
 
+[ext_resource type="Resource" uid="uid://buwfk74p7hrr7" path="res://Resources/Levels/Level05/BratDuoLevel.tres" id="2_srwp3"]
+[ext_resource type="Resource" uid="uid://bw0in542e1pkx" path="res://Resources/Levels/Level05/BullySoloLevel.tres" id="3_63g2v"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://buwfk74p7hrr7" path="res://Resources/Levels/Level05/BratPair.tres" id="7_yrpck"]
-[ext_resource type="Resource" uid="uid://0y8wsrs5fo3h" path="res://Resources/Levels/Level05/RascalPair.tres" id="8_priqb"]
-[ext_resource type="Resource" uid="uid://dlnxbh5suhipg" path="res://Resources/Levels/Level05/CadAlone.tres" id="9_mc775"]
-[ext_resource type="Resource" uid="uid://f8c2365yy88g" path="res://Resources/Levels/Level05/BratAndRascal.tres" id="10_qnjlk"]
-[ext_resource type="Resource" uid="uid://bw0in542e1pkx" path="res://Resources/Levels/Level05/BullyAlone.tres" id="11_w8n2p"]
+[ext_resource type="Resource" uid="uid://dlnxbh5suhipg" path="res://Resources/Levels/Level05/CadSoloLevel.tres" id="4_26hb2"]
+[ext_resource type="Resource" uid="uid://c2txff6b3apwh" path="res://Resources/Levels/Level05/PipSqueakDuoLevel.tres" id="5_tfgbn"]
+[ext_resource type="Resource" uid="uid://0y8wsrs5fo3h" path="res://Resources/Levels/Level05/RascalDuoLevel.tres" id="6_5chwg"]
+[ext_resource type="Resource" uid="uid://ct5idxn24fpq1" path="res://Resources/Levels/Level05/SpoiledShitSoloLevel.tres" id="7_7m0wq"]
 
 [resource]
 script = ExtResource("4")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("7_yrpck"): 1.0,
-ExtResource("8_priqb"): 1.0,
-ExtResource("9_mc775"): 1.0,
-ExtResource("10_qnjlk"): 1.0,
-ExtResource("11_w8n2p"): 1.0
+ExtResource("2_srwp3"): 1.0,
+ExtResource("3_63g2v"): 1.0,
+ExtResource("4_26hb2"): 1.0,
+ExtResource("5_tfgbn"): 1.0,
+ExtResource("6_5chwg"): 1.0,
+ExtResource("7_7m0wq"): 1.0
 })

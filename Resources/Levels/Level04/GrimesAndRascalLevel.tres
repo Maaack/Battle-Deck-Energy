@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://ubd7gae5xxh5"]
+
+[ext_resource type="Resource" uid="uid://coom5msn372sl" path="res://Resources/Weighted/WeightedCardList/Rank2ToxicCardList.tres" id="1_4pdmt"]
+[ext_resource type="Resource" uid="uid://d4hb2pdb8k15n" path="res://Resources/Characters/Opponents/Rank1/Grime.tres" id="2_cn4q5"]
+[ext_resource type="Resource" uid="uid://c8uwoi73y87ap" path="res://Resources/Characters/Opponents/Rank2/Rascal.tres" id="3_57bvm"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_xhvae"]
+
+[resource]
+script = ExtResource("4_xhvae")
+opponents = [ExtResource("2_cn4q5"), ExtResource("2_cn4q5"), ExtResource("3_57bvm")]
+lootable_cards = ExtResource("1_4pdmt")

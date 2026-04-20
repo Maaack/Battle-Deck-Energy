@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cha25g6w2lii3"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_4fkgm"]
+[ext_resource type="Resource" uid="uid://cx02sktjo3l3n" path="res://Resources/Effects/CardEffects/AttackEffect9.tres" id="2_4fkgm"]
+[ext_resource type="Resource" uid="uid://crqh7cvpxxgdr" path="res://Resources/Effects/DeckModEffects/AddIntimidated.tres" id="3_ux8p0"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_dujxc"]
+[ext_resource type="Texture2D" uid="uid://d1gnk75g1rmdj" path="res://Assets/Mixed/CardIcons/AttackGlowNew/swiss-army-knife.png" id="5_65sv1"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_2rkkn"]
+
+[resource]
+script = ExtResource("6_2rkkn")
+title = "Grand Dad's Knife"
+description = "Deal %ATTACK Damage and add %ADD_INTIMIDATED Intimidated card(s).
+Exhaust."
+energy_cost = 2
+icon = ExtResource("5_65sv1")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_4fkgm")]([ExtResource("2_4fkgm"), ExtResource("3_ux8p0"), ExtResource("4_dujxc")])

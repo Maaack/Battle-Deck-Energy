@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://ybjvpoep0gkg"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://ch1qbla1eyxsu" path="res://Resources/Levels/Level07/LeechTrioAndTattletaleLevel.tres" id="6_d8i1m"]
-[ext_resource type="Resource" uid="uid://r22kqkvu2dmn" path="res://Resources/Levels/Level07/LeechTrioAndWeaselLevel.tres" id="7_1ra78"]
-[ext_resource type="Resource" uid="uid://3mpqnnv3454l" path="res://Resources/Levels/Level07/WeaselPairLevel.tres" id="8_3rlci"]
-[ext_resource type="Resource" uid="uid://dfk8ep65yjto6" path="res://Resources/Levels/Level07/TattletalePairLevel.tres" id="9_805xj"]
+[ext_resource type="Resource" uid="uid://ch1qbla1eyxsu" path="res://Resources/Levels/Level07/GrimeTrioLevel.tres" id="6_d8i1m"]
+[ext_resource type="Resource" uid="uid://ch1qbla1eyxsu" path="res://Resources/Levels/Level07/GrimeTrioLevel.tres" id="7_1ra78"]
+[ext_resource type="Resource" uid="uid://3mpqnnv3454l" path="res://Resources/Levels/Level07/WeaselDuoLevel.tres" id="8_3rlci"]
+[ext_resource type="Resource" uid="uid://dfk8ep65yjto6" path="res://Resources/Levels/Level07/TattletaleDuoLevel.tres" id="9_805xj"]
 
 [resource]
 script = ExtResource("4")

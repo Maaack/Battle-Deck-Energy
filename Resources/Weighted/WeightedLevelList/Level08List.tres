@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Level08/RascalAndCad.tres" id="7_k71d5"]
 [ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Level08/RascalTrio.tres" id="8_kqwsu"]
 [ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Level08/BratTrio.tres" id="9_nf1e7"]
-[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Level08/SpoiledShitAlone.tres" id="10_avva5"]
+[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Level08/SpoiledShitAndRascalLevel.tres" id="10_avva5"]
 [ext_resource type="Resource" uid="uid://ohrxmbw6onbi" path="res://Resources/Levels/Level08/BratAndBully.tres" id="11_bmmyh"]
 
 [resource]

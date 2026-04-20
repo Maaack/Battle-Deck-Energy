@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://d47dkg32b5e1" path="res://Resources/Weighted/WeightedCardList/Rank1CardList.tres" id="2"]
 [ext_resource type="Resource" uid="uid://baq44jga2p37t" path="res://Resources/Characters/Opponents/Rank2/LilBrat.tres" id="3"]
-[ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/BigBully.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/Rank3/BigBully.tres" id="4"]
 
 [resource]
 script = ExtResource("1")

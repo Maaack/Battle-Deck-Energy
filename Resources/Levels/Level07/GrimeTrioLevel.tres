@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://ch1qbla1eyxsu"]
+
+[ext_resource type="Resource" uid="uid://bcrdry1ubcobv" path="res://Resources/Weighted/WeightedCardList/Rank1ToxicCardList.tres" id="1_v2lst"]
+[ext_resource type="Resource" uid="uid://d4hb2pdb8k15n" path="res://Resources/Characters/Opponents/Rank1/Grime.tres" id="2_ujgox"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_5620j"]
+
+[resource]
+script = ExtResource("3_5620j")
+opponents = [ExtResource("2_ujgox"), ExtResource("2_ujgox"), ExtResource("2_ujgox")]
+lootable_cards = ExtResource("1_v2lst")

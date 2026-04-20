@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_vk82b"]
-[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="2_vk82b"]
 [ext_resource type="Texture2D" uid="uid://dom34dixugrhr" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/bad-breath.png" id="3"]
 
 [resource]
 script = ExtResource("1")
 title = "Breath"
-description = "Deal %ATTACK Damage."
+description = "Deal %ATTACK Damage over [b]2[/b] strikes."
 energy_cost = 0
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_vk82b")]([ExtResource("2")])
+effects = Array[ExtResource("1_vk82b")]([ExtResource("2_vk82b"), ExtResource("2_vk82b")])
