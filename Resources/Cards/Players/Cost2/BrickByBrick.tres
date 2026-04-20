@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://da4kmai3ofeu3"]
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_m7q4k"]
-[ext_resource type="Resource" uid="uid://dnqqe2xkdmqiq" path="res://Resources/Effects/CardEffects/AddDefendEffect2.tres" id="2_m7q4k"]
+[ext_resource type="Resource" uid="uid://signo6m41cj7" path="res://Resources/Effects/StatusEffects/DefendEffect2.tres" id="2_23tjo"]
 [ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="3_txggf"]
 [ext_resource type="Resource" uid="uid://bq2vf7gq4q8mc" path="res://Resources/Effects/CardEffects/MaxComboEffect.tres" id="4_sg1u6"]
 [ext_resource type="Texture2D" uid="uid://cbxa2s1hco75p" path="res://Assets/Mixed/CardIcons/DefendGlowNew/stone-tower.png" id="5_m7q4k"]
@@ -17,5 +17,5 @@ Max Combo.
 energy_cost = 2
 icon = ExtResource("5_m7q4k")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_m7q4k")]([ExtResource("2_m7q4k"), ExtResource("2_m7q4k"), ExtResource("3_txggf"), ExtResource("4_sg1u6")])
+effects = Array[ExtResource("1_m7q4k")]([ExtResource("2_23tjo"), ExtResource("2_23tjo"), ExtResource("3_txggf"), ExtResource("4_sg1u6")])
 type = 2
