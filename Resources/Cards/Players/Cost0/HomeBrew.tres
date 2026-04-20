@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://cj6krywwx7ybs" path="res://Resources/Effects/StatusEffects/ApplyVenomous.tres" id="2_wskol"]
 [ext_resource type="Resource" uid="uid://ufto0tg786h1" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="3_wskol"]
 [ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="4_wskol"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="5_6gkqw"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_dl7ff"]
 [ext_resource type="Texture2D" uid="uid://cxn3t6nj0r1x7" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Venom/bubbling-bowl.png" id="5_utolq"]
 
@@ -12,9 +13,10 @@ script = ExtResource("5_dl7ff")
 title = "Home Brew"
 description = "Applies %APPLY_VENOMOUS Venomous.
 Applies %APPLY_POISONED Poisoned.
-Innate."
+Innate.
+Combo 2x."
 energy_cost = 0
 icon = ExtResource("5_utolq")
 base_color = Color(0.894118, 0.580392, 0.227451, 1)
-effects = Array[ExtResource("1_7o2sb")]([ExtResource("2_wskol"), ExtResource("3_wskol"), ExtResource("4_wskol")])
+effects = Array[ExtResource("1_7o2sb")]([ExtResource("2_wskol"), ExtResource("3_wskol"), ExtResource("4_wskol"), ExtResource("5_6gkqw")])
 type = 3

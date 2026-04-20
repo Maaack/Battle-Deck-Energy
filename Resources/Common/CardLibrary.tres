@@ -41,7 +41,7 @@
 [ext_resource type="Resource" uid="uid://vt10wlslmep1" path="res://Resources/Cards/StressCards/Bleeding.tres" id="45"]
 [ext_resource type="Resource" uid="uid://exaat02tip24" path="res://Resources/Cards/Players/Cost1/Taint.tres" id="46"]
 [ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="47"]
-[ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="48"]
+[ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="48"]
 [ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="50"]
 [ext_resource type="Resource" uid="uid://dt12y50rrnqpi" path="res://Resources/Cards/Players/Cost1/LethalNeedle.tres" id="51"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="52"]
@@ -85,7 +85,7 @@
 [ext_resource type="Resource" uid="uid://bd381tanlmxa7" path="res://Resources/Cards/Players/Cost2/Unlucky.tres" id="97"]
 [ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="98"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="99"]
-[ext_resource type="Resource" uid="uid://bhhsysump54kp" path="res://Resources/Cards/Players/Cost0/Cut.tres" id="100"]
+[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost0/Cut.tres" id="100"]
 
 [sub_resource type="Resource" id="Resource_whu3p"]
 metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/Castle.tres"

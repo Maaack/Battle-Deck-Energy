@@ -2,47 +2,23 @@
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_h42wm"]
 [ext_resource type="Resource" uid="uid://dgpdkq004wvun" path="res://Resources/Cards/Players/Cost0/Grab.tres" id="2_bsoth"]
-[ext_resource type="Resource" uid="uid://dwdy7sf6qg77l" path="res://Resources/Cards/Players/Cost0/Disarm.tres" id="3_cjnyr"]
 [ext_resource type="Resource" uid="uid://dbl5yqqm03t7y" path="res://Resources/Cards/Players/Cost0/Kickoff.tres" id="4_idqvy"]
+[ext_resource type="Resource" uid="uid://b37hyjjhwf11k" path="res://Resources/Cards/Players/Cost0/ShieldBreak.tres" id="4_kvv40"]
 [ext_resource type="Resource" uid="uid://bbq3s6tdpt5ep" path="res://Resources/Cards/Players/Cost0/CheapProtection.tres" id="5_q2ijx"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="6_rda24"]
 [ext_resource type="Resource" uid="uid://dgjkhtpb581jm" path="res://Resources/Cards/Players/Cost0/BurnOut.tres" id="7_c4k7i"]
 [ext_resource type="Resource" uid="uid://dppkf3awgrqoc" path="res://Resources/Cards/Players/Cost0/Hustle.tres" id="8_leb70"]
-[ext_resource type="Resource" uid="uid://uxub2rnlohfq" path="res://Resources/Cards/Players/Cost0/Bloodletting.tres" id="9_kvv40"]
-[ext_resource type="Resource" uid="uid://v8dp7oj5odb3" path="res://Resources/Cards/Players/Cost0/WithPassion.tres" id="10_aqpb1"]
-[ext_resource type="Resource" uid="uid://048ib4oov4xw" path="res://Resources/Cards/Players/Cost1/ChainUp.tres" id="11_h42wm"]
-[ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="12_leb70"]
-[ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="13_kvv40"]
-[ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="14_h42wm"]
-[ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="15_ubbbb"]
-[ext_resource type="Resource" uid="uid://b8b05f81c4574" path="res://Resources/Cards/Players/Cost1/Warhammer.tres" id="16_ubbbb"]
-[ext_resource type="Resource" uid="uid://bc3yuds8bher3" path="res://Resources/Cards/Players/Cost1/PillowFort.tres" id="17_hdnno"]
-[ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="19_3jsys"]
-[ext_resource type="Resource" uid="uid://dvqip0qpmvtgl" path="res://Resources/Cards/Players/Cost1/TheOneTwo.tres" id="20_wa6x1"]
-[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="21_dxfjg"]
+[ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="16_l2hxm"]
 [ext_resource type="Resource" uid="uid://dleokjkiyfp06" path="res://Resources/Cards/Players/Cost0/LastStand.tres" id="21_wa6x1"]
 
 [resource]
 script = ExtResource("1_h42wm")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("21_wa6x1"): 1.0,
-ExtResource("21_dxfjg"): 1.0,
-ExtResource("20_wa6x1"): 1.0,
-ExtResource("19_3jsys"): 1.0,
-ExtResource("6_rda24"): 1.0,
-ExtResource("17_hdnno"): 1.0,
-ExtResource("16_ubbbb"): 1.0,
-ExtResource("15_ubbbb"): 1.0,
-ExtResource("14_h42wm"): 1.0,
-ExtResource("13_kvv40"): 1.0,
-ExtResource("12_leb70"): 1.0,
-ExtResource("11_h42wm"): 1.0,
-ExtResource("10_aqpb1"): 1.0,
-ExtResource("9_kvv40"): 1.0,
 ExtResource("8_leb70"): 1.0,
 ExtResource("7_c4k7i"): 1.0,
+ExtResource("16_l2hxm"): 1.0,
+ExtResource("21_wa6x1"): 1.0,
 ExtResource("5_q2ijx"): 1.0,
+ExtResource("4_kvv40"): 1.0,
 ExtResource("4_idqvy"): 1.0,
-ExtResource("3_cjnyr"): 1.0,
 ExtResource("2_bsoth"): 1.0
 })
