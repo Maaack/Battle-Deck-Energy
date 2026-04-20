@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
 [ext_resource type="Resource" uid="uid://bkl1h7qdmu82j" path="res://Resources/Cards/Players/Cost2/Shatter.tres" id="10_23fgu"]
 [ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="11_3k3lh"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Cripple.tres" id="12_1lglt"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="12_1lglt"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="13_alm7c"]
 [ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="14_rfxs1"]
 [ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="15_a8wrp"]

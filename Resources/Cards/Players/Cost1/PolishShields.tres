@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://6ep1w4m0f2c0"]
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_avehm"]
-[ext_resource type="Resource" uid="uid://pbm7v1mt1b42" path="res://Resources/Effects/StatusEffects/ApplyDefenseUp2.tres" id="2_avehm"]
-[ext_resource type="Resource" uid="uid://brlgc7xpeleep" path="res://Resources/Effects/CardEffects/ComboEffect4.tres" id="3_qbtok"]
+[ext_resource type="Resource" uid="uid://c52ppe1133st8" path="res://Resources/Effects/StatusEffects/ApplyDefenseUp3.tres" id="2_avehm"]
+[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="3_avehm"]
 [ext_resource type="Texture2D" uid="uid://8rgr0eq3qgyy" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/smooth-shields.png" id="4_2rioc"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_k5je7"]
 
@@ -10,8 +10,8 @@
 script = ExtResource("5_k5je7")
 title = "Polish Shields"
 description = "Apply %APPLY_DEFENSE_UP Defense Up.
-Combo 4x."
+Retain."
 icon = ExtResource("4_2rioc")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = Array[ExtResource("1_avehm")]([ExtResource("2_avehm"), ExtResource("3_qbtok")])
+effects = Array[ExtResource("1_avehm")]([ExtResource("2_avehm"), ExtResource("3_avehm")])
 type = 3

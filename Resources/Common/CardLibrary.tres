@@ -34,7 +34,7 @@
 [ext_resource type="Resource" uid="uid://b24ssfhyjmfma" path="res://Resources/Cards/Players/Cost1/HocusFocus.tres" id="34"]
 [ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="35"]
 [ext_resource type="Resource" uid="uid://ch0k47ms5hi6o" path="res://Resources/Cards/Players/Cost1/ToxicSlash.tres" id="36"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Cripple.tres" id="37"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="37"]
 [ext_resource type="Resource" uid="uid://bn175gquplkir" path="res://Resources/Cards/StressCards/LimpMuscle.tres" id="38"]
 [ext_resource type="Resource" uid="uid://bmkgwo2ib35v6" path="res://Resources/Cards/StressCards/Confused.tres" id="39"]
 [ext_resource type="Resource" uid="uid://c6sko4fqksy14" path="res://Resources/Cards/Players/Cost1/ShieldBash.tres" id="40"]

@@ -5,9 +5,15 @@ extends Resource
 class_name WeightedDataList
 
 @export var weighted_map : Dictionary[Resource, float]
+@export var drop_in_list : Array[Resource] = [] :
+	set(values):
+		drop_in_list = []
+		if values is Array:
+			for value in values:
+				append_data(value)
 
-func append_data(value):
-	if value in weighted_map: return
+func append_data(value:Resource):
+	if value != null and value in weighted_map: return
 	weighted_map[value] = 1.0
 	return value
 

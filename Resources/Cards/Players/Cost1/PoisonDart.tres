@@ -11,7 +11,8 @@
 script = ExtResource("6_wja3t")
 title = "Poison Dart"
 description = "Deal %ATTACK Damage.
-Apply %APPLY_POISONED Poisoned."
+Apply %APPLY_POISONED Poisoned.
+Retain."
 icon = ExtResource("5_cytw5")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
 effects = Array[ExtResource("1_cytw5")]([ExtResource("2_dqhcf"), ExtResource("3_vqtuo"), ExtResource("4_grxc7")])

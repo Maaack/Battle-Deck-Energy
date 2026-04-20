@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_knpbd"]
 [ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://c2pxccuol3c7k" path="res://Assets/Mixed/CardIcons/DefendGlowNew/dig-hole.png" id="3"]
-[ext_resource type="Resource" uid="uid://14lom2q5h17q" path="res://Resources/Effects/StatusEffects/ApplyFortified3.tres" id="4"]
+[ext_resource type="Resource" uid="uid://il7pxs60ov42" path="res://Resources/Effects/StatusEffects/ApplyFortified.tres" id="3_knpbd"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_8a1wm"]
 
 [resource]
 script = ExtResource("1")
@@ -12,5 +13,5 @@ title = "Entrench"
 description = "Block %DEFEND Damage. Next %APPLY_FORTIFIED turns, add [b]1[/b] Defend."
 icon = ExtResource("3")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_knpbd")]([ExtResource("2"), ExtResource("4")])
+effects = Array[ExtResource("1_knpbd")]([ExtResource("2"), ExtResource("3_knpbd"), ExtResource("4_8a1wm")])
 type = 2

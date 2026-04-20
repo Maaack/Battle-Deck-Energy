@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="20"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="21"]
 [ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="22"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Cripple.tres" id="23"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="23"]
 [ext_resource type="Resource" uid="uid://c4wprnh7kf60y" path="res://Resources/Cards/Players/Cost1/Endure.tres" id="24"]
 [ext_resource type="Resource" uid="uid://c6hk41ss3g8x8" path="res://Resources/Cards/Players/Cost1/SwiftStrike.tres" id="25"]
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="26"]

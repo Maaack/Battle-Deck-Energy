@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_4qtci"]
 [ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2_4qtci"]
-[ext_resource type="Resource" uid="uid://cw7b2ckh11itt" path="res://Resources/Effects/StatusEffects/ApplyHastened.tres" id="3_3dt0t"]
+[ext_resource type="Resource" uid="uid://bc0n7aavmxan4" path="res://Resources/Effects/CardEffects/DrawCardSourceEffect.tres" id="3_4qtci"]
 [ext_resource type="Texture2D" uid="uid://dstahlywd1yme" path="res://Assets/Mixed/CardIcons/AttackGlowNew/butterfly-knife.png" id="4_d87n6"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_nwqqh"]
 
@@ -10,7 +10,7 @@
 script = ExtResource("5_nwqqh")
 title = "Quick Strike"
 description = "Deal %ATTACK Damage.
-Next turn, draw %APPLY_HASTENED extra cards."
+Draw %DRAW_CARD cards."
 icon = ExtResource("4_d87n6")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_4qtci")]([ExtResource("2_4qtci"), ExtResource("3_3dt0t")])
+effects = Array[ExtResource("1_4qtci")]([ExtResource("2_4qtci"), ExtResource("3_4qtci")])
