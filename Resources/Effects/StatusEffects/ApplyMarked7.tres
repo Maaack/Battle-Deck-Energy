@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://7b5wfhl2yl2y"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_jxeqp"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_2n818"]
+[ext_resource type="Resource" uid="uid://b66lu8sr2oek3" path="res://Resources/Statuses/Marked.tres" id="3_rr7c7"]
+
+[resource]
+script = ExtResource("1_jxeqp")
+starting_statuses = Array[ExtResource("2_2n818")]([ExtResource("3_rr7c7")])
+type_tag = "APPLY_MARKED"
+amount = 7

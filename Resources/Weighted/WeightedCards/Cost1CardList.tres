@@ -22,7 +22,7 @@
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="51_bqap2"]
 [ext_resource type="Resource" uid="uid://dvqip0qpmvtgl" path="res://Resources/Cards/Players/Cost1/TheOneTwo.tres" id="52_qjykc"]
 [ext_resource type="Resource" uid="uid://24x2atk4od42" path="res://Resources/Cards/Players/Cost1/Discharge.tres" id="53_q0ejp"]
-[ext_resource type="Resource" uid="uid://d363jhfyg0upq" path="res://Resources/Cards/Players/Cost1/ThreeWay.tres" id="53_ujoqg"]
+[ext_resource type="Resource" uid="uid://d363jhfyg0upq" path="res://Resources/Cards/Players/Cost2/ThreeWay.tres" id="53_ujoqg"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="54_ki0n2"]
 [ext_resource type="Resource" uid="uid://dtoa2668k8ay" path="res://Resources/Cards/Players/Cost1/Execute.tres" id="55_23da3"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="57_2f1q1"]

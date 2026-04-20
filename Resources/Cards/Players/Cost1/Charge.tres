@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_wbubs"]
-[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2_wbubs"]
+[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="2_wbubs"]
 [ext_resource type="Texture2D" uid="uid://drmx3oy2wkdl1" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/bull.png" id="3"]
 [ext_resource type="Resource" uid="uid://553pbk0p4vl6" path="res://Resources/Effects/StatusEffects/ApplyEngaged2.tres" id="4"]
 

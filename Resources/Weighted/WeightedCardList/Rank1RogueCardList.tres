@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cnjfddnf0bmkq"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_i1bs0"]
+[ext_resource type="Resource" uid="uid://cmw8qxfre5qqs" path="res://Resources/Cards/Players/Cost0/CallOut.tres" id="2_cn5xv"]
+[ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Players/Cost0/Initial.tres" id="3_caj80"]
+[ext_resource type="Resource" uid="uid://sww1ott8nx6m" path="res://Resources/Cards/Players/Cost0/HideAce.tres" id="5_4sx8l"]
+[ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="5_wpcg1"]
+[ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="10_yxhkd"]
+[ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="11_i136a"]
+
+[resource]
+script = ExtResource("1_i1bs0")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2_cn5xv"): 1.0,
+ExtResource("3_caj80"): 1.0,
+ExtResource("10_yxhkd"): 1.0,
+ExtResource("5_wpcg1"): 1.0,
+ExtResource("11_i136a"): 1.0,
+ExtResource("5_4sx8l"): 1.0
+})

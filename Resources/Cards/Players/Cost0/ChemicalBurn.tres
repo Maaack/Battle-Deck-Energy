@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bc3pievjodnnq"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_sxfb3"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_l7ev1"]
+[ext_resource type="Resource" uid="uid://ufto0tg786h1" path="res://Resources/Effects/StatusEffects/ApplyPoisoned.tres" id="3_p7n7u"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="4_nfwsq"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_3dntq"]
+[ext_resource type="Texture2D" uid="uid://dujxpq8lk6d3c" path="res://Assets/Mixed/CardIcons/AttackGlowNew/chemical-arrow.png" id="5_3ilgs"]
+
+[resource]
+script = ExtResource("5_3dntq")
+title = "Chemical Burn"
+description = "Deal %ATTACK Damage.
+Apply %APPLY_POISONED Poisoned.
+Momentary."
+energy_cost = 0
+icon = ExtResource("5_3ilgs")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_sxfb3")]([ExtResource("2_l7ev1"), ExtResource("3_p7n7u"), ExtResource("4_nfwsq")])

@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_5qvhk"]
 [ext_resource type="Resource" uid="uid://cn487jiyc4u15" path="res://Resources/Effects/StatusEffects/ApplyPoisoned2.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://dedjcejjcjcdy" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/death-juice.png" id="3"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_24cce"]
 
 [resource]
 script = ExtResource("1")
 title = "Toxic Spit"
-description = "Apply %APPLY_POISONED Poisoned."
+description = "Apply %APPLY_POISONED Poisoned.
+Exhaust."
 energy_cost = 0
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_5qvhk")]([ExtResource("2")])
+effects = Array[ExtResource("1_5qvhk")]([ExtResource("2"), ExtResource("3_24cce")])

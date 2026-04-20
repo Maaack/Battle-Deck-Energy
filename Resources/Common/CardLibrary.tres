@@ -18,7 +18,6 @@
 [ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="18"]
 [ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="19"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="20"]
-[ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="21"]
 [ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="22"]
 [ext_resource type="Resource" uid="uid://rtag3xkufvtd" path="res://Resources/Cards/StressCards/Diffident.tres" id="23"]
 [ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="24"]
@@ -31,28 +30,23 @@
 [ext_resource type="Resource" uid="uid://bu1vsrx2hqj1d" path="res://Resources/Cards/StressCards/Shocked.tres" id="31"]
 [ext_resource type="Resource" uid="uid://ygycd50chfgd" path="res://Resources/Cards/StressCards/Restrained.tres" id="32"]
 [ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="33"]
-[ext_resource type="Resource" uid="uid://b24ssfhyjmfma" path="res://Resources/Cards/Players/Cost1/HocusFocus.tres" id="34"]
 [ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="35"]
-[ext_resource type="Resource" uid="uid://ch0k47ms5hi6o" path="res://Resources/Cards/Players/Cost1/ToxicSlash.tres" id="36"]
 [ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="37"]
 [ext_resource type="Resource" uid="uid://bn175gquplkir" path="res://Resources/Cards/StressCards/LimpMuscle.tres" id="38"]
 [ext_resource type="Resource" uid="uid://bmkgwo2ib35v6" path="res://Resources/Cards/StressCards/Confused.tres" id="39"]
 [ext_resource type="Resource" uid="uid://c6sko4fqksy14" path="res://Resources/Cards/Players/Cost1/ShieldBash.tres" id="40"]
 [ext_resource type="Resource" uid="uid://cvtwl0ikdl6n1" path="res://Resources/Cards/Players/Cost1/Buffer.tres" id="41"]
 [ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="42"]
-[ext_resource type="Resource" uid="uid://c7rgaw5yc6gr6" path="res://Resources/Cards/Players/Cost2/FlyingStrike.tres" id="43"]
 [ext_resource type="Resource" uid="uid://cp3ftd85q81o3" path="res://Resources/Cards/StressCards/HitNerve.tres" id="44"]
 [ext_resource type="Resource" uid="uid://vt10wlslmep1" path="res://Resources/Cards/StressCards/Bleeding.tres" id="45"]
 [ext_resource type="Resource" uid="uid://exaat02tip24" path="res://Resources/Cards/Players/Cost1/Taint.tres" id="46"]
 [ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="47"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/SturdyShield.tres" id="48"]
-[ext_resource type="Resource" uid="uid://cjmwklggcrdw7" path="res://Resources/Cards/Players/Cost1/StrongSlash.tres" id="49"]
 [ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="50"]
 [ext_resource type="Resource" uid="uid://dt12y50rrnqpi" path="res://Resources/Cards/Players/Cost1/LethalNeedle.tres" id="51"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="52"]
 [ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="53"]
 [ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="54"]
-[ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="55"]
 [ext_resource type="Resource" uid="uid://c6hk41ss3g8x8" path="res://Resources/Cards/Players/Cost1/SwiftStrike.tres" id="56"]
 [ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="57"]
 [ext_resource type="Resource" uid="uid://b03lr3y7usljf" path="res://Resources/Cards/Players/Cost1/Rush.tres" id="58"]
@@ -71,7 +65,6 @@
 [ext_resource type="Resource" uid="uid://24x2atk4od42" path="res://Resources/Cards/Players/Cost1/Discharge.tres" id="71"]
 [ext_resource type="Resource" uid="uid://d2leuujlccej6" path="res://Resources/Cards/Players/Cost0/Misstep.tres" id="72"]
 [ext_resource type="Resource" uid="uid://cdiosqol8ia6g" path="res://Resources/Cards/Players/Cost1/Recall.tres" id="73"]
-[ext_resource type="Resource" uid="uid://1us6b7b0hotk" path="res://Resources/Cards/Players/Cost1/Entrench.tres" id="74"]
 [ext_resource type="Resource" uid="uid://bjldbikae88t4" path="res://Resources/Cards/Players/Cost0/Burst.tres" id="75"]
 [ext_resource type="Resource" uid="uid://sww1ott8nx6m" path="res://Resources/Cards/Players/Cost0/HideAce.tres" id="76"]
 [ext_resource type="Resource" uid="uid://wsfj7bcpa1w5" path="res://Resources/Cards/Players/Cost0/FreshCoat.tres" id="77"]
@@ -82,18 +75,13 @@
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="82"]
 [ext_resource type="Resource" uid="uid://iwajgypi5cye" path="res://Resources/Cards/Players/Cost1/TickTick.tres" id="83"]
 [ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="84"]
-[ext_resource type="Resource" uid="uid://bn42rf0mqstui" path="res://Resources/Cards/Players/Cost1/Toxify.tres" id="85"]
 [ext_resource type="Resource" uid="uid://dppkf3awgrqoc" path="res://Resources/Cards/Players/Cost0/Hustle.tres" id="86"]
 [ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Players/Cost0/Initial.tres" id="87"]
 [ext_resource type="Resource" uid="uid://dydtg77tfm8e1" path="res://Resources/Cards/Players/Cost0/Subvert.tres" id="88"]
-[ext_resource type="Resource" uid="uid://bk0m64s3gx8f7" path="res://Resources/Cards/Players/Cost1/SpinalTap.tres" id="89"]
 [ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Players/Cost1/Dissect.tres" id="90"]
-[ext_resource type="Resource" uid="uid://dtnqnpml4lvfq" path="res://Resources/Cards/Players/Cost1/Passion.tres" id="91"]
 [ext_resource type="Resource" uid="uid://tmlagkvdcr62" path="res://Resources/Cards/Players/Cost1/KnivesOut.tres" id="92"]
-[ext_resource type="Resource" uid="uid://b417bkurpki5u" path="res://Resources/Cards/Players/Cost1/LookUp.tres" id="93"]
 [ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Brew.tres" id="94"]
 [ext_resource type="Resource" uid="uid://dwdy7sf6qg77l" path="res://Resources/Cards/Players/Cost0/Disarm.tres" id="95"]
-[ext_resource type="Resource" uid="uid://db61er2r63u1q" path="res://Resources/Cards/Players/Cost1/Discover.tres" id="96"]
 [ext_resource type="Resource" uid="uid://bd381tanlmxa7" path="res://Resources/Cards/Players/Cost2/Unlucky.tres" id="97"]
 [ext_resource type="Resource" uid="uid://b2wa7cj2lp2hq" path="res://Resources/Cards/Players/Cost0/Dodge.tres" id="98"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="99"]
@@ -102,11 +90,47 @@
 [sub_resource type="Resource" id="Resource_whu3p"]
 metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/Castle.tres"
 
+[sub_resource type="Resource" id="Resource_f7iru"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/CriticalHit.tres"
+
+[sub_resource type="Resource" id="Resource_g1rs7"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/Discover.tres"
+
+[sub_resource type="Resource" id="Resource_meao0"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/Entrench.tres"
+
+[sub_resource type="Resource" id="Resource_dalqo"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/FlyingStrike.tres"
+
 [sub_resource type="Resource" id="Resource_x34mb"]
 metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/TheWall.tres"
 
+[sub_resource type="Resource" id="Resource_on40c"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/HocusFocus.tres"
+
 [sub_resource type="Resource" id="Resource_ks5dc"]
 metadata/__load_path__ = "res://Resources/Cards/Players/Cost2/Impenetrable.tres"
+
+[sub_resource type="Resource" id="Resource_qfmtb"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/LookUp.tres"
+
+[sub_resource type="Resource" id="Resource_gfw17"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/Passion.tres"
+
+[sub_resource type="Resource" id="Resource_ah2rs"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/SpinalTap.tres"
+
+[sub_resource type="Resource" id="Resource_frsgi"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/QuickThinking.tres"
+
+[sub_resource type="Resource" id="Resource_1l6kj"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/StrongSlash.tres"
+
+[sub_resource type="Resource" id="Resource_jw0uw"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/ToxicSlash.tres"
+
+[sub_resource type="Resource" id="Resource_fwjce"]
+metadata/__load_path__ = "res://Resources/Cards/Players/Cost1/Toxify.tres"
 
 [resource]
 script = ExtResource("1")
@@ -127,13 +151,13 @@ data = {
 "Cinder": ExtResource("57"),
 "Confused": ExtResource("39"),
 "Cripple": ExtResource("37"),
-"Critical Hit": ExtResource("21"),
+"Critical Hit": SubResource("Resource_f7iru"),
 "Cut": ExtResource("100"),
 "Death Blow": ExtResource("5"),
 "Diffident": ExtResource("23"),
 "Disarm": ExtResource("95"),
 "Discharge": ExtResource("71"),
-"Discover": ExtResource("96"),
+"Discover": SubResource("Resource_g1rs7"),
 "Dissect": ExtResource("90"),
 "Dodge": ExtResource("98"),
 "Double Deal": ExtResource("26"),
@@ -141,18 +165,18 @@ data = {
 "Drained": ExtResource("15"),
 "Endure": ExtResource("60"),
 "Engage": ExtResource("16"),
-"Entrench": ExtResource("74"),
+"Entrench": SubResource("Resource_meao0"),
 "Erupt": ExtResource("24"),
 "Execute": ExtResource("67"),
 "Fast Footed": ExtResource("59"),
 "Flex": ExtResource("47"),
-"Flying Strike": ExtResource("43"),
+"Flying Strike": SubResource("Resource_dalqo"),
 "Fourth Wall": SubResource("Resource_x34mb"),
 "Heavy Armor": ExtResource("81"),
 "Hide Ace": ExtResource("76"),
 "Hit Nerve": ExtResource("44"),
 "Hit the Mark": ExtResource("66"),
-"Hocus Focus": ExtResource("34"),
+"Hocus Focus": SubResource("Resource_on40c"),
 "Hustle": ExtResource("86"),
 "Hyperfocus": ExtResource("33"),
 "Impenetrable": SubResource("Resource_ks5dc"),
@@ -168,15 +192,15 @@ data = {
 "Light Shield": ExtResource("99"),
 "Lightning Shield": ExtResource("9"),
 "Limp Muscle": ExtResource("38"),
-"Look Up": ExtResource("93"),
+"Look Up": SubResource("Resource_qfmtb"),
 "Medicine": ExtResource("70"),
 "Miasma": ExtResource("84"),
 "Misstep": ExtResource("72"),
-"Passion": ExtResource("91"),
-"Plot": ExtResource("89"),
+"Passion": SubResource("Resource_gfw17"),
+"Plot": SubResource("Resource_ah2rs"),
 "Pull Knives": ExtResource("92"),
 "Quick Cover": ExtResource("52"),
-"Quick Thinking": ExtResource("55"),
+"Quick Thinking": SubResource("Resource_frsgi"),
 "Recall": ExtResource("73"),
 "Recoup": ExtResource("61"),
 "Reforge": ExtResource("64"),
@@ -194,7 +218,7 @@ data = {
 "Soreness": ExtResource("2"),
 "Stab to Death": ExtResource("42"),
 "Strong Shield": ExtResource("50"),
-"Strong Slash": ExtResource("49"),
+"Strong Slash": SubResource("Resource_1l6kj"),
 "Sturdy Shield": ExtResource("48"),
 "Subvert": ExtResource("88"),
 "Sweep": ExtResource("29"),
@@ -202,9 +226,9 @@ data = {
 "Taint": ExtResource("46"),
 "Throw Dagger": ExtResource("14"),
 "Tick Tick": ExtResource("83"),
-"Toxic Slash": ExtResource("36"),
+"Toxic Slash": SubResource("Resource_jw0uw"),
 "Toxic Spit": ExtResource("10"),
-"Toxify": ExtResource("85"),
+"Toxify": SubResource("Resource_fwjce"),
 "Trip": ExtResource("20"),
 "Twofold": ExtResource("79"),
 "Unlucky": ExtResource("97"),

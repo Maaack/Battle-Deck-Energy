@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://bx6a17kceb84p"]
+
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1_5g7q2"]
+[ext_resource type="Resource" uid="uid://beq7rjyjlaiqr" path="res://Resources/Cards/Players/Cost0/ToxicSpit.tres" id="2_5g7q2"]
+
+[resource]
+script = ExtResource("1_5g7q2")
+starting_card = ExtResource("2_5g7q2")
+destination = 1
+type_tag = "ADD_TOXIC_SPIT"
+amount = 1

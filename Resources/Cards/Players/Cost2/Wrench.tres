@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bni4pcw6xxjtc"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_acgq3"]
+[ext_resource type="Resource" uid="uid://cx02sktjo3l3n" path="res://Resources/Effects/CardEffects/AttackEffect9.tres" id="2_acgq3"]
+[ext_resource type="Resource" uid="uid://dkdv7j4cfpbg3" path="res://Resources/Effects/StatusEffects/ApplyEngaged6.tres" id="3_acgq3"]
+[ext_resource type="Texture2D" uid="uid://b2qi806hdm7j8" path="res://Assets/Mixed/CardIcons/AttackGlowNew/andromeda-chain.png" id="4_1qkhx"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_qjo03"]
+
+[resource]
+script = ExtResource("5_qjo03")
+title = "Wrench"
+description = "Deal %ATTACK Damage.
+Apply %APPLY_ENGAGED Engaged."
+energy_cost = 2
+icon = ExtResource("4_1qkhx")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_acgq3")]([ExtResource("2_acgq3"), ExtResource("3_acgq3")])

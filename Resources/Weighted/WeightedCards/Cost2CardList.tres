@@ -25,7 +25,7 @@
 [ext_resource type="Resource" uid="uid://dpplj2q408ay1" path="res://Resources/Cards/Players/Cost2/Scorch.tres" id="72_fh1j0"]
 [ext_resource type="Resource" uid="uid://cvk8wwg8q4q7q" path="res://Resources/Cards/Players/Cost2/ShieldWall.tres" id="75_scpdy"]
 [ext_resource type="Resource" uid="uid://bpmu5uje6jxt2" path="res://Resources/Cards/Players/Cost2/SwissArmyKnife.tres" id="77_3hkee"]
-[ext_resource type="Resource" uid="uid://bni4pcw6xxjtc" path="res://Resources/Cards/Players/Cost2/Wreck.tres" id="80_7ehxe"]
+[ext_resource type="Resource" uid="uid://bni4pcw6xxjtc" path="res://Resources/Cards/Players/Cost2/Wrench.tres" id="80_7ehxe"]
 
 [resource]
 script = ExtResource("4")

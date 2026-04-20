@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://smuj5f0hp8u7"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_f2seu"]
+[ext_resource type="Resource" uid="uid://bx6a17kceb84p" path="res://Resources/Effects/DeckModEffects/AddToxicSpit.tres" id="2_f2seu"]
+[ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="3_f2seu"]
+[ext_resource type="Texture2D" uid="uid://ba4xmlhul7uav" path="res://Assets/Mixed/CardIcons/SkillGlowNew/super-mushroom.png" id="4_08t6l"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_8bc7y"]
+
+[resource]
+script = ExtResource("5_8bc7y")
+title = "Shroom"
+description = "Add %ADD_TOXIC_SPIT to draw pile.
+Draw one card."
+icon = ExtResource("4_08t6l")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_f2seu")]([ExtResource("2_f2seu"), ExtResource("2_f2seu"), ExtResource("3_f2seu")])
+type = 3

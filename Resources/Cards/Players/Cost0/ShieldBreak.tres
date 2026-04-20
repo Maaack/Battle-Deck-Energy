@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b37hyjjhwf11k"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_rvc3g"]
+[ext_resource type="Resource" uid="uid://b4n1tghysxen0" path="res://Resources/Effects/CardEffects/SmashAttackEffect1.tres" id="2_7ku5d"]
+[ext_resource type="Resource" uid="uid://dj66myyoxbyrr" path="res://Resources/Effects/StatusEffects/ApplyFragile.tres" id="3_rvc3g"]
+[ext_resource type="Texture2D" uid="uid://dcnotecqag0cy" path="res://Assets/Mixed/CardIcons/AttackGlowNew/broken-shield.png" id="5_rvc3g"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_r5l4j"]
+
+[resource]
+script = ExtResource("6_r5l4j")
+title = "Shield Break"
+description = "Deal %SMASH_ATTACK Damage (double to shields).
+Apply %APPLY_FRAGILE Fragile."
+energy_cost = 0
+icon = ExtResource("5_rvc3g")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_rvc3g")]([ExtResource("2_7ku5d"), ExtResource("3_rvc3g")])
