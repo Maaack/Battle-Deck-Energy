@@ -18,7 +18,6 @@
 [ext_resource type="Resource" uid="uid://c0og5x4s4kd1v" path="res://Resources/Cards/Players/Cost2/Ironclad.tres" id="17_dkq8w"]
 [ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="18_8xylh"]
 [ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="21_m0r2n"]
-[ext_resource type="Resource" uid="uid://4el0ntttvm3a" path="res://Resources/Cards/Players/Cost0/HomeBrew.tres" id="28_yd0ge"]
 [ext_resource type="Resource" uid="uid://diagju74vu8g" path="res://Resources/Cards/Players/Cost1/CutsAndBurns.tres" id="29_obblw"]
 [ext_resource type="Resource" uid="uid://ceoynp0ejeppy" path="res://Resources/Cards/Players/Cost3/AThousandCuts.tres" id="30_ebxyn"]
 [ext_resource type="Resource" uid="uid://24x2atk4od42" path="res://Resources/Cards/Players/Cost1/Discharge.tres" id="30_rfhm2"]
@@ -44,43 +43,42 @@
 [resource]
 script = ExtResource("1_ix47x")
 weighted_map = Dictionary[Resource, float]({
+ExtResource("35_ircqu"): 1.0,
+ExtResource("40_jjeer"): 1.0,
+ExtResource("2_ma2b7"): 1.0,
+ExtResource("3_m0r2n"): 1.0,
+ExtResource("36_sf0p2"): 1.0,
+ExtResource("9_lj2nd"): 1.0,
+ExtResource("21_m0r2n"): 1.0,
 ExtResource("11_snpks"): 1.0,
-ExtResource("12_jjeer"): 1.0,
-ExtResource("13_2smxt"): 1.0,
-ExtResource("14_4jgkq"): 1.0,
-ExtResource("15_80ar3"): 1.0,
+ExtResource("37_elfxk"): 1.0,
 ExtResource("16_n42es"): 1.0,
 ExtResource("17_dkq8w"): 1.0,
 ExtResource("18_8xylh"): 1.0,
+ExtResource("12_jjeer"): 1.0,
+ExtResource("38_cd26b"): 1.0,
+ExtResource("13_2smxt"): 1.0,
+ExtResource("14_4jgkq"): 1.0,
+ExtResource("15_80ar3"): 1.0,
 ExtResource("30_ebxyn"): 1.0,
 ExtResource("31_rfist"): 1.0,
 ExtResource("32_spoba"): 1.0,
+ExtResource("4_spoba"): 1.0,
 ExtResource("33_kv4bm"): 1.0,
-ExtResource("34_ei478"): 1.0,
-ExtResource("35_7hhrr"): 1.0,
-ExtResource("36_d11yh"): 1.0,
-ExtResource("37_lj2nd"): 1.0,
-ExtResource("38_0viha"): 1.0,
-ExtResource("39_snpks"): 1.0,
-ExtResource("40_jjeer"): 1.0,
-ExtResource("28_yd0ge"): 1.0,
 ExtResource("29_obblw"): 1.0,
 ExtResource("30_rfhm2"): 1.0,
+ExtResource("34_ei478"): 1.0,
 ExtResource("31_t8ej3"): 1.0,
-ExtResource("32_u3cqx"): 1.0,
-ExtResource("33_gtxaa"): 1.0,
-ExtResource("34_h4nn0"): 1.0,
-ExtResource("35_ircqu"): 1.0,
-ExtResource("36_sf0p2"): 1.0,
-ExtResource("37_elfxk"): 1.0,
-ExtResource("38_cd26b"): 1.0,
-ExtResource("2_ma2b7"): 1.0,
-ExtResource("3_m0r2n"): 1.0,
-ExtResource("4_spoba"): 1.0,
+ExtResource("35_7hhrr"): 1.0,
 ExtResource("5_kv4bm"): 1.0,
 ExtResource("6_ei478"): 1.0,
+ExtResource("32_u3cqx"): 1.0,
+ExtResource("36_d11yh"): 1.0,
+ExtResource("33_gtxaa"): 1.0,
+ExtResource("37_lj2nd"): 1.0,
+ExtResource("34_h4nn0"): 1.0,
+ExtResource("38_0viha"): 1.0,
 ExtResource("7_7hhrr"): 1.0,
-ExtResource("8_d11yh"): 1.0,
-ExtResource("9_lj2nd"): 1.0,
-ExtResource("21_m0r2n"): 1.0
+ExtResource("39_snpks"): 1.0,
+ExtResource("8_d11yh"): 1.0
 })
