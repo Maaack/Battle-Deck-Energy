@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://c0ukierxf6cuf"]
 
-[ext_resource type="Resource" uid="uid://d0sc5brh4ux4j" path="res://Resources/Weighted/WeightedCardList/Rank6GrappleCardList.tres" id="1_bcipi"]
 [ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_m26i8"]
 [ext_resource type="Resource" uid="uid://d00tmn10aq22b" path="res://Resources/Characters/Opponents/CommanderCafeteria.tres" id="3_bsrjp"]
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_4s1ib"]
@@ -8,5 +7,6 @@
 [resource]
 script = ExtResource("4_4s1ib")
 opponents = Array[ExtResource("2_m26i8")]([ExtResource("3_bsrjp")])
-lootable_cards = ExtResource("1_bcipi")
+loot_type = 1
+rank = 6
 mood_type = "HARD_BATTLE"

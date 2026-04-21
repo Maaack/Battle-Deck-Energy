@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://vxo2bxg6a4iw"]
 
-[ext_resource type="Resource" uid="uid://bpqgear74q8jk" path="res://Resources/Weighted/WeightedCardList/Rank5GrappleCardList.tres" id="1_qnkti"]
 [ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_r40rp"]
 [ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/Rank3/BigBully.tres" id="3_kpnok"]
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_5q250"]
@@ -8,4 +7,5 @@
 [resource]
 script = ExtResource("4_5q250")
 opponents = Array[ExtResource("2_r40rp")]([ExtResource("3_kpnok")])
-lootable_cards = ExtResource("1_qnkti")
+loot_type = 1
+rank = 5

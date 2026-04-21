@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://dw7uf5cgc74ct"]
 
-[ext_resource type="Resource" uid="uid://csf4fscm6dtl6" path="res://Resources/Weighted/WeightedCardList/Rank5ToxicCardList.tres" id="1_6fxst"]
 [ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_3txhr"]
 [ext_resource type="Resource" uid="uid://c44q4ybdf2gwm" path="res://Resources/Characters/Opponents/Rank4/Tweaker.tres" id="3_6fxst"]
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_kvdlq"]
@@ -8,5 +7,6 @@
 [resource]
 script = ExtResource("4_kvdlq")
 opponents = Array[ExtResource("2_3txhr")]([ExtResource("3_6fxst")])
-lootable_cards = ExtResource("1_6fxst")
+loot_type = 3
+rank = 5
 mood_type = "HARD_BATTLE"

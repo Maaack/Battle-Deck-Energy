@@ -13,9 +13,11 @@ class_name WeightedDataList
 				append_data(value)
 
 func append_data(value:Resource):
-	if value != null and value in weighted_map: return
+	if value != null and value in weighted_map:
+		weighted_map[value] += 1.0
+		return weighted_map[value]
 	weighted_map[value] = 1.0
-	return value
+	return 1.0
 
 func get_total_weight():
 	var total_weight : float = 0.0

@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://baspnvlacvq0p"]
 
-[ext_resource type="Resource" uid="uid://cnjfddnf0bmkq" path="res://Resources/Weighted/WeightedCardList/Rank1RogueCardList.tres" id="1_435nf"]
-[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_2hq2v"]
-[ext_resource type="Resource" uid="uid://dclik48aidm38" path="res://Resources/Characters/Opponents/Rank1/Weasel.tres" id="3_h6sxs"]
-[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_nbnf4"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_7is56"]
+[ext_resource type="Resource" uid="uid://dclik48aidm38" path="res://Resources/Characters/Opponents/Rank1/Weasel.tres" id="3_33ebc"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_r8bvp"]
 
 [resource]
-script = ExtResource("4_nbnf4")
-opponents = Array[ExtResource("2_2hq2v")]([ExtResource("3_h6sxs"), ExtResource("3_h6sxs"), ExtResource("3_h6sxs")])
-lootable_cards = ExtResource("1_435nf")
+script = ExtResource("4_r8bvp")
+opponents = Array[ExtResource("2_7is56")]([ExtResource("3_33ebc"), ExtResource("3_33ebc"), ExtResource("3_33ebc")])
+loot_type = 2

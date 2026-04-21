@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://de2ehv2mbuyte"]
 
-[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://coom5msn372sl" path="res://Resources/Weighted/WeightedCardList/Rank2ToxicCardList.tres" id="1_ap440"]
-[ext_resource type="Resource" uid="uid://c8uwoi73y87ap" path="res://Resources/Characters/Opponents/Rank2/Rascal.tres" id="3"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_u5aww"]
+[ext_resource type="Resource" uid="uid://c8uwoi73y87ap" path="res://Resources/Characters/Opponents/Rank2/Rascal.tres" id="3_fpg7t"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_5g18d"]
 
 [resource]
-script = ExtResource("1")
-opponents = [ExtResource("3")]
-lootable_cards = ExtResource("1_ap440")
+script = ExtResource("4_5g18d")
+opponents = Array[ExtResource("2_u5aww")]([ExtResource("3_fpg7t")])
+loot_type = 3
+rank = 2

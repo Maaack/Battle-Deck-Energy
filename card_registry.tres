@@ -235,29 +235,28 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"energy_cost": {
 0: {
 &"Bloodletting": true,
+&"BrazenCard": true,
 &"BurnOut": true,
 &"Burst": true,
 &"CallOut": true,
 &"CheapProtection": true,
-&"Cut": true,
+&"ChemicalBurn": true,
 &"Disarm": true,
 &"Dodge": true,
-&"Engage": true,
 &"Find Passion": true,
 &"HideAce": true,
 &"HitTheMark": true,
+&"HomeBrew": true,
 &"Hustle": true,
 &"Initial": true,
 &"Kickoff": true,
 &"LastStand": true,
 &"LightArmor": true,
 &"LightShield": true,
-&"Misstep": true,
 &"Plot": true,
-&"Research": true,
 &"SecondWindCard": true,
 &"Sentry": true,
-&"Subvert": true,
+&"ShieldBreak": true,
 &"ThinkAhead": true,
 &"ThrowDagger": true,
 &"ToxicSpit": true,
@@ -275,26 +274,20 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"CloakAndDagger": true,
 &"CutsAndBurns": true,
 &"Discharge": true,
-&"Discover": true,
 &"Dissect": true,
 &"DoubleStrike": true,
 &"DrawArrows": true,
 &"Endure": true,
-&"Entrench": true,
 &"Execute": true,
 &"FastFooted": true,
 &"Flex": true,
 &"Grab": true,
 &"HeavyArmor": true,
 &"HitAndRun": true,
-&"HocusFocus": true,
 &"KnivesOut": true,
 &"LethalNeedle": true,
-&"LookUp": true,
 &"MagicPill": true,
 &"Medicine": true,
-&"OldPlot": true,
-&"Passion": true,
 &"PillowFort": true,
 &"PoisonDart": true,
 &"PolishShields": true,
@@ -302,26 +295,23 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"PunchCombo": true,
 &"QuickCover": true,
 &"QuickStrike": true,
-&"QuickThinking": true,
 &"Recall": true,
 &"Recoup": true,
+&"Research": true,
 &"Rush": true,
 &"Scan": true,
 &"Sharpen": true,
 &"Shield": true,
 &"ShieldBash": true,
+&"Shroom": true,
 &"Slash": true,
 &"Sniped": true,
 &"StrongShield": true,
-&"StrongSlash": true,
 &"SturdyShield": true,
 &"Sweep": true,
 &"SwiftStrike": true,
 &"Taint": true,
-&"ThreeWay": true,
 &"TickTick": true,
-&"ToxicSlash": true,
-&"Toxify": true,
 &"Trip": true,
 &"Wreck": true
 },
@@ -330,18 +320,17 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"BrickByBrick": true,
 &"ChainLightning": true,
 &"Cripple": true,
-&"CriticalHit": true,
 &"DoubleDeal": true,
 &"DoubleEdgedSword": true,
 &"DoubleLayer": true,
 &"Erupt": true,
 &"FireShield": true,
-&"FlyingStrike": true,
 &"FourthWall": true,
 &"Heartburn": true,
 &"Hyperfocus": true,
 &"Ironclad": true,
 &"LightningShield": true,
+&"LinedUp": true,
 &"Miasma": true,
 &"Reforge": true,
 &"Scorch": true,
@@ -350,6 +339,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"ShieldWall": true,
 &"Skysword": true,
 &"StabToDeath": true,
+&"ThreeWay": true,
 &"Twofold": true,
 &"Unlucky": true,
 &"Wreck_2": true
@@ -375,9 +365,6 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Bloodletting": {
 &"Bloodletting": true
 },
-"Brew": {
-&"Brew": true
-},
 "Brick By Brick": {
 &"BrickByBrick": true
 },
@@ -400,7 +387,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"ChainLightning": true
 },
 "Chain Up": {
-&"WindUp": true
+&"Grab": true
 },
 "Charge": {
 &"Charge": true
@@ -408,20 +395,14 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Cheap Protection": {
 &"CheapProtection": true
 },
+"Chemical Burn": {
+&"ChemicalBurn": true
+},
 "Cinder": {
 &"Cinder": true
 },
 "Cloak And Dagger": {
 &"CloakAndDagger": true
-},
-"Cripple": {
-&"Cripple": true
-},
-"Critical Hit": {
-&"CriticalHit": true
-},
-"Cut": {
-&"Cut": true
 },
 "Cuts and Burns": {
 &"CutsAndBurns": true
@@ -429,14 +410,14 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Death Blow": {
 &"DeathBlow": true
 },
+"Deep Cut": {
+&"Cripple": true
+},
 "Disarm": {
 &"Disarm": true
 },
 "Discharge": {
 &"Discharge": true
-},
-"Discover": {
-&"Discover": true
 },
 "Dissect": {
 &"Dissect": true
@@ -459,20 +440,17 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Draw Arrows": {
 &"DrawArrows": true
 },
+"En Garde": {
+&"StrongShield": true
+},
 "Endure": {
 &"Endure": true
 },
-"Engage": {
-&"Engage": true
-},
-"Entrench": {
-&"Entrench": true
-},
-"Erupt": {
-&"Erupt": true
-},
 "Execute": {
 &"Execute": true
+},
+"Extract": {
+&"Brew": true
 },
 "Fast Footed": {
 &"FastFooted": true
@@ -483,14 +461,20 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Flex": {
 &"Flex": true
 },
-"Flying Strike": {
-&"FlyingStrike": true
-},
 "Fourth Wall": {
 &"FourthWall": true
 },
+"Fresh Coat": {
+&"Vigilance": true
+},
+"Fuel the Fire": {
+&"Erupt": true
+},
+"Good Grip": {
+&"SturdyShield": true
+},
 "Grab": {
-&"Grab": true
+&"WindUp": true
 },
 "Heartburn": {
 &"Heartburn": true
@@ -504,8 +488,8 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Hit the Mark": {
 &"HitTheMark": true
 },
-"Hocus Focus": {
-&"HocusFocus": true
+"Home Brew": {
+&"HomeBrew": true
 },
 "Hustle": {
 &"Hustle": true
@@ -543,8 +527,8 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Lightning Shield": {
 &"LightningShield": true
 },
-"Look Up": {
-&"LookUp": true
+"Lined Up": {
+&"LinedUp": true
 },
 "Magic Pill": {
 &"MagicPill": true
@@ -555,14 +539,8 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Miasma": {
 &"Miasma": true
 },
-"Misstep": {
-&"Misstep": true
-},
 "Not Now, Not Ever": {
 &"NotNowNotEver": true
-},
-"Passion": {
-&"Passion": true
 },
 "Pillow Fort": {
 &"PillowFort": true
@@ -579,14 +557,14 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Power Up": {
 &"PowerUp": true
 },
+"Preprocess": {
+&"ThinkAhead": true
+},
 "Quick Cover": {
 &"QuickCover": true
 },
 "Quick Strike": {
 &"QuickStrike": true
-},
-"Quick Thinking": {
-&"QuickThinking": true
 },
 "Recall": {
 &"Recall": true
@@ -630,8 +608,14 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Shield Bash": {
 &"ShieldBash": true
 },
+"Shield Break": {
+&"ShieldBreak": true
+},
 "Shield Wall": {
 &"ShieldWall": true
+},
+"Shroom": {
+&"Shroom": true
 },
 "Slash": {
 &"Slash": true
@@ -639,23 +623,8 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Snipe": {
 &"Sniped": true
 },
-"Spinal Tap": {
-&"OldPlot": true
-},
 "Stab to Death": {
 &"StabToDeath": true
-},
-"Strong Shield": {
-&"StrongShield": true
-},
-"Strong Slash": {
-&"StrongSlash": true
-},
-"Sturdy Shield": {
-&"SturdyShield": true
-},
-"Subvert": {
-&"Subvert": true
 },
 "Sweep": {
 &"Sweep": true
@@ -675,9 +644,6 @@ _property_index = Dictionary[StringName, Dictionary]({
 "The One-Two": {
 &"PunchCombo": true
 },
-"Think Ahead": {
-&"ThinkAhead": true
-},
 "Three Way": {
 &"ThreeWay": true
 },
@@ -687,14 +653,8 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Tick Tick": {
 &"TickTick": true
 },
-"Toxic Slash": {
-&"ToxicSlash": true
-},
 "Toxic Spit": {
 &"ToxicSpit": true
-},
-"Toxify": {
-&"Toxify": true
 },
 "Trip": {
 &"Trip": true
@@ -708,19 +668,19 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Venom Vial": {
 &"VenomVial": true
 },
-"Vigilance": {
-&"Vigilance": true
-},
 "Volley": {
 &"Volley": true
 },
 "Warhammer": {
 &"Break": true
 },
+"Well Prepared": {
+&"BrazenCard": true
+},
 "With Passion": {
 &"Find Passion": true
 },
-"Wreck": {
+"Wrench": {
 &"Wreck_2": true
 }
 },
@@ -731,9 +691,8 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"CallOut": true,
 &"ChainLightning": true,
 &"Charge": true,
+&"ChemicalBurn": true,
 &"Cripple": true,
-&"CriticalHit": true,
-&"Cut": true,
 &"CutsAndBurns": true,
 &"DeathBlow": true,
 &"Disarm": true,
@@ -742,17 +701,15 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"DoubleDeal": true,
 &"DoubleEdgedSword": true,
 &"DoubleStrike": true,
-&"Engage": true,
 &"Execute": true,
-&"FlyingStrike": true,
 &"Grab": true,
 &"HitAndRun": true,
 &"HitTheMark": true,
 &"Initial": true,
 &"Kickoff": true,
 &"LethalNeedle": true,
+&"LinedUp": true,
 &"Miasma": true,
-&"Misstep": true,
 &"PoisonDart": true,
 &"PunchCombo": true,
 &"QuickStrike": true,
@@ -761,19 +718,16 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"SerpentsBlade": true,
 &"ShatterDefenses": true,
 &"ShieldBash": true,
+&"ShieldBreak": true,
 &"Skysword": true,
 &"Slash": true,
 &"Sniped": true,
 &"StabToDeath": true,
-&"StrongSlash": true,
-&"Subvert": true,
 &"Sweep": true,
 &"SwiftStrike": true,
 &"ThreeWay": true,
 &"ThrowDagger": true,
-&"ToxicSlash": true,
 &"ToxicSpit": true,
-&"Toxify": true,
 &"Trip": true,
 &"Unlucky": true,
 &"Volley": true,
@@ -788,7 +742,6 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"CloakAndDagger": true,
 &"Dodge": true,
 &"DoubleLayer": true,
-&"Entrench": true,
 &"FastFooted": true,
 &"FireShield": true,
 &"FourthWall": true,
@@ -811,12 +764,12 @@ _property_index = Dictionary[StringName, Dictionary]({
 3: {
 &"Biohazard": true,
 &"Bloodletting": true,
+&"BrazenCard": true,
 &"Brew": true,
 &"Buffer": true,
 &"BurnOut": true,
 &"Burst": true,
 &"Cinder": true,
-&"Discover": true,
 &"DrawArrows": true,
 &"Endure": true,
 &"Erupt": true,
@@ -824,19 +777,15 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"Flex": true,
 &"Heartburn": true,
 &"HideAce": true,
-&"HocusFocus": true,
+&"HomeBrew": true,
 &"Hustle": true,
 &"Hyperfocus": true,
 &"KnivesOut": true,
-&"LookUp": true,
 &"MagicPill": true,
 &"Medicine": true,
-&"OldPlot": true,
-&"Passion": true,
 &"Plot": true,
 &"PolishShields": true,
 &"PowerUp": true,
-&"QuickThinking": true,
 &"Recall": true,
 &"Reforge": true,
 &"Research": true,
@@ -844,6 +793,7 @@ _property_index = Dictionary[StringName, Dictionary]({
 &"Scan": true,
 &"SecondWindCard": true,
 &"Sharpen": true,
+&"Shroom": true,
 &"Taint": true,
 &"ThinkAhead": true,
 &"TickTick": true,

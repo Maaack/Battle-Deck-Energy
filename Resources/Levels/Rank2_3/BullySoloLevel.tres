@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://bw0in542e1pkx"]
 
-[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://ckelii8h8x3jy" path="res://Resources/Weighted/WeightedCardList/Rank2GrappleCardList.tres" id="1_tbypk"]
-[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_dmt7l"]
-[ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/Rank3/BigBully.tres" id="3"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_frnxh"]
+[ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/Rank3/BigBully.tres" id="3_2cegv"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_a3quo"]
 
 [resource]
-script = ExtResource("1")
-opponents = Array[ExtResource("2_dmt7l")]([ExtResource("3")])
-lootable_cards = ExtResource("1_tbypk")
+script = ExtResource("4_a3quo")
+opponents = Array[ExtResource("2_frnxh")]([ExtResource("3_2cegv")])
+loot_type = 1
+rank = 2

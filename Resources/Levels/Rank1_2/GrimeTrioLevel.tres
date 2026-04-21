@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://ch1qbla1eyxsu"]
 
-[ext_resource type="Resource" uid="uid://bcrdry1ubcobv" path="res://Resources/Weighted/WeightedCardList/Rank1ToxicCardList.tres" id="1_v2lst"]
-[ext_resource type="Resource" uid="uid://d4hb2pdb8k15n" path="res://Resources/Characters/Opponents/Rank1/Grime.tres" id="2_ujgox"]
-[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_5620j"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_lur1a"]
+[ext_resource type="Resource" uid="uid://d4hb2pdb8k15n" path="res://Resources/Characters/Opponents/Rank1/Grime.tres" id="3_tb2n5"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_bgyec"]
 
 [resource]
-script = ExtResource("3_5620j")
-opponents = [ExtResource("2_ujgox"), ExtResource("2_ujgox"), ExtResource("2_ujgox")]
-lootable_cards = ExtResource("1_v2lst")
+script = ExtResource("4_bgyec")
+opponents = Array[ExtResource("2_lur1a")]([ExtResource("3_tb2n5"), ExtResource("3_tb2n5"), ExtResource("3_tb2n5")])
+loot_type = 3

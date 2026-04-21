@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://d0sc5brh4ux4j"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_ufrcf"]
-[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/FuelTheFire.tres" id="12_a6bhf"]
 [ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="12_gjppp"]
 [ext_resource type="Resource" uid="uid://hb02fyrtde14" path="res://Resources/Cards/Players/Cost2/Heartburn.tres" id="13_xm63y"]
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="14_7odjn"]
+[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/FuelTheFire.tres" id="15_ynfsx"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="19_nnwqe"]
 [ext_resource type="Resource" uid="uid://dl7qtxhwymhv0" path="res://Resources/Cards/Players/Cost2/DoubleEdgedSword.tres" id="21_k03b3"]
 [ext_resource type="Resource" uid="uid://dpplj2q408ay1" path="res://Resources/Cards/Players/Cost2/Scorch.tres" id="22_v4c67"]
@@ -34,5 +34,5 @@ ExtResource("12_gjppp"): 1.0,
 ExtResource("19_nnwqe"): 1.0,
 ExtResource("14_7odjn"): 1.0,
 ExtResource("13_xm63y"): 1.0,
-ExtResource("12_a6bhf"): 1.0
+ExtResource("15_ynfsx"): 1.0
 })

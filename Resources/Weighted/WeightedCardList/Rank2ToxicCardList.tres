@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://dleokjkiyfp06" path="res://Resources/Cards/Players/Cost0/LastStand.tres" id="5_7nvuq"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="6_n6c5y"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="7_vxiau"]
-[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="8_ag8gt"]
+[ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Preprocess.tres" id="8_ag8gt"]
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="9_32t2s"]
 [ext_resource type="Resource" uid="uid://4el0ntttvm3a" path="res://Resources/Cards/Players/Cost0/HomeBrew.tres" id="11_gb1fv"]
 [ext_resource type="Resource" uid="uid://diagju74vu8g" path="res://Resources/Cards/Players/Cost1/CutsAndBurns.tres" id="12_rm8ts"]
@@ -28,27 +28,27 @@
 [resource]
 script = ExtResource("1_snxl8")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("2_7kci7"): 1.0,
-ExtResource("3_tljjw"): 1.0,
-ExtResource("4_gb1fv"): 1.0,
-ExtResource("5_7nvuq"): 1.0,
-ExtResource("6_n6c5y"): 1.0,
-ExtResource("7_vxiau"): 1.0,
-ExtResource("8_ag8gt"): 1.0,
-ExtResource("9_32t2s"): 1.0,
-ExtResource("11_gb1fv"): 1.0,
-ExtResource("12_rm8ts"): 1.0,
-ExtResource("13_cq1ao"): 1.0,
-ExtResource("14_fsaj7"): 1.0,
-ExtResource("15_sx8wy"): 1.0,
-ExtResource("16_v6fpn"): 1.0,
-ExtResource("17_rlico"): 1.0,
-ExtResource("18_3hjw8"): 1.0,
-ExtResource("19_snnik"): 1.0,
-ExtResource("20_b83oa"): 1.0,
-ExtResource("21_v14o2"): 1.0,
-ExtResource("22_vhc65"): 1.0,
-ExtResource("23_t0p7a"): 1.0,
+ExtResource("25_0i5ge"): 1.0,
 ExtResource("24_emme2"): 1.0,
-ExtResource("25_0i5ge"): 1.0
+ExtResource("23_t0p7a"): 1.0,
+ExtResource("22_vhc65"): 1.0,
+ExtResource("21_v14o2"): 1.0,
+ExtResource("20_b83oa"): 1.0,
+ExtResource("19_snnik"): 1.0,
+ExtResource("18_3hjw8"): 1.0,
+ExtResource("17_rlico"): 1.0,
+ExtResource("16_v6fpn"): 1.0,
+ExtResource("15_sx8wy"): 1.0,
+ExtResource("14_fsaj7"): 1.0,
+ExtResource("13_cq1ao"): 1.0,
+ExtResource("12_rm8ts"): 1.0,
+ExtResource("11_gb1fv"): 1.0,
+ExtResource("9_32t2s"): 1.0,
+ExtResource("8_ag8gt"): 1.0,
+ExtResource("7_vxiau"): 1.0,
+ExtResource("6_n6c5y"): 1.0,
+ExtResource("5_7nvuq"): 1.0,
+ExtResource("4_gb1fv"): 1.0,
+ExtResource("3_tljjw"): 1.0,
+ExtResource("2_7kci7"): 1.0
 })

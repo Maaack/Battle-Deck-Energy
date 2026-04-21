@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://dddcl5dj3u7h0"]
 
-[ext_resource type="Resource" uid="uid://bqnidbd4wnp2e" path="res://Resources/Weighted/WeightedCardList/Rank3ToxicCardList.tres" id="1_0cgvb"]
-[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_p6t7g"]
-[ext_resource type="Resource" uid="uid://c8uwoi73y87ap" path="res://Resources/Characters/Opponents/Rank2/Rascal.tres" id="3_cnhn2"]
-[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_sdxd4"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_l5jf4"]
+[ext_resource type="Resource" uid="uid://c8uwoi73y87ap" path="res://Resources/Characters/Opponents/Rank2/Rascal.tres" id="3_alaw0"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_if8vd"]
 
 [resource]
-script = ExtResource("4_sdxd4")
-opponents = Array[ExtResource("2_p6t7g")]([ExtResource("3_cnhn2"), ExtResource("3_cnhn2"), ExtResource("3_cnhn2")])
-lootable_cards = ExtResource("1_0cgvb")
+script = ExtResource("4_if8vd")
+opponents = Array[ExtResource("2_l5jf4")]([ExtResource("3_alaw0"), ExtResource("3_alaw0"), ExtResource("3_alaw0")])
+loot_type = 3
+rank = 3
