@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://dn0118bn617nm" path="res://Resources/Cards/Players/Cost2/FireShield.tres" id="17_lr2pp"]
 [ext_resource type="Resource" uid="uid://cvk8wwg8q4q7q" path="res://Resources/Cards/Players/Cost2/ShieldWall.tres" id="18_fxgiy"]
 [ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="20_lvrqo"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="23_brnm6"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="23_brnm6"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="24_7523d"]
 [ext_resource type="Resource" uid="uid://bc3yuds8bher3" path="res://Resources/Cards/Players/Cost1/PillowFort.tres" id="25_n3e5y"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="26_6ibt5"]

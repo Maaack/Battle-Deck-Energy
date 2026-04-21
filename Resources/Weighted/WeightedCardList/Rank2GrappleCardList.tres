@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dppkf3awgrqoc" path="res://Resources/Cards/Players/Cost0/Hustle.tres" id="3_iahau"]
 [ext_resource type="Resource" uid="uid://dgjkhtpb581jm" path="res://Resources/Cards/Players/Cost0/BurnOut.tres" id="4_27yl4"]
 [ext_resource type="Resource" uid="uid://uxub2rnlohfq" path="res://Resources/Cards/Players/Cost0/Bloodletting.tres" id="5_pjrmj"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="6_upmj5"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="6_upmj5"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="7_p1kc3"]
 [ext_resource type="Resource" uid="uid://bc3yuds8bher3" path="res://Resources/Cards/Players/Cost1/PillowFort.tres" id="8_5d2uw"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="9_ajsv8"]

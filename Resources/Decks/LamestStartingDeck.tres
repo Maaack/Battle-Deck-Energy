@@ -4,12 +4,14 @@
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="2"]
 [ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="3"]
 [ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="4"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="4_706ky"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="4_rsxo3"]
 [ext_resource type="Texture2D" uid="uid://c0qptgolsr01e" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/spinning-sword.png" id="5"]
 [ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="6_vtrh6"]
+[ext_resource type="Resource" uid="uid://rtag3xkufvtd" path="res://Resources/Cards/StressCards/Diffident.tres" id="7_dp2x4"]
 
 [resource]
 script = ExtResource("4")
 title = "Lamest Starting Deck"
 icon = ExtResource("5")
-cards = Array[ExtResource("1_rsxo3")]([ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("4_706ky"), ExtResource("2")])
+cards = Array[ExtResource("1_rsxo3")]([ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("6"), ExtResource("4_rsxo3"), ExtResource("2"), ExtResource("6_vtrh6"), ExtResource("7_dp2x4"), ExtResource("7_dp2x4")])

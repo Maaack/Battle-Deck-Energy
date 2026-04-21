@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://p6ewcqin0bo5"]
 
-[ext_resource type="Resource" uid="uid://cjmwklggcrdw7" path="res://Resources/Cards/Players/Cost1/StrongSlash.tres" id="1"]
-[ext_resource type="Resource" uid="uid://noe2r133srjq" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="2"]
+[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost1/StrongSlash.tres" id="1"]
+[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost1/QuickThinking.tres" id="2"]
 [ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="3"]
 [ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="4"]
-[ext_resource type="Resource" uid="uid://c8mp5w6ubj0lb" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="5"]
+[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost2/CriticalHit.tres" id="5"]
 [ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="6"]
-[ext_resource type="Resource" uid="uid://lis5bdkc23ra" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="7"]
+[ext_resource type="Resource" path="res://Resources/Cards/Players/Cost0/Engage.tres" id="7"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="8"]
 [ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="9"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="10"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="10"]
 
 [resource]
 script = ExtResource("4")

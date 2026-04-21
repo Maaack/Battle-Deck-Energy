@@ -22,7 +22,7 @@
 [ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Players/Cost1/Sharpen.tres" id="13_0cpcg"]
 [ext_resource type="Resource" uid="uid://dbl5yqqm03t7y" path="res://Resources/Cards/Players/Cost0/Kickoff.tres" id="13_oyth8"]
 [ext_resource type="Resource" uid="uid://dleokjkiyfp06" path="res://Resources/Cards/Players/Cost0/LastStand.tres" id="14_55t5e"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="14_g3f0q"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="14_g3f0q"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="15_3hgcf"]
 [ext_resource type="Resource" uid="uid://4el0ntttvm3a" path="res://Resources/Cards/Players/Cost0/HomeBrew.tres" id="15_xegaq"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="16_c6ia1"]

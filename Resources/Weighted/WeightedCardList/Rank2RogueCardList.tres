@@ -21,38 +21,38 @@
 [ext_resource type="Resource" uid="uid://cki1hobydmc0w" path="res://Resources/Cards/Players/Cost1/Snipe.tres" id="19_8m4cl"]
 [ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="20_bwr1u"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="21_iun30"]
-[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="22_t5epv"]
 [ext_resource type="Resource" uid="uid://n65f1sfd042f" path="res://Resources/Cards/Players/Cost1/CloakAndDagger.tres" id="23_8m4cl"]
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="24_bwr1u"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="25_iun30"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="26_8m4cl"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="26_t5epv"]
 
 [resource]
 script = ExtResource("1_3fxge")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("26_t5epv"): 1.0,
-ExtResource("25_iun30"): 1.0,
-ExtResource("24_bwr1u"): 1.0,
-ExtResource("23_8m4cl"): 1.0,
-ExtResource("22_t5epv"): 1.0,
-ExtResource("21_iun30"): 1.0,
-ExtResource("20_bwr1u"): 1.0,
-ExtResource("19_8m4cl"): 1.0,
-ExtResource("18_t5epv"): 1.0,
-ExtResource("17_a56fp"): 1.0,
-ExtResource("16_ybmra"): 1.0,
-ExtResource("15_4pine"): 1.0,
-ExtResource("14_jb7wd"): 1.0,
-ExtResource("13_oemgh"): 1.0,
-ExtResource("12_d1oqf"): 1.0,
-ExtResource("11_8vaei"): 1.0,
-ExtResource("10_t7u43"): 1.0,
-ExtResource("9_en4qg"): 1.0,
-ExtResource("8_j88dl"): 1.0,
-ExtResource("7_uyij4"): 1.0,
-ExtResource("6_g6ggs"): 1.0,
-ExtResource("5_nqovd"): 1.0,
-ExtResource("4_d1oqf"): 1.0,
+ExtResource("26_8m4cl"): 1.0,
+ExtResource("2_1460n"): 1.0,
 ExtResource("3_8vaei"): 1.0,
-ExtResource("2_1460n"): 1.0
+ExtResource("4_d1oqf"): 1.0,
+ExtResource("5_nqovd"): 1.0,
+ExtResource("6_g6ggs"): 1.0,
+ExtResource("7_uyij4"): 1.0,
+ExtResource("8_j88dl"): 1.0,
+ExtResource("9_en4qg"): 1.0,
+ExtResource("10_t7u43"): 1.0,
+ExtResource("11_8vaei"): 1.0,
+ExtResource("12_d1oqf"): 1.0,
+ExtResource("13_oemgh"): 1.0,
+ExtResource("14_jb7wd"): 1.0,
+ExtResource("15_4pine"): 1.0,
+ExtResource("16_ybmra"): 1.0,
+ExtResource("17_a56fp"): 1.0,
+ExtResource("18_t5epv"): 1.0,
+ExtResource("19_8m4cl"): 1.0,
+ExtResource("20_bwr1u"): 1.0,
+ExtResource("21_iun30"): 1.0,
+ExtResource("23_8m4cl"): 1.0,
+ExtResource("24_bwr1u"): 1.0,
+ExtResource("25_iun30"): 1.0,
+ExtResource("26_t5epv"): 1.0
 })

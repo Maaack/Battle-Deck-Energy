@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://de4d874ynexmp"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_iexv5"]
+[ext_resource type="Resource" uid="uid://dkmma7jvd06cc" path="res://Resources/Effects/StatusEffects/DefendEffect6.tres" id="2_cj0pe"]
+[ext_resource type="Resource" uid="uid://bktldnj2danh8" path="res://Resources/Effects/StatusEffects/ApplyDurable.tres" id="3_w2401"]
+[ext_resource type="Texture2D" uid="uid://5fvuktveovu1" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/roman-shield.png" id="4_acfka"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_gixib"]
+
+[resource]
+script = ExtResource("5_gixib")
+title = "En Garde"
+description = "Block %DEFEND Damage.
+Apply %APPLY_DURABLE Durable."
+icon = ExtResource("4_acfka")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_iexv5")]([ExtResource("2_cj0pe"), ExtResource("3_w2401")])
+type = 2

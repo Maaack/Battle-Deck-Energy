@@ -23,7 +23,7 @@
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="22_vhc65"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="23_t0p7a"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="24_emme2"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="25_0i5ge"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="25_0i5ge"]
 
 [resource]
 script = ExtResource("1_snxl8")

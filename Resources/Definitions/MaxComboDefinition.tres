@@ -6,4 +6,4 @@
 script = ExtResource("1_tiqgv")
 key = "MAX_COMBO_EFFECT"
 term = "Max Combo"
-definition = "Uses all available slots to replay the cards effects."
+definition = "Uses all available slots to replay the card effects."

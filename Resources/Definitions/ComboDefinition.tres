@@ -6,4 +6,4 @@
 script = ExtResource("1_4q11u")
 key = "COMBO_EFFECT"
 term = "Combo"
-definition = "Uses up to X available slots to replay the cards effects."
+definition = "Uses up to X available slots to replay the card effects."

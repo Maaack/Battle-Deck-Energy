@@ -11,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://cki1hobydmc0w" path="res://Resources/Cards/Players/Cost1/Snipe.tres" id="19_w3k8d"]
 [ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="20_j08a7"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="21_tsi04"]
-[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="22_bx8p5"]
 [ext_resource type="Resource" uid="uid://n65f1sfd042f" path="res://Resources/Cards/Players/Cost1/CloakAndDagger.tres" id="23_f8t7d"]
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="24_b10wm"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="25_isfoh"]
@@ -38,11 +37,11 @@
 [ext_resource type="Resource" uid="uid://btb3jx8vpuwkb" path="res://Resources/Cards/Players/Cost1/Research.tres" id="37_fcwuw"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="38_aapi0"]
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="38_nskk0"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="38_yc5iy"]
 
 [resource]
 script = ExtResource("1_yc5iy")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("14_vr2uv"): 1.0,
 ExtResource("15_p8exl"): 1.0,
 ExtResource("16_q35gl"): 1.0,
 ExtResource("17_xuy11"): 1.0,
@@ -60,8 +59,8 @@ ExtResource("35_b5hfw"): 1.0,
 ExtResource("36_ljdbt"): 1.0,
 ExtResource("37_fcwuw"): 1.0,
 ExtResource("38_nskk0"): 1.0,
+ExtResource("38_yc5iy"): 1.0,
 ExtResource("21_tsi04"): 1.0,
-ExtResource("22_bx8p5"): 1.0,
 ExtResource("23_f8t7d"): 1.0,
 ExtResource("24_b10wm"): 1.0,
 ExtResource("25_isfoh"): 1.0,
@@ -78,5 +77,6 @@ ExtResource("35_kgbto"): 1.0,
 ExtResource("36_1we32"): 1.0,
 ExtResource("37_52f5x"): 1.0,
 ExtResource("38_aapi0"): 1.0,
-ExtResource("13_ws10b"): 1.0
+ExtResource("13_ws10b"): 1.0,
+ExtResource("14_vr2uv"): 1.0
 })

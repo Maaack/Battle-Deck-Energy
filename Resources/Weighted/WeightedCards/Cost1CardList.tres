@@ -29,7 +29,7 @@
 [ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="57_nip1u"]
 [ext_resource type="Resource" uid="uid://b8b05f81c4574" path="res://Resources/Cards/Players/Cost1/Warhammer.tres" id="60_aiyje"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="61_b7p68"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="62_kvh8o"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="62_kvh8o"]
 [ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="64_nreu8"]
 [ext_resource type="Resource" uid="uid://d1ora0u5cbm8x" path="res://Resources/Cards/Players/Cost1/Sweep.tres" id="65_xduxo"]
 [ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="66_wtms8"]

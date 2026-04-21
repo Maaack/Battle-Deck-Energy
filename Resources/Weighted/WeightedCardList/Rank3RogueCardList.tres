@@ -5,7 +5,6 @@
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="3_4e5sq"]
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="4_2j8g0"]
 [ext_resource type="Resource" uid="uid://n65f1sfd042f" path="res://Resources/Cards/Players/Cost1/CloakAndDagger.tres" id="5_jmue3"]
-[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="6_e6tm2"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="7_slh6p"]
 [ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="8_8uy6q"]
 [ext_resource type="Resource" uid="uid://cki1hobydmc0w" path="res://Resources/Cards/Players/Cost1/Snipe.tres" id="9_sdsv8"]
@@ -44,11 +43,11 @@
 [ext_resource type="Resource" uid="uid://cdiosqol8ia6g" path="res://Resources/Cards/Players/Cost1/Recall.tres" id="42_j0gi1"]
 [ext_resource type="Resource" uid="uid://btb3jx8vpuwkb" path="res://Resources/Cards/Players/Cost1/Research.tres" id="43_286fr"]
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="44_l2pck"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="44_r8jtd"]
 
 [resource]
 script = ExtResource("1_qftn1")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("21_wown3"): 1.0,
 ExtResource("20_crir5"): 1.0,
 ExtResource("19_r8jtd"): 1.0,
 ExtResource("18_vbao6"): 1.0,
@@ -69,10 +68,10 @@ ExtResource("41_fx87w"): 1.0,
 ExtResource("42_j0gi1"): 1.0,
 ExtResource("43_286fr"): 1.0,
 ExtResource("44_l2pck"): 1.0,
+ExtResource("44_r8jtd"): 1.0,
 ExtResource("9_sdsv8"): 1.0,
 ExtResource("8_8uy6q"): 1.0,
 ExtResource("7_slh6p"): 1.0,
-ExtResource("6_e6tm2"): 1.0,
 ExtResource("5_jmue3"): 1.0,
 ExtResource("4_2j8g0"): 1.0,
 ExtResource("3_4e5sq"): 1.0,
@@ -90,5 +89,6 @@ ExtResource("26_j0gi1"): 1.0,
 ExtResource("25_fx87w"): 1.0,
 ExtResource("24_sh7y7"): 1.0,
 ExtResource("23_4yfrm"): 1.0,
-ExtResource("22_j7rmt"): 1.0
+ExtResource("22_j7rmt"): 1.0,
+ExtResource("21_wown3"): 1.0
 })

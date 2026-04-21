@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://bqnidbd4wnp2e"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_qilrq"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="2_ur0au"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="2_ur0au"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="3_vui2n"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="4_dp4wa"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="5_voho2"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_f086w"]
-[ext_resource type="Resource" uid="uid://cuqsepb0awtud" path="res://Resources/Effects/StatusEffects/ApplyVenomous3.tres" id="2_f086w"]
+[ext_resource type="Resource" uid="uid://cioem7dswktli" path="res://Resources/Effects/StatusEffects/ApplyVenomous2.tres" id="2_f086w"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_3ephh"]
 [ext_resource type="Texture2D" uid="uid://do57s66m64kix" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Venom/venom-vial.png" id="5"]
 

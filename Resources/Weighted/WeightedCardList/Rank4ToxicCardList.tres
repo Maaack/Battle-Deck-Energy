@@ -25,7 +25,7 @@
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="22_gmsoy"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="23_ke6ix"]
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="24_yg168"]
-[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/StrongShield.tres" id="25_pegv4"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="25_pegv4"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="26_2xtm2"]
 [ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="28_0oal5"]
 [ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="29_35aiu"]

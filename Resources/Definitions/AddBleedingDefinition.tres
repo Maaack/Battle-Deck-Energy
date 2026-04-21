@@ -7,5 +7,5 @@
 script = ExtResource("1_w0c7g")
 key = "ADD_BLEEDING"
 term = "Add Bleeding Card"
-definition = "Adds a Bleeding card to your deck for remainder of the battle."
+definition = "Adds a Bleeding card to the target deck for remainder of the battle."
 related_definitions = Array[ExtResource("1_w0c7g")]([ExtResource("2_w0c7g")])

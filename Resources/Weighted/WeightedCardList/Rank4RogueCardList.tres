@@ -21,7 +21,6 @@
 [ext_resource type="Resource" uid="uid://cki1hobydmc0w" path="res://Resources/Cards/Players/Cost1/Snipe.tres" id="19_bu0or"]
 [ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="20_srgs0"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="21_55v8t"]
-[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="22_y0t3n"]
 [ext_resource type="Resource" uid="uid://n65f1sfd042f" path="res://Resources/Cards/Players/Cost1/CloakAndDagger.tres" id="23_d44v3"]
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="24_layqo"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="25_0gsf6"]
@@ -46,12 +45,12 @@
 [ext_resource type="Resource" uid="uid://ciqwvwbl2yhj6" path="res://Resources/Cards/Players/Cost1/PowerUp.tres" id="44_bu0or"]
 [ext_resource type="Resource" uid="uid://cdiosqol8ia6g" path="res://Resources/Cards/Players/Cost1/Recall.tres" id="45_srgs0"]
 [ext_resource type="Resource" uid="uid://btb3jx8vpuwkb" path="res://Resources/Cards/Players/Cost1/Research.tres" id="46_55v8t"]
+[ext_resource type="Resource" uid="uid://de4d874ynexmp" path="res://Resources/Cards/Players/Cost1/EnGarde.tres" id="47_oeota"]
 [ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="47_y0t3n"]
 
 [resource]
 script = ExtResource("1_vu8gq")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("25_0gsf6"): 1.0,
 ExtResource("26_vrg2f"): 1.0,
 ExtResource("27_oeota"): 1.0,
 ExtResource("28_1jmw7"): 1.0,
@@ -74,6 +73,7 @@ ExtResource("44_bu0or"): 1.0,
 ExtResource("45_srgs0"): 1.0,
 ExtResource("46_55v8t"): 1.0,
 ExtResource("47_y0t3n"): 1.0,
+ExtResource("47_oeota"): 1.0,
 ExtResource("2_d57u0"): 1.0,
 ExtResource("3_jogjm"): 1.0,
 ExtResource("4_vnrwp"): 1.0,
@@ -94,7 +94,7 @@ ExtResource("18_2bchx"): 1.0,
 ExtResource("19_bu0or"): 1.0,
 ExtResource("20_srgs0"): 1.0,
 ExtResource("21_55v8t"): 1.0,
-ExtResource("22_y0t3n"): 1.0,
 ExtResource("23_d44v3"): 1.0,
-ExtResource("24_layqo"): 1.0
+ExtResource("24_layqo"): 1.0,
+ExtResource("25_0gsf6"): 1.0
 })
