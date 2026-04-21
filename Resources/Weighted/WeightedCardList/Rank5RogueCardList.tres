@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://c2o06n05jnxs1"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_yc5iy"]
+[ext_resource type="Resource" uid="uid://c466hpb37s1y" path="res://Resources/Cards/Players/Cost1/Backstab.tres" id="13_ws10b"]
+[ext_resource type="Resource" uid="uid://diagju74vu8g" path="res://Resources/Cards/Players/Cost1/CutsAndBurns.tres" id="14_vr2uv"]
+[ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Players/Cost1/Dissect.tres" id="15_p8exl"]
+[ext_resource type="Resource" uid="uid://cotfdl153c5d0" path="res://Resources/Cards/Players/Cost1/DoubleTap.tres" id="16_q35gl"]
+[ext_resource type="Resource" uid="uid://dtoa2668k8ay" path="res://Resources/Cards/Players/Cost1/Execute.tres" id="17_xuy11"]
+[ext_resource type="Resource" uid="uid://dlrcgghckjd0p" path="res://Resources/Cards/Players/Cost1/QuickStrike.tres" id="18_ompt1"]
+[ext_resource type="Resource" uid="uid://cki1hobydmc0w" path="res://Resources/Cards/Players/Cost1/Snipe.tres" id="19_w3k8d"]
+[ext_resource type="Resource" uid="uid://c8613kiadwfmo" path="res://Resources/Cards/Players/Cost1/SwordBreak.tres" id="20_j08a7"]
+[ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="21_tsi04"]
+[ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="22_bx8p5"]
+[ext_resource type="Resource" uid="uid://n65f1sfd042f" path="res://Resources/Cards/Players/Cost1/CloakAndDagger.tres" id="23_f8t7d"]
+[ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="24_b10wm"]
+[ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="25_isfoh"]
+[ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="26_tcopv"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="27_gf4yu"]
+[ext_resource type="Resource" uid="uid://pxlnb6d1u6fk" path="res://Resources/Cards/Players/Cost3/Volley.tres" id="28_hpnqc"]
+[ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="28_ut2pu"]
+[ext_resource type="Resource" uid="uid://ccjbifsg2251x" path="res://Resources/Cards/Players/Cost2/LinedUp.tres" id="29_t1s7r"]
+[ext_resource type="Resource" uid="uid://dqoxvpfgs1i7g" path="res://Resources/Cards/Players/Cost3/Impenetrable.tres" id="29_up2fj"]
+[ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="30_iy2su"]
+[ext_resource type="Resource" uid="uid://bpmu5uje6jxt2" path="res://Resources/Cards/Players/Cost2/SwissArmyKnife.tres" id="31_j1hqk"]
+[ext_resource type="Resource" uid="uid://d363jhfyg0upq" path="res://Resources/Cards/Players/Cost2/ThreeWay.tres" id="32_3sw0j"]
+[ext_resource type="Resource" uid="uid://dwluljbd50p1" path="res://Resources/Cards/Players/Cost2/DoubleLayer.tres" id="33_dlln5"]
+[ext_resource type="Resource" uid="uid://dn0118bn617nm" path="res://Resources/Cards/Players/Cost2/FireShield.tres" id="34_2vse4"]
+[ext_resource type="Resource" uid="uid://pfky413n0rsu" path="res://Resources/Cards/Players/Cost2/FourthWall.tres" id="35_kgbto"]
+[ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="36_1we32"]
+[ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="37_52f5x"]
+[ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="38_aapi0"]
+
+[resource]
+script = ExtResource("1_yc5iy")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("29_up2fj"): 1.0,
+ExtResource("28_hpnqc"): 1.0,
+ExtResource("20_j08a7"): 1.0,
+ExtResource("19_w3k8d"): 1.0,
+ExtResource("18_ompt1"): 1.0,
+ExtResource("17_xuy11"): 1.0,
+ExtResource("16_q35gl"): 1.0,
+ExtResource("15_p8exl"): 1.0,
+ExtResource("14_vr2uv"): 1.0,
+ExtResource("13_ws10b"): 1.0,
+ExtResource("38_aapi0"): 1.0,
+ExtResource("37_52f5x"): 1.0,
+ExtResource("36_1we32"): 1.0,
+ExtResource("35_kgbto"): 1.0,
+ExtResource("34_2vse4"): 1.0,
+ExtResource("33_dlln5"): 1.0,
+ExtResource("32_3sw0j"): 1.0,
+ExtResource("31_j1hqk"): 1.0,
+ExtResource("30_iy2su"): 1.0,
+ExtResource("29_t1s7r"): 1.0,
+ExtResource("28_ut2pu"): 1.0,
+ExtResource("27_gf4yu"): 1.0,
+ExtResource("26_tcopv"): 1.0,
+ExtResource("25_isfoh"): 1.0,
+ExtResource("24_b10wm"): 1.0,
+ExtResource("23_f8t7d"): 1.0,
+ExtResource("22_bx8p5"): 1.0,
+ExtResource("21_tsi04"): 1.0
+})

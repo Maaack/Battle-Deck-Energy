@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="7_47j7c"]
 [ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="8_q74b2"]
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="9_8j8gy"]
-[ext_resource type="Resource" uid="uid://bjldbikae88t4" path="res://Resources/Cards/Players/Cost0/Burst.tres" id="10_w3d5o"]
 [ext_resource type="Resource" uid="uid://4el0ntttvm3a" path="res://Resources/Cards/Players/Cost0/HomeBrew.tres" id="11_kcy45"]
 [ext_resource type="Resource" uid="uid://diagju74vu8g" path="res://Resources/Cards/Players/Cost1/CutsAndBurns.tres" id="12_c6ykx"]
 [ext_resource type="Resource" uid="uid://24x2atk4od42" path="res://Resources/Cards/Players/Cost1/Discharge.tres" id="13_xxjkh"]
@@ -42,13 +41,13 @@
 [resource]
 script = ExtResource("1_nrgpb")
 weighted_map = Dictionary[Resource, float]({
+ExtResource("3_yaqml"): 1.0,
 ExtResource("4_8ilyr"): 1.0,
 ExtResource("5_b4o1p"): 1.0,
 ExtResource("6_ubg0k"): 1.0,
 ExtResource("7_47j7c"): 1.0,
 ExtResource("8_q74b2"): 1.0,
 ExtResource("9_8j8gy"): 1.0,
-ExtResource("10_w3d5o"): 1.0,
 ExtResource("11_kcy45"): 1.0,
 ExtResource("12_c6ykx"): 1.0,
 ExtResource("13_xxjkh"): 1.0,
@@ -77,6 +76,5 @@ ExtResource("32_jve8x"): 1.0,
 ExtResource("33_erjaj"): 1.0,
 ExtResource("34_m4txx"): 1.0,
 ExtResource("35_vb2oq"): 1.0,
-ExtResource("2_383r1"): 1.0,
-ExtResource("3_yaqml"): 1.0
+ExtResource("2_383r1"): 1.0
 })

@@ -28,7 +28,7 @@
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="31"]
 [ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Players/Cost0/Initial.tres" id="32"]
 [ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Players/Cost1/Dissect.tres" id="33"]
-[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Brew.tres" id="35"]
+[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Distill.tres" id="35"]
 [ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="36"]
 [ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="37"]
 [ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="39"]

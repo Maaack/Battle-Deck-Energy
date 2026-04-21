@@ -16,7 +16,6 @@
 [ext_resource type="Resource" uid="uid://24x2atk4od42" path="res://Resources/Cards/Players/Cost1/Discharge.tres" id="14_qgsx2"]
 [ext_resource type="Resource" uid="uid://diagju74vu8g" path="res://Resources/Cards/Players/Cost1/CutsAndBurns.tres" id="15_8nuiq"]
 [ext_resource type="Resource" uid="uid://4el0ntttvm3a" path="res://Resources/Cards/Players/Cost0/HomeBrew.tres" id="16_l5u67"]
-[ext_resource type="Resource" uid="uid://bjldbikae88t4" path="res://Resources/Cards/Players/Cost0/Burst.tres" id="17_yt42n"]
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="18_isuw6"]
 [ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/ThinkAhead.tres" id="19_i2ldk"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="20_tx302"]
@@ -39,23 +38,22 @@
 [resource]
 script = ExtResource("1_qilrq")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("8_tmds7"): 1.0,
-ExtResource("7_udh8o"): 1.0,
-ExtResource("6_wn0va"): 1.0,
-ExtResource("5_voho2"): 1.0,
-ExtResource("4_dp4wa"): 1.0,
-ExtResource("3_vui2n"): 1.0,
-ExtResource("2_ur0au"): 1.0,
-ExtResource("26_s022k"): 1.0,
-ExtResource("27_bmvs3"): 1.0,
-ExtResource("28_fj8sf"): 1.0,
-ExtResource("29_qgsx2"): 1.0,
-ExtResource("30_8nuiq"): 1.0,
-ExtResource("31_l5u67"): 1.0,
-ExtResource("32_yt42n"): 1.0,
-ExtResource("33_isuw6"): 1.0,
-ExtResource("34_i2ldk"): 1.0,
 ExtResource("35_tx302"): 1.0,
+ExtResource("34_i2ldk"): 1.0,
+ExtResource("33_isuw6"): 1.0,
+ExtResource("32_yt42n"): 1.0,
+ExtResource("31_l5u67"): 1.0,
+ExtResource("30_8nuiq"): 1.0,
+ExtResource("29_qgsx2"): 1.0,
+ExtResource("28_fj8sf"): 1.0,
+ExtResource("27_bmvs3"): 1.0,
+ExtResource("26_s022k"): 1.0,
+ExtResource("2_ur0au"): 1.0,
+ExtResource("3_vui2n"): 1.0,
+ExtResource("4_dp4wa"): 1.0,
+ExtResource("5_voho2"): 1.0,
+ExtResource("6_wn0va"): 1.0,
+ExtResource("7_udh8o"): 1.0,
 ExtResource("25_buk74"): 1.0,
 ExtResource("24_ysmcf"): 1.0,
 ExtResource("23_mmy28"): 1.0,
@@ -64,7 +62,6 @@ ExtResource("21_ctm52"): 1.0,
 ExtResource("20_tx302"): 1.0,
 ExtResource("19_i2ldk"): 1.0,
 ExtResource("18_isuw6"): 1.0,
-ExtResource("17_yt42n"): 1.0,
 ExtResource("16_l5u67"): 1.0,
 ExtResource("15_8nuiq"): 1.0,
 ExtResource("14_qgsx2"): 1.0,
@@ -72,5 +69,6 @@ ExtResource("13_fj8sf"): 1.0,
 ExtResource("12_bmvs3"): 1.0,
 ExtResource("11_s022k"): 1.0,
 ExtResource("10_t21g4"): 1.0,
-ExtResource("9_jjdcm"): 1.0
+ExtResource("9_jjdcm"): 1.0,
+ExtResource("8_tmds7"): 1.0
 })
