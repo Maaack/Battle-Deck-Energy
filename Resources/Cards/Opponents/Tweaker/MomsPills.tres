@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bfg0snrceqgty"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_7hmt4"]
+[ext_resource type="Resource" uid="uid://cj6krywwx7ybs" path="res://Resources/Effects/StatusEffects/ApplyVenomous.tres" id="2_4n0qs"]
+[ext_resource type="Resource" uid="uid://bktldnj2danh8" path="res://Resources/Effects/StatusEffects/ApplyDurable.tres" id="3_eqpqg"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_iv6o0"]
+[ext_resource type="Texture2D" uid="uid://yausog2xt170" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Venom/poison-bottle.png" id="5_7hmt4"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_4kypy"]
+
+[resource]
+script = ExtResource("6_4kypy")
+title = "Mom's Pills"
+description = "Apply %APPLY_VENOMOUS Venomous and %APPLY_DURABLE Durable.
+Exhaust."
+energy_cost = 2
+icon = ExtResource("5_7hmt4")
+base_color = Color(0.54902, 0.560784, 0.682353, 1)
+effects = Array[ExtResource("1_7hmt4")]([ExtResource("2_4n0qs"), ExtResource("3_eqpqg"), ExtResource("4_iv6o0")])
+type = 3

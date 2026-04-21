@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://du1xj005emtms"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_l46qt"]
+[ext_resource type="Resource" uid="uid://cnovhlhiapq2k" path="res://Resources/Effects/StatusEffects/DefendEffect8.tres" id="2_mvvpm"]
+[ext_resource type="Resource" uid="uid://dx50ymihf3i06" path="res://Resources/Effects/StatusEffects/ApplyBarricaded8.tres" id="3_2r4ko"]
+[ext_resource type="Texture2D" uid="uid://d1ydrljavkn5j" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/En Garde/steeltoe-boots.png" id="4_ocjmw"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_fhot5"]
+
+[resource]
+script = ExtResource("5_fhot5")
+title = "Steel Toe"
+description = "Block %DEFEND Damage, apply %APPLY_BARRICADED Barricaded."
+energy_cost = 2
+icon = ExtResource("4_ocjmw")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_l46qt")]([ExtResource("2_mvvpm"), ExtResource("3_2r4ko")])
+type = 2

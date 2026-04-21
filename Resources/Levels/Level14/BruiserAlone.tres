@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://dsb04mhhob77x" path="res://Resources/Weighted/WeightedCardList/Rank5CardList.tres" id="2"]
-[ext_resource type="Resource" uid="uid://cmvxytgw2n36d" path="res://Resources/Characters/Opponents/Bruiser.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cmvxytgw2n36d" path="res://Resources/Characters/Opponents/Rank4/Bruiser.tres" id="3"]
 
 [resource]
 script = ExtResource("1")

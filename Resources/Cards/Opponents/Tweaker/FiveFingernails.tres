@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dih8vfl1wl1cc"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ni0rq"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_22eth"]
+[ext_resource type="Texture2D" uid="uid://dk2it33fpyj6r" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/steel-claws.png" id="3_ni0rq"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_bacdu"]
+
+[resource]
+script = ExtResource("4_bacdu")
+title = "Five Fingernails"
+description = "Deal %ATTACK Damage over [b]5[/b] strikes."
+energy_cost = 2
+icon = ExtResource("3_ni0rq")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_ni0rq")]([ExtResource("2_22eth"), ExtResource("2_22eth"), ExtResource("2_22eth"), ExtResource("2_22eth"), ExtResource("2_22eth")])

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ma4ad"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cx02sktjo3l3n" path="res://Resources/Effects/CardEffects/AttackEffect9.tres" id="2_ma4ad"]
 [ext_resource type="Texture2D" uid="uid://v32tbn23575h" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/wolf-trap.png" id="4"]
 [ext_resource type="Resource" uid="uid://bp2tp6qx0vskt" path="res://Resources/Effects/DeckModEffects/AddRestrained.tres" id="5"]
 
@@ -15,4 +15,4 @@ Exhaust."
 energy_cost = 2
 icon = ExtResource("4")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_ma4ad")]([ExtResource("3"), ExtResource("5"), ExtResource("5"), ExtResource("2")])
+effects = Array[ExtResource("1_ma4ad")]([ExtResource("2_ma4ad"), ExtResource("5"), ExtResource("5"), ExtResource("2")])
