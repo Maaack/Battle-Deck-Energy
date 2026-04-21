@@ -11,16 +11,16 @@ enum LootType{
 const CARD_RANK_COST_MAP : Dictionary[int, Array] = {
 	1: [0],
 	2: [0, 1],
-	3: [0, 1, 2],
+	3: [0, 1],
 	4: [0, 1, 2],
 	5: [1, 2, 3],
 	6: [2, 3]
 }
-const RANK_SKILL_DECREASED : Array = [1, 2, 3, 5]
+const RANK_SKILL_DECREASED : Array = [1, 2, 4, 5]
 
 @export var opponents : Array[CharacterData] = [] # (Array, Resource)
 @export var loot_type : LootType
-@export_range(1, 7) var rank : int = 1
+@export_range(1, 15) var rank : int = 1
 
 var lootable_cards : WeightedDataList : get = get_lootable_cards
 
