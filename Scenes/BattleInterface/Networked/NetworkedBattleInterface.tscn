@@ -22,18 +22,3 @@ one_shot = true
 layout_mode = 1
 
 [node name="NetworkedBattleManager" parent="." unique_id=2135635916 instance=ExtResource("2")]
-
-[connection signal="card_played" from="NetworkedPlayerInterface" to="." method="_on_PlayerInterface_card_played"]
-[connection signal="card_played_on_opportunity" from="NetworkedPlayerInterface" to="." method="_on_PlayerInterface_card_played_on_opportunity"]
-[connection signal="before_hand_discarded" from="NetworkedBattleManager" to="." method="_on_BattleManager_before_hand_discarded"]
-[connection signal="before_hand_drawn" from="NetworkedBattleManager" to="." method="_on_BattleManager_before_hand_drawn"]
-[connection signal="card_added_to_hand" from="NetworkedBattleManager" to="." method="_on_BattleManager_card_added_to_hand"]
-[connection signal="card_discarded" from="NetworkedBattleManager" to="." method="_on_BattleManager_card_discarded"]
-[connection signal="card_drawn" from="NetworkedBattleManager" to="." method="_on_BattleManager_card_drawn"]
-[connection signal="card_exhausted" from="NetworkedBattleManager" to="." method="_on_BattleManager_card_exhausted"]
-[connection signal="card_played" from="NetworkedBattleManager" to="." method="_on_BattleManager_card_played"]
-[connection signal="card_reshuffled" from="NetworkedBattleManager" to="." method="_on_BattleManager_card_reshuffled"]
-[connection signal="card_spawned" from="NetworkedBattleManager" to="." method="_on_BattleManager_card_spawned"]
-[connection signal="status_updated" from="NetworkedBattleManager" to="." method="_on_BattleManager_status_updated"]
-[connection signal="team_lost" from="NetworkedBattleManager" to="." method="_on_BattleManager_team_lost"]
-[connection signal="team_won" from="NetworkedBattleManager" to="." method="_on_BattleManager_team_won"]
