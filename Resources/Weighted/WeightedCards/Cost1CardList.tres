@@ -41,7 +41,7 @@
 [ext_resource type="Resource" uid="uid://dt12y50rrnqpi" path="res://Resources/Cards/Players/Cost1/LethalNeedle.tres" id="72_56dbb"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="73_88a8a"]
 [ext_resource type="Resource" uid="uid://c6sko4fqksy14" path="res://Resources/Cards/Players/Cost1/ShieldBash.tres" id="76_wb8kl"]
-[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Distill.tres" id="80_5nu5n"]
+[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Extract.tres" id="80_5nu5n"]
 [ext_resource type="Resource" uid="uid://b03lr3y7usljf" path="res://Resources/Cards/Players/Cost1/Rush.tres" id="81_018h7"]
 [ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="82_ihyjl"]
 [ext_resource type="Resource" uid="uid://8chaspth5l4n" path="res://Resources/Cards/Players/Cost1/Dissect.tres" id="83_jlmoj"]

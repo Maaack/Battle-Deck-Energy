@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_omhr2"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="3"]
+[ext_resource type="Resource" uid="uid://dkmma7jvd06cc" path="res://Resources/Effects/StatusEffects/DefendEffect6.tres" id="2_omhr2"]
 [ext_resource type="Texture2D" uid="uid://cw63plrfj4gx6" path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/summon-mom.png" id="4"]
 
 [resource]
@@ -14,5 +14,5 @@ Exhaust."
 energy_cost = 0
 icon = ExtResource("4")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_omhr2")]([ExtResource("3"), ExtResource("2")])
+effects = Array[ExtResource("1_omhr2")]([ExtResource("2_omhr2"), ExtResource("2")])
 type = 2

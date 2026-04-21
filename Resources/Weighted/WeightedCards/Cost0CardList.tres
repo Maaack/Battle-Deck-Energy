@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="36_wt0c3"]
 [ext_resource type="Resource" uid="uid://dgjkhtpb581jm" path="res://Resources/Cards/Players/Cost0/BurnOut.tres" id="37_ddast"]
 [ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="38_67a8y"]
-[ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWindCard.tres" id="39_dq81n"]
+[ext_resource type="Resource" uid="uid://bdvhmsre4wp5v" path="res://Resources/Cards/Players/Cost0/SecondWind.tres" id="39_dq81n"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="40_1low8"]
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="42_dhlie"]
 [ext_resource type="Resource" uid="uid://dwdy7sf6qg77l" path="res://Resources/Cards/Players/Cost0/Disarm.tres" id="43_8yri6"]

@@ -36,7 +36,7 @@
 [ext_resource type="Resource" uid="uid://cvtwl0ikdl6n1" path="res://Resources/Cards/Players/Cost1/Buffer.tres" id="35_ctm52"]
 [ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="35_tx302"]
 [ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="36_brbq5"]
-[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Distill.tres" id="37_mmy28"]
+[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Extract.tres" id="37_mmy28"]
 [ext_resource type="Resource" uid="uid://c4wprnh7kf60y" path="res://Resources/Cards/Players/Cost1/Endure.tres" id="38_ysmcf"]
 [ext_resource type="Resource" uid="uid://dt7l3df5gfaot" path="res://Resources/Cards/Players/Cost1/MagicPill.tres" id="39_buk74"]
 [ext_resource type="Resource" uid="uid://ciqwvwbl2yhj6" path="res://Resources/Cards/Players/Cost1/PowerUp.tres" id="40_46c7m"]

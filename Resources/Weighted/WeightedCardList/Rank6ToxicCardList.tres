@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_6fbyj"]
 [ext_resource type="Resource" uid="uid://cgjxstiw4bfom" path="res://Resources/Cards/Players/Cost2/Biohazard.tres" id="10_gm7ko"]
-[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="11_nm76e"]
+[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/FuelTheFire.tres" id="11_nm76e"]
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="12_vas28"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="20_u8wab"]
 [ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="21_g1ix2"]

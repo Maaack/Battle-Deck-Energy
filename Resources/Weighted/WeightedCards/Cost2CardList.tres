@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="28_0tqer"]
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="29_jqyiq"]
 [ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="30_kr8a2"]
-[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="31_x5ytw"]
+[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/FuelTheFire.tres" id="31_x5ytw"]
 [ext_resource type="Resource" uid="uid://cgjxstiw4bfom" path="res://Resources/Cards/Players/Cost2/Biohazard.tres" id="33_coivn"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="34_fgc20"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="35_t001s"]
