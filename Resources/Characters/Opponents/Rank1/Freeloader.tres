@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://cehnv5po6dwhs" path="res://Resources/Cards/Opponents/Freeloader/Desperation.tres" id="2"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_mn3ug"]
 [ext_resource type="Resource" uid="uid://smdlci63k0p0" path="res://Resources/Cards/Opponents/Freeloader/Mooch.tres" id="3"]
 [ext_resource type="Resource" uid="uid://dv8q76dsukblc" path="res://Resources/Cards/Opponents/Freeloader/Jealousy.tres" id="4"]
 
 [resource]
 script = ExtResource("1")
 nickname = "Freeloader"
-starting_max_health = 15
+starting_max_health = 18
 starting_max_energy = 0
 starting_hand_size = 2
-starting_deck = [ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("2"), ExtResource("2"), ExtResource("4"), ExtResource("4")]
+starting_deck = Array[ExtResource("2_mn3ug")]([ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("2"), ExtResource("2"), ExtResource("4"), ExtResource("4")])

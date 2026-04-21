@@ -1,18 +1,12 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cbwa14kbk54ry"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
-[ext_resource type="Resource" uid="uid://c5s30qrnherpn" path="res://Resources/Levels/Level13/RascalAndCad.tres" id="7_xyp0j"]
-[ext_resource type="Resource" uid="uid://c4s284rklgvmq" path="res://Resources/Levels/Level13/RascalTrio.tres" id="8_wnsiy"]
-[ext_resource type="Resource" uid="uid://dd35c8ltyeaad" path="res://Resources/Levels/Level13/BratTrio.tres" id="9_ugbxc"]
-[ext_resource type="Resource" uid="uid://bw184ennuu7t4" path="res://Resources/Levels/Level13/SpoiledShitAlone.tres" id="10_88n3s"]
-[ext_resource type="Resource" uid="uid://ds484echv4k0k" path="res://Resources/Levels/Level13/BratAndBully.tres" id="11_ym8g0"]
+[ext_resource type="Resource" uid="uid://ohrxmbw6onbi" path="res://Resources/Levels/Rank3_1/BratAndBullyLevel.tres" id="2_gtxff"]
+[ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Rank3_1/BratTrioLevel.tres" id="3_8s3v2"]
+[ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Rank3_1/PipsqueakAndCadLevel.tres" id="4_34705"]
+[ext_resource type="Resource" uid="uid://goa8s1i1q1uw" path="res://Resources/Levels/Rank3_1/PipsqueakTrioLevel.tres" id="5_axmih"]
+[ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Rank3_1/RascalTrioLevel.tres" id="6_nycaj"]
+[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Rank3_1/SpoiledShitAndRascalLevel.tres" id="7_dulnm"]
 
 [resource]
 script = ExtResource("1")
-weighted_map = Dictionary[Resource, float]({
-ExtResource("7_xyp0j"): 1.0,
-ExtResource("8_wnsiy"): 1.0,
-ExtResource("9_ugbxc"): 1.0,
-ExtResource("10_88n3s"): 1.0,
-ExtResource("11_ym8g0"): 1.0
-})

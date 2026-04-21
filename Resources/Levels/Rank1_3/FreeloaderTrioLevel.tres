@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://b58mbwc2pbt6p"]
+
+[ext_resource type="Resource" uid="uid://coparrpsx06" path="res://Resources/Weighted/WeightedCardList/Rank1GrappleCardList.tres" id="1_v2d71"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_vak7n"]
+[ext_resource type="Resource" uid="uid://dioydmkc1e3q7" path="res://Resources/Characters/Opponents/Rank1/Freeloader.tres" id="3_4c2op"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_udouf"]
+
+[resource]
+script = ExtResource("4_udouf")
+opponents = Array[ExtResource("2_vak7n")]([ExtResource("3_4c2op"), ExtResource("3_4c2op"), ExtResource("3_4c2op")])
+lootable_cards = ExtResource("1_v2d71")

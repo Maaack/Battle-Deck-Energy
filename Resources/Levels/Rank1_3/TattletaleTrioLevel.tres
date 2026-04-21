@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://kdcogycvl4wj"]
+
+[ext_resource type="Resource" uid="uid://cnjfddnf0bmkq" path="res://Resources/Weighted/WeightedCardList/Rank1RogueCardList.tres" id="1_283jn"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_1cxbl"]
+[ext_resource type="Resource" uid="uid://c7t3e5e0j6rir" path="res://Resources/Characters/Opponents/Rank1/Tattletale.tres" id="3_wnifv"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_5glmp"]
+
+[resource]
+script = ExtResource("4_5glmp")
+opponents = Array[ExtResource("2_1cxbl")]([ExtResource("3_wnifv"), ExtResource("3_wnifv"), ExtResource("3_wnifv")])
+lootable_cards = ExtResource("1_283jn")
