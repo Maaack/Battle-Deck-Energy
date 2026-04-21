@@ -26,7 +26,7 @@
 [ext_resource type="Resource" uid="uid://d3b4x1x8s6xry" path="res://Resources/Cards/Players/Cost1/FastFooted.tres" id="24_layqo"]
 [ext_resource type="Resource" uid="uid://c5eubmfhnrmjb" path="res://Resources/Cards/Players/Cost1/QuickCover.tres" id="25_0gsf6"]
 [ext_resource type="Resource" uid="uid://cp6efuyrmw5w5" path="res://Resources/Cards/Players/Cost1/GoodGrip.tres" id="26_vrg2f"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="27_6hffm"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="27_oeota"]
 [ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="28_1jmw7"]
 [ext_resource type="Resource" uid="uid://ccjbifsg2251x" path="res://Resources/Cards/Players/Cost2/LinedUp.tres" id="29_qneni"]
 [ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="30_8emdd"]
@@ -38,17 +38,22 @@
 [ext_resource type="Resource" uid="uid://dwpvj3elviu61" path="res://Resources/Cards/Players/Cost2/Hyperfocus.tres" id="36_vnrwp"]
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="37_bmoim"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="38_2xwqm"]
+[ext_resource type="Resource" uid="uid://cvtwl0ikdl6n1" path="res://Resources/Cards/Players/Cost1/Buffer.tres" id="39_uctsq"]
+[ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="40_n0a7x"]
+[ext_resource type="Resource" uid="uid://dj47nhh2om4x" path="res://Resources/Cards/Players/Cost1/DrawArrows.tres" id="41_rsprt"]
+[ext_resource type="Resource" uid="uid://tmlagkvdcr62" path="res://Resources/Cards/Players/Cost1/KnivesOut.tres" id="42_8oks7"]
+[ext_resource type="Resource" uid="uid://b6jljbo5qi0vj" path="res://Resources/Cards/Players/Cost1/Medicine.tres" id="43_2bchx"]
+[ext_resource type="Resource" uid="uid://ciqwvwbl2yhj6" path="res://Resources/Cards/Players/Cost1/PowerUp.tres" id="44_bu0or"]
+[ext_resource type="Resource" uid="uid://cdiosqol8ia6g" path="res://Resources/Cards/Players/Cost1/Recall.tres" id="45_srgs0"]
+[ext_resource type="Resource" uid="uid://btb3jx8vpuwkb" path="res://Resources/Cards/Players/Cost1/Research.tres" id="46_55v8t"]
+[ext_resource type="Resource" uid="uid://e7nm5b6mc1dq" path="res://Resources/Cards/Players/Cost1/Scan.tres" id="47_y0t3n"]
 
 [resource]
 script = ExtResource("1_vu8gq")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("21_55v8t"): 1.0,
-ExtResource("22_y0t3n"): 1.0,
-ExtResource("23_d44v3"): 1.0,
-ExtResource("24_layqo"): 1.0,
 ExtResource("25_0gsf6"): 1.0,
 ExtResource("26_vrg2f"): 1.0,
-ExtResource("27_6hffm"): 1.0,
+ExtResource("27_oeota"): 1.0,
 ExtResource("28_1jmw7"): 1.0,
 ExtResource("29_qneni"): 1.0,
 ExtResource("30_8emdd"): 1.0,
@@ -60,6 +65,15 @@ ExtResource("35_pt1ym"): 1.0,
 ExtResource("36_vnrwp"): 1.0,
 ExtResource("37_bmoim"): 1.0,
 ExtResource("38_2xwqm"): 1.0,
+ExtResource("39_uctsq"): 1.0,
+ExtResource("40_n0a7x"): 1.0,
+ExtResource("41_rsprt"): 1.0,
+ExtResource("42_8oks7"): 1.0,
+ExtResource("43_2bchx"): 1.0,
+ExtResource("44_bu0or"): 1.0,
+ExtResource("45_srgs0"): 1.0,
+ExtResource("46_55v8t"): 1.0,
+ExtResource("47_y0t3n"): 1.0,
 ExtResource("2_d57u0"): 1.0,
 ExtResource("3_jogjm"): 1.0,
 ExtResource("4_vnrwp"): 1.0,
@@ -78,5 +92,9 @@ ExtResource("16_rsprt"): 1.0,
 ExtResource("17_8oks7"): 1.0,
 ExtResource("18_2bchx"): 1.0,
 ExtResource("19_bu0or"): 1.0,
-ExtResource("20_srgs0"): 1.0
+ExtResource("20_srgs0"): 1.0,
+ExtResource("21_55v8t"): 1.0,
+ExtResource("22_y0t3n"): 1.0,
+ExtResource("23_d44v3"): 1.0,
+ExtResource("24_layqo"): 1.0
 })

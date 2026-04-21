@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://e1soqen48tp3"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_6fbyj"]
+[ext_resource type="Resource" uid="uid://cgjxstiw4bfom" path="res://Resources/Cards/Players/Cost2/Biohazard.tres" id="10_gm7ko"]
+[ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="11_nm76e"]
+[ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="12_vas28"]
+[ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="20_u8wab"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="21_g1ix2"]
+[ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="22_kjcwg"]
+[ext_resource type="Resource" uid="uid://dvaixqt84i0at" path="res://Resources/Cards/Players/Cost2/Miasma.tres" id="23_gwm2m"]
+[ext_resource type="Resource" uid="uid://dn7paiefl78h8" path="res://Resources/Cards/Players/Cost2/SerpentsBlade.tres" id="24_ajmyr"]
+[ext_resource type="Resource" uid="uid://bpmu5uje6jxt2" path="res://Resources/Cards/Players/Cost2/SwissArmyKnife.tres" id="25_78ut2"]
+[ext_resource type="Resource" uid="uid://bd381tanlmxa7" path="res://Resources/Cards/Players/Cost2/Unlucky.tres" id="26_32m88"]
+[ext_resource type="Resource" uid="uid://dn0118bn617nm" path="res://Resources/Cards/Players/Cost2/FireShield.tres" id="27_ud33v"]
+[ext_resource type="Resource" uid="uid://c0og5x4s4kd1v" path="res://Resources/Cards/Players/Cost2/Ironclad.tres" id="28_ma0y7"]
+[ext_resource type="Resource" uid="uid://0jpth2uj0eoj" path="res://Resources/Cards/Players/Cost2/LightningShield.tres" id="29_asnfs"]
+[ext_resource type="Resource" uid="uid://ceoynp0ejeppy" path="res://Resources/Cards/Players/Cost3/AThousandCuts.tres" id="30_jv6xw"]
+[ext_resource type="Resource" uid="uid://d6e1dnrxlkdl" path="res://Resources/Cards/Players/Cost3/NotNowNotEver.tres" id="31_gfw5w"]
+
+[resource]
+script = ExtResource("1_6fbyj")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("31_gfw5w"): 1.0,
+ExtResource("30_jv6xw"): 1.0,
+ExtResource("29_asnfs"): 1.0,
+ExtResource("28_ma0y7"): 1.0,
+ExtResource("27_ud33v"): 1.0,
+ExtResource("26_32m88"): 1.0,
+ExtResource("25_78ut2"): 1.0,
+ExtResource("24_ajmyr"): 1.0,
+ExtResource("23_gwm2m"): 1.0,
+ExtResource("22_kjcwg"): 1.0,
+ExtResource("21_g1ix2"): 1.0,
+ExtResource("20_u8wab"): 1.0,
+ExtResource("12_vas28"): 1.0,
+ExtResource("11_nm76e"): 1.0,
+ExtResource("10_gm7ko"): 1.0
+})

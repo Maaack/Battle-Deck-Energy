@@ -79,7 +79,7 @@
 [ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="70_7unf5"]
 [ext_resource type="Resource" uid="uid://cki1hobydmc0w" path="res://Resources/Cards/Players/Cost1/Snipe.tres" id="70_58c6j"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="71_lciie"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="72_qr4t0"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="72_qr4t0"]
 [ext_resource type="Resource" uid="uid://cos0w4827pcwp" path="res://Resources/Cards/Players/Cost2/DoubleDeal.tres" id="74_hh3gv"]
 [ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="75_anhje"]
 [ext_resource type="Resource" uid="uid://dvqip0qpmvtgl" path="res://Resources/Cards/Players/Cost1/TheOneTwo.tres" id="76_mtw2w"]

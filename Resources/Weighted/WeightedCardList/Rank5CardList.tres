@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://dn7paiefl78h8" path="res://Resources/Cards/Players/Cost2/SerpentsBlade.tres" id="12"]
 [ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="13"]
 [ext_resource type="Resource" uid="uid://bmjbhoioud1si" path="res://Resources/Cards/Players/Cost1/Charge.tres" id="14"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="15"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="15"]
 [ext_resource type="Resource" uid="uid://da0h4uxm1rrdm" path="res://Resources/Cards/Players/Cost2/StabToDeath.tres" id="16"]
 [ext_resource type="Resource" uid="uid://iwajgypi5cye" path="res://Resources/Cards/Players/Cost1/TickTick.tres" id="19"]
 [ext_resource type="Resource" uid="uid://uxub2rnlohfq" path="res://Resources/Cards/Players/Cost0/Bloodletting.tres" id="20"]

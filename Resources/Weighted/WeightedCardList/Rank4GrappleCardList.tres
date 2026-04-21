@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://b7qimkkuutefs" path="res://Resources/Cards/Players/Cost1/Recoup.tres" id="7_3sybj"]
 [ext_resource type="Resource" uid="uid://bc3yuds8bher3" path="res://Resources/Cards/Players/Cost1/PillowFort.tres" id="8_0rik8"]
 [ext_resource type="Resource" uid="uid://dv3qfo2jc7top" path="res://Resources/Cards/Players/Cost1/HeavyArmor.tres" id="9_asi53"]
+[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/DeepCut.tres" id="10_bkbrb"]
 [ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Castle.tres" id="10_g305c"]
 [ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="11_bkbrb"]
 [ext_resource type="Resource" uid="uid://dleokjkiyfp06" path="res://Resources/Cards/Players/Cost0/LastStand.tres" id="12_wialt"]
@@ -26,7 +27,6 @@
 [ext_resource type="Resource" uid="uid://dbl5yqqm03t7y" path="res://Resources/Cards/Players/Cost0/Kickoff.tres" id="24_y33cj"]
 [ext_resource type="Resource" uid="uid://dgpdkq004wvun" path="res://Resources/Cards/Players/Cost0/Grab.tres" id="25_jtlmu"]
 [ext_resource type="Resource" uid="uid://bajokdmlkvgmr" path="res://Resources/Cards/Players/Cost2/ChainLightning.tres" id="26_pjvp7"]
-[ext_resource type="Resource" uid="uid://dyq7drd2s0t7l" path="res://Resources/Cards/Players/Cost2/Deep Cut.tres" id="27_u5jym"]
 [ext_resource type="Resource" uid="uid://dl7qtxhwymhv0" path="res://Resources/Cards/Players/Cost2/DoubleEdgedSword.tres" id="28_0ydw2"]
 [ext_resource type="Resource" uid="uid://dpplj2q408ay1" path="res://Resources/Cards/Players/Cost2/Scorch.tres" id="29_p530a"]
 [ext_resource type="Resource" uid="uid://bkl1h7qdmu82j" path="res://Resources/Cards/Players/Cost2/Shatter.tres" id="30_sabmh"]
@@ -38,13 +38,17 @@
 [ext_resource type="Resource" uid="uid://ui8qm0nmabkm" path="res://Resources/Cards/Players/Cost2/Erupt.tres" id="36_dc6e0"]
 [ext_resource type="Resource" uid="uid://hb02fyrtde14" path="res://Resources/Cards/Players/Cost2/Heartburn.tres" id="37_i65bs"]
 [ext_resource type="Resource" uid="uid://ck61sj782qdon" path="res://Resources/Cards/Players/Cost2/Reforge.tres" id="38_gly6x"]
+[ext_resource type="Resource" uid="uid://b6yobwg43mbi2" path="res://Resources/Cards/Players/Cost1/Cinder.tres" id="39_wialt"]
+[ext_resource type="Resource" uid="uid://cnmbl3y03bh1d" path="res://Resources/Cards/Players/Cost1/Distill.tres" id="40_tt8ue"]
+[ext_resource type="Resource" uid="uid://85duo4xhe6d1" path="res://Resources/Cards/Players/Cost1/Flex.tres" id="41_jd4w8"]
+[ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="42_dx2p1"]
+[ext_resource type="Resource" uid="uid://ciqwvwbl2yhj6" path="res://Resources/Cards/Players/Cost1/PowerUp.tres" id="43_cjxip"]
+[ext_resource type="Resource" uid="uid://b03lr3y7usljf" path="res://Resources/Cards/Players/Cost1/Rush.tres" id="44_2l3og"]
+[ext_resource type="Resource" uid="uid://dwfbf7n2u2x0x" path="res://Resources/Cards/Players/Cost1/Sharpen.tres" id="45_p8xwn"]
 
 [resource]
 script = ExtResource("1_sj4yk")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("4_dc6e0"): 1.0,
-ExtResource("5_i65bs"): 1.0,
-ExtResource("6_gly6x"): 1.0,
 ExtResource("7_3sybj"): 1.0,
 ExtResource("8_0rik8"): 1.0,
 ExtResource("9_asi53"): 1.0,
@@ -60,6 +64,13 @@ ExtResource("18_p8xwn"): 1.0,
 ExtResource("36_dc6e0"): 1.0,
 ExtResource("37_i65bs"): 1.0,
 ExtResource("38_gly6x"): 1.0,
+ExtResource("39_wialt"): 1.0,
+ExtResource("40_tt8ue"): 1.0,
+ExtResource("41_jd4w8"): 1.0,
+ExtResource("42_dx2p1"): 1.0,
+ExtResource("43_cjxip"): 1.0,
+ExtResource("44_2l3og"): 1.0,
+ExtResource("45_p8xwn"): 1.0,
 ExtResource("19_thj4g"): 1.0,
 ExtResource("20_gums0"): 1.0,
 ExtResource("21_unyge"): 1.0,
@@ -68,7 +79,7 @@ ExtResource("23_4kaee"): 1.0,
 ExtResource("24_y33cj"): 1.0,
 ExtResource("25_jtlmu"): 1.0,
 ExtResource("26_pjvp7"): 1.0,
-ExtResource("27_u5jym"): 1.0,
+ExtResource("10_bkbrb"): 1.0,
 ExtResource("28_0ydw2"): 1.0,
 ExtResource("29_p530a"): 1.0,
 ExtResource("30_sabmh"): 1.0,
@@ -78,5 +89,8 @@ ExtResource("33_bb84i"): 1.0,
 ExtResource("34_xomhl"): 1.0,
 ExtResource("35_6s7p0"): 1.0,
 ExtResource("2_qt8xi"): 1.0,
-ExtResource("3_su7a3"): 1.0
+ExtResource("3_su7a3"): 1.0,
+ExtResource("4_dc6e0"): 1.0,
+ExtResource("5_i65bs"): 1.0,
+ExtResource("6_gly6x"): 1.0
 })
