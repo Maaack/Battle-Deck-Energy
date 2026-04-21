@@ -6,4 +6,4 @@
 script = ExtResource("1")
 key = "DRAW_CARD"
 term = "Draw Card"
-definition = "Draw [b]X[/b] additional cards on the start of the next turn and depletes."
+definition = "Draw [b]X[/b] additional cards to your hand."

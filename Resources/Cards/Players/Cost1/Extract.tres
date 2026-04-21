@@ -9,7 +9,8 @@
 [resource]
 script = ExtResource("5_qkwkt")
 title = "Extract"
-description = "Add %ADD_BURST Bursts to your draw pile. Next turn, add %APPLY_FOCUSED Skill actions."
+description = "Add %ADD_BURST Bursts to your draw pile.
+Next turn, add %APPLY_FOCUSED Skill actions."
 icon = ExtResource("4_exuol")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
 effects = Array[ExtResource("1_lbdp7")]([ExtResource("2_3x3pl"), ExtResource("2_3x3pl"), ExtResource("3_yjic0")])

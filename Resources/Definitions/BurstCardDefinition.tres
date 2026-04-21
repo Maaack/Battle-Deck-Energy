@@ -6,5 +6,6 @@
 script = ExtResource("1")
 key = "BURST_CARD"
 term = "Burst Card"
-definition = "Gain [b]2[/b] Energy.
+definition = "Gain [b]1[/b] Energy.
+Draw [b]1[/b] cards.
 Exhaust."

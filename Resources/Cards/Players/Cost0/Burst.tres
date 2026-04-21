@@ -11,7 +11,7 @@
 script = ExtResource("1")
 title = "Burst"
 description = "Gain %GAIN_ENERGY Energy.
-Draw a card.
+Draw %DRAW_CARD cards.
 Exhaust."
 energy_cost = 0
 icon = ExtResource("3")

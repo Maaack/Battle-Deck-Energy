@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("5_5otoc")
 title = "Magic Pill"
-description = "Cure Poison.
+description = "Cure Poisoned.
 Next turn, draw %APPLY_HASTENED extra cards."
 icon = ExtResource("4_hwupk")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
