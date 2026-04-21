@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://cl1dhfn8p7lxl"]
 
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="1"]
-[ext_resource type="Resource" uid="uid://cdkbn1ivbc3cq" path="res://Resources/Weighted/WeightedCardList/Rank6CardList.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cdkbn1ivbc3cq" path="res://Resources/Weighted/WeightedCardList/Rank7CardList.tres" id="2"]
 [ext_resource type="Resource" uid="uid://52mqew8rrxox" path="res://Resources/Characters/Opponents/ThePatriarch.tres" id="3"]
 
 [resource]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://b8q60jv0lhf2o"]
+
+[ext_resource type="Resource" uid="uid://dwsiy2c18jx4x" path="res://Resources/Weighted/WeightedCardList/Rank4ToxicCardList.tres" id="1_uqmfp"]
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_u747r"]
+[ext_resource type="Resource" uid="uid://b72mm4okm43mv" path="res://Resources/Characters/Opponents/Rank3/SpoiledShit.tres" id="3_mhgi3"]
+[ext_resource type="Resource" uid="uid://d4hb2pdb8k15n" path="res://Resources/Characters/Opponents/Rank1/Grime.tres" id="4_0eyko"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_6l001"]
+
+[resource]
+script = ExtResource("4_6l001")
+opponents = Array[ExtResource("2_u747r")]([ExtResource("3_mhgi3"), ExtResource("3_mhgi3"), ExtResource("4_0eyko"), ExtResource("4_0eyko"), ExtResource("4_0eyko")])
+lootable_cards = ExtResource("1_uqmfp")

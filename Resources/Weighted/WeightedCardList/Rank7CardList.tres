@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cdkbn1ivbc3cq"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
+[ext_resource type="Resource" uid="uid://ceoynp0ejeppy" path="res://Resources/Cards/Players/Cost3/AThousandCuts.tres" id="2_ow0ek"]
+[ext_resource type="Resource" uid="uid://cquh66dg2w5s7" path="res://Resources/Cards/Players/Cost3/DeathBlow.tres" id="4"]
+[ext_resource type="Resource" uid="uid://dqoxvpfgs1i7g" path="res://Resources/Cards/Players/Cost3/Impenetrable.tres" id="4_fthaf"]
+[ext_resource type="Resource" uid="uid://d6e1dnrxlkdl" path="res://Resources/Cards/Players/Cost3/NotNowNotEver.tres" id="5_rpbqb"]
+[ext_resource type="Resource" uid="uid://pxlnb6d1u6fk" path="res://Resources/Cards/Players/Cost3/Volley.tres" id="6_27oec"]
+
+[resource]
+script = ExtResource("1")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2_ow0ek"): 1.0,
+ExtResource("4"): 1.0,
+ExtResource("4_fthaf"): 1.0,
+ExtResource("5_rpbqb"): 1.0,
+ExtResource("6_27oec"): 1.0
+})
