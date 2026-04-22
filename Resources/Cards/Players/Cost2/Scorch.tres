@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dpplj2q408ay1"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_luvsp"]
+[ext_resource type="Resource" uid="uid://dehrcue41uu2c" path="res://Resources/Effects/CardEffects/AttackAllEffect6.tres" id="2_6jove"]
+[ext_resource type="Resource" uid="uid://cwdueft3n1gi7" path="res://Resources/Effects/StatusEffects/ApplyEnragedSource.tres" id="3_luvsp"]
+[ext_resource type="Texture2D" uid="uid://cli3p7ppig46k" path="res://Assets/Mixed/CardIcons/AttackGlowNew/thunder-skull.png" id="4_b64fk"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_c370x"]
+
+[resource]
+script = ExtResource("6_c370x")
+title = "Scorch"
+description = "Deal %ATTACK Damage to all enemies.
+Gain %APPLY_ENRAGED Enraged."
+energy_cost = 2
+icon = ExtResource("4_b64fk")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_luvsp")]([ExtResource("2_6jove"), ExtResource("3_luvsp")])

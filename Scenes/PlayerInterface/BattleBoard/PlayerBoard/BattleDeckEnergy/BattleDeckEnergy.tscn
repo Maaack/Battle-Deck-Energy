@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dty7445pxv6cs"]
 
-[ext_resource type="StyleBox" path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://cehcrbux2a8uf" path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" id="1"]
 [ext_resource type="Material" uid="uid://dxlls1dg63rhj" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/FireShaderMaterial.tres" id="2"]
 [ext_resource type="Script" uid="uid://dua2rfx8yv8f8" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/BattleDeckEnergy.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://dol1ul7ulhklk" path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" id="4"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/EnergyPanel/EnergyPanelDynamicFont.tres" id="5"]
+[ext_resource type="FontFile" uid="uid://bfhbsilxilj5o" path="res://Themes/Fonts/EnergyPanel/EnergyPanelDynamicFont.tres" id="5"]
 [ext_resource type="Material" uid="uid://bw8eotbc3q7ox" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/BattleDeckEnergy/SparksParticlesMaterial.tres" id="6"]
 [ext_resource type="AudioStream" uid="uid://ci2yywcw0im6v" path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" id="7"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/EnergyPanel/EnergyPanelDividerDynamicFont.tres" id="8"]
+[ext_resource type="FontFile" uid="uid://k26e02i5jb2k" path="res://Themes/Fonts/EnergyPanel/EnergyPanelDividerDynamicFont.tres" id="8"]
 
 [node name="BattleDeckEnergy" type="Control" unique_id=711466702]
 custom_minimum_size = Vector2(64, 64)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Battle Deck Energy"
-config/version="0.3.0"
+config/version="0.4.0"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.6")
 boot_splash/image="res://Assets/Originals/Title/LoadingScreen.png"
@@ -22,12 +22,17 @@ config/icon="res://icon.png"
 PersistentData="*res://Managers/PersistentData/PersistentData.gd"
 Network="*res://Managers/Network/NetworkManager.gd"
 DialogWindows="*res://Scenes/DialogWindows/DialogWindows.tscn"
+EventBus="*uid://dnmavaftglimn"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/yard/plugin.cfg")
 
 [input]
 

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://ceb6ydxvq8fiy"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_0ug5v"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_apmc6"]
+[ext_resource type="Resource" uid="uid://cdvc1maefo8e0" path="res://Resources/Cards/Opponents/Stalker/WatchClosely.tres" id="3_efna3"]
+[ext_resource type="Resource" uid="uid://bqrm7gr8e5bwq" path="res://Resources/Cards/Opponents/Stalker/SafeDistance.tres" id="4_1f6mu"]
+[ext_resource type="Resource" uid="uid://c0jkigrsvuqav" path="res://Resources/Cards/Opponents/Stalker/SpringTrap.tres" id="5_e8yd7"]
+[ext_resource type="Resource" uid="uid://dwmwriu2hhy01" path="res://Resources/Cards/Opponents/Stalker/Threaten.tres" id="6_tgkro"]
+
+[resource]
+script = ExtResource("1_0ug5v")
+nickname = "Stalker"
+starting_max_health = 36
+starting_max_energy = 2
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_apmc6")]([ExtResource("3_efna3"), ExtResource("3_efna3"), ExtResource("3_efna3"), ExtResource("3_efna3"), ExtResource("3_efna3"), ExtResource("3_efna3"), ExtResource("4_1f6mu"), ExtResource("4_1f6mu"), ExtResource("5_e8yd7"), ExtResource("5_e8yd7"), ExtResource("6_tgkro"), ExtResource("6_tgkro")])

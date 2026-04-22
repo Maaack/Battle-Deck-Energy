@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://c0yw04olbu5c6" path="res://Resources/Cards/Opponents/Tattletale/SpillSecrets.tres" id="2"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_hyylf"]
 [ext_resource type="Resource" uid="uid://cl3a5d3v2gvgp" path="res://Resources/Cards/Opponents/Tattletale/Scream.tres" id="3"]
 [ext_resource type="Resource" uid="uid://d1s6u0agikjlu" path="res://Resources/Cards/Opponents/Tattletale/SummonMom.tres" id="4"]
 
@@ -11,4 +12,4 @@ nickname = "Tattletale"
 starting_max_health = 15
 starting_max_energy = 1
 starting_hand_size = 2
-starting_deck = [ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("4"), ExtResource("4"), ExtResource("2"), ExtResource("2")]
+starting_deck = Array[ExtResource("2_hyylf")]([ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("4"), ExtResource("4"), ExtResource("2"), ExtResource("2")])

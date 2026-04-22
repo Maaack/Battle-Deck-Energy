@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjro32cge3c4x"]
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
-[ext_resource type="FontFile" path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" id="2"]
-[ext_resource type="FontFile" path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://d27aaet6ddg4t" path="res://Scenes/MainMenu/NetworkMenu/Fonts/HeadingDynamicFont.tres" id="2"]
+[ext_resource type="FontFile" uid="uid://c4n50a066duft" path="res://Scenes/MainMenu/NetworkMenu/Fonts/OptionDynamicFont.tres" id="3"]
 [ext_resource type="Script" uid="uid://cfkrtto3d48f2" path="res://Scenes/MainMenu/NetworkMenu/NetworkMenu.gd" id="4"]
 
 [node name="NetworkMenu" type="Control" unique_id=713513496]
@@ -10,6 +10,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("4")
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs6e135v6ojkf"]
 
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/ExhaustPileStyleBox.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://6pp0lyqsjlg" path="res://Themes/StyleBoxes/ExhaustPileStyleBox.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://cim1h6c7ncu7j" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://buk2426om4o2s" path="res://Assets/Mixed/DeckIcons/ExhaustPileBad.png" id="3"]
 

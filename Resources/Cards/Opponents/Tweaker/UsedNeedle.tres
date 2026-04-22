@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4ropv3f7ww5k"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ff27l"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_ff27l"]
+[ext_resource type="Resource" uid="uid://4ohuk1tmfgop" path="res://Resources/Effects/StatusEffects/ApplyPoisoned4.tres" id="3_ff27l"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_knntw"]
+[ext_resource type="Texture2D" uid="uid://b4urmtn5xjo2t" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/hypodermic-test.png" id="5_ff27l"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_0i3jq"]
+
+[resource]
+script = ExtResource("6_0i3jq")
+title = "Used Needle"
+description = "Deal %ATTACK Damage and apply %APPLY_POISONED Poisoned.
+Exhaust."
+energy_cost = 2
+icon = ExtResource("5_ff27l")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_ff27l")]([ExtResource("2_ff27l"), ExtResource("3_ff27l"), ExtResource("4_knntw")])

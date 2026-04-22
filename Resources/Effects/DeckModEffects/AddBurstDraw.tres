@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://dbc20n07ruln2"]
+
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1"]
+[ext_resource type="Resource" uid="uid://bjldbikae88t4" path="res://Resources/Cards/Players/Cost0/Burst.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+starting_card = ExtResource("2")
+destination = 1
+type_tag = "ADD_BURST"
+amount = 1

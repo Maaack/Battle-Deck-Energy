@@ -13,18 +13,10 @@ signal card_revealed(character, card)
 signal card_played(character, card, opportunity)
 signal card_spawned(character, card)
 signal status_updated(character, status, delta)
-signal character_died(character)
-signal active_character_updated(character)
-signal active_team_updated(team)
 signal before_hand_discarded(character)
 signal before_hand_drawn(character)
-signal turn_started(character)
-signal turn_ended(character)
 signal team_lost(team)
 signal team_won(team)
-signal opportunity_added(opportunity)
-signal opportunity_removed(opportunity)
-signal opportunities_reset
 
 @onready var advance_phase_timer : Timer = $AdvancePhaseTimer
 @onready var advance_action_timer : Timer = $AdvanceActionTimer
@@ -35,7 +27,6 @@ signal opportunities_reset
 @onready var effects_manager : EffectsManager = $EffectManager
 @onready var team_manager : TeamManager = $TeamManager
 
-var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
 var character_battle_manager_scene = load("res://Managers/CharacterBattle/CharacterBattleManager.tscn")
 var _character_manager_map : Dictionary = {}
 var _skip_battle_setup : bool = false
@@ -46,6 +37,8 @@ var active_team
 
 func _ready():
 	effects_manager.team_manager = team_manager
+	EventBus.turn_ended.connect(_on_turn_ended)
+	EventBus.character_died.connect(_on_character_died)
 
 func _new_character_manager_instance(character_data : CharacterData, team : String):
 	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instantiate()
@@ -66,10 +59,8 @@ func _connect_character_battle_manager(character_battle_manager : CharacterBattl
 	character_battle_manager.connect("card_played", _on_CharacterBattleManager_card_played)
 	character_battle_manager.connect("card_removed_from_hand", _on_CharacterBattleManager_card_removed_from_hand)
 	character_battle_manager.connect("card_reshuffled", _on_CharacterBattleManager_card_reshuffled)
-	character_battle_manager.connect("character_died", _on_CharacterBattleManager_character_died)
 	character_battle_manager.connect("status_updated", _on_CharacterBattleManager_status_updated)
 	character_battle_manager.connect("related_status_changed", _on_CharacterBattleManager_related_status_changed)
-	character_battle_manager.connect("turn_ended", _on_CharacterBattleManager_turn_ended)
 
 func add_character(character_data : CharacterData, team : String):
 	if character_data in _character_manager_map:
@@ -101,11 +92,11 @@ func get_team(character_data : CharacterData):
 func _set_active_character(character_data : CharacterData):
 	if active_character != character_data:
 		active_character = character_data
-		emit_signal("active_character_updated", character_data)
+		EventBus.active_character_updated.emit(active_character)
 	var team : String = team_manager.get_team(character_data)
 	if active_team != team:
 		active_team = team
-		emit_signal("active_team_updated", active_team)
+		EventBus.active_team_updated.emit(active_team)
 
 func start_battle():
 	battle_phase_manager.advance()
@@ -205,19 +196,13 @@ func _on_CharacterBattleManager_card_played(character : CharacterData, card:Card
 	PersistentData.log_battle_action("`%s` plays `%s` on `%s` target `%s`" % [character.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	emit_signal("card_played", character, card, opportunity)
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
-	opportunities_manager.remove_opportunity(opportunity)
 	_discard_or_exhaust_card(character, card)
 	
 func _on_CharacterBattleManager_card_revealed(character : CharacterData, card : CardData, opportunity : OpportunityData):
 	PersistentData.log_battle_action("`%s` reveals `%s` on `%s` target `%s`" % [character.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	emit_signal("card_revealed", character, card, opportunity)
 
-func on_ending_turn(character : CharacterData):
-	var character_battle_manager : CharacterBattleManager = _character_manager_map[character]
-	character_battle_manager.end_turn()
-
-func _on_CharacterBattleManager_turn_ended(character : CharacterData):
-	emit_signal("turn_ended", character)
+func _on_turn_ended(character : CharacterData):
 	if character == active_character:
 		advance_character_phase()
 
@@ -227,10 +212,9 @@ func _on_CharacterBattleManager_status_updated(character : CharacterData, status
 func _on_CharacterBattleManager_related_status_changed(character : CharacterData, status, origin):
 	_on_EffectManager_apply_status(character, status, origin)
 
-func _on_CharacterBattleManager_character_died(character):
+func _on_character_died(character):
 	if _battle_ended:
 		return
-	emit_signal("character_died", character)
 	var allies_list = team_manager.get_allies(character)
 	var ally_alive = false
 	for ally_character in allies_list:
@@ -265,7 +249,7 @@ func start_next_member_or_team():
 
 func _on_Team_phase_entered(team : String):
 	active_team = team
-	emit_signal("active_team_updated", active_team)
+	EventBus.active_team_updated.emit(active_team)
 	start_next_member_or_team()
 
 func _on_DrawingCards_phase_entered():
@@ -308,9 +292,6 @@ func _on_EffectManager_apply_energy(character, energy, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
 	character_manager.gain_energy(energy)
 
-func _on_EffectManager_add_opportunity(type, source, target):
-	opportunities_manager.add_opportunity(type, source, target)
-
 func _on_EffectManager_add_card_to_hand(card, character):
 	var battle_manager : CharacterBattleManager = _character_manager_map[character]
 	battle_manager.add_card_to_hand(card)
@@ -331,17 +312,8 @@ func _on_EffectManager_draw_from_draw_pile(character, count):
 func _on_EffectManager_spawn_card(card, character):
 	emit_signal("card_spawned", character, card)
 
-func _on_OpportunitiesManager_opportunity_added(opportunity):
-	emit_signal("opportunity_added", opportunity)
-
-func _on_OpportunitiesManager_opportunity_removed(opportunity):
-	emit_signal("opportunity_removed", opportunity)
-
-func _on_OpportunitiesManager_opportunities_reset():
-	emit_signal("opportunities_reset")
-
 func _on_Playing_phase_entered():
-	emit_signal("turn_started", active_character)
+	EventBus.turn_started.emit(active_character)
 
 func _on_DiscardingCards_phase_entered():
 	_end_character_turn(active_character)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://bbq6njx64lo85"]
+
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1_ilbta"]
+[ext_resource type="Resource" uid="uid://dmdt5b0uo124e" path="res://Resources/Cards/Players/Cost0/HitTheMark.tres" id="2_ilbta"]
+
+[resource]
+script = ExtResource("1_ilbta")
+starting_card = ExtResource("2_ilbta")
+destination = 1
+type_tag = "ADD_HIT_THE_MARK"
+amount = 1

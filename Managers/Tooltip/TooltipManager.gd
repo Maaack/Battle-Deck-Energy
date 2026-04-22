@@ -2,15 +2,16 @@ extends Control
 
 
 var tooltip_list_scene = preload("res://Scenes/TooltipList/TooltipList.tscn")
-var definition_library = preload("res://Resources/Common/DefinitionLibrary.tres")
 
 @export var list_position_margin: float = 132
+@onready var file_lister = $FileLister
 
 var key_definition_map : Dictionary = {}
 
 func _reset_key_definition_map():
 	key_definition_map.clear()
-	for definition_data in definition_library.data.values():
+	for path in file_lister.files:
+		var definition_data = load(path)
 		if definition_data is DefinitionData:
 			key_definition_map[definition_data.key] = definition_data
 
@@ -23,6 +24,10 @@ func reset():
 
 func _ready():
 	_reset_key_definition_map()
+	EventBus.card_inspected.connect(_on_card_inspected)
+	EventBus.card_restored.connect(_on_card_restored)
+	EventBus.status_inspected.connect(_on_status_inspected)
+	EventBus.status_restored.connect(_on_status_restored)
 
 func define_key(key:String, list_instance:TooltipListNode2D):
 	if not key in key_definition_map:
@@ -41,7 +46,7 @@ func show_definitions(keys:Array, list_position:Vector2, list_upward:bool = fals
 	for key in keys:
 		define_key(key, tooltip_list_instance)
 
-func inspect_card(card_node:CardNode2D):
+func _on_card_inspected(card_node:CardNode2D):
 	var keys : Array = []
 	var half_width : float = get_rect().size.x / 2.0
 	var half_height : float = get_rect().size.y / 2.0
@@ -64,7 +69,10 @@ func inspect_card(card_node:CardNode2D):
 			list_position = card_node.bottom_left_tooltip_target.global_position
 	show_definitions(keys, list_position, list_upward)
 
-func inspect_status(status_icon:StatusIcon):
+func _on_card_restored(_card_node:CardNode2D):
+	reset()
+
+func _on_status_inspected(status_icon:StatusIcon):
 	var list_position : Vector2 = status_icon.tooltip_target.global_position
 	if list_position.x < list_position_margin:
 		list_position.x = list_position_margin
@@ -72,3 +80,6 @@ func inspect_status(status_icon:StatusIcon):
 		list_position.x = get_rect().size.x - list_position_margin
 	var keys : Array = [status_icon.status_data.type_tag]
 	show_definitions(keys, list_position)
+
+func _on_status_restored(status_icon:StatusIcon):
+	reset()

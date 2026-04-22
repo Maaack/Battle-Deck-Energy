@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DefinitionData" format=3 uid="uid://c5hq2pyjy6fe8"]
 
-[ext_resource type="Script" uid="uid://bb5rc5s78cwjd" path="res://Resources/Definitions/DefinitionData.gd" id="1"]
+[ext_resource type="Script" uid="uid://bb5rc5s78cwjd" path="res://Resources/Common/DefinitionData.gd" id="1"]
 
 [resource]
 script = ExtResource("1")
 key = "POISONED"
 term = "Poisoned"
-definition = "Applies damage equal to value. Loses [b]1[/b] every turn."
+definition = "Applies damage equal to value at start of the next turn. Loses [b]1[/b] every turn."

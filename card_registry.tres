@@ -1,0 +1,805 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://byk41l4nrffk0"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_q6nog"]
+
+[resource]
+script = ExtResource("1_q6nog")
+_class_restriction = &"\"res://Resources/Cards/CardData.gd\""
+_scan_directory = "res://Resources/Cards/Players"
+_recursive_scan = true
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://048ib4oov4xw": &"Grab",
+&"uid://0jpth2uj0eoj": &"LightningShield",
+&"uid://24x2atk4od42": &"Discharge",
+&"uid://3u48infoufau": &"PoisonDart",
+&"uid://4el0ntttvm3a": &"HomeBrew",
+&"uid://6ep1w4m0f2c0": &"PolishShields",
+&"uid://6kw8pwr001jv": &"Castle",
+&"uid://85duo4xhe6d1": &"Flex",
+&"uid://88dykjuwa6u3": &"ThrowDagger",
+&"uid://8chaspth5l4n": &"Dissect",
+&"uid://8tuj6ahhsp5r": &"Plot",
+&"uid://b03lr3y7usljf": &"Rush",
+&"uid://b17bvjxh6ybt7": &"Slash",
+&"uid://b2wa7cj2lp2hq": &"Dodge",
+&"uid://b37hyjjhwf11k": &"ShieldBreak",
+&"uid://b3dv2es5tjoyq": &"Sentry",
+&"uid://b6jljbo5qi0vj": &"Medicine",
+&"uid://b6yobwg43mbi2": &"Cinder",
+&"uid://b7qimkkuutefs": &"Recoup",
+&"uid://b8b05f81c4574": &"Break",
+&"uid://bajokdmlkvgmr": &"ChainLightning",
+&"uid://bbq3s6tdpt5ep": &"CheapProtection",
+&"uid://bc3pievjodnnq": &"ChemicalBurn",
+&"uid://bc3yuds8bher3": &"PillowFort",
+&"uid://bd381tanlmxa7": &"Unlucky",
+&"uid://bdvhmsre4wp5v": &"SecondWindCard",
+&"uid://beq7rjyjlaiqr": &"ToxicSpit",
+&"uid://bjldbikae88t4": &"Burst",
+&"uid://bkl1h7qdmu82j": &"ShatterDefenses",
+&"uid://bmjbhoioud1si": &"Charge",
+&"uid://bni4pcw6xxjtc": &"Wreck_2",
+&"uid://botsqhwm8pws1": &"Twofold",
+&"uid://bpmu5uje6jxt2": &"Skysword",
+&"uid://btb3jx8vpuwkb": &"Research",
+&"uid://c0og5x4s4kd1v": &"Ironclad",
+&"uid://c150qgj1xaapn": &"LightArmor",
+&"uid://c466hpb37s1y": &"HitAndRun",
+&"uid://c4wprnh7kf60y": &"Endure",
+&"uid://c52gppuq8mf64": &"LightShield",
+&"uid://c5eubmfhnrmjb": &"QuickCover",
+&"uid://c6hk41ss3g8x8": &"SwiftStrike",
+&"uid://c6sko4fqksy14": &"ShieldBash",
+&"uid://c8613kiadwfmo": &"Wreck",
+&"uid://c8d02dukvw74d": &"VenomVial",
+&"uid://ccjbifsg2251x": &"LinedUp",
+&"uid://cdiosqol8ia6g": &"Recall",
+&"uid://ceoynp0ejeppy": &"AThousandCuts",
+&"uid://cgjxstiw4bfom": &"Biohazard",
+&"uid://cilv4un3umw3j": &"ThinkAhead",
+&"uid://ciqwvwbl2yhj6": &"PowerUp",
+&"uid://ck61sj782qdon": &"Reforge",
+&"uid://cki1hobydmc0w": &"Sniped",
+&"uid://cl0a4nm3tryte": &"Initial",
+&"uid://cmw8qxfre5qqs": &"CallOut",
+&"uid://cnmbl3y03bh1d": &"Brew",
+&"uid://cos0w4827pcwp": &"DoubleDeal",
+&"uid://cotfdl153c5d0": &"DoubleStrike",
+&"uid://cp6efuyrmw5w5": &"SturdyShield",
+&"uid://cquh66dg2w5s7": &"DeathBlow",
+&"uid://cvk8wwg8q4q7q": &"ShieldWall",
+&"uid://cvtwl0ikdl6n1": &"Buffer",
+&"uid://d1ora0u5cbm8x": &"Sweep",
+&"uid://d231gt886cl5t": &"Shield",
+&"uid://d363jhfyg0upq": &"ThreeWay",
+&"uid://d3b4x1x8s6xry": &"FastFooted",
+&"uid://d6e1dnrxlkdl": &"NotNowNotEver",
+&"uid://da0h4uxm1rrdm": &"StabToDeath",
+&"uid://da4kmai3ofeu3": &"BrickByBrick",
+&"uid://darlb6v8w1dad": &"BrazenCard",
+&"uid://dbl5yqqm03t7y": &"Kickoff",
+&"uid://de4d874ynexmp": &"StrongShield",
+&"uid://dgjkhtpb581jm": &"BurnOut",
+&"uid://dgpdkq004wvun": &"WindUp",
+&"uid://diagju74vu8g": &"CutsAndBurns",
+&"uid://dj47nhh2om4x": &"DrawArrows",
+&"uid://dl7qtxhwymhv0": &"DoubleEdgedSword",
+&"uid://dleokjkiyfp06": &"LastStand",
+&"uid://dlrcgghckjd0p": &"QuickStrike",
+&"uid://dmdt5b0uo124e": &"HitTheMark",
+&"uid://dn0118bn617nm": &"FireShield",
+&"uid://dn7paiefl78h8": &"SerpentsBlade",
+&"uid://dppkf3awgrqoc": &"Hustle",
+&"uid://dpplj2q408ay1": &"Scorch",
+&"uid://dqoxvpfgs1i7g": &"Impenetrable",
+&"uid://dt12y50rrnqpi": &"LethalNeedle",
+&"uid://dt7l3df5gfaot": &"MagicPill",
+&"uid://dtoa2668k8ay": &"Execute",
+&"uid://dv0amt38r456f": &"Trip",
+&"uid://dv3qfo2jc7top": &"HeavyArmor",
+&"uid://dvaixqt84i0at": &"Miasma",
+&"uid://dvqip0qpmvtgl": &"PunchCombo",
+&"uid://dwdy7sf6qg77l": &"Disarm",
+&"uid://dwfbf7n2u2x0x": &"Sharpen",
+&"uid://dwluljbd50p1": &"DoubleLayer",
+&"uid://dwpvj3elviu61": &"Hyperfocus",
+&"uid://dyq7drd2s0t7l": &"Cripple",
+&"uid://e7nm5b6mc1dq": &"Scan",
+&"uid://exaat02tip24": &"Taint",
+&"uid://hb02fyrtde14": &"Heartburn",
+&"uid://iwajgypi5cye": &"TickTick",
+&"uid://n65f1sfd042f": &"CloakAndDagger",
+&"uid://pfky413n0rsu": &"FourthWall",
+&"uid://pxlnb6d1u6fk": &"Volley",
+&"uid://smuj5f0hp8u7": &"Shroom",
+&"uid://sww1ott8nx6m": &"HideAce",
+&"uid://tmlagkvdcr62": &"KnivesOut",
+&"uid://ui8qm0nmabkm": &"Erupt",
+&"uid://uxub2rnlohfq": &"Bloodletting",
+&"uid://v8dp7oj5odb3": &"Find Passion",
+&"uid://wsfj7bcpa1w5": &"Vigilance"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"AThousandCuts": &"uid://ceoynp0ejeppy",
+&"Biohazard": &"uid://cgjxstiw4bfom",
+&"Bloodletting": &"uid://uxub2rnlohfq",
+&"BrazenCard": &"uid://darlb6v8w1dad",
+&"Break": &"uid://b8b05f81c4574",
+&"Brew": &"uid://cnmbl3y03bh1d",
+&"BrickByBrick": &"uid://da4kmai3ofeu3",
+&"Buffer": &"uid://cvtwl0ikdl6n1",
+&"BurnOut": &"uid://dgjkhtpb581jm",
+&"Burst": &"uid://bjldbikae88t4",
+&"CallOut": &"uid://cmw8qxfre5qqs",
+&"Castle": &"uid://6kw8pwr001jv",
+&"ChainLightning": &"uid://bajokdmlkvgmr",
+&"Charge": &"uid://bmjbhoioud1si",
+&"CheapProtection": &"uid://bbq3s6tdpt5ep",
+&"ChemicalBurn": &"uid://bc3pievjodnnq",
+&"Cinder": &"uid://b6yobwg43mbi2",
+&"CloakAndDagger": &"uid://n65f1sfd042f",
+&"Cripple": &"uid://dyq7drd2s0t7l",
+&"CutsAndBurns": &"uid://diagju74vu8g",
+&"DeathBlow": &"uid://cquh66dg2w5s7",
+&"Disarm": &"uid://dwdy7sf6qg77l",
+&"Discharge": &"uid://24x2atk4od42",
+&"Dissect": &"uid://8chaspth5l4n",
+&"Dodge": &"uid://b2wa7cj2lp2hq",
+&"DoubleDeal": &"uid://cos0w4827pcwp",
+&"DoubleEdgedSword": &"uid://dl7qtxhwymhv0",
+&"DoubleLayer": &"uid://dwluljbd50p1",
+&"DoubleStrike": &"uid://cotfdl153c5d0",
+&"DrawArrows": &"uid://dj47nhh2om4x",
+&"Endure": &"uid://c4wprnh7kf60y",
+&"Erupt": &"uid://ui8qm0nmabkm",
+&"Execute": &"uid://dtoa2668k8ay",
+&"FastFooted": &"uid://d3b4x1x8s6xry",
+&"Find Passion": &"uid://v8dp7oj5odb3",
+&"FireShield": &"uid://dn0118bn617nm",
+&"Flex": &"uid://85duo4xhe6d1",
+&"FourthWall": &"uid://pfky413n0rsu",
+&"Grab": &"uid://048ib4oov4xw",
+&"Heartburn": &"uid://hb02fyrtde14",
+&"HeavyArmor": &"uid://dv3qfo2jc7top",
+&"HideAce": &"uid://sww1ott8nx6m",
+&"HitAndRun": &"uid://c466hpb37s1y",
+&"HitTheMark": &"uid://dmdt5b0uo124e",
+&"HomeBrew": &"uid://4el0ntttvm3a",
+&"Hustle": &"uid://dppkf3awgrqoc",
+&"Hyperfocus": &"uid://dwpvj3elviu61",
+&"Impenetrable": &"uid://dqoxvpfgs1i7g",
+&"Initial": &"uid://cl0a4nm3tryte",
+&"Ironclad": &"uid://c0og5x4s4kd1v",
+&"Kickoff": &"uid://dbl5yqqm03t7y",
+&"KnivesOut": &"uid://tmlagkvdcr62",
+&"LastStand": &"uid://dleokjkiyfp06",
+&"LethalNeedle": &"uid://dt12y50rrnqpi",
+&"LightArmor": &"uid://c150qgj1xaapn",
+&"LightShield": &"uid://c52gppuq8mf64",
+&"LightningShield": &"uid://0jpth2uj0eoj",
+&"LinedUp": &"uid://ccjbifsg2251x",
+&"MagicPill": &"uid://dt7l3df5gfaot",
+&"Medicine": &"uid://b6jljbo5qi0vj",
+&"Miasma": &"uid://dvaixqt84i0at",
+&"NotNowNotEver": &"uid://d6e1dnrxlkdl",
+&"PillowFort": &"uid://bc3yuds8bher3",
+&"Plot": &"uid://8tuj6ahhsp5r",
+&"PoisonDart": &"uid://3u48infoufau",
+&"PolishShields": &"uid://6ep1w4m0f2c0",
+&"PowerUp": &"uid://ciqwvwbl2yhj6",
+&"PunchCombo": &"uid://dvqip0qpmvtgl",
+&"QuickCover": &"uid://c5eubmfhnrmjb",
+&"QuickStrike": &"uid://dlrcgghckjd0p",
+&"Recall": &"uid://cdiosqol8ia6g",
+&"Recoup": &"uid://b7qimkkuutefs",
+&"Reforge": &"uid://ck61sj782qdon",
+&"Research": &"uid://btb3jx8vpuwkb",
+&"Rush": &"uid://b03lr3y7usljf",
+&"Scan": &"uid://e7nm5b6mc1dq",
+&"Scorch": &"uid://dpplj2q408ay1",
+&"SecondWindCard": &"uid://bdvhmsre4wp5v",
+&"Sentry": &"uid://b3dv2es5tjoyq",
+&"SerpentsBlade": &"uid://dn7paiefl78h8",
+&"Sharpen": &"uid://dwfbf7n2u2x0x",
+&"ShatterDefenses": &"uid://bkl1h7qdmu82j",
+&"Shield": &"uid://d231gt886cl5t",
+&"ShieldBash": &"uid://c6sko4fqksy14",
+&"ShieldBreak": &"uid://b37hyjjhwf11k",
+&"ShieldWall": &"uid://cvk8wwg8q4q7q",
+&"Shroom": &"uid://smuj5f0hp8u7",
+&"Skysword": &"uid://bpmu5uje6jxt2",
+&"Slash": &"uid://b17bvjxh6ybt7",
+&"Sniped": &"uid://cki1hobydmc0w",
+&"StabToDeath": &"uid://da0h4uxm1rrdm",
+&"StrongShield": &"uid://de4d874ynexmp",
+&"SturdyShield": &"uid://cp6efuyrmw5w5",
+&"Sweep": &"uid://d1ora0u5cbm8x",
+&"SwiftStrike": &"uid://c6hk41ss3g8x8",
+&"Taint": &"uid://exaat02tip24",
+&"ThinkAhead": &"uid://cilv4un3umw3j",
+&"ThreeWay": &"uid://d363jhfyg0upq",
+&"ThrowDagger": &"uid://88dykjuwa6u3",
+&"TickTick": &"uid://iwajgypi5cye",
+&"ToxicSpit": &"uid://beq7rjyjlaiqr",
+&"Trip": &"uid://dv0amt38r456f",
+&"Twofold": &"uid://botsqhwm8pws1",
+&"Unlucky": &"uid://bd381tanlmxa7",
+&"VenomVial": &"uid://c8d02dukvw74d",
+&"Vigilance": &"uid://wsfj7bcpa1w5",
+&"Volley": &"uid://pxlnb6d1u6fk",
+&"WindUp": &"uid://dgpdkq004wvun",
+&"Wreck": &"uid://c8613kiadwfmo",
+&"Wreck_2": &"uid://bni4pcw6xxjtc"
+})
+_property_index = Dictionary[StringName, Dictionary]({
+&"energy_cost": {
+0: {
+&"Bloodletting": true,
+&"BrazenCard": true,
+&"BurnOut": true,
+&"Burst": true,
+&"CallOut": true,
+&"CheapProtection": true,
+&"ChemicalBurn": true,
+&"Disarm": true,
+&"Dodge": true,
+&"Find Passion": true,
+&"HideAce": true,
+&"HitTheMark": true,
+&"HomeBrew": true,
+&"Hustle": true,
+&"Initial": true,
+&"Kickoff": true,
+&"LastStand": true,
+&"LightArmor": true,
+&"LightShield": true,
+&"Plot": true,
+&"SecondWindCard": true,
+&"Sentry": true,
+&"ShieldBreak": true,
+&"ThinkAhead": true,
+&"ThrowDagger": true,
+&"ToxicSpit": true,
+&"VenomVial": true,
+&"Vigilance": true,
+&"WindUp": true
+},
+1: {
+&"Break": true,
+&"Brew": true,
+&"Buffer": true,
+&"Castle": true,
+&"Charge": true,
+&"Cinder": true,
+&"CloakAndDagger": true,
+&"CutsAndBurns": true,
+&"Discharge": true,
+&"Dissect": true,
+&"DoubleStrike": true,
+&"DrawArrows": true,
+&"Endure": true,
+&"Execute": true,
+&"FastFooted": true,
+&"Flex": true,
+&"Grab": true,
+&"HeavyArmor": true,
+&"HitAndRun": true,
+&"KnivesOut": true,
+&"LethalNeedle": true,
+&"MagicPill": true,
+&"Medicine": true,
+&"PillowFort": true,
+&"PoisonDart": true,
+&"PolishShields": true,
+&"PowerUp": true,
+&"PunchCombo": true,
+&"QuickCover": true,
+&"QuickStrike": true,
+&"Recall": true,
+&"Recoup": true,
+&"Research": true,
+&"Rush": true,
+&"Scan": true,
+&"Sharpen": true,
+&"Shield": true,
+&"ShieldBash": true,
+&"Shroom": true,
+&"Slash": true,
+&"Sniped": true,
+&"StrongShield": true,
+&"SturdyShield": true,
+&"Sweep": true,
+&"SwiftStrike": true,
+&"Taint": true,
+&"TickTick": true,
+&"Trip": true,
+&"Wreck": true
+},
+2: {
+&"Biohazard": true,
+&"BrickByBrick": true,
+&"ChainLightning": true,
+&"Cripple": true,
+&"DoubleDeal": true,
+&"DoubleEdgedSword": true,
+&"DoubleLayer": true,
+&"Erupt": true,
+&"FireShield": true,
+&"FourthWall": true,
+&"Heartburn": true,
+&"Hyperfocus": true,
+&"Ironclad": true,
+&"LightningShield": true,
+&"LinedUp": true,
+&"Miasma": true,
+&"Reforge": true,
+&"Scorch": true,
+&"SerpentsBlade": true,
+&"ShatterDefenses": true,
+&"ShieldWall": true,
+&"Skysword": true,
+&"StabToDeath": true,
+&"ThreeWay": true,
+&"Twofold": true,
+&"Unlucky": true,
+&"Wreck_2": true
+},
+3: {
+&"AThousandCuts": true,
+&"DeathBlow": true,
+&"Impenetrable": true,
+&"NotNowNotEver": true,
+&"Volley": true
+}
+},
+&"title": {
+"A Thousand Cuts": {
+&"AThousandCuts": true
+},
+"Backstab": {
+&"HitAndRun": true
+},
+"Biohazard": {
+&"Biohazard": true
+},
+"Bloodletting": {
+&"Bloodletting": true
+},
+"Brick By Brick": {
+&"BrickByBrick": true
+},
+"Buffer": {
+&"Buffer": true
+},
+"Burn Out": {
+&"BurnOut": true
+},
+"Burst": {
+&"Burst": true
+},
+"Call Out": {
+&"CallOut": true
+},
+"Castle": {
+&"Castle": true
+},
+"Chain Lightning": {
+&"ChainLightning": true
+},
+"Chain Up": {
+&"Grab": true
+},
+"Charge": {
+&"Charge": true
+},
+"Cheap Protection": {
+&"CheapProtection": true
+},
+"Chemical Burn": {
+&"ChemicalBurn": true
+},
+"Cinder": {
+&"Cinder": true
+},
+"Cloak And Dagger": {
+&"CloakAndDagger": true
+},
+"Cuts and Burns": {
+&"CutsAndBurns": true
+},
+"Death Blow": {
+&"DeathBlow": true
+},
+"Deep Cut": {
+&"Cripple": true
+},
+"Disarm": {
+&"Disarm": true
+},
+"Discharge": {
+&"Discharge": true
+},
+"Dissect": {
+&"Dissect": true
+},
+"Dodge": {
+&"Dodge": true
+},
+"Double Deal": {
+&"DoubleDeal": true
+},
+"Double Layer": {
+&"DoubleLayer": true
+},
+"Double Tap": {
+&"DoubleStrike": true
+},
+"Double-Edged Sword": {
+&"DoubleEdgedSword": true
+},
+"Draw Arrows": {
+&"DrawArrows": true
+},
+"En Garde": {
+&"StrongShield": true
+},
+"Endure": {
+&"Endure": true
+},
+"Execute": {
+&"Execute": true
+},
+"Extract": {
+&"Brew": true
+},
+"Fast Footed": {
+&"FastFooted": true
+},
+"Fire Shield": {
+&"FireShield": true
+},
+"Flex": {
+&"Flex": true
+},
+"Fourth Wall": {
+&"FourthWall": true
+},
+"Fresh Coat": {
+&"Vigilance": true
+},
+"Fuel the Fire": {
+&"Erupt": true
+},
+"Good Grip": {
+&"SturdyShield": true
+},
+"Grab": {
+&"WindUp": true
+},
+"Heartburn": {
+&"Heartburn": true
+},
+"Heavy Armor": {
+&"HeavyArmor": true
+},
+"Hide Ace": {
+&"HideAce": true
+},
+"Hit the Mark": {
+&"HitTheMark": true
+},
+"Home Brew": {
+&"HomeBrew": true
+},
+"Hustle": {
+&"Hustle": true
+},
+"Hyperfocus": {
+&"Hyperfocus": true
+},
+"Impenetrable": {
+&"Impenetrable": true
+},
+"Initial": {
+&"Initial": true
+},
+"Ironclad": {
+&"Ironclad": true
+},
+"Kickoff": {
+&"Kickoff": true
+},
+"Knives Out": {
+&"KnivesOut": true
+},
+"Last Stand": {
+&"LastStand": true
+},
+"Lethal Needle": {
+&"LethalNeedle": true
+},
+"Light Armor": {
+&"LightArmor": true
+},
+"Light Shield": {
+&"LightShield": true
+},
+"Lightning Shield": {
+&"LightningShield": true
+},
+"Lined Up": {
+&"LinedUp": true
+},
+"Magic Pill": {
+&"MagicPill": true
+},
+"Medicine": {
+&"Medicine": true
+},
+"Miasma": {
+&"Miasma": true
+},
+"Not Now, Not Ever": {
+&"NotNowNotEver": true
+},
+"Pillow Fort": {
+&"PillowFort": true
+},
+"Plot": {
+&"Plot": true
+},
+"Poison Dart": {
+&"PoisonDart": true
+},
+"Polish Shields": {
+&"PolishShields": true
+},
+"Power Up": {
+&"PowerUp": true
+},
+"Preprocess": {
+&"ThinkAhead": true
+},
+"Quick Cover": {
+&"QuickCover": true
+},
+"Quick Strike": {
+&"QuickStrike": true
+},
+"Recall": {
+&"Recall": true
+},
+"Recoup": {
+&"Recoup": true
+},
+"Reforge": {
+&"Reforge": true
+},
+"Research": {
+&"Research": true
+},
+"Rush": {
+&"Rush": true
+},
+"Scan": {
+&"Scan": true
+},
+"Scorch": {
+&"Scorch": true
+},
+"Second Wind": {
+&"SecondWindCard": true
+},
+"Sentry": {
+&"Sentry": true
+},
+"Serpent's Blade": {
+&"SerpentsBlade": true
+},
+"Sharpen": {
+&"Sharpen": true
+},
+"Shatter": {
+&"ShatterDefenses": true
+},
+"Shield": {
+&"Shield": true
+},
+"Shield Bash": {
+&"ShieldBash": true
+},
+"Shield Break": {
+&"ShieldBreak": true
+},
+"Shield Wall": {
+&"ShieldWall": true
+},
+"Shroom": {
+&"Shroom": true
+},
+"Slash": {
+&"Slash": true
+},
+"Snipe": {
+&"Sniped": true
+},
+"Stab to Death": {
+&"StabToDeath": true
+},
+"Sweep": {
+&"Sweep": true
+},
+"Swift Strike": {
+&"SwiftStrike": true
+},
+"Swiss Army Knife": {
+&"Skysword": true
+},
+"Sword Break": {
+&"Wreck": true
+},
+"Taint": {
+&"Taint": true
+},
+"The One-Two": {
+&"PunchCombo": true
+},
+"Three Way": {
+&"ThreeWay": true
+},
+"Throw Knife": {
+&"ThrowDagger": true
+},
+"Tick Tick": {
+&"TickTick": true
+},
+"Toxic Spit": {
+&"ToxicSpit": true
+},
+"Trip": {
+&"Trip": true
+},
+"Twofold": {
+&"Twofold": true
+},
+"Unlucky": {
+&"Unlucky": true
+},
+"Venom Vial": {
+&"VenomVial": true
+},
+"Volley": {
+&"Volley": true
+},
+"Warhammer": {
+&"Break": true
+},
+"Well Prepared": {
+&"BrazenCard": true
+},
+"With Passion": {
+&"Find Passion": true
+},
+"Wrench": {
+&"Wreck_2": true
+}
+},
+&"type": {
+1: {
+&"AThousandCuts": true,
+&"Break": true,
+&"CallOut": true,
+&"ChainLightning": true,
+&"Charge": true,
+&"ChemicalBurn": true,
+&"Cripple": true,
+&"CutsAndBurns": true,
+&"DeathBlow": true,
+&"Disarm": true,
+&"Discharge": true,
+&"Dissect": true,
+&"DoubleDeal": true,
+&"DoubleEdgedSword": true,
+&"DoubleStrike": true,
+&"Execute": true,
+&"Grab": true,
+&"HitAndRun": true,
+&"HitTheMark": true,
+&"Initial": true,
+&"Kickoff": true,
+&"LethalNeedle": true,
+&"LinedUp": true,
+&"Miasma": true,
+&"PoisonDart": true,
+&"PunchCombo": true,
+&"QuickStrike": true,
+&"Scorch": true,
+&"Sentry": true,
+&"SerpentsBlade": true,
+&"ShatterDefenses": true,
+&"ShieldBash": true,
+&"ShieldBreak": true,
+&"Skysword": true,
+&"Slash": true,
+&"Sniped": true,
+&"StabToDeath": true,
+&"Sweep": true,
+&"SwiftStrike": true,
+&"ThreeWay": true,
+&"ThrowDagger": true,
+&"ToxicSpit": true,
+&"Trip": true,
+&"Unlucky": true,
+&"Volley": true,
+&"WindUp": true,
+&"Wreck": true,
+&"Wreck_2": true
+},
+2: {
+&"BrickByBrick": true,
+&"Castle": true,
+&"CheapProtection": true,
+&"CloakAndDagger": true,
+&"Dodge": true,
+&"DoubleLayer": true,
+&"FastFooted": true,
+&"FireShield": true,
+&"FourthWall": true,
+&"HeavyArmor": true,
+&"Impenetrable": true,
+&"Ironclad": true,
+&"LastStand": true,
+&"LightArmor": true,
+&"LightShield": true,
+&"LightningShield": true,
+&"NotNowNotEver": true,
+&"PillowFort": true,
+&"QuickCover": true,
+&"Recoup": true,
+&"Shield": true,
+&"ShieldWall": true,
+&"StrongShield": true,
+&"SturdyShield": true
+},
+3: {
+&"Biohazard": true,
+&"Bloodletting": true,
+&"BrazenCard": true,
+&"Brew": true,
+&"Buffer": true,
+&"BurnOut": true,
+&"Burst": true,
+&"Cinder": true,
+&"DrawArrows": true,
+&"Endure": true,
+&"Erupt": true,
+&"Find Passion": true,
+&"Flex": true,
+&"Heartburn": true,
+&"HideAce": true,
+&"HomeBrew": true,
+&"Hustle": true,
+&"Hyperfocus": true,
+&"KnivesOut": true,
+&"MagicPill": true,
+&"Medicine": true,
+&"Plot": true,
+&"PolishShields": true,
+&"PowerUp": true,
+&"Recall": true,
+&"Reforge": true,
+&"Research": true,
+&"Rush": true,
+&"Scan": true,
+&"SecondWindCard": true,
+&"Sharpen": true,
+&"Shroom": true,
+&"Taint": true,
+&"ThinkAhead": true,
+&"TickTick": true,
+&"Twofold": true,
+&"VenomVial": true,
+&"Vigilance": true
+}
+}
+})

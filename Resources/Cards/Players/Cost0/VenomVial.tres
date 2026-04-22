@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c8d02dukvw74d"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_f086w"]
+[ext_resource type="Resource" uid="uid://cioem7dswktli" path="res://Resources/Effects/StatusEffects/ApplyVenomous2.tres" id="2_f086w"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_3ephh"]
+[ext_resource type="Texture2D" uid="uid://do57s66m64kix" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Venom/venom-vial.png" id="5"]
+
+[resource]
+script = ExtResource("1")
+title = "Venom Vial"
+description = "Apply
+ %APPLY_VENOMOUS Venomous.
+Exhaust."
+energy_cost = 0
+icon = ExtResource("5")
+base_color = Color(0.894118, 0.580392, 0.227451, 1)
+effects = Array[ExtResource("1_f086w")]([ExtResource("2_f086w"), ExtResource("3_3ephh")])
+type = 3

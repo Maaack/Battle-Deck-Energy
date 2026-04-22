@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dppkf3awgrqoc"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_hr63s"]
+[ext_resource type="Resource" uid="uid://cw7b2ckh11itt" path="res://Resources/Effects/StatusEffects/ApplyHastened.tres" id="3_hr63s"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_nf40n"]
+[ext_resource type="Texture2D" uid="uid://s0h501c2dh7b" path="res://Assets/Mixed/CardIcons/SkillGlowNew/stopwatch.png" id="4"]
+[ext_resource type="Resource" uid="uid://bq2vf7gq4q8mc" path="res://Resources/Effects/CardEffects/MaxComboEffect.tres" id="4_hr63s"]
+
+[resource]
+script = ExtResource("1")
+title = "Hustle"
+description = "Next turn, draw %APPLY_HASTENED extra cards.
+Exhaust.
+Max Combo."
+energy_cost = 0
+icon = ExtResource("4")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_hr63s")]([ExtResource("3_hr63s"), ExtResource("3_nf40n"), ExtResource("4_hr63s")])
+type = 3

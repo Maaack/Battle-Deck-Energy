@@ -1,9 +1,5 @@
 extends HBoxContainer
 
-
-signal status_inspected(status_icon)
-signal status_forgotten(status_icon)
-
 @onready var status_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusIcon/StatusIcon.tscn")
 
 var status_map : Dictionary = {}
@@ -28,7 +24,7 @@ func _on_StatusIcon_tree_exited(status_icon:StatusIcon):
 	status_map.erase(status_icon.status_data.type_tag)
 
 func _on_StatusIcon_mouse_entered(status_icon:StatusIcon):
-	emit_signal("status_inspected", status_icon)
+	EventBus.status_inspected.emit(status_icon)
 
 func _on_StatusIcon_mouse_exited(status_icon:StatusIcon):
-	emit_signal("status_forgotten", status_icon)
+	EventBus.status_restored.emit(status_icon)

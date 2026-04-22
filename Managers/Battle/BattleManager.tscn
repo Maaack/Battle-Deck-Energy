@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://baudhevk8fu4j"]
 
 [ext_resource type="Script" uid="uid://bylxbj3wxemp8" path="res://Managers/Battle/BattleManager.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Managers/BattlePhase/PhaseManager.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://Managers/Effects/EffectManager.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://Managers/BattlePhase/Phase.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://Managers/Team/TeamManager.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://Managers/Opportunities/OpportunitiesManager.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://bc6rd4o3aft18" path="res://Managers/BattlePhase/PhaseManager.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bbjw87npwg4b" path="res://Managers/Effects/EffectManager.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bt7mp3uhc3cca" path="res://Managers/BattlePhase/Phase.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://i5pnoxogmqdc" path="res://Managers/Team/TeamManager.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://it6t0a8kunt0" path="res://Managers/Opportunities/OpportunitiesManager.tscn" id="7"]
 
 [node name="BattleManager" type="Node" unique_id=729577552]
 script = ExtResource("1")
@@ -43,7 +43,8 @@ starting_phase_tier = 0
 
 [node name="DiscardingCards" parent="CharacterPhaseManager" unique_id=1986870074 instance=ExtResource("5")]
 
-[node name="EffectManager" parent="." unique_id=1282661800 instance=ExtResource("3")]
+[node name="EffectManager" parent="." unique_id=1282661800 node_paths=PackedStringArray("opportunities_manager") instance=ExtResource("3")]
+opportunities_manager = NodePath("../OpportunitiesManager")
 
 [node name="TeamManager" parent="." unique_id=64973650 instance=ExtResource("6")]
 
@@ -62,12 +63,8 @@ starting_phase_tier = 0
 [connection signal="add_card_to_discard_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_discard_pile"]
 [connection signal="add_card_to_draw_pile" from="EffectManager" to="." method="_on_EffectManager_add_card_to_draw_pile"]
 [connection signal="add_card_to_hand" from="EffectManager" to="." method="_on_EffectManager_add_card_to_hand"]
-[connection signal="add_opportunity" from="EffectManager" to="." method="_on_EffectManager_add_opportunity"]
 [connection signal="apply_energy" from="EffectManager" to="." method="_on_EffectManager_apply_energy"]
 [connection signal="apply_health" from="EffectManager" to="." method="_on_EffectManager_apply_health"]
 [connection signal="apply_status" from="EffectManager" to="." method="_on_EffectManager_apply_status"]
 [connection signal="draw_from_draw_pile" from="EffectManager" to="." method="_on_EffectManager_draw_from_draw_pile"]
 [connection signal="spawn_card" from="EffectManager" to="." method="_on_EffectManager_spawn_card"]
-[connection signal="opportunities_reset" from="OpportunitiesManager" to="." method="_on_OpportunitiesManager_opportunities_reset"]
-[connection signal="opportunity_added" from="OpportunitiesManager" to="." method="_on_OpportunitiesManager_opportunity_added"]
-[connection signal="opportunity_removed" from="OpportunitiesManager" to="." method="_on_OpportunitiesManager_opportunity_removed"]

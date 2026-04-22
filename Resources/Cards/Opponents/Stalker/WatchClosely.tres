@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cdvc1maefo8e0"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_kos1v"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_e6lbk"]
+[ext_resource type="Texture2D" uid="uid://ckxf1ny7u2wrs" path="res://Assets/Mixed/CardIcons/AttackGlowNew/binoculars.png" id="3_i8p3m"]
+[ext_resource type="Resource" uid="uid://b1es8gpjvk6b2" path="res://Resources/Effects/StatusEffects/RetreatDefendEffect4.tres" id="3_xldqv"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_xldqv"]
+
+[resource]
+script = ExtResource("4_xldqv")
+title = "Watch Closely"
+description = "Deal %ATTACK Damage over [b]2[/b] strikes.
+Block %DEFEND Damage."
+energy_cost = 2
+icon = ExtResource("3_i8p3m")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_kos1v")]([ExtResource("2_e6lbk"), ExtResource("2_e6lbk"), ExtResource("3_xldqv")])

@@ -1,24 +1,9 @@
-[gd_resource type="Resource" script_class="CommonData" format=3 uid="uid://brlsba86n34qs"]
+[gd_resource type="Resource" script_class="DeckCollection" format=3 uid="uid://deb2xf76txv07"]
 
-[ext_resource type="Script" uid="uid://ds8dvodm74c0k" path="res://Resources/Common/CommonData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameShieldDeck.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Decks/LamePoisonousDeck.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameFlashDeck.tres" id="4"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameStrikeDeck.tres" id="5"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameMarkingDeck.tres" id="6"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameCrippleDeck.tres" id="7"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameVenomousDeck.tres" id="8"]
-[ext_resource type="Resource" path="res://Resources/Decks/LameBuffDeck.tres" id="10"]
+[ext_resource type="Script" uid="uid://deb2xf76txv07" path="res://Resources/Decks/DeckCollection.gd" id="1"]
+[ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1_fxb6i"]
+[ext_resource type="Resource" uid="uid://ckwhqpci7h3dc" path="res://Resources/Decks/AllCardsDeck.tres" id="2_tin6b"]
 
 [resource]
 script = ExtResource("1")
-data = {
-"Lame Buff Deck": ExtResource("10"),
-"Lame Cripple Deck": ExtResource("7"),
-"Lame Flash Deck": ExtResource("4"),
-"Lame Marking Deck": ExtResource("6"),
-"Lame Poisonous Deck": ExtResource("3"),
-"Lame Shield Deck": ExtResource("2"),
-"Lame Strike Deck": ExtResource("5"),
-"Lame Venomous Deck": ExtResource("8")
-}
+data = Array[ExtResource("1_fxb6i")]([ExtResource("2_tin6b")])

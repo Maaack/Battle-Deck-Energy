@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://14lom2q5h17q"]
 
 [ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Statuses/Fortified.tres" id="2"]
+[ext_resource type="Resource" uid="uid://b4gkpi2vqraki" path="res://Resources/Statuses/Fortified.tres" id="2"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_m5opf"]
 
 [resource]
 script = ExtResource("1")
-starting_statuses = [ExtResource("2")]
+starting_statuses = Array[ExtResource("2_m5opf")]([ExtResource("2")])
 type_tag = "APPLY_FORTIFIED"
 amount = 3

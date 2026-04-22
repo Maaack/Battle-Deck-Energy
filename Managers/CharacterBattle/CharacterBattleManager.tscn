@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cju4jupxwvh0f"]
 
 [ext_resource type="Script" uid="uid://dmdr04gao7ell" path="res://Managers/CharacterBattle/CharacterBattleManager.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Managers/Status/StatusManager.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://Managers/IFF/IFFManager.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bamnkfndwe1g5" path="res://Managers/Status/StatusManager.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dexuy82qlijwa" path="res://Managers/IFF/IFFManager.tscn" id="4"]
 
 [node name="CharacterBattleManager" type="Node" unique_id=1671426448]
 script = ExtResource("1")

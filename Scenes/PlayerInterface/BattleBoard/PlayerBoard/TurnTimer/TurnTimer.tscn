@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://ymqssmdmrtfy"]
 
-[ext_resource type="StyleBox" path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://cehcrbux2a8uf" path="res://Themes/Fonts/EnergyPanel/EnergyPanelStylebox.tres" id="1"]
 [ext_resource type="Script" uid="uid://xc5mdjcig5k" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimer.gd" id="2"]
-[ext_resource type="Animation" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutSlow.tres" id="3"]
+[ext_resource type="Animation" uid="uid://dxfxcelvdmqa0" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutSlow.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://cs7aah5g25avm" path="res://Assets/Mixed/UI/stopwatch2_128x128.png" id="4"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/TurnTimer/TurnTimerPanelDynamicFont.tres" id="5"]
-[ext_resource type="Animation" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerLastSeconds.tres" id="6"]
-[ext_resource type="Animation" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutFast.tres" id="7"]
+[ext_resource type="FontFile" uid="uid://dtngxqcg714vr" path="res://Themes/Fonts/TurnTimer/TurnTimerPanelDynamicFont.tres" id="5"]
+[ext_resource type="Animation" uid="uid://ji2opkujk3lr" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerLastSeconds.tres" id="6"]
+[ext_resource type="Animation" uid="uid://dcjtmfywftw8t" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/TurnTimer/TurnTimerFadeOutFast.tres" id="7"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t7h5n"]
 _data = {
@@ -25,6 +25,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -64.0
 offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
 script = ExtResource("2")
 
 [node name="Panel" type="Panel" parent="." unique_id=1242509622]

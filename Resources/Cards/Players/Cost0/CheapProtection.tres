@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bbq3s6tdpt5ep"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_70uc5"]
+[ext_resource type="Resource" uid="uid://signo6m41cj7" path="res://Resources/Effects/StatusEffects/DefendEffect2.tres" id="2_a1fuk"]
+[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="3_iaop6"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_b5n5s"]
+[ext_resource type="Texture2D" uid="uid://blp3rm0v5v7sj" path="res://Assets/Mixed/CardIcons/DefendGlowNew/shieldcomb.png" id="5_a1fuk"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_b5n5s"]
+
+[resource]
+script = ExtResource("5_b5n5s")
+title = "Cheap Protection"
+description = "Block %DEFEND Damage.
+Retain.
+Combo %COMBO_EFFECTx."
+energy_cost = 0
+icon = ExtResource("5_a1fuk")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_70uc5")]([ExtResource("2_a1fuk"), ExtResource("3_iaop6"), ExtResource("4_b5n5s")])
+type = 2

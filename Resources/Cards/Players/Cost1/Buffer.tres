@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cvtwl0ikdl6n1"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_j4mi3"]
+[ext_resource type="Texture2D" uid="uid://dmvgj3ecepuck" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/stack-shields.png" id="2"]
+[ext_resource type="Resource" uid="uid://le2c7cmsvoog" path="res://Resources/Effects/CardEffects/DefendToBarricadedEffect.tres" id="2_j4mi3"]
+[ext_resource type="Resource" uid="uid://vhqlgwv7qdyx" path="res://Resources/Effects/StatusEffects/ApplyReinforced2.tres" id="3_c87x7"]
+
+[resource]
+script = ExtResource("1")
+title = "Buffer"
+description = "Apply Barricaded equal to active Block.
+Next turn, add %APPLY_REINFORCED Defend actions."
+icon = ExtResource("2")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_j4mi3")]([ExtResource("2_j4mi3"), ExtResource("3_c87x7")])
+type = 3

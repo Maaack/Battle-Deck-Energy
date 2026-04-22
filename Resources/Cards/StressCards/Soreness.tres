@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8ck6x1stgvtv"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/UnplayableEffect.tres" id="2"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_iasqj"]
+[ext_resource type="Resource" uid="uid://dhqqksowvyfkq" path="res://Resources/Effects/CardEffects/UnplayableEffect.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://de71k6w4kyh8g" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/sore.png" id="3"]
 
 [resource]
@@ -10,5 +11,5 @@ title = "Soreness"
 description = "Unplayable."
 icon = ExtResource("3")
 base_color = Color(0.345098, 0.270588, 0.388235, 1)
-effects = [ExtResource("2")]
+effects = Array[ExtResource("1_iasqj")]([ExtResource("2")])
 type = 4

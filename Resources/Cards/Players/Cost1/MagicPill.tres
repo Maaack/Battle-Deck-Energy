@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dt7l3df5gfaot"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_he24t"]
+[ext_resource type="Resource" uid="uid://tehcsortjcq5" path="res://Resources/Effects/CardEffects/CurePoisonedEffect.tres" id="2_oq88n"]
+[ext_resource type="Resource" uid="uid://c7wcgfunolojh" path="res://Resources/Effects/StatusEffects/ApplyHastened2.tres" id="3_81mal"]
+[ext_resource type="Texture2D" uid="uid://bvbd67s4w4ak7" path="res://Assets/Mixed/CardIcons/SkillGlowNew/pill.png" id="4_hwupk"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_5otoc"]
+
+[resource]
+script = ExtResource("5_5otoc")
+title = "Magic Pill"
+description = "Cure Poisoned.
+Next turn, draw %APPLY_HASTENED extra cards."
+icon = ExtResource("4_hwupk")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_he24t")]([ExtResource("2_oq88n"), ExtResource("3_81mal")])
+type = 3

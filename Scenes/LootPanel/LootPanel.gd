@@ -5,8 +5,6 @@ signal skip_loot_pressed
 signal level_completed
 signal view_deck_pressed(deck)
 signal card_collected(card_data)
-signal card_inspected(card_node)
-signal card_forgotten(card_node)
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
@@ -67,12 +65,6 @@ func _on_ViewDeckButton_pressed():
 	if player_data is CharacterData:
 		emit_signal("view_deck_pressed", player_data.deck)
 
-func _on_SelectorCardManager_inspected_on_card(card_node_2d):
-	emit_signal("card_inspected", card_node_2d)
-
-func _on_SelectorCardManager_inspected_off_card(card_node_2d):
-	emit_signal("card_forgotten", card_node_2d)
-
 func _on_SelectorCardManager_clicked_card(card_node : CardNode2D):
 	selected_card = card_node
 	card_manager.hold_focus = false
@@ -92,7 +84,7 @@ func _on_AddCardButton_pressed():
 	card_manager.hold_focus = true
 	selected_card.play_card()
 	await selected_card.animation_completed
-	emit_signal("card_forgotten", selected_card)
+	EventBus.card_restored.emit(selected_card)
 	emit_signal("level_completed")
 
 func _on_CardNode2D_mouse_exited(card_node : CardNode2D):

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dol1ul7ulhklk" path="res://Assets/Sourced/Icons/Game-Icons.net/flamer.png" id="3"]
 [ext_resource type="PackedScene" uid="uid://mnxnb7csdeyi" path="res://Managers/Cards/CardManager.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://goqgq434dine" path="res://Assets/Sourced/Icons/FontAwesome/fire_solid_white.png" id="5"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6"]
 [ext_resource type="Material" uid="uid://csp5cjypgm8jc" path="res://Scenes/ShelterPanel/FireShaderMaterial.tres" id="7"]
 [ext_resource type="Material" uid="uid://b35157g4q7qas" path="res://Scenes/ShelterPanel/FlameParticles2D.tres" id="8"]
 [ext_resource type="AudioStream" uid="uid://ci2yywcw0im6v" path="res://Assets/Sourced/Sounds/260713__daenerys__fire-crackling_loop.ogg" id="9"]

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8tuj6ahhsp5r"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_v32x8"]
+[ext_resource type="Resource" uid="uid://by3i43we1jmrr" path="res://Resources/Effects/CardEffects/DoubleSkillsEffect.tres" id="2_hv6xq"]
+[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="3_ygusw"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_o26te"]
+[ext_resource type="Texture2D" uid="uid://csx12eawiw25k" path="res://Assets/Mixed/CardIcons/SkillGlowNew/drama-masks.png" id="5_vbqda"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_0mh86"]
+
+[resource]
+script = ExtResource("6_0mh86")
+title = "Plot"
+description = "Double Skill actions.
+Retain.
+Exhaust."
+energy_cost = 0
+icon = ExtResource("5_vbqda")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_v32x8")]([ExtResource("2_hv6xq"), ExtResource("3_ygusw"), ExtResource("4_o26te")])
+type = 3

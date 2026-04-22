@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://i1e18v0p2ihl"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/AttackEffect6.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/DeckModEffects/AddHitNerve.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="4"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_gdevg"]
+[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bgj6mu3o5d35" path="res://Resources/Effects/DeckModEffects/AddHitNerve.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://bipjca4pjqj2u" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/scalpel.png" id="5"]
 
 [resource]
@@ -14,4 +15,4 @@ Exhaust."
 energy_cost = 3
 icon = ExtResource("5")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = [ExtResource("2"), ExtResource("3"), ExtResource("4")]
+effects = Array[ExtResource("1_gdevg")]([ExtResource("2"), ExtResource("3"), ExtResource("4")])

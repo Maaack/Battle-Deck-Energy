@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://b72mm4okm43mv"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_4syj5"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_gk4hn"]
+[ext_resource type="Resource" uid="uid://8ue15jiddvcy" path="res://Resources/Cards/Opponents/SpoiledShit/ThrowingStones.tres" id="2_sa4wy"]
+[ext_resource type="Resource" uid="uid://icm1qsh6t4dq" path="res://Resources/Cards/Opponents/SpoiledShit/GlassHouse.tres" id="3_gk4hn"]
+[ext_resource type="Resource" uid="uid://cha25g6w2lii3" path="res://Resources/Cards/Opponents/SpoiledShit/GrandDadsKnife.tres" id="4_4cyel"]
+[ext_resource type="Resource" uid="uid://c2hb4uip5wvrj" path="res://Resources/Cards/Opponents/SpoiledShit/Narcacism.tres" id="5_sa4wy"]
+
+[resource]
+script = ExtResource("1_4syj5")
+nickname = "Spoiled Shit"
+starting_max_health = 21
+starting_max_energy = 2
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_gk4hn")]([ExtResource("2_sa4wy"), ExtResource("2_sa4wy"), ExtResource("2_sa4wy"), ExtResource("2_sa4wy"), ExtResource("3_gk4hn"), ExtResource("3_gk4hn"), ExtResource("3_gk4hn"), ExtResource("3_gk4hn"), ExtResource("4_4cyel"), ExtResource("4_4cyel"), ExtResource("5_sa4wy"), ExtResource("5_sa4wy")])

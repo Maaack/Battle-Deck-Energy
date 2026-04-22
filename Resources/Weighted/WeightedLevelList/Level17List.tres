@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://scuekg50xt3u"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
+[ext_resource type="Resource" uid="uid://c0ukierxf6cuf" path="res://Resources/Levels/Level17/CafeteriaGrapple.tres" id="2_q20e6"]
+[ext_resource type="Resource" uid="uid://dfobw3kdku31t" path="res://Resources/Levels/Level17/CafeteriaRogue.tres" id="3_5x35f"]
+[ext_resource type="Resource" uid="uid://canb7queqdclw" path="res://Resources/Levels/Level17/CafeteriaToxic.tres" id="4_gdmau"]
+
+[resource]
+script = ExtResource("1")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2_q20e6"): 1.0,
+ExtResource("3_5x35f"): 1.0,
+ExtResource("4_gdmau"): 1.0
+})

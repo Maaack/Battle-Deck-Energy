@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cotfdl153c5d0"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_et3ys"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_xepi4"]
+[ext_resource type="Texture2D" uid="uid://6gdfj4i6bfap" path="res://Assets/Mixed/CardIcons/AttackGlowNew/crossed-slashes.png" id="3_bbywy"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="3_xepi4"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_njd2h"]
+
+[resource]
+script = ExtResource("4_njd2h")
+title = "Double Tap"
+description = "Deal %ATTACK Damage over [b]2[/b] strikes.
+Combo %COMBO_EFFECTx."
+icon = ExtResource("3_bbywy")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_et3ys")]([ExtResource("2_xepi4"), ExtResource("2_xepi4"), ExtResource("3_xepi4")])

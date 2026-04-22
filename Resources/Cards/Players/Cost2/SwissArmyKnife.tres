@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bpmu5uje6jxt2"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_i3ybi"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_i3ybi"]
+[ext_resource type="Resource" uid="uid://cw7b2ckh11itt" path="res://Resources/Effects/StatusEffects/ApplyHastened.tres" id="3_hf0nx"]
+[ext_resource type="Resource" uid="uid://brlgc7xpeleep" path="res://Resources/Effects/CardEffects/ComboEffect4.tres" id="4_lhm3d"]
+[ext_resource type="Texture2D" uid="uid://d1gnk75g1rmdj" path="res://Assets/Mixed/CardIcons/AttackGlowNew/swiss-army-knife.png" id="5_s0mvr"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_m8jmp"]
+
+[resource]
+script = ExtResource("6_m8jmp")
+title = "Swiss Army Knife"
+description = "Deal %ATTACK Damage.
+Next turn, draw %APPLY_HASTENED extra cards.
+Combo %COMBO_EFFECTx."
+energy_cost = 2
+icon = ExtResource("5_s0mvr")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_i3ybi")]([ExtResource("2_i3ybi"), ExtResource("3_hf0nx"), ExtResource("4_lhm3d")])

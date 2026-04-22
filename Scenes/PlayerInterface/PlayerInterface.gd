@@ -3,19 +3,11 @@ extends Control
 
 class_name PlayerInterface
 
-signal ending_turn
-signal draw_pile_pressed
-signal discard_pile_pressed
-signal exhaust_pile_pressed
 signal animation_queue_empty
 signal drawing_completed
 signal discard_completed
 signal card_played(card)
 signal card_played_on_opportunity(card, opportunity)
-signal card_inspected(card)
-signal card_forgotten(card)
-signal status_inspected(status_icon)
-signal status_forgotten(status_icon)
 
 enum AnimationType{NONE, DRAWING_FROM_DRAW_PILE, DRAWING_INTO_HAND, SHIFTING, DISCARDING, EXHAUSTING, RESHUFFLING, DRAGGING, PLAYING}
 
@@ -48,21 +40,18 @@ func set_player_data(value:CharacterData):
 	player_data = value
 	PersistentData.log_battle_action("Add player with %d health" % player_data.health)
 	if is_instance_valid(player_data):
+		player_board.player_data = player_data
 		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_draw_pile_size(player_data.deck_size())
 		PersistentData.log_battle_action("Starting at %d draw size" % player_data.deck_size())
 		actions_board.player_data = player_data
 		var interface : CharacterActionsInterface = actions_board.get_actions_instance(player_data)
 		interface.connect("update_opportunity", _on_CardContainer_update_opportunity)
-		interface.connect("status_inspected", _on_StatusIcon_inspected)
-		interface.connect("status_forgotten", _on_StatusIcon_forgotten)
 
 func add_opponent(opponent:CharacterData):
 	PersistentData.log_battle_action("Opponent added %s" % opponent.nickname)
 	var interface  : CharacterActionsInterface = actions_board.add_opponent(opponent)
 	interface.connect("update_opportunity", _on_CardContainer_update_opportunity)
-	interface.connect("status_inspected", _on_StatusIcon_inspected)
-	interface.connect("status_forgotten", _on_StatusIcon_forgotten)
 	return interface
 
 func set_draw_pile_count(count:int):
@@ -118,6 +107,9 @@ func reset_end_turn():
 
 func _ready():
 	animation_queue.delay_timer()
+	EventBus.opportunity_removed.connect(_on_opportunity_removed)
+	EventBus.opportunities_reset.connect(_on_opportunities_reset)
+	EventBus.turn_ended.connect(_on_turn_ended)
 
 func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card_manager.move_card(card_data, transform, 0.1)
@@ -246,8 +238,7 @@ func _on_card_animation_started(animation:CardAnimationData):
 func _on_status_animation_started(animation:StatusAnimationData):
 	_update_status(animation.character_data, animation.status_data, animation.delta)
 
-func _player_ends_turn():
-	emit_signal("ending_turn")
+func _on_turn_ended(_character_data:CharacterData):
 	hand_manager.spread_from_mouse_flag = false
 	card_manager.active = false
 
@@ -301,13 +292,14 @@ func _show_status_update(interface_offset:Vector2, status:StatusData, delta:int)
 	effect_text_instance.position = interface_offset
 	effect_text_instance.set_status_update(status, delta)
 
-func _show_status_update_over_interface(interface:ActionsInterface, status:StatusData, delta:int):
+func _show_status_update_over_interface(interface:CharacterActionsInterface, status:StatusData, delta:int):
 	var interface_center = Vector2(interface.size.x/2, interface.size.y/2)
 	var interface_offset = interface.position + interface_center
 	return _show_status_update(interface_offset, status, delta)
 
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)
+	EventBus.character_died.emit(character)
 	for card in _card_owner_map:
 		var card_owner : CharacterData = _card_owner_map[card]
 		if card_owner == character:
@@ -324,25 +316,12 @@ func start_timer(time : int):
 func start_round():
 	player_board.advance_round_count()
 
-func clear_opportunities():
-	_opportunities_map.clear()
-
-func add_opportunity(opportunity:OpportunityData):
-	var container = actions_board.add_opportunity(opportunity)
-	if is_instance_valid(container):
-		_opportunities_map[opportunity] = container
-
-func remove_opportunity(opportunity:OpportunityData):
-	if not opportunity in _opportunities_map:
-		return
-	actions_board.remove_opportunity(opportunity)
+func _on_opportunity_removed(opportunity:OpportunityData):
 	if _nearest_opportunity == opportunity:
 		_nearest_opportunity = null
-	_opportunities_map.erase(opportunity)
 
-func remove_all_opportunities():
-	actions_board.remove_all_opportunities()
-	clear_opportunities()
+func _on_opportunities_reset():
+	_nearest_opportunity = null
 
 func _on_PlayerInterface_gui_input(event):
 	if event is InputEventMouseMotion:
@@ -357,13 +336,13 @@ func _on_PlayerInterface_gui_input(event):
 			if nearest_opportunity == _nearest_opportunity:
 				return
 			if _nearest_opportunity != null and nearest_opportunity != _nearest_opportunity:
-				var container : OpportunitiesContainer = _opportunities_map[_nearest_opportunity]
+				var container : OpportunitiesContainer = actions_board.get_opportunity_container(_nearest_opportunity)
 				container.glow_on()
 			_nearest_opportunity = nearest_opportunity
 			var card_owner = _card_owner_map[card_node.card_data]
 			var target = null
 			if nearest_opportunity is OpportunityData:
-				var container : OpportunitiesContainer = _opportunities_map[nearest_opportunity]
+				var container : OpportunitiesContainer = actions_board.get_opportunity_container(nearest_opportunity)
 				container.glow_special()
 				target = nearest_opportunity.target
 			_calculate_card_mod(card_node, card_owner, target)
@@ -371,10 +350,10 @@ func _on_PlayerInterface_gui_input(event):
 func get_player_card_opportunities(card:CardData):
 	var filtered_opportunities : Dictionary = {}
 	var playable_types : Array = effect_calculator.get_playable_types(card)
-	for opportunity in _opportunities_map:
-		if opportunity is OpportunityData:
-			if opportunity.type in playable_types and player_data == opportunity.source:
-				filtered_opportunities[opportunity] = _opportunities_map[opportunity]
+	var character_opportunities = actions_board.get_character_sourced_opportunities(player_data)
+	for opportunity in character_opportunities:
+		if opportunity.type in playable_types:
+			filtered_opportunities[opportunity] = actions_board.get_opportunity_container(opportunity)
 	return filtered_opportunities
 
 func _openings_glow_on(card:CardData):
@@ -414,6 +393,7 @@ func _on_dropping_card(card:CardData):
 	_openings_glow_off(card)
 	if nearest_opportunity is OpportunityData:
 		_on_play_card_on_opportunity(card, nearest_opportunity)
+	_nearest_opportunity = null
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 
@@ -444,7 +424,7 @@ func play_card(character : CharacterData, card : CardData, opportunity = null):
 
 func reveal_card(character : CharacterData, card : CardData, opportunity : OpportunityData):
 	var manager_offset : Vector2 = opponent_card_manager.get_global_transform().get_origin()
-	var actions_interface : ActionsInterface = actions_board.get_actions_instance(character)
+	var actions_interface : CharacterActionsInterface = actions_board.get_actions_instance(character)
 	if actions_interface is OpponentActionsInterface:
 		_revealed_card_opportunity_map[card] = opportunity
 		card.transform_data = actions_interface.get_reveal_transform()
@@ -472,7 +452,7 @@ func _update_status(character : CharacterData, status : StatusData, delta : int)
 		_character_statuses_map[character] = {}
 	_character_statuses_map[character][status.type_tag] = status
 	var interface = actions_board.update_status(character, status)
-	if not interface is ActionsInterface:
+	if not interface is CharacterActionsInterface:
 		return
 	_show_status_update_over_interface(interface, status, delta)
 	_recalculate_all_cards()
@@ -492,28 +472,14 @@ func update_status(character : CharacterData, status : StatusData, delta : int):
 			return
 	animation_queue.animate_status(character, status, delta)
 
-func _on_PlayerBoard_ending_turn():
-	_player_ends_turn()
-
-func _on_PlayerBoard_draw_pile_pressed():
-	emit_signal("draw_pile_pressed")
-
-func _on_PlayerBoard_discard_pile_pressed():
-	emit_signal("discard_pile_pressed")
-
-func _on_PlayerBoard_exhaust_pile_pressed():
-	emit_signal("exhaust_pile_pressed")
-
 func _on_PlayerInterface_resized():
 	if $ResizeTimer.is_inside_tree():
 		$ResizeTimer.start()
 
 func _on_ResizeTimer_timeout():
-	for opportunity in _opportunities_map:
-		_on_CardContainer_update_opportunity(opportunity, _opportunities_map[opportunity])
-
-func _on_EndTurnTimer_timeout():
-	_player_ends_turn()
+	var all_opportunities = actions_board.get_all_opportunities()
+	for opportunity in all_opportunities:
+		_on_CardContainer_update_opportunity(opportunity, actions_board.get_opportunity_container(opportunity))
 
 func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 	if animation_data is CardAnimationData:
@@ -523,21 +489,3 @@ func _on_BattleAnimationQueue_animation_started(animation_data:AnimationData):
 
 func _on_BattleAnimationQueue_queue_empty():
 	emit_signal("animation_queue_empty")
-
-func _on_inspected_on_card(card_node:CardNode2D):
-	emit_signal("card_inspected", card_node)
-
-func _on_inspected_off_card(card_node:CardNode2D):
-	emit_signal("card_forgotten", card_node)
-
-func _on_StatusIcon_inspected(status_icon:StatusIcon):
-	emit_signal("status_inspected", status_icon)
-
-func _on_StatusIcon_forgotten(status_icon:StatusIcon):
-	emit_signal("status_forgotten", status_icon)
-
-func mark_character_active(character:CharacterData):
-	actions_board.mark_character_active(character)
-
-func mark_character_inactive(character:CharacterData):
-	actions_board.mark_character_inactive(character)

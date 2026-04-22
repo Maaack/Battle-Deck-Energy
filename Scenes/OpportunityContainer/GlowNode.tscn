@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://5ppwbcmdiwqw"]
 
-[ext_resource type="Animation" path="res://Scenes/OpportunityContainer/GlowAnimation.tres" id="1"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" id="2"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" id="3"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" id="4"]
+[ext_resource type="Animation" uid="uid://dq8eam0akwdw6" path="res://Scenes/OpportunityContainer/GlowAnimation.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://c3dur0modo8pp" path="res://Themes/StyleBoxes/Glows/BlueGlowOutlineStyleBox.tres" id="2"]
+[ext_resource type="StyleBox" uid="uid://b4uxsw8055wc7" path="res://Themes/StyleBoxes/Glows/GoldGlowOutlineStyleBox.tres" id="3"]
+[ext_resource type="StyleBox" uid="uid://dr7kbesskhs1a" path="res://Themes/StyleBoxes/Glows/RedGlowOutlineStyleBox.tres" id="4"]
 [ext_resource type="Script" uid="uid://ce1svqda6mnmu" path="res://Scenes/OpportunityContainer/GlowNode.gd" id="5"]
-[ext_resource type="Animation" path="res://Scenes/OpportunityContainer/GlowNoLoopAnimation.tres" id="6"]
+[ext_resource type="Animation" uid="uid://b5v3666gknsya" path="res://Scenes/OpportunityContainer/GlowNoLoopAnimation.tres" id="6"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jksov"]
 _data = {

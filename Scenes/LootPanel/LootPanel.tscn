@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ka4hjvph22vt" path="res://Scenes/LootPanel/LootPanel.gd" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
 [ext_resource type="Script" uid="uid://btx1kj31mu7kg" path="res://Scenes/LootPanel/HBoxContainer.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://0qn12g8bvxee" path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" id="5"]
-[ext_resource type="Resource" path="res://Resources/Cards/StartingSet/LameSlash.tres" id="6"]
-[ext_resource type="Resource" path="res://Resources/Cards/Cost1/Trip.tres" id="7"]
-[ext_resource type="Resource" path="res://Resources/Cards/StartingSet/LameShield.tres" id="8"]
+[ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="6"]
+[ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="7"]
+[ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="8"]
 
 [node name="LootPanel" type="Control" unique_id=1661709140]
 custom_minimum_size = Vector2(500, 360)
@@ -15,6 +15,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2")
 script = ExtResource("1")
@@ -130,8 +132,6 @@ disabled = true
 text = "Add Card"
 
 [connection signal="clicked_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_clicked_card"]
-[connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
-[connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]
 [connection signal="pressed" from="SkipLootButton" to="." method="_on_SkipLootButton_pressed"]
 [connection signal="pressed" from="ViewDeckButton" to="." method="_on_ViewDeckButton_pressed"]
 [connection signal="pressed" from="AddCardButton" to="." method="_on_AddCardButton_pressed"]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://c44q4ybdf2gwm"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_1q2pr"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_43a50"]
+[ext_resource type="Resource" uid="uid://dih8vfl1wl1cc" path="res://Resources/Cards/Opponents/Tweaker/FiveFingernails.tres" id="3_1q2pr"]
+[ext_resource type="Resource" uid="uid://du1xj005emtms" path="res://Resources/Cards/Opponents/Tweaker/SteelToe.tres" id="4_43a50"]
+[ext_resource type="Resource" uid="uid://c4ropv3f7ww5k" path="res://Resources/Cards/Opponents/Tweaker/UsedNeedle.tres" id="5_2p6la"]
+[ext_resource type="Resource" uid="uid://bfg0snrceqgty" path="res://Resources/Cards/Opponents/Tweaker/MomsPills.tres" id="6_n4w2r"]
+
+[resource]
+script = ExtResource("1_1q2pr")
+nickname = "Tweaker"
+starting_max_health = 40
+starting_max_energy = 2
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_43a50")]([ExtResource("3_1q2pr"), ExtResource("3_1q2pr"), ExtResource("3_1q2pr"), ExtResource("3_1q2pr"), ExtResource("4_43a50"), ExtResource("4_43a50"), ExtResource("4_43a50"), ExtResource("4_43a50"), ExtResource("5_2p6la"), ExtResource("5_2p6la"), ExtResource("6_n4w2r"), ExtResource("6_n4w2r")])

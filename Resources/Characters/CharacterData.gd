@@ -7,7 +7,7 @@ class_name CharacterData
 @export var starting_max_health : int = 20: set = set_starting_max_health
 @export var starting_max_energy: int = 3: set = set_starting_max_energy
 @export var starting_hand_size: int = 5: set = set_starting_hand_size
-@export var starting_deck : Array = []: set = set_starting_deck
+@export var starting_deck : Array[CardData] = []: set = set_starting_deck
 
 var deck : Array = []
 var max_health : int = 0

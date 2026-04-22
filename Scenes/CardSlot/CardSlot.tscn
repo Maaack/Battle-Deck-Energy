@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2ty8e7kaq2sq"]
 
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://cg3lf8pe30w47" path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" id="1"]
 [ext_resource type="Script" uid="uid://biyb2d21dsx03" path="res://Scenes/CardSlot/CardSlot.gd" id="2"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
@@ -22,6 +22,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2")
 
 [node name="Panel" type="Panel" parent="." unique_id=416081669]

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://daqurm0mdqlcq" path="res://Managers/Cards/CardContainer/CardContainer.tscn" id="1"]
 [ext_resource type="Script" uid="uid://ckpmvi4j35bgl" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainter.gd" id="2"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="3"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Cards/OpportunityOutlineStyleBox.tres" id="4"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" id="5"]
+[ext_resource type="StyleBox" uid="uid://cq8ypjbxj6hix" path="res://Themes/StyleBoxes/Cards/OpportunityOutlineStyleBox.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://cg3lf8pe30w47" path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" id="5"]
 [ext_resource type="PackedScene" uid="uid://62446gk1nn10" path="res://Scenes/OpportunityContainer/LayeredGlowNodes.tscn" id="7"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
@@ -26,8 +26,6 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("3")
 script = ExtResource("2")
 

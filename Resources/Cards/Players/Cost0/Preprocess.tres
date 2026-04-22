@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cilv4un3umw3j"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_gtbeq"]
+[ext_resource type="Resource" uid="uid://u17omk367u6d" path="res://Resources/Effects/StatusEffects/ApplyFocused.tres" id="2_gwhk0"]
+[ext_resource type="Resource" uid="uid://bq2vf7gq4q8mc" path="res://Resources/Effects/CardEffects/MaxComboEffect.tres" id="3_e5ec2"]
+[ext_resource type="Texture2D" uid="uid://djbyq2mamcwqc" path="res://Assets/Mixed/CardIcons/SkillGlowNew/processor.png" id="4_2rh8a"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_cxv1e"]
+
+[resource]
+script = ExtResource("5_cxv1e")
+title = "Preprocess"
+description = "Next turn, add %APPLY_FOCUSED Skill actions.
+Max Combo."
+energy_cost = 0
+icon = ExtResource("4_2rh8a")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_gtbeq")]([ExtResource("2_gwhk0"), ExtResource("3_e5ec2")])
+type = 3

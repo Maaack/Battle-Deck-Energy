@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dwpvj3elviu61"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_x5424"]
+[ext_resource type="Resource" uid="uid://c7wcgfunolojh" path="res://Resources/Effects/StatusEffects/ApplyHastened2.tres" id="3_db200"]
+[ext_resource type="Texture2D" uid="uid://wuaoscgy6wgy" path="res://Assets/Mixed/CardIcons/SkillGlowNew/extra-lucid.png" id="5"]
+[ext_resource type="Resource" uid="uid://ds7bbudq8lm44" path="res://Resources/Effects/StatusEffects/ApplyPlanned4.tres" id="6"]
+
+[resource]
+script = ExtResource("1")
+title = "Hyperfocus"
+description = "Next %APPLY_PLANNED turns, doubles Skill actions.
+Next turn, draw %APPLY_HASTENED extra cards."
+energy_cost = 2
+icon = ExtResource("5")
+base_color = Color(0.54902, 0.560784, 0.682353, 1)
+effects = Array[ExtResource("1_x5424")]([ExtResource("6"), ExtResource("3_db200")])
+type = 3

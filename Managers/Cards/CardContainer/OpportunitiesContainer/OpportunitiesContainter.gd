@@ -74,6 +74,7 @@ func remove_opportunity(opportunity:OpportunityData):
 	_update_slots()
 
 func glow_on():
+	if opportunities_map.size() == 0: return
 	glow_nodes.glow_on()
 
 func glow_off():

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cq1shg6oawkk8"]
 
-[ext_resource type="StyleBox" path="res://Scenes/CardNode2D/BlankCard/CardBackPanel.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://tr8dw3crlxss" path="res://Scenes/CardNode2D/BlankCard/CardBackPanel.tres" id="1"]
 [ext_resource type="Script" uid="uid://777v5aubb1xa" path="res://Scenes/CardNode2D/BaseCardNode2D.gd" id="2"]
 
 [node name="BlankCardNode2D" type="Node2D" unique_id=1500349117]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cnmbl3y03bh1d"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_lbdp7"]
+[ext_resource type="Resource" uid="uid://dbc20n07ruln2" path="res://Resources/Effects/DeckModEffects/AddBurstDraw.tres" id="2_3x3pl"]
+[ext_resource type="Resource" uid="uid://u17omk367u6d" path="res://Resources/Effects/StatusEffects/ApplyFocused.tres" id="3_yjic0"]
+[ext_resource type="Texture2D" uid="uid://dmtwimvabl1ie" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/fire-bottle.png" id="4_exuol"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_qkwkt"]
+
+[resource]
+script = ExtResource("5_qkwkt")
+title = "Extract"
+description = "Add %ADD_BURST Bursts to your draw pile.
+Next turn, add %APPLY_FOCUSED Skill actions."
+icon = ExtResource("4_exuol")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_lbdp7")]([ExtResource("2_3x3pl"), ExtResource("2_3x3pl"), ExtResource("3_yjic0")])
+type = 3

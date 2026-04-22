@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cbwa14kbk54ry"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
+[ext_resource type="Resource" uid="uid://ohrxmbw6onbi" path="res://Resources/Levels/Rank3_1/BratAndBullyLevel.tres" id="2_gtxff"]
+[ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Rank3_1/BratTrioLevel.tres" id="3_8s3v2"]
+[ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Rank3_1/PipsqueakAndCadLevel.tres" id="4_34705"]
+[ext_resource type="Resource" uid="uid://goa8s1i1q1uw" path="res://Resources/Levels/Rank3_1/PipsqueakTrioLevel.tres" id="5_axmih"]
+[ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Rank3_1/RascalTrioLevel.tres" id="6_nycaj"]
+[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Rank3_1/SpoiledShitAndRascalLevel.tres" id="7_dulnm"]
+
+[resource]
+script = ExtResource("1")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2_gtxff"): 1.0,
+ExtResource("3_8s3v2"): 1.0,
+ExtResource("4_34705"): 1.0,
+ExtResource("5_axmih"): 1.0,
+ExtResource("6_nycaj"): 1.0,
+ExtResource("7_dulnm"): 1.0
+})

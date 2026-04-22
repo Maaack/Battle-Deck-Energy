@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://braqnqujgxht3" path="res://Resources/Cards/Opponents/CommCafeteria/OneDeepCut.tres" id="2"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_w47p6"]
 [ext_resource type="Resource" uid="uid://ofuxtfpr4lb4" path="res://Resources/Cards/Opponents/CommCafeteria/Mince.tres" id="3"]
 [ext_resource type="Resource" uid="uid://jep02aflgj7m" path="res://Resources/Cards/Opponents/CommCafeteria/KitchenKnives.tres" id="4"]
 [ext_resource type="Resource" uid="uid://ceeu18etkoiy8" path="res://Resources/Cards/Opponents/CommCafeteria/DeadEyes.tres" id="5"]
@@ -12,4 +13,4 @@ script = ExtResource("1")
 nickname = "Comm. Cafeteria"
 starting_max_health = 72
 starting_hand_size = 4
-starting_deck = [ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("2"), ExtResource("2"), ExtResource("6"), ExtResource("6"), ExtResource("5"), ExtResource("5"), ExtResource("4"), ExtResource("4")]
+starting_deck = Array[ExtResource("2_w47p6")]([ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("2"), ExtResource("2"), ExtResource("6"), ExtResource("6"), ExtResource("5"), ExtResource("5"), ExtResource("4"), ExtResource("4")])

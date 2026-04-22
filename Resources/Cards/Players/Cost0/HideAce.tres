@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://sww1ott8nx6m"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_87npp"]
+[ext_resource type="Resource" uid="uid://tb05nestp8rm" path="res://Resources/Effects/StatusEffects/ApplyCharged.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://bxr65hp65xlau" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/fire-ace.png" id="3"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="3_1xpa8"]
+
+[resource]
+script = ExtResource("1")
+title = "Hide Ace"
+description = "Next turn, gain %APPLY_CHARGED Energy.
+Momentary."
+energy_cost = 0
+icon = ExtResource("3")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_87npp")]([ExtResource("2"), ExtResource("3_1xpa8")])
+type = 3

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c52gppuq8mf64"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_antge"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://mhbqk4g4lhdf" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/round-shield.png" id="3"]
+[ext_resource type="Resource" uid="uid://rwk54mm1en82" path="res://Resources/Effects/CardEffects/AddDefendEffect.tres" id="3_wsstp"]
+
+[resource]
+script = ExtResource("1")
+title = "Light Shield"
+description = "Block %DEFEND Damage.
+Add %ADD_DEFEND Defend action."
+energy_cost = 0
+icon = ExtResource("3")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_antge")]([ExtResource("2"), ExtResource("3_wsstp")])
+type = 2

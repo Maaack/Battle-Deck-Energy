@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://6ifyekasf5xq"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+type_tag = "ADD_DEFEND"
+amount = 3

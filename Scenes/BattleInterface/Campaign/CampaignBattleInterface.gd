@@ -1,11 +1,7 @@
 extends BattleInterface
 
 
-func _ready():
-	battle_manager = $CampaignBattleManager
-	player_interface = $PlayerInterface
-
-func _on_BattleManager_turn_started(character : CharacterData):
+func _on_turn_started(character : CharacterData):
 	if character == player_character:
 		player_interface.start_turn()
 	else:
@@ -16,3 +12,9 @@ func _on_BattleManager_turn_started(character : CharacterData):
 
 func _on_CampaignBattleManager_card_revealed(character : CharacterData, card : CardData, opportunity: OpportunityData):
 	player_interface.reveal_card(character, card, opportunity)
+
+func _ready():
+	super._ready()
+	EventBus.turn_started.connect(_on_turn_started)
+	battle_manager = $CampaignBattleManager
+	player_interface = $PlayerInterface

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://d2s6iv5tv76pt"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+type_tag = "INNATE"

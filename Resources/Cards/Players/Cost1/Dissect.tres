@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8chaspth5l4n"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_oea8c"]
+[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2_oea8c"]
+[ext_resource type="Texture2D" uid="uid://bipjca4pjqj2u" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/scalpel.png" id="3"]
+[ext_resource type="Resource" uid="uid://ccguxk7pvo414" path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" id="3_oea8c"]
+
+[resource]
+script = ExtResource("1")
+title = "Dissect"
+description = "Deal %ATTACK Damage.
+Apply %APPLY_VULNERABLE Vulnerable."
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_oea8c")]([ExtResource("2_oea8c"), ExtResource("3_oea8c")])

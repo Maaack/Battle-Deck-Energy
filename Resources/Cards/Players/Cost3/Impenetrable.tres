@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dqoxvpfgs1i7g"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ljvwp"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_7wa1k"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="3_nx6mf"]
+[ext_resource type="Texture2D" uid="uid://bgw7rnvdibb6" path="res://Assets/Mixed/CardIcons/DefendGlowNew/bordered-shield.png" id="4_msxwl"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_gxqwg"]
+
+[resource]
+script = ExtResource("5_gxqwg")
+title = "Impenetrable"
+description = "Block %DEFEND Damage over [b]3[/b] shields.
+Combo %COMBO_EFFECTx."
+energy_cost = 3
+icon = ExtResource("4_msxwl")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_ljvwp")]([ExtResource("2_7wa1k"), ExtResource("2_7wa1k"), ExtResource("2_7wa1k"), ExtResource("3_nx6mf")])
+type = 2

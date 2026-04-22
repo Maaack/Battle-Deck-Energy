@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://b71c5cx3r4ia"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_8lr6y"]
+[ext_resource type="Resource" uid="uid://dwwdepjhepbm8" path="res://Resources/Statuses/Cindering.tres" id="2_6vq8o"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_xmqe0"]
+
+[resource]
+script = ExtResource("1_8lr6y")
+starting_statuses = Array[ExtResource("2_xmqe0")]([ExtResource("2_6vq8o")])
+type_tag = "APPLY_CINDERING"
+amount = 2

@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://10805ysijy5d"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyStrong4.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="4"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_b2w0n"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bmkod2ggeik7v" path="res://Resources/Effects/StatusEffects/ApplyStrong4.tres" id="3"]
+[ext_resource type="Resource" uid="uid://dvdtwgh5pjisj" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://ljdhtap8rmd4" path="res://Assets/Mixed/CardIcons/SkillGlowEnemy/enrage.png" id="5"]
 
 [resource]
@@ -14,5 +15,5 @@ Exhaust."
 energy_cost = 2
 icon = ExtResource("5")
 base_color = Color(0.54902, 0.560784, 0.682353, 1)
-effects = [ExtResource("3"), ExtResource("4"), ExtResource("2")]
+effects = Array[ExtResource("1_b2w0n")]([ExtResource("3"), ExtResource("4"), ExtResource("2")])
 type = 3

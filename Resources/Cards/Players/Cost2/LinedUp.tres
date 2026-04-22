@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ccjbifsg2251x"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_us27t"]
+[ext_resource type="Resource" uid="uid://7b5wfhl2yl2y" path="res://Resources/Effects/StatusEffects/ApplyMarked7.tres" id="2_1punw"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_us27t"]
+[ext_resource type="Texture2D" uid="uid://pe5cib8jeda0" path="res://Assets/Mixed/CardIcons/AttackGlowNew/headshot.png" id="4_1punw"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_o3n7h"]
+
+[resource]
+script = ExtResource("6_o3n7h")
+title = "Lined Up"
+description = "Apply %APPLY_MARKED Marked.
+Exhaust."
+energy_cost = 2
+icon = ExtResource("4_1punw")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_us27t")]([ExtResource("2_1punw"), ExtResource("3_us27t")])

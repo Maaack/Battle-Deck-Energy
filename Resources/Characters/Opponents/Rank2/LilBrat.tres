@@ -2,13 +2,14 @@
 
 [ext_resource type="Resource" uid="uid://d0fgyy7us2231" path="res://Resources/Cards/Opponents/LilBrat/PottyMouth.tres" id="1"]
 [ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="2"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_7pgg1"]
 [ext_resource type="Resource" uid="uid://hnnsc2di8qtc" path="res://Resources/Cards/Opponents/LilBrat/BigTalk.tres" id="3"]
 [ext_resource type="Resource" uid="uid://cy40xqyvm016q" path="res://Resources/Cards/Opponents/LilBrat/CheapShot.tres" id="4"]
 
 [resource]
 script = ExtResource("2")
 nickname = "Lil Brat"
-starting_max_health = 15
+starting_max_health = 18
 starting_max_energy = 1
 starting_hand_size = 3
-starting_deck = [ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("3"), ExtResource("3"), ExtResource("1")]
+starting_deck = Array[ExtResource("2_7pgg1")]([ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("4"), ExtResource("3"), ExtResource("3"), ExtResource("1")])

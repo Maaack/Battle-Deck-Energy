@@ -61,8 +61,6 @@ text = "Save And Exit"
 [node name="AudioMenu" parent="." unique_id=570282857 instance=ExtResource("3")]
 visible = false
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://n65f1sfd042f"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_gbhi0"]
+[ext_resource type="Resource" uid="uid://dkmma7jvd06cc" path="res://Resources/Effects/StatusEffects/DefendEffect6.tres" id="2_wbbp4"]
+[ext_resource type="Resource" uid="uid://dxawo0yjcf6fv" path="res://Resources/Effects/DeckModEffects/AddThrowKnife.tres" id="3_gbhi0"]
+[ext_resource type="Texture2D" uid="uid://cewsb351thqqq" path="res://Assets/Mixed/CardIcons/DefendGlowNew/running-ninja.png" id="4_wbbp4"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_q40uq"]
+
+[resource]
+script = ExtResource("6_q40uq")
+title = "Cloak And Dagger"
+description = "Block %DEFEND Damage.
+Add %ADD_THROW_KNIFE Throw Knife to hand."
+icon = ExtResource("4_wbbp4")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_gbhi0")]([ExtResource("2_wbbp4"), ExtResource("3_gbhi0")])
+type = 2

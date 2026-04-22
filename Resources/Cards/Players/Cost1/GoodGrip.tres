@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp6efuyrmw5w5"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_mq70d"]
+[ext_resource type="Resource" uid="uid://dkmma7jvd06cc" path="res://Resources/Effects/StatusEffects/DefendEffect6.tres" id="2_mq70d"]
+[ext_resource type="Resource" uid="uid://dwnkhhon3xtob" path="res://Resources/Effects/CardEffects/DoubleDefendsEffect.tres" id="3_y0r7e"]
+[ext_resource type="Texture2D" uid="uid://cd6kdvnvc2l01" path="res://Assets/Mixed/CardIcons/DefendGlowNew/reinforced_1.png" id="4_hwhlb"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_feqhs"]
+
+[resource]
+script = ExtResource("5_feqhs")
+title = "Good Grip"
+description = "Block %DEFEND Damage.
+Doubles Defend actions."
+icon = ExtResource("4_hwhlb")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_mq70d")]([ExtResource("2_mq70d"), ExtResource("3_y0r7e")])
+type = 2

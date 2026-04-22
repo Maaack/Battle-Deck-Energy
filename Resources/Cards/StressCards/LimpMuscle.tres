@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bn175gquplkir"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyFragileOnDraw.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/UnplayableEffect.tres" id="3"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyWeakOnDraw.tres" id="4"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_ijhy4"]
+[ext_resource type="Resource" uid="uid://c8rkjna4vf5bn" path="res://Resources/Effects/StatusEffects/ApplyFragileOnDraw.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dhqqksowvyfkq" path="res://Resources/Effects/CardEffects/UnplayableEffect.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bwj4vuqvlk770" path="res://Resources/Effects/StatusEffects/ApplyWeakOnDraw.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://dexjq1q8xol3g" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/limp-muscle.png" id="5"]
 
 [resource]
@@ -13,5 +14,5 @@ description = "Applies %APPLY_WEAK Weak and %APPLY_FRAGILE Fragile when drawn.
 Unplayable."
 icon = ExtResource("5")
 base_color = Color(0.345098, 0.270588, 0.388235, 1)
-effects = [ExtResource("4"), ExtResource("2"), ExtResource("3")]
+effects = Array[ExtResource("1_ijhy4")]([ExtResource("4"), ExtResource("2"), ExtResource("3")])
 type = 4

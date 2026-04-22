@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://tsc5jahnmvxa" path="res://Assets/Mixed/DeckIcons/DrawPile.png" id="2"]
 [ext_resource type="Script" uid="uid://bmnxgr5iym8yr" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/DeckMeters/Base/Deck.gd" id="3"]
-[ext_resource type="FontFile" path="res://Themes/Fonts/Labels/DeckCounterDynamicFont.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://bd6ino5bx0mgq" path="res://Themes/Fonts/Labels/DeckCounterDynamicFont.tres" id="4"]
 
 [node name="Deck" type="Control" unique_id=1352550069]
 custom_minimum_size = Vector2(64, 64)

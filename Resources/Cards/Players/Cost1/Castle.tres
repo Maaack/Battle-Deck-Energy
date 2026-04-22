@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://6kw8pwr001jv"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_vptpu"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_g8cqi"]
+[ext_resource type="Resource" uid="uid://be3auf72dc73y" path="res://Resources/Effects/StatusEffects/ApplyBarricaded4.tres" id="3_g8cqi"]
+[ext_resource type="Texture2D" uid="uid://b37vxmgdthrei" path="res://Assets/Mixed/CardIcons/DefendGlowNew/white-tower.png" id="4_btw2w"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_g8cqi"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_6k7on"]
+
+[resource]
+script = ExtResource("5_6k7on")
+title = "Castle"
+description = "Block %DEFEND Damage.
+Gain %APPLY_BARRICADED Barricaded.
+Combo %COMBO_EFFECTx."
+icon = ExtResource("4_btw2w")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_vptpu")]([ExtResource("2_g8cqi"), ExtResource("3_g8cqi"), ExtResource("4_g8cqi")])
+type = 2

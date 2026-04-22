@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dmdt5b0uo124e"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_rvaho"]
+[ext_resource type="Resource" uid="uid://b5jpdpqc5huy0" path="res://Resources/Effects/CardEffects/MarkedDamageEffect.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://doyy6fdk13ovv" path="res://Assets/Mixed/CardIcons/AttackGlowNew/bullseye.png" id="3"]
+[ext_resource type="Resource" uid="uid://clv1o63ate5tq" path="res://Resources/Effects/StatusEffects/ApplyMarked.tres" id="4"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_6gm76"]
+
+[resource]
+script = ExtResource("1")
+title = "Hit the Mark"
+description = "Apply %APPLY_MARKED Marked.
+Deal damage equal to Marked.
+Exhaust."
+energy_cost = 0
+icon = ExtResource("3")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_rvaho")]([ExtResource("4"), ExtResource("2"), ExtResource("4_6gm76")])

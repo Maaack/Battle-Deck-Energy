@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://uxub2rnlohfq"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_8ukx1"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_crxxl"]
+[ext_resource type="Texture2D" uid="uid://bp7c050d1yuj5" path="res://Assets/Mixed/CardIcons/SkillGlowNew/cut-palm.png" id="4"]
+[ext_resource type="Resource" uid="uid://byh5qjrtk0dyl" path="res://Resources/Effects/DeckModEffects/AddBleeding.tres" id="4_crxxl"]
+[ext_resource type="Resource" uid="uid://e2cidplg47aq" path="res://Resources/Effects/CardEffects/GainEnergy2.tres" id="4_hucj2"]
+
+[resource]
+script = ExtResource("1")
+title = "Bloodletting"
+description = "Deal %ATTACK Damage.
+Gain %GAIN_ENERGY Energy.
+Add %ADD_BLEEDING Bleeding to your draw pile."
+energy_cost = 0
+icon = ExtResource("4")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_8ukx1")]([ExtResource("2_crxxl"), ExtResource("4_hucj2"), ExtResource("4_crxxl"), null])
+type = 3

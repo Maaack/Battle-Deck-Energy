@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://jep02aflgj7m"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyAttackUp3.tres" id="3"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_6gw8n"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dr5d166bb4g1c" path="res://Resources/Effects/StatusEffects/ApplyAttackUp3.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://ddrf2gckhvig2" path="res://Assets/Mixed/CardIcons/SkillGlowEnemy/kitchen-knives.png" id="4"]
-[ext_resource type="Resource" path="res://Resources/Effects/StatusEffects/ApplyVenomous3.tres" id="5"]
+[ext_resource type="Resource" uid="uid://cuqsepb0awtud" path="res://Resources/Effects/StatusEffects/ApplyVenomous3.tres" id="5"]
 
 [resource]
 script = ExtResource("1")
@@ -14,5 +15,5 @@ Exhaust."
 energy_cost = 3
 icon = ExtResource("4")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = [ExtResource("3"), ExtResource("5"), ExtResource("2")]
+effects = Array[ExtResource("1_6gw8n")]([ExtResource("3"), ExtResource("5"), ExtResource("2")])
 type = 3

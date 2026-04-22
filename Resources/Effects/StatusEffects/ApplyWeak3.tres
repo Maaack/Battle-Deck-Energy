@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://chy5p0e86xxpu"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_teqpn"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_2i4l6"]
+[ext_resource type="Resource" uid="uid://cy0ygdjb28y1x" path="res://Resources/Statuses/Weak.tres" id="3_tll7h"]
+
+[resource]
+script = ExtResource("1_teqpn")
+starting_statuses = Array[ExtResource("2_2i4l6")]([ExtResource("3_tll7h")])
+type_tag = "APPLY_WEAK"
+amount = 3

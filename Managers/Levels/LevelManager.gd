@@ -14,10 +14,7 @@ func advance():
 
 func get_current_level():
 	var level_index = current_level % levels.size()
-	var level_list = levels[level_index]
-	if level_list is WeightedDataList:
-		return level_list.get_random_data()
-	return level_list
+	return levels[level_index]
 
 func get_level_opponents():
 	var level : BattleLevelData = get_current_level()

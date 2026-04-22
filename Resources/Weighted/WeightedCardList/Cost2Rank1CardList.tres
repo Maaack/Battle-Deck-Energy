@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://cs67x0u6eykjd"]
-
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/ImpenetrableWeight1.tres" id="2"]
-[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedCards/Cost2/CriticalHitWeight1.tres" id="7"]
-
-[resource]
-script = ExtResource("4")
-starting_list = [ExtResource("2"), ExtResource("7")]

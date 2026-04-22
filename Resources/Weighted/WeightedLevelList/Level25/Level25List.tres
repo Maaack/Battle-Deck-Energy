@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://dmr85wu8s0eol"]
-
-[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Weighted/WeightedLevelList/Level25/SpoiledShitAloneAgainLevelChance.tres" id="2"]
-
-[resource]
-script = ExtResource("1")
-starting_list = [ExtResource("2")]

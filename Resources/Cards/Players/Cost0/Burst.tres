@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bjldbikae88t4"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_0ar50"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://c6ygpjcn1n6eo" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/eruption.png" id="3"]
+[ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="3_1xkbf"]
+[ext_resource type="Resource" uid="uid://cb1p6eqigmjhk" path="res://Resources/Effects/CardEffects/GainEnergy.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+title = "Burst"
+description = "Gain %GAIN_ENERGY Energy.
+Draw %DRAW_CARD cards.
+Exhaust."
+energy_cost = 0
+icon = ExtResource("3")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_0ar50")]([ExtResource("4"), ExtResource("3_1xkbf"), ExtResource("2")])
+type = 3

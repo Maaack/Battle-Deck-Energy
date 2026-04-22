@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1"]
 [ext_resource type="Resource" uid="uid://c1q6s4ke073fs" path="res://Resources/Cards/Opponents/ThePatriach/YearsOfAbuse.tres" id="2"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_atyte"]
 [ext_resource type="Resource" uid="uid://bwgqyokiwmybe" path="res://Resources/Cards/Opponents/ThePatriach/InsaneEgo.tres" id="3"]
 [ext_resource type="Resource" uid="uid://ct3rijjyug7fe" path="res://Resources/Cards/Opponents/ThePatriach/MassManipulation.tres" id="4"]
 [ext_resource type="Resource" uid="uid://bimolk17uqbiw" path="res://Resources/Cards/Opponents/ThePatriach/StackOfLies.tres" id="5"]
@@ -11,4 +12,4 @@
 script = ExtResource("1")
 nickname = "The Patriarch"
 starting_max_health = 166
-starting_deck = [ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("3"), ExtResource("3"), ExtResource("4"), ExtResource("4"), ExtResource("6"), ExtResource("6")]
+starting_deck = Array[ExtResource("2_atyte")]([ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("5"), ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("2"), ExtResource("3"), ExtResource("3"), ExtResource("4"), ExtResource("4"), ExtResource("6"), ExtResource("6")])

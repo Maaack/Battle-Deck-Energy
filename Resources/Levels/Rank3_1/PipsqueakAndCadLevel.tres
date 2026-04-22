@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://ccfkrxslga7ge"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_io30x"]
+[ext_resource type="Resource" uid="uid://e4ugslqnqmaf" path="res://Resources/Characters/Opponents/Rank2/Pipsqueak.tres" id="3_tos3u"]
+[ext_resource type="Resource" uid="uid://d2gy6ffiikcw4" path="res://Resources/Characters/Opponents/Rank3/Cad.tres" id="4_k28jv"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="5_kq1yt"]
+
+[resource]
+script = ExtResource("5_kq1yt")
+opponents = Array[ExtResource("2_io30x")]([ExtResource("3_tos3u"), ExtResource("4_k28jv")])
+loot_type = 2
+rank = 3

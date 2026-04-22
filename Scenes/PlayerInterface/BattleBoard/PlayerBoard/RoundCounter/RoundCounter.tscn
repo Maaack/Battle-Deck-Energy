@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dynyklngmjk0e"]
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
-[ext_resource type="StyleBox" path="res://Themes/StyleBoxes/Meters/RoundCounterPanel.tres" id="4"]
+[ext_resource type="StyleBox" uid="uid://dtpyn4l47g2tr" path="res://Themes/StyleBoxes/Meters/RoundCounterPanel.tres" id="4"]
 
 [sub_resource type="GDScript" id="1"]
 script/source = "tool
@@ -38,6 +38,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -64.0
 offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("2")
 script = SubResource("1")
 __meta__ = {

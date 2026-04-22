@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bu1vsrx2hqj1d"]
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
-[ext_resource type="Resource" path="res://Resources/Effects/MomentaryEffect.tres" id="2"]
-[ext_resource type="Resource" path="res://Resources/Effects/UnplayableEffect.tres" id="3"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_i784n"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dhqqksowvyfkq" path="res://Resources/Effects/CardEffects/UnplayableEffect.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://btttcjkg3mm2m" path="res://Assets/Mixed/CardIcons/StressGlowPlayer/shocked.png" id="4"]
 
 [resource]
@@ -12,5 +13,5 @@ description = "Momentary.
 Unplayable."
 icon = ExtResource("4")
 base_color = Color(0.345098, 0.270588, 0.388235, 1)
-effects = [ExtResource("2"), ExtResource("3")]
+effects = Array[ExtResource("1_i784n")]([ExtResource("2"), ExtResource("3")])
 type = 4

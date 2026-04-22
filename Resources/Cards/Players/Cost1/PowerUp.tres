@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ciqwvwbl2yhj6"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_l8w8s"]
+[ext_resource type="Resource" uid="uid://tb05nestp8rm" path="res://Resources/Effects/StatusEffects/ApplyCharged.tres" id="2_ygobi"]
+[ext_resource type="Resource" uid="uid://bq2vf7gq4q8mc" path="res://Resources/Effects/CardEffects/MaxComboEffect.tres" id="3_ygobi"]
+[ext_resource type="Texture2D" uid="uid://d3km728gxwbvn" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/embrassed-energy.png" id="4_l8w8s"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="7_djuew"]
+
+[resource]
+script = ExtResource("7_djuew")
+title = "Power Up"
+description = "Next turn, gain %APPLY_CHARGED Energy.
+Max Combo."
+icon = ExtResource("4_l8w8s")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_l8w8s")]([ExtResource("2_ygobi"), ExtResource("3_ygobi")])
+type = 3

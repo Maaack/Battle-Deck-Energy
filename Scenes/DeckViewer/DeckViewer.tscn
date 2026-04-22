@@ -78,6 +78,4 @@ offset_bottom = -48.0
 size_flags_vertical = 5
 text = "Back"
 
-[connection signal="inspected_off_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_off_card"]
-[connection signal="inspected_on_card" from="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager" to="." method="_on_SelectorCardManager_inspected_on_card"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

@@ -6,11 +6,11 @@ class_name CardData
 enum CardType{NONE, ATTACK, DEFEND, SKILL, STRESS}
 
 @export var title: String = 'CardData'
-@export var description : String = '' # (String, MULTILINE)
-@export var energy_cost : int = 1 # (int, 0, 9)
+@export_multiline var description : String = '' # (String, MULTILINE)
+@export_range(0, 9) var energy_cost : int = 1 # (int, 0, 9)
 @export var icon: Texture2D
 @export var base_color: Color
-@export var effects : Array = [] # (Array, Resource)
+@export var effects : Array[EffectData] 
 @export var type: CardType = CardType.ATTACK
 
 var transform_data : TransformData = TransformData.new()
