@@ -392,6 +392,7 @@ func _on_dropping_card(card:CardData):
 	_openings_glow_off(card)
 	if nearest_opportunity is OpportunityData:
 		_on_play_card_on_opportunity(card, nearest_opportunity)
+	_nearest_opportunity = null
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
 

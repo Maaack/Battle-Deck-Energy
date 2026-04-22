@@ -4,8 +4,6 @@ extends Control
 class_name CharacterActionsInterface
 
 signal update_opportunity(opportunity, container)
-signal status_inspected(status_icon)
-signal status_forgotten(status_icon)
 
 const ARMOR_STATUS = 'DEFENSE'
 
