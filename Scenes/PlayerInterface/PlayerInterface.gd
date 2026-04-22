@@ -402,6 +402,14 @@ func _on_BattleCardManager_dragging_card(card_data:CardData):
 
 func _on_BattleCardManager_dropping_card(card_data:CardData):
 	_on_dropping_card(card_data)
+	
+func animate_pulse(card:CardData):
+	var card_instance : CardNode2D
+	if _card_owner_map[card] == player_data:
+		card_instance = card_manager.get_card_instance(card)
+	else:
+		card_instance = opponent_card_manager.get_card_instance(card)
+	card_instance.animate_pulse()
 
 func animate_playing_card(card:CardData):
 	var card_instance : CardNode2D
