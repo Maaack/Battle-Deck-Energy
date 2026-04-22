@@ -13,7 +13,6 @@ signal card_revealed(character, card)
 signal card_played(character, card, opportunity)
 signal card_spawned(character, card)
 signal status_updated(character, status, delta)
-signal character_died(character)
 signal before_hand_discarded(character)
 signal before_hand_drawn(character)
 signal team_lost(team)
@@ -39,6 +38,7 @@ var active_team
 func _ready():
 	effects_manager.team_manager = team_manager
 	EventBus.turn_ended.connect(_on_turn_ended)
+	EventBus.character_died.connect(_on_character_died)
 
 func _new_character_manager_instance(character_data : CharacterData, team : String):
 	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instantiate()
@@ -59,7 +59,6 @@ func _connect_character_battle_manager(character_battle_manager : CharacterBattl
 	character_battle_manager.connect("card_played", _on_CharacterBattleManager_card_played)
 	character_battle_manager.connect("card_removed_from_hand", _on_CharacterBattleManager_card_removed_from_hand)
 	character_battle_manager.connect("card_reshuffled", _on_CharacterBattleManager_card_reshuffled)
-	character_battle_manager.connect("character_died", _on_CharacterBattleManager_character_died)
 	character_battle_manager.connect("status_updated", _on_CharacterBattleManager_status_updated)
 	character_battle_manager.connect("related_status_changed", _on_CharacterBattleManager_related_status_changed)
 
@@ -213,10 +212,9 @@ func _on_CharacterBattleManager_status_updated(character : CharacterData, status
 func _on_CharacterBattleManager_related_status_changed(character : CharacterData, status, origin):
 	_on_EffectManager_apply_status(character, status, origin)
 
-func _on_CharacterBattleManager_character_died(character):
+func _on_character_died(character):
 	if _battle_ended:
 		return
-	emit_signal("character_died", character)
 	var allies_list = team_manager.get_allies(character)
 	var ally_alive = false
 	for ally_character in allies_list:

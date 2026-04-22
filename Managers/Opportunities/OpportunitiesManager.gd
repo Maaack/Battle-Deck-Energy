@@ -55,3 +55,12 @@ func modify_opportunities(type:int, source:CharacterData, target:CharacterData, 
 	elif opportunity_delta < 0:
 		for i in range(-opportunity_delta):
 			remove_opportunity(type, source, target)
+
+func _on_character_died(character:CharacterData):
+	var _opportunities = opportunities.duplicate()
+	for opportunity in _opportunities:
+		if opportunity.target == character:
+			remove_opportunity_instance(opportunity)
+
+func _ready():
+	EventBus.character_died.connect(_on_character_died)

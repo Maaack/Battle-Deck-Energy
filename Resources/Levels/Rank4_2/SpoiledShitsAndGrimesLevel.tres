@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource("5_25fjn")
-opponents = Array[ExtResource("2_8032m")]([ExtResource("3_118b5"), ExtResource("3_118b5"), ExtResource("4_w1d0e"), ExtResource("4_w1d0e"), ExtResource("4_w1d0e")])
+opponents = Array[ExtResource("2_8032m")]([ExtResource("4_w1d0e"), ExtResource("4_w1d0e"), ExtResource("3_118b5"), ExtResource("3_118b5")])
 loot_type = 3
 rank = 4

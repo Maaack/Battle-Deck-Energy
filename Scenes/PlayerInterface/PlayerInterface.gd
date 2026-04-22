@@ -299,6 +299,7 @@ func _show_status_update_over_interface(interface:CharacterActionsInterface, sta
 
 func character_dies(character:CharacterData):
 	actions_board.defeat_opponent(character)
+	EventBus.character_died.emit(character)
 	for card in _card_owner_map:
 		var card_owner : CharacterData = _card_owner_map[card]
 		if card_owner == character:

@@ -14,7 +14,6 @@ signal card_reshuffled(character, card)
 signal card_played(character, card, opportunity)
 signal status_updated(character, status, delta)
 signal related_status_changed(character, status, origin)
-signal character_died(character)
 
 @onready var status_manager : StatusManager = $StatusManager
 @onready var iff_manager = $IFFManager
@@ -78,8 +77,6 @@ func lose_health(amount: int = 1):
 	character_data.health -= amount
 	var health_status_snapshot = get_health_status_snapshot()
 	emit_signal("status_updated", character_data, health_status_snapshot, -(amount))
-	if character_data.health == 0:
-		emit_signal("character_died", character_data)
 
 func gain_energy(amount:int = 1):
 	current_energy += amount
