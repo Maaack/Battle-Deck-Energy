@@ -103,10 +103,10 @@ func start_level():
 		_current_level = _current_level.duplicate(true)
 		var level_left : BattleLevelData = _current_level.slice_random_data()
 		var level_right : BattleLevelData = _current_level.slice_random_data()
-		if level_left == null or level_right == null:
+		if level_left != null and level_right != null:
+			start_fork(level_left, level_right)
 			return
-		start_fork(level_left, level_right)
-		return
+		_current_level = level_left
 	if _current_level is not LevelData: return
 	current_level = _current_level
 	if current_level is BattleLevelData:
