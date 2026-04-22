@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION = 'v0.2.0'
+const VERSION = 'v0.4.0'
 const PERSIST_PATH = 'user://'
 const BATTLE_TITLE_KEY = 'title'
 const BATTLE_DATA_KEY = 'data'

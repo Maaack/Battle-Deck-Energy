@@ -100,6 +100,7 @@ func start_level():
 	seed(campaign_seed + level_manager.current_level)
 	var _current_level = level_manager.get_current_level()
 	if _current_level is WeightedDataList:
+		_current_level = _current_level.duplicate(true)
 		var level_left : BattleLevelData = _current_level.slice_random_data()
 		var level_right : BattleLevelData = _current_level.slice_random_data()
 		if level_left == null or level_right == null:
