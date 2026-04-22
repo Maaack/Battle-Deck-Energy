@@ -48,7 +48,7 @@ func focus_on_card(card_node:CardNode2D):
 func focus_off_card(card_node:CardNode2D):
 	if not _can_change_focus() or not is_card_focused(card_node):
 		return
-	move_child(_focused_card, _focused_card_parent_index)
+	move_child.call_deferred(_focused_card, _focused_card_parent_index)
 	_focused_card_parent_index = null
 	var new_transform : TransformData = _focused_card.card_data.transform_data.duplicate()
 	new_transform.scale = _focused_card_scale
