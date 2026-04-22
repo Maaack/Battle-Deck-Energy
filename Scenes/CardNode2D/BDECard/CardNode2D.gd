@@ -153,7 +153,6 @@ func update_card_effects(total_values:Dictionary):
 			continue
 		var tag_string = _get_effect_bbtag_string(base_values[type_tag], total_values[type_tag])
 		description = description.replace('%'+type_tag, tag_string)
-	description = "[center]%s[/center]" % description
 	description_label.text = description
 
 func set_starting_card_data(value:CardData):
