@@ -26,9 +26,11 @@ var deck_view_scene : PackedScene = preload("res://Scenes/DeckViewer/DeckViewer.
 var story_panel_scene : PackedScene = preload("res://Scenes/ScrollingTextPanel/StoryPanel/StoryPanel.tscn")
 var credits_panel_scene : PackedScene = preload("res://Scenes/Credits/Credits.tscn")
 var save_deck_panel_scene : PackedScene = preload("res://Scenes/SaveDeck/SaveDeckPanel.tscn")
+var fork_panel_scene : PackedScene = preload("res://Scenes/ForkPanel/ForkPanel.tscn")
 var player_data : CharacterData
 var battle_interface : BattleInterface
 var campaign_seed : int
+var current_level : LevelData
 
 func _attach_deck_view(deck_viewer:DeckViewer):
 	deck_view_container.add_child(deck_viewer)
@@ -85,10 +87,27 @@ func save_deck():
 	save_deck_interface.connect("save_pressed", Callable(self, "_on_save_deck"))
 	save_deck_interface.connect("skip_pressed", Callable(self, "_start_next_level"))
 
+func start_fork(left_level:BattleLevelData, right_level:BattleLevelData):
+	battle_shadow_panel.show()
+	var fork_interface = fork_panel_scene.instantiate()
+	fork_interface.left_level = left_level
+	fork_interface.right_level = right_level
+	campaign_interface_container.add_child(fork_interface)
+	fork_interface.connect("path_selected", Callable(self, "_on_path_selected"))
+
 func start_level():
 	PersistentData.save_progress(campaign_seed, player_data, level_manager.current_level)
 	seed(campaign_seed + level_manager.current_level)
-	var current_level : LevelData = level_manager.get_current_level()
+	var _current_level = level_manager.get_current_level()
+	if _current_level is WeightedDataList:
+		var level_left : BattleLevelData = _current_level.slice_random_data()
+		var level_right : BattleLevelData = _current_level.slice_random_data()
+		if level_left == null or level_right == null:
+			return
+		start_fork(level_left, level_right)
+		return
+	if _current_level is not LevelData: return
+	current_level = _current_level
 	if current_level is BattleLevelData:
 		start_battle(current_level)
 	elif current_level is ShelterLevelData:
@@ -101,6 +120,11 @@ func start_level():
 		save_deck()
 	if current_level.mood_type != "":
 		mood_manager.set_mood(current_level.mood_type)
+
+func _on_path_selected(level:BattleLevelData):
+	battle_shadow_panel.hide()
+	current_level = level
+	start_battle(level)
 
 func _start_next_level():
 	master_shadow_panel.show()
@@ -180,9 +204,10 @@ func _unload_levels_and_continue():
 func _on_BattleInterface_player_won():
 	_clear_all_levels()
 	battle_shadow_panel.show()
-	var level : LevelData = level_manager.get_current_level()
+	if current_level is not BattleLevelData:
+		return
 	var loot_interface = loot_interface_scene.instantiate()
-	var card_list : WeightedDataList = level.lootable_cards.duplicate()
+	var card_list : WeightedDataList = current_level.lootable_cards.duplicate()
 	loot_interface.card_options = card_list.slice_random(3)
 	loot_interface.player_data = player_data
 	campaign_interface_container.add_child(loot_interface)

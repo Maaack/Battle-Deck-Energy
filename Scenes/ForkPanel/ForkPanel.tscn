@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bna6vd0slnune"]
+
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1_qtkwm"]
+[ext_resource type="Script" uid="uid://c0e31bestijka" path="res://Scenes/ForkPanel/ForkPanel.gd" id="2_ualbi"]
+[ext_resource type="Resource" uid="uid://dxsnxoix77uxk" path="res://Resources/Levels/Rank4_1/BullyDuoLevel.tres" id="3_7x6cb"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3_llt0p"]
+[ext_resource type="Resource" uid="uid://cb2c6k5ia1c7f" path="res://Resources/Levels/Rank4_1/CadDuoLevel.tres" id="4_klgbg"]
+
+[node name="ForkPanel" type="Control" unique_id=1346010683]
+custom_minimum_size = Vector2(500, 360)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_qtkwm")
+script = ExtResource("2_ualbi")
+unknown_color = Color(0.27265528, 0.2726553, 0.2726553, 1)
+grapple_color = Color(0.6156863, 0.1882353, 0.23137255, 1)
+rogue_color = Color(0.54901963, 0.56078434, 0.68235296, 1)
+toxic_color = Color(0.89411765, 0.5803922, 0.22745098, 1)
+left_level = ExtResource("3_7x6cb")
+right_level = ExtResource("4_klgbg")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1202268932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=751986320]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=776670800]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_llt0p")
+text = "You come to a fork in the road..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsContainer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=537623454]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer" unique_id=157541648]
+layout_mode = 0
+anchor_top = 0.00382219
+anchor_right = 1.0
+anchor_bottom = 1.00382
+offset_top = 0.840912
+offset_bottom = 0.840912
+
+[node name="LeftVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=173649523]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1901246416]
+layout_mode = 2
+text = "On the left..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=762673615]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+bbcode_enabled = true
+text = "[b][i][font_size=64]4 [color=#9d303b]Grapple[/color][/font_size]
+Enemies[/i][/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1895784283]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Go Left"
+
+[node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=663266577]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1468047967]
+layout_mode = 2
+text = "On the right..."
+horizontal_alignment = 1
+
+[node name="RightTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=79073123]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+bbcode_enabled = true
+text = "[b][i][font_size=64]4 [color=#9d303b]Grapple[/color][/font_size]
+Enemies[/i][/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1731635877]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Go Right"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
