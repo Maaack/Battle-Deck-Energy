@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DefinitionData" format=3 uid="uid://cxie25i5cgd42"]
+
+[ext_resource type="Script" uid="uid://bb5rc5s78cwjd" path="res://Resources/Common/DefinitionData.gd" id="1_cy77p"]
+[ext_resource type="Resource" uid="uid://dd83u75poggo3" path="res://Resources/Definitions/DiffidentCardDefinition.tres" id="2_cy77p"]
+
+[resource]
+script = ExtResource("1_cy77p")
+key = "ADD_DIFFIDENT"
+term = "Add Diffident Card"
+definition = "Adds a Diffident card to the target deck for remainder of the battle."
+related_definitions = Array[ExtResource("1_cy77p")]([ExtResource("2_cy77p")])

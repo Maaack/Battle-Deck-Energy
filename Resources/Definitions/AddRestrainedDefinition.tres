@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DefinitionData" format=3 uid="uid://cqfclchb834ks"]
+
+[ext_resource type="Script" uid="uid://bb5rc5s78cwjd" path="res://Resources/Common/DefinitionData.gd" id="1_byfed"]
+[ext_resource type="Resource" uid="uid://dbx70aldikvh8" path="res://Resources/Definitions/RestrainedCardDefinition.tres" id="2_byfed"]
+
+[resource]
+script = ExtResource("1_byfed")
+key = "ADD_RESTRAINED"
+term = "Add Restrained Card"
+definition = "Adds a Restrained card to the target deck for remainder of the battle."
+related_definitions = Array[ExtResource("1_byfed")]([ExtResource("2_byfed")])
