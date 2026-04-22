@@ -84,7 +84,7 @@ func _on_BattleManager_card_played(character : CharacterData, card : CardData, o
 
 func _on_BattleManager_card_spawned(character, card):
 	player_interface.new_character_card(character, card)
-	player_interface.animate_playing_card(card)
+	player_interface.animate_pulse(card)
 
 func _on_BattleManager_status_updated(character : CharacterData, status : StatusData, delta : int):
 	player_interface.update_status(character, status, delta)

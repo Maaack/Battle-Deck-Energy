@@ -215,6 +215,8 @@ bbcode_enabled = true
 text = "Card Description will autowrap to the next line."
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 custom_effects = [ExtResource("10")]
 
 [node name="Control" type="Control" parent="Card/Body/CardFront" unique_id=463939591]

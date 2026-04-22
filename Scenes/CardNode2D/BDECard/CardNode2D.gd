@@ -50,7 +50,7 @@ enum MouseInputMode{NONE, GUI, PHYSICS}
 
 var card_data : CardData: set = set_card_data
 var base_values : Dictionary = {}
-var mouse_input_mode : int = MouseInputMode.GUI: set = set_mouse_input_mode
+var mouse_input_mode : MouseInputMode = MouseInputMode.GUI: set = set_mouse_input_mode
 var locked_face : bool = false
 
 func _to_string():
@@ -153,14 +153,13 @@ func update_card_effects(total_values:Dictionary):
 			continue
 		var tag_string = _get_effect_bbtag_string(base_values[type_tag], total_values[type_tag])
 		description = description.replace('%'+type_tag, tag_string)
-	description = "[center]%s[/center]" % description
 	description_label.text = description
 
 func set_starting_card_data(value:CardData):
 	starting_card_data = value
 	_reset_card_data()
 
-func set_mouse_input_mode(value:int):
+func set_mouse_input_mode(value:MouseInputMode):
 	mouse_input_mode = value
 	match(mouse_input_mode):
 		MouseInputMode.GUI:
@@ -191,15 +190,15 @@ func glow_not():
 func glow_off():
 		glow_node.glow_off()
 
-func _animate_pulse():
+func animate_pulse():
+	_finish_tween()
 	pulse_animation.play("CardPulse")
 	await pulse_animation.animation_finished
 	_force_card_transform(card_data.transform_data)
 
 func play_card():
 	set_mouse_input_mode(MouseInputMode.NONE)
-	_finish_tween()
-	_animate_pulse()
+	animate_pulse()
 
 func _handle_input_event(event):
 	if event is InputEventMouseButton:
