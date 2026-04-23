@@ -18,7 +18,7 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 
 @export var default_animate_in_time : float = 0.2 # (float, 0.0, 2.0)
 
-@export var card_options : Array = []: set = set_card_options
+@export var card_options : Array[CardData] = []: set = set_card_options
 @export var battle_level : BattleLevelData
 
 var card_container_map : Dictionary = {}
