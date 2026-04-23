@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://p50406fglccd"]
+
+[ext_resource type="Script" uid="uid://cdadembrq1g7y" path="res://Managers/Loot/loot_manager.gd" id="1_el41c"]
+
+[node name="LootManager" type="Node" unique_id=1223268466]
+script = ExtResource("1_el41c")
