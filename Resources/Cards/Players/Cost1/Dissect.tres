@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_oea8c"]
-[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2_oea8c"]
+[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="2_oea8c"]
 [ext_resource type="Texture2D" uid="uid://bipjca4pjqj2u" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/scalpel.png" id="3"]
 [ext_resource type="Resource" uid="uid://ccguxk7pvo414" path="res://Resources/Effects/StatusEffects/ApplyVulnerable.tres" id="3_oea8c"]
 
