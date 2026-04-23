@@ -53,6 +53,3 @@ func _refresh_files():
 				if (not not_ends_with.is_empty()) and (file.ends_with(not_ends_with)):
 					continue
 				files.append(directory + "/" + file)
-
-func _ready():
-	_refresh_files()
