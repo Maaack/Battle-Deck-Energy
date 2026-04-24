@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://deb2xf76txv07" path="res://Resources/Decks/DeckCollection.gd" id="1"]
 [ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="1_fxb6i"]
 [ext_resource type="Resource" uid="uid://ckwhqpci7h3dc" path="res://Resources/Decks/AllCardsDeck.tres" id="2_tin6b"]
+[ext_resource type="Resource" uid="uid://cgh85tyaw581m" path="res://Resources/Decks/GrappleDeck.tres" id="3_qeyg1"]
+[ext_resource type="Resource" uid="uid://bvmw2cx0h2war" path="res://Resources/Decks/RogueDeck.tres" id="4_6xb0g"]
+[ext_resource type="Resource" uid="uid://b0o4iwi12byre" path="res://Resources/Decks/ToxicDeck.tres" id="5_6m4n7"]
 
 [resource]
 script = ExtResource("1")
-data = Array[ExtResource("1_fxb6i")]([ExtResource("2_tin6b")])
+data = Array[ExtResource("1_fxb6i")]([ExtResource("2_tin6b"), ExtResource("3_qeyg1"), ExtResource("4_6xb0g"), ExtResource("5_6m4n7")])
