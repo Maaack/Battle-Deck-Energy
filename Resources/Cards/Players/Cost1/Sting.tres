@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://beb3xuoon03u2"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_4yfeu"]
+[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="2_m70gc"]
+[ext_resource type="Texture2D" uid="uid://xvvy8k0wcekv" path="res://Assets/Mixed/CardIcons/AttackGlowNew/stiletto.png" id="3_4yfeu"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_hqj5o"]
+
+[resource]
+script = ExtResource("4_hqj5o")
+title = "Sting"
+description = "Deal %ATTACK Damage over [b]4[/b] strikes."
+icon = ExtResource("3_4yfeu")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_4yfeu")]([ExtResource("2_m70gc"), ExtResource("2_m70gc"), ExtResource("2_m70gc"), ExtResource("2_m70gc")])

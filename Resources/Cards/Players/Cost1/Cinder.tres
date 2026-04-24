@@ -2,18 +2,15 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_dyryn"]
-[ext_resource type="Resource" uid="uid://b6hekccivkilw" path="res://Resources/Effects/StatusEffects/ApplyCindering.tres" id="2_rl04i"]
+[ext_resource type="Resource" uid="uid://k8wtsia1d1uy" path="res://Resources/Effects/StatusEffects/ApplyCindering3.tres" id="2_dyryn"]
 [ext_resource type="Texture2D" uid="uid://4rbggise3ef7" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/burning-embers.png" id="3"]
-[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3_dyryn"]
-[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_ac262"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_dyryn"]
 
 [resource]
 script = ExtResource("1")
 title = "Cinder"
-description = "Next %APPLY_CINDERING turns, gain [b]1[/b] Energy.
-Innate.
-Combo %COMBO_EFFECTx."
+description = "Next %APPLY_CINDERING turns, gain [b]1[/b] Energy."
 icon = ExtResource("3")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
-effects = Array[ExtResource("1_dyryn")]([ExtResource("2_rl04i"), ExtResource("3_dyryn"), ExtResource("4_ac262")])
+effects = Array[ExtResource("1_dyryn")]([ExtResource("2_dyryn"), ExtResource("3_dyryn")])
 type = 3

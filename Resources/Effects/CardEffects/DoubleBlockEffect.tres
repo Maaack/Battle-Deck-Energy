@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EffectData" format=3 uid="uid://bgb6vcqa7pkok"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_y1eyd"]
+
+[resource]
+script = ExtResource("1_y1eyd")
+type_tag = "DOUBLE_BLOCK"
+amount = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://dt633xybeh8pw"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_ncrex"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_nnxnq"]
+[ext_resource type="Resource" uid="uid://dovx7sbt4o7wm" path="res://Resources/Statuses/Enraged.tres" id="3_2u6r5"]
+
+[resource]
+script = ExtResource("1_ncrex")
+starting_statuses = Array[ExtResource("2_nnxnq")]([ExtResource("3_2u6r5")])
+type_tag = "APPLY_ENRAGED"
+amount = 3

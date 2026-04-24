@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DeckModEffectData" format=3 uid="uid://btv2kpqxxx31b"]
+
+[ext_resource type="Script" uid="uid://bwcempqrc0ud8" path="res://Resources/Effects/DeckModEffects/DeckModEffectData.gd" id="1_divs8"]
+[ext_resource type="Resource" uid="uid://0sf6dkag5oyi" path="res://Resources/Cards/Players/Cost0/Tangle.tres" id="2_divs8"]
+
+[resource]
+script = ExtResource("1_divs8")
+starting_card = ExtResource("2_divs8")
+type_tag = "ADD_TANGLE"
+amount = 1

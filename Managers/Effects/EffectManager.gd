@@ -286,6 +286,8 @@ func _resolve_card_effect(effect:EffectData, opportunity:OpportunityData, final_
 			_resolve_modify_status_type(EffectCalculator.FRAGILE_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
 		EffectCalculator.CURE_WEAK_EFFECT:
 			_resolve_modify_status_type(EffectCalculator.WEAK_STATUS, 0, effect.type_tag, opportunity.source, final_target, character_manager_map)
+		EffectCalculator.DOUBLE_BLOCK_EFFECT:
+			_resolve_modify_status_type(EffectCalculator.DEFENSE_STATUS, 2, effect.type_tag, opportunity.source, final_target, character_manager_map)
 		EffectCalculator.SHIELD_ATTACK_EFFECT:
 			_resolve_source_status_type_damage(EffectCalculator.DEFENSE_STATUS, opportunity.source, final_target, character_manager_map)
 		EffectCalculator.HALF_DEFEND_TO_BARRICADED:

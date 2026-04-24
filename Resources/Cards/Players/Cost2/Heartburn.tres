@@ -14,6 +14,6 @@ description = "Gain %APPLY_ENRAGED Enraged and %APPLY_STRONG Strong.
 Momentary."
 energy_cost = 2
 icon = ExtResource("5_4dbuw")
-base_color = Color(0.54902, 0.560784, 0.682353, 1)
+base_color = Color(0.49411765, 0.76862746, 0.75686276, 1)
 effects = Array[ExtResource("1_4dbuw")]([ExtResource("2_4dbuw"), ExtResource("3_4dbuw"), ExtResource("4_c581h")])
 type = 3

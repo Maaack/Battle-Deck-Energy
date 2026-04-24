@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://bktldnj2danh8" path="res://Resources/Effects/StatusEffects/ApplyDurable.tres" id="2_ggyni"]
 [ext_resource type="Texture2D" uid="uid://dmuxcif03ej2e" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/defense-stance.png" id="3"]
 [ext_resource type="Resource" uid="uid://il7pxs60ov42" path="res://Resources/Effects/StatusEffects/ApplyFortified.tres" id="3_kwhby"]
-[ext_resource type="Resource" uid="uid://brlgc7xpeleep" path="res://Resources/Effects/CardEffects/ComboEffect4.tres" id="4_ggyni"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_ggyni"]
 
 [resource]
 script = ExtResource("1")

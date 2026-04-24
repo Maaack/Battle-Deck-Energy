@@ -10,7 +10,7 @@
 script = ExtResource("5_feqhs")
 title = "Good Grip"
 description = "Block %DEFEND Damage.
-Doubles Defend actions."
+Double Defend actions."
 icon = ExtResource("4_hwhlb")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
 effects = Array[ExtResource("1_mq70d")]([ExtResource("2_mq70d"), ExtResource("3_y0r7e")])

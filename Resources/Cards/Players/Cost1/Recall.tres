@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_r3hud"]
 [ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="2_sfv6c"]
 [ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="3_b8jbr"]
-[ext_resource type="Texture2D" uid="uid://cym1h8bvu2nvh" path="res://Assets/Mixed/CardIcons/SkillGlowNew/bookmarklet.png" id="4_u4vfs"]
+[ext_resource type="Texture2D" uid="uid://dpnesmpqu8v65" path="res://Assets/Mixed/CardIcons/SkillGlowNew/wisdom.png" id="4_r3hud"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_i4hue"]
 
 [resource]
@@ -11,7 +11,7 @@ script = ExtResource("5_i4hue")
 title = "Recall"
 description = "Draw %DRAW_CARD cards.
 Retain."
-icon = ExtResource("4_u4vfs")
+icon = ExtResource("4_r3hud")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
 effects = Array[ExtResource("1_r3hud")]([ExtResource("2_sfv6c"), ExtResource("2_sfv6c"), ExtResource("3_b8jbr")])
 type = 3
