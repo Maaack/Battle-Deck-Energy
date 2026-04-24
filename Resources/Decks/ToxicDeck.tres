@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://6kw8pwr001jv" path="res://Resources/Cards/Players/Cost1/Rook.tres" id="15_bc2cl"]
 [ext_resource type="Resource" uid="uid://dleokjkiyfp06" path="res://Resources/Cards/Players/Cost0/LastStand.tres" id="18_yrmd2"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="19_avulw"]
-[ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="20_2jxk6"]
+[ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/SmallShield.tres" id="20_2jxk6"]
 [ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Preprocess.tres" id="25_yuim8"]
 [ext_resource type="Resource" uid="uid://6ep1w4m0f2c0" path="res://Resources/Cards/Players/Cost1/PolishShields.tres" id="26_h6trn"]
 [ext_resource type="Resource" uid="uid://c8d02dukvw74d" path="res://Resources/Cards/Players/Cost0/VenomVial.tres" id="28_fydtf"]

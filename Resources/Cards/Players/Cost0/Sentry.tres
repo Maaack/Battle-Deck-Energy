@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1")
 title = "Sentry"
-description = "Add %APPLY_MARKED Marked.
+description = "Apply %APPLY_MARKED Marked.
 Momentary."
 energy_cost = 0
 icon = ExtResource("3")

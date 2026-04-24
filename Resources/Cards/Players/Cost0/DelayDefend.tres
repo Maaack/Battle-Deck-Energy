@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bvxqybn2e16wa"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_uoamv"]
+[ext_resource type="Resource" uid="uid://be3auf72dc73y" path="res://Resources/Effects/StatusEffects/ApplyBarricaded4.tres" id="2_uoamv"]
+[ext_resource type="Resource" uid="uid://cwc7gm7ahcw8n" path="res://Resources/Effects/CardEffects/PlayAsSkillEffect.tres" id="3_m0gn8"]
+[ext_resource type="Texture2D" uid="uid://c2pxccuol3c7k" path="res://Assets/Mixed/CardIcons/DefendGlowNew/dig-hole.png" id="4_12fls"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_hnvik"]
+
+[resource]
+script = ExtResource("5_hnvik")
+title = "Delay Defend"
+description = "Apply %APPLY_BARRICADED Barricaded.
+Can take a Skill action."
+energy_cost = 0
+icon = ExtResource("4_12fls")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_uoamv")]([ExtResource("2_uoamv"), ExtResource("3_m0gn8")])
+type = 2

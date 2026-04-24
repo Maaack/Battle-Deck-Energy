@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://cl0a4nm3tryte" path="res://Resources/Cards/Players/Cost0/Initial.tres" id="16_oyrg8"]
 [ext_resource type="Resource" uid="uid://c150qgj1xaapn" path="res://Resources/Cards/Players/Cost0/LightArmor.tres" id="19_3ln5a"]
 [ext_resource type="Resource" uid="uid://c466hpb37s1y" path="res://Resources/Cards/Players/Cost1/DoubleCross.tres" id="20_ddv0n"]
-[ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/LightShield.tres" id="20_rm4dq"]
+[ext_resource type="Resource" uid="uid://c52gppuq8mf64" path="res://Resources/Cards/Players/Cost0/SmallShield.tres" id="20_rm4dq"]
 [ext_resource type="Resource" uid="uid://8tuj6ahhsp5r" path="res://Resources/Cards/Players/Cost0/Plot.tres" id="21_1ebjd"]
 [ext_resource type="Resource" uid="uid://b3dv2es5tjoyq" path="res://Resources/Cards/Players/Cost0/Sentry.tres" id="23_0crra"]
 [ext_resource type="Resource" uid="uid://cilv4un3umw3j" path="res://Resources/Cards/Players/Cost0/Preprocess.tres" id="25_5ydf8"]
@@ -52,7 +52,7 @@
 [ext_resource type="Resource" uid="uid://bpmu5uje6jxt2" path="res://Resources/Cards/Players/Cost2/SwissArmyKnife.tres" id="99_kd2h5"]
 [ext_resource type="Resource" uid="uid://d363jhfyg0upq" path="res://Resources/Cards/Players/Cost2/ThreeWay.tres" id="100_ieik5"]
 [ext_resource type="Resource" uid="uid://botsqhwm8pws1" path="res://Resources/Cards/Players/Cost2/Twofold.tres" id="101_o7wpe"]
-[ext_resource type="Resource" uid="uid://dqoxvpfgs1i7g" path="res://Resources/Cards/Players/Cost3/Impenetrable.tres" id="106_xdrid"]
+[ext_resource type="Resource" uid="uid://dqoxvpfgs1i7g" path="res://Resources/Cards/Players/Cost3/LayerUponLayer.tres" id="106_xdrid"]
 [ext_resource type="Resource" uid="uid://pxlnb6d1u6fk" path="res://Resources/Cards/Players/Cost3/Volley.tres" id="108_tku8x"]
 [ext_resource type="Script" uid="uid://bd14n2kblxuio" path="res://Resources/Decks/DeckData.gd" id="112_q503o"]
 

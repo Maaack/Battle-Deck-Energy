@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_vqawu"]
-[ext_resource type="Resource" uid="uid://dkmma7jvd06cc" path="res://Resources/Effects/StatusEffects/DefendEffect6.tres" id="2_jj1u3"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_vqawu"]
 [ext_resource type="Texture2D" uid="uid://b42u8o4k7pqsy" path="res://Assets/Mixed/CardIcons/DefendGlowNew/chest-armor.png" id="3"]
+[ext_resource type="Resource" uid="uid://rwk54mm1en82" path="res://Resources/Effects/CardEffects/AddDefendEffect.tres" id="3_jj1u3"]
 [ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="4"]
 [ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="5"]
 
@@ -11,9 +12,10 @@
 script = ExtResource("1")
 title = "Heavy Armor"
 description = "Block %DEFEND Damage.
+Add %ADD_DEFEND Defend action.
 Innate.
 Retain."
 icon = ExtResource("3")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_vqawu")]([ExtResource("2_jj1u3"), ExtResource("5"), ExtResource("4")])
+effects = Array[ExtResource("1_vqawu")]([ExtResource("2_vqawu"), ExtResource("3_jj1u3"), ExtResource("5"), ExtResource("4")])
 type = 2

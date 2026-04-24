@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_y7lyt"]
 [ext_resource type="Resource" uid="uid://signo6m41cj7" path="res://Resources/Effects/StatusEffects/DefendEffect2.tres" id="3"]
-[ext_resource type="Resource" uid="uid://cn1a7501dhun3" path="res://Resources/Effects/CardEffects/RetainEffect.tres" id="4_y7lyt"]
+[ext_resource type="Resource" uid="uid://rwk54mm1en82" path="res://Resources/Effects/CardEffects/AddDefendEffect.tres" id="4_y7lyt"]
 [ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="5"]
 [ext_resource type="Texture2D" uid="uid://bae20f6v5s0ch" path="res://Assets/Mixed/CardIcons/DefendGlowNew/leather-armor.png" id="5_y7lyt"]
 
@@ -11,10 +11,10 @@
 script = ExtResource("1")
 title = "Light Armor"
 description = "Block %DEFEND Damage.
-Innate.
-Retain."
+Add %ADD_DEFEND Defend action.
+Innate."
 energy_cost = 0
 icon = ExtResource("5_y7lyt")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_y7lyt")]([ExtResource("3"), ExtResource("5"), ExtResource("4_y7lyt")])
+effects = Array[ExtResource("1_y7lyt")]([ExtResource("3"), ExtResource("4_y7lyt"), ExtResource("5")])
 type = 2

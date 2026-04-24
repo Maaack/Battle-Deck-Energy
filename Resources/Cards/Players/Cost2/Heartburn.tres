@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("6_ric2s")
 title = "Heartburn"
-description = "Gain %APPLY_ENRAGED Enraged and %APPLY_STRONG Strong.
+description = "Apply %APPLY_ENRAGED Enraged and %APPLY_STRONG Strong.
 Momentary."
 energy_cost = 2
 icon = ExtResource("5_4dbuw")
