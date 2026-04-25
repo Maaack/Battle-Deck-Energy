@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cvtwl0ikdl6n1"]
+
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_j4mi3"]
+[ext_resource type="Resource" uid="uid://bgb6vcqa7pkok" path="res://Resources/Effects/CardEffects/DoubleBlockEffect.tres" id="2_c87x7"]
+[ext_resource type="Resource" uid="uid://be8vvx3mqagfc" path="res://Resources/Effects/CardEffects/PlayAsDefendEffect.tres" id="3_d14f7"]
+[ext_resource type="Texture2D" uid="uid://sl088837gtpj" path="res://Assets/Mixed/CardIcons/SkillGlowNew/anvil-impact.png" id="3_wwrcf"]
+
+[resource]
+script = ExtResource("1")
+title = "Shape"
+description = "Double active block.
+Can take a Defend action."
+icon = ExtResource("3_wwrcf")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_j4mi3")]([ExtResource("2_c87x7"), ExtResource("3_d14f7")])
+type = 3

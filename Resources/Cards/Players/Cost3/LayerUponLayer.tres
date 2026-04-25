@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dqoxvpfgs1i7g"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_avxaw"]
+[ext_resource type="Resource" uid="uid://cv0hrjf5dlx7f" path="res://Resources/Effects/StatusEffects/DefendEffect3.tres" id="2_vbfjs"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="3_d5a1m"]
+[ext_resource type="Texture2D" uid="uid://cdgjfnqcbv3xs" path="res://Assets/Mixed/CardIcons/DefendGlowNew/shield-echoes.png" id="4_g34vo"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_38crm"]
+
+[resource]
+script = ExtResource("5_38crm")
+title = "Layer Upon Layer"
+description = "Block %DEFEND Damage over [b]3[/b] shields.
+Combo %COMBO_EFFECTx."
+energy_cost = 3
+icon = ExtResource("4_g34vo")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_avxaw")]([ExtResource("2_vbfjs"), ExtResource("2_vbfjs"), ExtResource("2_vbfjs"), ExtResource("3_d5a1m")])
+type = 2

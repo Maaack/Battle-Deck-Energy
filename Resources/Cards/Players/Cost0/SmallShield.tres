@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c52gppuq8mf64"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_x786e"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_g05fx"]
+[ext_resource type="Texture2D" uid="uid://mhbqk4g4lhdf" path="res://Assets/Mixed/CardIcons/DefenseGlowPlayer/round-shield.png" id="4_63fgv"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_t7tft"]
+
+[resource]
+script = ExtResource("5_t7tft")
+title = "Small Shield"
+description = "Block %DEFEND Damage."
+energy_cost = 0
+icon = ExtResource("4_63fgv")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_x786e")]([ExtResource("2_g05fx")])
+type = 2

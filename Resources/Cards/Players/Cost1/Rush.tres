@@ -15,6 +15,6 @@ description = "Gain %GAIN_ENERGY Energy and draw %DRAW_CARD card.
 Momentary.
 Combo %COMBO_EFFECTx."
 icon = ExtResource("4")
-base_color = Color(0.494118, 0.768627, 0.756863, 1)
+base_color = Color(0.54901963, 0.56078434, 0.68235296, 1)
 effects = Array[ExtResource("1_34frb")]([ExtResource("2_2dtyd"), ExtResource("2"), ExtResource("5"), ExtResource("5_rlqsr")])
 type = 3

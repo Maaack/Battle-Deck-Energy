@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_jag8t"]
 [ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="2"]
 [ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_jag8t"]
-[ext_resource type="Resource" uid="uid://bvpdlvc6w80bq" path="res://Resources/Effects/StatusEffects/ApplyEngaged.tres" id="3_jag8t"]
+[ext_resource type="Resource" uid="uid://553pbk0p4vl6" path="res://Resources/Effects/StatusEffects/ApplyEngaged2.tres" id="3_jag8t"]
 [ext_resource type="Texture2D" uid="uid://dbye72e7u35jh" path="res://Assets/Mixed/CardIcons/AttackGlowNew/high-kick.png" id="4"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="5_kcw2p"]
 

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://btb3jx8vpuwkb"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_xmnd8"]
+[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="2_drq8f"]
+[ext_resource type="Resource" uid="uid://wj136w6j71ug" path="res://Resources/Effects/StatusEffects/ApplyFragileAllEnemies.tres" id="2_xmnd8"]
+[ext_resource type="Texture2D" uid="uid://dulovtvgopk1b" path="res://Assets/Mixed/CardIcons/SkillGlowNew/sonic-lightning.png" id="3_drq8f"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_4bxwh"]
+
+[resource]
+script = ExtResource("5_4bxwh")
+title = "Thunderstrike"
+description = "Apply %APPLY_FRAGILE Fragile to all enemies.
+Momentary."
+icon = ExtResource("3_drq8f")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_xmnd8")]([ExtResource("2_xmnd8"), ExtResource("2_drq8f")])
+type = 3

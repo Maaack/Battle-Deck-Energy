@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://darlb6v8w1dad"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_o8ywo"]
+[ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="2_ch86h"]
+[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3_4vxgx"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_xddfy"]
+[ext_resource type="Texture2D" uid="uid://cym1h8bvu2nvh" path="res://Assets/Mixed/CardIcons/SkillGlowNew/bookmarklet.png" id="5_bhpbj"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_bk2rk"]
+
+[resource]
+script = ExtResource("6_bk2rk")
+title = "Bookmarked"
+description = "Draw %DRAW_CARD cards.
+Innate.
+Exhaust."
+energy_cost = 0
+icon = ExtResource("5_bhpbj")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_o8ywo")]([ExtResource("2_ch86h"), ExtResource("2_ch86h"), ExtResource("3_4vxgx"), ExtResource("4_xddfy")])
+type = 3

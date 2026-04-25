@@ -147,7 +147,9 @@ func update_card_effects(total_values:Dictionary):
 	var description : String = card_data.description
 	var regex = RegEx.new()
 	regex.compile("%(?<tag>[A-Z_]+)")
-	for result in regex.search_all(description):
+	var matching_tags := regex.search_all(description)
+	matching_tags.sort_custom(func(a:RegExMatch,b:RegExMatch): return a.get_string().length() > b.get_string().length())
+	for result in matching_tags:
 		var type_tag : String = result.get_string("tag")
 		if not type_tag in base_values or not type_tag in total_values:
 			continue

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://b6spl1sfv8ntx"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_0elag"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_00qhy"]
+[ext_resource type="Resource" uid="uid://bxg4yn8in24ru" path="res://Resources/Statuses/Defense.tres" id="3_nwr2f"]
+
+[resource]
+script = ExtResource("1_0elag")
+starting_statuses = Array[ExtResource("2_00qhy")]([ExtResource("3_nwr2f")])
+type_tag = "DEFEND"
+amount = 24

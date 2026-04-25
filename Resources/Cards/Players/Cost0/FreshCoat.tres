@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bwwhgyueo6fkb" path="res://Resources/Effects/StatusEffects/ApplyDefenseUp.tres" id="2_18cuh"]
 [ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="3_x07wi"]
 [ext_resource type="Texture2D" uid="uid://cp7uiiymxk08t" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/defensive-trade.png" id="4_1hhuh"]
-[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_vadac"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_vadac"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_tew4s"]
 
 [resource]

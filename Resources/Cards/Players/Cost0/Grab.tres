@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dgpdkq004wvun"]
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_pan5y"]
-[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_ivu5b"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_gd1hw"]
 [ext_resource type="Resource" uid="uid://bvpdlvc6w80bq" path="res://Resources/Effects/StatusEffects/ApplyEngaged.tres" id="3_ni0f3"]
+[ext_resource type="Resource" uid="uid://bxniygvy045dp" path="res://Resources/Effects/CardEffects/ComboEffect2.tres" id="4_gd1hw"]
 [ext_resource type="Texture2D" uid="uid://tiijptg3rr18" path="res://Assets/Mixed/CardIcons/AttackGlowNew/grab.png" id="4_wbc1w"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_crl23"]
 
@@ -10,8 +11,9 @@
 script = ExtResource("5_crl23")
 title = "Grab"
 description = "Deal %ATTACK Damage.
-Apply %APPLY_ENGAGED Engaged."
+Apply %APPLY_ENGAGED Engaged.
+Combo %COMBO_EFFECTx."
 energy_cost = 0
 icon = ExtResource("4_wbc1w")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_pan5y")]([ExtResource("2_ivu5b"), ExtResource("3_ni0f3")])
+effects = Array[ExtResource("1_pan5y")]([ExtResource("2_gd1hw"), ExtResource("3_ni0f3"), ExtResource("4_gd1hw")])

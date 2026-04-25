@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://diagju74vu8g"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_wylg7"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_su0vu"]
+[ext_resource type="Resource" uid="uid://ciqswbht4gk0o" path="res://Resources/Effects/StatusEffects/ApplyChargedSource.tres" id="3_1utap"]
+[ext_resource type="Texture2D" uid="uid://ckfmqhnfr2h76" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/saber-slash.png" id="4_iqime"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_63f5v"]
+
+[resource]
+script = ExtResource("5_63f5v")
+title = "Razor Burn"
+description = "Deal %ATTACK Damage.
+Next turn, gain %APPLY_CHARGED Energy."
+icon = ExtResource("4_iqime")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_wylg7")]([ExtResource("2_su0vu"), ExtResource("3_1utap")])

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bc3yuds8bher3"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_vih1c"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_lxkey"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_vpcec"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_t8jkv"]
+[ext_resource type="Texture2D" uid="uid://bsyn4l6u2kljj" path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/tower-fall.png" id="5_ccsoe"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_h3t6p"]
+
+[resource]
+script = ExtResource("6_h3t6p")
+title = "Crumbling Tower"
+description = "Block %DEFEND Damage.
+Exhaust.
+Combo %COMBO_EFFECTx."
+icon = ExtResource("5_ccsoe")
+base_color = Color(0.392157, 0.490196, 0.203922, 1)
+effects = Array[ExtResource("1_vih1c")]([ExtResource("2_lxkey"), ExtResource("3_vpcec"), ExtResource("4_t8jkv")])
+type = 2

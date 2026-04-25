@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dl7qtxhwymhv0"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_v00uq"]
+[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="2_qhrk3"]
+[ext_resource type="Resource" uid="uid://tb05nestp8rm" path="res://Resources/Effects/StatusEffects/ApplyCharged.tres" id="3_waqwu"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_0e2g4"]
+[ext_resource type="Texture2D" uid="uid://c8d8hijnqd2mr" path="res://Assets/Mixed/CardIcons/AttackGlowNew/rune-sword.png" id="5_313f5"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_n0nxg"]
+
+[resource]
+script = ExtResource("6_n0nxg")
+title = "Enchanted Blade"
+description = "Deal %ATTACK Damage.
+Next turn, gain %APPLY_CHARGED Energy.
+Combo %COMBO_EFFECTx"
+energy_cost = 2
+icon = ExtResource("5_313f5")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_v00uq")]([ExtResource("2_qhrk3"), ExtResource("3_waqwu"), ExtResource("4_0e2g4")])

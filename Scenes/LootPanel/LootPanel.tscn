@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="6"]
 [ext_resource type="Resource" uid="uid://dv0amt38r456f" path="res://Resources/Cards/Players/Cost1/Trip.tres" id="7"]
 [ext_resource type="Resource" uid="uid://d231gt886cl5t" path="res://Resources/Cards/Players/StartingSet/Shield.tres" id="8"]
+[ext_resource type="PackedScene" uid="uid://p50406fglccd" path="res://Managers/Loot/loot_manager.tscn" id="9_oo3t4"]
 
 [node name="LootPanel" type="Control" unique_id=1661709140]
 custom_minimum_size = Vector2(500, 360)
@@ -130,6 +131,8 @@ offset_bottom = -148.0
 size_flags_vertical = 5
 disabled = true
 text = "Add Card"
+
+[node name="LootManager" parent="." unique_id=1223268466 instance=ExtResource("9_oo3t4")]
 
 [connection signal="clicked_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_clicked_card"]
 [connection signal="pressed" from="SkipLootButton" to="." method="_on_SkipLootButton_pressed"]

@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://dsb0e5gnwvxts"]
+
+[ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1_wyxef"]
+[ext_resource type="Script" uid="uid://syiobykq1k1c" path="res://Scenes/LootPanel/debug_loot_panel.gd" id="2_p7ji4"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_ekdqt"]
+[ext_resource type="Resource" uid="uid://dxhphaeoerxjy" path="res://Resources/Levels/Rank1_1/FreeloaderSoloLevel.tres" id="3_faehw"]
+[ext_resource type="Resource" uid="uid://cb41lsabgl1nh" path="res://Resources/Levels/Rank1_1/GrimeDuoLevel.tres" id="5_fsb77"]
+[ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="6_ekdqt"]
+[ext_resource type="Resource" uid="uid://byrta7pivgvap" path="res://Resources/Levels/Rank1_1/WeaselSoloLevel.tres" id="6_mgrnu"]
+[ext_resource type="Script" uid="uid://btx1kj31mu7kg" path="res://Scenes/LootPanel/HBoxContainer.gd" id="7_fsb77"]
+[ext_resource type="Resource" uid="uid://c8q78awfiecwn" path="res://Resources/Levels/Rank2_1/BratSoloLevel.tres" id="7_k0rx0"]
+[ext_resource type="Resource" uid="uid://bicuqmdnpcsyc" path="res://Resources/Levels/Rank2_1/PipsqueakDuoLevel.tres" id="8_ekdqt"]
+[ext_resource type="PackedScene" uid="uid://0qn12g8bvxee" path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" id="8_mgrnu"]
+[ext_resource type="Resource" uid="uid://de2ehv2mbuyte" path="res://Resources/Levels/Rank2_1/RascalSoloLevel.tres" id="9_fsb77"]
+[ext_resource type="PackedScene" uid="uid://p50406fglccd" path="res://Managers/Loot/loot_manager.tscn" id="9_ugqcu"]
+[ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Rank3_1/BratTrioLevel.tres" id="10_5cuib"]
+[ext_resource type="Resource" uid="uid://goa8s1i1q1uw" path="res://Resources/Levels/Rank3_1/PipsqueakTrioLevel.tres" id="11_82uf3"]
+[ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Rank3_1/RascalTrioLevel.tres" id="12_fps6p"]
+[ext_resource type="Resource" uid="uid://dxsnxoix77uxk" path="res://Resources/Levels/Rank4_1/BullyDuoLevel.tres" id="13_ti0gt"]
+[ext_resource type="Resource" uid="uid://cb2c6k5ia1c7f" path="res://Resources/Levels/Rank4_1/CadDuoLevel.tres" id="14_uqaa8"]
+[ext_resource type="Resource" uid="uid://b7sk6xvf56524" path="res://Resources/Levels/Rank4_1/SpoiledShitDuoLevel.tres" id="15_mbmn2"]
+
+[node name="DebugLootPanel" type="Control" unique_id=1661709140]
+custom_minimum_size = Vector2(500, 360)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_wyxef")
+script = ExtResource("2_p7ji4")
+all_levels = Array[ExtResource("3_ekdqt")]([ExtResource("3_faehw"), ExtResource("5_fsb77"), ExtResource("6_mgrnu"), ExtResource("7_k0rx0"), ExtResource("8_ekdqt"), ExtResource("9_fsb77"), ExtResource("10_5cuib"), ExtResource("11_82uf3"), ExtResource("12_fps6p"), ExtResource("13_ti0gt"), ExtResource("14_uqaa8"), ExtResource("15_mbmn2")])
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=370278384]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 240
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=650447340]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=282508444]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Control" unique_id=210141940]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.5
+offset_top = -29.0
+offset_right = 388.5
+offset_bottom = 29.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ekdqt")
+text = "You can add 1 card to your deck."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LootMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1504151371]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_right = 128
+
+[node name="LootContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/LootMargin" unique_id=746738465]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+script = ExtResource("7_fsb77")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/LootMargin" unique_id=2026060591]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer" unique_id=1553675933]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SelectorCardManager" parent="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control" unique_id=1217685906 instance=ExtResource("8_mgrnu")]
+
+[node name="SpawnCardTimer" type="Timer" parent="." unique_id=95619563]
+wait_time = 0.2
+one_shot = true
+
+[node name="RepositionTimer" type="Timer" parent="." unique_id=1959767394]
+wait_time = 0.05
+one_shot = true
+
+[node name="SkipLootButton" type="Button" parent="." unique_id=1831594039]
+custom_minimum_size = Vector2(224, 60)
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -108.0
+offset_right = -48.0
+offset_bottom = -48.0
+size_flags_vertical = 5
+text = "Skip Loot"
+
+[node name="ViewDeckButton" type="Button" parent="." unique_id=893666112]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -108.0
+offset_right = 112.0
+offset_bottom = -48.0
+size_flags_vertical = 5
+text = "View Deck"
+
+[node name="AddCardButton" type="Button" parent="." unique_id=1068195033]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -208.0
+offset_right = 112.0
+offset_bottom = -148.0
+size_flags_vertical = 5
+disabled = true
+text = "Add Card"
+
+[node name="LootManager" parent="." unique_id=1223268466 instance=ExtResource("9_ugqcu")]
+
+[connection signal="clicked_card" from="MarginContainer/VBoxContainer/LootMargin/CenterContainer/Control/SelectorCardManager" to="." method="_on_SelectorCardManager_clicked_card"]
+[connection signal="pressed" from="SkipLootButton" to="." method="_on_SkipLootButton_pressed"]
+[connection signal="pressed" from="ViewDeckButton" to="." method="_on_ViewDeckButton_pressed"]
+[connection signal="pressed" from="AddCardButton" to="." method="_on_AddCardButton_pressed"]

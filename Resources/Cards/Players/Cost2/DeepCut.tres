@@ -5,14 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://dxy4i4lsopf1r" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/dripping-sword.png" id="3"]
 [ext_resource type="Resource" uid="uid://dvdtwgh5pjisj" path="res://Resources/Effects/StatusEffects/ApplyVulnerable2.tres" id="3_eucw4"]
 [ext_resource type="Resource" uid="uid://cx02sktjo3l3n" path="res://Resources/Effects/CardEffects/AttackEffect9.tres" id="4"]
-[ext_resource type="Resource" uid="uid://of2h1wwbjf8p" path="res://Resources/Effects/StatusEffects/ApplyWeak.tres" id="4_fnthu"]
 
 [resource]
 script = ExtResource("1")
 title = "Deep Cut"
 description = "Deal %ATTACK Damage.
-Apply %APPLY_VULNERABLE Vulnerable and %APPLY_WEAK Weak."
+Apply %APPLY_VULNERABLE Vulnerable."
 energy_cost = 2
 icon = ExtResource("3")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_pk2op")]([ExtResource("4"), ExtResource("3_eucw4"), ExtResource("4_fnthu")])
+effects = Array[ExtResource("1_pk2op")]([ExtResource("4"), ExtResource("3_eucw4")])

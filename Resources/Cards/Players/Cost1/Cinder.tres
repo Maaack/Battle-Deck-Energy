@@ -4,13 +4,12 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_dyryn"]
 [ext_resource type="Resource" uid="uid://k8wtsia1d1uy" path="res://Resources/Effects/StatusEffects/ApplyCindering3.tres" id="2_dyryn"]
 [ext_resource type="Texture2D" uid="uid://4rbggise3ef7" path="res://Assets/Mixed/CardIcons/SkillGlowNew/Energy/burning-embers.png" id="3"]
-[ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="3_dyryn"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_dyryn"]
 
 [resource]
 script = ExtResource("1")
 title = "Cinder"
-description = "Next %APPLY_CINDERING turns, gain [b]1[/b] Energy.
-Momentary."
+description = "Next %APPLY_CINDERING turns, gain [b]1[/b] Energy."
 icon = ExtResource("3")
 base_color = Color(0.494118, 0.768627, 0.756863, 1)
 effects = Array[ExtResource("1_dyryn")]([ExtResource("2_dyryn"), ExtResource("3_dyryn")])

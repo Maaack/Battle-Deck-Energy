@@ -14,14 +14,23 @@ const INIT_CARD_SCALE = Vector2(0.05, 0.05)
 @onready var add_card_button = $AddCardButton
 @onready var spawn_card_timer = $SpawnCardTimer
 @onready var reposition_timer = $RepositionTimer
+@onready var loot_manager = $LootManager
 
 @export var default_animate_in_time : float = 0.2 # (float, 0.0, 2.0)
 
-@export var card_options : Array = []: set = set_card_options
+@export var card_options : Array[CardData] = []: set = set_card_options
+@export var battle_level : BattleLevelData
 
 var card_container_map : Dictionary = {}
 var player_data = null
 var selected_card = null
+
+func _generate_card_options():
+	if battle_level == null:
+		return
+	loot_manager.battle_level = battle_level
+	var lootable_cards : WeightedDataList = loot_manager.get_lootable_cards()
+	card_options = lootable_cards.slice_random(3)
 
 func _get_animate_in_time():
 	return default_animate_in_time
@@ -43,6 +52,7 @@ func set_card_options(values:Array):
 		card_options.append(card.duplicate())
 		
 func _ready():
+	_generate_card_options()
 	_spawn_containers()
 	await loot_container.sort_children
 	_add_cards_to_containers()

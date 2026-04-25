@@ -208,8 +208,7 @@ func _on_BattleInterface_player_won():
 	if current_level is not BattleLevelData:
 		return
 	var loot_interface = loot_interface_scene.instantiate()
-	var card_list : WeightedDataList = current_level.lootable_cards.duplicate()
-	loot_interface.card_options = card_list.slice_random(3)
+	loot_interface.battle_level = current_level
 	loot_interface.player_data = player_data
 	campaign_interface_container.add_child(loot_interface)
 	loot_interface.connect("card_collected", Callable(self, "_on_LootPanel_card_collected"))

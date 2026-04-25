@@ -13,4 +13,4 @@ description = "Deal %ATTACK Damage and add %ADD_BLEEDING Bleeding card(s)."
 energy_cost = 3
 icon = ExtResource("4")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_1uni8")]([ExtResource("2"), ExtResource("3_618we")])
+effects = Array[ExtResource("1_1uni8")]([ExtResource("2"), ExtResource("3_618we"), ExtResource("3_618we"), ExtResource("3_618we")])

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://0sf6dkag5oyi"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_aivq1"]
+[ext_resource type="Resource" uid="uid://b0kon6vqeerym" path="res://Resources/Effects/CardEffects/DoubleAttacksEffect.tres" id="2_hk0ib"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_ojbhq"]
+[ext_resource type="Texture2D" uid="uid://cird5uo3xcp85" path="res://Assets/Mixed/CardIcons/AttackGlowNew/fishing-net.png" id="4_41npo"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_mmdgp"]
+
+[resource]
+script = ExtResource("5_mmdgp")
+title = "Tangle"
+description = "Double Attack actions.
+Exhaust."
+energy_cost = 0
+icon = ExtResource("4_41npo")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_aivq1")]([ExtResource("2_hk0ib"), ExtResource("3_ojbhq")])

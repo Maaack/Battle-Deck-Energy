@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatusEffectData" format=3 uid="uid://dahgnvhyo0dgl"]
+
+[ext_resource type="Script" uid="uid://davwvhjuqcjy8" path="res://Resources/Effects/StatusEffects/StatusEffectData.gd" id="1_cjq5s"]
+[ext_resource type="Script" uid="uid://ssl8764psouj" path="res://Resources/Statuses/StatusData.gd" id="2_k1bid"]
+[ext_resource type="Resource" uid="uid://bta1cbbonlulj" path="res://Resources/Statuses/Barricaded.tres" id="3_7xk1o"]
+
+[resource]
+script = ExtResource("1_cjq5s")
+starting_statuses = Array[ExtResource("2_k1bid")]([ExtResource("3_7xk1o")])
+type_tag = "APPLY_BARRICADED"
+amount = 3
