@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_od7fo"]
 [ext_resource type="Resource" uid="uid://ds5qgbtkeks6r" path="res://Resources/Effects/StatusEffects/ApplyPoisonedAll5.tres" id="2_jlgdg"]
 [ext_resource type="Resource" uid="uid://b3ydog2xgrtkh" path="res://Resources/Effects/StatusEffects/ApplyPoisoned3Source.tres" id="3_ap4rt"]
-[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_3hy2p"]
+[ext_resource type="Resource" uid="uid://d2s6iv5tv76pt" path="res://Resources/Effects/CardEffects/InnateEffect.tres" id="4_jlgdg"]
 [ext_resource type="Texture2D" uid="uid://eyrmtsgck0l5" path="res://Assets/Mixed/CardIcons/AttackGlowNew/poison-bottle.png" id="5_u5fhc"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_vvbos"]
 
@@ -12,8 +12,8 @@ script = ExtResource("5_vvbos")
 title = "Misery"
 description = "Apply %APPLY_POISONED Poisoned to all enemies.
 Gain %APPLY_POISONED_SOURCE Poisoned.
-Exhaust."
+Innate."
 energy_cost = 3
 icon = ExtResource("5_u5fhc")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_od7fo")]([ExtResource("2_jlgdg"), ExtResource("3_ap4rt"), ExtResource("4_3hy2p")])
+effects = Array[ExtResource("1_od7fo")]([ExtResource("2_jlgdg"), ExtResource("3_ap4rt"), ExtResource("4_jlgdg")])

@@ -11,6 +11,7 @@
 script = ExtResource("5_ulawn")
 title = "Fourth Wall"
 description = "Block %DEFEND Damage.
+Add %ADD_PLOT Plot to your draw pile.
 Combo %COMBO_EFFECTx."
 energy_cost = 2
 icon = ExtResource("4_o4euh")

@@ -8,5 +8,5 @@
 script = ExtResource("2")
 starting_statuses = Array[ExtResource("2_6juxb")]([ExtResource("1")])
 type_tag = "APPLY_WEAK"
-amount = 2
+amount = 1
 team_aim_mode = 2
