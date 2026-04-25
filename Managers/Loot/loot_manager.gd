@@ -9,7 +9,7 @@ const CARD_RANK_COST_MAP : Dictionary[int, Array] = {
 	5: [1, 2, 3],
 	6: [2, 3]
 }
-const RANK_SKILL_DECREASED : Array = [1, 2, 4, 5]
+const RANK_SKILL_DECREASED : Array = [2, 4, 5]
 
 @export var battle_level : BattleLevelData :
 	set(value):
@@ -39,9 +39,9 @@ func append_all_card_types(append_list : WeightedDataList, deck: DeckData, cost:
 
 func get_lootable_cards() -> WeightedDataList:
 	var all_cards := load("res://Resources/Decks/AllCardsDeck.tres")
-	var grapple_cards := load("res://Resources/Decks/GrappleDeck.tres")
-	var rogue_cards := load("res://Resources/Decks/RogueDeck.tres")
-	var toxic_cards := load("res://Resources/Decks/ToxicDeck.tres")
+	var grapple_cards := load("res://Resources/Decks/GrappleCardsDeck.tres")
+	var rogue_cards := load("res://Resources/Decks/RogueCardsDeck.tres")
+	var toxic_cards := load("res://Resources/Decks/ToxicCardsDeck.tres")
 	var loot_card_list : WeightedDataList = WeightedDataList.new()
 	for cost in CARD_RANK_COST_MAP[rank]:
 		match(loot_type):
