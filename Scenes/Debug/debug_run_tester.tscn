@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://btkdanhky2mdv"]
+
+[ext_resource type="Script" uid="uid://62hj57qydhuq" path="res://Scenes/Debug/debug_run_tester.gd" id="1_eqr33"]
+[ext_resource type="PackedScene" uid="uid://e67g00opyrkn" path="res://Managers/Levels/LevelManager.tscn" id="2_52kje"]
+[ext_resource type="Resource" uid="uid://di0wphja1u37" path="res://Resources/Decks/LamestStartingDeck.tres" id="2_spk2i"]
+[ext_resource type="PackedScene" uid="uid://p50406fglccd" path="res://Managers/Loot/loot_manager.tscn" id="3_haxp7"]
+
+[node name="DebugRunTester" type="Control" unique_id=1164175527]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqr33")
+primary_class = 2
+secondary_class = 1
+starting_deck = ExtResource("2_spk2i")
+
+[node name="LevelManager" parent="." unique_id=1030568065 instance=ExtResource("2_52kje")]
+paths = Array[String](["res://Resources/Levels/StoryLevel/IntroLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level01List.tres", "res://Resources/Weighted/WeightedLevelList/Level02List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level04List.tres", "res://Resources/Weighted/WeightedLevelList/Level05List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level07List.tres", "res://Resources/Weighted/WeightedLevelList/Level08List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level10List.tres", "res://Resources/Weighted/WeightedLevelList/Level11List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level13List.tres", "res://Resources/Weighted/WeightedLevelList/Level14List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level16List.tres", "res://Resources/Levels/StoryLevel/PreBossLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level17List.tres", "res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres", "res://Resources/Levels/StoryLevel/EndingLevel.tres", "res://Resources/Levels/CreditsLevel/CreditsLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level22List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level25List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level28List.tres", "res://Resources/Levels/StoryLevel/CongratsLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres"])
+
+[node name="LootManager" parent="." unique_id=1223268466 instance=ExtResource("3_haxp7")]
