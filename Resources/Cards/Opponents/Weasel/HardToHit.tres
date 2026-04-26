@@ -2,17 +2,14 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_r6m01"]
-[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" uid="uid://be3auf72dc73y" path="res://Resources/Effects/StatusEffects/ApplyBarricaded4.tres" id="3"]
-[ext_resource type="Resource" uid="uid://signo6m41cj7" path="res://Resources/Effects/StatusEffects/DefendEffect2.tres" id="4"]
+[ext_resource type="Resource" uid="uid://6ifyekasf5xq" path="res://Resources/Effects/CardEffects/AddDefendEffect3.tres" id="2_qaw0f"]
 [ext_resource type="Texture2D" uid="uid://mbvi5f0f7wmu" path="res://Assets/Mixed/CardIcons/DefenseGlowEnemy/dodging.png" id="5"]
 
 [resource]
 script = ExtResource("1")
 title = "Hard to Hit"
-description = "Block %DEFEND Damage and apply %APPLY_BARRICADED Barricaded.
-Exhaust."
+description = "Block %DEFEND Damage."
 icon = ExtResource("5")
 base_color = Color(0.392157, 0.490196, 0.203922, 1)
-effects = Array[ExtResource("1_r6m01")]([ExtResource("4"), ExtResource("3"), ExtResource("2")])
+effects = Array[ExtResource("1_r6m01")]([ExtResource("2_qaw0f")])
 type = 2

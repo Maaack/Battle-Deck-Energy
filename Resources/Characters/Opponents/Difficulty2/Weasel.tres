@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://dclik48aidm38"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_50uel"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_n6hb1"]
+[ext_resource type="Resource" uid="uid://d2cu40qjrmsui" path="res://Resources/Cards/Opponents/Weasel/Claw.tres" id="3_j6jr1"]
+[ext_resource type="Resource" uid="uid://8af154hligmn" path="res://Resources/Cards/Opponents/Weasel/HardToHit.tres" id="4_tlcyg"]
+[ext_resource type="Resource" uid="uid://cq2ssg2t3rdmw" path="res://Resources/Cards/Opponents/Weasel/BiteAndHold.tres" id="5_hrqwj"]
+
+[resource]
+script = ExtResource("1_50uel")
+difficulty = 2
+starting_health_range = 4
+nickname = "Weasel"
+starting_max_health = 18
+starting_max_energy = 0
+starting_hand_size = 2
+starting_deck = Array[ExtResource("2_n6hb1")]([ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("4_tlcyg"), ExtResource("4_tlcyg"), ExtResource("5_hrqwj"), ExtResource("5_hrqwj")])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://hguxqfxy08xw"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_yu7ro"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_rxgxe"]
+[ext_resource type="Texture2D" uid="uid://gt6ri1ch7cjs" path="res://Assets/Mixed/CardIcons/AttackGlowNew/dart.png" id="3_g6ulx"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_fkb5f"]
+
+[resource]
+script = ExtResource("4_fkb5f")
+title = "Fling"
+description = "Deal %ATTACK Damage."
+energy_cost = 0
+icon = ExtResource("3_g6ulx")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_yu7ro")]([ExtResource("2_rxgxe")])

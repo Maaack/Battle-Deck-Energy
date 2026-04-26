@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://dlnxbh5suhipg"]
 
 [ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_titbn"]
-[ext_resource type="Resource" uid="uid://d2gy6ffiikcw4" path="res://Resources/Characters/Opponents/Rank3/Cad.tres" id="3_v46ao"]
+[ext_resource type="Resource" uid="uid://d2gy6ffiikcw4" path="res://Resources/Characters/Opponents/Difficulty4/Cad.tres" id="3_v46ao"]
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_8ij62"]
 
 [resource]

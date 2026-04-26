@@ -8,8 +8,10 @@
 
 [resource]
 script = ExtResource("1")
+difficulty = 2
+starting_health_range = 3
 nickname = "Freeloader"
-starting_max_health = 18
+starting_max_health = 15
 starting_max_energy = 0
 starting_hand_size = 2
 starting_deck = Array[ExtResource("2_mn3ug")]([ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("3"), ExtResource("2"), ExtResource("2"), ExtResource("4"), ExtResource("4")])

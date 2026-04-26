@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dhoirery36bbt"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_icjxx"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_lvrek"]
+[ext_resource type="Texture2D" uid="uid://dstahlywd1yme" path="res://Assets/Mixed/CardIcons/AttackGlowNew/butterfly-knife.png" id="3_ee61w"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_bdraq"]
+
+[resource]
+script = ExtResource("4_bdraq")
+title = "Blot"
+description = "Deal %ATTACK Damage."
+energy_cost = 0
+icon = ExtResource("3_ee61w")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_icjxx")]([ExtResource("2_lvrek")])

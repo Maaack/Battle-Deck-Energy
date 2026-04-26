@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://c8uwoi73y87ap"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_74tln"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_2l44b"]
+[ext_resource type="Resource" uid="uid://duxlyu5iehbvo" path="res://Resources/Cards/Opponents/Rascal/DirtyNails.tres" id="3_nm3kc"]
+[ext_resource type="Resource" uid="uid://l2e22cdtj776" path="res://Resources/Cards/Opponents/Rascal/DeflectBlame.tres" id="4_ehxk6"]
+[ext_resource type="Resource" uid="uid://bpm7nhp6gurtx" path="res://Resources/Cards/Opponents/Rascal/ThrowSand.tres" id="5_l3l87"]
+
+[resource]
+script = ExtResource("1_74tln")
+difficulty = 3
+nickname = "Rascal"
+starting_max_health = 18
+starting_max_energy = 1
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_2l44b")]([ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("4_ehxk6"), ExtResource("4_ehxk6"), ExtResource("5_l3l87"), ExtResource("5_l3l87")])

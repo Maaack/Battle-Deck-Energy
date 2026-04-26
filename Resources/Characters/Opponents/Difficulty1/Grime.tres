@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://d4hb2pdb8k15n"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_n6wev"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_b42sa"]
+[ext_resource type="Resource" uid="uid://dack3rwh74kce" path="res://Resources/Cards/Opponents/Grime/Breath.tres" id="3_1erob"]
+[ext_resource type="Resource" uid="uid://b73v3nxi3n551" path="res://Resources/Cards/Opponents/Grime/Transmit.tres" id="4_nb443"]
+[ext_resource type="Resource" uid="uid://ckqvx4unbah12" path="res://Resources/Cards/Opponents/Grime/HomeCooked.tres" id="5_v3i7q"]
+
+[resource]
+script = ExtResource("1_n6wev")
+starting_health_range = 1
+nickname = "Grime"
+starting_max_health = 6
+starting_max_energy = 0
+starting_hand_size = 2
+starting_deck = Array[ExtResource("2_b42sa")]([ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("5_v3i7q"), ExtResource("5_v3i7q")])

@@ -10,6 +10,7 @@
 
 [resource]
 script = ExtResource("1")
+difficulty = 8
 nickname = "Comm. Cafeteria"
 starting_max_health = 72
 starting_hand_size = 4
