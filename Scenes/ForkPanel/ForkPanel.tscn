@@ -2,9 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1_qtkwm"]
 [ext_resource type="Script" uid="uid://c0e31bestijka" path="res://Scenes/ForkPanel/ForkPanel.gd" id="2_ualbi"]
-[ext_resource type="Resource" uid="uid://dxsnxoix77uxk" path="res://Resources/Levels/Rank4_1/BullyDuoLevel.tres" id="3_7x6cb"]
 [ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3_llt0p"]
-[ext_resource type="Resource" uid="uid://cb2c6k5ia1c7f" path="res://Resources/Levels/Rank4_1/CadDuoLevel.tres" id="4_klgbg"]
 
 [node name="ForkPanel" type="Control" unique_id=1346010683]
 custom_minimum_size = Vector2(500, 360)
@@ -21,8 +19,6 @@ unknown_color = Color(0.27265528, 0.2726553, 0.2726553, 1)
 grapple_color = Color(0.6156863, 0.1882353, 0.23137255, 1)
 rogue_color = Color(0.54901963, 0.56078434, 0.68235296, 1)
 toxic_color = Color(0.89411765, 0.5803922, 0.22745098, 1)
-left_level = ExtResource("3_7x6cb")
-right_level = ExtResource("4_klgbg")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1202268932]
 layout_mode = 1

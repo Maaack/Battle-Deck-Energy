@@ -8,7 +8,8 @@
 
 [resource]
 script = ExtResource("1_n6wev")
-starting_health_range = 1
+type = 3
+starting_health_range = 2
 nickname = "Grime"
 starting_max_health = 6
 starting_max_energy = 0

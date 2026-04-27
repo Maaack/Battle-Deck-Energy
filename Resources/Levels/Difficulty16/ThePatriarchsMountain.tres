@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://cl1dhfn8p7lxl"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_7t6mo"]
+[ext_resource type="Resource" uid="uid://52mqew8rrxox" path="res://Resources/Characters/Opponents/ThePatriarch.tres" id="2_ov6ts"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_xgfos"]
+
+[resource]
+script = ExtResource("3_xgfos")
+opponents = Array[ExtResource("1_7t6mo")]([ExtResource("2_ov6ts")])
+rank = 7
+mood_type = "HARD_BATTLE"

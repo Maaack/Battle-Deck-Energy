@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://canb7queqdclw"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_xj53r"]
+[ext_resource type="Resource" uid="uid://d00tmn10aq22b" path="res://Resources/Characters/Opponents/CommanderCafeteria.tres" id="2_modwi"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_jm6q3"]
+
+[resource]
+script = ExtResource("3_jm6q3")
+opponents = Array[ExtResource("1_xj53r")]([ExtResource("2_modwi")])
+loot_type = 3
+rank = 6
+mood_type = "HARD_BATTLE"

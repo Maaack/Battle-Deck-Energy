@@ -10,6 +10,7 @@
 [resource]
 script = ExtResource("1_pm5b6")
 difficulty = 6
+type = 2
 nickname = "Stalker"
 starting_max_health = 36
 starting_max_energy = 2

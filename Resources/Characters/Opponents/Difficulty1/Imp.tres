@@ -8,7 +8,8 @@
 
 [resource]
 script = ExtResource("1_ko17k")
-starting_health_range = 3
+type = 2
+starting_health_range = 2
 nickname = "Cheater"
 starting_max_health = 6
 starting_max_energy = 0

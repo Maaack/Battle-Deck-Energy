@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://d0krrxeeox1sm"]
 
-[ext_resource type="Resource" uid="uid://buiqdw83ggqij" path="res://Resources/Levels/Rank5_1/BruiserSoloLevel.tres" id="2_7r025"]
-[ext_resource type="Resource" uid="uid://cljua5j5li8ae" path="res://Resources/Levels/Rank5_1/StalkerSoloLevel.tres" id="3_e65x0"]
+[ext_resource type="Resource" uid="uid://buiqdw83ggqij" path="res://Resources/Levels/Difficulty6/BruiserSoloLevel.tres" id="2_7r025"]
+[ext_resource type="Resource" uid="uid://cljua5j5li8ae" path="res://Resources/Levels/Difficulty6/StalkerSoloLevel.tres" id="3_e65x0"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://dw7uf5cgc74ct" path="res://Resources/Levels/Rank5_1/TweakerSoloLevel.tres" id="4_41ycq"]
+[ext_resource type="Resource" uid="uid://dw7uf5cgc74ct" path="res://Resources/Levels/Difficulty6/TweakerSoloLevel.tres" id="4_41ycq"]
 
 [resource]
 script = ExtResource("4")

@@ -9,8 +9,9 @@
 [resource]
 script = ExtResource("1_yg1i1")
 difficulty = 3
+type = 2
 nickname = "Lil Brat"
-starting_max_health = 18
+starting_max_health = 25
 starting_max_energy = 1
 starting_hand_size = 3
 starting_deck = Array[ExtResource("2_w3t8j")]([ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("4_s7te6"), ExtResource("4_s7te6"), ExtResource("5_rmdw2")])

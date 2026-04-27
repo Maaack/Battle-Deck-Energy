@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("1_6oh0q")
+type = 1
 starting_health_range = 3
 nickname = "Sponge"
 starting_max_health = 9

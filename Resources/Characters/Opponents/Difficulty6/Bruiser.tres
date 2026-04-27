@@ -10,6 +10,7 @@
 [resource]
 script = ExtResource("1_sbg3q")
 difficulty = 6
+type = 1
 nickname = "Bruiser"
 starting_max_health = 48
 starting_max_energy = 2

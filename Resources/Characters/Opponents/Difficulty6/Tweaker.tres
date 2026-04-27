@@ -10,6 +10,7 @@
 [resource]
 script = ExtResource("1_t3u2o")
 difficulty = 6
+type = 3
 nickname = "Tweaker"
 starting_max_health = 40
 starting_max_energy = 2

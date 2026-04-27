@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://bw0in542e1pkx"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_64kk6"]
+[ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/Difficulty4/BigBully.tres" id="2_csrjv"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_kmxux"]
+
+[resource]
+script = ExtResource("3_kmxux")
+opponents = Array[ExtResource("1_64kk6")]([ExtResource("2_csrjv")])
+loot_type = 1
+rank = 2

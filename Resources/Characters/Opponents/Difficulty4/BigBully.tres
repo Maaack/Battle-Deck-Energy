@@ -9,8 +9,9 @@
 [resource]
 script = ExtResource("1_4hyoe")
 difficulty = 4
+type = 1
 nickname = "Big Bully"
-starting_max_health = 30
+starting_max_health = 32
 starting_max_energy = 1
 starting_hand_size = 3
 starting_deck = Array[ExtResource("2_5egyt")]([ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("4_xt5dy"), ExtResource("4_xt5dy"), ExtResource("5_epaao"), ExtResource("5_epaao")])

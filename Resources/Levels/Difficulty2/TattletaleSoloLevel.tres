@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://cdugf67tgjnxb"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_5xuyr"]
+[ext_resource type="Resource" uid="uid://c7t3e5e0j6rir" path="res://Resources/Characters/Opponents/Difficulty2/Tattletale.tres" id="2_5xuyr"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_cs1ir"]
+
+[resource]
+script = ExtResource("3_cs1ir")
+opponents = Array[ExtResource("1_5xuyr")]([ExtResource("2_5xuyr")])
+loot_type = 1

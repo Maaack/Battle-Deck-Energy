@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://eq814x4ryab3"]
 
-[ext_resource type="Resource" uid="uid://ohrxmbw6onbi" path="res://Resources/Levels/Rank3_1/BratAndBullyLevel.tres" id="2_8ww51"]
-[ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Rank3_1/BratTrioLevel.tres" id="3_8pwau"]
+[ext_resource type="Resource" uid="uid://ohrxmbw6onbi" path="res://Resources/Levels/Difficulty7/BratAndBullyLevel.tres" id="2_8ww51"]
+[ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Difficulty9/BratTrioLevel.tres" id="3_8pwau"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Rank3_1/PipsqueakAndCadLevel.tres" id="4_f7f2p"]
-[ext_resource type="Resource" uid="uid://goa8s1i1q1uw" path="res://Resources/Levels/Rank3_1/PipsqueakTrioLevel.tres" id="5_010yt"]
-[ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Rank3_1/RascalTrioLevel.tres" id="6_chv8d"]
-[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Rank3_1/SpoiledShitAndRascalLevel.tres" id="7_xji6k"]
+[ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Difficulty7/PipsqueakAndCadLevel.tres" id="4_f7f2p"]
+[ext_resource type="Resource" uid="uid://goa8s1i1q1uw" path="res://Resources/Levels/Difficulty9/PipsqueakTrioLevel.tres" id="5_010yt"]
+[ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Difficulty9/RascalTrioLevel.tres" id="6_chv8d"]
+[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Difficulty7/SpoiledShitAndRascalLevel.tres" id="7_xji6k"]
 
 [resource]
 script = ExtResource("4")

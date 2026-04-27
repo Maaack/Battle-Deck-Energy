@@ -10,6 +10,7 @@
 [resource]
 script = ExtResource("1_1q04a")
 difficulty = 4
+type = 2
 nickname = "Cad"
 starting_max_health = 24
 starting_max_energy = 2

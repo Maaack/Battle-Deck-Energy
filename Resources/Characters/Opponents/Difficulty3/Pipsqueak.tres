@@ -9,6 +9,7 @@
 [resource]
 script = ExtResource("1_1hgge")
 difficulty = 3
+type = 1
 nickname = "Pipsqueak"
 starting_max_health = 21
 starting_max_energy = 1

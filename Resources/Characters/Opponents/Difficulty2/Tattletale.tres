@@ -9,6 +9,7 @@
 [resource]
 script = ExtResource("1_ggo3e")
 difficulty = 2
+type = 3
 starting_health_range = 2
 nickname = "Tattletale"
 starting_max_health = 15

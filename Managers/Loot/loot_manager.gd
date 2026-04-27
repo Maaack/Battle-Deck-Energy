@@ -10,15 +10,38 @@ const CARD_RANK_COST_MAP : Dictionary[int, Array] = {
 	6: [3, 4]
 }
 const RANK_SKILL_DECREASED : Array = [2, 4, 5, 6]
+const DIFFICULTY_RANK_LEVELS : Array = [0, 2, 3, 4, 5]
 
 @export var battle_level : BattleLevelData :
 	set(value):
 		battle_level = value
+		var highest_type_count := 0
+		var highest_type := OpponentCharacterData.OpponentType.UNKNOWN
 		if battle_level != null:
-			loot_type = battle_level.loot_type
-			rank = battle_level.rank
+			var total_difficulty := 0
+			var type_count_map : Dictionary[OpponentCharacterData.OpponentType, int] = {
+				OpponentCharacterData.OpponentType.GRAPPLE : 0,
+				OpponentCharacterData.OpponentType.ROGUE : 0,
+				OpponentCharacterData.OpponentType.TOXIC : 0,
+			}
+			for opponent in battle_level.opponents:
+				if opponent is OpponentCharacterData:
+					total_difficulty += opponent.difficulty
+					type_count_map[opponent.type] += 1
+					if highest_type != opponent.type and type_count_map[opponent.type] > highest_type_count:
+						highest_type = opponent.type
+			loot_type = (highest_type as BattleLevelData.LootType)
+			_set_rank_from_difficulty(total_difficulty)
 @export var loot_type : BattleLevelData.LootType
 @export_range(1, 15) var rank : int = 1
+
+func _set_rank_from_difficulty(difficulty:int):
+	var _rank = difficulty - 1
+	if _rank < 1:
+		_rank = 1
+	if _rank > 6:
+		_rank = 6
+	rank = _rank
 
 func append_cards(append_list : WeightedDataList, deck: DeckData, cost: int = 0, card_type : CardData.CardType = CardData.CardType.NONE):
 	for card in deck.cards:

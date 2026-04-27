@@ -9,8 +9,9 @@
 [resource]
 script = ExtResource("1_74tln")
 difficulty = 3
+type = 3
 nickname = "Rascal"
-starting_max_health = 18
+starting_max_health = 21
 starting_max_energy = 1
 starting_hand_size = 3
 starting_deck = Array[ExtResource("2_2l44b")]([ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("3_nm3kc"), ExtResource("4_ehxk6"), ExtResource("4_ehxk6"), ExtResource("5_l3l87"), ExtResource("5_l3l87")])

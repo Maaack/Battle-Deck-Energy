@@ -9,6 +9,7 @@
 [resource]
 script = ExtResource("1_50uel")
 difficulty = 2
+type = 2
 starting_health_range = 4
 nickname = "Weasel"
 starting_max_health = 18
