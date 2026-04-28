@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_ggo3e"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_iuxkt"]
 [ext_resource type="Resource" uid="uid://cl3a5d3v2gvgp" path="res://Resources/Cards/Opponents/Tattletale/Scream.tres" id="3_dja86"]
-[ext_resource type="Resource" uid="uid://d1s6u0agikjlu" path="res://Resources/Cards/Opponents/Tattletale/SummonMom.tres" id="4_ui0uq"]
+[ext_resource type="Resource" uid="uid://d3377688xk4r7" path="res://Resources/Cards/Opponents/Tattletale/FindSecrets.tres" id="4_ggo3e"]
 [ext_resource type="Resource" uid="uid://c0yw04olbu5c6" path="res://Resources/Cards/Opponents/Tattletale/SpillSecrets.tres" id="5_rndyr"]
 
 [resource]
@@ -15,4 +15,4 @@ nickname = "Tattletale"
 starting_max_health = 15
 starting_max_energy = 1
 starting_hand_size = 2
-starting_deck = Array[ExtResource("2_iuxkt")]([ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("4_ui0uq"), ExtResource("4_ui0uq"), ExtResource("5_rndyr"), ExtResource("5_rndyr")])
+starting_deck = Array[ExtResource("2_iuxkt")]([ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("3_dja86"), ExtResource("4_ggo3e"), ExtResource("4_ggo3e"), ExtResource("4_ggo3e"), ExtResource("5_rndyr"), ExtResource("5_rndyr")])

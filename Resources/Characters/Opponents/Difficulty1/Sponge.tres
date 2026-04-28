@@ -14,4 +14,4 @@ nickname = "Sponge"
 starting_max_health = 9
 starting_max_energy = 0
 starting_hand_size = 2
-starting_deck = Array[ExtResource("2_ent0s")]([ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("4_q4b42"), ExtResource("4_q4b42"), ExtResource("4_q4b42"), ExtResource("4_q4b42"), ExtResource("5_jgy5o"), ExtResource("5_jgy5o")])
+starting_deck = Array[ExtResource("2_ent0s")]([ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("4_q4b42"), ExtResource("4_q4b42"), ExtResource("4_q4b42"), ExtResource("5_jgy5o"), ExtResource("5_jgy5o")])

@@ -15,4 +15,4 @@ nickname = "Weasel"
 starting_max_health = 18
 starting_max_energy = 0
 starting_hand_size = 2
-starting_deck = Array[ExtResource("2_n6hb1")]([ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("4_tlcyg"), ExtResource("4_tlcyg"), ExtResource("5_hrqwj"), ExtResource("5_hrqwj")])
+starting_deck = Array[ExtResource("2_n6hb1")]([ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("3_j6jr1"), ExtResource("4_tlcyg"), ExtResource("4_tlcyg"), ExtResource("4_tlcyg"), ExtResource("5_hrqwj"), ExtResource("5_hrqwj")])

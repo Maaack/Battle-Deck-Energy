@@ -14,4 +14,4 @@ nickname = "Grime"
 starting_max_health = 6
 starting_max_energy = 0
 starting_hand_size = 2
-starting_deck = Array[ExtResource("2_b42sa")]([ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("5_v3i7q"), ExtResource("5_v3i7q")])
+starting_deck = Array[ExtResource("2_b42sa")]([ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("3_1erob"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("4_nb443"), ExtResource("5_v3i7q"), ExtResource("5_v3i7q")])
