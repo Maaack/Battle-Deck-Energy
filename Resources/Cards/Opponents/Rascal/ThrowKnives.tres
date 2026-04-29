@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cfnvpsqako4op"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_bsmv5"]
+[ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_hlqdb"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_hlqdb"]
+[ext_resource type="Texture2D" uid="uid://cdv5l8o6563j" path="res://Assets/Mixed/CardIcons/AttackGlowNew/kitchen-knives.png" id="3_t46fb"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_cmhar"]
+
+[resource]
+script = ExtResource("4_cmhar")
+title = "Throw Knives"
+description = "Deal %ATTACK Damage over [b]3[/b] strikes.
+Exhaust."
+icon = ExtResource("3_t46fb")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_bsmv5")]([ExtResource("2_hlqdb"), ExtResource("2_hlqdb"), ExtResource("2_hlqdb"), ExtResource("3_hlqdb")])

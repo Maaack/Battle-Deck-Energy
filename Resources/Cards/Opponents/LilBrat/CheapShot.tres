@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_rvl38"]
-[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2"]
-[ext_resource type="Resource" uid="uid://t0b12oaw18hn" path="res://Resources/Effects/StatusEffects/RetreatDefendEffect2.tres" id="3"]
-[ext_resource type="Texture2D" uid="uid://067lfnhncerq" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/spinning-sword.png" id="4"]
+[ext_resource type="Resource" uid="uid://dkdcp8gghader" path="res://Resources/Effects/CardEffects/SmashAttackEffect2.tres" id="2_rvl38"]
+[ext_resource type="Resource" uid="uid://dj66myyoxbyrr" path="res://Resources/Effects/StatusEffects/ApplyFragile.tres" id="3_ikjwd"]
+[ext_resource type="Texture2D" uid="uid://2srio864pt6l" path="res://Assets/Mixed/CardIcons/AttackGlowNew/shield-impact.png" id="4_808vi"]
 
 [resource]
 script = ExtResource("1")
 title = "Cheap Shot"
-description = "Deal %ATTACK Damage and absorb %DEFEND Damage."
-icon = ExtResource("4")
+description = "Deal %ATTACK Damage (double to shields).
+Apply %APPLY_FRAGILE Fragile."
+icon = ExtResource("4_808vi")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_rvl38")]([ExtResource("2"), ExtResource("3")])
+effects = Array[ExtResource("1_rvl38")]([ExtResource("2_rvl38"), ExtResource("3_ikjwd")])

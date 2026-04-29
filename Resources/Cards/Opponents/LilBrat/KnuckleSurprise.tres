@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d0fgyy7us2231"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_601xe"]
+[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="2_w3g4j"]
+[ext_resource type="Resource" uid="uid://dg68t57ajx27h" path="res://Resources/Effects/DeckModEffects/AddShocked.tres" id="3_o0iwi"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_46l8w"]
+[ext_resource type="Texture2D" uid="uid://da4aur0trv14t" path="res://Assets/Mixed/CardIcons/AttackGlowNew/brass-knuckles.png" id="5_woivk"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_jdep2"]
+
+[resource]
+script = ExtResource("6_jdep2")
+title = "Knuckle Surprise"
+description = "Deal %ATTACK Damage and add %ADD_SHOCKED Shock card.
+Exhaust."
+icon = ExtResource("5_woivk")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_601xe")]([ExtResource("2_w3g4j"), ExtResource("3_o0iwi"), ExtResource("4_46l8w")])

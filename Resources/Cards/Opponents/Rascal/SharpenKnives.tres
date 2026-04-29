@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bc45s2ihlkqh1"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_xwafn"]
+[ext_resource type="Resource" uid="uid://dr5d166bb4g1c" path="res://Resources/Effects/StatusEffects/ApplyAttackUp3.tres" id="2_xi3vs"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="3_gqkx7"]
+[ext_resource type="Texture2D" uid="uid://qxjc0krv4vve" path="res://Assets/Mixed/CardIcons/SkillGlowNew/daggers.png" id="4_6uy6w"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_e3kiy"]
+
+[resource]
+script = ExtResource("5_e3kiy")
+title = "Sharpen Knives"
+description = "Apply %APPLY_ATTACK_UP Attack Up.
+Exhaust."
+icon = ExtResource("4_6uy6w")
+base_color = Color(0.494118, 0.768627, 0.756863, 1)
+effects = Array[ExtResource("1_xwafn")]([ExtResource("2_xi3vs"), ExtResource("3_gqkx7")])
+type = 2
