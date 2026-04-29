@@ -30,6 +30,7 @@ func set_opponents(value):
 	var highest_type := OpponentCharacterData.OpponentType.UNKNOWN
 	var total_difficulty := 0
 	var type_count_map : Dictionary[OpponentCharacterData.OpponentType, int] = {
+		OpponentCharacterData.OpponentType.UNKNOWN : 0,
 		OpponentCharacterData.OpponentType.GRAPPLE : 0,
 		OpponentCharacterData.OpponentType.ROGUE : 0,
 		OpponentCharacterData.OpponentType.TOXIC : 0,
