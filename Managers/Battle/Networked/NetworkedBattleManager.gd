@@ -15,7 +15,7 @@ func add_player(player_id : int, character_data : CharacterData, team : String):
 	var opportunity_source : CharacterData = Network.get_player_character(source_player_id)
 	var opportunity_target : CharacterData = Network.get_player_character(target_player_id)
 	var opportunity = opportunities_manager.get_matching_opportunity(opportunity_type, opportunity_source, opportunity_target)
-	var card = card_library.data[card_key]
+	var card = all_cards.get_first(card_key)
 	PersistentData.log_battle_action("`%s` plays `%s` on `%s` target `%s`" % [card_player.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 

@@ -27,6 +27,7 @@ signal team_won(team)
 @onready var effects_manager : EffectsManager = $EffectManager
 @onready var team_manager : TeamManager = $TeamManager
 
+var all_cards : DeckData = preload("res://Resources/Decks/AllCardsDeck.tres")
 var character_battle_manager_scene = load("res://Managers/CharacterBattle/CharacterBattleManager.tscn")
 var _character_manager_map : Dictionary = {}
 var _skip_battle_setup : bool = false
