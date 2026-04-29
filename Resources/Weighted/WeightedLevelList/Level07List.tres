@@ -7,3 +7,8 @@
 
 [resource]
 script = ExtResource("4")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2_8c1xw"): 1.0,
+ExtResource("3_g3ri6"): 1.0,
+ExtResource("4_1r6hu"): 1.0
+})
