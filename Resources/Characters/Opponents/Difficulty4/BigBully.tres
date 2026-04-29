@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://bt4mi66ru7qb4"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_4hyoe"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_5egyt"]
+[ext_resource type="Resource" uid="uid://bmbfmrye8fglm" path="res://Resources/Cards/Opponents/BigBully/OneHardPunch.tres" id="3_ou4sm"]
+[ext_resource type="Resource" uid="uid://c6phnnry8smo2" path="res://Resources/Cards/Opponents/BigBully/TakeAbuse.tres" id="4_xt5dy"]
+[ext_resource type="Resource" uid="uid://cccpn63bvo4p0" path="res://Resources/Cards/Opponents/BigBully/BlackMark.tres" id="5_epaao"]
+
+[resource]
+script = ExtResource("1_4hyoe")
+difficulty = 4
+type = 1
+nickname = "Big Bully"
+starting_max_health = 32
+starting_max_energy = 1
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_5egyt")]([ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("3_ou4sm"), ExtResource("4_xt5dy"), ExtResource("4_xt5dy"), ExtResource("5_epaao"), ExtResource("5_epaao")])

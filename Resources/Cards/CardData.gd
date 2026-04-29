@@ -15,8 +15,28 @@ enum CardType{NONE, ATTACK, DEFEND, SKILL, STRESS}
 
 var transform_data : TransformData = TransformData.new()
 
+static func get_card_type_string(card_type:CardType) -> String:
+	match card_type:
+		CardType.ATTACK:
+			return "Attack"
+		CardType.DEFEND:
+			return "Defend"
+		CardType.SKILL:
+			return "Skill"
+		CardType.STRESS:
+			return "Stress"
+		CardType.NONE:
+			return "None"
+		_:
+			return "Unknown"
+
+func get_card_type():
+	return get_card_type_string(type)
+
 func _to_string():
-	return "%s:%d" % [title, get_instance_id()]
+	if get_instance_id() > 0:
+		return "%s:%d" % [title, get_instance_id()]
+	return title
 
 func has_effect(type_tag:String):
 	for battle_effect in effects:

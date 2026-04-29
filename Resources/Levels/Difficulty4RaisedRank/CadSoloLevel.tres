@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://e4l1aa8fv3qi"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_0apxx"]
+[ext_resource type="Resource" uid="uid://d2gy6ffiikcw4" path="res://Resources/Characters/Opponents/Difficulty4/Cad.tres" id="3_upxm7"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_txn14"]
+
+[resource]
+script = ExtResource("4_txn14")
+opponents = Array[ExtResource("2_0apxx")]([ExtResource("3_upxm7")])
+difficulty_mod = 2

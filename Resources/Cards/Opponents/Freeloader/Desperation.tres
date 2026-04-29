@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_r37dh"]
 [ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="2"]
-[ext_resource type="Resource" uid="uid://b7s3n7g6kwkih" path="res://Resources/Effects/CardEffects/AttackEffect4.tres" id="3"]
+[ext_resource type="Resource" uid="uid://chj2a3nft7tcb" path="res://Resources/Effects/CardEffects/AttackEffect6.tres" id="2_r37dh"]
 [ext_resource type="Texture2D" uid="uid://cskhojqt5jo52" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/blade-drag.png" id="4"]
 [ext_resource type="Resource" uid="uid://dc1joqdxfle28" path="res://Resources/Effects/StatusEffects/SourceApplyVulnerable.tres" id="5"]
 
@@ -15,4 +15,4 @@ Exhaust."
 energy_cost = 0
 icon = ExtResource("4")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_r37dh")]([ExtResource("3"), ExtResource("2"), ExtResource("5")])
+effects = Array[ExtResource("1_r37dh")]([ExtResource("2_r37dh"), ExtResource("2"), ExtResource("5")])

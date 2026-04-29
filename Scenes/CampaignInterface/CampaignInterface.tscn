@@ -2,40 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://dfrmrqpy6qh6l" path="res://Assets/Mixed/Backgrounds/SchoolBackground1920x1080_v1.png" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
-[ext_resource type="Resource" uid="uid://wequ7hoidxhr" path="res://Resources/Levels/StoryLevel/EndingLevel.tres" id="3"]
-[ext_resource type="Resource" uid="uid://lt6gyfetg5ob" path="res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres" id="4"]
-[ext_resource type="Resource" uid="uid://bx4ocsc6a5klu" path="res://Resources/Weighted/WeightedLevelList/Level02List.tres" id="5"]
-[ext_resource type="Resource" uid="uid://bhxaia00g2haj" path="res://Resources/Weighted/WeightedLevelList/Level01List.tres" id="6"]
 [ext_resource type="PackedScene" uid="uid://584kstjjci6j" path="res://Scenes/CampaignInterface/DeadPanel/DeadPanel.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://e67g00opyrkn" path="res://Managers/Levels/LevelManager.tscn" id="8"]
-[ext_resource type="Resource" uid="uid://cv0twdoivpmn8" path="res://Resources/Levels/StoryLevel/IntroLevel.tres" id="9"]
-[ext_resource type="Resource" uid="uid://d35r6mdf0i6fi" path="res://Resources/Weighted/WeightedLevelList/Level10List.tres" id="10"]
-[ext_resource type="Resource" uid="uid://cq5fo06sy3ob5" path="res://Resources/Weighted/WeightedLevelList/Level04List.tres" id="11"]
-[ext_resource type="Resource" uid="uid://d0krrxeeox1sm" path="res://Resources/Weighted/WeightedLevelList/Level14List.tres" id="12"]
-[ext_resource type="Resource" uid="uid://cyav4cel38o7l" path="res://Resources/Levels/ShelterLevel/ShelterLevel.tres" id="13"]
 [ext_resource type="PackedScene" uid="uid://brm2majdoosuu" path="res://Scenes/CampaignInterface/GameMenu/CampaignGameMenu.tscn" id="14"]
-[ext_resource type="Resource" uid="uid://cbwa14kbk54ry" path="res://Resources/Weighted/WeightedLevelList/Level13List.tres" id="15"]
-[ext_resource type="Resource" uid="uid://eq814x4ryab3" path="res://Resources/Weighted/WeightedLevelList/Level08List.tres" id="17"]
-[ext_resource type="Resource" uid="uid://qhrprxso3dgg" path="res://Resources/Weighted/WeightedLevelList/Level11List.tres" id="18"]
 [ext_resource type="StyleBox" uid="uid://rifosnxch4oc" path="res://Themes/StyleBoxes/ShadowStyleBox.tres" id="19"]
 [ext_resource type="Script" uid="uid://01ka5have357" path="res://Scenes/CampaignInterface/CampaignInterface.gd" id="20"]
-[ext_resource type="Resource" uid="uid://ybjvpoep0gkg" path="res://Resources/Weighted/WeightedLevelList/Level07List.tres" id="21"]
-[ext_resource type="Resource" uid="uid://bwrdbtbcg7wkn" path="res://Resources/Weighted/WeightedLevelList/Level16List.tres" id="22"]
-[ext_resource type="Resource" uid="uid://scuekg50xt3u" path="res://Resources/Weighted/WeightedLevelList/Level17List.tres" id="23"]
-[ext_resource type="Resource" uid="uid://b8r2bqf8dm13b" path="res://Resources/Weighted/WeightedLevelList/Level05List.tres" id="24"]
-[ext_resource type="Resource" uid="uid://bxp5cdwagi1y7" path="res://Resources/Levels/StoryLevel/CongratsLevel.tres" id="25"]
 [ext_resource type="PackedScene" uid="uid://daus3rxf6smv1" path="res://Managers/Tooltip/TooltipManager.tscn" id="26"]
-[ext_resource type="Resource" uid="uid://ccur6w4lpykuo" path="res://Resources/Weighted/WeightedLevelList/Level28List.tres" id="50"]
-[ext_resource type="Resource" uid="uid://dmr85wu8s0eol" path="res://Resources/Weighted/WeightedLevelList/Level25List.tres" id="51"]
-[ext_resource type="Resource" uid="uid://d2wlnsvl6j1qn" path="res://Resources/Weighted/WeightedLevelList/Level22List.tres" id="52"]
-[ext_resource type="Resource" uid="uid://drqm8vbbbjs6r" path="res://Resources/Levels/StoryLevel/PreBossLevel.tres" id="53"]
 [ext_resource type="PackedScene" uid="uid://cr6yplg5nfolx" path="res://Managers/Mood/MoodManager.tscn" id="54"]
 [ext_resource type="AudioStream" uid="uid://2jrrs2ggudr2" path="res://Assets/Sourced/Music/SoundImage/RPG-Battle-Climax.ogg" id="55"]
 [ext_resource type="AudioStream" uid="uid://cmilwh31j0k0j" path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Ganxta (CC-BY).ogg" id="56"]
 [ext_resource type="AudioStream" uid="uid://bm3f1y2hrgvb4" path="res://Assets/Sourced/Music/SoundImage/Comrades-Always.ogg" id="57"]
 [ext_resource type="AudioStream" uid="uid://dxbu6q4o1ct52" path="res://Assets/Sourced/Music/OfFarDifferentNature/Of Far Different Nature - Adventure Begins (CC-BY).ogg" id="58"]
 [ext_resource type="AudioStream" uid="uid://bnxjp0otksoh3" path="res://Assets/Sourced/Music/SoundImage/Into-Battle_v001.ogg" id="59"]
-[ext_resource type="Resource" uid="uid://mu6gyqw7wx74" path="res://Resources/Levels/CreditsLevel/CreditsLevel.tres" id="60"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0.533333, 0.364706, 0.513726, 1)
@@ -128,10 +106,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LevelManager" parent="." unique_id=495612350 instance=ExtResource("8")]
-levels = [ExtResource("9"), ExtResource("6"), ExtResource("5"), ExtResource("13"), ExtResource("11"), ExtResource("24"), ExtResource("13"), ExtResource("21"), ExtResource("17"), ExtResource("13"), ExtResource("10"), ExtResource("18"), ExtResource("13"), ExtResource("15"), ExtResource("12"), ExtResource("13"), ExtResource("22"), ExtResource("53"), ExtResource("13"), ExtResource("23"), ExtResource("4"), ExtResource("3"), ExtResource("60"), ExtResource("13"), ExtResource("13"), ExtResource("13"), ExtResource("52"), ExtResource("13"), ExtResource("13"), ExtResource("51"), ExtResource("13"), ExtResource("13"), ExtResource("50"), ExtResource("25"), ExtResource("13")]
+paths = Array[String](["res://Resources/Levels/StoryLevel/IntroLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level01List.tres", "res://Resources/Weighted/WeightedLevelList/Level02List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level04List.tres", "res://Resources/Weighted/WeightedLevelList/Level05List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level07List.tres", "res://Resources/Weighted/WeightedLevelList/Level08List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level10List.tres", "res://Resources/Weighted/WeightedLevelList/Level11List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level13List.tres", "res://Resources/Weighted/WeightedLevelList/Level14List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level16List.tres", "res://Resources/Levels/StoryLevel/PreBossLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level17List.tres", "res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres", "res://Resources/Levels/StoryLevel/EndingLevel.tres", "res://Resources/Levels/CreditsLevel/CreditsLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level22List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level25List.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Weighted/WeightedLevelList/Level28List.tres", "res://Resources/Levels/StoryLevel/CongratsLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres"])
 
 [node name="TestLevelManager" parent="." unique_id=1130813957 instance=ExtResource("8")]
-levels = [ExtResource("13"), ExtResource("13"), ExtResource("4")]
+paths = Array[String](["res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/ShelterLevel/ShelterLevel.tres", "res://Resources/Levels/SaveDeckLevel/SaveDeckLevel.tres"])
 
 [node name="MoodManager" parent="." unique_id=1915419289 instance=ExtResource("54")]
 intro_song = ExtResource("58")

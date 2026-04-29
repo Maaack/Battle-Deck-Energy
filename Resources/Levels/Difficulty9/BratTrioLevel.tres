@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://bulmm02shdhuy"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_1e017"]
+[ext_resource type="Resource" uid="uid://baq44jga2p37t" path="res://Resources/Characters/Opponents/Difficulty3/LilBrat.tres" id="2_bt6os"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_34ux4"]
+
+[resource]
+script = ExtResource("3_34ux4")
+opponents = Array[ExtResource("1_1e017")]([ExtResource("2_bt6os"), ExtResource("2_bt6os"), ExtResource("2_bt6os")])
+loot_type = 1
+rank = 3

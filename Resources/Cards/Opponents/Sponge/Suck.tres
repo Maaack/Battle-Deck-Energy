@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://oa5lqpndajo6"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_6nh32"]
+[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="2_lc20k"]
+[ext_resource type="Resource" uid="uid://dbhsv6sfylm2x" path="res://Resources/Effects/StatusEffects/SourceApplyStrong.tres" id="3_tygd1"]
+[ext_resource type="Texture2D" uid="uid://dn8nyjq6upjo7" path="res://Assets/Mixed/CardIcons/AttackGlowEnemy/pretty-fangs.png" id="4_ydjo7"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_caigh"]
+
+[resource]
+script = ExtResource("5_caigh")
+title = "Suck"
+description = "Deal %ATTACK Damage over [b]2[/b] strikes.
+Apply %APPLY_STRONG Strong on self."
+energy_cost = 0
+icon = ExtResource("4_ydjo7")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_6nh32")]([ExtResource("2_lc20k"), ExtResource("2_lc20k"), ExtResource("3_tygd1")])

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bn408crn6uhp2"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_p6uys"]
+[ext_resource type="Resource" uid="uid://cv0hrjf5dlx7f" path="res://Resources/Effects/StatusEffects/DefendEffect3.tres" id="2_p50nb"]
+[ext_resource type="Texture2D" uid="uid://bxde3oob5dyxc" path="res://Assets/Mixed/CardIcons/DefendGlowNew/shield-reflect.png" id="3_cx5m1"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_ck2cx"]
+
+[resource]
+script = ExtResource("4_ck2cx")
+title = "Deflect"
+description = "Block %DEFEND Damage."
+energy_cost = 0
+icon = ExtResource("3_cx5m1")
+base_color = Color(0.39215687, 0.49019608, 0.20392157, 1)
+effects = Array[ExtResource("1_p6uys")]([ExtResource("2_p50nb")])
+type = 2

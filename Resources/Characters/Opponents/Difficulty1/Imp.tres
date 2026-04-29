@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://biqif2f07ie5x"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_ko17k"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_1xnk3"]
+[ext_resource type="Resource" uid="uid://hguxqfxy08xw" path="res://Resources/Cards/Opponents/Imp/Fling.tres" id="3_od7pm"]
+[ext_resource type="Resource" uid="uid://bn408crn6uhp2" path="res://Resources/Cards/Opponents/Imp/Deflect.tres" id="4_mx45j"]
+[ext_resource type="Resource" uid="uid://dsnejsn13eua4" path="res://Resources/Cards/Opponents/Imp/Break.tres" id="5_n1qf1"]
+
+[resource]
+script = ExtResource("1_ko17k")
+type = 2
+starting_health_range = 2
+nickname = "Imp"
+starting_max_health = 6
+starting_max_energy = 0
+starting_hand_size = 2
+starting_deck = Array[ExtResource("2_1xnk3")]([ExtResource("3_od7pm"), ExtResource("3_od7pm"), ExtResource("3_od7pm"), ExtResource("3_od7pm"), ExtResource("4_mx45j"), ExtResource("4_mx45j"), ExtResource("4_mx45j"), ExtResource("4_mx45j"), ExtResource("5_n1qf1"), ExtResource("5_n1qf1")])

@@ -6,10 +6,10 @@ const CARD_RANK_COST_MAP : Dictionary[int, Array] = {
 	2: [0, 1],
 	3: [0, 1],
 	4: [1, 2],
-	5: [1, 2, 3],
-	6: [2, 3]
+	5: [2, 3],
+	6: [3, 4]
 }
-const RANK_SKILL_DECREASED : Array = [2, 4, 5]
+const RANK_SKILL_DECREASED : Array = [2, 4, 5, 6]
 
 @export var battle_level : BattleLevelData :
 	set(value):

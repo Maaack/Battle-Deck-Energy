@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bjuninevkhlma"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_x13d3"]
+[ext_resource type="Resource" uid="uid://cpn8bne3mbc4d" path="res://Resources/Effects/StatusEffects/DefendEffect4.tres" id="2_7qh6o"]
+[ext_resource type="Resource" uid="uid://cmvron3duavxe" path="res://Resources/Effects/CardEffects/ExhaustEffect.tres" id="4_50v1q"]
+[ext_resource type="Texture2D" uid="uid://blp3rm0v5v7sj" path="res://Assets/Mixed/CardIcons/DefendGlowNew/shieldcomb.png" id="4_x13d3"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="6_0m77k"]
+
+[resource]
+script = ExtResource("6_0m77k")
+title = "Absorb"
+description = "Block %DEFEND Damage.
+Exhaust."
+energy_cost = 0
+icon = ExtResource("4_x13d3")
+base_color = Color(0.39215687, 0.49019608, 0.20392157, 1)
+effects = Array[ExtResource("1_x13d3")]([ExtResource("2_7qh6o"), ExtResource("4_50v1q")])
+type = 2

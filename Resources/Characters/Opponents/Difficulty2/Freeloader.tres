@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://dioydmkc1e3q7"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_ff141"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_gikux"]
+[ext_resource type="Resource" uid="uid://smdlci63k0p0" path="res://Resources/Cards/Opponents/Freeloader/Mooch.tres" id="3_adofq"]
+[ext_resource type="Resource" uid="uid://cehnv5po6dwhs" path="res://Resources/Cards/Opponents/Freeloader/Desperation.tres" id="4_2q8kx"]
+[ext_resource type="Resource" uid="uid://dv8q76dsukblc" path="res://Resources/Cards/Opponents/Freeloader/Jealousy.tres" id="5_8x6m6"]
+
+[resource]
+script = ExtResource("1_ff141")
+difficulty = 2
+type = 1
+starting_health_range = 3
+nickname = "Freeloader"
+starting_max_health = 15
+starting_max_energy = 0
+starting_hand_size = 2
+starting_deck = Array[ExtResource("2_gikux")]([ExtResource("3_adofq"), ExtResource("3_adofq"), ExtResource("3_adofq"), ExtResource("3_adofq"), ExtResource("3_adofq"), ExtResource("4_2q8kx"), ExtResource("4_2q8kx"), ExtResource("4_2q8kx"), ExtResource("5_8x6m6"), ExtResource("5_8x6m6")])

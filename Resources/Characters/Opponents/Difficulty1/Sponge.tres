@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://drqb6l0d2r0ad"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_6oh0q"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_ent0s"]
+[ext_resource type="Resource" uid="uid://oa5lqpndajo6" path="res://Resources/Cards/Opponents/Sponge/Suck.tres" id="3_aovvs"]
+[ext_resource type="Resource" uid="uid://dhoirery36bbt" path="res://Resources/Cards/Opponents/Sponge/Blot.tres" id="4_q4b42"]
+[ext_resource type="Resource" uid="uid://bjuninevkhlma" path="res://Resources/Cards/Opponents/Sponge/Absorb.tres" id="5_jgy5o"]
+
+[resource]
+script = ExtResource("1_6oh0q")
+type = 1
+starting_health_range = 3
+nickname = "Sponge"
+starting_max_health = 9
+starting_max_energy = 0
+starting_hand_size = 2
+starting_deck = Array[ExtResource("2_ent0s")]([ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("3_aovvs"), ExtResource("4_q4b42"), ExtResource("4_q4b42"), ExtResource("4_q4b42"), ExtResource("5_jgy5o"), ExtResource("5_jgy5o")])

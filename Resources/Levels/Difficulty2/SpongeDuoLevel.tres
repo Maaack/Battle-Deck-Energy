@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://bwte7jb0h3df3"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_7paua"]
+[ext_resource type="Resource" uid="uid://drqb6l0d2r0ad" path="res://Resources/Characters/Opponents/Difficulty1/Sponge.tres" id="2_7paua"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="3_sb2yq"]
+
+[resource]
+script = ExtResource("3_sb2yq")
+opponents = Array[ExtResource("1_7paua")]([ExtResource("2_7paua"), ExtResource("2_7paua")])
+loot_type = 1

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://baq44jga2p37t"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_yg1i1"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_w3t8j"]
+[ext_resource type="Resource" uid="uid://cy40xqyvm016q" path="res://Resources/Cards/Opponents/LilBrat/CheapShot.tres" id="3_shhrt"]
+[ext_resource type="Resource" uid="uid://hnnsc2di8qtc" path="res://Resources/Cards/Opponents/LilBrat/BigTalk.tres" id="4_s7te6"]
+[ext_resource type="Resource" uid="uid://d0fgyy7us2231" path="res://Resources/Cards/Opponents/LilBrat/KnuckleSurprise.tres" id="5_yg1i1"]
+
+[resource]
+script = ExtResource("1_yg1i1")
+difficulty = 3
+type = 1
+nickname = "Lil Brat"
+starting_max_health = 25
+starting_max_energy = 1
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_w3t8j")]([ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("3_shhrt"), ExtResource("4_s7te6"), ExtResource("4_s7te6"), ExtResource("4_s7te6"), ExtResource("5_yg1i1"), ExtResource("5_yg1i1")])

@@ -2,9 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1_qtkwm"]
 [ext_resource type="Script" uid="uid://c0e31bestijka" path="res://Scenes/ForkPanel/ForkPanel.gd" id="2_ualbi"]
-[ext_resource type="Resource" uid="uid://dxsnxoix77uxk" path="res://Resources/Levels/Rank4_1/BullyDuoLevel.tres" id="3_7x6cb"]
 [ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3_llt0p"]
-[ext_resource type="Resource" uid="uid://cb2c6k5ia1c7f" path="res://Resources/Levels/Rank4_1/CadDuoLevel.tres" id="4_klgbg"]
 
 [node name="ForkPanel" type="Control" unique_id=1346010683]
 custom_minimum_size = Vector2(500, 360)
@@ -21,8 +19,6 @@ unknown_color = Color(0.27265528, 0.2726553, 0.2726553, 1)
 grapple_color = Color(0.6156863, 0.1882353, 0.23137255, 1)
 rogue_color = Color(0.54901963, 0.56078434, 0.68235296, 1)
 toxic_color = Color(0.89411765, 0.5803922, 0.22745098, 1)
-left_level = ExtResource("3_7x6cb")
-right_level = ExtResource("4_klgbg")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1202268932]
 layout_mode = 1
@@ -64,6 +60,7 @@ offset_bottom = 0.840912
 [node name="LeftVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=173649523]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1901246416]
 layout_mode = 2
@@ -71,10 +68,18 @@ text = "On the left..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1384816252]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Type - Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LeftTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=762673615]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/line_separation = 12
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
@@ -94,16 +99,25 @@ text = "Go Left"
 [node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=663266577]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1468047967]
 layout_mode = 2
 text = "On the right..."
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1618146960]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Type - Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RightTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=79073123]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/line_separation = 12
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32

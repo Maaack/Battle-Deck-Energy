@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://c8uwoi73y87ap"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_m7cw4"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_036uo"]
+[ext_resource type="Resource" uid="uid://duxlyu5iehbvo" path="res://Resources/Cards/Opponents/Cheat/DirtyNails.tres" id="3_m7cw4"]
+[ext_resource type="Resource" uid="uid://l2e22cdtj776" path="res://Resources/Cards/Opponents/Cheat/DeflectBlame.tres" id="4_036uo"]
+[ext_resource type="Resource" uid="uid://bpm7nhp6gurtx" path="res://Resources/Cards/Opponents/Cheat/ThrowSand.tres" id="5_vwwxs"]
+
+[resource]
+script = ExtResource("1_m7cw4")
+difficulty = 3
+type = 3
+nickname = "Cheat"
+starting_max_health = 21
+starting_max_energy = 1
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_036uo")]([ExtResource("3_m7cw4"), ExtResource("3_m7cw4"), ExtResource("3_m7cw4"), ExtResource("3_m7cw4"), ExtResource("3_m7cw4"), ExtResource("4_036uo"), ExtResource("4_036uo"), ExtResource("4_036uo"), ExtResource("5_vwwxs"), ExtResource("5_vwwxs")])

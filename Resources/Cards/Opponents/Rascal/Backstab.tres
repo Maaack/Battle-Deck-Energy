@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bfoi50n68dray"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_lpkco"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_q3t2h"]
+[ext_resource type="Resource" uid="uid://dlccofjtognvb" path="res://Resources/Effects/DeckModEffects/AddConfused.tres" id="3_so5bo"]
+[ext_resource type="Texture2D" uid="uid://de1usrj1xu88x" path="res://Assets/Mixed/CardIcons/AttackGlowNew/backstab.png" id="4_ulc6k"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_45c4l"]
+
+[resource]
+script = ExtResource("5_45c4l")
+title = "Backstab"
+description = "Deal %ATTACK Damage. 
+Add %ADD_CONFUSED Confused."
+icon = ExtResource("4_ulc6k")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_lpkco")]([ExtResource("2_q3t2h"), ExtResource("3_so5bo")])

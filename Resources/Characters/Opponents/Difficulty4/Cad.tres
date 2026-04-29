@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://d2gy6ffiikcw4"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_1q04a"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_v4322"]
+[ext_resource type="Resource" uid="uid://d17lujg4kowcs" path="res://Resources/Cards/Opponents/Cad/Demean.tres" id="3_bi1y5"]
+[ext_resource type="Resource" uid="uid://diin7nlrcx1y7" path="res://Resources/Cards/Opponents/Cad/ANiceGuy.tres" id="4_j575j"]
+[ext_resource type="Resource" uid="uid://bt8dck58ciuc8" path="res://Resources/Cards/Opponents/Cad/Chastise.tres" id="5_efftf"]
+[ext_resource type="Resource" uid="uid://c3yvrrlvbo02g" path="res://Resources/Cards/Opponents/Cad/StrongGrip.tres" id="6_kiidy"]
+
+[resource]
+script = ExtResource("1_1q04a")
+difficulty = 4
+type = 2
+nickname = "Cad"
+starting_max_health = 24
+starting_max_energy = 2
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_v4322")]([ExtResource("3_bi1y5"), ExtResource("3_bi1y5"), ExtResource("3_bi1y5"), ExtResource("3_bi1y5"), ExtResource("4_j575j"), ExtResource("4_j575j"), ExtResource("4_j575j"), ExtResource("4_j575j"), ExtResource("5_efftf"), ExtResource("5_efftf"), ExtResource("6_kiidy"), ExtResource("6_kiidy")])

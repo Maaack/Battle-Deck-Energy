@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OpponentCharacterData" format=3 uid="uid://e4ugslqnqmaf"]
+
+[ext_resource type="Script" uid="uid://b7m1hwrwgqq2k" path="res://Resources/Characters/OpponentCharacterData.gd" id="1_74tln"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="2_2l44b"]
+[ext_resource type="Resource" uid="uid://bfoi50n68dray" path="res://Resources/Cards/Opponents/Rascal/Backstab.tres" id="3_74tln"]
+[ext_resource type="Resource" uid="uid://cfnvpsqako4op" path="res://Resources/Cards/Opponents/Rascal/ThrowKnives.tres" id="4_2l44b"]
+[ext_resource type="Resource" uid="uid://bc45s2ihlkqh1" path="res://Resources/Cards/Opponents/Rascal/SharpenKnives.tres" id="5_nm3kc"]
+
+[resource]
+script = ExtResource("1_74tln")
+difficulty = 3
+type = 2
+nickname = "Rascal"
+starting_max_health = 21
+starting_max_energy = 1
+starting_hand_size = 3
+starting_deck = Array[ExtResource("2_2l44b")]([ExtResource("3_74tln"), ExtResource("3_74tln"), ExtResource("3_74tln"), ExtResource("3_74tln"), ExtResource("3_74tln"), ExtResource("4_2l44b"), ExtResource("4_2l44b"), ExtResource("4_2l44b"), ExtResource("5_nm3kc"), ExtResource("5_nm3kc")])
