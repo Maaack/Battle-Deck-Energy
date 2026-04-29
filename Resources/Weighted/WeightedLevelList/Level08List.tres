@@ -1,20 +1,14 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://eq814x4ryab3"]
 
-[ext_resource type="Resource" uid="uid://ohrxmbw6onbi" path="res://Resources/Levels/Difficulty7/BratAndBullyLevel.tres" id="2_8ww51"]
-[ext_resource type="Resource" uid="uid://bulmm02shdhuy" path="res://Resources/Levels/Difficulty9/BratTrioLevel.tres" id="3_8pwau"]
+[ext_resource type="Resource" uid="uid://bw0in542e1pkx" path="res://Resources/Levels/Difficulty4/BullySoloLevel.tres" id="2_6ydgp"]
+[ext_resource type="Resource" uid="uid://dlnxbh5suhipg" path="res://Resources/Levels/Difficulty4/CadSoloLevel.tres" id="3_cybwc"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Difficulty7/PipsqueakAndCadLevel.tres" id="4_f7f2p"]
-[ext_resource type="Resource" uid="uid://goa8s1i1q1uw" path="res://Resources/Levels/Difficulty9/PipsqueakTrioLevel.tres" id="5_010yt"]
-[ext_resource type="Resource" uid="uid://dddcl5dj3u7h0" path="res://Resources/Levels/Difficulty9/RascalTrioLevel.tres" id="6_chv8d"]
-[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Difficulty7/SpoiledShitAndRascalLevel.tres" id="7_xji6k"]
+[ext_resource type="Resource" uid="uid://ct5idxn24fpq1" path="res://Resources/Levels/Difficulty4/SpoiledShitSoloLevel.tres" id="4_sgd7b"]
 
 [resource]
 script = ExtResource("4")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("2_8ww51"): 1.0,
-ExtResource("3_8pwau"): 1.0,
-ExtResource("4_f7f2p"): 1.0,
-ExtResource("5_010yt"): 1.0,
-ExtResource("6_chv8d"): 1.0,
-ExtResource("7_xji6k"): 1.0
+ExtResource("2_6ydgp"): 1.0,
+ExtResource("3_cybwc"): 1.0,
+ExtResource("4_sgd7b"): 1.0
 })

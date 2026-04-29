@@ -10,11 +10,12 @@ enum LootType{
 }
 
 @export var opponents : Array[CharacterData] : set = set_opponents
-@export var loot_type : LootType
-@export_range(1, 15) var rank : int = 1
+@export_range(0, 8) var difficulty_mod := 0
+var loot_type : LootType
+var rank : int = 1
 
 func _set_rank_from_difficulty(difficulty:int):
-	var _rank = difficulty - 1
+	var _rank = (difficulty + difficulty_mod) - 1
 	if _rank < 1:
 		_rank = 1
 	if _rank > 6:

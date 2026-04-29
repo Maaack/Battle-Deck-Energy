@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="2_7n80a"]
 [ext_resource type="Resource" uid="uid://b72mm4okm43mv" path="res://Resources/Characters/Opponents/Difficulty4/SpoiledShit.tres" id="3_l77cx"]
-[ext_resource type="Resource" uid="uid://c8uwoi73y87ap" path="res://Resources/Characters/Opponents/Difficulty3/Rascal.tres" id="4_1wxe1"]
+[ext_resource type="Resource" uid="uid://c8uwoi73y87ap" path="res://Resources/Characters/Opponents/Difficulty3/Cheat.tres" id="4_1wxe1"]
 [ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="5_dv8le"]
 
 [resource]

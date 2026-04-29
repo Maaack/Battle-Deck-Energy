@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://b8r2bqf8dm13b"]
 
-[ext_resource type="Resource" uid="uid://buwfk74p7hrr7" path="res://Resources/Levels/Difficulty6/BratDuoLevel.tres" id="2_srwp3"]
-[ext_resource type="Resource" uid="uid://bw0in542e1pkx" path="res://Resources/Levels/Difficulty4/BullySoloLevel.tres" id="3_63g2v"]
+[ext_resource type="Resource" uid="uid://ch1qbla1eyxsu" path="res://Resources/Levels/Difficulty4/FreeloaderDuoLevel.tres" id="2_srwp3"]
+[ext_resource type="Resource" uid="uid://dxm72sm800o1l" path="res://Resources/Levels/Difficulty4/GrimeQuadLevel.tres" id="3_63g2v"]
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="4"]
-[ext_resource type="Resource" uid="uid://dlnxbh5suhipg" path="res://Resources/Levels/Difficulty4/CadSoloLevel.tres" id="4_26hb2"]
-[ext_resource type="Resource" uid="uid://c2txff6b3apwh" path="res://Resources/Levels/Others/PipSqueakDuoLevel.tres" id="5_tfgbn"]
-[ext_resource type="Resource" uid="uid://0y8wsrs5fo3h" path="res://Resources/Levels/Difficulty6/RascalDuoLevel.tres" id="6_5chwg"]
-[ext_resource type="Resource" uid="uid://ct5idxn24fpq1" path="res://Resources/Levels/Difficulty4/SpoiledShitSoloLevel.tres" id="7_7m0wq"]
+[ext_resource type="Resource" uid="uid://dldf8w7xucfyk" path="res://Resources/Levels/Difficulty4/ImpQuadLevel.tres" id="4_26hb2"]
+[ext_resource type="Resource" uid="uid://dtmlpob4mixme" path="res://Resources/Levels/Difficulty4/SpongeQuadLevel.tres" id="5_tfgbn"]
+[ext_resource type="Resource" uid="uid://dfk8ep65yjto6" path="res://Resources/Levels/Difficulty4/TattletaleDuoLevel.tres" id="6_5chwg"]
+[ext_resource type="Resource" uid="uid://3mpqnnv3454l" path="res://Resources/Levels/Difficulty4/WeaselDuoLevel.tres" id="7_7m0wq"]
 
 [resource]
 script = ExtResource("4")

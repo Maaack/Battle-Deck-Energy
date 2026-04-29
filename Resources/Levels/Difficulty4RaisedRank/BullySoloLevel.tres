@@ -7,5 +7,4 @@
 [resource]
 script = ExtResource("3_u0243")
 opponents = Array[ExtResource("1_s5thw")]([ExtResource("2_e5v8p")])
-loot_type = 1
-rank = 5
+difficulty_mod = 2

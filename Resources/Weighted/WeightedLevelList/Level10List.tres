@@ -1,14 +1,20 @@
 [gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://d35r6mdf0i6fi"]
 
 [ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="2"]
-[ext_resource type="Resource" uid="uid://bwiakoppu7ocl" path="res://Resources/Levels/Others/FreeloadersAndPipsqueakLevel.tres" id="2_3mnpt"]
-[ext_resource type="Resource" uid="uid://ubd7gae5xxh5" path="res://Resources/Levels/Others/GrimesAndRascalLevel.tres" id="3_0hutp"]
-[ext_resource type="Resource" uid="uid://4ner5dqaxao1" path="res://Resources/Levels/Others/WeaselsAndTattletalesLevel.tres" id="4_26t1l"]
+[ext_resource type="Resource" uid="uid://c8q78awfiecwn" path="res://Resources/Levels/Difficulty3/BratSoloLevel.tres" id="2_s6eih"]
+[ext_resource type="Resource" uid="uid://de2ehv2mbuyte" path="res://Resources/Levels/Difficulty3/CheatSoloLevel.tres" id="3_ngkmn"]
+[ext_resource type="Resource" uid="uid://bt6gkc2ajoc8u" path="res://Resources/Levels/Difficulty3/RascalSoloLevel.tres" id="4_l7g8p"]
+[ext_resource type="Resource" uid="uid://ch1qbla1eyxsu" path="res://Resources/Levels/Difficulty4/FreeloaderDuoLevel.tres" id="5_x4pa3"]
+[ext_resource type="Resource" uid="uid://dfk8ep65yjto6" path="res://Resources/Levels/Difficulty4/TattletaleDuoLevel.tres" id="6_k6w6d"]
+[ext_resource type="Resource" uid="uid://3mpqnnv3454l" path="res://Resources/Levels/Difficulty4/WeaselDuoLevel.tres" id="7_h7nln"]
 
 [resource]
 script = ExtResource("2")
 weighted_map = Dictionary[Resource, float]({
-ExtResource("2_3mnpt"): 1.0,
-ExtResource("3_0hutp"): 1.0,
-ExtResource("4_26t1l"): 1.0
+ExtResource("2_s6eih"): 1.0,
+ExtResource("3_ngkmn"): 1.0,
+ExtResource("4_l7g8p"): 1.0,
+ExtResource("5_x4pa3"): 1.0,
+ExtResource("6_k6w6d"): 1.0,
+ExtResource("7_h7nln"): 1.0
 })

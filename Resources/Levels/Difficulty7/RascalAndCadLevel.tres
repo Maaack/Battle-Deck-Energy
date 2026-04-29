@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://ccfkrxslga7ge"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_17jp3"]
+[ext_resource type="Resource" uid="uid://e4ugslqnqmaf" path="res://Resources/Characters/Opponents/Difficulty3/Rascal.tres" id="2_m32dv"]
+[ext_resource type="Resource" uid="uid://d2gy6ffiikcw4" path="res://Resources/Characters/Opponents/Difficulty4/Cad.tres" id="3_hyers"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_kq7oc"]
+
+[resource]
+script = ExtResource("4_kq7oc")
+opponents = Array[ExtResource("1_17jp3")]([ExtResource("2_m32dv"), ExtResource("3_hyers")])
+loot_type = 2
+rank = 3
