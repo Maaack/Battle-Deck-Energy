@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="1_qtkwm"]
 [ext_resource type="Script" uid="uid://c0e31bestijka" path="res://Scenes/ForkPanel/ForkPanel.gd" id="2_ualbi"]
 [ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3_llt0p"]
+[ext_resource type="Texture2D" uid="uid://jqtg5xsd4imi" path="res://Assets/Mixed/UI/person.svg" id="4_jeudq"]
 
 [node name="ForkPanel" type="Control" unique_id=1346010683]
 custom_minimum_size = Vector2(500, 360)
@@ -34,7 +35,7 @@ theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=751986320]
 layout_mode = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 48
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=776670800]
@@ -46,7 +47,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionsContainer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=537623454]
-custom_minimum_size = Vector2(0, 280)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer" unique_id=157541648]
@@ -60,7 +61,6 @@ offset_bottom = 0.840912
 [node name="LeftVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=173649523]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1901246416]
 layout_mode = 2
@@ -68,26 +68,55 @@ text = "On the left..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1384816252]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Type - Rank"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LeftTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=762673615]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1789041913]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/line_separation = 12
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-bbcode_enabled = true
-text = "[b][i][font_size=64]4 [color=#9d303b]Grapple[/color][/font_size]
-Enemies[/i][/b]"
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer" unique_id=781947927]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer/VBoxContainer" unique_id=926985902]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5662982, 0.5662982, 0.5662982, 1)
+theme_override_font_sizes/font_size = 12
+text = "( Type - Rank )"
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="LeftTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer/VBoxContainer" unique_id=762673615]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/line_separation = 12
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/bold_italics_font_size = 64
+bbcode_enabled = true
+text = "[b][i][color=%s]%s - %d[/color][/i][/b]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LeftIcons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer/VBoxContainer" unique_id=2145301503]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PersonCropped" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer/VBoxContainer/LeftIcons" unique_id=1258404223]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
+
+[node name="PersonCropped2" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer/VBoxContainer/LeftIcons" unique_id=590678278]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
+
+[node name="PersonCropped3" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer/VBoxContainer/LeftIcons" unique_id=1429633146]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
+
+[node name="PersonCropped4" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer/MarginContainer/VBoxContainer/LeftIcons" unique_id=938803915]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
 
 [node name="LeftButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1895784283]
 custom_minimum_size = Vector2(224, 38)
@@ -99,33 +128,61 @@ text = "Go Left"
 [node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=663266577]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1468047967]
 layout_mode = 2
 text = "On the right..."
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1618146960]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Type - Rank"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RightTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=79073123]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=692152028]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/line_separation = 12
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-bbcode_enabled = true
-text = "[b][i][font_size=64]4 [color=#9d303b]Grapple[/color][/font_size]
-Enemies[/i][/b]"
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer" unique_id=640345614]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer/VBoxContainer" unique_id=1618146960]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5662982, 0.5662982, 0.5662982, 1)
+theme_override_font_sizes/font_size = 12
+text = "( Type - Rank )"
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="RightTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer/VBoxContainer" unique_id=79073123]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/line_separation = 12
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/bold_italics_font_size = 64
+bbcode_enabled = true
+text = "[b][i][color=%s]%s - %d[/color][/i][/b]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RightIcons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer/VBoxContainer" unique_id=2119263589]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PersonCropped" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer/VBoxContainer/RightIcons" unique_id=1228024640]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
+
+[node name="PersonCropped2" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer/VBoxContainer/RightIcons" unique_id=1759099737]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
+
+[node name="PersonCropped3" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer/VBoxContainer/RightIcons" unique_id=68305835]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
+
+[node name="PersonCropped4" type="TextureRect" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer/MarginContainer/VBoxContainer/RightIcons" unique_id=907198428]
+layout_mode = 2
+texture = ExtResource("4_jeudq")
 
 [node name="RightButton" type="Button" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1731635877]
 custom_minimum_size = Vector2(224, 38)
