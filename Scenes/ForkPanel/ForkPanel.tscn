@@ -60,6 +60,7 @@ offset_bottom = 0.840912
 [node name="LeftVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=173649523]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1901246416]
 layout_mode = 2
@@ -67,10 +68,18 @@ text = "On the left..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=1384816252]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Type - Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LeftTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/LeftVBoxContainer" unique_id=762673615]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/line_separation = 12
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
@@ -90,16 +99,25 @@ text = "Go Left"
 [node name="RightVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer" unique_id=663266577]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1468047967]
 layout_mode = 2
 text = "On the right..."
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=1618146960]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Type - Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RightTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OptionsContainer/HBoxContainer/RightVBoxContainer" unique_id=79073123]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/line_separation = 12
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
