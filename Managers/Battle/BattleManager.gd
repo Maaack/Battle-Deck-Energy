@@ -41,7 +41,7 @@ func _ready():
 	EventBus.turn_ended.connect(_on_turn_ended)
 	EventBus.character_died.connect(_on_character_died)
 
-func _new_character_manager_instance(character_data : CharacterData, team : String):
+func _new_character_manager_instance(character_data : CharacterData, _team : String):
 	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instantiate()
 	_character_manager_map[character_data] = character_battle_manager
 	return character_battle_manager
@@ -288,9 +288,9 @@ func _on_EffectManager_apply_health(character, health, _source):
 	else:
 		character_manager.gain_health(health)
 
-func _on_EffectManager_apply_status(character, status, origin):
+func _on_EffectManager_apply_status(character, status, _origin):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
-	character_manager.gain_status(status, origin)
+	character_manager.gain_status(status)
 
 func _on_EffectManager_apply_energy(character, energy, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]

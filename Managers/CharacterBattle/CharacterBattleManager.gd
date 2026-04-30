@@ -175,28 +175,12 @@ func play_card_on_opportunity(card:CardData, opportunity:OpportunityData):
 	lose_energy(card.energy_cost)
 	emit_signal("card_played", character_data, card, opportunity)
 
-func gain_status(status:StatusData, origin:CharacterData):
-	var cycle_mode : int = StatusManager.CycleMode.NONE
-	var is_origin : bool = origin == character_data
+func gain_status(status:StatusData):
 	var is_target : bool = true
 	if status is RelatedStatusData:
 		if status.target != character_data:
 			is_target = false
-		if status.source == character_data:
-			is_origin = true
-	if status.has_the_d():
-		if is_origin:
-			cycle_mode = StatusManager.CycleMode.START_1
-		else:
-			cycle_mode = StatusManager.CycleMode.END
-	match(status.type_tag):
-		EffectCalculator.DEFENSE_STATUS, EffectCalculator.VULNERABLE_STATUS:
-			cycle_mode = StatusManager.CycleMode.START_2
-		EffectCalculator.POISONED_STATUS, EffectCalculator.BARRICADED_STATUS:
-			cycle_mode = StatusManager.CycleMode.START_3
-		EffectCalculator.MARKED_STATUS, EffectCalculator.ENGAGED_STATUS:
-			cycle_mode = StatusManager.CycleMode.NONE
-	status_manager.gain_status(status, cycle_mode, is_target)
+	status_manager.gain_status(status, is_target)
 
 func _update_poison_status():
 	var poisoned_status : StatusData = status_manager.get_status(EffectCalculator.POISONED_STATUS)
@@ -208,7 +192,7 @@ func _update_barricaded_status():
 	if barricaded_status:
 		var defense_status = defense_status_resource.duplicate()
 		defense_status.intensity = barricaded_status.intensity
-		gain_status(defense_status, character_data)
+		gain_status(defense_status)
 
 func has_statuses():
 	return status_manager.has_statuses()
