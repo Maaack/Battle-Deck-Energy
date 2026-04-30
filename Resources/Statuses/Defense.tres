@@ -12,4 +12,4 @@ color = Color(0.392157, 0.490196, 0.203922, 1)
 intensity = 1
 duration = 1
 type_tag = "DEFENSE"
-status_type = 0
+status_type = 3

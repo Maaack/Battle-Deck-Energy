@@ -198,10 +198,12 @@ func gain_status(status:StatusData, origin:CharacterData):
 			cycle_mode = StatusManager.CycleMode.NONE
 	status_manager.gain_status(status, cycle_mode, is_target)
 
-func _run_start_of_turn_statuses():
+func _update_poison_status():
 	var poisoned_status : StatusData = status_manager.get_status(EffectCalculator.POISONED_STATUS)
 	if poisoned_status:
 		lose_health(poisoned_status.duration)
+
+func _update_barricaded_status():
 	var barricaded_status : StatusData = status_manager.get_status(EffectCalculator.BARRICADED_STATUS)
 	if barricaded_status:
 		var defense_status = defense_status_resource.duplicate()
@@ -211,16 +213,33 @@ func _run_start_of_turn_statuses():
 func has_statuses():
 	return status_manager.has_statuses()
 
-func update_early_start_of_turn_statuses():
-	status_manager.decrement_durations(StatusManager.CycleMode.START_1)
+func update_early_buff_statuses():
+	status_manager.decrement_durations(StatusData.StatusType.EARLY_BUFF)
 
-func update_late_start_of_turn_statuses():
-	status_manager.decrement_durations(StatusManager.CycleMode.START_2)
-	_run_start_of_turn_statuses()
-	status_manager.decrement_durations(StatusManager.CycleMode.START_3)
+func update_early_curse_statuses():
+	_update_poison_status()
+	status_manager.decrement_durations(StatusData.StatusType.EARLY_CURSE)
 
-func update_end_of_turn_statuses():
-	status_manager.decrement_durations(StatusManager.CycleMode.END)
+func update_buff_statuses():
+	status_manager.decrement_durations(StatusData.StatusType.BUFF)
+
+func update_delayed_buff_statuses():
+	_update_barricaded_status()
+	status_manager.decrement_durations(StatusData.StatusType.DELAYED_BUFF)
+
+func update_curse_statuses():
+	status_manager.decrement_durations(StatusData.StatusType.CURSE)
+
+func update_setup_turn_statuses():
+	update_early_buff_statuses()
+	update_early_curse_statuses()
+
+func update_start_turn_statuses():
+	update_buff_statuses()
+	update_delayed_buff_statuses()
+
+func update_end_turn_statuses():
+	update_curse_statuses()
 
 func get_statuses():
 	var all_statuses : Array = status_manager.status_map.values()

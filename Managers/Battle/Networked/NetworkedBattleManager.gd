@@ -25,7 +25,7 @@ func add_player(player_id : int, character_data : CharacterData, team : String):
 	
 func _end_character_turn(character_data : CharacterData):
 	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
-	character_manager.update_end_of_turn_statuses()
+	character_manager.update_end_turn_statuses()
 	if character_manager.has_discardable_cards_in_hand():
 		emit_signal("before_hand_discarded", character_data)
 		character_manager.discard_hand()

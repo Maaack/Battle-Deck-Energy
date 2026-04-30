@@ -123,14 +123,11 @@ func decrement_duration(status:StatusData):
 		if not status.has_the_d():
 			lose_status(status)
 
-func decrement_durations(cycle_mode:int = CycleMode.START_1):
+func decrement_durations(status_type:StatusData.StatusType):
 	var local_status_cycle_map : Dictionary = status_cycle_map.duplicate()
 	for status in local_status_cycle_map:
 		if status is StatusData:
-			if cycle_mode == CycleMode.BUFFS:
-				if status.status_type != StatusData.StatusType.BUFF:
-					continue
-			elif local_status_cycle_map[status] != cycle_mode:
+			if status.status_type != status_type:
 				continue
 			if status.get_stack_value() == 0:
 				lose_status(status)

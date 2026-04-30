@@ -116,10 +116,14 @@ func get_opportunities():
 
 func _start_character_turn(character_data : CharacterData):
 	_set_active_character(character_data)
+	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
 	opportunities_manager.reset()
 	_setup_character_opportunities(character_data)
 	advance_action_timer.start()
 	await advance_action_timer.timeout
+	character_manager.update_setup_turn_statuses()
+	if character_manager is SlowEnemyAIBattleManager:
+		await character_manager.play_revealed_cards()
 	advance_character_phase()
 
 func _active_character_draws():
@@ -127,8 +131,7 @@ func _active_character_draws():
 	effects_manager.set_starting_energy(character_manager)
 	var draw_size = effects_manager.get_starting_draw_card_count(character_manager)
 	if character_manager.has_statuses():
-		character_manager.update_early_start_of_turn_statuses()
-		character_manager.update_late_start_of_turn_statuses()
+		character_manager.update_start_turn_statuses()
 		advance_action_timer.start()
 		await advance_action_timer.timeout
 	emit_signal("before_hand_drawn", active_character)
@@ -136,7 +139,7 @@ func _active_character_draws():
 
 func _end_character_turn(character_data : CharacterData):
 	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
-	character_manager.update_end_of_turn_statuses()
+	character_manager.update_end_turn_statuses()
 	if character_manager.has_discardable_cards_in_hand():
 		emit_signal("before_hand_discarded", character_data)
 		character_manager.discard_hand()
