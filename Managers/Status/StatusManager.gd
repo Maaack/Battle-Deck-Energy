@@ -73,7 +73,7 @@ func gain_status(status:StatusData, is_target: bool = true):
 		lose_status(status)
 
 func lose_status(status:StatusData):
-	if not status in status_map:
+	if not status.type_tag in status_map:
 		return
 	if status is RelatedStatusData:
 		if status.source in source_related_status_map and status.type_tag in source_related_status_map[status.source]:
