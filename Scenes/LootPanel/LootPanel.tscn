@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ka4hjvph22vt" path="res://Scenes/LootPanel/LootPanel.gd" id="1"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2"]
 [ext_resource type="FontFile" uid="uid://ok2o6260fdve" path="res://Themes/Fonts/Labels/PanelHeaderDynamicFont.tres" id="3"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="3_s8t74"]
 [ext_resource type="Script" uid="uid://btx1kj31mu7kg" path="res://Scenes/LootPanel/HBoxContainer.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://0qn12g8bvxee" path="res://Managers/Cards/Focused/Inspector/Selector/SelectorCardManager.tscn" id="5"]
 [ext_resource type="Resource" uid="uid://b17bvjxh6ybt7" path="res://Resources/Cards/Players/StartingSet/Slash.tres" id="6"]
@@ -21,7 +22,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2")
 script = ExtResource("1")
-card_options = [ExtResource("8"), ExtResource("6"), ExtResource("7")]
+card_options = Array[ExtResource("3_s8t74")]([ExtResource("8"), ExtResource("6"), ExtResource("7")])
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=370278384]
 layout_mode = 0
