@@ -11,8 +11,9 @@
 script = ExtResource("1_1q04a")
 difficulty = 4
 type = 2
+starting_health_range = 3
 nickname = "Cad"
-starting_max_health = 24
+starting_max_health = 27
 starting_max_energy = 2
 starting_hand_size = 3
 starting_deck = Array[ExtResource("2_v4322")]([ExtResource("3_bi1y5"), ExtResource("3_bi1y5"), ExtResource("3_bi1y5"), ExtResource("3_bi1y5"), ExtResource("4_j575j"), ExtResource("4_j575j"), ExtResource("4_j575j"), ExtResource("4_j575j"), ExtResource("5_efftf"), ExtResource("5_efftf"), ExtResource("6_kiidy"), ExtResource("6_kiidy")])

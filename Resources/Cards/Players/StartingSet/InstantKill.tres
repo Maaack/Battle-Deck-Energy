@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://db72xelfgiqy7"]
+
+[ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_sbqih"]
+[ext_resource type="Resource" uid="uid://b6cke41omk6jc" path="res://Resources/Effects/CardEffects/AttackEffect999.tres" id="2_sbqih"]
+[ext_resource type="Texture2D" uid="uid://chedq2wpqvjdm" path="res://Assets/Mixed/CardIcons/AttackGlowPlayer/pirate-flag.png" id="3_pqefu"]
+[ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="4_m57i2"]
+
+[resource]
+script = ExtResource("4_m57i2")
+title = "Instant Kill"
+description = "Deal %ATTACK Damage.
+(For testing)"
+icon = ExtResource("3_pqefu")
+base_color = Color(0.615686, 0.188235, 0.231373, 1)
+effects = Array[ExtResource("1_sbqih")]([ExtResource("2_sbqih")])
