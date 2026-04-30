@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_mrgvf"]
 [ext_resource type="Resource" uid="uid://bx857l4spx07f" path="res://Resources/Effects/CardEffects/AttackEffect2.tres" id="2_mrgvf"]
-[ext_resource type="Resource" uid="uid://dbhsv6sfylm2x" path="res://Resources/Effects/StatusEffects/SourceApplyStrong.tres" id="3_mrgvf"]
+[ext_resource type="Resource" uid="uid://b0wr1dyc17dma" path="res://Resources/Effects/StatusEffects/SourceApplyStrong2.tres" id="3_mrgvf"]
 [ext_resource type="Texture2D" uid="uid://tiijptg3rr18" path="res://Assets/Mixed/CardIcons/AttackGlowNew/grab.png" id="4_7ma8u"]
 
 [resource]

@@ -58,4 +58,3 @@ func is_good() -> bool:
 
 func is_bad() -> bool:
 	return (not is_good())
-
