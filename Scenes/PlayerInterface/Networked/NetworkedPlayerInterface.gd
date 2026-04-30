@@ -3,7 +3,7 @@ extends PlayerInterface
 @onready var battle_board = $BattleBoard
 
 var _opponent_hand_manager_scene = preload("res://Managers/Cards/Puppet/PuppetCardManager.tscn")
-var card_library : CommonData = preload("res://Resources/Common/CardLibrary.tres")
+var all_cards : DeckData = preload("res://Resources/Decks/AllCardsDeck.tres")
 var _opponent_hand_managers : Dictionary = {}
 var _opponent_interfaces : Dictionary = {}
 var _remote_opponent_card_map : Dictionary = {}
@@ -86,7 +86,7 @@ func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	var opponent : CharacterData = Network.get_player_character(player_id)
 	var opponent_interface : OpponentActionsInterface = _opponent_interfaces[opponent]
 	var manager_offset : Vector2 = opponent_card_manager.get_global_transform().get_origin()
-	var card : CardData = card_library.data[card_key]
+	var card : CardData = all_cards.get_first(card_key)
 	card = card.duplicate()
 	card.transform_data = opponent_interface.get_reveal_transform()
 	card.transform_data.position -= manager_offset

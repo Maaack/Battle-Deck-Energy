@@ -35,3 +35,9 @@ func draw_specific_card(card:CardData):
 		return
 	cards.remove_at(card_index)
 	return card
+
+func get_first(key:String) -> CardData:
+	for card in cards:
+		if card.title == key:
+			return card
+	return

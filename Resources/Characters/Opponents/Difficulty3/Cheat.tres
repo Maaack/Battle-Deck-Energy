@@ -10,6 +10,7 @@
 script = ExtResource("1_m7cw4")
 difficulty = 3
 type = 3
+starting_health_range = 2
 nickname = "Cheat"
 starting_max_health = 21
 starting_max_energy = 1

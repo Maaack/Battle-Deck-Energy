@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1")
 title = "Cheap Shot"
-description = "Deal %ATTACK Damage (double to shields).
+description = "Deal %SMASH_ATTACK Damage (double to shields).
 Apply %APPLY_FRAGILE Fragile."
 icon = ExtResource("4_808vi")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)

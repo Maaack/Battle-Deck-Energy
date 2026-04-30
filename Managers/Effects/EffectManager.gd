@@ -176,9 +176,9 @@ func _resolve_status_to_status(from_status_string : String, to_status : StatusDa
 		new_status.set_stack_value(new_value)
 		emit_signal("apply_status", target, new_status, source)
 
-func _resolve_interrupt_statuses(cycle_type : int, target : CharacterData, character_manager_map : Dictionary):
+func _resolve_interrupt_statuses(status_type : StatusData.StatusType, target : CharacterData, character_manager_map : Dictionary):
 	var target_battle_manager : CharacterBattleManager = character_manager_map[target]
-	target_battle_manager.status_manager.decrement_durations(cycle_type)
+	target_battle_manager.status_manager.decrement_durations(status_type)
 
 func _resolve_modify_status(status : StatusData, mod : float, effect_type : String, source : CharacterData, target : CharacterData, character_manager_map : Dictionary):
 	var new_status : StatusData = status.duplicate()
@@ -273,7 +273,7 @@ func _resolve_card_effect(effect:EffectData, opportunity:OpportunityData, final_
 		EffectCalculator.LOSE_ENERGY_EFFECT:
 			emit_signal("apply_energy", final_target, -(effect.amount), opportunity.source)
 		EffectCalculator.INTERRUPT_EFFECT:
-			_resolve_interrupt_statuses(StatusManager.CycleMode.BUFFS, final_target, character_manager_map)
+			_resolve_interrupt_statuses(StatusData.StatusType.BUFF, final_target, character_manager_map)
 		EffectCalculator.MARKED_DAMAGE_EFFECT:
 			_resolve_related_status_type_damage(EffectCalculator.MARKED_STATUS, opportunity.source, final_target, character_manager_map)
 		EffectCalculator.DOUBLE_MARKED_EFFECT:

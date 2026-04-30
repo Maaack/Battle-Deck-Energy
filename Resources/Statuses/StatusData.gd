@@ -3,11 +3,13 @@ extends Resource
 
 class_name StatusData
 
-enum StackType{INTENSITY,DURATION}
-enum StatusType{NONE, BUFF, CURSE}
+enum StackType{INTENSITY,DURATION,COMBINED}
+enum StatusType{NONE, BUFF, CURSE, EARLY_BUFF, DELAYED_BUFF, LATE_BUFF, EARLY_CURSE, RELATED_CURSE}
+
+const GOOD_TYPES : Array[StatusType] = [StatusType.BUFF, StatusType.DELAYED_BUFF, StatusType.LATE_BUFF]
 
 @export var title: String = 'Status'
-@export var description : String = 'Status description.' # (String, MULTILINE)
+@export_multiline var description : String = 'Status description.' # (String, MULTILINE)
 @export var icon: Texture2D
 @export var color: Color = Color.WHITE
 @export var intensity: int = 0
@@ -50,3 +52,9 @@ func reset_stack():
 		duration = 0
 	else:
 		intensity = 0
+
+func is_good() -> bool:
+	return status_type in GOOD_TYPES
+
+func is_bad() -> bool:
+	return (not is_good())

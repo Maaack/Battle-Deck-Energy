@@ -27,6 +27,7 @@ signal team_won(team)
 @onready var effects_manager : EffectsManager = $EffectManager
 @onready var team_manager : TeamManager = $TeamManager
 
+var all_cards : DeckData = preload("res://Resources/Decks/AllCardsDeck.tres")
 var character_battle_manager_scene = load("res://Managers/CharacterBattle/CharacterBattleManager.tscn")
 var _character_manager_map : Dictionary = {}
 var _skip_battle_setup : bool = false
@@ -40,7 +41,7 @@ func _ready():
 	EventBus.turn_ended.connect(_on_turn_ended)
 	EventBus.character_died.connect(_on_character_died)
 
-func _new_character_manager_instance(character_data : CharacterData, team : String):
+func _new_character_manager_instance(character_data : CharacterData, _team : String):
 	var character_battle_manager : CharacterBattleManager = character_battle_manager_scene.instantiate()
 	_character_manager_map[character_data] = character_battle_manager
 	return character_battle_manager
@@ -115,10 +116,14 @@ func get_opportunities():
 
 func _start_character_turn(character_data : CharacterData):
 	_set_active_character(character_data)
+	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
 	opportunities_manager.reset()
 	_setup_character_opportunities(character_data)
 	advance_action_timer.start()
 	await advance_action_timer.timeout
+	character_manager.update_setup_turn_statuses()
+	if character_manager is SlowEnemyAIBattleManager:
+		await character_manager.play_revealed_cards()
 	advance_character_phase()
 
 func _active_character_draws():
@@ -126,8 +131,7 @@ func _active_character_draws():
 	effects_manager.set_starting_energy(character_manager)
 	var draw_size = effects_manager.get_starting_draw_card_count(character_manager)
 	if character_manager.has_statuses():
-		character_manager.update_early_start_of_turn_statuses()
-		character_manager.update_late_start_of_turn_statuses()
+		character_manager.update_start_turn_statuses()
 		advance_action_timer.start()
 		await advance_action_timer.timeout
 	emit_signal("before_hand_drawn", active_character)
@@ -135,7 +139,7 @@ func _active_character_draws():
 
 func _end_character_turn(character_data : CharacterData):
 	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
-	character_manager.update_end_of_turn_statuses()
+	character_manager.update_end_turn_statuses()
 	if character_manager.has_discardable_cards_in_hand():
 		emit_signal("before_hand_discarded", character_data)
 		character_manager.discard_hand()
@@ -284,9 +288,9 @@ func _on_EffectManager_apply_health(character, health, _source):
 	else:
 		character_manager.gain_health(health)
 
-func _on_EffectManager_apply_status(character, status, origin):
+func _on_EffectManager_apply_status(character, status, _origin):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]
-	character_manager.gain_status(status, origin)
+	character_manager.gain_status(status)
 
 func _on_EffectManager_apply_energy(character, energy, _source):
 	var character_manager : CharacterBattleManager = _character_manager_map[character]

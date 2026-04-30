@@ -5,26 +5,28 @@ class_name SlowEnemyAIBattleManager
 
 signal card_revealed(character, card, opportunity)
 
-@onready var slowed_cards_timer = $SlowedCardsTimer
+@onready var revealed_cards_timer = $RevealedCardsTimer
 
-var slowed_cards : Array = []
+var revealed_cards : Array = []
 
 func _play_card(card : CardData, opportunity : OpportunityData):
 	opportunity.card_data = card
-	slowed_cards.append([card, opportunity])
+	revealed_cards.append([card, opportunity])
 	_discard_card_from_hand(card)
 	emit_signal("card_revealed", character_data, card, opportunity)
+
+func play_revealed_cards() -> void:
+	while (revealed_cards.size() > 0):
+		var card_and_opp : Array = revealed_cards.pop_front()
+		emit_signal("card_played", character_data, card_and_opp[0], card_and_opp[1])
+		revealed_cards_timer.start()
+		await revealed_cards_timer.timeout
 
 func take_turn(opportunities : Array):
 	if not character_data.is_alive():
 		_end_turn()
 		return
 	var weighted_hand : WeightedDataList = WeightedDataList.new()
-	while (slowed_cards.size() > 0):
-		var card_and_opp : Array = slowed_cards.pop_front()
-		emit_signal("card_played", character_data, card_and_opp[0], card_and_opp[1])
-		slowed_cards_timer.start()
-		await slowed_cards_timer.timeout
 	for card in hand.cards:
 		if card is CardData:
 			var divide_weight = 1

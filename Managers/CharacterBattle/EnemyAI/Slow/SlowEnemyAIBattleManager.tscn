@@ -6,6 +6,6 @@
 [node name="SlowEnemyAIBattleManager" unique_id=49233330 instance=ExtResource("1")]
 script = ExtResource("2")
 
-[node name="SlowedCardsTimer" type="Timer" parent="." index="2" unique_id=576692988]
+[node name="RevealedCardsTimer" type="Timer" parent="." index="2" unique_id=576692988]
 wait_time = 1.2
 one_shot = true

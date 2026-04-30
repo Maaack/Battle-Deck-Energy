@@ -15,7 +15,7 @@ func add_player(player_id : int, character_data : CharacterData, team : String):
 	var opportunity_source : CharacterData = Network.get_player_character(source_player_id)
 	var opportunity_target : CharacterData = Network.get_player_character(target_player_id)
 	var opportunity = opportunities_manager.get_matching_opportunity(opportunity_type, opportunity_source, opportunity_target)
-	var card = card_library.data[card_key]
+	var card = all_cards.get_first(card_key)
 	PersistentData.log_battle_action("`%s` plays `%s` on `%s` target `%s`" % [card_player.nickname, card.title, opportunity.type, opportunity.target.nickname])
 	effects_manager.resolve_on_play_opportunity(card, opportunity, _character_manager_map)
 
@@ -25,7 +25,7 @@ func add_player(player_id : int, character_data : CharacterData, team : String):
 	
 func _end_character_turn(character_data : CharacterData):
 	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
-	character_manager.update_end_of_turn_statuses()
+	character_manager.update_end_turn_statuses()
 	if character_manager.has_discardable_cards_in_hand():
 		emit_signal("before_hand_discarded", character_data)
 		character_manager.discard_hand()

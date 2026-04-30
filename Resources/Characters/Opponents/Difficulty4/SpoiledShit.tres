@@ -11,8 +11,9 @@
 script = ExtResource("1_wc0fg")
 difficulty = 4
 type = 3
+starting_health_range = 3
 nickname = "Spoiled Shit"
-starting_max_health = 21
+starting_max_health = 27
 starting_max_energy = 2
 starting_hand_size = 3
 starting_deck = Array[ExtResource("2_ue62m")]([ExtResource("3_lsyhx"), ExtResource("3_lsyhx"), ExtResource("3_lsyhx"), ExtResource("3_lsyhx"), ExtResource("4_82opx"), ExtResource("4_82opx"), ExtResource("4_82opx"), ExtResource("4_82opx"), ExtResource("5_6ln1f"), ExtResource("5_6ln1f"), ExtResource("6_tmq83"), ExtResource("6_tmq83")])

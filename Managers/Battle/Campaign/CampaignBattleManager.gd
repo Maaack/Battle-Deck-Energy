@@ -36,8 +36,7 @@ func _active_character_draws():
 	effects_manager.set_starting_energy(character_manager)
 	var draw_size = effects_manager.get_starting_draw_card_count(character_manager)
 	if character_manager.has_statuses():
-		character_manager.update_early_start_of_turn_statuses()
-		character_manager.update_late_start_of_turn_statuses()
+		character_manager.update_start_turn_statuses()
 		advance_action_timer.start()
 		await advance_action_timer.timeout
 	if character_manager is EnemyAIBattleManager:
@@ -49,7 +48,7 @@ func _active_character_draws():
 
 func _end_character_turn(character_data : CharacterData):
 	var character_manager : CharacterBattleManager = _character_manager_map[character_data]
-	character_manager.update_end_of_turn_statuses()
+	character_manager.update_end_turn_statuses()
 	if character_manager is EnemyAIBattleManager:
 		character_manager.discard_hand()
 		advance_action_timer.start()

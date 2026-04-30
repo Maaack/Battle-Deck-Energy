@@ -6,8 +6,6 @@ class_name DeckViewer
 signal back_pressed
 
 const INIT_CARD_SCALE = Vector2(0.05, 0.05)
-const FINAL_CARD_SCALE = Vector2(1.0, 1.0)
-const FINAL_ROTATION = 0
 
 @onready var deck_container = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @onready var card_manager = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer/SelectorCardManager
@@ -15,8 +13,9 @@ const FINAL_ROTATION = 0
 @onready var deck_label = $MarginContainer/VBoxContainer/DeckLabel
 
 @export var default_animate_in_time : float = 0.2 # (float, 0.0, 2.0)
-
-var deck : Array = []: set = set_deck
+@export var deck : Array[CardData]: set = set_deck
+@export var default_card_scale : Vector2 = Vector2.ONE
+@export var default_card_rotation : float = 0
 var card_container_map : Dictionary = {}
 var selected_card = null
 var title : String: set = set_title
@@ -32,8 +31,8 @@ func _get_animate_in_time():
 
 func _add_card_option(card:CardData):
 	var final_transform : TransformData = card.transform_data.duplicate()
-	final_transform.scale = FINAL_CARD_SCALE
-	final_transform.rotation = FINAL_ROTATION
+	final_transform.scale = default_card_scale
+	final_transform.rotation = default_card_rotation
 	card.transform_data.scale = INIT_CARD_SCALE
 	card_manager.add_card(card)
 	card_manager.move_card(card, final_transform, _get_animate_in_time())
@@ -50,10 +49,8 @@ func _add_cards_from_deck():
 	await deck_container.sort_children
 	_add_cards_to_containers()
 
-func set_deck(value:Array):
-	for card in value:
-		if card is CardData:
-			deck.append(card)
+func set_deck(value):
+	deck = value
 	_add_cards_from_deck()
 
 func _add_cards_to_containers():

@@ -10,6 +10,7 @@
 script = ExtResource("1_4hyoe")
 difficulty = 4
 type = 1
+starting_health_range = 6
 nickname = "Big Bully"
 starting_max_health = 32
 starting_max_energy = 1

@@ -8,5 +8,3 @@
 [resource]
 script = ExtResource("5_dv8le")
 opponents = Array[ExtResource("2_7n80a")]([ExtResource("3_l77cx"), ExtResource("4_1wxe1")])
-loot_type = 3
-rank = 3
