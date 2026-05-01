@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://jwie3gjk560c" path="res://Resources/Levels/Difficulty5/TattletaleAndGrimesLevel.tres" id="3_ddf5w"]
 [ext_resource type="Resource" uid="uid://tb7i0ir6jc5x" path="res://Resources/Levels/Difficulty5/WeaselAndImpsLevel.tres" id="4_o08b2"]
 [ext_resource type="Resource" uid="uid://ohrxmbw6onbi" path="res://Resources/Levels/Difficulty7/BratAndBullyLevel.tres" id="5_o75h5"]
-[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Difficulty7/CheatAndSpoiledShitLevel.tres" id="6_hi6ju"]
+[ext_resource type="Resource" uid="uid://yqjepm1q1bv4" path="res://Resources/Levels/Difficulty7/SpoiledShitAndCheatLevel.tres" id="6_hi6ju"]
 [ext_resource type="Resource" uid="uid://ccfkrxslga7ge" path="res://Resources/Levels/Difficulty7/RascalAndCadLevel.tres" id="7_u1jfa"]
 
 [resource]

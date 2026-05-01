@@ -7,4 +7,4 @@
 
 [resource]
 script = ExtResource("3_crlna")
-opponents = Array[ExtResource("1_0pb2v")]([ExtResource("2_m8vxq"), ExtResource("3_262te"), ExtResource("3_262te"), ExtResource("3_262te")])
+opponents = Array[ExtResource("1_0pb2v")]([ExtResource("3_262te"), ExtResource("3_262te"), ExtResource("3_262te"), ExtResource("2_m8vxq")])

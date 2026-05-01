@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="1"]
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_34frb"]
-[ext_resource type="Resource" uid="uid://qiwxp2obql4" path="res://Resources/Effects/CardEffects/DrawCardEffect.tres" id="2"]
 [ext_resource type="Resource" uid="uid://cb1p6eqigmjhk" path="res://Resources/Effects/CardEffects/GainEnergy.tres" id="2_2dtyd"]
 [ext_resource type="Texture2D" uid="uid://dy6f2dbqlgj2t" path="res://Assets/Mixed/CardIcons/SkillGlowPlayer/Energy/fire-dash.png" id="4"]
 [ext_resource type="Resource" uid="uid://cmcui6dq8mhul" path="res://Resources/Effects/CardEffects/MomentaryEffect.tres" id="5"]
@@ -11,10 +10,10 @@
 [resource]
 script = ExtResource("1")
 title = "Rush"
-description = "Gain %GAIN_ENERGY Energy and draw %DRAW_CARD card.
+description = "Gain %GAIN_ENERGY Energy.
 Momentary.
 Combo %COMBO_EFFECTx."
 icon = ExtResource("4")
 base_color = Color(0.54901963, 0.56078434, 0.68235296, 1)
-effects = Array[ExtResource("1_34frb")]([ExtResource("2_2dtyd"), ExtResource("2"), ExtResource("5"), ExtResource("5_rlqsr")])
+effects = Array[ExtResource("1_34frb")]([ExtResource("2_2dtyd"), ExtResource("5"), ExtResource("5_rlqsr")])
 type = 3

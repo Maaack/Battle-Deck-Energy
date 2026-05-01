@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://f8xwjoeuyx5m"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_306qc"]
+[ext_resource type="Resource" uid="uid://ch1qbla1eyxsu" path="res://Resources/Levels/Difficulty4/FreeloaderDuoLevel.tres" id="2_jnywi"]
+[ext_resource type="Resource" uid="uid://dsd6bnftqw8pa" path="res://Resources/Levels/Difficulty5/BullyAndSpongeLevel.tres" id="5_yukn8"]
+[ext_resource type="Resource" uid="uid://co53drg711k0x" path="res://Resources/Levels/Difficulty5/CadAndImpLevel.tres" id="6_3mak2"]
+[ext_resource type="Resource" uid="uid://dfk8ep65yjto6" path="res://Resources/Levels/Difficulty4/TattletaleDuoLevel.tres" id="6_rqvu4"]
+[ext_resource type="Resource" uid="uid://3mpqnnv3454l" path="res://Resources/Levels/Difficulty4/WeaselDuoLevel.tres" id="7_pvicb"]
+[ext_resource type="Resource" uid="uid://cxm6m7ubx7m37" path="res://Resources/Levels/Difficulty5/SpoiledShitAndGrimeLevel.tres" id="7_rqvu4"]
+[ext_resource type="Resource" uid="uid://buwfk74p7hrr7" path="res://Resources/Levels/Difficulty6/BratDuoLevel.tres" id="8_pvicb"]
+[ext_resource type="Resource" uid="uid://0y8wsrs5fo3h" path="res://Resources/Levels/Difficulty6/CheatDuoLevel.tres" id="9_2gtlp"]
+[ext_resource type="Resource" uid="uid://bicuqmdnpcsyc" path="res://Resources/Levels/Difficulty6/RascalDuoLevel.tres" id="10_is5c2"]
+
+[resource]
+script = ExtResource("1_306qc")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2_jnywi"): 1.0,
+ExtResource("6_rqvu4"): 1.0,
+ExtResource("7_pvicb"): 1.0,
+ExtResource("5_yukn8"): 1.0,
+ExtResource("6_3mak2"): 1.0,
+ExtResource("7_rqvu4"): 1.0,
+ExtResource("8_pvicb"): 1.0,
+ExtResource("9_2gtlp"): 1.0,
+ExtResource("10_is5c2"): 1.0
+})

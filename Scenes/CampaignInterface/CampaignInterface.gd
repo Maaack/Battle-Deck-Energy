@@ -224,7 +224,7 @@ func _remove_deck_view(deck_viewer:Node):
 	get_tree().paused = false
 	tooltip_manager.reset()
 
-func _on_ViewDeck_pressed(deck:Array):
+func _on_ViewDeck_pressed(deck:Array[CardData]):
 	var deck_view = deck_view_scene.instantiate()
 	get_tree().paused = true
 	_attach_deck_view(deck_view)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeightedDataList" format=3 uid="uid://c18cqx5wvws5o"]
+
+[ext_resource type="Script" uid="uid://8ptqxmwmm6rp" path="res://Resources/Weighted/WeightedDataList.gd" id="1_kcj7h"]
+[ext_resource type="Resource" uid="uid://c8q78awfiecwn" path="res://Resources/Levels/Difficulty3/BratSoloLevel.tres" id="2_0t6o5"]
+[ext_resource type="Resource" uid="uid://de2ehv2mbuyte" path="res://Resources/Levels/Difficulty3/CheatSoloLevel.tres" id="3_ajj3v"]
+[ext_resource type="Resource" uid="uid://bt6gkc2ajoc8u" path="res://Resources/Levels/Difficulty3/RascalSoloLevel.tres" id="4_haj07"]
+
+[resource]
+script = ExtResource("1_kcj7h")
+weighted_map = Dictionary[Resource, float]({
+ExtResource("2_0t6o5"): 1.0,
+ExtResource("3_ajj3v"): 1.0,
+ExtResource("4_haj07"): 1.0
+})

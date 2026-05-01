@@ -14,6 +14,8 @@ var deck_saved : bool = false
 var decks : Array[DeckData]
 var type_decks_map : Dictionary[String, Array]
 var runs : int = 0
+var collected_cards : int = 0
+var discarded_cards : int = 0
 
 func _start_run():
 	runs += 1
@@ -22,6 +24,8 @@ func _start_run():
 	decks.clear()
 	level_manager.current_level = 0
 	deck_saved = false
+	collected_cards = 0
+	discarded_cards = 0
 	while (not deck_saved):
 		start_level()
 		level_manager.advance()
@@ -39,7 +43,7 @@ func _print_decks_aggregate(print_decks:Array) -> void:
 				type_count_map[card.type] = 0
 			type_count_map[card.type] += 1
 			total_cards += 1
-	print("size, %d" % (total_cards / print_decks.size()))
+	print("size, %.3f" % (total_cards / print_decks.size()))
 	for cost in cost_count_map:
 		var average : float = float(cost_count_map[cost]) / print_decks.size()
 		print("%d cost card/deck,%2.3f" % [cost, average])
@@ -109,6 +113,7 @@ func collect_loot(battle_level:BattleLevelData):
 	_append_type_to_cards_map("Attack", attack_card)
 	_append_type_to_cards_map("Defend", defend_card)
 	_append_type_to_cards_map("Skill", skill_card)
+	collected_cards += 1
 
 func clean_deck(clean_deck:Array[CardData]) -> void:
 	var remove_priority : Dictionary[String, int]
@@ -133,6 +138,7 @@ func clean_deck(clean_deck:Array[CardData]) -> void:
 func start_shelter():
 	for deck_type in type_cards_map:
 		clean_deck(type_cards_map[deck_type])
+	discarded_cards += 1
 
 func start_fork(left_level:BattleLevelData, right_level:BattleLevelData):
 	if left_level.loot_type == primary_class:

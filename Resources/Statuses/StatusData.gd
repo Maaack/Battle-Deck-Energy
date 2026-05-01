@@ -4,9 +4,9 @@ extends Resource
 class_name StatusData
 
 enum StackType{INTENSITY,DURATION,COMBINED}
-enum StatusType{NONE, BUFF, CURSE, EARLY_BUFF, DELAYED_BUFF, LATE_BUFF, EARLY_CURSE, RELATED_CURSE}
+enum StatusType{NONE, BUFF, CURSE, EARLIEST_BUFF, EARLY_BUFF, LATE_BUFF, EARLY_CURSE, RELATED_CURSE}
 
-const GOOD_TYPES : Array[StatusType] = [StatusType.BUFF, StatusType.DELAYED_BUFF, StatusType.LATE_BUFF]
+const GOOD_TYPES : Array[StatusType] = [StatusType.BUFF, StatusType.EARLIEST_BUFF, StatusType.EARLY_BUFF, StatusType.LATE_BUFF]
 
 @export var title: String = 'Status'
 @export_multiline var description : String = 'Status description.' # (String, MULTILINE)

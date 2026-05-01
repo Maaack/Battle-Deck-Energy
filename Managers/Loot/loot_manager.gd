@@ -19,23 +19,28 @@ const RANK_SKILL_DECREASED : Array = [2, 4, 5, 6]
 			rank = battle_level.rank
 @export var loot_type : BattleLevelData.LootType
 @export_range(1, 15) var rank : int = 1
+@export var mod_max_cost_weight : float = 1.0
+@export var mod_skill_weight : float = 1.0
 
-func append_cards(append_list : WeightedDataList, deck: DeckData, cost: int = 0, card_type : CardData.CardType = CardData.CardType.NONE):
+func append_cards(append_list : WeightedDataList, deck: DeckData, cost: int = 0, card_type : CardData.CardType = CardData.CardType.NONE, weight: float = 1.0):
 	for card in deck.cards:
 		if card.energy_cost != cost:
 			continue
 		if card_type != CardData.CardType.NONE and card.type != card_type:
 			continue
-		append_list.append_data(card)
+		append_list.append_data(card, weight)
 
 func append_all_card_types(append_list : WeightedDataList, deck: DeckData, cost: int = 0):
-	append_cards(append_list, deck, cost, CardData.CardType.ATTACK)
-	append_cards(append_list, deck, cost, CardData.CardType.DEFEND)
+	var max_cost : int = CARD_RANK_COST_MAP[rank].max()
+	var weight := 1.0
+	if cost == max_cost:
+		weight *= mod_max_cost_weight
+	append_cards(append_list, deck, cost, CardData.CardType.ATTACK, weight)
+	append_cards(append_list, deck, cost, CardData.CardType.DEFEND, weight)
 	if rank in RANK_SKILL_DECREASED:
-		var max_cost : int = CARD_RANK_COST_MAP[rank].max()
 		if cost > max_cost - 1:
 			return
-	append_cards(append_list, deck, cost, CardData.CardType.SKILL)
+	append_cards(append_list, deck, cost, CardData.CardType.SKILL, weight * mod_skill_weight)
 
 func get_lootable_cards() -> WeightedDataList:
 	var all_cards := load("res://Resources/Decks/AllCardsDeck.tres")

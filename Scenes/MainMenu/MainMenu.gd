@@ -92,7 +92,7 @@ func _on_DeckListInterface_back_pressed():
 	extras_options.show()
 
 func _on_DeckListInterface_deck_selected(deck : DeckData):
-	var cards : Array = []
+	var cards : Array[CardData] = []
 	for card in deck.cards:
 		cards.append(card.duplicate())
 	var deck_view = deck_view_scene.instantiate()
