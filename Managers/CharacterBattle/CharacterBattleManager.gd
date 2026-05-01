@@ -197,8 +197,8 @@ func _update_barricaded_status():
 func has_statuses():
 	return status_manager.has_statuses()
 
-func update_early_buff_statuses():
-	status_manager.decrement_durations(StatusData.StatusType.EARLY_BUFF)
+func update_earliest_buff_statuses():
+	status_manager.decrement_durations(StatusData.StatusType.EARLIEST_BUFF)
 
 func update_early_curse_statuses():
 	_update_poison_status()
@@ -207,20 +207,20 @@ func update_early_curse_statuses():
 func update_buff_statuses():
 	status_manager.decrement_durations(StatusData.StatusType.BUFF)
 
-func update_delayed_buff_statuses():
+func update_early_buff_statuses():
 	_update_barricaded_status()
-	status_manager.decrement_durations(StatusData.StatusType.DELAYED_BUFF)
+	status_manager.decrement_durations(StatusData.StatusType.EARLY_BUFF)
 
 func update_curse_statuses():
 	status_manager.decrement_durations(StatusData.StatusType.CURSE)
 
 func update_setup_turn_statuses():
-	update_early_buff_statuses()
+	update_earliest_buff_statuses()
 	update_early_curse_statuses()
+	update_early_buff_statuses()
 
 func update_start_turn_statuses():
 	update_buff_statuses()
-	update_delayed_buff_statuses()
 
 func update_end_turn_statuses():
 	update_curse_statuses()

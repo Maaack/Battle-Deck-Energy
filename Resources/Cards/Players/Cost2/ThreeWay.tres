@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d363jhfyg0upq"]
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_mm2fh"]
-[ext_resource type="Resource" uid="uid://dowqeiyjyplyk" path="res://Resources/Effects/CardEffects/AttackEffect1.tres" id="2_mm2fh"]
+[ext_resource type="Resource" uid="uid://cemocgm3ht1ny" path="res://Resources/Effects/CardEffects/AttackEffect3.tres" id="2_s56d4"]
 [ext_resource type="Resource" uid="uid://cmw1236brhi5l" path="res://Resources/Effects/StatusEffects/ApplyMarked3.tres" id="3_h4263"]
 [ext_resource type="Texture2D" uid="uid://fnekmhxfvwtg" path="res://Assets/Mixed/CardIcons/AttackGlowNew/arrow-cluster.png" id="4_4unot"]
+[ext_resource type="Resource" uid="uid://cg8r3gh65a3fu" path="res://Resources/Effects/CardEffects/ComboEffect3.tres" id="4_h4263"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_oyxa6"]
 
 [resource]
 script = ExtResource("5_oyxa6")
 title = "Three Way"
-description = "Deal %ATTACK Damage over [b]3[/b] strikes.
-Apply %APPLY_MARKED Marked."
+description = "Deal %ATTACK Damage.
+Apply %APPLY_MARKED Marked.
+Combo %COMBO_EFFECTx."
 energy_cost = 2
 icon = ExtResource("4_4unot")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_mm2fh")]([ExtResource("2_mm2fh"), ExtResource("2_mm2fh"), ExtResource("2_mm2fh"), ExtResource("3_h4263")])
+effects = Array[ExtResource("1_mm2fh")]([ExtResource("2_s56d4"), ExtResource("3_h4263"), ExtResource("4_h4263")])

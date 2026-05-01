@@ -6,4 +6,4 @@
 script = ExtResource("1")
 key = "MARKING"
 term = "Marking"
-definition = "Adds [b]1[/b] Attack action on you for [b]X[/b] additional turns. Loses [b]1[/b] every turn."
+definition = "Doubles Attack actions on you at the start of the target's turn. Depletes after [b]X[/b] turns."

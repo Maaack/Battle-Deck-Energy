@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cki1hobydmc0w"]
 
 [ext_resource type="Script" uid="uid://ba4mim8s00bqe" path="res://Resources/Effects/CardEffects/EffectData.gd" id="1_d0xwe"]
-[ext_resource type="Resource" uid="uid://clv1o63ate5tq" path="res://Resources/Effects/StatusEffects/ApplyMarked.tres" id="2_e88ls"]
+[ext_resource type="Resource" uid="uid://cmw1236brhi5l" path="res://Resources/Effects/StatusEffects/ApplyMarked3.tres" id="2_d0xwe"]
 [ext_resource type="Resource" uid="uid://b5jpdpqc5huy0" path="res://Resources/Effects/CardEffects/MarkedDamageEffect.tres" id="3_50215"]
 [ext_resource type="Texture2D" uid="uid://c5hfvlhe8b1qv" path="res://Assets/Mixed/CardIcons/AttackGlowNew/digital-trace.png" id="4_rkdwi"]
 [ext_resource type="Script" uid="uid://qcyqw1io7uli" path="res://Resources/Cards/CardData.gd" id="5_w3bvc"]
@@ -13,4 +13,4 @@ description = "Apply %APPLY_MARKED Marked.
 Deal damage equal to Marked."
 icon = ExtResource("4_rkdwi")
 base_color = Color(0.615686, 0.188235, 0.231373, 1)
-effects = Array[ExtResource("1_d0xwe")]([ExtResource("2_e88ls"), ExtResource("3_50215")])
+effects = Array[ExtResource("1_d0xwe")]([ExtResource("2_d0xwe"), ExtResource("3_50215")])

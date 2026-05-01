@@ -103,8 +103,8 @@ func _on_BattleManager_team_lost(team):
 		await battle_end_timer.timeout
 		emit_signal("player_lost")
 
-func _duplicate_array_contents(values:Array):
-	var new_values : Array = []
+func _duplicate_array_card_data(values:Array[CardData]):
+	var new_values : Array[CardData] = []
 	for value in values:
 		new_values.append(value.duplicate())
 	return new_values
@@ -114,27 +114,27 @@ func _on_PlayerInterface_card_played_on_opportunity(card:CardData, opportunity:O
 
 func _on_draw_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
-	var deck : Array = character_manager.draw_pile.cards.duplicate()
+	var deck := character_manager.draw_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
-	deck = _duplicate_array_contents(deck)
+	deck = _duplicate_array_card_data(deck)
 	deck.sort()
 	emit_signal("view_deck_pressed", deck)
 
 func _on_discard_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
-	var deck : Array = character_manager.discard_pile.cards.duplicate()
+	var deck := character_manager.discard_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
-	deck = _duplicate_array_contents(deck)
+	deck = _duplicate_array_card_data(deck)
 	emit_signal("view_deck_pressed", deck)
 
 func _on_exhaust_pile_pressed():
 	var character_manager : CharacterBattleManager = battle_manager.get_character_manager(player_character)
-	var deck : Array = character_manager.exhaust_pile.cards.duplicate()
+	var deck := character_manager.exhaust_pile.cards.duplicate()
 	if deck.size() == 0:
 		return
-	deck = _duplicate_array_contents(deck)
+	deck = _duplicate_array_card_data(deck)
 	emit_signal("view_deck_pressed", deck)
 
 func _ready():
