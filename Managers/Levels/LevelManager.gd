@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-@export var paths : Array[String]
+@export_file_path("*.tres") var paths : Array[String]
 @export var starting_level: int = 0
 
 var current_level : int = 0

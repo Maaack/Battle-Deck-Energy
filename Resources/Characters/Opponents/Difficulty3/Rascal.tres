@@ -10,7 +10,7 @@
 script = ExtResource("1_74tln")
 difficulty = 3
 type = 2
-starting_health_range = 2
+starting_health_range = 4
 nickname = "Rascal"
 starting_max_health = 21
 starting_max_energy = 1

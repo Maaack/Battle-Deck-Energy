@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BattleLevelData" format=3 uid="uid://dsd6bnftqw8pa"]
+
+[ext_resource type="Script" uid="uid://djh62hwvsjivq" path="res://Resources/Characters/CharacterData.gd" id="1_fu7o8"]
+[ext_resource type="Resource" uid="uid://drqb6l0d2r0ad" path="res://Resources/Characters/Opponents/Difficulty1/Sponge.tres" id="2_nxelo"]
+[ext_resource type="Resource" uid="uid://bt4mi66ru7qb4" path="res://Resources/Characters/Opponents/Difficulty4/BigBully.tres" id="3_qjmh8"]
+[ext_resource type="Script" uid="uid://dyn12n11pgc3k" path="res://Resources/Levels/BattleLevelData.gd" id="4_7v75b"]
+
+[resource]
+script = ExtResource("4_7v75b")
+opponents = Array[ExtResource("1_fu7o8")]([ExtResource("2_nxelo"), ExtResource("3_qjmh8")])

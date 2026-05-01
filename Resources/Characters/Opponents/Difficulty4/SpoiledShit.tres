@@ -11,7 +11,7 @@
 script = ExtResource("1_wc0fg")
 difficulty = 4
 type = 3
-starting_health_range = 3
+starting_health_range = 4
 nickname = "Spoiled Shit"
 starting_max_health = 27
 starting_max_energy = 2
