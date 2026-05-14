@@ -62,7 +62,7 @@ func _on_BattleManager_before_hand_drawn(character : CharacterData):
 
 func _on_BattleManager_card_drawn(character : CharacterData, card : CardData):
 	if character == player_character:
-		player_interface.draw_card_from_draw_pile(card)
+		player_interface.draw_from_draw_pile(card)
 
 func _on_BattleManager_card_added_to_hand(character : CharacterData, card : CardData):
 	if character == player_character:

@@ -4,12 +4,12 @@ extends BaseCardNode2D
 
 class_name CardNode2D
 
-signal mouse_entered(card_node_2d)
-signal mouse_exited(card_node_2d)
-signal mouse_clicked(card_node_2d)
-signal mouse_double_clicked(card_node_2d)
-signal mouse_released(card_node_2d)
-signal animation_completed(card_node_2d)
+signal mouse_entered
+signal mouse_exited
+signal mouse_clicked
+signal mouse_double_clicked
+signal mouse_released
+signal animation_completed
 
 const CARD_EFFECT_TAG = 'card_effect'
 const COST_LIMITED_COLOR = Color(0.835294, 0, 0)
@@ -217,29 +217,29 @@ func _handle_input_event(event):
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
 				if event.double_click:
-					emit_signal("mouse_double_clicked", self)
+					mouse_double_clicked.emit()
 				elif event.pressed:
-					emit_signal("mouse_clicked", self)
+					mouse_clicked.emit()
 				if not event.pressed:
-					emit_signal("mouse_released", self)
+					mouse_released.emit()
 
 func _on_Area2D_mouse_entered():
-	emit_signal("mouse_entered", self)
+	mouse_entered.emit()
 
 func _on_Area2D_mouse_exited():
-	emit_signal("mouse_exited", self)
+	mouse_exited.emit()
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	_handle_input_event(event)
 
 func _on_Body_mouse_entered():
-	emit_signal("mouse_entered", self)
+	mouse_entered.emit()
 
 func _on_Body_mouse_exited():
-	emit_signal("mouse_exited", self)
+	mouse_exited.emit()
 
 func _on_Body_gui_input(event):
 	_handle_input_event(event)
 
 func _on_PulseAnimation_animation_finished(_anim_name):
-	emit_signal("animation_completed", self)
+	animation_completed.emit()
