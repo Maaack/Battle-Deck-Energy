@@ -207,8 +207,6 @@ func glow_off():
 func animate_pulse():
 	_finish_tween()
 	pulse_animation.play("CardPulse")
-	await pulse_animation.animation_finished
-	_force_card_transform(card_data.transform_data)
 
 func play_card():
 	set_mouse_input_mode(MouseInputMode.NONE)

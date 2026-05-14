@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://4q8nrdq130ye"]
+
+[ext_resource type="Script" uid="uid://dj1uwa8f3madg" path="res://Scenes/PlayerInterface/EventQueue/event_queue.gd" id="1_hyoja"]
+
+[node name="EventQueue" type="Node" unique_id=1993787021]
+script = ExtResource("1_hyoja")
+
+[node name="Timer" type="Timer" parent="." unique_id=1139290651]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
