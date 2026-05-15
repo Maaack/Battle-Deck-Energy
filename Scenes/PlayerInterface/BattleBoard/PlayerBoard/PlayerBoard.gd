@@ -7,8 +7,6 @@ extends Control
 @onready var energy_meter = $BattleDeckEnergy
 @onready var turn_timer = $TurnTimer
 
-var player_data : CharacterData
-
 func set_draw_pile_size(value:int):
 	draw_pile.count = value
 
@@ -40,13 +38,12 @@ func start_timer(time : int):
 	turn_timer.show()
 	turn_timer.time = time
 
-func end_turn():
+func _on_turn_ended(_character_data:CharacterData):
 	end_turn_button.disable()
 	turn_timer.stop_timer()
-	EventBus.turn_ended.emit(player_data)
 
 func _on_EndTurnButton_pressed():
-	end_turn()
+	EventBus.end_turn_pressed.emit()
 
 func reset_end_turn():
 	end_turn_button.reset()
@@ -61,4 +58,7 @@ func _on_ExhaustPile_button_pressed():
 	EventBus.exhaust_pile_pressed.emit()
 
 func _on_TurnTimer_timeout():
-	end_turn()
+	EventBus.turn_ended.emit()
+
+func _ready():
+	EventBus.turn_ended.connect(_on_turn_ended)

@@ -65,6 +65,14 @@ func drag_to_position(drag_position:Vector2):
 func _is_card_playable(card_node:CardNode2D):
 	return _can_change_focus() and card_node.is_playable() and not is_locked_card(card_node.card_data) and _can_afford_card(card_node)
 
+func get_playable_cards() -> Array[CardData]:
+	var playable_cards:Array[CardData]
+	for card_data in card_map:
+		var card_instance := card_map[card_data]
+		if _is_card_playable(card_instance):
+			playable_cards.append(card_data)
+	return playable_cards
+
 func _on_Card_mouse_clicked(card_node:CardNode2D):
 	super._on_Card_mouse_clicked(card_node)
 	if not _is_card_playable(card_node):

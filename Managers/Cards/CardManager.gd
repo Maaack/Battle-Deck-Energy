@@ -13,7 +13,7 @@ signal tween_completed(card_node)
 @export var base_card_scene: PackedScene
 @export var default_tween_time : float = 0.5 # (float, 0.0, 16.0)
 
-var card_map : Dictionary = {}
+var card_map : Dictionary[CardData, CardNode2D] = {}
 var card_instance_map : Dictionary = {}
 
 func add_card(card_data:CardData, card_position:Vector2 = card_data.transform_data.position, card_scale:Vector2 = card_data.transform_data.scale):

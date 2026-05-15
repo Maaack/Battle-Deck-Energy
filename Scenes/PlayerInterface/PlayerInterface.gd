@@ -37,7 +37,6 @@ func set_player_data(value:CharacterData):
 	player_data = value
 	PersistentData.log_battle_action("Add player with %d health" % player_data.health)
 	if is_instance_valid(player_data):
-		player_board.player_data = player_data
 		player_board.set_player_energy(0, player_data.max_energy)
 		player_board.set_draw_pile_size(player_data.deck_size())
 		PersistentData.log_battle_action("Starting at %d draw size" % player_data.deck_size())
@@ -93,6 +92,7 @@ func _ready():
 	EventBus.opportunities_reset.connect(_on_opportunities_reset)
 	EventBus.status_updated.connect(_on_status_updated)
 	EventBus.turn_ended.connect(_on_turn_ended)
+	EventBus.end_turn_pressed.connect(_on_end_turn_pressed)
 
 func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card_manager.move_card(card_data, transform, 0.1)
@@ -236,6 +236,20 @@ func _on_status_animation_started(animation:StatusAnimationData):
 func _on_turn_ended(_character_data:CharacterData):
 	hand_manager.spread_from_mouse_flag = false
 	card_manager.active = false
+
+func _on_end_turn_pressed():
+	var playable_cards:Array[CardData] = card_manager.get_playable_cards()
+	var card_types : Array[CardData.CardType] = []
+	var get_card_types := func(accum:Array[CardData.CardType], card_data:CardData):
+		if card_data.type not in accum:
+			accum.append(card_data.type)
+		return accum
+	playable_cards.reduce(get_card_types, card_types)
+	var playable_opportunities:Array[OpportunityData] = actions_board.get_character_type_opportunities(player_data, card_types)
+	if playable_opportunities.size() > 0:
+		pass
+	else:
+		EventBus.turn_ended.emit(player_data)
 
 func _on_draw_complete():
 	_drawing_cards_count -= 1

@@ -57,8 +57,6 @@ func queue(callable:Callable, delay_time:float = default_delay_time, start_condi
 		event_queue.append(event_data)
 	start_timer(0)
 
-
-
 func _on_timer_timeout():
 	queue_timeout.emit()
 	_dequeue()

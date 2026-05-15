@@ -27,6 +27,7 @@ signal opportunities_reset
 signal draw_pile_pressed
 signal discard_pile_pressed
 signal exhaust_pile_pressed
+signal end_turn_pressed
 signal card_inspected(card_node_2d)
 signal card_restored(card_node_2d)
 signal status_inspected(status_icon)
