@@ -22,6 +22,9 @@ signal card_played_on_opportunity(card, opportunity)
 @onready var status_update_container := $StatusUpdatesContainer
 @onready var shuffle_audio_player := $ShuffleAudioStreamPlayer2D
 @onready var event_queue = $EventQueue
+@onready var overlay_container = $OverlayContainer
+@onready var end_turn_confirmation = %EndTurnConfirmation
+@onready var do_not_show_end_turn_check_box = %DoNotShowEndTurnCheckBox
 
 var effect_calculator = preload("res://Managers/Effects/EffectCalculator.gd")
 var effect_text_animation_scene = preload("res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/StatusTextAnimation/StatusTextAnimation.tscn")
@@ -32,6 +35,8 @@ var _character_statuses_map : Dictionary = {}
 var _card_owner_map : Dictionary = {}
 var _nearest_opportunity = null
 var _revealed_card_opportunity_map = {}
+var _shown_end_turn_confirmation : bool = false
+var _show_end_turn_confirmation : bool = true
 
 func set_player_data(value:CharacterData):
 	player_data = value
@@ -93,6 +98,10 @@ func _ready():
 	EventBus.status_updated.connect(_on_status_updated)
 	EventBus.turn_ended.connect(_on_turn_ended)
 	EventBus.end_turn_pressed.connect(_on_end_turn_pressed)
+	# Just in case
+	overlay_container.hide()
+	end_turn_confirmation.hide()
+	do_not_show_end_turn_check_box.hide()
 
 func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card_manager.move_card(card_data, transform, 0.1)
@@ -238,18 +247,23 @@ func _on_turn_ended(_character_data:CharacterData):
 	card_manager.active = false
 
 func _on_end_turn_pressed():
-	var playable_cards:Array[CardData] = card_manager.get_playable_cards()
-	var card_types : Array[CardData.CardType] = []
-	var get_card_types := func(accum:Array[CardData.CardType], card_data:CardData):
-		if card_data.type not in accum:
-			accum.append(card_data.type)
-		return accum
-	playable_cards.reduce(get_card_types, card_types)
-	var playable_opportunities:Array[OpportunityData] = actions_board.get_character_type_opportunities(player_data, card_types)
-	if playable_opportunities.size() > 0:
-		pass
-	else:
-		EventBus.turn_ended.emit(player_data)
+	if _show_end_turn_confirmation:
+		var playable_cards:Array[CardData] = card_manager.get_playable_cards()
+		var card_types : Array[CardData.CardType] = []
+		var get_card_types := func(accum:Array[CardData.CardType], card_data:CardData):
+			if card_data.type not in accum:
+				accum.append(card_data.type)
+			return accum
+		playable_cards.reduce(get_card_types, card_types)
+		var playable_opportunities:Array[OpportunityData] = actions_board.get_character_type_opportunities(player_data, card_types)
+		if playable_opportunities.size() > 0:
+			overlay_container.show()
+			end_turn_confirmation.show()
+			if _shown_end_turn_confirmation:
+				do_not_show_end_turn_check_box.show()
+			_shown_end_turn_confirmation = true
+			return
+	EventBus.turn_ended.emit(player_data)
 
 func _on_draw_complete():
 	_drawing_cards_count -= 1
@@ -521,3 +535,14 @@ func _on_ResizeTimer_timeout():
 
 func _on_event_queue_queue_empty():
 	emit_signal("animation_queue_empty")
+
+func _on_keep_playing_button_pressed():
+	end_turn_confirmation.hide()
+	overlay_container.hide()
+	_show_end_turn_confirmation = not do_not_show_end_turn_check_box.button_pressed
+
+func _on_end_turn_button_pressed():
+	end_turn_confirmation.hide()
+	overlay_container.hide()
+	_show_end_turn_confirmation = not do_not_show_end_turn_check_box.button_pressed
+	EventBus.turn_ended.emit(player_data)

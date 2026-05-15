@@ -86,6 +86,89 @@ volume_db = -7.0
 
 [node name="EventQueue" parent="." unique_id=1993787021 instance=ExtResource("9_g0oni")]
 
+[node name="OverlayContainer" type="Control" parent="." unique_id=957292336]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="OverlayContainer" unique_id=621805255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27450982, 0.27450982, 0.27450982, 0.5019608)
+
+[node name="EndTurnConfirmation" type="PanelContainer" parent="OverlayContainer" unique_id=798811291]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(240, 160)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="OverlayContainer/EndTurnConfirmation" unique_id=1687060703]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OverlayContainer/EndTurnConfirmation/MarginContainer" unique_id=1703496439]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer" unique_id=962781761]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Ending your turn will discard your hand.
+You still have playable cards.
+
+Are you sure you want to end your turn?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer" unique_id=1324150672]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="DoNotShowEndTurnCheckBox" type="CheckBox" parent="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1234412263]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Do not show this warning again"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer/VBoxContainer" unique_id=207656573]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="KeepPlayingButton" type="Button" parent="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1015170697]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Keep Playing"
+
+[node name="EndTurnButton" type="Button" parent="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1632306985]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Discard Hand"
+
 [connection signal="gui_input" from="." to="." method="_on_PlayerInterface_gui_input"]
 [connection signal="resized" from="." to="." method="_on_PlayerInterface_resized"]
 [connection signal="card_updated" from="HandContainer/CardControl/HandManager" to="." method="_on_HandManager_card_updated"]
@@ -93,3 +176,5 @@ volume_db = -7.0
 [connection signal="dropping_card" from="HandContainer/CardControl/BattleCardManager" to="." method="_on_BattleCardManager_dropping_card"]
 [connection signal="timeout" from="ResizeTimer" to="." method="_on_ResizeTimer_timeout"]
 [connection signal="queue_empty" from="EventQueue" to="." method="_on_event_queue_queue_empty"]
+[connection signal="pressed" from="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/KeepPlayingButton" to="." method="_on_keep_playing_button_pressed"]
+[connection signal="pressed" from="OverlayContainer/EndTurnConfirmation/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
