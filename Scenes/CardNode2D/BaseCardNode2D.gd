@@ -4,8 +4,8 @@ extends Node2D
 
 class_name BaseCardNode2D
 
-signal tween_completed(card_node_2d)
-signal tween_started(card_node_2d)
+signal tween_completed
+signal tween_started
 
 @onready var body_node = $Card/Body
 
@@ -17,14 +17,14 @@ func tween_to(new_transform:TransformData, tween_time:float = 0.0, animation_typ
 	if tween_node is Tween and tween_node.is_running():
 		tween_node.stop()
 	tween_node = create_tween()
-	tween_started.emit(self)
+	tween_started.emit()
 	tween_node.tween_property(self, "position", new_transform.position, tween_time)
 	tween_node.parallel().tween_property(self, "rotation", new_transform.rotation, tween_time)
 	tween_node.parallel().tween_property(self, "scale", new_transform.scale, tween_time)
 	_last_animation_type = animation_type
 	target_transform = new_transform
 	await tween_node.finished
-	tween_completed.emit(self)
+	tween_completed.emit()
 
 func _finish_tween():
 	if tween_node and tween_node.is_running():

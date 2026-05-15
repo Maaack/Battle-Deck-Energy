@@ -62,7 +62,7 @@ func _on_BattleManager_before_hand_drawn(character : CharacterData):
 
 func _on_BattleManager_card_drawn(character : CharacterData, card : CardData):
 	if character == player_character:
-		player_interface.draw_card_from_draw_pile(card)
+		player_interface.draw_from_draw_pile(card)
 
 func _on_BattleManager_card_added_to_hand(character : CharacterData, card : CardData):
 	if character == player_character:
@@ -83,7 +83,7 @@ func _on_BattleManager_card_played(character : CharacterData, card : CardData, o
 
 func _on_BattleManager_card_spawned(character, card):
 	player_interface.new_character_card(character, card)
-	player_interface.animate_pulse(card)
+	player_interface.animate_spawn_card(card)
 
 func _on_BattleManager_team_won(team):
 	var player_team = battle_manager.get_team(player_character)
