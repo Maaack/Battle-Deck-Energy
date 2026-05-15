@@ -192,8 +192,6 @@ func tween_to(new_transform:TransformData, tween_time:float = 0.0, animation_typ
 
 func set_card_data(value:CardData):
 	card_data = value
-	if is_instance_valid(card_data):
-		_force_card_transform(card_data.transform_data)
 
 func glow_on():
 	glow_node.glow_on()

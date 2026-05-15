@@ -80,7 +80,7 @@ func exhaust_card(card_data:CardData):
 	event_queue.queue(_exhausting_animation.bind(card_data))
 
 func reshuffle_card(card_data:CardData):
-	event_queue.queue(_reshuffling_animation.bind(card_data))
+	event_queue.queue(_reshuffling_animation.bind(card_data), 0.15)
 
 func animate_spawn_card(card_data:CardData):
 	event_queue.queue(animate_pulse.bind(card_data))
@@ -125,12 +125,12 @@ func _calculate_card_mod(card_instance:CardNode2D, source:CharacterData = null, 
 	card_instance.modified_values = total_values
 	return total_values
 
-func _new_character_card(character:CharacterData, card:CardData):
+func _new_character_card(character:CharacterData, card:CardData, start_position:Vector2 = card.transform_data.position, start_scale:Vector2 = card.transform_data.scale):
 	var card_instance : CardNode2D
 	if character == player_data:
-		card_instance = card_manager.add_card(card)
+		card_instance = card_manager.add_card(card, start_position, start_scale)
 	else:
-		card_instance = opponent_card_manager.add_card(card)
+		card_instance = opponent_card_manager.add_card(card, start_position, start_scale)
 	_card_owner_map[card] = character
 	_calculate_card_mod(card_instance, character)
 	card_instance.update_affordability(card_manager.energy_available)
@@ -158,11 +158,10 @@ func new_character_card(character_data:CharacterData, card:CardData):
 
 func _draw_from_draw_pile_animation(card:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
-	card.transform_data.position = draw_pile_offset
-	card.transform_data.scale = Vector2.ONE
-	var target_transform = card.transform_data.duplicate()
-	card.transform_data.scale *= 0.1
-	_new_character_card(player_data, card)
+	var target_transform : TransformData = TransformData.new()
+	target_transform.position = draw_pile_offset
+	target_transform.scale = Vector2.ONE
+	_new_character_card(player_data, card, draw_pile_offset, Vector2.ONE * 0.1)
 	card_manager.move_card(card, target_transform, 0.3)
 	player_board.draw_card()
 
@@ -220,14 +219,14 @@ func _reshuffling_animation(card:CardData):
 	var draw_pile_offset : Vector2 = draw_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 	var target_transform : TransformData = TransformData.new()
 	target_transform.position = draw_pile_offset
-	target_transform.scale = Vector2(0.1, 0.1)
-	if is_instance_valid(card_instance):
-		card_manager.move_card(card, target_transform, 0.3)
-		card_manager.lock_card(card)
-		card_instance.tween_completed.connect( _on_reshuffle_card_completed.bind(card_instance), CONNECT_ONE_SHOT)
-	else:
+	target_transform.scale = Vector2.ONE * 0.1
+	if not is_instance_valid(card_instance):
+		var discard_pile_offset : Vector2 = discard_pile.get_global_transform().get_origin() - card_manager.get_global_transform().get_origin()
 		player_board.draw_discarded_card()
-		player_board.reshuffle_card()
+		card_instance = card_manager.add_card(card, discard_pile_offset, Vector2.ONE * 0.1)
+	card_manager.move_card(card, target_transform, 0.3)
+	card_manager.lock_card(card)
+	card_instance.tween_completed.connect(_on_reshuffle_card_completed.bind(card_instance), CONNECT_ONE_SHOT)
 	play_shuffle_audio()
 
 func _on_status_animation_started(animation:StatusAnimationData):

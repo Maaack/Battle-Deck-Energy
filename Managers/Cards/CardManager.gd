@@ -16,7 +16,7 @@ signal tween_completed(card_node)
 var card_map : Dictionary = {}
 var card_instance_map : Dictionary = {}
 
-func add_card(card_data:CardData):
+func add_card(card_data:CardData, card_position:Vector2 = card_data.transform_data.position, card_scale:Vector2 = card_data.transform_data.scale):
 	if card_data in card_map:
 		return card_map[card_data]
 	var card_instance = base_card_scene.instantiate()
@@ -24,6 +24,8 @@ func add_card(card_data:CardData):
 		card_instance.card_data = card_data
 		card_map[card_data] = card_instance
 		card_instance_map[card_instance] = card_data
+		card_instance.position = card_position
+		card_instance.scale = card_scale
 		add_child(card_instance)
 		card_instance.connect("mouse_entered", _on_Card_mouse_entered.bind(card_instance))
 		card_instance.connect("mouse_exited", _on_Card_mouse_exited.bind(card_instance))

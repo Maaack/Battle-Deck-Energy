@@ -90,7 +90,6 @@ func _on_HandManager_card_updated(card_data:CardData, transform:TransformData):
 	card = card.duplicate()
 	card.transform_data = opponent_interface.get_reveal_transform()
 	card.transform_data.position -= manager_offset
-	_new_character_card(opponent, card)
 	var card_instance : CardNode2D = _new_character_card(opponent, card)
 	card_instance.play_card()
 	super.discard_card(card)
