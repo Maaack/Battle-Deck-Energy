@@ -4,7 +4,7 @@ extends CharacterActionsInterface
 class_name OpponentActionsInterface
 
 @onready var dead_cover = $DeadCover
-@onready var opponent_opportunities_container = $MarginContainer/MarginContainer/Control/OpponentOpportunitiesContainer
+@onready var opponent_opportunities_container = %OpponentOpportunitiesContainer
 @onready var opponent_hand_container = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control
 @onready var opponent_hand_position = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control/Marker2D
 
