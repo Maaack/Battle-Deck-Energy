@@ -51,4 +51,3 @@ func _update_glow():
 
 func _on_Button_pressed():
 	pressed.emit()
-	button_node.disabled = true

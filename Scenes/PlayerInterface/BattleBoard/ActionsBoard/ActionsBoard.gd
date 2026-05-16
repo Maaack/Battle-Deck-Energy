@@ -130,6 +130,13 @@ func get_character_sourced_opportunities(character:CharacterData) -> Array[Oppor
 			character_opportunities.append(opportunity)
 	return character_opportunities
 
+func get_character_type_opportunities(character:CharacterData, opportunity_types:Array[CardData.CardType]) -> Array[OpportunityData]:
+	var matching_opportunities : Array[OpportunityData]
+	for opportunity in opportunities:
+		if opportunity.source == character and opportunity.type in opportunity_types:
+			matching_opportunities.append(opportunity)
+	return matching_opportunities
+
 func get_all_opportunities() -> Array:
 	return opportunities
 
