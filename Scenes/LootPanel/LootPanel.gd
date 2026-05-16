@@ -79,8 +79,8 @@ func _on_SelectorCardManager_clicked_card(card_node : CardNode2D):
 	selected_card = card_node
 	card_manager.hold_focus = false
 	card_manager.focus_on_card(card_node)
-	if not card_node.mouse_exited.is_connected(_on_CardNode2D_mouse_exited.bind(card_node)):
-		card_node.mouse_exited.connect(_on_CardNode2D_mouse_exited.bind(card_node), CONNECT_ONE_SHOT)
+	if not card_node.mouse_exited.is_connected(_on_CardNode2D_mouse_exited):
+		card_node.mouse_exited.connect(_on_CardNode2D_mouse_exited, CONNECT_ONE_SHOT)
 	card_manager.hold_focus = true
 	add_card_button.disabled = false
 
@@ -97,5 +97,5 @@ func _on_AddCardButton_pressed():
 	EventBus.card_restored.emit(selected_card)
 	emit_signal("level_completed")
 
-func _on_CardNode2D_mouse_exited(_card_node : CardNode2D):
+func _on_CardNode2D_mouse_exited():
 	card_manager.stop_inspecting()
