@@ -30,6 +30,7 @@ var opportunity_cost : Dictionary[CardData.CardType, int]
 var _pips_containers : Array[Node]
 var _used_type_map : Dictionary[CardData.CardType, int] = {}
 var opportunities : Array[OpportunityData] = []
+var _type_pips_containers : Dictionary[CardData.CardType, Control]
 
 func refresh() -> void:
 	_update_slots()
@@ -102,6 +103,7 @@ func _update_slots():
 				_pips_container.add_child(_pip_slot_texture)
 		_connect_tooltip(_pips_container, type, _available_total, _used_total + _available_total)
 		pip_types_container.add_child(_pips_container)
+		_type_pips_containers[type] = _pips_container
 
 func add_opportunity(opportunity:OpportunityData):
 	if opportunity in opportunities:
@@ -136,6 +138,7 @@ func remove_opportunity(opportunity:OpportunityData):
 func clear_opportunities():
 	type_map.clear()
 	_used_type_map.clear()
+	_type_pips_containers.clear()
 	opportunities.clear()
 	opportunity_cost.clear()
 	_clear_slots()
@@ -143,6 +146,9 @@ func clear_opportunities():
 func get_type_count(type_tag:CardData.CardType) -> int:
 	if type_tag not in type_map: return 0
 	return type_map[type_tag]
+
+func get_count() -> int:
+	return opportunities.size()
 
 func glow_on():
 	if opportunities.size() == 0: return
@@ -153,6 +159,16 @@ func glow_off():
 
 func glow_special():
 	glow_nodes.glow_special()
+
+func flash_opportunity_type(type_tag:CardData.CardType, flashes:int = 4, duration:float = 1.0):
+	if type_tag not in _type_pips_containers:
+		return
+	var container := _type_pips_containers[type_tag]
+	var tween := create_tween()
+	var _flash_duration := duration / flashes
+	for iter in range(flashes):
+		tween.tween_property(container, "modulate:a", 0, _flash_duration * 0.5)
+		tween.tween_property(container, "modulate:a", 1, _flash_duration * 0.5)
 
 func _ready():
 	EventBus.opportunity_used.connect(use_opportunity)

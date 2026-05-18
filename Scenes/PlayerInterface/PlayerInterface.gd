@@ -422,6 +422,19 @@ func get_nearest_card_opportunity(card:CardData, from_position = null):
 				nearest_opportunity = opportunity
 	return nearest_opportunity
 
+func get_nearest_opportunity_container(card:CardData, from_position = null, include_empty: bool = true) -> OpportunitiesContainer:
+	if from_position == null:
+		from_position = card.transform_data.position
+	var nearest_opportunity_container : OpportunitiesContainer
+	var shortest_distance : float = opportunity_snap_range
+	for opportunities_container : OpportunitiesContainer in actions_board.get_all_opportunity_containers(include_empty):
+		if opportunities_container:
+			var _container_position : Vector2 = opportunities_container.get_card_parent_position() - card_manager.global_position
+			if _container_position.distance_to(from_position) < shortest_distance:
+				shortest_distance = _container_position.distance_to(from_position)
+				nearest_opportunity_container = opportunities_container
+	return nearest_opportunity_container
+
 func _on_dragging_card(card:CardData):
 	hand_manager.spread_from_mouse_flag = false
 	_openings_glow_on(card)
@@ -436,6 +449,10 @@ func _on_dropping_card(card:CardData):
 	_openings_glow_off(card)
 	if nearest_opportunity is OpportunityData:
 		_on_play_card_on_opportunity(card, nearest_opportunity)
+	else:
+		var _nearest_any_opportunity := get_nearest_opportunity_container(card)
+		if _nearest_any_opportunity != null:
+			_nearest_any_opportunity.flash_opportunity_type(card.type)
 	_nearest_opportunity = null
 	hand_manager.spread_from_mouse_flag = true
 	hand_manager.update_hand()
