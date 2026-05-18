@@ -5,6 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://b48p7rraigewa" path="res://Themes/StyleBoxes/CardFront.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://6v8pbe7hc20q" path="res://Managers/StatusIcons/StatusIconManager.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://ddbk7f2mihkvv" path="res://Scenes/PlayerInterface/BattleBoard/PlayerBoard/HealthMeter/HealthMeter.tscn" id="5"]
+[ext_resource type="Shader" uid="uid://cf3osw2yl88bm" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/gray_out.gdshader" id="5_t6ejw"]
 [ext_resource type="Script" uid="uid://rxw1jwy7hsup" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://dc23quifcih1x" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainer.tscn" id="7"]
 [ext_resource type="StyleBox" uid="uid://c62mgy7kk3sd7" path="res://Themes/StyleBoxes/Glows/WhiteGlowOutlineStyleBox.tres" id="8"]
@@ -12,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://bsn112gblkfsv" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ClankAudioStreamPlayer2D.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://bl57ylf3bwkwh" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/AudioStreamPlayers/ShieldAudioStreamPlayer2D.tscn" id="11"]
 [ext_resource type="StyleBox" uid="uid://bpsiasqrktkip" path="res://Themes/StyleBoxes/CharacterBar/CharacterBarStyleBox.tres" id="12"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kdr7j"]
+resource_local_to_scene = true
+shader = ExtResource("5_t6ejw")
+shader_parameter/enabled = false
+shader_parameter/weighted = true
 
 [node name="CharacterActionsInterface" type="Control" unique_id=331985014]
 custom_minimum_size = Vector2(244, 445)
@@ -39,7 +46,9 @@ theme_override_constants/margin_top = 64
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer2" unique_id=178578872]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2/CenterContainer" unique_id=1315148053]
+[node name="CharacterTextureRect" type="TextureRect" parent="MarginContainer2/CenterContainer" unique_id=1315148053]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kdr7j")
 layout_mode = 2
 texture = ExtResource("1")
 

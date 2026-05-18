@@ -114,7 +114,7 @@ func add_opportunity(opportunity:OpportunityData):
 	type_map[type] += 1
 	opportunity.transform_data.scale = get_transform().get_scale()
 	opportunities.append(opportunity)
-	emit_signal("update_opportunity", opportunity, self)
+	update_opportunity.emit(opportunity, self)
 	refresh()
 
 func use_opportunity(opportunity:OpportunityData):
@@ -133,6 +133,7 @@ func remove_opportunity(opportunity:OpportunityData):
 	if type in type_map:
 		type_map[type] -= 1
 	opportunities.erase(opportunity)
+	update_opportunity.emit(opportunity, self)
 	refresh()
 
 func clear_opportunities():
