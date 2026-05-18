@@ -44,6 +44,10 @@ func remove_opportunity(type:int, source:CharacterData, target:CharacterData):
 	var opportunity := get_matching_opportunity(type, source, target)
 	remove_opportunity_instance(opportunity)
 
+func use_opportunity_instance(opportunity:OpportunityData):
+	EventBus.opportunity_used.emit(opportunity)
+	remove_opportunity_instance(opportunity)
+
 func modify_opportunities(type:int, source:CharacterData, target:CharacterData, modifier:float):
 	var match_func := func(accum:int, data:OpportunityData): return accum + 1 if data.type == type and data.source == source and data.target == target else accum
 	var current_count : int = opportunities.reduce(match_func, 0)

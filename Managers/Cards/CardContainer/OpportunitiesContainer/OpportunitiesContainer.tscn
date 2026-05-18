@@ -3,18 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://daqurm0mdqlcq" path="res://Managers/Cards/CardContainer/CardContainer.tscn" id="1_nmkjy"]
 [ext_resource type="Theme" uid="uid://h5betpv16esb" path="res://Themes/Main.tres" id="2_a72uu"]
 [ext_resource type="Script" uid="uid://ckpmvi4j35bgl" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainer.gd" id="3_5x0q3"]
-[ext_resource type="StyleBox" uid="uid://cq8ypjbxj6hix" path="res://Themes/StyleBoxes/Cards/OpportunityOutlineStyleBox.tres" id="4_qiox4"]
-[ext_resource type="FontFile" uid="uid://cg3lf8pe30w47" path="res://Themes/Fonts/Labels/CardSlotTypeDynamicFont.tres" id="5_h6rig"]
+[ext_resource type="Texture2D" uid="uid://tadrh43et57k" path="res://Assets/Originals/Icons/defend-pip-slot-24px.png" id="5_qiox4"]
 [ext_resource type="PackedScene" uid="uid://62446gk1nn10" path="res://Scenes/OpportunityContainer/LayeredGlowNodes.tscn" id="6_g5y6f"]
-
-[sub_resource type="StyleBoxFlat" id="1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.960784, 0.929412, 0.729412, 0.501961)
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
+[ext_resource type="Texture2D" uid="uid://jhdcki2722d0" path="res://Assets/Originals/Icons/skill-pip-slot-24px.png" id="6_h6rig"]
+[ext_resource type="Texture2D" uid="uid://ckav4isy57dj3" path="res://Assets/Originals/Icons/attack-pip-slot-24px.png" id="7_a72uu"]
+[ext_resource type="Texture2D" uid="uid://hw0ur6717l0w" path="res://Assets/Originals/Icons/pip-24px.png" id="10_h6rig"]
 
 [node name="OpportunitiesContainter" unique_id=1559716444 instance=ExtResource("1_nmkjy")]
 anchors_preset = 15
@@ -29,6 +22,13 @@ offset_bottom = 0.0
 theme = ExtResource("2_a72uu")
 script = ExtResource("3_5x0q3")
 cost_color = Color(0.6156863, 0.1882353, 0.23137255, 1)
+attack_color = Color(0.6156863, 0.1882353, 0.23137255, 1)
+attack_icon = ExtResource("7_a72uu")
+defend_color = Color(0.39215687, 0.49019608, 0.20392157, 1)
+defend_icon = ExtResource("5_qiox4")
+skill_color = Color(0.54901963, 0.56078434, 0.68235296, 1)
+skill_icon = ExtResource("6_h6rig")
+pip_icon = ExtResource("10_h6rig")
 
 [node name="CenterContainer" parent="." index="0" unique_id=1183389169]
 layout_mode = 1
@@ -36,68 +36,57 @@ anchors_preset = 15
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Slot1" type="Panel" parent="CenterContainer/Control" parent_id_path=PackedInt32Array(2061532110) index="1" unique_id=1902197665]
+[node name="LayeredGlowNodes" parent="CenterContainer/Control" parent_id_path=PackedInt32Array(2061532110) index="1" unique_id=1809958906 instance=ExtResource("6_g5y6f")]
+
+[node name="Control2" type="Control" parent="CenterContainer" index="1" unique_id=1692042332]
+custom_minimum_size = Vector2(176, 256)
+layout_mode = 2
+
+[node name="PipTypesContainer" type="VBoxContainer" parent="CenterContainer/Control2" index="0" unique_id=278677020]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="PipSlotTextureRect" type="TextureRect" parent="CenterContainer/Control2" index="1" unique_id=48594246]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
+offset_left = 76.0
+offset_top = 266.0
+offset_right = 100.0
+offset_bottom = 290.0
+stretch_mode = 3
+
+[node name="PipTextureRect" type="TextureRect" parent="CenterContainer/Control2/PipSlotTextureRect" index="0" unique_id=1660797294]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = -128.0
-offset_right = 88.0
-offset_bottom = 128.0
-theme_override_styles/panel = ExtResource("4_qiox4")
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Control/Slot1" index="0" unique_id=1736483080]
+[node name="PipsContainer" type="HBoxContainer" parent="CenterContainer/Control2" index="2" unique_id=1302463148]
+unique_name_in_owner = true
 layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Label" type="RichTextLabel" parent="CenterContainer/Control/Slot1/MarginContainer" index="0" unique_id=1022902770]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/outline_size = 6
-theme_override_fonts/normal_font = ExtResource("5_h6rig")
-theme_override_fonts/bold_font = ExtResource("5_h6rig")
-theme_override_fonts/bold_italics_font = ExtResource("5_h6rig")
-theme_override_fonts/italics_font = ExtResource("5_h6rig")
-theme_override_fonts/mono_font = ExtResource("5_h6rig")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-bbcode_enabled = true
-text = "1 ATTACK
--
-1 DEFEND
--
-1 SKILL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Slot2" type="Panel" parent="CenterContainer/Control/Slot1" index="1" unique_id=1660114081]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 164.0
-offset_right = 24.0
-theme_override_styles/panel = SubResource("1")
-
-[node name="Slot3" type="Panel" parent="CenterContainer/Control/Slot1" index="2" unique_id=1930253587]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 187.0
-offset_right = 47.0
-theme_override_styles/panel = SubResource("1")
-
-[node name="LayeredGlowNodes" parent="CenterContainer/Control" parent_id_path=PackedInt32Array(2061532110) index="2" unique_id=1809958906 instance=ExtResource("6_g5y6f")]
+offset_top = 266.0
+offset_right = 176.0
+offset_bottom = 266.0
+alignment = 1

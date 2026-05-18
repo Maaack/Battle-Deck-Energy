@@ -23,16 +23,6 @@ func add_opportunity(opportunity:OpportunityData):
 		opportunities_container.add_opportunity(opportunity)
 		return opportunities_container
 
-func remove_opportunity(opportunity:OpportunityData, erase_flag = true):
-	if not opportunity in opportunities_map:
-		return
-	if opportunity.source == character_data:
-		opponent_opportunities_container.remove_opportunity(opportunity)
-	else:
-		opportunities_container.remove_opportunity(opportunity)
-	if erase_flag:
-		opportunities_map.erase(opportunity)
-
 func get_reveal_position():
 	return opponent_opportunities_container.get_card_parent_position()
 

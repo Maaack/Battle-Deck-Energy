@@ -72,16 +72,11 @@ func add_opportunity(opportunity:OpportunityData):
 	opportunities_container.add_opportunity(opportunity)
 	return opportunities_container
 
-func remove_opportunity(opportunity:OpportunityData, erase_flag = true):
-	if not opportunity in opportunities_map:
-		return
-	opportunities_container.remove_opportunity(opportunity)
-	if erase_flag:
-		opportunities_map.erase(opportunity)
+func remove_opportunity(opportunity:OpportunityData):
+	opportunities_map.erase(opportunity)
 
 func remove_all_opportunities():
-	for opportunity in opportunities_map:
-		remove_opportunity(opportunity, false)
+	opportunities_container.clear_opportunities()
 	opportunities_map.clear()
 
 func update_status(status:StatusData, show_update:bool=true):

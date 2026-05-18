@@ -311,7 +311,7 @@ func _resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, ch
 		var final_targets = _resolve_opportunity_effect_targets(opportunity, effect)
 		for final_target in final_targets:
 			_resolve_card_effect(effect, opportunity, final_target, character_manager_map)
-	opportunities_manager.remove_opportunity_instance(opportunity)
+	opportunities_manager.use_opportunity_instance(opportunity)
 
 func resolve_on_play_opportunity(card:CardData, opportunity:OpportunityData, character_manager_map:Dictionary):
 	var matching_opportuntities := _get_matching_opportunities(opportunity)
