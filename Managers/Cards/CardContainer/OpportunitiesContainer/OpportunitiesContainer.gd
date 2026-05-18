@@ -36,7 +36,7 @@ func _clear_slots():
 	for container in pip_types_container.get_children():
 		container.queue_free()
 
-func _setup_pip_slot_texture(type:CardData.CardType, used:bool = false) -> TextureRect:
+func _setup_pip_slot_texture(type:CardData.CardType, used:bool = false, cost:bool = false) -> TextureRect:
 	var texture_rect : TextureRect = pip_slot_texture_rect.duplicate()
 	texture_rect.show()
 	match(type):
@@ -49,10 +49,14 @@ func _setup_pip_slot_texture(type:CardData.CardType, used:bool = false) -> Textu
 		(CardData.CardType.SKILL):
 			texture_rect.modulate = skill_color
 			texture_rect.texture = skill_icon
-	if used:
+	if used or cost:
 		var _pip_texture_rect = texture_rect.get_child(0)
 		_pip_texture_rect.texture = pip_icon
 		_pip_texture_rect.show()
+		if cost:
+			_pip_texture_rect.modulate.a = 0.66
+		else:
+			_pip_texture_rect.modulate.a = 1.0
 		
 	return texture_rect
 
@@ -69,8 +73,11 @@ func _update_slots():
 				var _pip_slot_texture := _setup_pip_slot_texture(type, true)
 				_pips_container.add_child(_pip_slot_texture)
 		if type in type_map:
+			var _cost := 0
+			if type in opportunity_cost:
+				_cost = opportunity_cost[type]
 			for iter in range(type_map[type]):
-				var _pip_slot_texture := _setup_pip_slot_texture(type)
+				var _pip_slot_texture := _setup_pip_slot_texture(type, false, iter < _cost)
 				_pips_container.add_child(_pip_slot_texture)
 		pip_types_container.add_child(_pips_container)
 
@@ -106,6 +113,7 @@ func remove_opportunity(opportunity:OpportunityData):
 
 func clear_opportunities():
 	type_map.clear()
+	_used_type_map.clear()
 	opportunities.clear()
 	opportunity_cost.clear()
 	_clear_slots()
