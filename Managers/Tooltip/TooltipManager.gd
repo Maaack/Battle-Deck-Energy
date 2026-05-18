@@ -4,6 +4,7 @@ extends Control
 var tooltip_list_scene = preload("res://Scenes/TooltipList/TooltipList.tscn")
 
 @export var list_position_margin: float = 132
+@export var list_vertical_offset: float = -16
 @onready var file_lister = $FileLister
 
 var key_definition_map : Dictionary = {}
@@ -25,9 +26,11 @@ func reset():
 func _ready():
 	_reset_key_definition_map()
 	EventBus.card_inspected.connect(_on_card_inspected)
-	EventBus.card_restored.connect(_on_card_restored)
+	EventBus.card_restored.connect(_on_any_restored)
 	EventBus.status_inspected.connect(_on_status_inspected)
-	EventBus.status_restored.connect(_on_status_restored)
+	EventBus.status_restored.connect(_on_any_restored)
+	EventBus.node_inspected.connect(_on_node_inspected)
+	EventBus.node_restored.connect(_on_any_restored)
 
 func define_key(key:String, list_instance:TooltipListNode2D):
 	if not key in key_definition_map:
@@ -69,9 +72,6 @@ func _on_card_inspected(card_node:CardNode2D):
 			list_position = card_node.bottom_left_tooltip_target.global_position
 	show_definitions(keys, list_position, list_upward)
 
-func _on_card_restored(_card_node:CardNode2D):
-	reset()
-
 func _on_status_inspected(status_icon:StatusIcon):
 	var list_position : Vector2 = status_icon.tooltip_target.global_position
 	if list_position.x < list_position_margin:
@@ -81,5 +81,20 @@ func _on_status_inspected(status_icon:StatusIcon):
 	var keys : Array = [status_icon.status_data.type_tag]
 	show_definitions(keys, list_position)
 
-func _on_status_restored(_status_icon:StatusIcon):
+func _on_node_inspected(node:Control, key:String, definition:String):
+	_reset_tooltips()
+	var tooltip_list_instance : TooltipListNode2D = tooltip_list_scene.instantiate()
+	var list_position : Vector2 = node.global_position + Vector2(node.size.x + list_position_margin, list_vertical_offset)
+	if list_position.x < list_position_margin:
+		list_position.x = list_position_margin
+	if list_position.x > get_rect().size.x - list_position_margin:
+		list_position.x = get_rect().size.x - list_position_margin
+	tooltip_list_instance.position = list_position
+	add_child(tooltip_list_instance)
+	var definition_data := DefinitionData.new()
+	definition_data.key = key
+	definition_data.definition = definition
+	tooltip_list_instance.add_definition_tooltip(definition_data)
+
+func _on_any_restored(_node):
 	reset()
