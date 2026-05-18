@@ -23,6 +23,10 @@ func add_opportunity(opportunity:OpportunityData):
 		opportunities_container.add_opportunity(opportunity)
 		return opportunities_container
 
+func remove_all_opportunities():
+	super.remove_all_opportunities()
+	opponent_opportunities_container.clear_opportunities()
+
 func get_reveal_position():
 	return opponent_opportunities_container.get_card_parent_position()
 
