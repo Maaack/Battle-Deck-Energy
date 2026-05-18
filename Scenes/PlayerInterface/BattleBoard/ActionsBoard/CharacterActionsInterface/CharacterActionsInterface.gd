@@ -12,6 +12,7 @@ const ARMOR_STATUS = 'DEFENSE'
 @onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
 @onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
 @onready var active_panel = $ActivePanel
+@onready var character_texture_rect = %CharacterTextureRect
 
 @export var stab_audio_scene: PackedScene
 @export var clank_audio_scene: PackedScene
@@ -72,17 +73,15 @@ func add_opportunity(opportunity:OpportunityData):
 	opportunities_container.add_opportunity(opportunity)
 	return opportunities_container
 
-func remove_opportunity(opportunity:OpportunityData, erase_flag = true):
-	if not opportunity in opportunities_map:
-		return
-	opportunities_container.remove_opportunity(opportunity)
-	if erase_flag:
-		opportunities_map.erase(opportunity)
+func remove_opportunity(opportunity:OpportunityData):
+	opportunities_map.erase(opportunity)
+	if opportunities_map.size() == 0:
+		desaturate()
 
 func remove_all_opportunities():
-	for opportunity in opportunities_map:
-		remove_opportunity(opportunity, false)
+	opportunities_container.clear_opportunities()
 	opportunities_map.clear()
+	saturate()
 
 func update_status(status:StatusData, show_update:bool=true):
 	match(status.type_tag):
@@ -114,3 +113,11 @@ func mark_active():
 
 func mark_inactive():
 	active_panel.hide()
+
+func desaturate():
+	var _material : ShaderMaterial = character_texture_rect.material
+	_material.set_shader_parameter("enabled", true)
+
+func saturate():
+	var _material : ShaderMaterial = character_texture_rect.material
+	_material.set_shader_parameter("enabled", false)

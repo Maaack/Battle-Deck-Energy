@@ -140,6 +140,15 @@ func get_character_type_opportunities(character:CharacterData, opportunity_types
 func get_all_opportunities() -> Array:
 	return opportunities
 
+func get_all_opportunity_containers(include_empty:bool = true) -> Array[OpportunitiesContainer]:
+	var _opportunities_containers : Array[OpportunitiesContainer]
+	for character in characters_map:
+		var actions_interface : CharacterActionsInterface = characters_map[character]
+		if not include_empty and actions_interface.opportunities_container.get_count() == 0:
+			continue
+		_opportunities_containers.append(actions_interface.opportunities_container)
+	return _opportunities_containers
+
 func _ready():
 	EventBus.active_character_updated.connect(_on_active_character_updated)
 	EventBus.turn_ended.connect(_on_turn_ended)

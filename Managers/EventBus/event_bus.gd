@@ -23,6 +23,7 @@ signal team_lost(team)
 signal team_won(team)
 signal opportunity_added(opportunity)
 signal opportunity_removed(opportunity)
+signal opportunity_used(opportunity)
 signal opportunities_reset
 signal draw_pile_pressed
 signal discard_pile_pressed
@@ -32,3 +33,5 @@ signal card_inspected(card_node_2d)
 signal card_restored(card_node_2d)
 signal status_inspected(status_icon)
 signal status_restored(status_icon)
+signal node_inspected(control_node, key, definition)
+signal node_restored(control_node)
