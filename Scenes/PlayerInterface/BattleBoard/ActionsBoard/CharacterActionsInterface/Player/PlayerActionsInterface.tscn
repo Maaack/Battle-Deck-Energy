@@ -2,31 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://ujw8b1pdmqp0" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.tscn" id="1"]
 [ext_resource type="Script" uid="uid://7ilmcp2jcgm3" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Player/PlayerActionsInterface.gd" id="2"]
-[ext_resource type="StyleBox" uid="uid://1e8yxx7y14us" path="res://Themes/StyleBoxes/CharacterBar/PlayerBarStyleBox.tres" id="3"]
+[ext_resource type="Shader" uid="uid://cf3osw2yl88bm" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/gray_out.gdshader" id="3_lt4iw"]
 [ext_resource type="Texture2D" uid="uid://bee36ixn5r485" path="res://Assets/Mixed/Characters/silhouetteWithGlow.png" id="4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lt4iw"]
+resource_local_to_scene = true
+shader = ExtResource("3_lt4iw")
+shader_parameter/enabled = false
+shader_parameter/weighted = true
 
 [node name="PlayerActionsInterface" unique_id=1829578965 instance=ExtResource("1")]
 size_flags_horizontal = 7
 script = ExtResource("2")
 
-[node name="TextureRect" parent="MarginContainer2/CenterContainer" parent_id_path=PackedInt32Array(178578872) index="0" unique_id=1315148053]
+[node name="CharacterTextureRect" parent="MarginContainer2/CenterContainer" parent_id_path=PackedInt32Array(178578872) index="0" unique_id=1315148053]
+material = SubResource("ShaderMaterial_lt4iw")
 texture = ExtResource("4")
 
-[node name="MarginContainer" parent="MarginContainer/VBoxContainer/Panel" parent_id_path=PackedInt32Array(402996919) index="0" unique_id=973768258]
+[node name="MarginContainer" parent="MarginContainer2/CenterContainer/CharacterTextureRect/ActivePanel" parent_id_path=PackedInt32Array(402996919) index="0" unique_id=973768258]
 layout_mode = 1
 anchors_preset = 15
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Panel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer" index="0" unique_id=1371479247]
-theme_override_styles/panel = ExtResource("3")
-
-[node name="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel" index="0" unique_id=661089423]
-layout_mode = 1
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="OpportunitiesContainter" parent="MarginContainer/VBoxContainer/OpeningsMargin" parent_id_path=PackedInt32Array(340584643) index="0" unique_id=1648844116]
-size_flags_horizontal = 6
-size_flags_vertical = 4

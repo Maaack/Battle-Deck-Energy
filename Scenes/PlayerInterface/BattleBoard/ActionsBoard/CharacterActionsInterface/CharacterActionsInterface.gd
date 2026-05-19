@@ -7,12 +7,12 @@ signal update_opportunity(opportunity, container)
 
 const ARMOR_STATUS = 'DEFENSE'
 
-@onready var nickname_label = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/NicknameLabel
-@onready var health_meter = $MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/MarginContainer/HBoxContainer/HealthMeter
-@onready var status_icon_manager = $MarginContainer/VBoxContainer/StatusesMargin/StatusIconManager
-@onready var opportunities_container = $MarginContainer/VBoxContainer/OpeningsMargin/OpportunitiesContainter
-@onready var active_panel = $ActivePanel
 @onready var character_texture_rect = %CharacterTextureRect
+@onready var nickname_label = %NicknameLabel
+@onready var health_meter = %HealthMeter
+@onready var status_icon_manager = %StatusIconManager
+@onready var active_panel = %ActivePanel
+@onready var opportunities_container = %OpportunitiesContainer
 
 @export var stab_audio_scene: PackedScene
 @export var clank_audio_scene: PackedScene
