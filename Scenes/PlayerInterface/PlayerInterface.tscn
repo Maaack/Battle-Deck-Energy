@@ -57,6 +57,10 @@ mouse_filter = 2
 layout_mode = 2
 mouse_filter = 1
 
+[node name="OpponentCardManager" parent="HandContainer/CardControl" unique_id=1266928900 instance=ExtResource("1")]
+unique_name_in_owner = true
+scale_focused_card = Vector2(1.1, 1.1)
+
 [node name="HandManager" parent="HandContainer/CardControl" unique_id=2114527211 instance=ExtResource("5")]
 unique_name_in_owner = true
 hand_center_distance = 2048.0
@@ -64,10 +68,6 @@ offset_nearest_card = Vector2(0, -160)
 
 [node name="BattleCardManager" parent="HandContainer/CardControl" unique_id=44093508 instance=ExtResource("8")]
 unique_name_in_owner = true
-
-[node name="OpponentCardManager" parent="HandContainer/CardControl" unique_id=1266928900 instance=ExtResource("1")]
-unique_name_in_owner = true
-scale_focused_card = Vector2(1.1, 1.1)
 
 [node name="StatusUpdatesContainer" type="Control" parent="." unique_id=850359669]
 anchors_preset = 0
