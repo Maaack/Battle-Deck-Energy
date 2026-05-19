@@ -3,14 +3,25 @@
 [ext_resource type="PackedScene" uid="uid://ujw8b1pdmqp0" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/CharacterActionsInterface.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://ch4asah4tvyif" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/DeadCover/DeadCover.tscn" id="2"]
 [ext_resource type="Script" uid="uid://bc57dv67wdrkn" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/Opponent/OpponentActionsInterface.gd" id="3"]
+[ext_resource type="Shader" uid="uid://cf3osw2yl88bm" path="res://Scenes/PlayerInterface/BattleBoard/ActionsBoard/CharacterActionsInterface/gray_out.gdshader" id="3_tnwb8"]
 [ext_resource type="FontFile" uid="uid://c4oh3vymk7le3" path="res://Themes/Fonts/Cards/DescriptionBoldDynamicFont.tres" id="3_y4tp0"]
 [ext_resource type="PackedScene" uid="uid://dc23quifcih1x" path="res://Managers/Cards/CardContainer/OpportunitiesContainer/OpportunitiesContainer.tscn" id="4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4tp0"]
+resource_local_to_scene = true
+shader = ExtResource("3_tnwb8")
+shader_parameter/enabled = false
+shader_parameter/weighted = true
 
 [node name="OpponentActionsInterface" unique_id=523037023 instance=ExtResource("1")]
 script = ExtResource("3")
 
+[node name="CharacterTextureRect" parent="MarginContainer2/CenterContainer" parent_id_path=PackedInt32Array(178578872) index="0" unique_id=1315148053]
+material = SubResource("ShaderMaterial_y4tp0")
+
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer" parent_id_path=PackedInt32Array(1554721171) index="0" unique_id=254133500]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 108
 theme_override_constants/margin_right = 24
@@ -18,8 +29,9 @@ theme_override_constants/margin_bottom = 16
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer" index="0" unique_id=835738592]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="OpponentHandContainer" type="CenterContainer" parent="MarginContainer/MarginContainer/Control" index="0" unique_id=1382850558]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainer/Control" index="0" unique_id=1382850558]
 layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -27,19 +39,26 @@ anchor_bottom = 1.0
 offset_top = -120.0
 offset_right = 1.52588e-05
 
-[node name="Control" type="Control" parent="MarginContainer/MarginContainer/Control/OpponentHandContainer" index="0" unique_id=128345418]
+[node name="OpponentHandContainer" type="Control" parent="MarginContainer/MarginContainer/Control/CenterContainer" index="0" unique_id=128345418]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Marker2D" type="Marker2D" parent="MarginContainer/MarginContainer/Control/OpponentHandContainer/Control" index="0" unique_id=323850639]
+[node name="OpponentHandPosition" type="Marker2D" parent="MarginContainer/MarginContainer/Control/CenterContainer/OpponentHandContainer" index="0" unique_id=323850639]
+unique_name_in_owner = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/Control" index="1" unique_id=1298974262]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -164.0
+offset_right = -48.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer/Control/VBoxContainer" index="0" unique_id=2030849982]
 custom_minimum_size = Vector2(112, 128)
@@ -71,19 +90,7 @@ text = "Next Turn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" parent="MarginContainer/VBoxContainer/Panel" parent_id_path=PackedInt32Array(402996919) index="0" unique_id=973768258]
-layout_mode = 1
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel" parent_id_path=PackedInt32Array(1371479247) index="0" unique_id=661089423]
-layout_mode = 1
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DeadCover" parent="." index="3" unique_id=543232597 instance=ExtResource("2")]
+[node name="DeadCover" parent="." index="2" unique_id=543232597 instance=ExtResource("2")]
 layout_mode = 1
 
 [connection signal="update_opportunity" from="MarginContainer/MarginContainer/Control/VBoxContainer/Control/OpponentOpportunitiesContainer" to="." method="_on_OpportunitiesContainter_update_opportunity"]

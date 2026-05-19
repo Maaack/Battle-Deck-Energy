@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ckav4isy57dj3" path="res://Assets/Originals/Icons/attack-pip-slot-24px.png" id="7_a72uu"]
 [ext_resource type="Texture2D" uid="uid://hw0ur6717l0w" path="res://Assets/Originals/Icons/pip-24px.png" id="10_h6rig"]
 
-[node name="OpportunitiesContainter" unique_id=1559716444 instance=ExtResource("1_nmkjy")]
+[node name="OpportunitiesContainer" unique_id=1559716444 instance=ExtResource("1_nmkjy")]
 anchors_preset = 15
 anchor_left = 0.0
 anchor_top = 0.0

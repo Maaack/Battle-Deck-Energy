@@ -5,8 +5,8 @@ class_name OpponentActionsInterface
 
 @onready var dead_cover = $DeadCover
 @onready var opponent_opportunities_container = %OpponentOpportunitiesContainer
-@onready var opponent_hand_container = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control
-@onready var opponent_hand_position = $MarginContainer/MarginContainer/Control/OpponentHandContainer/Control/Marker2D
+@onready var opponent_hand_container = %OpponentHandContainer
+@onready var opponent_hand_position = %OpponentHandPosition
 
 func set_character_data(value:CharacterData):
 	super.set_character_data(value)
